@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFDebugLine.h' l='250' type='bool llvm::DWARFDebugLine::LineTable::getFileNameByIndex(uint64_t FileIndex, const char * CompDir, DILineInfoSpecifier::FileLineInfoKind Kind, std::string &amp; Result) const'/>
+<doc f='llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFDebugLine.h' l='245'>/// Extracts filename by its index in filename table in prologue.
+    /// In Dwarf 4, the files are 1-indexed and the current compilation file
+    /// name is not represented in the list. In DWARF v5, the files are
+    /// 0-indexed and the primary source file has the index 0.
+    /// Returns true on success.</doc>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFContext.cpp' l='1030' u='c' c='_ZN4llvm12DWARFContext26getLineInfoForAddressRangeENS_6object16SectionedAddressEmNS_19DILineInfoSpecifierE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFContext.cpp' l='1091' u='c' c='_ZN4llvm12DWARFContext25getInliningInfoForAddressENS_6object16SectionedAddressENS_19DILineInfoSpecifierE'/>
+<def f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='1008' ll='1046' type='bool llvm::DWARFDebugLine::LineTable::getFileNameByIndex(uint64_t FileIndex, const char * CompDir, FileLineInfoKind Kind, std::string &amp; Result) const'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='1057' u='c' c='_ZNK4llvm14DWARFDebugLine9LineTable25getFileLineInfoForAddressENS_6object16SectionedAddressEPKcNS_19DILineInfoSpecifier16FileLineInfoKindERNS_10DILineInfoE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDie.cpp' l='291' u='c' c='_ZL13dumpAttributeRN4llvm11raw_ostreamERKNS_8DWARFDieEPjNS_5dwarf9AttributeENS6_4FormEjNS_13DIDumpOptionsE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFVerifier.cpp' l='722' u='c' c='_ZN4llvm13DWARFVerifier19verifyDebugLineRowsEv'/>
+<use f='llvm/llvm/tools/dsymutil/DeclContext.cpp' l='141' u='c' c='_ZN4llvm8dsymutil15DeclContextTree19getChildDeclContextERNS0_11DeclContextERKNS_8DWARFDieERNS0_11CompileUnitERNS0_10StrongTypeINS0_24NonRelocatableStr2009908'/>

@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/SelectionDAG.h' l='1620' type='llvm::SDValue llvm::SelectionDAG::matchBinOpReduction(llvm::SDNode * Extract, ISD::NodeType &amp; BinOp, ArrayRef&lt;ISD::NodeType&gt; CandidateBinOps)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/SelectionDAG.h' l='1614'>/// Match a binop + shuffle pyramid that represents a horizontal reduction
+  /// over the elements of a vector starting from the EXTRACT_VECTOR_ELT node /p
+  /// Extract. The reduction must use one of the opcodes listed in /p
+  /// CandidateBinOps and on success /p BinOp will contain the matching opcode.
+  /// Returns the vector that is being reduced on, or SDValue() if a reduction
+  /// was not matched.</doc>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='9184' ll='9240' type='llvm::SDValue llvm::SelectionDAG::matchBinOpReduction(llvm::SDNode * Extract, ISD::NodeType &amp; BinOp, ArrayRef&lt;ISD::NodeType&gt; CandidateBinOps)'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='34757' u='c' c='_ZL29combineHorizontalMinMaxResultPN4llvm6SDNodeERNS_12SelectionDAGERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='34837' u='c' c='_ZL32combineHorizontalPredicateResultPN4llvm6SDNodeERNS_12SelectionDAGERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='34839' u='c' c='_ZL32combineHorizontalPredicateResultPN4llvm6SDNodeERNS_12SelectionDAGERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='34973' u='c' c='_ZL22combineBasicSADPatternPN4llvm6SDNodeERNS_12SelectionDAGERKNS_12X86SubtargetE'/>

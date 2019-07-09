@@ -1,0 +1,23 @@
+<dec f='llvm/llvm/lib/Target/Mips/MipsSEISelLowering.h' l='111' type='llvm::MachineBasicBlock * llvm::MipsSETargetLowering::emitINSERT_DF_VIDX(llvm::MachineInstr &amp; MI, llvm::MachineBasicBlock * BB, unsigned int EltSizeInBytes, bool IsFP) const'/>
+<def f='llvm/llvm/lib/Target/Mips/MipsSEISelLowering.cpp' l='3385' ll='3490' type='llvm::MachineBasicBlock * llvm::MipsSETargetLowering::emitINSERT_DF_VIDX(llvm::MachineInstr &amp; MI, llvm::MachineBasicBlock * BB, unsigned int EltSizeInBytes, bool IsFP) const'/>
+<doc f='llvm/llvm/lib/Target/Mips/MipsSEISelLowering.cpp' l='3365'>// Emit the INSERT_([BHWD]|F[WD])_VIDX pseudo instruction.
+//
+// For integer:
+// (INSERT_([BHWD]|F[WD])_PSEUDO $wd, $wd_in, $n, $rs)
+// =&gt;
+// (SLL $lanetmp1, $lane, &lt;log2size)
+// (SLD_B $wdtmp1, $wd_in, $wd_in, $lanetmp1)
+// (INSERT_[BHWD], $wdtmp2, $wdtmp1, 0, $rs)
+// (NEG $lanetmp2, $lanetmp1)
+// (SLD_B $wd, $wdtmp2, $wdtmp2,  $lanetmp2)
+//
+// For floating point:
+// (INSERT_([BHWD]|F[WD])_PSEUDO $wd, $wd_in, $n, $fs)
+// =&gt;
+// (SUBREG_TO_REG $wt, $fs, &lt;subreg&gt;)
+// (SLL $lanetmp1, $lane, &lt;log2size)
+// (SLD_B $wdtmp1, $wd_in, $wd_in, $lanetmp1)
+// (INSVE_[WD], $wdtmp2, 0, $wdtmp1, 0)
+// (NEG $lanetmp2, $lanetmp1)
+// (SLD_B $wd, $wdtmp2, $wdtmp2,  $lanetmp2)</doc>
+<doc f='llvm/llvm/lib/Target/Mips/MipsSEISelLowering.h' l='110'>/// Emit the INSERT_([BHWD]|F[WD])_VIDX pseudo instruction</doc>

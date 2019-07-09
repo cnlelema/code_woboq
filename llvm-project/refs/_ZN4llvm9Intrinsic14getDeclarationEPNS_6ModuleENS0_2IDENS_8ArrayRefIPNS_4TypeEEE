@@ -1,0 +1,83 @@
+<dec f='llvm/llvm/include/llvm/IR/Intrinsics.h' l='80' type='llvm::Function * llvm::Intrinsic::getDeclaration(llvm::Module * M, llvm::Intrinsic::ID id, ArrayRef&lt;llvm::Type *&gt; Tys = None)'/>
+<doc f='llvm/llvm/include/llvm/IR/Intrinsics.h' l='73'>/// Create or insert an LLVM Function declaration for an intrinsic, and return
+  /// it.
+  ///
+  /// The Tys parameter is for intrinsics with overloaded types (e.g., those
+  /// using iAny, fAny, vAny, or iPTRAny).  For a declaration of an overloaded
+  /// intrinsic, Tys must provide exactly one type for each overloaded type in
+  /// the intrinsic.</doc>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='4600' u='c' c='_ZN5clang7CodeGen13CodeGenModule12getIntrinsicEjN4llvm8ArrayRefIPNS2_4TypeEEE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='47' u='c' c='_ZL21UpgradePTESTIntrinsicPN4llvm8FunctionENS_9Intrinsic2IDERS1_'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='63' u='c' c='_ZL32UpgradeX86IntrinsicsWith8BitMaskPN4llvm8FunctionENS_9Intrinsic2IDERS1_'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='477' u='c' c='_ZL27UpgradeX86IntrinsicFunctionPN4llvm8FunctionENS_9StringRefERS1_'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='564' u='c' c='_ZL25UpgradeIntrinsicFunction1PN4llvm8FunctionERS1_'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='567' u='c' c='_ZL25UpgradeIntrinsicFunction1PN4llvm8FunctionERS1_'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='638' u='c' c='_ZL25UpgradeIntrinsicFunction1PN4llvm8FunctionERS1_'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='772' u='c' c='_ZL25UpgradeIntrinsicFunction1PN4llvm8FunctionERS1_'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='1144' u='c' c='_ZL27UpgradeX86VPERMT2IntrinsicsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS_8CallInstEbb'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='1161' u='c' c='_ZL29UpgradeX86AddSubSatIntrinsicsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS_8CallInstEbb'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='1188' u='c' c='_ZL16upgradeX86RotateRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS_8CallInstEb'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='1258' u='c' c='_ZL21upgradeX86ConcatShiftRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS_8CallInstEbb'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='1423' u='c' c='_ZL21UpgradeX86MaskedShiftRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS_8CallInstENS_9Intrinsic2IDE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='1684' u='c' c='_ZL25upgradeAVX512MaskToSelectN4llvm9StringRefERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS_8CallInstERPNS_5ValueE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='1881' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='2007' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='2030' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='2060' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='2172' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='2231' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='2805' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='2821' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='2837' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='2853' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='2872' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='3187' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='3244' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='3304' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='3357' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='3385' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='3421' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='3451' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='3475' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/Core.cpp' l='2320' u='c' c='LLVMGetIntrinsicDeclaration'/>
+<def f='llvm/llvm/lib/IR/Function.cpp' l='1084' ll='1091' type='llvm::Function * llvm::Intrinsic::getDeclaration(llvm::Module * M, llvm::Intrinsic::ID id, ArrayRef&lt;llvm::Type *&gt; Tys = None)'/>
+<use f='llvm/llvm/lib/IR/Function.cpp' l='1379' u='c' c='_ZN4llvm9Intrinsic25remangleIntrinsicFunctionEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/IRBuilder.cpp' l='335' u='c' c='_ZL21getReductionIntrinsicPN4llvm13IRBuilderBaseENS_9Intrinsic2IDEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/IR/IRBuilder.cpp' l='526' u='c' c='_ZN4llvm13IRBuilderBase21CreateMaskedIntrinsicENS_9Intrinsic2IDENS_8ArrayRefIPNS_5ValueEEENS3_IPNS_4TypeEEERKNS_5TwineE'/>
+<use f='llvm/llvm/lib/IR/IRBuilder.cpp' l='753' u='c' c='_ZN4llvm13IRBuilderBase20CreateUnaryIntrinsicENS_9Intrinsic2IDEPNS_5ValueEPNS_11InstructionERKNS_5TwineE'/>
+<use f='llvm/llvm/lib/IR/IRBuilder.cpp' l='762' u='c' c='_ZN4llvm13IRBuilderBase21CreateBinaryIntrinsicENS_9Intrinsic2IDEPNS_5ValueES4_PNS_11InstructionERKNS_5TwineE'/>
+<use f='llvm/llvm/lib/IR/IRBuilder.cpp' l='772' u='c' c='_ZN4llvm13IRBuilderBase15CreateIntrinsicENS_9Intrinsic2IDENS_8ArrayRefIPNS_4TypeEEENS3_IPNS_5ValueEEEPNS_11InstructionERKNS_5TwineE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='8513' u='c' c='_ZNK4llvm21AArch64TargetLowering20lowerInterleavedLoadEPNS_8LoadInstENS_8ArrayRefIPNS_17ShuffleVectorInstEEENS3_IjEEj'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='8655' u='c' c='_ZNK4llvm21AArch64TargetLowering21lowerInterleavedStoreEPNS_9StoreInstEPNS_17ShuffleVectorInstEj'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='11815' u='c' c='_ZNK4llvm21AArch64TargetLowering14emitLoadLinkedERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueENS_14AtomicOrderingE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='11831' u='c' c='_ZNK4llvm21AArch64TargetLowering14emitLoadLinkedERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueENS_14AtomicOrderingE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='11860' u='c' c='_ZNK4llvm21AArch64TargetLowering20emitStoreConditionalERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES7_NS_14AtomicOrderingE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='11872' u='c' c='_ZNK4llvm21AArch64TargetLowering20emitStoreConditionalERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES7_NS_14AtomicOrderingE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUPromoteAlloca.cpp' l='287' u='c' c='_ZN12_GLOBAL__N_119AMDGPUPromoteAlloca13getWorkitemIDERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEj'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMCodeGenPrepare.cpp' l='597' u='c' c='_ZN12_GLOBAL__N_110IRPromoter11PromoteTreeEv'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='14850' u='c' c='_ZNK4llvm17ARMTargetLowering14emitLoadLinkedERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueENS_14AtomicOrderingE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='14867' u='c' c='_ZNK4llvm17ARMTargetLowering14emitLoadLinkedERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueENS_14AtomicOrderingE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='14894' u='c' c='_ZNK4llvm17ARMTargetLowering20emitStoreConditionalERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES7_NS_14AtomicOrderingE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='14907' u='c' c='_ZNK4llvm17ARMTargetLowering20emitStoreConditionalERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES7_NS_14AtomicOrderingE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='15019' u='c' c='_ZNK4llvm17ARMTargetLowering20lowerInterleavedLoadEPNS_8LoadInstENS_8ArrayRefIPNS_17ShuffleVectorInstEEENS3_IjEEj'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='15178' u='c' c='_ZNK4llvm17ARMTargetLowering21lowerInterleavedStoreEPNS_9StoreInstEPNS_17ShuffleVectorInstEj'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonISelLowering.cpp' l='3123' u='c' c='_ZNK4llvm21HexagonTargetLowering14emitLoadLinkedERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueENS_14AtomicOrderingE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonISelLowering.cpp' l='3147' u='c' c='_ZNK4llvm21HexagonTargetLowering20emitStoreConditionalERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES7_NS_14AtomicOrderingE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='10002' u='c' c='_ZL13callIntrinsicRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEENS_9Intrinsic2IDE'/>
+<use f='llvm/llvm/lib/Transforms/AggressiveInstCombine/AggressiveInstCombine.cpp' l='149' u='c' c='_ZL30foldGuardedRotateToFunnelShiftRN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1207' u='c' c='_ZL12foldCttzCtlzRN4llvm13IntrinsicInstERNS_12InstCombinerE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1718' u='c' c='_ZL21SimplifyNVVMIntrinsicPN4llvm13IntrinsicInstERNS_12InstCombinerE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1833' u='c' c='_ZN4llvm12InstCombiner13visitCallInstERNS_8CallInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineSimplifyDemanded.cpp' l='1033' u='c' c='_ZN4llvm12InstCombiner37simplifyAMDGCNMemoryIntrinsicDemandedEPNS_13IntrinsicInstENS_5APIntEi'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/MemorySanitizer.cpp' l='2787' u='c' c='_ZN12_GLOBAL__N_122MemorySanitizerVisitor25handleVectorPackIntrinsicERN4llvm13IntrinsicInstEj'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ARCRuntimeEntryPoints.h' l='138' u='c' c='_ZN4llvm7objcarc21ARCRuntimeEntryPoints22getIntrinsicEntryPointERPNS_8FunctionENS_9Intrinsic2IDE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopIdiomRecognize.cpp' l='1592' u='c' c='_ZL18createFFSIntrinsicRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueERKNS_8DebugLocEbNS_9Intrinsic2IDE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/Scalarizer.cpp' l='487' u='c' c='_ZL29getScalarIntrinsicDeclarationPN4llvm6ModuleENS_9Intrinsic2IDEPNS_10VectorTypeE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='2831' u='c' c='_ZN4llvm31recognizeBSwapOrBitReverseIdiomEPNS_11InstructionEbbRNS_15SmallVectorImplIS1_EE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='2848' u='c' c='_ZN4llvm31recognizeBSwapOrBitReverseIdiomEPNS_11InstructionEbbRNS_15SmallVectorImplIS1_EE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='1053' u='c' c='_ZL16replaceUnaryCallPN4llvm8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEENS_9Intrinsic2IDE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='1132' u='c' c='_ZL16optimizeDoubleFPPN4llvm8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEbb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='1303' u='c' c='_ZN4llvm17LibCallSimplifier17replacePowWithExpEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='4131' u='c' c='_ZN4llvm19InnerLoopVectorizer16widenInstructionERNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp' l='3876' u='c' c='_ZN4llvm13slpvectorizer7BoUpSLP13vectorizeTreeEPNS1_9TreeEntryE'/>
+<use f='llvm/llvm/unittests/Analysis/MemorySSATest.cpp' l='1236' u='c' c='_ZN45MemorySSATest_LifetimeMarkersAreClobbers_Test8TestBodyEv'/>

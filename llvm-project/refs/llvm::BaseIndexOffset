@@ -1,0 +1,35 @@
+<def f='llvm/llvm/include/llvm/CodeGen/SelectionDAGAddressAnalysis.h' l='32' ll='91'/>
+<size>56</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/SelectionDAGAddressAnalysis.h' l='19'>/// Helper struct to parse and store a memory address as base + index + offset.
+/// We ignore sign extensions when it is safe to do so.
+/// The following two expressions are not equivalent. To differentiate we need
+/// to store whether there was a sign extension involved in the index
+/// computation.
+///  (load (i64 add (i64 copyfromreg %c)
+///                 (i64 signextend (add (i8 load %index)
+///                                      (i8 1))))
+/// vs
+///
+/// (load (i64 add (i64 copyfromreg %c)
+///                (i64 signextend (i32 add (i32 signextend (i8 load %index))
+///                                         (i32 1)))))</doc>
+<mbr r='llvm::BaseIndexOffset::Base' o='0' t='llvm::SDValue'/>
+<mbr r='llvm::BaseIndexOffset::Index' o='128' t='llvm::SDValue'/>
+<mbr r='llvm::BaseIndexOffset::Offset' o='256' t='Optional&lt;int64_t&gt;'/>
+<mbr r='llvm::BaseIndexOffset::IsIndexSignExt' o='384' t='bool'/>
+<fun r='_ZN4llvm15BaseIndexOffsetC1Ev'/>
+<fun r='_ZN4llvm15BaseIndexOffsetC1ENS_7SDValueES1_b'/>
+<fun r='_ZN4llvm15BaseIndexOffsetC1ENS_7SDValueES1_lb'/>
+<fun r='_ZN4llvm15BaseIndexOffset7getBaseEv'/>
+<fun r='_ZNK4llvm15BaseIndexOffset7getBaseEv'/>
+<fun r='_ZN4llvm15BaseIndexOffset8getIndexEv'/>
+<fun r='_ZNK4llvm15BaseIndexOffset8getIndexEv'/>
+<fun r='_ZNK4llvm15BaseIndexOffset14hasValidOffsetEv'/>
+<fun r='_ZNK4llvm15BaseIndexOffset14equalBaseIndexERKS0_RKNS_12SelectionDAGERl'/>
+<fun r='_ZNK4llvm15BaseIndexOffset14equalBaseIndexERKS0_RKNS_12SelectionDAGE'/>
+<fun r='_ZNK4llvm15BaseIndexOffset8containsERKNS_12SelectionDAGElRKS0_lRl'/>
+<fun r='_ZNK4llvm15BaseIndexOffset8containsERKNS_12SelectionDAGElRKS0_l'/>
+<fun r='_ZN4llvm15BaseIndexOffset15computeAliasingEPKNS_6SDNodeENS_8OptionalIlEES3_S5_RKNS_12SelectionDAGERb'/>
+<fun r='_ZN4llvm15BaseIndexOffset5matchEPKNS_6SDNodeERKNS_12SelectionDAGE'/>
+<fun r='_ZNK4llvm15BaseIndexOffset5printERNS_11raw_ostreamE'/>
+<fun r='_ZNK4llvm15BaseIndexOffset4dumpEv'/>

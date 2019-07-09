@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Args.h source code [llvm/lld/include/lld/Common/Args.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/lld/include/lld/Common/Args.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>lld</a>/<a href='../..'>include</a>/<a href='..'>lld</a>/<a href='./'>Common</a>/<a href='Args.h.html'>Args.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- Args.h ---------------------------------------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLD_ARGS_H">LLD_ARGS_H</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLD_ARGS_H" data-ref="_M/LLD_ARGS_H">LLD_ARGS_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="LLVM.h.html">"lld/Common/LLVM.h"</a></u></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../../../../llvm/include/llvm/Support/CodeGen.h.html">"llvm/Support/CodeGen.h"</a></u></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="../../../../llvm/include/llvm/Support/MemoryBuffer.h.html">"llvm/Support/MemoryBuffer.h"</a></u></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="../../../../../include/c++/7/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="18">18</th><td><b>namespace</b> <span class="namespace">opt</span> {</td></tr>
+<tr><th id="19">19</th><td><b>class</b> <a class="type" href="../../../../llvm/include/llvm/Option/ArgList.h.html#llvm::opt::InputArgList" title='llvm::opt::InputArgList' data-ref="llvm::opt::InputArgList" id="llvm::opt::InputArgList">InputArgList</a>;</td></tr>
+<tr><th id="20">20</th><td>}</td></tr>
+<tr><th id="21">21</th><td>} <i>// namespace llvm</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>namespace</b> <span class="namespace">lld</span> {</td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">args</span> {</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><span class="namespace">llvm::CodeGenOpt::</span><a class="type" href="../../../../llvm/include/llvm/Support/CodeGen.h.html#llvm::CodeGenOpt::Level" title='llvm::CodeGenOpt::Level' data-ref="llvm::CodeGenOpt::Level">Level</a> <dfn class="decl" id="_ZN3lld4args13getCGOptLevelEi" title='lld::args::getCGOptLevel' data-ref="_ZN3lld4args13getCGOptLevelEi">getCGOptLevel</dfn>(<em>int</em> <dfn class="local col6 decl" id="6OptLevelLTO" title='OptLevelLTO' data-type='int' data-ref="6OptLevelLTO">OptLevelLTO</dfn>);</td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-intn.h.html#int64_t" title='int64_t' data-type='__int64_t' data-ref="int64_t">int64_t</a> <dfn class="decl" id="_ZN3lld4args10getIntegerERN4llvm3opt12InputArgListEjl" title='lld::args::getInteger' data-ref="_ZN3lld4args10getIntegerERN4llvm3opt12InputArgListEjl">getInteger</dfn>(<span class="namespace">llvm::opt::</span><a class="type" href="../../../../llvm/include/llvm/Option/ArgList.h.html#llvm::opt::InputArgList" title='llvm::opt::InputArgList' data-ref="llvm::opt::InputArgList">InputArgList</a> &amp;<dfn class="local col7 decl" id="7Args" title='Args' data-type='llvm::opt::InputArgList &amp;' data-ref="7Args">Args</dfn>, <em>unsigned</em> <dfn class="local col8 decl" id="8Key" title='Key' data-type='unsigned int' data-ref="8Key">Key</dfn>,</td></tr>
+<tr><th id="29">29</th><td>                   <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-intn.h.html#int64_t" title='int64_t' data-type='__int64_t' data-ref="int64_t">int64_t</a> <dfn class="local col9 decl" id="9Default" title='Default' data-type='int64_t' data-ref="9Default">Default</dfn>);</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a>&gt; <dfn class="decl" id="_ZN3lld4args10getStringsERN4llvm3opt12InputArgListEi" title='lld::args::getStrings' data-ref="_ZN3lld4args10getStringsERN4llvm3opt12InputArgListEi">getStrings</dfn>(<span class="namespace">llvm::opt::</span><a class="type" href="../../../../llvm/include/llvm/Option/ArgList.h.html#llvm::opt::InputArgList" title='llvm::opt::InputArgList' data-ref="llvm::opt::InputArgList">InputArgList</a> &amp;<dfn class="local col0 decl" id="10Args" title='Args' data-type='llvm::opt::InputArgList &amp;' data-ref="10Args">Args</dfn>, <em>int</em> <dfn class="local col1 decl" id="11Id" title='Id' data-type='int' data-ref="11Id">Id</dfn>);</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="decl" id="_ZN3lld4args15getZOptionValueERN4llvm3opt12InputArgListEiNS1_9StringRefEm" title='lld::args::getZOptionValue' data-ref="_ZN3lld4args15getZOptionValueERN4llvm3opt12InputArgListEiNS1_9StringRefEm">getZOptionValue</dfn>(<span class="namespace">llvm::opt::</span><a class="type" href="../../../../llvm/include/llvm/Option/ArgList.h.html#llvm::opt::InputArgList" title='llvm::opt::InputArgList' data-ref="llvm::opt::InputArgList">InputArgList</a> &amp;<dfn class="local col2 decl" id="12Args" title='Args' data-type='llvm::opt::InputArgList &amp;' data-ref="12Args">Args</dfn>, <em>int</em> <dfn class="local col3 decl" id="13Id" title='Id' data-type='int' data-ref="13Id">Id</dfn>, <a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col4 decl" id="14Key" title='Key' data-type='llvm::StringRef' data-ref="14Key">Key</dfn>,</td></tr>
+<tr><th id="34">34</th><td>                         <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col5 decl" id="15Default" title='Default' data-type='uint64_t' data-ref="15Default">Default</dfn>);</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a>&gt; <dfn class="decl" id="_ZN3lld4args8getLinesEN4llvm15MemoryBufferRefE" title='lld::args::getLines' data-ref="_ZN3lld4args8getLinesEN4llvm15MemoryBufferRefE">getLines</dfn>(<a class="type" href="../../../../llvm/include/llvm/Support/MemoryBuffer.h.html#llvm::MemoryBufferRef" title='llvm::MemoryBufferRef' data-ref="llvm::MemoryBufferRef">MemoryBufferRef</a> <dfn class="local col6 decl" id="16MB" title='MB' data-type='llvm::MemoryBufferRef' data-ref="16MB">MB</dfn>);</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="decl" id="_ZN3lld4args21getFilenameWithoutExeEN4llvm9StringRefE" title='lld::args::getFilenameWithoutExe' data-ref="_ZN3lld4args21getFilenameWithoutExeEN4llvm9StringRefE">getFilenameWithoutExe</dfn>(<a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col7 decl" id="17Path" title='Path' data-type='llvm::StringRef' data-ref="17Path">Path</dfn>);</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td>} <i>// namespace args</i></td></tr>
+<tr><th id="41">41</th><td>} <i>// namespace lld</i></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><u>#<span data-ppcond="9">endif</span></u></td></tr>
+<tr><th id="44">44</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../COFF/Driver.cpp.html'>llvm/lld/COFF/Driver.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

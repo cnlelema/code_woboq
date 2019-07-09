@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/Analysis/BasicAliasAnalysis.h' l='172' type='static bool llvm::BasicAAResult::DecomposeGEPExpression(const llvm::Value * V, llvm::BasicAAResult::DecomposedGEP &amp; Decomposed, const llvm::DataLayout &amp; DL, llvm::AssumptionCache * AC, llvm::DominatorTree * DT)'/>
+<def f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='442' ll='628' type='static bool llvm::BasicAAResult::DecomposeGEPExpression(const llvm::Value * V, llvm::BasicAAResult::DecomposedGEP &amp; Decomposed, const llvm::DataLayout &amp; DL, llvm::AssumptionCache * AC, llvm::DominatorTree * DT)'/>
+<use f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='1300' u='c' c='_ZN4llvm13BasicAAResult8aliasGEPEPKNS_11GEPOperatorENS_12LocationSizeERKNS_9AAMDNodesEPKNS_5ValueES4_S7_SA_SA_RNS_11AAQueryInfoE'/>
+<use f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='1302' u='c' c='_ZN4llvm13BasicAAResult8aliasGEPEPKNS_11GEPOperatorENS_12LocationSizeERKNS_9AAMDNodesEPKNS_5ValueES4_S7_SA_SA_RNS_11AAQueryInfoE'/>
+<doc f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='429'>/// If V is a symbolic pointer expression, decompose it into a base pointer
+/// with a constant offset and a number of scaled symbolic offsets.
+///
+/// The scaled symbolic offsets (represented by pairs of a Value* and a scale
+/// in the VarIndices vector) are Value*&apos;s that are known to be scaled by the
+/// specified amount, but which may have other unrepresented high bits. As
+/// such, the gep cannot necessarily be reconstructed from its decomposed form.
+///
+/// When DataLayout is around, this function is capable of analyzing everything
+/// that GetUnderlyingObject can look through. To be able to do that
+/// GetUnderlyingObject and DecomposeGEPExpression must use the same search
+/// depth (MaxLookupSearchDepth). When DataLayout not is around, it just looks
+/// through pointer casts.</doc>

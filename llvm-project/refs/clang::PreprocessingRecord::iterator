@@ -1,0 +1,24 @@
+<inh f='llvm/llvm/include/llvm/ADT/iterator.h' l='205' c='llvm::iterator_adaptor_base'/>
+<def f='llvm/clang/include/clang/Lex/PreprocessingRecord.h' l='430' ll='452'/>
+<size>16</size>
+<doc f='llvm/clang/include/clang/Lex/PreprocessingRecord.h' l='414'>/// Iteration over the preprocessed entities.
+    ///
+    /// In a complete iteration, the iterator walks the range [-M, N),
+    /// where negative values are used to indicate preprocessed entities
+    /// loaded from the external source while non-negative values are used to
+    /// indicate preprocessed entities introduced by the current preprocessor.
+    /// However, to provide iteration in source order (for, e.g., chained
+    /// precompiled headers), dereferencing the iterator flips the negative
+    /// values (corresponding to loaded entities), so that position -M
+    /// corresponds to element 0 in the loaded entities vector, position -M+1
+    /// corresponds to element 1 in the loaded entities vector, etc. This
+    /// gives us a reasonably efficient, source-order walk.
+    ///
+    /// We define this as a wrapping iterator around an int. The
+    /// iterator_adaptor_base class forwards the iterator methods to basic
+    /// integer arithmetic.</doc>
+<mbr r='clang::PreprocessingRecord::iterator::Self' o='64' t='clang::PreprocessingRecord *'/>
+<fun r='_ZN5clang19PreprocessingRecord8iteratorC1EPS0_i'/>
+<fun r='_ZN5clang19PreprocessingRecord8iteratorC1Ev'/>
+<fun r='_ZNK5clang19PreprocessingRecord8iteratordeEv'/>
+<fun r='_ZNK5clang19PreprocessingRecord8iteratorptEv'/>

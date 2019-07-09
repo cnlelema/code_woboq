@@ -1,0 +1,53 @@
+<def f='llvm/llvm/include/llvm/CodeGen/MachinePipeliner.h' l='524' ll='659'/>
+<size>480</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachinePipeliner.h' l='516'>/// This class represents the scheduled code.  The main data structure is a
+/// map from scheduled cycle to instructions.  During scheduling, the
+/// data structure explicitly represents all stages/iterations.   When
+/// the algorithm finshes, the schedule is collapsed into a single stage,
+/// which represents instructions from different loop iterations.
+///
+/// The SMS algorithm allows negative values for cycles, so the first cycle
+/// in the schedule is the smallest cycle value.</doc>
+<mbr r='llvm::SMSchedule::ScheduledInstrs' o='0' t='DenseMap&lt;int, std::deque&lt;SUnit *&gt; &gt;'/>
+<mbr r='llvm::SMSchedule::InstrToCycle' o='256' t='std::map&lt;SUnit *, int&gt;'/>
+<mbr r='llvm::SMSchedule::RegToStageDiff' o='640' t='std::map&lt;unsigned int, std::pair&lt;unsigned int, bool&gt; &gt;'/>
+<mbr r='llvm::SMSchedule::FirstCycle' o='1024' t='int'/>
+<mbr r='llvm::SMSchedule::LastCycle' o='1056' t='int'/>
+<mbr r='llvm::SMSchedule::InitiationInterval' o='1088' t='int'/>
+<mbr r='llvm::SMSchedule::ST' o='1152' t='const llvm::TargetSubtargetInfo &amp;'/>
+<mbr r='llvm::SMSchedule::MRI' o='1216' t='llvm::MachineRegisterInfo &amp;'/>
+<mbr r='llvm::SMSchedule::ProcItinResources' o='1280' t='llvm::ResourceManager'/>
+<fun r='_ZN4llvm10SMScheduleC1EPNS_15MachineFunctionE'/>
+<fun r='_ZN4llvm10SMSchedule5resetEv'/>
+<fun r='_ZN4llvm10SMSchedule21setInitiationIntervalEi'/>
+<fun r='_ZNK4llvm10SMSchedule13getFirstCycleEv'/>
+<fun r='_ZNK4llvm10SMSchedule13getFinalCycleEv'/>
+<fun r='_ZN4llvm10SMSchedule20earliestCycleInChainERKNS_4SDepE'/>
+<fun r='_ZN4llvm10SMSchedule18latestCycleInChainERKNS_4SDepE'/>
+<fun r='_ZN4llvm10SMSchedule12computeStartEPNS_5SUnitEPiS3_S3_S3_iPNS_17SwingSchedulerDAGE'/>
+<fun r='_ZN4llvm10SMSchedule6insertEPNS_5SUnitEiii'/>
+<fun r='_ZN4llvm10SMSchedule18isScheduledAtStageEPNS_5SUnitEj'/>
+<fun r='_ZNK4llvm10SMSchedule14stageScheduledEPNS_5SUnitE'/>
+<fun r='_ZNK4llvm10SMSchedule14cycleScheduledEPNS_5SUnitE'/>
+<fun r='_ZN4llvm10SMSchedule16getMaxStageCountEv'/>
+<fun r='_ZN4llvm10SMSchedule15getStagesForRegEij'/>
+<fun r='_ZN4llvm10SMSchedule15getStagesForPhiEi'/>
+<fun r='_ZN4llvm10SMSchedule15getInstructionsEi'/>
+<fun r='_ZN4llvm10SMSchedule15isValidScheduleEPNS_17SwingSchedulerDAGE'/>
+<fun r='_ZN4llvm10SMSchedule16finalizeScheduleEPNS_17SwingSchedulerDAGE'/>
+<fun r='_ZN4llvm10SMSchedule15orderDependenceEPNS_17SwingSchedulerDAGEPNS_5SUnitERSt5dequeIS4_SaIS4_EE'/>
+<fun r='_ZN4llvm10SMSchedule13isLoopCarriedEPNS_17SwingSchedulerDAGERNS_12MachineInstrE'/>
+<fun r='_ZN4llvm10SMSchedule21isLoopCarriedDefOfUseEPNS_17SwingSchedulerDAGEPNS_12MachineInstrERNS_14MachineOperandE'/>
+<fun r='_ZNK4llvm10SMSchedule5printERNS_11raw_ostreamE'/>
+<fun r='_ZNK4llvm10SMSchedule4dumpEv'/>
+<fun r='_ZN4llvm10SMSchedule6insertEPNS_5SUnitEiii'/>
+<fun r='_ZN4llvm10SMSchedule20earliestCycleInChainERKNS_4SDepE'/>
+<fun r='_ZN4llvm10SMSchedule18latestCycleInChainERKNS_4SDepE'/>
+<fun r='_ZN4llvm10SMSchedule12computeStartEPNS_5SUnitEPiS3_S3_S3_iPNS_17SwingSchedulerDAGE'/>
+<fun r='_ZN4llvm10SMSchedule15orderDependenceEPNS_17SwingSchedulerDAGEPNS_5SUnitERSt5dequeIS4_SaIS4_EE'/>
+<fun r='_ZN4llvm10SMSchedule13isLoopCarriedEPNS_17SwingSchedulerDAGERNS_12MachineInstrE'/>
+<fun r='_ZN4llvm10SMSchedule21isLoopCarriedDefOfUseEPNS_17SwingSchedulerDAGEPNS_12MachineInstrERNS_14MachineOperandE'/>
+<fun r='_ZN4llvm10SMSchedule15isValidScheduleEPNS_17SwingSchedulerDAGE'/>
+<fun r='_ZN4llvm10SMSchedule16finalizeScheduleEPNS_17SwingSchedulerDAGE'/>
+<fun r='_ZNK4llvm10SMSchedule5printERNS_11raw_ostreamE'/>
+<fun r='_ZNK4llvm10SMSchedule4dumpEv'/>

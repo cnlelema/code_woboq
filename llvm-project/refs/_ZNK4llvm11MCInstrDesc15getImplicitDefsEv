@@ -1,0 +1,32 @@
+<def f='llvm/llvm/include/llvm/MC/MCInstrDesc.h' l='551' type='const MCPhysReg * llvm::MCInstrDesc::getImplicitDefs() const'/>
+<doc f='llvm/llvm/include/llvm/MC/MCInstrDesc.h' l='541'>/// Return a list of registers that are potentially written by any
+  /// instance of this machine instruction.  For example, on X86, many
+  /// instructions implicitly set the flags register.  In this case, they are
+  /// marked as setting the FLAGS.  Likewise, many instructions always deposit
+  /// their result in a physical register.  For example, the X86 divide
+  /// instruction always deposits the quotient and remainder in the EAX/EDX
+  /// registers.  For that instruction, this will return a list containing the
+  /// EAX/EDX/EFLAGS registers.
+  ///
+  /// This method returns null if the instruction has no implicit defs.</doc>
+<use f='llvm/llvm/lib/CodeGen/MIRParser/MIParser.cpp' l='1105' u='c' c='_ZN12_GLOBAL__N_18MIParser22verifyImplicitOperandsEN4llvm8ArrayRefINS_20ParsedMachineOperandEEERKNS1_11MCInstrDescE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='104' u='c' c='_ZN4llvm12MachineInstr25addImplicitDefUseOperandsERNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/InstrEmitter.cpp' l='833' u='c' c='_ZN4llvm12InstrEmitter15EmitMachineNodeEPNS_6SDNodeEbbRNS_8DenseMapINS_7SDValueEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/InstrEmitter.cpp' l='936' u='c' c='_ZN4llvm12InstrEmitter15EmitMachineNodeEPNS_6SDNodeEbbRNS_8DenseMapINS_7SDValueEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/InstrEmitter.cpp' l='971' u='c' c='_ZN4llvm12InstrEmitter15EmitMachineNodeEPNS_6SDNodeEbbRNS_8DenseMapINS_7SDValueEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGFast.cpp' l='435' u='c' c='_ZL21getPhysicalRegisterVTPN4llvm6SDNodeEjPKNS_15TargetInstrInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGFast.cpp' l='514' u='c' c='_ZN12_GLOBAL__N_115ScheduleDAGFast24DelayForLiveRegsBottomUpEPN4llvm5SUnitERNS1_15SmallVectorImplIjEE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGRRList.cpp' l='1282' u='c' c='_ZL21getPhysicalRegisterVTPN4llvm6SDNodeEjPKNS_15TargetInstrInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGRRList.cpp' l='1423' u='c' c='_ZN12_GLOBAL__N_117ScheduleDAGRRList24DelayForLiveRegsBottomUpEPN4llvm5SUnitERNS1_15SmallVectorImplIjEE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGRRList.cpp' l='2838' u='c' c='_ZL28canClobberReachingPhysRegUsePKN4llvm5SUnitES2_PN12_GLOBAL__N_117ScheduleDAGRRListEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGRRList.cpp' l='2874' u='c' c='_ZL21canClobberPhysRegDefsPKN4llvm5SUnitES2_PKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGRRList.cpp' l='2881' u='c' c='_ZL21canClobberPhysRegDefsPKN4llvm5SUnitES2_PKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGSDNodes.cpp' l='463' u='c' c='_ZN4llvm18ScheduleDAGSDNodes13AddSchedEdgesEv'/>
+<use f='llvm/llvm/lib/MC/MCParser/AsmParser.cpp' l='5822' u='c' c='_ZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmEPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjS9_RN4llvm15SmallVectorImplISt4pairIS1_bEEERNSB15439826'/>
+<use f='llvm/llvm/lib/Target/ARM/Thumb2SizeReduction.cpp' l='255' u='c' c='_ZL18HasImplicitCPSRDefRKN4llvm11MCInstrDescE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/MCTargetDesc/HexagonMCChecker.cpp' l='99' u='c' c='_ZN4llvm16HexagonMCChecker4initERKNS_6MCInstE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/RDFGraph.cpp' l='628' u='c' c='_ZNK4llvm3rdf17TargetOperandInfo10isFixedRegERKNS_12MachineInstrEj'/>
+<use f='llvm/llvm/lib/Target/Hexagon/RDFGraph.cpp' l='637' u='c' c='_ZNK4llvm3rdf17TargetOperandInfo10isFixedRegERKNS_12MachineInstrEj'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsDelaySlotFiller.cpp' l='359' u='c' c='_ZN12_GLOBAL__N_111RegDefsUses4initERKN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp' l='1988' u='c' c='_ZNK4llvm12PPCInstrInfo20optimizeCompareInstrERNS_12MachineInstrEjjiiPKNS_19MachineRegisterInfoE'/>
+<use f='llvm/llvm/lib/Target/X86/MCTargetDesc/X86MCTargetDesc.cpp' l='451' u='c' c='_ZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntE'/>

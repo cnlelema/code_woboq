@@ -1,0 +1,36 @@
+<dec f='llvm/llvm/lib/TableGen/TGLexer.h' l='210' type='std::vector&lt;std::unique_ptr&lt;std::vector&lt;PreprocessorControlDesc&gt; &gt; &gt;'/>
+<offset>1408</offset>
+<doc f='llvm/llvm/lib/TableGen/TGLexer.h' l='194'>// We want to disallow code like this:
+  //     file1.td:
+  //         #define NAME
+  //         #ifdef NAME
+  //         include &quot;file2.td&quot;
+  //     EOF
+  //     file2.td:
+  //         #endif
+  //     EOF
+  //
+  // To do this, we clear the preprocessing control stack on entry
+  // to each of the included file.  PrepIncludeStack is used to store
+  // preprocessing control stacks for the current file and all its
+  // parent files.  The back() element is the preprocessing control
+  // stack for the current file.</doc>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='53' u='m' c='_ZN4llvm7TGLexerC1ERNS_9SourceMgrENS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='395' u='m' c='_ZN4llvm7TGLexer10LexIncludeEv'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='578' u='m' c='_ZN4llvm7TGLexer15prepExitIncludeEb'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='585' u='m' c='_ZN4llvm7TGLexer15prepExitIncludeEb'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='589' u='m' c='_ZN4llvm7TGLexer15prepExitIncludeEb'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='592' u='m' c='_ZN4llvm7TGLexer15prepExitIncludeEb'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='595' u='m' c='_ZN4llvm7TGLexer15prepExitIncludeEb'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='696' u='m' c='_ZN4llvm7TGLexer15lexPreprocessorENS_5tgtok7TokKindEb'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='724' u='m' c='_ZN4llvm7TGLexer15lexPreprocessorENS_5tgtok7TokKindEb'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='727' u='m' c='_ZN4llvm7TGLexer15lexPreprocessorENS_5tgtok7TokKindEb'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='736' u='m' c='_ZN4llvm7TGLexer15lexPreprocessorENS_5tgtok7TokKindEb'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='737' u='m' c='_ZN4llvm7TGLexer15lexPreprocessorENS_5tgtok7TokKindEb'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='757' u='m' c='_ZN4llvm7TGLexer15lexPreprocessorENS_5tgtok7TokKindEb'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='760' u='m' c='_ZN4llvm7TGLexer15lexPreprocessorENS_5tgtok7TokKindEb'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='771' u='m' c='_ZN4llvm7TGLexer15lexPreprocessorENS_5tgtok7TokKindEb'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='1001' u='m' c='_ZN4llvm7TGLexer23prepIsProcessingEnabledEv'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='1002' u='m' c='_ZN4llvm7TGLexer23prepIsProcessingEnabledEv'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='1012' u='m' c='_ZN4llvm7TGLexer32prepReportPreprocessorStackErrorEv'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='1016' u='m' c='_ZN4llvm7TGLexer32prepReportPreprocessorStackErrorEv'/>

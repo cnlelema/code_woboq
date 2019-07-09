@@ -1,0 +1,18 @@
+<dec f='llvm/lld/include/lld/Common/Reproduce.h' l='25' type='std::string lld::relativeToRoot(llvm::StringRef Path)'/>
+<doc f='llvm/lld/include/lld/Common/Reproduce.h' l='22'>// Makes a given pathname an absolute path first, and then remove
+// beginning /. For example, &quot;../foo.o&quot; is converted to &quot;home/john/foo.o&quot;,
+// assuming that the current directory is &quot;/home/john/bar&quot;.</doc>
+<use f='llvm/lld/COFF/Driver.cpp' l='152' u='c' c='_ZN3lld4coff12LinkerDriver10takeBufferESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS4_EE'/>
+<use f='llvm/lld/COFF/Driver.cpp' l='600' u='c' c='_ZN3lld4coffL18createResponseFileERKN4llvm3opt12InputArgListENS1_8ArrayRefINS1_9StringRefEEES8_'/>
+<use f='llvm/lld/COFF/Driver.cpp' l='605' u='c' c='_ZN3lld4coffL18createResponseFileERKN4llvm3opt12InputArgListENS1_8ArrayRefINS1_9StringRefEEES8_'/>
+<def f='llvm/lld/Common/Reproduce.cpp' l='24' ll='42' type='std::string lld::relativeToRoot(llvm::StringRef Path)'/>
+<doc f='llvm/lld/Common/Reproduce.cpp' l='19'>// Makes a given pathname an absolute path first, and then remove
+// beginning /. For example, &quot;../foo.o&quot; is converted to &quot;home/john/foo.o&quot;,
+// assuming that the current directory is &quot;/home/john/bar&quot;.
+// Returned string is a forward slash separated path even on Windows to avoid
+// a mess with backslash-as-escape and backslash-as-path-separator.</doc>
+<use f='llvm/lld/ELF/Driver.cpp' l='182' u='c' c='_ZL17getArchiveMembersN4llvm15MemoryBufferRefE'/>
+<use f='llvm/lld/ELF/DriverUtils.cpp' l='162' u='c' c='_ZL11rewritePathN4llvm9StringRefE'/>
+<use f='llvm/lld/ELF/InputFiles.cpp' l='110' u='c' c='_ZN3lld3elf8readFileEN4llvm9StringRefE'/>
+<use f='llvm/lld/ELF/InputFiles.cpp' l='1165' u='c' c='_ZN3lld3elf11ArchiveFile5fetchERKN4llvm6object7Archive6SymbolE'/>
+<use f='llvm/lld/wasm/InputFiles.cpp' l='47' u='c' c='_ZN3lld4wasm8readFileEN4llvm9StringRefE'/>

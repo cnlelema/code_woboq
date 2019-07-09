@@ -1,0 +1,31 @@
+<def f='llvm/llvm/include/llvm/Transforms/Utils/LoopVersioning.h' l='35' ll='148'/>
+<size>520</size>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/LoopVersioning.h' l='30'>/// This class emits a version of the loop where run-time checks ensure
+/// that may-alias pointers can&apos;t overlap.
+///
+/// It currently only supports single-exit loops and assumes that the loop
+/// already has a preheader.</doc>
+<fun r='_ZN4llvm14LoopVersioningC1ERKNS_14LoopAccessInfoEPNS_4LoopEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_15ScalarEvolutionEb'/>
+<fun r='_ZN4llvm14LoopVersioning11versionLoopEv'/>
+<fun r='_ZN4llvm14LoopVersioning11versionLoopERKNS_15SmallVectorImplIPNS_11InstructionEEE'/>
+<fun r='_ZN4llvm14LoopVersioning16getVersionedLoopEv'/>
+<fun r='_ZN4llvm14LoopVersioning19getNonVersionedLoopEv'/>
+<fun r='_ZN4llvm14LoopVersioning14setAliasChecksENS_11SmallVectorISt4pairIPKNS_22RuntimePointerChecking16CheckingPtrGroupES6_ELj4EEE'/>
+<fun r='_ZN4llvm14LoopVersioning13setSCEVChecksENS_18SCEVUnionPredicateE'/>
+<fun r='_ZN4llvm14LoopVersioning23annotateLoopWithNoAliasEv'/>
+<fun r='_ZN4llvm14LoopVersioning22prepareNoAliasMetadataEv'/>
+<fun r='_ZN4llvm14LoopVersioning23annotateInstWithNoAliasEPNS_11InstructionEPKS1_'/>
+<fun r='_ZN4llvm14LoopVersioning11addPHINodesERKNS_15SmallVectorImplIPNS_11InstructionEEE'/>
+<fun r='_ZN4llvm14LoopVersioning23annotateInstWithNoAliasEPNS_11InstructionE'/>
+<mbr r='llvm::LoopVersioning::VersionedLoop' o='0' t='llvm::Loop *'/>
+<mbr r='llvm::LoopVersioning::NonVersionedLoop' o='64' t='llvm::Loop *'/>
+<mbr r='llvm::LoopVersioning::VMap' o='128' t='ValueToValueMapTy'/>
+<mbr r='llvm::LoopVersioning::AliasChecks' o='768' t='SmallVector&lt;RuntimePointerChecking::PointerCheck, 4&gt;'/>
+<mbr r='llvm::LoopVersioning::Preds' o='1408' t='llvm::SCEVUnionPredicate'/>
+<mbr r='llvm::LoopVersioning::PtrToGroup' o='3136' t='DenseMap&lt;const llvm::Value *, const RuntimePointerChecking::CheckingPtrGroup *&gt;'/>
+<mbr r='llvm::LoopVersioning::GroupToScope' o='3392' t='DenseMap&lt;const RuntimePointerChecking::CheckingPtrGroup *, llvm::MDNode *&gt;'/>
+<mbr r='llvm::LoopVersioning::GroupToNonAliasingScopeList' o='3648' t='DenseMap&lt;const RuntimePointerChecking::CheckingPtrGroup *, llvm::MDNode *&gt;'/>
+<mbr r='llvm::LoopVersioning::LAI' o='3904' t='const llvm::LoopAccessInfo &amp;'/>
+<mbr r='llvm::LoopVersioning::LI' o='3968' t='llvm::LoopInfo *'/>
+<mbr r='llvm::LoopVersioning::DT' o='4032' t='llvm::DominatorTree *'/>
+<mbr r='llvm::LoopVersioning::SE' o='4096' t='llvm::ScalarEvolution *'/>

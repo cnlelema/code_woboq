@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='155' type='void llvm::RecursivelyDeleteTriviallyDeadInstructions(SmallVectorImpl&lt;llvm::Instruction *&gt; &amp; DeadInsts, const llvm::TargetLibraryInfo * TLI = nullptr, llvm::MemorySSAUpdater * MSSAU = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='147'>/// Delete all of the instructions in `DeadInsts`, and all other instructions
+/// that deleting these in turn causes to be trivially dead.
+///
+/// The initial instructions in the provided vector must all have empty use
+/// lists and satisfy `isInstructionTriviallyDead`.
+///
+/// `DeadInsts` will be used as scratch storage for this routine and will be
+/// empty afterward.</doc>
+<use f='llvm/llvm/lib/Transforms/CHERICap/FoldCapIntrinsics.cpp' l='77' u='c' c='_ZN12_GLOBAL__N_122CHERICapFoldIntrinsics7foldGetEPN4llvm6ModuleENS1_9Intrinsic2IDENS1_8ArrayRefIPNS1_4TypeEEET_i'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopInstSimplify.cpp' l='154' u='c' c='_ZL16simplifyLoopInstRN4llvm4LoopERNS_13DominatorTreeERNS_8LoopInfoERNS_15AssumptionCacheERKNS_17TargetLibraryInfoEPNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='442' u='c' c='_ZN4llvm42RecursivelyDeleteTriviallyDeadInstructionsEPNS_5ValueEPKNS_17TargetLibraryInfoEPNS_16MemorySSAUpdaterE'/>
+<def f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='447' ll='481' type='void llvm::RecursivelyDeleteTriviallyDeadInstructions(SmallVectorImpl&lt;llvm::Instruction *&gt; &amp; DeadInsts, const llvm::TargetLibraryInfo * TLI = nullptr, llvm::MemorySSAUpdater * MSSAU = nullptr)'/>

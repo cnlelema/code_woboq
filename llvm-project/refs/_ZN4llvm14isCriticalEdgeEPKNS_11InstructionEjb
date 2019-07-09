@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/Analysis/CFG.h' l='47' type='bool llvm::isCriticalEdge(const llvm::Instruction * TI, unsigned int SuccNum, bool AllowIdenticalEdges = false)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/CFG.h' l='43'>/// Return true if the specified edge is a critical edge. Critical edges are
+/// edges from a block with multiple successors to a block with multiple
+/// predecessors.
+///</doc>
+<def f='llvm/llvm/lib/Analysis/CFG.cpp' l='88' ll='110' type='bool llvm::isCriticalEdge(const llvm::Instruction * TI, unsigned int SuccNum, bool AllowIdenticalEdges = false)'/>
+<doc f='llvm/llvm/lib/Analysis/CFG.cpp' l='85'>/// isCriticalEdge - Return true if the specified edge is a critical edge.
+/// Critical edges are edges from a block with multiple successors to a block
+/// with multiple predecessors.</doc>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/CFGMST.h' l='128' u='c' c='_ZN4llvm6CFGMST10buildEdgesEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='2275' u='c' c='_ZN4llvm3GVN16performScalarPREEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='2491' u='c' c='_ZN4llvm3GVN12addDeadBlockEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/BreakCriticalEdges.cpp' l='139' u='c' c='_ZN4llvm17SplitCriticalEdgeEPNS_11InstructionEjRKNS_28CriticalEdgeSplittingOptionsE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/DemoteRegToStack.cpp' l='49' u='c' c='_ZN4llvm16DemoteRegToStackERNS_11InstructionEbPS0_'/>

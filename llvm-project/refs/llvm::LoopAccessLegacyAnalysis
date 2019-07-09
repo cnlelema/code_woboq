@@ -1,0 +1,23 @@
+<inh f='llvm/llvm/include/llvm/Pass.h' l='284' c='llvm::FunctionPass'/>
+<def f='llvm/llvm/include/llvm/Analysis/LoopAccessAnalysis.h' l='723' ll='758'/>
+<size>104</size>
+<doc f='llvm/llvm/include/llvm/Analysis/LoopAccessAnalysis.h' l='716'>/// This analysis provides dependence information for the memory accesses
+/// of a loop.
+///
+/// It runs the analysis for a loop on demand.  This can be initiated by
+/// querying the loop access info via LAA::getInfo.  getInfo return a
+/// LoopAccessInfo object.  See this class for the specifics of what information
+/// is provided.</doc>
+<smbr r='llvm::LoopAccessLegacyAnalysis::ID' t='char'/>
+<fun r='_ZN4llvm24LoopAccessLegacyAnalysisC1Ev'/>
+<fun r='_ZN4llvm24LoopAccessLegacyAnalysis13runOnFunctionERNS_8FunctionE'/>
+<fun r='_ZNK4llvm24LoopAccessLegacyAnalysis16getAnalysisUsageERNS_13AnalysisUsageE'/>
+<fun r='_ZN4llvm24LoopAccessLegacyAnalysis7getInfoEPNS_4LoopE'/>
+<fun r='_ZN4llvm24LoopAccessLegacyAnalysis13releaseMemoryEv'/>
+<fun r='_ZNK4llvm24LoopAccessLegacyAnalysis5printERNS_11raw_ostreamEPKNS_6ModuleE'/>
+<mbr r='llvm::LoopAccessLegacyAnalysis::LoopAccessInfoMap' o='256' t='DenseMap&lt;llvm::Loop *, std::unique_ptr&lt;LoopAccessInfo&gt; &gt;'/>
+<mbr r='llvm::LoopAccessLegacyAnalysis::SE' o='512' t='llvm::ScalarEvolution *'/>
+<mbr r='llvm::LoopAccessLegacyAnalysis::TLI' o='576' t='const llvm::TargetLibraryInfo *'/>
+<mbr r='llvm::LoopAccessLegacyAnalysis::AA' o='640' t='AliasAnalysis *'/>
+<mbr r='llvm::LoopAccessLegacyAnalysis::DT' o='704' t='llvm::DominatorTree *'/>
+<mbr r='llvm::LoopAccessLegacyAnalysis::LI' o='768' t='llvm::LoopInfo *'/>

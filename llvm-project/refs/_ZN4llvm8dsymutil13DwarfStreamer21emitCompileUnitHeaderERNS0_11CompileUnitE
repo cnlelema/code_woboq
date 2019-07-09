@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/tools/dsymutil/DwarfStreamer.h' l='65' type='void llvm::dsymutil::DwarfStreamer::emitCompileUnitHeader(llvm::dsymutil::CompileUnit &amp; Unit)'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfLinker.cpp' l='2417' u='c' c='_ZN4llvm8dsymutil11DwarfLinker9DIECloner20cloneAllCompileUnitsERNS_12DWARFContextERKNS0_14DebugMapObjectERSt3mapImNS0_19DebugMapObjectRangeESt4lessImE9221335'/>
+<doc f='llvm/llvm/tools/dsymutil/DwarfStreamer.h' l='60'>/// Emit the compilation unit header for \p Unit in the
+  /// debug_info section.
+  ///
+  /// As a side effect, this also switches the current Dwarf version
+  /// of the MC layer to the one of U.getOrigUnit().</doc>
+<def f='llvm/llvm/tools/dsymutil/DwarfStreamer.cpp' l='150' ll='171' type='void llvm::dsymutil::DwarfStreamer::emitCompileUnitHeader(llvm::dsymutil::CompileUnit &amp; Unit)'/>
+<doc f='llvm/llvm/tools/dsymutil/DwarfStreamer.cpp' l='141'>/// Emit the compilation unit header for \p Unit in the debug_info section.
+///
+/// A Dwarf section header is encoded as:
+///  uint32_t   Unit length (omitting this field)
+///  uint16_t   Version
+///  uint32_t   Abbreviation table offset
+///  uint8_t    Address size
+///
+/// Leading to a total of 11 bytes.</doc>

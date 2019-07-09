@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/lib/Target/AArch64/AArch64InstrInfo.h' l='207' type='bool llvm::AArch64InstrInfo::optimizeCompareInstr(llvm::MachineInstr &amp; CmpInstr, unsigned int SrcReg, unsigned int SrcReg2, int CmpMask, int CmpValue, const llvm::MachineRegisterInfo * MRI) const'/>
+<doc f='llvm/llvm/lib/Target/AArch64/AArch64InstrInfo.h' l='205'>/// optimizeCompareInstr - Convert the instruction supplying the argument to
+  /// the comparison into one that sets the zero bit in the flags register.</doc>
+<def f='llvm/llvm/lib/Target/AArch64/AArch64InstrInfo.cpp' l='1182' ll='1221' type='bool llvm::AArch64InstrInfo::optimizeCompareInstr(llvm::MachineInstr &amp; CmpInstr, unsigned int SrcReg, unsigned int SrcReg2, int CmpMask, int CmpValue, const llvm::MachineRegisterInfo * MRI) const'/>
+<doc f='llvm/llvm/lib/Target/AArch64/AArch64InstrInfo.cpp' l='1171'>/// Try to optimize a compare instruction. A compare instruction is an
+/// instruction which produces AArch64::NZCV. It can be truly compare
+/// instruction
+/// when there are no uses of its destination register.
+///
+/// The following steps are tried in order:
+/// 1. Convert CmpInstr into an unconditional version.
+/// 2. Remove CmpInstr if above there is an instruction producing a needed
+///    condition code or an instruction which can be converted into such an
+///    instruction.
+///    Only comparison with zero is supported.</doc>

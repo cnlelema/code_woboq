@@ -1,0 +1,17 @@
+<inh f='llvm/clang/include/clang/Analysis/ConstructionContext.h' l='460' c='clang::TemporaryObjectConstructionContext'/>
+<def f='llvm/clang/include/clang/Analysis/ConstructionContext.h' l='523' ll='554'/>
+<size>40</size>
+<doc f='llvm/clang/include/clang/Analysis/ConstructionContext.h' l='515'>/// Represents a temporary object that is constructed for the sole purpose
+/// of being immediately copied by an elidable copy/move constructor.
+/// For example, T t = T(123); includes a temporary T(123) that is immediately
+/// copied to variable t. In such cases the elidable copy can (but not
+/// necessarily should) be omitted (&quot;elided&quot;) accodring to the rules of the
+/// language; the constructor would then construct variable t directly.
+/// This construction context contains information of the elidable constructor
+/// and its respective construction context.</doc>
+<mbr r='clang::ElidedTemporaryObjectConstructionContext::ElidedCE' o='192' t='const clang::CXXConstructExpr *'/>
+<mbr r='clang::ElidedTemporaryObjectConstructionContext::ElidedCC' o='256' t='const clang::ConstructionContext *'/>
+<fun r='_ZN5clang40ElidedTemporaryObjectConstructionContextC1EPKNS_20CXXBindTemporaryExprEPKNS_24MaterializeTemporaryExprEPKNS_16CXXConstructExprEPKNS_19ConstructionContextE'/>
+<fun r='_ZNK5clang40ElidedTemporaryObjectConstructionContext26getConstructorAfterElisionEv'/>
+<fun r='_ZNK5clang40ElidedTemporaryObjectConstructionContext34getConstructionContextAfterElisionEv'/>
+<fun r='_ZN5clang40ElidedTemporaryObjectConstructionContext7classofEPKNS_19ConstructionContextE'/>

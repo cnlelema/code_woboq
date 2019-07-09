@@ -1,0 +1,22 @@
+<inh f='llvm/llvm/include/llvm/ADT/IntrusiveRefCntPtr.h' l='70' c='llvm::RefCountedBase'/>
+<def f='llvm/clang/include/clang/Serialization/InMemoryModuleCache.h' l='30' ll='103'/>
+<size>40</size>
+<doc f='llvm/clang/include/clang/Serialization/InMemoryModuleCache.h' l='20'>/// In-memory cache for modules.
+///
+/// This is a cache for modules for use across a compilation, sharing state
+/// between the CompilerInstances in an implicit modules build.  It must be
+/// shared by each CompilerInstance, ASTReader, ASTWriter, and ModuleManager
+/// that are coordinating.
+///
+/// Critically, it ensures that a single process has a consistent view of each
+/// PCM.  This is used by \a CompilerInstance when building PCMs to ensure that
+/// each \a ModuleManager sees the same files.</doc>
+<mbr r='clang::InMemoryModuleCache::PCMs' o='64' t='llvm::StringMap&lt;PCM&gt;'/>
+<fun r='_ZNK5clang19InMemoryModuleCache11getPCMStateEN4llvm9StringRefE'/>
+<fun r='_ZN5clang19InMemoryModuleCache6addPCMEN4llvm9StringRefESt10unique_ptrINS1_12MemoryBufferESt14default_deleteIS4_EE'/>
+<fun r='_ZN5clang19InMemoryModuleCache11addBuiltPCMEN4llvm9StringRefESt10unique_ptrINS1_12MemoryBufferESt14default_deleteIS4_EE'/>
+<fun r='_ZN5clang19InMemoryModuleCache12tryToDropPCMEN4llvm9StringRefE'/>
+<fun r='_ZN5clang19InMemoryModuleCache11finalizePCMEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang19InMemoryModuleCache9lookupPCMEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang19InMemoryModuleCache10isPCMFinalEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang19InMemoryModuleCache14shouldBuildPCMEN4llvm9StringRefE'/>

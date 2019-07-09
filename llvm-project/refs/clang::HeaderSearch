@@ -1,0 +1,101 @@
+<def f='llvm/clang/include/clang/Lex/HeaderSearch.h' l='158' ll='778'/>
+<size>1744</size>
+<doc f='llvm/clang/include/clang/Lex/HeaderSearch.h' l='156'>/// Encapsulates the information needed to find the file referenced
+/// by a \#include or \#include_next, (sub-)framework lookup, etc.</doc>
+<mbr r='clang::HeaderSearch::HSOpts' o='0' t='std::shared_ptr&lt;HeaderSearchOptions&gt;'/>
+<mbr r='clang::HeaderSearch::Diags' o='128' t='clang::DiagnosticsEngine &amp;'/>
+<mbr r='clang::HeaderSearch::FileMgr' o='192' t='clang::FileManager &amp;'/>
+<mbr r='clang::HeaderSearch::SearchDirs' o='256' t='std::vector&lt;DirectoryLookup&gt;'/>
+<mbr r='clang::HeaderSearch::AngledDirIdx' o='448' t='unsigned int'/>
+<mbr r='clang::HeaderSearch::SystemDirIdx' o='480' t='unsigned int'/>
+<mbr r='clang::HeaderSearch::NoCurDirSearch' o='512' t='bool'/>
+<mbr r='clang::HeaderSearch::SystemHeaderPrefixes' o='576' t='std::vector&lt;std::pair&lt;std::string, bool&gt; &gt;'/>
+<mbr r='clang::HeaderSearch::ModuleCachePath' o='768' t='std::string'/>
+<mbr r='clang::HeaderSearch::FileInfo' o='1024' t='std::vector&lt;HeaderFileInfo&gt;'/>
+<mbr r='clang::HeaderSearch::LookupFileCache' o='1216' t='llvm::StringMap&lt;LookupFileCacheInfo, llvm::BumpPtrAllocator&gt;'/>
+<mbr r='clang::HeaderSearch::FrameworkMap' o='2240' t='llvm::StringMap&lt;FrameworkCacheEntry, llvm::BumpPtrAllocator&gt;'/>
+<mbr r='clang::HeaderSearch::IncludeAliases' o='3264' t='std::unique_ptr&lt;IncludeAliasMap&gt;'/>
+<mbr r='clang::HeaderSearch::HeaderMaps' o='3328' t='std::vector&lt;std::pair&lt;const FileEntry *, std::unique_ptr&lt;HeaderMap&gt; &gt; &gt;'/>
+<mbr r='clang::HeaderSearch::ModMap' o='3520' t='clang::ModuleMap'/>
+<mbr r='clang::HeaderSearch::DirectoryHasModuleMap' o='12160' t='llvm::DenseMap&lt;const DirectoryEntry *, bool&gt;'/>
+<mbr r='clang::HeaderSearch::LoadedModuleMaps' o='12416' t='llvm::DenseMap&lt;const FileEntry *, bool&gt;'/>
+<mbr r='clang::HeaderSearch::FrameworkNames' o='12672' t='llvm::StringSet&lt;llvm::BumpPtrAllocator&gt;'/>
+<mbr r='clang::HeaderSearch::ExternalLookup' o='13696' t='clang::ExternalPreprocessorSource *'/>
+<mbr r='clang::HeaderSearch::ExternalSource' o='13760' t='clang::ExternalHeaderFileInfoSource *'/>
+<mbr r='clang::HeaderSearch::NumIncluded' o='13824' t='unsigned int'/>
+<mbr r='clang::HeaderSearch::NumMultiIncludeFileOptzn' o='13856' t='unsigned int'/>
+<mbr r='clang::HeaderSearch::NumFrameworkLookups' o='13888' t='unsigned int'/>
+<mbr r='clang::HeaderSearch::NumSubFrameworkLookups' o='13920' t='unsigned int'/>
+<fun r='_ZN5clang12HeaderSearchC1ESt10shared_ptrINS_19HeaderSearchOptionsEERNS_13SourceManagerERNS_17DiagnosticsEngineERKNS_11LangOptionsEPKNS_10TargetInfoE'/>
+<fun r='_ZN5clang12HeaderSearchC1ERKS0_'/>
+<fun r='_ZN5clang12HeaderSearchaSERKS0_'/>
+<fun r='_ZNK5clang12HeaderSearch19getHeaderSearchOptsEv'/>
+<fun r='_ZNK5clang12HeaderSearch10getFileMgrEv'/>
+<fun r='_ZNK5clang12HeaderSearch8getDiagsEv'/>
+<fun r='_ZN5clang12HeaderSearch14SetSearchPathsERKSt6vectorINS_15DirectoryLookupESaIS2_EEjjb'/>
+<fun r='_ZN5clang12HeaderSearch13AddSearchPathERKNS_15DirectoryLookupEb'/>
+<fun r='_ZN5clang12HeaderSearch23SetSystemHeaderPrefixesEN4llvm8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEE'/>
+<fun r='_ZNK5clang12HeaderSearch18HasIncludeAliasMapEv'/>
+<fun r='_ZN5clang12HeaderSearch15AddIncludeAliasEN4llvm9StringRefES2_'/>
+<fun r='_ZN5clang12HeaderSearch23MapHeaderToIncludeAliasEN4llvm9StringRefE'/>
+<fun r='_ZN5clang12HeaderSearch18setModuleCachePathEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang12HeaderSearch18getModuleCachePathEv'/>
+<fun r='_ZN5clang12HeaderSearch24setDirectoryHasModuleMapEPKNS_14DirectoryEntryE'/>
+<fun r='_ZN5clang12HeaderSearch13ClearFileInfoEv'/>
+<fun r='_ZN5clang12HeaderSearch17SetExternalLookupEPNS_26ExternalPreprocessorSourceE'/>
+<fun r='_ZNK5clang12HeaderSearch17getExternalLookupEv'/>
+<fun r='_ZN5clang12HeaderSearch17SetExternalSourceEPNS_28ExternalHeaderFileInfoSourceE'/>
+<fun r='_ZN5clang12HeaderSearch9setTargetERKNS_10TargetInfoE'/>
+<fun r='_ZN5clang12HeaderSearch10LookupFileEN4llvm9StringRefENS_14SourceLocationEbPKNS_15DirectoryLookupERS6_NS1_8ArrayRefISt4pairIPKNS_9FileEntryEPKNS_14Dire14579246'/>
+<fun r='_ZN5clang12HeaderSearch24LookupSubframeworkHeaderEN4llvm9StringRefEPKNS_9FileEntryEPNS1_15SmallVectorImplIcEES8_PNS_6ModuleEPNS_9ModuleMap11KnownHeaderE'/>
+<fun r='_ZN5clang12HeaderSearch20LookupFrameworkCacheEN4llvm9StringRefE'/>
+<fun r='_ZN5clang12HeaderSearch22ShouldEnterIncludeFileERNS_12PreprocessorEPKNS_9FileEntryEbbPNS_6ModuleE'/>
+<fun r='_ZN5clang12HeaderSearch16getFileDirFlavorEPKNS_9FileEntryE'/>
+<fun r='_ZN5clang12HeaderSearch19MarkFileIncludeOnceEPKNS_9FileEntryE'/>
+<fun r='_ZN5clang12HeaderSearch20MarkFileSystemHeaderEPKNS_9FileEntryE'/>
+<fun r='_ZN5clang12HeaderSearch20MarkFileModuleHeaderEPKNS_9FileEntryENS_9ModuleMap16ModuleHeaderRoleEb'/>
+<fun r='_ZN5clang12HeaderSearch21IncrementIncludeCountEPKNS_9FileEntryE'/>
+<fun r='_ZN5clang12HeaderSearch23SetFileControllingMacroEPKNS_9FileEntryEPKNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang12HeaderSearch19FirstTimeLexingFileEPKNS_9FileEntryE'/>
+<fun r='_ZN5clang12HeaderSearch28isFileMultipleIncludeGuardedEPKNS_9FileEntryE'/>
+<fun r='_ZN5clang12HeaderSearch15CreateHeaderMapEPKNS_9FileEntryE'/>
+<fun r='_ZNK5clang12HeaderSearch21getHeaderMapFileNamesERN4llvm15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE'/>
+<fun r='_ZN5clang12HeaderSearch23getCachedModuleFileNameEPNS_6ModuleE'/>
+<fun r='_ZN5clang12HeaderSearch25getPrebuiltModuleFileNameEN4llvm9StringRefEb'/>
+<fun r='_ZN5clang12HeaderSearch23getCachedModuleFileNameEN4llvm9StringRefES2_'/>
+<fun r='_ZN5clang12HeaderSearch12lookupModuleEN4llvm9StringRefEbb'/>
+<fun r='_ZN5clang12HeaderSearch19lookupModuleMapFileEPKNS_14DirectoryEntryEb'/>
+<fun r='_ZN5clang12HeaderSearch29IncrementFrameworkLookupCountEv'/>
+<fun r='_ZN5clang12HeaderSearch12hasModuleMapEN4llvm9StringRefEPKNS_14DirectoryEntryEb'/>
+<fun r='_ZNK5clang12HeaderSearch19findModuleForHeaderEPKNS_9FileEntryEb'/>
+<fun r='_ZN5clang12HeaderSearch17loadModuleMapFileEPKNS_9FileEntryEbNS_6FileIDEPjN4llvm9StringRefE'/>
+<fun r='_ZN5clang12HeaderSearch17collectAllModulesERN4llvm15SmallVectorImplIPNS_6ModuleEEE'/>
+<fun r='_ZN5clang12HeaderSearch25loadTopLevelSystemModulesEv'/>
+<fun r='_ZN5clang12HeaderSearch12lookupModuleEN4llvm9StringRefES2_b'/>
+<fun r='_ZN5clang12HeaderSearch19loadFrameworkModuleEN4llvm9StringRefEPKNS_14DirectoryEntryEb'/>
+<fun r='_ZN5clang12HeaderSearch26loadSubdirectoryModuleMapsERNS_15DirectoryLookupE'/>
+<fun r='_ZN5clang12HeaderSearch25findUsableModuleForHeaderEPKNS_9FileEntryEPKNS_14DirectoryEntryEPNS_6ModuleEPNS_9ModuleMap11KnownHeaderEb'/>
+<fun r='_ZN5clang12HeaderSearch34findUsableModuleForFrameworkHeaderEPKNS_9FileEntryEN4llvm9StringRefEPNS_6ModuleEPNS_9ModuleMap11KnownHeaderEb'/>
+<fun r='_ZN5clang12HeaderSearch23getFileAndSuggestModuleEN4llvm9StringRefENS_14SourceLocationEPKNS_14DirectoryEntryEbPNS_6ModuleEPNS_9ModuleMap11KnownHeaderE'/>
+<fun r='_ZN5clang12HeaderSearch12getModuleMapEv'/>
+<fun r='_ZNK5clang12HeaderSearch12getModuleMapEv'/>
+<fun r='_ZNK5clang12HeaderSearch16header_file_sizeEv'/>
+<fun r='_ZN5clang12HeaderSearch11getFileInfoEPKNS_9FileEntryE'/>
+<fun r='_ZNK5clang12HeaderSearch19getExistingFileInfoEPKNS_9FileEntryEb'/>
+<fun r='_ZNK5clang12HeaderSearch16search_dir_beginEv'/>
+<fun r='_ZNK5clang12HeaderSearch14search_dir_endEv'/>
+<fun r='_ZNK5clang12HeaderSearch15search_dir_sizeEv'/>
+<fun r='_ZNK5clang12HeaderSearch16quoted_dir_beginEv'/>
+<fun r='_ZNK5clang12HeaderSearch14quoted_dir_endEv'/>
+<fun r='_ZNK5clang12HeaderSearch16angled_dir_beginEv'/>
+<fun r='_ZNK5clang12HeaderSearch14angled_dir_endEv'/>
+<fun r='_ZNK5clang12HeaderSearch16system_dir_beginEv'/>
+<fun r='_ZNK5clang12HeaderSearch14system_dir_endEv'/>
+<fun r='_ZN5clang12HeaderSearch22getUniqueFrameworkNameEN4llvm9StringRefE'/>
+<fun r='_ZN5clang12HeaderSearch31suggestPathToFileForDiagnosticsEPKNS_9FileEntryEPb'/>
+<fun r='_ZN5clang12HeaderSearch31suggestPathToFileForDiagnosticsEN4llvm9StringRefES2_Pb'/>
+<fun r='_ZN5clang12HeaderSearch10PrintStatsEv'/>
+<fun r='_ZNK5clang12HeaderSearch14getTotalMemoryEv'/>
+<fun r='_ZN5clang12HeaderSearch21loadModuleMapFileImplEPKNS_9FileEntryEbPKNS_14DirectoryEntryENS_6FileIDEPj'/>
+<fun r='_ZN5clang12HeaderSearch17loadModuleMapFileEN4llvm9StringRefEbb'/>
+<fun r='_ZN5clang12HeaderSearch17loadModuleMapFileEPKNS_14DirectoryEntryEbb'/>

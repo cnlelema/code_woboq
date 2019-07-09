@@ -1,0 +1,15 @@
+<def f='llvm/llvm/include/llvm/CodeGen/ISDOpcodes.h' l='1004' ll='1033'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/ISDOpcodes.h' l='990'>//===--------------------------------------------------------------------===//
+  /// ISD::CondCode enum - These are ordered carefully to make the bitfields
+  /// below work out, when considering SETFALSE (something that never exists
+  /// dynamically) as 0.  &quot;U&quot; -&gt; Unsigned (for integer operands) or Unordered
+  /// (for floating point), &quot;L&quot; -&gt; Less than, &quot;G&quot; -&gt; Greater than, &quot;E&quot; -&gt; Equal
+  /// to.  If the &quot;N&quot; column is 1, the result of the comparison is undefined if
+  /// the input is a NAN.
+  ///
+  /// All of these (except for the &apos;always folded ops&apos;) should be handled for
+  /// floating point.  For integer, only the SETEQ,SETNE,SETLT,SETLE,SETGT,
+  /// SETGE,SETULT,SETULE,SETUGT, and SETUGE opcodes are used.
+  ///
+  /// Note that these are laid out in a specific order to allow bit-twiddling
+  /// to transform conditions.</doc>

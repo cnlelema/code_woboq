@@ -1,0 +1,16 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='8552' type='bool clang::Sema::CheckCHERIAssignCompatible(clang::QualType LHS, clang::QualType RHS, clang::Expr *&amp; RHSExpr, bool InsertBitCast = true)'/>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='584' u='c' c='_ZN5clang4Sema31ImpCastPointerToCHERICapabilityENS_8QualTypeES1_RPNS_4ExprEb'/>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='592' u='c' c='_ZN5clang4Sema31ImpCastPointerToCHERICapabilityENS_8QualTypeES1_RPNS_4ExprEb'/>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='602' u='c' c='_ZN5clang4Sema31ImpCastPointerToCHERICapabilityENS_8QualTypeES1_RPNS_4ExprEb'/>
+<use f='llvm/clang/lib/Sema/SemaCast.cpp' l='3090' u='c' c='_ZN5clang4Sema21BuildCheriToOrFromCapENS_14SourceLocationES1_bNS_8QualTypeEPNS_14TypeSourceInfoES1_PNS_4ExprE'/>
+<def f='llvm/clang/lib/Sema/SemaCast.cpp' l='3118' ll='3154' type='bool clang::Sema::CheckCHERIAssignCompatible(clang::QualType LHS, clang::QualType RHS, clang::Expr *&amp; RHSExpr, bool InsertBitCast = true)'/>
+<doc f='llvm/clang/lib/Sema/SemaCast.cpp' l='3108'>// Check if LHS and RHS are assign compatible for CHERI (ignoring capability
+// qualifiers). Insert an implicit bitcast if necessary (when InsertBitCast is
+// true - the default) and update RHSExpr to point to it.
+//
+// Two types LHS and RHS are assign compatible (ignoring capability qualifiers) if:
+// - LHS == RHS
+// - either of LHS or RHS is void*
+//
+// In the case of LHS being void*, an implicit bitcast from RHSExpr to void*
+// will be inserted and RHSExpr updated to point to this ImplicitCastExpr.</doc>

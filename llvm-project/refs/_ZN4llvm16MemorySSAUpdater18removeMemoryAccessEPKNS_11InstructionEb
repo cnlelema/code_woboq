@@ -1,0 +1,11 @@
+<def f='llvm/llvm/include/llvm/Analysis/MemorySSAUpdater.h' l='234' ll='237' type='void llvm::MemorySSAUpdater::removeMemoryAccess(const llvm::Instruction * I, bool OptimizePhis = false)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/MemorySSAUpdater.h' l='231'>/// Remove MemoryAccess for a given instruction, if a MemoryAccess exists.
+  /// This should be called when an instruction (load/store) is deleted from
+  /// the program.</doc>
+<use f='llvm/llvm/lib/Analysis/MemorySSAUpdater.cpp' l='1276' u='c' c='_ZN4llvm16MemorySSAUpdater19changeToUnreachableEPKNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/EarlyCSE.cpp' l='677' u='c' c='_ZN12_GLOBAL__N_18EarlyCSE10removeMSSAEPN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='1412' u='c' c='_ZL16eraseInstructionRN4llvm11InstructionERNS_17ICFLoopSafetyInfoEPNS_15AliasSetTrackerEPNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='1808' u='c' c='_ZNK12_GLOBAL__N_112LoopPromoter18instructionDeletedEPN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnswitch.cpp' l='1424' u='c' c='_ZL17ReplaceUsesOfWithPN4llvm11InstructionEPNS_5ValueERSt6vectorIS1_SaIS1_EEPNS_4LoopEPNS_13LPPassManagerEPNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnswitch.cpp' l='1590' u='c' c='_ZN12_GLOBAL__N_112LoopUnswitch12SimplifyCodeERSt6vectorIPN4llvm11InstructionESaIS4_EEPNS2_4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='477' u='c' c='_ZN4llvm42RecursivelyDeleteTriviallyDeadInstructionsERNS_15SmallVectorImplIPNS_11InstructionEEEPKNS_17TargetLibraryInfoEPNS_16MemorySSAUpdaterE'/>

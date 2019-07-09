@@ -1,0 +1,53 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='645' ll='651' type='unsigned int llvm::TargetInstrInfo::insertBranch(llvm::MachineBasicBlock &amp; MBB, llvm::MachineBasicBlock * TBB, llvm::MachineBasicBlock * FBB, ArrayRef&lt;llvm::MachineOperand&gt; Cond, const llvm::DebugLoc &amp; DL, int * BytesAdded = nullptr) const'/>
+<use f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='657' u='c' c='_ZNK4llvm15TargetInstrInfo25insertUnconditionalBranchERNS_17MachineBasicBlockEPS1_RKNS_8DebugLocEPi'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='632'>/// Insert branch code into the end of the specified MachineBasicBlock. The
+  /// operands to this method are the same as those returned by AnalyzeBranch.
+  /// This is only invoked in cases where AnalyzeBranch returns success. It
+  /// returns the number of instructions inserted. If \p BytesAdded is non-null,
+  /// report the change in code size from the added instructions.
+  ///
+  /// It is also invoked by tail merging to add unconditional branches in
+  /// cases where AnalyzeBranch doesn&apos;t apply because there was no original
+  /// branch to analyze.  At least this much must be implemented, else tail
+  /// merging needs to be disabled.
+  ///
+  /// The CFG information in MBB.Predecessors and MBB.Successors must be valid
+  /// before calling this function.</doc>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='521' u='c' c='_ZL7FixTailPN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='526' u='c' c='_ZL7FixTailPN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='1191' u='c' c='_ZN4llvm12BranchFolder15TailMergeBlocksERNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='1456' u='c' c='_ZN4llvm12BranchFolder13OptimizeBlockEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='1512' u='c' c='_ZN4llvm12BranchFolder13OptimizeBlockEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='1526' u='c' c='_ZN4llvm12BranchFolder13OptimizeBlockEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='1564' u='c' c='_ZN4llvm12BranchFolder13OptimizeBlockEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='1632' u='c' c='_ZN4llvm12BranchFolder13OptimizeBlockEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='1680' u='c' c='_ZN4llvm12BranchFolder13OptimizeBlockEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='1707' u='c' c='_ZN4llvm12BranchFolder13OptimizeBlockEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='1727' u='c' c='_ZN4llvm12BranchFolder13OptimizeBlockEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='1763' u='c' c='_ZN4llvm12BranchFolder13OptimizeBlockEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/BranchRelaxation.cpp' l='321' u='c' c='_ZN12_GLOBAL__N_116BranchRelaxation22fixupConditionalBranchERN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/EarlyIfConversion.cpp' l='584' u='c' c='_ZN12_GLOBAL__N_19SSAIfConv9convertIfERN4llvm15SmallVectorImplIPNS1_17MachineBasicBlockEEE'/>
+<use f='llvm/llvm/lib/CodeGen/IfConversion.cpp' l='523' u='c' c='_ZNK12_GLOBAL__N_111IfConverter22reverseBranchConditionERNS0_6BBInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/IfConversion.cpp' l='1357' u='c' c='_ZL18InsertUncondBranchRN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/IfConversion.cpp' l='1604' u='c' c='_ZN12_GLOBAL__N_111IfConverter17IfConvertTriangleERNS0_6BBInfoENS0_9IfcvtKindE'/>
+<use f='llvm/llvm/lib/CodeGen/IfConversion.cpp' l='1896' u='c' c='_ZN12_GLOBAL__N_111IfConverter22IfConvertForkedDiamondERNS0_6BBInfoENS0_9IfcvtKindEjjbb'/>
+<use f='llvm/llvm/lib/CodeGen/ImplicitNullChecks.cpp' l='711' u='c' c='_ZN12_GLOBAL__N_118ImplicitNullChecks17rewriteNullChecksEN4llvm8ArrayRefINS0_9NullCheckEEE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='563' u='c' c='_ZN4llvm17MachineBasicBlock16updateTerminatorEv'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='576' u='c' c='_ZN4llvm17MachineBasicBlock16updateTerminatorEv'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='579' u='c' c='_ZN4llvm17MachineBasicBlock16updateTerminatorEv'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='606' u='c' c='_ZN4llvm17MachineBasicBlock16updateTerminatorEv'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='615' u='c' c='_ZN4llvm17MachineBasicBlock16updateTerminatorEv'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='624' u='c' c='_ZN4llvm17MachineBasicBlock16updateTerminatorEv'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='628' u='c' c='_ZN4llvm17MachineBasicBlock16updateTerminatorEv'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='631' u='c' c='_ZN4llvm17MachineBasicBlock16updateTerminatorEv'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='969' u='c' c='_ZN4llvm17MachineBasicBlock17SplitCriticalEdgeEPS0_RNS_4PassE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBlockPlacement.cpp' l='2548' u='c' c='_ZN12_GLOBAL__N_121MachineBlockPlacement16optimizeBranchesEv'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='2159' u='c' c='_ZN4llvm17SwingSchedulerDAG14generatePrologERNS_10SMScheduleEjPNS_17MachineBasicBlockEPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjj15430837'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='2248' u='c' c='_ZN4llvm17SwingSchedulerDAG14generateEpilogERNS_10SMScheduleEjPNS_17MachineBasicBlockEPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjj8871859'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='2253' u='c' c='_ZN4llvm17SwingSchedulerDAG14generateEpilogERNS_10SMScheduleEjPNS_17MachineBasicBlockEPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjj8871859'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='2816' u='c' c='_ZN4llvm17SwingSchedulerDAG11addBranchesERNS_17MachineBasicBlockERNS_15SmallVectorImplIPS1_EES4_S6_RNS_10SMScheduleEPNS_8DenseMapIjjNS_12DenseMapInfoI9154485'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='2821' u='c' c='_ZN4llvm17SwingSchedulerDAG11addBranchesERNS_17MachineBasicBlockERNS_15SmallVectorImplIPS1_EES4_S6_RNS_10SMScheduleEPNS_8DenseMapIjjNS_12DenseMapInfoI9154485'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='2831' u='c' c='_ZN4llvm17SwingSchedulerDAG11addBranchesERNS_17MachineBasicBlockERNS_15SmallVectorImplIPS1_EES4_S6_RNS_10SMScheduleEPNS_8DenseMapIjjNS_12DenseMapInfoI9154485'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/FastISel.cpp' l='1689' u='c' c='_ZN4llvm8FastISel14fastEmitBranchEPNS_17MachineBasicBlockERKNS_8DebugLocE'/>
+<use f='llvm/llvm/lib/CodeGen/TailDuplicator.cpp' l='765' u='c' c='_ZN4llvm14TailDuplicator17duplicateSimpleBBEPNS_17MachineBasicBlockERNS_15SmallVectorImplIS2_EERKNS_8DenseSetIjNS_12DenseMapInfoIjEEEERNS3_IPNS_12MachineInstrEEE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='145' u='c' c='_ZNK4llvm15TargetInstrInfo23ReplaceTailWithBranchToENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPNS_17MachineBasicBlockE'/>

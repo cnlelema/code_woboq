@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/Support/raw_ostream.h' l='407' type='void llvm::raw_fd_ostream::raw_fd_ostream(llvm::StringRef Filename, std::error_code &amp; EC)'/>
+<doc f='llvm/llvm/include/llvm/Support/raw_ostream.h' l='399'>/// Open the specified file for writing. If an error occurs, information
+  /// about the error is put into EC, and the stream should be immediately
+  /// destroyed;
+  /// \p Flags allows optional flags to control how the file will be opened.
+  ///
+  /// As a special case, if Filename is &quot;-&quot;, then the stream will use
+  /// STDOUT_FILENO instead of opening a file. This will not close the stdout
+  /// descriptor.</doc>
+<def f='llvm/llvm/lib/Support/raw_ostream.cpp' l='528' ll='530' type='void llvm::raw_fd_ostream::raw_fd_ostream(llvm::StringRef Filename, std::error_code &amp; EC)'/>
+<use f='llvm/llvm/tools/llvm-elfabi/llvm-elfabi.cpp' l='59' u='c' c='_ZL8writeTBEN4llvm9StringRefERNS_6elfabi7ELFStubE'/>
+<use f='llvm/llvm/tools/opt/Debugify.cpp' l='400' u='c' c='_Z19exportDebugifyStatsN4llvm9StringRefERKNS_9MapVectorIS0_18DebugifyStatisticsNS_8DenseMapIS0_jNS_12DenseMapInfoIS0_EENS_6detail12DenseMapPairIS0_jEE9187383'/>
+<use f='llvm/llvm/unittests/Support/VirtualFileSystemTest.cpp' l='395' u='c' c='_ZN12_GLOBAL__N_110ScopedFileC1ERKN4llvm5TwineENS1_9StringRefE'/>

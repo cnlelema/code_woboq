@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetRegisterInfo.h' l='461' type='const MCPhysReg * llvm::TargetRegisterInfo::getCalleeSavedRegs(const llvm::MachineFunction * MF) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetRegisterInfo.h' l='453'>/// Return a null-terminated list of all of the callee-saved registers on
+  /// this target. The register should be in the order of desired callee-save
+  /// stack frame offset. The first register is closest to the incoming stack
+  /// pointer if stack grows down, and vice versa.
+  /// Notice: This function does not take into account disabled CSRs.
+  ///         In most cases you will want to use instead the function
+  ///         getCalleeSavedRegs that is implemented in MachineRegisterInfo.</doc>
+<use f='llvm/llvm/lib/CodeGen/MachineRegisterInfo.cpp' l='613' u='c' c='_ZN4llvm19MachineRegisterInfo26disableCalleeSavedRegisterEj'/>
+<use f='llvm/llvm/lib/CodeGen/MachineRegisterInfo.cpp' l='634' u='c' c='_ZNK4llvm19MachineRegisterInfo18getCalleeSavedRegsEv'/>
+<use f='llvm/llvm/lib/CodeGen/RegUsageInfoCollector.cpp' l='159' u='c' c='_ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVectorERNS1_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='2331' u='c' c='_ZN4llvm26tryFoldSPUpdateIntoPushPopERKNS_12ARMSubtargetERNS_15MachineFunctionEPNS_12MachineInstrEj'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFrameLowering.cpp' l='795' u='c' c='_ZNK4llvm16ARMFrameLowering12emitEpilogueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonVLIWPacketizer.cpp' l='343' u='c' c='_ZL24doesModifyCalleeSavedRegRKN4llvm12MachineInstrEPKNS_18TargetRegisterInfoE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsDelaySlotFiller.cpp' l='398' u='c' c='_ZN12_GLOBAL__N_111RegDefsUses14setCallerSavedERKN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZFrameLowering.cpp' l='103' u='c' c='_ZNK4llvm20SystemZFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>

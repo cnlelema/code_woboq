@@ -1,0 +1,22 @@
+<def f='llvm/clang/lib/CodeGen/CGDebugInfo.h' l='728' ll='730' type='static clang::CodeGen::ApplyDebugLocation clang::CodeGen::ApplyDebugLocation::CreateArtificial(clang::CodeGen::CodeGenFunction &amp; CGF)'/>
+<doc f='llvm/clang/lib/CodeGen/CGDebugInfo.h' l='717'>/// Apply TemporaryLocation if it is valid. Otherwise switch
+  /// to an artificial debug location that has a valid scope, but no
+  /// line information.
+  ///
+  /// Artificial locations are useful when emitting compiler-generated
+  /// helper functions that have no source location associated with
+  /// them. The DWARF specification allows the compiler to use the
+  /// special line number 0 to indicate code that can not be
+  /// attributed to any source location. Note that passing an empty
+  /// SourceLocation to CGDebugInfo::setLocation() will result in the
+  /// last valid location being reused.</doc>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='1188' u='c' c='_ZN5clang7CodeGen15CodeGenFunction34generateBuiltinOSLogHelperFunctionERKNS_14analyze_os_log17OSLogBufferLayoutENS_9CharUnitsE'/>
+<use f='llvm/clang/lib/CodeGen/CGDeclCXX.cpp' l='668' u='c' c='_ZN5clang7CodeGen15CodeGenFunction25GenerateCXXGlobalInitFuncEPN4llvm8FunctionENS2_8ArrayRefIS4_EENS0_15ConstantAddressE'/>
+<use f='llvm/clang/lib/CodeGen/CGDeclCXX.cpp' l='727' u='c' c='_ZN5clang7CodeGen15CodeGenFunction26GenerateCXXGlobalDtorsFuncEPN4llvm8FunctionERKSt6vectorISt5tupleIJPNS2_12FunctionTypeENS2_14WeakTrackingVHEPNS2_8ConstantEEESaISC_EE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprScalar.cpp' l='4570' u='c' c='_ZN12_GLOBAL__N_117ScalarExprEmitter12VisitBinLAndEPKN5clang14BinaryOperatorE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='2673' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime30emitThreadPrivateVarDefinitionEPKNS_7VarDeclENS0_7AddressENS_14SourceLocationEbPNS0_15CodeGenFunctionE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='2798' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime30emitDeclareTargetVarDefinitionEPKNS_7VarDeclEPN4llvm14GlobalVariableEb'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='2838' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime30emitDeclareTargetVarDefinitionEPKNS_7VarDeclEPN4llvm14GlobalVariableEb'/>
+<use f='llvm/clang/lib/CodeGen/CGVTables.cpp' l='263' u='c' c='_ZN5clang7CodeGen15CodeGenFunction10StartThunkEPN4llvm8FunctionENS_10GlobalDeclERKNS0_14CGFunctionInfoEb'/>
+<use f='llvm/clang/lib/CodeGen/CGVTables.cpp' l='435' u='c' c='_ZN5clang7CodeGen15CodeGenFunction13generateThunkEPN4llvm8FunctionERKNS0_14CGFunctionInfoENS_10GlobalDeclERKNS_9ThunkInfoEb'/>
+<use f='llvm/clang/lib/CodeGen/MicrosoftCXXABI.cpp' l='3964' u='c' c='_ZN12_GLOBAL__N_115MicrosoftCXXABI23getAddrOfCXXCtorClosureEPKN5clang18CXXConstructorDeclENS1_11CXXCtorTypeE'/>

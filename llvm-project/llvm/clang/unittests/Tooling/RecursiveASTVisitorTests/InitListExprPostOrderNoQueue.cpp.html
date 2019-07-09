@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>InitListExprPostOrderNoQueue.cpp source code [llvm/clang/unittests/Tooling/RecursiveASTVisitorTests/InitListExprPostOrderNoQueue.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/clang/unittests/Tooling/RecursiveASTVisitorTests/InitListExprPostOrderNoQueue.cpp'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>clang</a>/<a href='../..'>unittests</a>/<a href='..'>Tooling</a>/<a href='./'>RecursiveASTVisitorTests</a>/<a href='InitListExprPostOrderNoQueue.cpp.html'>InitListExprPostOrderNoQueue.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- unittest/Tooling/RecursiveASTVisitorTests/InitListExprPostOrderNoQueue.cpp -===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#include <a href="../TestVisitor.h.html">"TestVisitor.h"</a></u></td></tr>
+<tr><th id="10">10</th><td></td></tr>
+<tr><th id="11">11</th><td><b>using</b> <b>namespace</b> <span class="namespace">clang</span>;</td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><b>namespace</b> {</td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><b>class</b> <dfn class="tu type def" id="(anonymousnamespace)::InitListExprPostOrderNoQueueVisitor" title='(anonymous namespace)::InitListExprPostOrderNoQueueVisitor' data-ref="(anonymousnamespace)::InitListExprPostOrderNoQueueVisitor">InitListExprPostOrderNoQueueVisitor</dfn></td></tr>
+<tr><th id="16">16</th><td>    : <b>public</b> ExpectedLocationVisitor&lt;InitListExprPostOrderNoQueueVisitor&gt; {</td></tr>
+<tr><th id="17">17</th><td><b>public</b>:</td></tr>
+<tr><th id="18">18</th><td>  <em>bool</em> <dfn class="tu decl def" id="_ZNK12_GLOBAL__N_135InitListExprPostOrderNoQueueVisitor23shouldTraversePostOrderEv" title='(anonymous namespace)::InitListExprPostOrderNoQueueVisitor::shouldTraversePostOrder' data-type='bool (anonymous namespace)::InitListExprPostOrderNoQueueVisitor::shouldTraversePostOrder() const' data-ref="_ZNK12_GLOBAL__N_135InitListExprPostOrderNoQueueVisitor23shouldTraversePostOrderEv">shouldTraversePostOrder</dfn>() <em>const</em> { <b>return</b> <b>true</b>; }</td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td>  <em>bool</em> <dfn class="tu decl def" id="_ZN12_GLOBAL__N_135InitListExprPostOrderNoQueueVisitor20TraverseInitListExprEPN5clang12InitListExprE" title='(anonymous namespace)::InitListExprPostOrderNoQueueVisitor::TraverseInitListExpr' data-type='bool (anonymous namespace)::InitListExprPostOrderNoQueueVisitor::TraverseInitListExpr(clang::InitListExpr * ILE)' data-ref="_ZN12_GLOBAL__N_135InitListExprPostOrderNoQueueVisitor20TraverseInitListExprEPN5clang12InitListExprE">TraverseInitListExpr</dfn>(<a class="type" href="../../../include/clang/AST/Expr.h.html#clang::InitListExpr" title='clang::InitListExpr' data-ref="clang::InitListExpr">InitListExpr</a> *<dfn class="local col1 decl" id="1ILE" title='ILE' data-type='clang::InitListExpr *' data-ref="1ILE">ILE</dfn>) {</td></tr>
+<tr><th id="21">21</th><td>    <b>return</b> <span class='error' title="&apos;ExpectedLocationVisitor&apos; is not a class, namespace, or enumeration">ExpectedLocationVisitor</span>::TraverseInitListExpr(ILE);</td></tr>
+<tr><th id="22">22</th><td>  }</td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td>  <em>bool</em> <dfn class="tu decl def" id="_ZN12_GLOBAL__N_135InitListExprPostOrderNoQueueVisitor17VisitInitListExprEPN5clang12InitListExprE" title='(anonymous namespace)::InitListExprPostOrderNoQueueVisitor::VisitInitListExpr' data-type='bool (anonymous namespace)::InitListExprPostOrderNoQueueVisitor::VisitInitListExpr(clang::InitListExpr * ILE)' data-ref="_ZN12_GLOBAL__N_135InitListExprPostOrderNoQueueVisitor17VisitInitListExprEPN5clang12InitListExprE">VisitInitListExpr</dfn>(<a class="type" href="../../../include/clang/AST/Expr.h.html#clang::InitListExpr" title='clang::InitListExpr' data-ref="clang::InitListExpr">InitListExpr</a> *<dfn class="local col2 decl" id="2ILE" title='ILE' data-type='clang::InitListExpr *' data-ref="2ILE">ILE</dfn>) {</td></tr>
+<tr><th id="25">25</th><td>    <span class='error' title="use of undeclared identifier &apos;Match&apos;">Match</span>(ILE-&gt;isSemanticForm() ? <q>"semantic"</q> : <q>"syntactic"</q>, ILE-&gt;getBeginLoc());</td></tr>
+<tr><th id="26">26</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="27">27</th><td>  }</td></tr>
+<tr><th id="28">28</th><td>};</td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><a class="macro" href="../../../../llvm/utils/unittest/googletest/include/gtest/gtest.h.html#2187" title="class RecursiveASTVisitor_InitListExprIsPostOrderNoQueueVisitedTwice_Test : public ::testing::Test { public: RecursiveASTVisitor_InitListExprIsPostOrderNoQueueVisitedTwice_Test() {} private: virtual void TestBody(); static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); RecursiveASTVisitor_InitListExprIsPostOrderNoQueueVisitedTwice_Test(RecursiveASTVisitor_InitListExprIsPostOrderNoQueueVisitedTwice_Test const &amp;); void operator=(RecursiveASTVisitor_InitListExprIsPostOrderNoQueueVisitedTwice_Test const &amp;);};::testing::TestInfo* const RecursiveASTVisitor_InitListExprIsPostOrderNoQueueVisitedTwice_Test ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( &quot;RecursiveASTVisitor&quot;, &quot;InitListExprIsPostOrderNoQueueVisitedTwice&quot;, __null, __null, ::testing::internal::CodeLocation(&quot;/root/cheri/llvm-project/clang/unittests/Tooling/RecursiveASTVisitorTests/InitListExprPostOrderNoQueue.cpp&quot;, 30), (::testing::internal::GetTestTypeId()), ::testing::Test::SetUpTestCase, ::testing::Test::TearDownTestCase, new ::testing::internal::TestFactoryImpl&lt; RecursiveASTVisitor_InitListExprIsPostOrderNoQueueVisitedTwice_Test&gt;);void RecursiveASTVisitor_InitListExprIsPostOrderNoQueueVisitedTwice_Test::TestBody()" data-ref="_M/TEST">TEST</a>(RecursiveASTVisitor, InitListExprIsPostOrderNoQueueVisitedTwice) {</td></tr>
+<tr><th id="31">31</th><td>  <a class="tu type" href="#(anonymousnamespace)::InitListExprPostOrderNoQueueVisitor" title='(anonymous namespace)::InitListExprPostOrderNoQueueVisitor' data-ref="(anonymousnamespace)::InitListExprPostOrderNoQueueVisitor">InitListExprPostOrderNoQueueVisitor</a> <a class="tu ref fake" href="#15" title='(anonymous namespace)::InitListExprPostOrderNoQueueVisitor::InitListExprPostOrderNoQueueVisitor' data-use='c' data-ref="_ZN12_GLOBAL__N_135InitListExprPostOrderNoQueueVisitorC1Ev"></a><dfn class="local col3 decl" id="3Visitor" title='Visitor' data-type='(anonymous namespace)::InitListExprPostOrderNoQueueVisitor' data-ref="3Visitor">Visitor</dfn>;</td></tr>
+<tr><th id="32">32</th><td>  Visitor.<span class='error' title="no member named &apos;ExpectMatch&apos; in &apos;(anonymous namespace)::InitListExprPostOrderNoQueueVisitor&apos;">ExpectMatch</span>(<q>"syntactic"</q>, <var>2</var>, <var>21</var>);</td></tr>
+<tr><th id="33">33</th><td>  Visitor.<span class='error' title="no member named &apos;ExpectMatch&apos; in &apos;(anonymous namespace)::InitListExprPostOrderNoQueueVisitor&apos;">ExpectMatch</span>(<q>"semantic"</q>, <var>2</var>, <var>21</var>);</td></tr>
+<tr><th id="34">34</th><td>  <a class="macro" href="../../../../llvm/utils/unittest/googletest/include/gtest/gtest.h.html#1859" title="switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult((Visitor.runOver(&quot;struct S { int x; };\n&quot; &quot;static struct S s = {.x = 0};\n&quot;, InitListExprPostOrderNoQueueVisitor::Lang_C)))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, &quot;/root/cheri/llvm-project/clang/unittests/Tooling/RecursiveASTVisitorTests/InitListExprPostOrderNoQueue.cpp&quot;, 36, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, &quot;Visitor.runOver(\&quot;struct S { int x; };\\n\&quot; \&quot;static struct S s = {.x = 0};\\n\&quot;, InitListExprPostOrderNoQueueVisitor::Lang_C)&quot;, &quot;false&quot;, &quot;true&quot;).c_str()) = ::testing::Message()" data-ref="_M/EXPECT_TRUE">EXPECT_TRUE</a>(Visitor.<span class='error' title="no member named &apos;runOver&apos; in &apos;(anonymous namespace)::InitListExprPostOrderNoQueueVisitor&apos;">runOver</span>(<q>"struct S { int x; };\n"</q></td></tr>
+<tr><th id="35">35</th><td>                              <q>"static struct S s = {.x = 0};\n"</q>,</td></tr>
+<tr><th id="36">36</th><td>                              InitListExprPostOrderNoQueueVisitor::<span class='error' title="no member named &apos;Lang_C&apos; in &apos;(anonymous namespace)::InitListExprPostOrderNoQueueVisitor&apos;">Lang_C</span>));</td></tr>
+<tr><th id="37">37</th><td>}</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td>} <i>// end anonymous namespace</i></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

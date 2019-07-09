@@ -1,0 +1,131 @@
+<def f='llvm/clang/include/clang/AST/DeclBase.h' l='1271' ll='2442'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='107' c='clang::TranslationUnitDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='221' c='clang::ExternCContextDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='514' c='clang::NamespaceDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='1748' c='clang::FunctionDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='3094' c='clang::TagDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='3888' c='clang::BlockDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='4081' c='clang::CapturedDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='4251' c='clang::ExportDecl'/>
+<ovr f='llvm/clang/include/clang/AST/DeclCXX.h' l='2952' c='clang::LinkageSpecDecl'/>
+<ovr f='llvm/clang/include/clang/AST/DeclObjC.h' l='138' c='clang::ObjCMethodDecl'/>
+<ovr f='llvm/clang/include/clang/AST/DeclObjC.h' l='968' c='clang::ObjCContainerDecl'/>
+<size>32</size>
+<doc f='llvm/clang/include/clang/AST/DeclBase.h' l='1254'>/// DeclContext - This is used only as base class of specific decl types that
+/// can act as declaration contexts. These decls are (only the top classes
+/// that directly derive from DeclContext are mentioned, not their subclasses):
+///
+///   TranslationUnitDecl
+///   ExternCContext
+///   NamespaceDecl
+///   TagDecl
+///   OMPDeclareReductionDecl
+///   OMPDeclareMapperDecl
+///   FunctionDecl
+///   ObjCMethodDecl
+///   ObjCContainerDecl
+///   LinkageSpecDecl
+///   ExportDecl
+///   BlockDecl
+///   CapturedDecl</doc>
+<mbr r='clang::DeclContext::LookupPtr' o='0' t='clang::StoredDeclsMap *'/>
+<mbr r='clang::DeclContext::FirstDecl' o='128' t='clang::Decl *'/>
+<mbr r='clang::DeclContext::LastDecl' o='192' t='clang::Decl *'/>
+<fun r='_ZN5clang11DeclContext14BuildDeclChainEN4llvm8ArrayRefIPNS_4DeclEEEb'/>
+<fun r='_ZN5clang11DeclContextC1ENS_4Decl4KindE'/>
+<fun r='_ZN5clang11DeclContextD1Ev'/>
+<fun r='_ZNK5clang11DeclContext11getDeclKindEv'/>
+<fun r='_ZNK5clang11DeclContext15getDeclKindNameEv'/>
+<fun r='_ZN5clang11DeclContext9getParentEv'/>
+<fun r='_ZNK5clang11DeclContext9getParentEv'/>
+<fun r='_ZN5clang11DeclContext16getLexicalParentEv'/>
+<fun r='_ZNK5clang11DeclContext16getLexicalParentEv'/>
+<fun r='_ZN5clang11DeclContext15getLookupParentEv'/>
+<fun r='_ZNK5clang11DeclContext15getLookupParentEv'/>
+<fun r='_ZNK5clang11DeclContext19getParentASTContextEv'/>
+<fun r='_ZNK5clang11DeclContext9isClosureEv'/>
+<fun r='_ZNK5clang11DeclContext21getInnermostBlockDeclEv'/>
+<fun r='_ZNK5clang11DeclContext15isObjCContainerEv'/>
+<fun r='_ZNK5clang11DeclContext18isFunctionOrMethodEv'/>
+<fun r='_ZNK5clang11DeclContext15isLookupContextEv'/>
+<fun r='_ZNK5clang11DeclContext13isFileContextEv'/>
+<fun r='_ZNK5clang11DeclContext17isTranslationUnitEv'/>
+<fun r='_ZNK5clang11DeclContext8isRecordEv'/>
+<fun r='_ZNK5clang11DeclContext11isNamespaceEv'/>
+<fun r='_ZNK5clang11DeclContext14isStdNamespaceEv'/>
+<fun r='_ZNK5clang11DeclContext17isInlineNamespaceEv'/>
+<fun r='_ZNK5clang11DeclContext18isDependentContextEv'/>
+<fun r='_ZNK5clang11DeclContext20isTransparentContextEv'/>
+<fun r='_ZNK5clang11DeclContext16isExternCContextEv'/>
+<fun r='_ZNK5clang11DeclContext17getExternCContextEv'/>
+<fun r='_ZNK5clang11DeclContext18isExternCXXContextEv'/>
+<fun r='_ZNK5clang11DeclContext6EqualsEPKS0_'/>
+<fun r='_ZNK5clang11DeclContext8EnclosesEPKS0_'/>
+<fun r='_ZN5clang11DeclContext21getNonClosureAncestorEv'/>
+<fun r='_ZNK5clang11DeclContext21getNonClosureAncestorEv'/>
+<fun r='_ZN5clang11DeclContext17getPrimaryContextEv'/>
+<fun r='_ZNK5clang11DeclContext17getPrimaryContextEv'/>
+<fun r='_ZN5clang11DeclContext16getRedeclContextEv'/>
+<fun r='_ZNK5clang11DeclContext16getRedeclContextEv'/>
+<fun r='_ZN5clang11DeclContext28getEnclosingNamespaceContextEv'/>
+<fun r='_ZNK5clang11DeclContext28getEnclosingNamespaceContextEv'/>
+<fun r='_ZN5clang11DeclContext28getOuterLexicalRecordContextEv'/>
+<fun r='_ZNK5clang11DeclContext28getOuterLexicalRecordContextEv'/>
+<fun r='_ZNK5clang11DeclContext25InEnclosingNamespaceSetOfEPKS0_'/>
+<fun r='_ZN5clang11DeclContext18collectAllContextsERN4llvm15SmallVectorImplIPS0_EE'/>
+<fun r='_ZNK5clang11DeclContext5declsEv'/>
+<fun r='_ZNK5clang11DeclContext11decls_beginEv'/>
+<fun r='_ZNK5clang11DeclContext9decls_endEv'/>
+<fun r='_ZNK5clang11DeclContext11decls_emptyEv'/>
+<fun r='_ZNK5clang11DeclContext12noload_declsEv'/>
+<fun r='_ZNK5clang11DeclContext18noload_decls_beginEv'/>
+<fun r='_ZNK5clang11DeclContext16noload_decls_endEv'/>
+<fun r='_ZN5clang11DeclContext7addDeclEPNS_4DeclE'/>
+<fun r='_ZN5clang11DeclContext15addDeclInternalEPNS_4DeclE'/>
+<fun r='_ZN5clang11DeclContext13addHiddenDeclEPNS_4DeclE'/>
+<fun r='_ZN5clang11DeclContext10removeDeclEPNS_4DeclE'/>
+<fun r='_ZNK5clang11DeclContext12containsDeclEPNS_4DeclE'/>
+<fun r='_ZNK5clang11DeclContext19containsDeclAndLoadEPNS_4DeclE'/>
+<fun r='_ZNK5clang11DeclContext6lookupENS_15DeclarationNameE'/>
+<fun r='_ZN5clang11DeclContext13noload_lookupENS_15DeclarationNameE'/>
+<fun r='_ZN5clang11DeclContext19localUncachedLookupENS_15DeclarationNameERN4llvm15SmallVectorImplIPNS_9NamedDeclEEE'/>
+<fun r='_ZN5clang11DeclContext24makeDeclVisibleInContextEPNS_9NamedDeclE'/>
+<fun r='_ZNK5clang11DeclContext7lookupsEv'/>
+<fun r='_ZNK5clang11DeclContext14noload_lookupsEb'/>
+<fun r='_ZNK5clang11DeclContext13lookups_beginEv'/>
+<fun r='_ZNK5clang11DeclContext11lookups_endEv'/>
+<fun r='_ZNK5clang11DeclContext20noload_lookups_beginEv'/>
+<fun r='_ZNK5clang11DeclContext18noload_lookups_endEv'/>
+<fun r='_ZNK5clang11DeclContext16using_directivesEv'/>
+<fun r='_ZNK5clang11DeclContext6ddiagsEv'/>
+<fun r='_ZN5clang11DeclContext23setMustBuildLookupTableEv'/>
+<fun r='_ZNK5clang11DeclContext12getLookupPtrEv'/>
+<fun r='_ZN5clang11DeclContext11buildLookupEv'/>
+<fun r='_ZNK5clang11DeclContext25hasExternalLexicalStorageEv'/>
+<fun r='_ZNK5clang11DeclContext28setHasExternalLexicalStorageEb'/>
+<fun r='_ZNK5clang11DeclContext25hasExternalVisibleStorageEv'/>
+<fun r='_ZNK5clang11DeclContext28setHasExternalVisibleStorageEb'/>
+<fun r='_ZNK5clang11DeclContext24isDeclInLexicalTraversalEPKNS_4DeclE'/>
+<fun r='_ZNK5clang11DeclContext21setUseQualifiedLookupEb'/>
+<fun r='_ZNK5clang11DeclContext24shouldUseQualifiedLookupEv'/>
+<fun r='_ZN5clang11DeclContext7classofEPKNS_4DeclE'/>
+<fun r='_ZN5clang11DeclContext7classofEPKS0_'/>
+<fun r='_ZNK5clang11DeclContext15dumpDeclContextEv'/>
+<fun r='_ZNK5clang11DeclContext11dumpLookupsEv'/>
+<fun r='_ZNK5clang11DeclContext11dumpLookupsERN4llvm11raw_ostreamEbb'/>
+<fun r='_ZNK5clang11DeclContext40hasNeedToReconcileExternalVisibleStorageEv'/>
+<fun r='_ZNK5clang11DeclContext40setNeedToReconcileExternalVisibleStorageEb'/>
+<fun r='_ZNK5clang11DeclContext26hasLazyLocalLexicalLookupsEv'/>
+<fun r='_ZNK5clang11DeclContext29setHasLazyLocalLexicalLookupsEb'/>
+<fun r='_ZNK5clang11DeclContext29hasLazyExternalLexicalLookupsEv'/>
+<fun r='_ZNK5clang11DeclContext32setHasLazyExternalLexicalLookupsEb'/>
+<fun r='_ZNK5clang11DeclContext31reconcileExternalVisibleStorageEv'/>
+<fun r='_ZNK5clang11DeclContext35LoadLexicalDeclsFromExternalStorageEv'/>
+<fun r='_ZN5clang11DeclContext32makeDeclVisibleInContextInternalEPNS_9NamedDeclE'/>
+<fun r='_ZNK5clang11DeclContext20CreateStoredDeclsMapERNS_10ASTContextE'/>
+<fun r='_ZN5clang11DeclContext27loadLazyLocalLexicalLookupsEv'/>
+<fun r='_ZN5clang11DeclContext15buildLookupImplEPS0_b'/>
+<fun r='_ZN5clang11DeclContext33makeDeclVisibleInContextWithFlagsEPNS_9NamedDeclEbb'/>
+<fun r='_ZN5clang11DeclContext28makeDeclVisibleInContextImplEPNS_9NamedDeclEb'/>
+<ovr f='llvm/clang/include/clang/AST/DeclOpenMP.h' l='102' c='clang::OMPDeclareReductionDecl'/>
+<ovr f='llvm/clang/include/clang/AST/DeclOpenMP.h' l='217' c='clang::OMPDeclareMapperDecl'/>

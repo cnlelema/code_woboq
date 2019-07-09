@@ -1,0 +1,20 @@
+<dec f='llvm/llvm/include/llvm/IR/ConstantRange.h' l='103' type='static llvm::ConstantRange llvm::ConstantRange::makeAllowedICmpRegion(CmpInst::Predicate Pred, const llvm::ConstantRange &amp; Other)'/>
+<doc f='llvm/llvm/include/llvm/IR/ConstantRange.h' l='95'>/// Produce the smallest range such that all values that may satisfy the given
+  /// predicate with any value contained within Other is contained in the
+  /// returned range.  Formally, this returns a superset of
+  /// &apos;union over all y in Other . { x : icmp op x y is true }&apos;.  If the exact
+  /// answer is not representable as a ConstantRange, the return value will be a
+  /// proper superset of the above.
+  ///
+  /// Example: Pred = ult and Other = i8 [2, 5) returns Result = [0, 4)</doc>
+<use f='llvm/llvm/lib/Analysis/LazyValueInfo.cpp' l='1190' u='c' c='_ZL25getValueFromICmpConditionPN4llvm5ValueEPNS_8ICmpInstEb'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='10374' u='c' c='_ZN4llvm15ScalarEvolution30isImpliedCondOperandsViaRangesENS_7CmpInst9PredicateEPKNS_4SCEVES5_S5_S5_'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='5400' u='c' c='_ZL32isImpliedCondMatchingImmOperandsN4llvm7CmpInst9PredicateEPKNS_11ConstantIntES1_S4_'/>
+<def f='llvm/llvm/lib/IR/ConstantRange.cpp' l='77' ll='125' type='static llvm::ConstantRange llvm::ConstantRange::makeAllowedICmpRegion(CmpInst::Predicate Pred, const llvm::ConstantRange &amp; CR)'/>
+<use f='llvm/llvm/lib/IR/ConstantRange.cpp' l='133' u='c' c='_ZN4llvm13ConstantRange24makeSatisfyingICmpRegionENS_7CmpInst9PredicateERKS0_'/>
+<use f='llvm/llvm/lib/IR/ConstantRange.cpp' l='145' u='c' c='_ZN4llvm13ConstantRange19makeExactICmpRegionENS_7CmpInst9PredicateERKNS_5APIntE'/>
+<use f='llvm/llvm/lib/IR/ConstantRange.cpp' l='146' u='c' c='_ZN4llvm13ConstantRange19makeExactICmpRegionENS_7CmpInst9PredicateERKNS_5APIntE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCompares.cpp' l='1407' u='c' c='_ZN4llvm12InstCombiner26foldICmpWithDominatingICmpERNS_8ICmpInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='1813' u='c' c='_ZN12_GLOBAL__N_17WidenIV21calculatePostIncRangeEPN4llvm11InstructionES3_'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='593' u='c' c='_ZN12_GLOBAL__N_124ConstantComparesGatherer16matchInstructionEPN4llvm11InstructionEb'/>
+<use f='llvm/llvm/unittests/IR/ConstantRangeTest.cpp' l='1090' u='c' c='_ZN12_GLOBAL__N_140ConstantRange_MakeAllowedICmpRegion_Test8TestBodyEv'/>

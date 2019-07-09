@@ -1,0 +1,44 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/BasicBlockUtils.h' l='294' type='llvm::Instruction * llvm::SplitBlockAndInsertIfThen(llvm::Value * Cond, llvm::Instruction * SplitBefore, bool Unreachable, llvm::MDNode * BranchWeights = nullptr, llvm::DominatorTree * DT = nullptr, llvm::LoopInfo * LI = nullptr, llvm::BasicBlock * ThenBlock = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/BasicBlockUtils.h' l='273'>/// Split the containing block at the specified instruction - everything before
+/// SplitBefore stays in the old basic block, and the rest of the instructions
+/// in the BB are moved to a new block. The two blocks are connected by a
+/// conditional branch (with value of Cmp being the condition).
+/// Before:
+///   Head
+///   SplitBefore
+///   Tail
+/// After:
+///   Head
+///   if (Cond)
+///     ThenBlock
+///   SplitBefore
+///   Tail
+///
+/// If \p ThenBlock is not specified, a new block will be created for it.
+/// If \p Unreachable is true, the newly created block will end with
+/// UnreachableInst, otherwise it branches to Tail.
+/// Returns the NewBasicBlock&apos;s terminator.
+///
+/// Updates DT and LI if given.</doc>
+<use f='llvm/llvm/lib/CodeGen/SafeStack.cpp' l='474' u='c' c='_ZN12_GLOBAL__N_19SafeStack15checkStackGuardERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_8FunctionERNS1_10ReturnInstE5081626'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUAtomicOptimizer.cpp' l='361' u='c' c='_ZNK12_GLOBAL__N_121AMDGPUAtomicOptimizer14optimizeAtomicERN4llvm11InstructionENS2_9BinaryOpsEjb'/>
+<use f='llvm/llvm/lib/Transforms/IPO/LowerTypeTests.cpp' l='739' u='c' c='_ZN12_GLOBAL__N_120LowerTypeTestsModule17lowerTypeTestCallEPN4llvm8MetadataEPNS1_8CallInstERKNS0_14TypeIdLoweringE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/AddressSanitizer.cpp' l='1523' u='c' c='_ZL27instrumentMaskedLoadOrStorePN12_GLOBAL__N_116AddressSanitizerERKN4llvm10DataLayoutEPNS2_4TypeEPNS2_5ValueEPNS2_11InstructionES9_jjjbS9_bj'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/AddressSanitizer.cpp' l='1677' u='c' c='_ZN12_GLOBAL__N_116AddressSanitizer17instrumentAddressEPN4llvm11InstructionES3_PNS1_5ValueEjbS5_bj'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/AddressSanitizer.cpp' l='1699' u='c' c='_ZN12_GLOBAL__N_116AddressSanitizer17instrumentAddressEPN4llvm11InstructionES3_PNS1_5ValueEjbS5_bj'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/AddressSanitizer.cpp' l='1706' u='c' c='_ZN12_GLOBAL__N_116AddressSanitizer17instrumentAddressEPN4llvm11InstructionES3_PNS1_5ValueEjbS5_bj'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/AddressSanitizer.cpp' l='1715' u='c' c='_ZN12_GLOBAL__N_116AddressSanitizer17instrumentAddressEPN4llvm11InstructionES3_PNS1_5ValueEjbS5_bj'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/AddressSanitizer.cpp' l='3071' u='c' c='_ZN12_GLOBAL__N_121FunctionStackPoisoner20processStaticAllocasEv'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/AddressSanitizer.cpp' l='3086' u='c' c='_ZN12_GLOBAL__N_121FunctionStackPoisoner20processStaticAllocasEv'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/DataFlowSanitizer.cpp' l='984' u='c' c='_ZN12_GLOBAL__N_117DataFlowSanitizer11runOnModuleERN4llvm6ModuleE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/DataFlowSanitizer.cpp' l='1128' u='c' c='_ZN12_GLOBAL__N_113DFSanFunction14combineShadowsEPN4llvm5ValueES3_PNS1_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/HWAddressSanitizer.cpp' l='619' u='c' c='_ZN12_GLOBAL__N_118HWAddressSanitizer25instrumentMemAccessInlineEPN4llvm5ValueEbjPNS1_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/HWAddressSanitizer.cpp' l='901' u='c' c='_ZN12_GLOBAL__N_118HWAddressSanitizer12emitPrologueERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEb'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/MemorySanitizer.cpp' l='1139' u='c' c='_ZN12_GLOBAL__N_122MemorySanitizerVisitor11storeOriginERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueES8_S8_S8_jb'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/MemorySanitizer.cpp' l='1221' u='c' c='_ZN12_GLOBAL__N_122MemorySanitizerVisitor19materializeOneCheckEPN4llvm11InstructionEPNS1_5ValueES5_b'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='2586' u='c' c='_ZN4llvm17JumpThreadingPass25TryToUnfoldSelectInCurrBBEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SimpleLoopUnswitch.cpp' l='2372' u='c' c='_ZL19turnGuardIntoBranchPN4llvm13IntrinsicInstERNS_4LoopERNS_15SmallVectorImplIPNS_10BasicBlockEEERNS_13DominatorTreeERNS_8LoopInfoEPNS_16MemorySSAUpdaterE'/>
+<def f='llvm/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp' l='766' ll='816' type='llvm::Instruction * llvm::SplitBlockAndInsertIfThen(llvm::Value * Cond, llvm::Instruction * SplitBefore, bool Unreachable, llvm::MDNode * BranchWeights = nullptr, llvm::DominatorTree * DT = nullptr, llvm::LoopInfo * LI = nullptr, llvm::BasicBlock * ThenBlock = nullptr)'/>
+<use f='llvm/llvm/lib/Transforms/Utils/GuardUtils.cpp' l='33' u='c' c='_ZN4llvm28makeGuardControlFlowExplicitEPNS_8FunctionEPNS_8CallInstE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LibCallsShrinkWrap.cpp' l='490' u='c' c='_ZN12_GLOBAL__N_118LibCallsShrinkWrap12shrinkWrapCIEPN4llvm8CallInstEPNS1_5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='3056' u='c' c='_ZL30mergeConditionalStoreToAddressPN4llvm10BasicBlockES1_S1_S1_S1_PNS_5ValueEbbRKNS_10DataLayoutE'/>

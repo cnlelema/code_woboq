@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.h' l='294' type='bool llvm::ARMBaseInstrInfo::optimizeCompareInstr(llvm::MachineInstr &amp; CmpInstr, unsigned int SrcReg, unsigned int SrcReg2, int CmpMask, int CmpValue, const llvm::MachineRegisterInfo * MRI) const'/>
+<doc f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.h' l='290'>/// optimizeCompareInstr - Convert the instruction to set the zero flag so
+  /// that we can remove a &quot;comparison with zero&quot;; Remove a redundant CMP
+  /// instruction if the flags can be updated in the same way by an earlier
+  /// instruction such as SUB.</doc>
+<def f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='2767' ll='3041' type='bool llvm::ARMBaseInstrInfo::optimizeCompareInstr(llvm::MachineInstr &amp; CmpInstr, unsigned int SrcReg, unsigned int SrcReg2, int CmpMask, int CmpValue, const llvm::MachineRegisterInfo * MRI) const'/>
+<doc f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='2760'>/// optimizeCompareInstr - Convert the instruction supplying the argument to the
+/// comparison into one that sets the zero bit in the flags register;
+/// Remove a redundant Compare instruction if an earlier instruction can set the
+/// flags in the same way as Compare.
+/// E.g. SUBrr(r1,r2) and CMPrr(r1,r2). We also handle the case where two
+/// operands are swapped: SUBrr(r1,r2) and CMPrr(r2,r1), by updating the
+/// condition code of instructions which use the flags.</doc>

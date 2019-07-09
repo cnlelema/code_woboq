@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/Analysis/InlineCost.h' l='215' type='llvm::InlineCost llvm::getInlineCost(llvm::CallBase &amp; Call, const llvm::InlineParams &amp; Params, llvm::TargetTransformInfo &amp; CalleeTTI, std::function&lt;AssumptionCache &amp;(Function &amp;)&gt; &amp; GetAssumptionCache, Optional&lt;function_ref&lt;llvm::BlockFrequencyInfo &amp;(llvm::Function &amp;)&gt; &gt; GetBFI, llvm::ProfileSummaryInfo * PSI, llvm::OptimizationRemarkEmitter * ORE = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/InlineCost.h' l='204'>/// Get an InlineCost object representing the cost of inlining this
+/// callsite.
+///
+/// Note that a default threshold is passed into this function. This threshold
+/// could be modified based on callsite&apos;s properties and only costs below this
+/// new threshold are computed with any accuracy. The new threshold can be
+/// used to bound the computation necessary to determine whether the cost is
+/// sufficiently low to warrant inlining.
+///
+/// Also note that calling this function *dynamically* computes the cost of
+/// inlining the callsite. It is an expensive, heavyweight call.</doc>
+<def f='llvm/llvm/lib/Analysis/InlineCost.cpp' l='2023' ll='2030' type='llvm::InlineCost llvm::getInlineCost(llvm::CallBase &amp; Call, const llvm::InlineParams &amp; Params, llvm::TargetTransformInfo &amp; CalleeTTI, std::function&lt;AssumptionCache &amp;(Function &amp;)&gt; &amp; GetAssumptionCache, Optional&lt;function_ref&lt;llvm::BlockFrequencyInfo &amp;(llvm::Function &amp;)&gt; &gt; GetBFI, llvm::ProfileSummaryInfo * PSI, llvm::OptimizationRemarkEmitter * ORE = nullptr)'/>
+<use f='llvm/llvm/lib/Transforms/IPO/InlineSimple.cpp' l='71' u='c' c='_ZN12_GLOBAL__N_113SimpleInliner13getInlineCostEN4llvm8CallSiteE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/Inliner.cpp' l='1011' u='c' c='_ZN4llvm11InlinerPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS2_JRS1_EEES5_RNS_17CGSCCUpdateResultE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='779' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineEN4llvm8CallSiteERNS0_14FunctionClonerENS1_14BlockFrequencyERNS1_25OptimizationRemarkEmitterE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/SampleProfile.cpp' l='756' u='c' c='_ZN12_GLOBAL__N_119SampleProfileLoader21inlineCallInstructionEPN4llvm11InstructionE'/>

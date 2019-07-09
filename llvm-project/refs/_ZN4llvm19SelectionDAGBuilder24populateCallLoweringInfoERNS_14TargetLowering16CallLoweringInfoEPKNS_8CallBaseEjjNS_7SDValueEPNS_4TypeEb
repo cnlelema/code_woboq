@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.h' l='548' type='void llvm::SelectionDAGBuilder::populateCallLoweringInfo(TargetLowering::CallLoweringInfo &amp; CLI, const llvm::CallBase * Call, unsigned int ArgIdx, unsigned int NumArgs, llvm::SDValue Callee, llvm::Type * ReturnTy, bool IsPatchPoint)'/>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='8596' ll='8623' type='void llvm::SelectionDAGBuilder::populateCallLoweringInfo(TargetLowering::CallLoweringInfo &amp; CLI, const llvm::CallBase * Call, unsigned int ArgIdx, unsigned int NumArgs, llvm::SDValue Callee, llvm::Type * ReturnTy, bool IsPatchPoint)'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='8765' u='c' c='_ZN4llvm19SelectionDAGBuilder15visitPatchpointENS_17ImmutableCallSiteEPKNS_10BasicBlockE'/>
+<doc f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='8590'>/// Populate a CallLowerinInfo (into \p CLI) based on the properties of
+/// the call being lowered.
+///
+/// This is a helper for lowering intrinsics that follow a target calling
+/// convention or require stack pointer adjustment. Only a subset of the
+/// intrinsic&apos;s operands need to participate in the calling convention.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/StatepointLowering.cpp' l='862' u='c' c='_ZN4llvm19SelectionDAGBuilder15LowerStatepointENS_19ImmutableStatepointEPKNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/StatepointLowering.cpp' l='925' u='c' c='_ZN4llvm19SelectionDAGBuilder32LowerCallSiteWithDeoptBundleImplEPKNS_8CallBaseENS_7SDValueEPKNS_10BasicBlockEbb'/>

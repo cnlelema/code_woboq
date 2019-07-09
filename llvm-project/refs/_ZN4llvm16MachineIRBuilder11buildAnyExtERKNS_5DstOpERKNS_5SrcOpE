@@ -1,0 +1,23 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='471' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildAnyExt(const llvm::DstOp &amp; Res, const llvm::SrcOp &amp; Op)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='457'>/// Build and insert \p Res = G_ANYEXT \p Op0
+  ///
+  /// G_ANYEXT produces a register of the specified width, with bits 0 to
+  /// sizeof(\p Ty) * 8 set to \p Op. The remaining bits are unspecified
+  /// (i.e. this is neither zero nor sign-extension). For a vector register,
+  /// each element is extended individually.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Res must be a generic virtual register with scalar or vector type.
+  /// \pre \p Op must be a generic virtual register with scalar or vector type.
+  /// \pre \p Op must be smaller than \p Res
+  ///
+  /// \return The newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/CallLowering.cpp' l='211' u='c' c='_ZN4llvm12CallLowering12ValueHandler14extendRegisterEjRNS_11CCValAssignE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='599' u='c' c='_ZN4llvm15LegalizerHelper12narrowScalarERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='901' u='c' c='_ZN4llvm15LegalizerHelper18widenScalarExtractERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1526' u='c' c='_ZN4llvm15LegalizerHelper5lowerERNS_12MachineInstrEjNS_3LLTE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='380' ll='383' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildAnyExt(const llvm::DstOp &amp; Res, const llvm::SrcOp &amp; Op)'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64CallLowering.cpp' l='164' u='c' c='_ZN12_GLOBAL__N_118OutgoingArgHandler20assignValueToAddressEjjmRN4llvm18MachinePointerInfoERNS1_11CCValAssignE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsCallLowering.cpp' l='333' u='c' c='_ZN12_GLOBAL__N_120OutgoingValueHandler14extendRegisterEjRKN4llvm11CCValAssignE'/>
+<use f='llvm/llvm/lib/Target/X86/X86CallLowering.cpp' l='138' u='c' c='_ZN12_GLOBAL__N_120OutgoingValueHandler16assignValueToRegEjjRN4llvm11CCValAssignE'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/PatternMatchTest.cpp' l='360' u='c' c='_ZN12_GLOBAL__N_140PatternMatchInstr_MatchExtendsTrunc_Test8TestBodyEv'/>

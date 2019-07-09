@@ -1,0 +1,64 @@
+<def f='llvm/clang/include/clang/Sema/Initialization.h' l='760' ll='1403'/>
+<size>6688</size>
+<doc f='llvm/clang/include/clang/Sema/Initialization.h' l='758'>/// Describes the sequence of initializations required to initialize
+/// a given object or reference with a set of arguments.</doc>
+<mbr r='clang::InitializationSequence::SequenceKind' o='0' t='enum SequenceKind'/>
+<mbr r='clang::InitializationSequence::Steps' o='64' t='SmallVector&lt;clang::InitializationSequence::Step, 4&gt;'/>
+<mbr r='clang::InitializationSequence::Failure' o='1472' t='clang::InitializationSequence::FailureKind'/>
+<mbr r='clang::InitializationSequence::FailedOverloadResult' o='1504' t='clang::OverloadingResult'/>
+<mbr r='clang::InitializationSequence::FailedCandidateSet' o='1536' t='clang::OverloadCandidateSet'/>
+<mbr r='clang::InitializationSequence::FailedIncompleteType' o='53120' t='clang::QualType'/>
+<mbr r='clang::InitializationSequence::ZeroInitializationFixit' o='53184' t='std::string'/>
+<mbr r='clang::InitializationSequence::ZeroInitializationFixitLoc' o='53440' t='clang::SourceLocation'/>
+<fun r='_ZN5clang22InitializationSequence26SetZeroInitializationFixitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14SourceLocationE'/>
+<fun r='_ZN5clang22InitializationSequence21PrintInitLocationNoteERNS_4SemaERKNS_17InitializedEntityE'/>
+<fun r='_ZN5clang22InitializationSequenceC1ERNS_4SemaERKNS_17InitializedEntityERKNS_18InitializationKindEN4llvm15MutableArrayRefIPNS_4ExprEEEbb'/>
+<fun r='_ZN5clang22InitializationSequence14InitializeFromERNS_4SemaERKNS_17InitializedEntityERKNS_18InitializationKindEN4llvm15MutableArrayRefIPNS_4ExprEEEbb'/>
+<fun r='_ZN5clang22InitializationSequenceD1Ev'/>
+<fun r='_ZN5clang22InitializationSequence7PerformERNS_4SemaERKNS_17InitializedEntityERKNS_18InitializationKindEN4llvm15MutableArrayRefIPNS_4ExprEEEPNS_8QualTypeE'/>
+<fun r='_ZN5clang22InitializationSequence8DiagnoseERNS_4SemaERKNS_17InitializedEntityERKNS_18InitializationKindEN4llvm8ArrayRefIPNS_4ExprEEE'/>
+<fun r='_ZNK5clang22InitializationSequence7getKindEv'/>
+<fun r='_ZN5clang22InitializationSequence15setSequenceKindENS0_12SequenceKindE'/>
+<fun r='_ZNK5clang22InitializationSequencecvbEv'/>
+<fun r='_ZNK5clang22InitializationSequence6FailedEv'/>
+<fun r='_ZNK5clang22InitializationSequence10step_beginEv'/>
+<fun r='_ZNK5clang22InitializationSequence8step_endEv'/>
+<fun r='_ZNK5clang22InitializationSequence5stepsEv'/>
+<fun r='_ZNK5clang22InitializationSequence24isDirectReferenceBindingEv'/>
+<fun r='_ZNK5clang22InitializationSequence11isAmbiguousEv'/>
+<fun r='_ZNK5clang22InitializationSequence27isConstructorInitializationEv'/>
+<fun r='_ZNK5clang22InitializationSequence17endsWithNarrowingERNS_10ASTContextEPKNS_4ExprEPbPNS_7APValueE'/>
+<fun r='_ZN5clang22InitializationSequence32AddAddressOverloadResolutionStepEPNS_12FunctionDeclENS_14DeclAccessPairEb'/>
+<fun r='_ZN5clang22InitializationSequence24AddDerivedToBaseCastStepENS_8QualTypeENS_13ExprValueKindE'/>
+<fun r='_ZN5clang22InitializationSequence23AddReferenceBindingStepENS_8QualTypeEb'/>
+<fun r='_ZN5clang22InitializationSequence28AddExtraneousCopyToTemporaryENS_8QualTypeE'/>
+<fun r='_ZN5clang22InitializationSequence12AddFinalCopyENS_8QualTypeE'/>
+<fun r='_ZN5clang22InitializationSequence21AddUserConversionStepEPNS_12FunctionDeclENS_14DeclAccessPairENS_8QualTypeEb'/>
+<fun r='_ZN5clang22InitializationSequence30AddQualificationConversionStepENS_8QualTypeENS_13ExprValueKindE'/>
+<fun r='_ZN5clang22InitializationSequence23AddAtomicConversionStepENS_8QualTypeE'/>
+<fun r='_ZN5clang22InitializationSequence21AddLValueToRValueStepENS_8QualTypeE'/>
+<fun r='_ZN5clang22InitializationSequence25AddConversionSequenceStepERKNS_26ImplicitConversionSequenceENS_8QualTypeEb'/>
+<fun r='_ZN5clang22InitializationSequence25AddListInitializationStepENS_8QualTypeE'/>
+<fun r='_ZN5clang22InitializationSequence32AddConstructorInitializationStepENS_14DeclAccessPairEPNS_18CXXConstructorDeclENS_8QualTypeEbbb'/>
+<fun r='_ZN5clang22InitializationSequence25AddZeroInitializationStepENS_8QualTypeE'/>
+<fun r='_ZN5clang22InitializationSequence18AddCAssignmentStepENS_8QualTypeE'/>
+<fun r='_ZN5clang22InitializationSequence17AddStringInitStepENS_8QualTypeE'/>
+<fun r='_ZN5clang22InitializationSequence27AddObjCObjectConversionStepENS_8QualTypeE'/>
+<fun r='_ZN5clang22InitializationSequence20AddArrayInitLoopStepENS_8QualTypeES1_'/>
+<fun r='_ZN5clang22InitializationSequence16AddArrayInitStepENS_8QualTypeEb'/>
+<fun r='_ZN5clang22InitializationSequence29AddParenthesizedArrayInitStepENS_8QualTypeE'/>
+<fun r='_ZN5clang22InitializationSequence32AddPassByIndirectCopyRestoreStepENS_8QualTypeEb'/>
+<fun r='_ZN5clang22InitializationSequence24AddProduceObjCObjectStepENS_8QualTypeE'/>
+<fun r='_ZN5clang22InitializationSequence37AddStdInitializerListConstructionStepENS_8QualTypeE'/>
+<fun r='_ZN5clang22InitializationSequence21AddOCLSamplerInitStepENS_8QualTypeE'/>
+<fun r='_ZN5clang22InitializationSequence24AddOCLZeroOpaqueTypeStepENS_8QualTypeE'/>
+<fun r='_ZN5clang22InitializationSequence34AddOCLIntelSubgroupAVCZeroInitStepENS_8QualTypeE'/>
+<fun r='_ZN5clang22InitializationSequence23RewrapReferenceInitListENS_8QualTypeEPNS_12InitListExprE'/>
+<fun r='_ZN5clang22InitializationSequence9SetFailedENS0_11FailureKindE'/>
+<fun r='_ZN5clang22InitializationSequence18SetOverloadFailureENS0_11FailureKindENS_17OverloadingResultE'/>
+<fun r='_ZN5clang22InitializationSequence21getFailedCandidateSetEv'/>
+<fun r='_ZNK5clang22InitializationSequence23getFailedOverloadResultEv'/>
+<fun r='_ZN5clang22InitializationSequence24setIncompleteTypeFailureENS_8QualTypeE'/>
+<fun r='_ZNK5clang22InitializationSequence14getFailureKindEv'/>
+<fun r='_ZNK5clang22InitializationSequence4dumpERN4llvm11raw_ostreamE'/>
+<fun r='_ZNK5clang22InitializationSequence4dumpEv'/>

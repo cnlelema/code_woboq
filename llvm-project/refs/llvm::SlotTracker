@@ -1,0 +1,90 @@
+<def f='llvm/llvm/lib/IR/AsmWriter.cpp' l='668' ll='817'/>
+<size>312</size>
+<doc f='llvm/llvm/lib/IR/AsmWriter.cpp' l='663'>//===----------------------------------------------------------------------===//
+// SlotTracker Class: Enumerate slot numbers for unnamed values
+//===----------------------------------------------------------------------===//
+/// This class provides computation of slot numbers for LLVM Assembly writing.
+///</doc>
+<mbr r='llvm::SlotTracker::TheModule' o='0' t='const llvm::Module *'/>
+<mbr r='llvm::SlotTracker::TheFunction' o='64' t='const llvm::Function *'/>
+<mbr r='llvm::SlotTracker::FunctionProcessed' o='128' t='bool'/>
+<mbr r='llvm::SlotTracker::ShouldInitializeAllMetadata' o='136' t='bool'/>
+<mbr r='llvm::SlotTracker::TheIndex' o='192' t='const llvm::ModuleSummaryIndex *'/>
+<mbr r='llvm::SlotTracker::mMap' o='256' t='ValueMap'/>
+<mbr r='llvm::SlotTracker::mNext' o='512' t='unsigned int'/>
+<mbr r='llvm::SlotTracker::fMap' o='576' t='ValueMap'/>
+<mbr r='llvm::SlotTracker::fNext' o='832' t='unsigned int'/>
+<mbr r='llvm::SlotTracker::mdnMap' o='896' t='DenseMap&lt;const llvm::MDNode *, unsigned int&gt;'/>
+<mbr r='llvm::SlotTracker::mdnNext' o='1152' t='unsigned int'/>
+<mbr r='llvm::SlotTracker::asMap' o='1216' t='DenseMap&lt;llvm::AttributeSet, unsigned int&gt;'/>
+<mbr r='llvm::SlotTracker::asNext' o='1472' t='unsigned int'/>
+<mbr r='llvm::SlotTracker::ModulePathMap' o='1536' t='StringMap&lt;unsigned int&gt;'/>
+<mbr r='llvm::SlotTracker::ModulePathNext' o='1792' t='unsigned int'/>
+<mbr r='llvm::SlotTracker::GUIDMap' o='1856' t='DenseMap&lt;GlobalValue::GUID, unsigned int&gt;'/>
+<mbr r='llvm::SlotTracker::GUIDNext' o='2112' t='unsigned int'/>
+<mbr r='llvm::SlotTracker::TypeIdMap' o='2176' t='StringMap&lt;unsigned int&gt;'/>
+<mbr r='llvm::SlotTracker::TypeIdNext' o='2432' t='unsigned int'/>
+<fun r='_ZN4llvm11SlotTrackerC1EPKNS_6ModuleEb'/>
+<fun r='_ZN4llvm11SlotTrackerC1EPKNS_8FunctionEb'/>
+<fun r='_ZN4llvm11SlotTrackerC1EPKNS_18ModuleSummaryIndexE'/>
+<fun r='_ZN4llvm11SlotTrackerC1ERKS0_'/>
+<fun r='_ZN4llvm11SlotTrackeraSERKS0_'/>
+<fun r='_ZN4llvm11SlotTracker12getLocalSlotEPKNS_5ValueE'/>
+<fun r='_ZN4llvm11SlotTracker13getGlobalSlotEPKNS_11GlobalValueE'/>
+<fun r='_ZN4llvm11SlotTracker15getMetadataSlotEPKNS_6MDNodeE'/>
+<fun r='_ZN4llvm11SlotTracker21getAttributeGroupSlotENS_12AttributeSetE'/>
+<fun r='_ZN4llvm11SlotTracker17getModulePathSlotENS_9StringRefE'/>
+<fun r='_ZN4llvm11SlotTracker11getGUIDSlotEm'/>
+<fun r='_ZN4llvm11SlotTracker13getTypeIdSlotENS_9StringRefE'/>
+<fun r='_ZN4llvm11SlotTracker19incorporateFunctionEPKNS_8FunctionE'/>
+<fun r='_ZNK4llvm11SlotTracker11getFunctionEv'/>
+<fun r='_ZN4llvm11SlotTracker13purgeFunctionEv'/>
+<fun r='_ZN4llvm11SlotTracker9mdn_beginEv'/>
+<fun r='_ZN4llvm11SlotTracker7mdn_endEv'/>
+<fun r='_ZNK4llvm11SlotTracker8mdn_sizeEv'/>
+<fun r='_ZNK4llvm11SlotTracker9mdn_emptyEv'/>
+<fun r='_ZN4llvm11SlotTracker8as_beginEv'/>
+<fun r='_ZN4llvm11SlotTracker6as_endEv'/>
+<fun r='_ZNK4llvm11SlotTracker7as_sizeEv'/>
+<fun r='_ZNK4llvm11SlotTracker8as_emptyEv'/>
+<fun r='_ZN4llvm11SlotTracker18initializeIfNeededEv'/>
+<fun r='_ZN4llvm11SlotTracker23initializeIndexIfNeededEv'/>
+<fun r='_ZN4llvm11SlotTracker16CreateModuleSlotEPKNS_11GlobalValueE'/>
+<fun r='_ZN4llvm11SlotTracker18CreateMetadataSlotEPKNS_6MDNodeE'/>
+<fun r='_ZN4llvm11SlotTracker18CreateFunctionSlotEPKNS_5ValueE'/>
+<fun r='_ZN4llvm11SlotTracker22CreateAttributeSetSlotENS_12AttributeSetE'/>
+<fun r='_ZN4llvm11SlotTracker20CreateModulePathSlotENS_9StringRefE'/>
+<fun r='_ZN4llvm11SlotTracker14CreateGUIDSlotEm'/>
+<fun r='_ZN4llvm11SlotTracker16CreateTypeIdSlotENS_9StringRefE'/>
+<fun r='_ZN4llvm11SlotTracker13processModuleEv'/>
+<fun r='_ZN4llvm11SlotTracker12processIndexEv'/>
+<fun r='_ZN4llvm11SlotTracker15processFunctionEv'/>
+<fun r='_ZN4llvm11SlotTracker27processGlobalObjectMetadataERKNS_12GlobalObjectE'/>
+<fun r='_ZN4llvm11SlotTracker23processFunctionMetadataERKNS_8FunctionE'/>
+<fun r='_ZN4llvm11SlotTracker26processInstructionMetadataERKNS_11InstructionE'/>
+<fun r='_ZN4llvm11SlotTrackerC1EPKNS_6ModuleEb'/>
+<fun r='_ZN4llvm11SlotTrackerC1EPKNS_8FunctionEb'/>
+<fun r='_ZN4llvm11SlotTrackerC1EPKNS_18ModuleSummaryIndexE'/>
+<fun r='_ZN4llvm11SlotTracker18initializeIfNeededEv'/>
+<fun r='_ZN4llvm11SlotTracker23initializeIndexIfNeededEv'/>
+<fun r='_ZN4llvm11SlotTracker13processModuleEv'/>
+<fun r='_ZN4llvm11SlotTracker15processFunctionEv'/>
+<fun r='_ZN4llvm11SlotTracker12processIndexEv'/>
+<fun r='_ZN4llvm11SlotTracker27processGlobalObjectMetadataERKNS_12GlobalObjectE'/>
+<fun r='_ZN4llvm11SlotTracker23processFunctionMetadataERKNS_8FunctionE'/>
+<fun r='_ZN4llvm11SlotTracker26processInstructionMetadataERKNS_11InstructionE'/>
+<fun r='_ZN4llvm11SlotTracker13purgeFunctionEv'/>
+<fun r='_ZN4llvm11SlotTracker13getGlobalSlotEPKNS_11GlobalValueE'/>
+<fun r='_ZN4llvm11SlotTracker15getMetadataSlotEPKNS_6MDNodeE'/>
+<fun r='_ZN4llvm11SlotTracker12getLocalSlotEPKNS_5ValueE'/>
+<fun r='_ZN4llvm11SlotTracker21getAttributeGroupSlotENS_12AttributeSetE'/>
+<fun r='_ZN4llvm11SlotTracker17getModulePathSlotENS_9StringRefE'/>
+<fun r='_ZN4llvm11SlotTracker11getGUIDSlotEm'/>
+<fun r='_ZN4llvm11SlotTracker13getTypeIdSlotENS_9StringRefE'/>
+<fun r='_ZN4llvm11SlotTracker16CreateModuleSlotEPKNS_11GlobalValueE'/>
+<fun r='_ZN4llvm11SlotTracker18CreateFunctionSlotEPKNS_5ValueE'/>
+<fun r='_ZN4llvm11SlotTracker18CreateMetadataSlotEPKNS_6MDNodeE'/>
+<fun r='_ZN4llvm11SlotTracker22CreateAttributeSetSlotENS_12AttributeSetE'/>
+<fun r='_ZN4llvm11SlotTracker20CreateModulePathSlotENS_9StringRefE'/>
+<fun r='_ZN4llvm11SlotTracker14CreateGUIDSlotEm'/>
+<fun r='_ZN4llvm11SlotTracker16CreateTypeIdSlotENS_9StringRefE'/>

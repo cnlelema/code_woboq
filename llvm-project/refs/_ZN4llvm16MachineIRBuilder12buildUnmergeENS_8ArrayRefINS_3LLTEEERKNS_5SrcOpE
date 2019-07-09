@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='732' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildUnmerge(ArrayRef&lt;llvm::LLT&gt; Res, const llvm::SrcOp &amp; Op)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='722'>/// Build and insert \p Res0, ... = G_UNMERGE_VALUES \p Op
+  ///
+  /// G_UNMERGE_VALUES splits contiguous bits of the input into multiple
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre The entire register \p Res (and no more) must be covered by the input
+  ///      registers.
+  /// \pre The type of all \p Res registers must be identical.
+  ///
+  /// \return a MachineInstrBuilder for the newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/CallLowering.cpp' l='174' u='c' c='_ZNK4llvm12CallLowering17handleAssignmentsERNS_16MachineIRBuilderENS_8ArrayRefINS0_7ArgInfoEEERNS0_12ValueHandlerE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='552' ll='559' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildUnmerge(ArrayRef&lt;llvm::LLT&gt; Res, const llvm::SrcOp &amp; Op)'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULegalizerInfo.cpp' l='967' u='c' c='_ZNK4llvm19AMDGPULegalizerInfo22legalizeIntrinsicTruncERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULegalizerInfo.cpp' l='1013' u='c' c='_ZNK4llvm19AMDGPULegalizerInfo13legalizeITOFPERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderEb'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/CSETest.cpp' l='71' u='c' c='_ZN12_GLOBAL__N_124GISelMITest_TestCSE_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/CSETest.cpp' l='72' u='c' c='_ZN12_GLOBAL__N_124GISelMITest_TestCSE_Test8TestBodyEv'/>

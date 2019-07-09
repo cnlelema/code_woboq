@@ -1,0 +1,35 @@
+<dec f='llvm/llvm/include/llvm/Support/FileSystem.h' l='317' type='std::error_code llvm::sys::fs::make_absolute(SmallVectorImpl&lt;char&gt; &amp; path)'/>
+<doc f='llvm/llvm/include/llvm/Support/FileSystem.h' l='306'>/// Make \a path an absolute path.
+///
+/// Makes \a path absolute using the current directory if it is not already. An
+/// empty \a path will result in the current directory.
+///
+/// /absolute/path   =&gt; /absolute/path
+/// relative/../path =&gt; &lt;current-directory&gt;/relative/../path
+///
+/// @param path A path that is modified to be an absolute path.
+/// @returns errc::success if \a path has been made absolute, otherwise a
+///          platform-specific error_code.</doc>
+<use f='llvm/clang/lib/CodeGen/CoverageMappingGen.cpp' l='1283' u='c' c='_ZN12_GLOBAL__N_117normalizeFilenameEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Driver/Driver.cpp' l='849' u='c' c='_ZN5clang6driver6Driver14loadConfigFileEv'/>
+<use f='llvm/clang/lib/Driver/Driver.cpp' l='860' u='c' c='_ZN5clang6driver6Driver14loadConfigFileEv'/>
+<use f='llvm/clang/lib/Frontend/CompilerInvocation.cpp' l='1982' u='c' c='_ZL21ParseHeaderSearchArgsRN5clang19HeaderSearchOptionsERN4llvm3opt7ArgListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/clang/lib/Frontend/ModuleDependencyCollector.cpp' l='189' u='c' c='_ZN5clang25ModuleDependencyCollector10copyToRootEN4llvm9StringRefES2_'/>
+<use f='llvm/clang/lib/Lex/HeaderSearch.cpp' l='147' u='c' c='_ZN5clang12HeaderSearch25getPrebuiltModuleFileNameEN4llvm9StringRefEb'/>
+<use f='llvm/clang/lib/Lex/HeaderSearch.cpp' l='163' u='c' c='_ZN5clang12HeaderSearch23getCachedModuleFileNameEN4llvm9StringRefES2_'/>
+<use f='llvm/clang/lib/Serialization/ASTReader.cpp' l='1342' u='c' c='_ZL32resolveFileRelativeToOriginalDirRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_'/>
+<use f='llvm/clang/tools/driver/driver.cpp' l='299' u='c' c='_ZL13SetInstallDirRN4llvm15SmallVectorImplIPKcEERN5clang6driver6DriverEb'/>
+<use f='llvm/lld/COFF/Driver.cpp' l='1654' u='c' c='_ZN3lld4coff12LinkerDriver4linkEN4llvm8ArrayRefIPKcEE'/>
+<use f='llvm/lld/COFF/PDB.cpp' l='266' u='c' c='_ZL15pdbMakeAbsoluteRN4llvm15SmallVectorImplIcEE'/>
+<use f='llvm/lld/Common/Reproduce.cpp' l='26' u='c' c='_ZN3lld14relativeToRootEN4llvm9StringRefE'/>
+<use f='llvm/lld/lib/ReaderWriter/MachO/MachONormalizedFileFromAtoms.cpp' l='892' u='c' c='_ZN12_GLOBAL__N_14Util20synthesizeDebugNotesERN3lld6mach_o10normalized14NormalizedFileE'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/AsmPrinter.cpp' l='1422' u='c' c='_ZN4llvm10AsmPrinter18emitRemarksSectionERNS_6ModuleE'/>
+<use f='llvm/llvm/lib/DebugInfo/Symbolize/Symbolize.cpp' l='191' u='c' c='_ZN4llvm9symbolize12_GLOBAL__N_115findDebugBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_jS9_RS7_'/>
+<use f='llvm/llvm/lib/Object/ArchiveWriter.cpp' l='500' u='c' c='_ZN4llvmL16canonicalizePathENS_9StringRefE'/>
+<use f='llvm/llvm/lib/Support/LockFileManager.cpp' l='159' u='c' c='_ZN4llvm15LockFileManagerC1ENS_9StringRefE'/>
+<def f='llvm/llvm/lib/Support/Path.cpp' l='903' ll='913' type='std::error_code llvm::sys::fs::make_absolute(SmallVectorImpl&lt;char&gt; &amp; path)'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='1585' u='c' c='_ZN4llvm3vfs21RedirectingFileSystem6createESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS3_EEPFvRKNS_12SMDiagnosticEPvENS_9StringRefESA_NS_18In3578764'/>
+<use f='llvm/llvm/lib/Testing/Support/SupportHelpers.cpp' l='19' u='c' c='_ZL13findSrcDirMapN4llvm9StringRefE'/>
+<use f='llvm/llvm/tools/llvm-config/llvm-config.cpp' l='284' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-cov/CodeCoverage.cpp' l='188' u='c' c='_ZN12_GLOBAL__N_116CodeCoverageTool16addCollectedPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='185' u='c' c='_ZN12_GLOBAL__N_117Support_Path_Test8TestBodyEv'/>

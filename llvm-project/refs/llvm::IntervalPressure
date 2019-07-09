@@ -1,0 +1,17 @@
+<inh f='llvm/llvm/include/llvm/CodeGen/RegisterPressure.h' l='48' c='llvm::RegisterPressure'/>
+<def f='llvm/llvm/include/llvm/CodeGen/RegisterPressure.h' l='68' ll='78'/>
+<size>200</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/RegisterPressure.h' l='59'>/// RegisterPressure computed within a region of instructions delimited by
+/// TopIdx and BottomIdx.  During pressure computation, the maximum pressure per
+/// register pressure set is increased. Once pressure within a region is fully
+/// computed, the live-in and live-out sets are recorded.
+///
+/// This is preferable to RegionPressure when LiveIntervals are available,
+/// because delimiting regions by SlotIndex is more robust and convenient than
+/// holding block iterators. The block contents can change without invalidating
+/// the pressure result.</doc>
+<mbr r='llvm::IntervalPressure::TopIdx' o='1472' t='llvm::SlotIndex'/>
+<mbr r='llvm::IntervalPressure::BottomIdx' o='1536' t='llvm::SlotIndex'/>
+<fun r='_ZN4llvm16IntervalPressure5resetEv'/>
+<fun r='_ZN4llvm16IntervalPressure7openTopENS_9SlotIndexE'/>
+<fun r='_ZN4llvm16IntervalPressure10openBottomENS_9SlotIndexE'/>

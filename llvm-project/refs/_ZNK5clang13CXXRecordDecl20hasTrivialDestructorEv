@@ -1,0 +1,42 @@
+<def f='llvm/clang/include/clang/AST/DeclCXX.h' l='1489' ll='1491' type='bool clang::CXXRecordDecl::hasTrivialDestructor() const'/>
+<doc f='llvm/clang/include/clang/AST/DeclCXX.h' l='1487'>/// Determine whether this class has a trivial destructor
+  /// (C++ [class.dtor]p3)</doc>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='6225' u='c' c='_ZN5clang10ASTContext20BlockRequiresCopyingENS_8QualTypeEPKNS_7VarDeclE'/>
+<use f='llvm/clang/lib/AST/Decl.cpp' l='4332' u='c' c='_ZNK5clang10RecordDecl21mayInsertExtraPaddingEb'/>
+<use f='llvm/clang/lib/AST/DeclCXX.cpp' l='402' u='c' c='_ZN5clang13CXXRecordDecl8setBasesEPKPKNS_16CXXBaseSpecifierEj'/>
+<use f='llvm/clang/lib/AST/DeclCXX.cpp' l='544' u='c' c='_ZNK5clang13CXXRecordDecl19isTriviallyCopyableEv'/>
+<use f='llvm/clang/lib/AST/DeclCXX.cpp' l='1159' u='c' c='_ZN5clang13CXXRecordDecl11addedMemberEPNS_4DeclE'/>
+<use f='llvm/clang/lib/AST/JSONNodeDumper.cpp' l='345' u='c' c='_ZL30createDestructorDefinitionDataPKN5clang13CXXRecordDeclE'/>
+<use f='llvm/clang/lib/AST/TextNodeDumper.cpp' l='1634' u='c' c='_ZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='4166' u='c' c='_ZN5clang8QualType20isDestructedTypeImplES0_'/>
+<use f='llvm/clang/lib/Analysis/CFG.cpp' l='1822' u='c' c='_ZN12_GLOBAL__N_110CFGBuilder29addImplicitDtorsForDestructorEPKN5clang17CXXDestructorDeclE'/>
+<use f='llvm/clang/lib/Analysis/CFG.cpp' l='1832' u='c' c='_ZN12_GLOBAL__N_110CFGBuilder29addImplicitDtorsForDestructorEPKN5clang17CXXDestructorDeclE'/>
+<use f='llvm/clang/lib/Analysis/CFG.cpp' l='1942' u='c' c='_ZN12_GLOBAL__N_110CFGBuilder20hasTrivialDestructorEPN5clang7VarDeclE'/>
+<use f='llvm/clang/lib/Analysis/ConstructionContext.cpp' l='55' u='c' c='_ZN5clang19ConstructionContext37createMaterializedTemporaryFromLayersERNS_17BumpVectorContextEPKNS_24MaterializeTemporaryExprEPKNS_20CXXBindTemporaryE7008138'/>
+<use f='llvm/clang/lib/Analysis/ConstructionContext.cpp' l='122' u='c' c='_ZN5clang19ConstructionContext30createBoundTemporaryFromLayersERNS_17BumpVectorContextEPKNS_20CXXBindTemporaryExprEPKNS_24ConstructionContextLayerE'/>
+<use f='llvm/clang/lib/CodeGen/CGBlocks.cpp' l='403' u='c' c='_ZL27isSafeForCXXConstantCaptureN5clang8QualTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGBlocks.cpp' l='648' u='c' c='_ZL16computeBlockInfoRN5clang7CodeGen13CodeGenModuleEPNS0_15CodeGenFunctionERNS0_11CGBlockInfoE'/>
+<use f='llvm/clang/lib/CodeGen/CGBlocks.cpp' l='2640' u='c' c='_ZN5clang7CodeGen15CodeGenFunction17buildByrefHelpersERN4llvm10StructTypeERKNS1_15AutoVarEmissionE'/>
+<use f='llvm/clang/lib/CodeGen/CGCXX.cpp' l='84' u='c' c='_ZN5clang7CodeGen13CodeGenModule28TryEmitBaseDestructorAsAliasEPKNS_17CXXDestructorDeclE'/>
+<use f='llvm/clang/lib/CodeGen/CGClass.cpp' l='565' u='c' c='_ZL19EmitBaseInitializerRN5clang7CodeGen15CodeGenFunctionEPKNS_13CXXRecordDeclEPNS_18CXXCtorInitializerE'/>
+<use f='llvm/clang/lib/CodeGen/CGClass.cpp' l='1340' u='c' c='_ZL24HasTrivialDestructorBodyRN5clang10ASTContextEPKNS_13CXXRecordDeclES4_'/>
+<use f='llvm/clang/lib/CodeGen/CGClass.cpp' l='1817' u='c' c='_ZN5clang7CodeGen15CodeGenFunction17EnterDtorCleanupsEPKNS_17CXXDestructorDeclENS_11CXXDtorTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGClass.cpp' l='1845' u='c' c='_ZN5clang7CodeGen15CodeGenFunction17EnterDtorCleanupsEPKNS_17CXXDestructorDeclENS_11CXXDtorTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGClass.cpp' l='2399' u='c' c='_ZN5clang7CodeGen15CodeGenFunction32EmitDelegatingCXXConstructorCallEPKNS_18CXXConstructorDeclERKNS0_15FunctionArgListE'/>
+<use f='llvm/clang/lib/CodeGen/CGClass.cpp' l='2442' u='c' c='_ZN5clang7CodeGen15CodeGenFunction21PushDestructorCleanupENS_8QualTypeENS0_7AddressE'/>
+<use f='llvm/clang/lib/CodeGen/CGDecl.cpp' l='310' u='c' c='_ZL24hasNontrivialDestructionN5clang8QualTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGDecl.cpp' l='1476' u='c' c='_ZN5clang7CodeGen15CodeGenFunction17EmitAutoVarAllocaERKNS_7VarDeclE'/>
+<use f='llvm/clang/lib/CodeGen/CGDeclCXX.cpp' l='118' u='c' c='_ZL15EmitDeclDestroyRN5clang7CodeGen15CodeGenFunctionERKNS_7VarDeclENS0_15ConstantAddressE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='324' u='c' c='_ZL20pushTemporaryCleanupRN5clang7CodeGen15CodeGenFunctionEPKNS_24MaterializeTemporaryExprEPKNS_4ExprENS0_7AddressE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='5486' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitCXXConstructLValueEPKNS_16CXXConstructExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprAgg.cpp' l='237' u='c' c='_ZN12_GLOBAL__N_114AggExprEmitter23TypeRequiresGCollectionEN5clang8QualTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprCXX.cpp' l='1920' u='c' c='_ZL16EmitObjectDeleteRN5clang7CodeGen15CodeGenFunctionEPKNS_13CXXDeleteExprENS0_7AddressENS_8QualTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprConstant.cpp' l='1063' u='c' c='_ZN12_GLOBAL__N_116ConstExprEmitter21VisitCXXConstructExprEPN5clang16CXXConstructExprENS1_8QualTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenFunction.cpp' l='1162' u='c' c='_ZL44shouldUseUndefinedBehaviorReturnOptimizationPKN5clang12FunctionDeclERKNS_10ASTContextE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='3390' u='c' c='_ZN5clang7CodeGen13CodeGenModule14isTypeConstantENS_8QualTypeEb'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='3895' u='c' c='_ZN5clang7CodeGen13CodeGenModule23EmitGlobalVarDefinitionEPKNS_7VarDeclEb'/>
+<use f='llvm/clang/lib/CodeGen/ItaniumCXXABI.cpp' l='1274' u='c' c='_ZN12_GLOBAL__N_113ItaniumCXXABI9emitThrowERN5clang7CodeGen15CodeGenFunctionEPKNS1_12CXXThrowExprE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='12142' u='c' c='_ZN5clang4Sema32CheckCompleteVariableDeclarationEPNS_7VarDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='7408' u='c' c='_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS0_16CXXSpecialMemberEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='4765' u='c' c='_ZL22EvaluateUnaryTypeTraitRN5clang4SemaENS_9TypeTraitENS_14SourceLocationENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='8437' u='c' c='_ZN5clang4Sema18RequireLiteralTypeENS_14SourceLocationENS_8QualTypeERNS0_13TypeDiagnoserE'/>

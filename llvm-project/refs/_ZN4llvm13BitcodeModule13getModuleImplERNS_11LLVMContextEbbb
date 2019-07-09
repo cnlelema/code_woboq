@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/Bitcode/BitcodeReader.h' l='80' type='Expected&lt;std::unique_ptr&lt;Module&gt; &gt; llvm::BitcodeModule::getModuleImpl(llvm::LLVMContext &amp; Context, bool MaterializeAll, bool ShouldLazyLoadMetadata, bool IsImporting)'/>
+<def f='llvm/llvm/lib/Bitcode/Reader/BitcodeReader.cpp' l='6007' ll='6046' type='Expected&lt;std::unique_ptr&lt;Module&gt; &gt; llvm::BitcodeModule::getModuleImpl(llvm::LLVMContext &amp; Context, bool MaterializeAll, bool ShouldLazyLoadMetadata, bool IsImporting)'/>
+<use f='llvm/llvm/lib/Bitcode/Reader/BitcodeReader.cpp' l='6051' u='c' c='_ZN4llvm13BitcodeModule13getLazyModuleERNS_11LLVMContextEbb'/>
+<use f='llvm/llvm/lib/Bitcode/Reader/BitcodeReader.cpp' l='6205' u='c' c='_ZN4llvm13BitcodeModule11parseModuleERNS_11LLVMContextE'/>
+<doc f='llvm/llvm/lib/Bitcode/Reader/BitcodeReader.cpp' l='5999'>/// Get a lazy one-at-time loading module from bitcode.
+///
+/// This isn&apos;t always used in a lazy context.  In particular, it&apos;s also used by
+/// \a parseModule().  If this is truly lazy, then we need to eagerly pull
+/// in forward-referenced functions from block address references.
+///
+/// \param[in] MaterializeAll Set to \c true if we should materialize
+/// everything.</doc>

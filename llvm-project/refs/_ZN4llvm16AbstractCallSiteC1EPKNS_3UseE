@@ -1,0 +1,20 @@
+<dec f='llvm/llvm/include/llvm/IR/CallSite.h' l='774' type='void llvm::AbstractCallSite::AbstractCallSite(const llvm::Use * U)'/>
+<doc f='llvm/llvm/include/llvm/IR/CallSite.h' l='758'>/// Sole constructor for abstract call sites (ACS).
+  ///
+  /// An abstract call site can only be constructed through a llvm::Use because
+  /// each operand (=use) of an instruction could potentially be a different
+  /// abstract call site. Furthermore, even if the value of the llvm::Use is the
+  /// same, and the user is as well, the abstract call sites might not be.
+  ///
+  /// If a use is not associated with an abstract call site the constructed ACS
+  /// will evaluate to false if converted to a boolean.
+  ///
+  /// If the use is the callee use of a call or invoke instruction, the
+  /// constructed abstract call site will behave as a llvm::CallSite would.
+  ///
+  /// If the use is not a callee use of a call or invoke instruction, the
+  /// callback metadata is used to determine the argument &lt;-&gt; parameter mapping
+  /// as well as the callee of the abstract call site.</doc>
+<def f='llvm/llvm/lib/IR/AbstractCallSite.cpp' l='37' ll='134' type='void llvm::AbstractCallSite::AbstractCallSite(const llvm::Use * U)'/>
+<doc f='llvm/llvm/lib/IR/AbstractCallSite.cpp' l='36'>/// Create an abstract call site from a use.</doc>
+<use f='llvm/llvm/lib/Transforms/IPO/IPConstantPropagation.cpp' l='65' u='c' c='_ZL31PropagateConstantsIntoArgumentsRN4llvm8FunctionE'/>

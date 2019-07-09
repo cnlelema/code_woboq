@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.h' l='494' type='bool llvm::PPC::isVPKUDUMShuffleMask(llvm::ShuffleVectorSDNode * N, unsigned int ShuffleKind, llvm::SelectionDAG &amp; DAG)'/>
+<doc f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.h' l='492'>/// isVPKUDUMShuffleMask - Return true if this is the shuffle mask for a
+    /// VPKUDUM instruction.</doc>
+<def f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='1522' ll='1562' type='bool llvm::PPC::isVPKUDUMShuffleMask(llvm::ShuffleVectorSDNode * N, unsigned int ShuffleKind, llvm::SelectionDAG &amp; DAG)'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='8840' u='c' c='_ZNK4llvm17PPCTargetLowering19LowerVECTOR_SHUFFLEENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='8861' u='c' c='_ZNK4llvm17PPCTargetLowering19LowerVECTOR_SHUFFLEENS_7SDValueERNS_12SelectionDAGE'/>
+<doc f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='1514'>/// isVPKUDUMShuffleMask - Return true if this is the shuffle mask for a
+/// VPKUDUM instruction, AND the VPKUDUM instruction exists for the
+/// current subtarget.
+///
+/// The ShuffleKind distinguishes between big-endian operations with
+/// two different inputs (0), either-endian operations with two identical
+/// inputs (1), and little-endian operations with two different inputs (2).
+/// For the latter, the input operands are swapped (see PPCInstrAltivec.td).</doc>

@@ -1,0 +1,21 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='608' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildConstant(const llvm::DstOp &amp; Res, const llvm::ConstantInt &amp; Val)'/>
+<ovr f='llvm/llvm/lib/CodeGen/GlobalISel/CSEMIRBuilder.cpp' l='193' c='_ZN4llvm13CSEMIRBuilder13buildConstantERKNS_5DstOpERKNS_11ConstantIntE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/CSEMIRBuilder.cpp' l='197' u='c' c='_ZN4llvm13CSEMIRBuilder13buildConstantERKNS_5DstOpERKNS_11ConstantIntE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/CSEMIRBuilder.cpp' l='216' u='c' c='_ZN4llvm13CSEMIRBuilder13buildConstantERKNS_5DstOpERKNS_11ConstantIntE'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='598'>/// Build and insert \p Res = G_CONSTANT \p Val
+  ///
+  /// G_CONSTANT is an integer constant with the specified size and value. \p
+  /// Val will be extended or truncated to the size of \p Reg.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Res must be a generic virtual register with scalar or pointer
+  ///      type.
+  ///
+  /// \return The newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='1731' u='c' c='_ZN4llvm12IRTranslator9translateERKNS_8ConstantEj'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='253' ll='271' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildConstant(const llvm::DstOp &amp; Res, const llvm::ConstantInt &amp; Val)'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='278' u='c' c='_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='309' u='c' c='_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpERKNS_5APIntE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMLegalizerInfo.cpp' l='461' u='c' c='_ZNK4llvm16ARMLegalizerInfo14legalizeCustomERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderERNS_19GISelChangeObserverE'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/MachineIRBuilderTest.cpp' l='58' u='c' c='_ZN48GISelMITest_TestBuildConstantFConstantDeath_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/MachineIRBuilderTest.cpp' l='60' u='c' c='_ZN48GISelMITest_TestBuildConstantFConstantDeath_Test8TestBodyEv'/>

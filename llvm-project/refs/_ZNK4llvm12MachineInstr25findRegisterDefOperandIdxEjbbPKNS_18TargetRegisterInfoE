@@ -1,0 +1,24 @@
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1168' u='c' c='_ZNK4llvm12MachineInstr15definesRegisterEjPKNS_18TargetRegisterInfoE'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1175' u='c' c='_ZNK4llvm12MachineInstr16modifiesRegisterEjPKNS_18TargetRegisterInfoE'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1183' u='c' c='_ZNK4llvm12MachineInstr17registerDefIsDeadEjPKNS_18TargetRegisterInfoE'/>
+<dec f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1217' type='int llvm::MachineInstr::findRegisterDefOperandIdx(unsigned int Reg, bool isDead = false, bool Overlap = false, const llvm::TargetRegisterInfo * TRI = nullptr) const'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1227' u='c' c='_ZN4llvm12MachineInstr22findRegisterDefOperandEjbbPKNS_18TargetRegisterInfoE'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1211'>/// Returns the operand index that is a def of the specified register or
+  /// -1 if it is not found. If isDead is true, defs that are not dead are
+  /// skipped. If Overlap is true, then it also looks for defs that merely
+  /// overlap the specified register. If TargetRegisterInfo is non-null,
+  /// then it also checks if there is a def of a super-register.
+  /// This may also return a register mask operand when Overlap is true.</doc>
+<use f='llvm/llvm/lib/CodeGen/AggressiveAntiDepBreaker.cpp' l='706' u='c' c='_ZN4llvm24AggressiveAntiDepBreaker25FindSuitableFreeRegistersEjRSt3mapIPKNS_19TargetRegisterClassEjSt4lessIS4_ESaISt4pairIKS4_jEEERS1_IjjS5_IjESaIS7_IKjjEEE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineCombiner.cpp' l='186' u='c' c='_ZN12_GLOBAL__N_115MachineCombiner8getDepthERN4llvm15SmallVectorImplIPNS1_12MachineInstrEEERNS1_8DenseMapIjjNS1_12DenseMapInfoIjEENS1_6detail12DenseMa222803'/>
+<use f='llvm/llvm/lib/CodeGen/MachineCombiner.cpp' l='195' u='c' c='_ZN12_GLOBAL__N_115MachineCombiner8getDepthERN4llvm15SmallVectorImplIPNS1_12MachineInstrEEERNS1_8DenseMapIjjNS1_12DenseMapInfoIjEENS1_6detail12DenseMa222803'/>
+<use f='llvm/llvm/lib/CodeGen/MachineCombiner.cpp' l='239' u='c' c='_ZN12_GLOBAL__N_115MachineCombiner10getLatencyEPN4llvm12MachineInstrES3_NS1_19MachineTraceMetrics5TraceE'/>
+<def f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='996' ll='1021' type='int llvm::MachineInstr::findRegisterDefOperandIdx(unsigned int Reg, bool isDead = false, bool Overlap = false, const llvm::TargetRegisterInfo * TRI = nullptr) const'/>
+<doc f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='992'>/// findRegisterDefOperandIdx() - Returns the operand index that is a def of
+/// the specified register or -1 if it is not found. If isDead is true, defs
+/// that are not dead are skipped. If TargetRegisterInfo is non-null, then it
+/// also checks if there is a def of a super-register.</doc>
+<use f='llvm/llvm/lib/CodeGen/RegisterCoalescer.cpp' l='785' u='c' c='_ZN12_GLOBAL__N_117RegisterCoalescer24removeCopyByCommutingDefERKN4llvm13CoalescerPairEPNS1_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/TwoAddressInstructionPass.cpp' l='1388' u='c' c='_ZN12_GLOBAL__N_125TwoAddressInstructionPass23tryInstructionTransformERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_jjjb'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='1519' u='c' c='_ZNK4llvm16ARMBaseInstrInfo18expandPostRAPseudoERNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='3891' u='c' c='_ZL15getBundledDefMIPKN4llvm18TargetRegisterInfoEPKNS_12MachineInstrEjRjS6_'/>

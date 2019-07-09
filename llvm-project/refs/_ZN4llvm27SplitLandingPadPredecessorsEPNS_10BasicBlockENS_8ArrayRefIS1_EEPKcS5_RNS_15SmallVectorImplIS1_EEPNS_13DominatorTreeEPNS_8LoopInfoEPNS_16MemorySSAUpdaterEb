@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/BasicBlockUtils.h' l='259' type='void llvm::SplitLandingPadPredecessors(llvm::BasicBlock * OrigBB, ArrayRef&lt;llvm::BasicBlock *&gt; Preds, const char * Suffix, const char * Suffix2, SmallVectorImpl&lt;llvm::BasicBlock *&gt; &amp; NewBBs, llvm::DominatorTree * DT = nullptr, llvm::LoopInfo * LI = nullptr, llvm::MemorySSAUpdater * MSSAU = nullptr, bool PreserveLCSSA = false)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/BasicBlockUtils.h' l='248'>/// This method transforms the landing pad, OrigBB, by introducing two new basic
+/// blocks into the function. One of those new basic blocks gets the
+/// predecessors listed in Preds. The other basic block gets the remaining
+/// predecessors of OrigBB. The landingpad instruction OrigBB is clone into both
+/// of the new basic blocks. The new blocks are given the suffixes &apos;Suffix1&apos; and
+/// &apos;Suffix2&apos;, and are returned in the NewBBs vector.
+///
+/// This currently updates the LLVM IR, DominatorTree, LoopInfo, and LCCSA but
+/// no other analyses. In particular, it does not preserve LoopSimplify
+/// (because it&apos;s complicated to handle the case where one of the edges being
+/// split is an exit of a loop with other exits).</doc>
+<use f='llvm/llvm/lib/Transforms/IPO/BlockExtractor.cpp' l='157' u='c' c='_ZN12_GLOBAL__N_114BlockExtractor20splitLandingPadPredsERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='2098' u='c' c='_ZN4llvm17JumpThreadingPass15SplitBlockPredsEPNS_10BasicBlockENS_8ArrayRefIS2_EEPKc'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='5318' u='c' c='_ZNK12_GLOBAL__N_111LSRInstance13RewriteForPHIEPN4llvm7PHINodeERKNS_6LSRUseERKNS_8LSRFixupERKNS_7FormulaERNS1_12SCEVExpanderERNS1_15SmallVectorImplINS13448949'/>
+<use f='llvm/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp' l='571' u='c' c='_ZN4llvm22SplitBlockPredecessorsEPNS_10BasicBlockENS_8ArrayRefIS1_EEPKcPNS_13DominatorTreeEPNS_8LoopInfoEPNS_16MemorySSAUpdaterEb'/>
+<def f='llvm/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp' l='619' ll='721' type='void llvm::SplitLandingPadPredecessors(llvm::BasicBlock * OrigBB, ArrayRef&lt;llvm::BasicBlock *&gt; Preds, const char * Suffix1, const char * Suffix2, SmallVectorImpl&lt;llvm::BasicBlock *&gt; &amp; NewBBs, llvm::DominatorTree * DT = nullptr, llvm::LoopInfo * LI = nullptr, llvm::MemorySSAUpdater * MSSAU = nullptr, bool PreserveLCSSA = false)'/>

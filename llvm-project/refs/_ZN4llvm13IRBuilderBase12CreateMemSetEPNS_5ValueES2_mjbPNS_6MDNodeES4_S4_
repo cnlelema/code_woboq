@@ -1,0 +1,23 @@
+<def f='llvm/llvm/include/llvm/IR/IRBuilder.h' l='410' ll='416' type='llvm::CallInst * llvm::IRBuilderBase::CreateMemSet(llvm::Value * Ptr, llvm::Value * Val, uint64_t Size, unsigned int Align, bool isVolatile = false, llvm::MDNode * TBAATag = nullptr, llvm::MDNode * ScopeTag = nullptr, llvm::MDNode * NoAliasTag = nullptr)'/>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='375' u='c' c='_ZNK12_GLOBAL__N_110AtomicInfo25emitMemSetZeroIfNecessaryEv'/>
+<doc f='llvm/llvm/include/llvm/IR/IRBuilder.h' l='400'>//===--------------------------------------------------------------------===//
+  // Intrinsic creation methods
+  //===--------------------------------------------------------------------===//
+
+  /// Create and insert a memset to the specified pointer and the
+  /// specified value.
+  ///
+  /// If the pointer isn&apos;t an i8*, it will be converted. If a TBAA tag is
+  /// specified, it will be added to the instruction. Likewise with alias.scope
+  /// and noalias tags.</doc>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/HWAddressSanitizer.cpp' l='740' u='c' c='_ZN12_GLOBAL__N_118HWAddressSanitizer9tagAllocaERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_10AllocaInstEPNS1_5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/MemorySanitizer.cpp' l='1623' u='c' c='_ZN12_GLOBAL__N_122MemorySanitizerVisitor9getShadowEPN4llvm5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/MemorySanitizer.cpp' l='3894' u='c' c='_ZN12_GLOBAL__N_117VarArgAMD64Helper24unpoisonVAListTagForInstERN4llvm13IntrinsicInstE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/MemorySanitizer.cpp' l='4044' u='c' c='_ZN12_GLOBAL__N_118VarArgMIPS64Helper16visitVAStartInstERN4llvm11VAStartInstE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/MemorySanitizer.cpp' l='4056' u='c' c='_ZN12_GLOBAL__N_118VarArgMIPS64Helper15visitVACopyInstERN4llvm10VACopyInstE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/MemorySanitizer.cpp' l='4213' u='c' c='_ZN12_GLOBAL__N_119VarArgAArch64Helper16visitVAStartInstERN4llvm11VAStartInstE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/MemorySanitizer.cpp' l='4225' u='c' c='_ZN12_GLOBAL__N_119VarArgAArch64Helper15visitVACopyInstERN4llvm10VACopyInstE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/MemorySanitizer.cpp' l='4480' u='c' c='_ZN12_GLOBAL__N_121VarArgPowerPC64Helper16visitVAStartInstERN4llvm11VAStartInstE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/MemorySanitizer.cpp' l='4493' u='c' c='_ZN12_GLOBAL__N_121VarArgPowerPC64Helper15visitVACopyInstERN4llvm10VACopyInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='487' u='c' c='_ZN4llvm13MemCpyOptPass20tryMergingIntoMemsetEPNS_11InstructionEPNS_5ValueES4_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='775' u='c' c='_ZN4llvm13MemCpyOptPass12processStoreEPNS_9StoreInstERNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11InstructionELb1ELb0EvEELb0ELb0EEE'/>

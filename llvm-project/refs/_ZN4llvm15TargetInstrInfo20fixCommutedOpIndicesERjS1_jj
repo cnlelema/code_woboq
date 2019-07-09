@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='143' type='static bool llvm::TargetInstrInfo::fixCommutedOpIndices(unsigned int &amp; ResultIdx1, unsigned int &amp; ResultIdx2, unsigned int CommutableOpIdx1, unsigned int CommutableOpIdx2)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='133'>/// Assigns the (CommutableOpIdx1, CommutableOpIdx2) pair of commutable
+  /// operand indices to (ResultIdx1, ResultIdx2).
+  /// One or both input values of the pair: (ResultIdx1, ResultIdx2) may be
+  /// predefined to some indices or be undefined (designated by the special
+  /// value &apos;CommuteAnyOperandIndex&apos;).
+  /// The predefined result indices cannot be re-defined.
+  /// The function returns true iff after the result pair redefinition
+  /// the fixed result pair is equal to or equivalent to the source pair of
+  /// indices: (CommutableOpIdx1, CommutableOpIdx2). It is assumed here that
+  /// the pairs (x,y) and (y,x) are equivalent.</doc>
+<def f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='247' ll='276' type='static bool llvm::TargetInstrInfo::fixCommutedOpIndices(unsigned int &amp; ResultIdx1, unsigned int &amp; ResultIdx2, unsigned int CommutableOpIdx1, unsigned int CommutableOpIdx2)'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='292' u='c' c='_ZNK4llvm15TargetInstrInfo21findCommutedOpIndicesERNS_12MachineInstrERjS3_'/>

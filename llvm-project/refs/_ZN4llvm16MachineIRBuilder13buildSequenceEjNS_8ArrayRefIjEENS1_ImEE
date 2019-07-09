@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='706' type='void llvm::MachineIRBuilder::buildSequence(unsigned int Res, ArrayRef&lt;unsigned int&gt; Ops, ArrayRef&lt;uint64_t&gt; Indices)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='693'>/// Build and insert instructions to put \p Ops together at the specified p
+  /// Indices to form a larger register.
+  ///
+  /// If the types of the input registers are uniform and cover the entirity of
+  /// \p Res then a G_MERGE_VALUES will be produced. Otherwise an IMPLICIT_DEF
+  /// followed by a sequence of G_INSERT instructions.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre The final element of the sequence must not extend past the end of the
+  ///      destination register.
+  /// \pre The bits defined by each Op (derived from index and scalar size) must
+  ///      not overlap.
+  /// \pre \p Indices must be in ascending order of bit position.</doc>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='498' ll='537' type='void llvm::MachineIRBuilder::buildSequence(unsigned int Res, ArrayRef&lt;unsigned int&gt; Ops, ArrayRef&lt;uint64_t&gt; Indices)'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64CallLowering.cpp' l='510' u='c' c='_ZNK4llvm19AArch64CallLowering9lowerCallERNS_16MachineIRBuilderEjRKNS_14MachineOperandERKNS_12CallLowering7ArgInfoENS_8ArrayRefIS7_EEj'/>

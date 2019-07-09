@@ -1,0 +1,12 @@
+<dec f='llvm/clang/include/clang/Basic/Diagnostic.h' l='709' type='void clang::DiagnosticsEngine::setSeverity(diag::kind Diag, diag::Severity Map, clang::SourceLocation Loc)'/>
+<doc f='llvm/clang/include/clang/Basic/Diagnostic.h' l='701'>/// This allows the client to specify that certain warnings are
+  /// ignored.
+  ///
+  /// Notes can never be mapped, errors can only be mapped to fatal, and
+  /// WARNINGs and EXTENSIONs can be mapped arbitrarily.
+  ///
+  /// \param Loc The source location that this change of diagnostic state should
+  /// take affect. It can be null if we are setting the latest state.</doc>
+<def f='llvm/clang/lib/Basic/Diagnostic.cpp' l='342' ll='381' type='void clang::DiagnosticsEngine::setSeverity(diag::kind Diag, diag::Severity Map, clang::SourceLocation L)'/>
+<use f='llvm/clang/lib/Basic/Diagnostic.cpp' l='393' u='c' c='_ZN5clang17DiagnosticsEngine19setSeverityForGroupENS_4diag6FlavorEN4llvm9StringRefENS1_8SeverityENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Basic/Diagnostic.cpp' l='469' u='c' c='_ZN5clang17DiagnosticsEngine17setSeverityForAllENS_4diag6FlavorENS1_8SeverityENS_14SourceLocationE'/>

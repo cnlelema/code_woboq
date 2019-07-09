@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/RegisterBankInfo.h' l='378' type='iterator_range&lt;SmallVectorImpl&lt;unsigned int&gt;::const_iterator&gt; llvm::RegisterBankInfo::OperandsMapper::getVRegs(unsigned int OpIdx, bool ForDebug = false) const'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/RegBankSelect.cpp' l='608' u='c' c='_ZN4llvm13RegBankSelect12applyMappingERNS_12MachineInstrERKNS_16RegisterBankInfo18InstructionMappingERNS_15SmallVectorImplINS0_18RepairingPlacementEEE'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/RegisterBankInfo.h' l='365'>/// Get all the virtual registers required to map the \p OpIdx-th operand of
+    /// the instruction.
+    ///
+    /// This return an empty range when createVRegs or setVRegs has not been
+    /// called.
+    /// The iterator may be invalidated by a call to setVRegs or createVRegs.
+    ///
+    /// When \p ForDebug is true, we will not check that the list of new virtual
+    /// registers does not contain uninitialized values.
+    ///
+    /// \pre getMI().getOperand(OpIdx).isReg()
+    /// \pre ForDebug || All partial mappings have been set a register</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/RegisterBankInfo.cpp' l='439' u='c' c='_ZN4llvm16RegisterBankInfo19applyDefaultMappingERKNS0_14OperandsMapperE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/RegisterBankInfo.cpp' l='708' ll='729' type='iterator_range&lt;SmallVectorImpl&lt;unsigned int&gt;::const_iterator&gt; llvm::RegisterBankInfo::OperandsMapper::getVRegs(unsigned int OpIdx, bool ForDebug = false) const'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/RegisterBankInfo.cpp' l='774' u='c' c='_ZNK4llvm16RegisterBankInfo14OperandsMapper5printERNS_11raw_ostreamEb'/>

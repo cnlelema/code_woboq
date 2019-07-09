@@ -1,0 +1,46 @@
+<def f='llvm/clang/include/clang/AST/Expr.h' l='258' type='bool clang::Expr::isLValue() const'/>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='245'>/// isLValue - True if this expression is an &quot;l-value&quot; according to
+  /// the rules of the current language.  C and C++ give somewhat
+  /// different rules for this concept, but in general, the result of
+  /// an l-value expression identifies a specific object whereas the
+  /// result of an r-value expression is a value detached from any
+  /// specific storage.
+  ///
+  /// C++11 divides the concept of &quot;r-value&quot; into pure r-values
+  /// (&quot;pr-values&quot;) and so-called expiring values (&quot;x-values&quot;), which
+  /// identify specific objects that can be safely cannibalized for
+  /// their resources.  This is an unfortunate abuse of terminology on
+  /// the part of the C++ committee.  In Clang, when we say &quot;r-value&quot;,
+  /// we generally mean a pr-value.</doc>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='4659' u='c' c='_ZNK5clang4Expr20getRealReferenceTypeERNS_10ASTContextEb'/>
+<use f='llvm/clang/lib/AST/ExprClassification.cpp' l='607' u='c' c='_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Analysis/BodyFarm.cpp' l='446' u='c' c='_ZL16create_call_onceRN5clang10ASTContextEPKNS_12FunctionDeclE'/>
+<use f='llvm/clang/lib/Analysis/LiveVariables.cpp' l='465' u='c' c='_ZN12_GLOBAL__N_117TransferFunctions29VisitUnaryExprOrTypeTraitExprEPN5clang24UnaryExprOrTypeTraitExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntimeNVPTX.cpp' l='562' u='c' c='_ZN12_GLOBAL__N_128CheckVarsEscapingDeclContext9VisitExprEPKN5clang4ExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='3633' u='c' c='_ZL21emitOMPAtomicReadExprRN5clang7CodeGen15CodeGenFunctionEbPKNS_4ExprES5_NS_14SourceLocationE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='3634' u='c' c='_ZL21emitOMPAtomicReadExprRN5clang7CodeGen15CodeGenFunctionEbPKNS_4ExprES5_NS_14SourceLocationE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='3657' u='c' c='_ZL22emitOMPAtomicWriteExprRN5clang7CodeGen15CodeGenFunctionEbPKNS_4ExprES5_NS_14SourceLocationE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='3798' u='c' c='_ZL23emitOMPAtomicUpdateExprRN5clang7CodeGen15CodeGenFunctionEbPKNS_4ExprES5_S5_bNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='3845' u='c' c='_ZL24emitOMPAtomicCaptureExprRN5clang7CodeGen15CodeGenFunctionEbbPKNS_4ExprES5_S5_S5_bNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='3846' u='c' c='_ZL24emitOMPAtomicCaptureExprRN5clang7CodeGen15CodeGenFunctionEbbPKNS_4ExprES5_S5_S5_bNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaCast.cpp' l='766' u='c' c='_ZN12_GLOBAL__N_113CastOperation16CheckDynamicCastEv'/>
+<use f='llvm/clang/lib/Sema/SemaCast.cpp' l='1367' u='c' c='_ZL26TryStaticReferenceDowncastRN5clang4SemaEPNS_4ExprENS_8QualTypeEbNS_11SourceRangeERjRNS_8CastKindERN4llvm11SmallVectorIPNS_16CXXBaseSpecifierELj4EEE'/>
+<use f='llvm/clang/lib/Sema/SemaCast.cpp' l='1730' u='c' c='_ZL12TryConstCastRN5clang4SemaERNS_12ActionResultIPNS_4ExprELb1EEENS_8QualTypeEbRj'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='471' u='c' c='_ZN5clang4Sema30DefaultFunctionArrayConversionEPNS_4ExprEb'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='4610' u='c' c='_ZN5clang4Sema31CreateBuiltinArraySubscriptExprEPNS_4ExprENS_14SourceLocationES2_S3_'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='11283' u='c' c='_ZL28isReferenceToNonConstCaptureRN5clang4SemaEPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='17359' u='c' c='_ZN12_GLOBAL__N_121RebuildUnknownAnyExpr13VisitCallExprEPN5clang8CallExprE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='5376' u='c' c='_ZL23EvaluateExpressionTraitN5clang15ExpressionTraitEPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='5582' u='c' c='_ZL19TryClassUnificationRN5clang4SemaEPNS_4ExprES3_NS_14SourceLocationERbRNS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='5583' u='c' c='_ZL19TryClassUnificationRN5clang4SemaEPNS_4ExprES3_NS_14SourceLocationERbRNS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaFixItUtils.cpp' l='132' u='c' c='_ZN5clang24ConversionFixItGenerator18tryToFixConversionEPKNS_4ExprENS_8QualTypeES4_RNS_4SemaE'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7536' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7536' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7537' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7599' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='9907' u='c' c='_ZL21DiagnoseBadConversionRN5clang4SemaEPNS_17OverloadCandidateEjb'/>
+<use f='llvm/clang/lib/Sema/SemaStmt.cpp' l='148' u='c' c='_ZL24DiagnoseUnusedComparisonRN5clang4SemaEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaStmt.cpp' l='171' u='c' c='_ZL24DiagnoseUnusedComparisonRN5clang4SemaEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaStmtAsm.cpp' l='93' u='c' c='_ZL14CheckAsmLValuePN5clang4ExprERNS_4SemaE'/>
+<use f='llvm/clang/lib/Sema/SemaStmtAsm.cpp' l='99' u='c' c='_ZL14CheckAsmLValuePN5clang4ExprERNS_4SemaE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='3612' u='c' c='_ZL41AdjustFunctionParmAndArgTypesForDeductionRN5clang4SemaEPNS_21TemplateParameterListEjRNS_8QualTypeES5_PNS_4ExprERj'/>

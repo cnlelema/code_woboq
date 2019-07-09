@@ -1,0 +1,61 @@
+<def f='llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFObject.h' l='25' ll='82'/>
+<size>24</size>
+<doc f='llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFObject.h' l='17'>// This is responsible for low level access to the object file. It
+// knows how to find the required sections and compute relocated
+// values.
+// The default implementations of the get&lt;Section&gt; methods return dummy values.
+// This is to allow clients that only need some of those to implement just the
+// ones they need. We can&apos;t use unreachable for as many cases because the parser
+// implementation is eager and will call some of these methods even if the
+// result is not used.</doc>
+<mbr r='llvm::DWARFObject::Dummy' o='64' t='llvm::DWARFSection'/>
+<fun r='_ZN4llvm11DWARFObjectD1Ev'/>
+<fun r='_ZNK4llvm11DWARFObject11getFileNameEv'/>
+<fun r='_ZNK4llvm11DWARFObject7getFileEv'/>
+<fun r='_ZNK4llvm11DWARFObject15getSectionNamesEv'/>
+<fun r='_ZNK4llvm11DWARFObject14isLittleEndianEv'/>
+<fun r='_ZNK4llvm11DWARFObject14getAddressSizeEv'/>
+<fun r='_ZNK4llvm11DWARFObject19forEachInfoSectionsENS_12function_refIFvRKNS_12DWARFSectionEEEE'/>
+<fun r='_ZNK4llvm11DWARFObject20forEachTypesSectionsENS_12function_refIFvRKNS_12DWARFSectionEEEE'/>
+<fun r='_ZNK4llvm11DWARFObject16getAbbrevSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject13getLocSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject18getLoclistsSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject16getARangeSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject20getDebugFrameSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject17getEHFrameSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject14getLineSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject20getLineStringSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject16getStringSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject15getRangeSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject18getRnglistsSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject17getMacinfoSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject18getPubNamesSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject18getPubTypesSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject21getGnuPubNamesSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject21getGnuPubTypesSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject22getStringOffsetSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject22forEachInfoDWOSectionsENS_12function_refIFvRKNS_12DWARFSectionEEEE'/>
+<fun r='_ZNK4llvm11DWARFObject23forEachTypesDWOSectionsENS_12function_refIFvRKNS_12DWARFSectionEEEE'/>
+<fun r='_ZNK4llvm11DWARFObject19getAbbrevDWOSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject17getLineDWOSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject16getLocDWOSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject19getStringDWOSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject25getStringOffsetDWOSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject18getRangeDWOSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject21getRnglistsDWOSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject14getAddrSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject20getAppleNamesSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject20getAppleTypesSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject25getAppleNamespacesSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject20getDebugNamesSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject19getAppleObjCSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject17getCUIndexSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject18getGdbIndexSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject17getTUIndexSectionEv'/>
+<fun r='_ZNK4llvm11DWARFObject4findERKNS_12DWARFSectionEm'/>
+<ovr f='llvm/lld/ELF/DWARF.h' l='26' c='lld::elf::LLDDwarfObj'/>
+<ovr f='llvm/lld/ELF/DWARF.cpp' l='129' c='lld::elf::LLDDwarfObj'/>
+<ovr f='llvm/lld/ELF/DWARF.cpp' l='130' c='lld::elf::LLDDwarfObj'/>
+<ovr f='llvm/lld/ELF/DWARF.cpp' l='131' c='lld::elf::LLDDwarfObj'/>
+<ovr f='llvm/lld/ELF/DWARF.cpp' l='132' c='lld::elf::LLDDwarfObj'/>
+<ovr f='llvm/llvm/lib/DebugInfo/DWARF/DWARFContext.cpp' l='1258' c='(anonymousnamespace)::DWARFObjInMemory'/>

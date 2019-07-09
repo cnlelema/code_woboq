@@ -1,0 +1,10 @@
+<dec f='llvm/clang/lib/CodeGen/CGCXXABI.h' l='564' type='void clang::CodeGen::CGCXXABI::registerGlobalDtor(clang::CodeGen::CodeGenFunction &amp; CGF, const clang::VarDecl &amp; D, llvm::FunctionCallee Dtor, llvm::Constant * Addr)'/>
+<doc f='llvm/clang/lib/CodeGen/CGCXXABI.h' l='559'>/// Emit code to force the execution of a destructor during global
+  /// teardown.  The default implementation of this uses atexit.
+  ///
+  /// \param Dtor - a function taking a single pointer argument
+  /// \param Addr - a pointer to pass to the destructor function.</doc>
+<use f='llvm/clang/lib/CodeGen/CGDeclCXX.cpp' l='134' u='c' c='_ZL15EmitDeclDestroyRN5clang7CodeGen15CodeGenFunctionERKNS_7VarDeclENS0_15ConstantAddressE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='348' u='c' c='_ZL20pushTemporaryCleanupRN5clang7CodeGen15CodeGenFunctionEPKNS_24MaterializeTemporaryExprEPKNS_4ExprENS0_7AddressE'/>
+<ovr f='llvm/clang/lib/CodeGen/ItaniumCXXABI.cpp' l='2486' c='_ZN12_GLOBAL__N_113ItaniumCXXABI18registerGlobalDtorERN5clang7CodeGen15CodeGenFunctionERKNS1_7VarDeclEN4llvm14FunctionCalleeEPNS8_8ConstantE'/>
+<ovr f='llvm/clang/lib/CodeGen/MicrosoftCXXABI.cpp' l='2280' c='_ZN12_GLOBAL__N_115MicrosoftCXXABI18registerGlobalDtorERN5clang7CodeGen15CodeGenFunctionERKNS1_7VarDeclEN4llvm14FunctionCalleeEPNS8_8ConstantE'/>

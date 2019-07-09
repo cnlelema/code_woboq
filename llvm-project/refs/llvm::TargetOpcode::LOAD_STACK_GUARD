@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/include/llvm/Support/TargetOpcodes.def' l='128' type='23'/>
+<doc f='llvm/llvm/include/llvm/Support/TargetOpcodes.def' l='124'>/// This pseudo-instruction loads the stack guard value. Targets which need
+/// to prevent the stack guard value or address from being spilled to the
+/// stack should override TargetLowering::emitLoadStackGuardNode and
+/// additionally expand this pseudo after register allocation.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='782' u='r' c='_ZN4llvm12IRTranslator13getStackGuardEjRNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineCSE.cpp' l='411' u='r' c='_ZN12_GLOBAL__N_110MachineCSE14isCSECandidateEPN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='2494' u='r' c='_ZL17getLoadStackGuardRN4llvm12SelectionDAGERKNS_5SDLocERNS_7SDValueE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='1468' u='r' c='_ZNK4llvm16ARMBaseInstrInfo18expandPostRAPseudoERNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp' l='334' c='_ZNK4llvm12PPCInstrInfo33isReallyTriviallyReMaterializableERKNS_12MachineInstrEPNS_9AAResultsE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp' l='2145' c='_ZNK4llvm12PPCInstrInfo18expandPostRAPseudoERNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/Sparc/SparcInstrInfo.cpp' l='496' c='_ZNK4llvm14SparcInstrInfo18expandPostRAPseudoERNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZInstrInfo.cpp' l='1402' c='_ZNK4llvm16SystemZInstrInfo18expandPostRAPseudoERNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/X86/X86InstrInfo.cpp' l='4042' c='_ZNK4llvm12X86InstrInfo18expandPostRAPseudoERNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/X86/X86InstructionSelector.cpp' l='324' u='r' c='_ZNK12_GLOBAL__N_122X86InstructionSelector6selectERN4llvm12MachineInstrERNS1_15CodeGenCoverageE'/>

@@ -1,0 +1,12 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='2086' type='clang::Attr * clang::Sema::getImplicitCodeSegOrSectionAttrForFunction(const clang::FunctionDecl * FD, bool IsDefinition)'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='8892' u='c' c='_ZN5clang4Sema23ActOnFunctionDeclaratorEPNS_5ScopeERNS_10DeclaratorEPNS_11DeclContextEPNS_14TypeSourceInfoERNS_12LookupResultEN4llvm15MutableArrayRefI5939088'/>
+<def f='llvm/clang/lib/Sema/SemaDecl.cpp' l='9483' ll='9495' type='clang::Attr * clang::Sema::getImplicitCodeSegOrSectionAttrForFunction(const clang::FunctionDecl * FD, bool IsDefinition)'/>
+<doc f='llvm/clang/lib/Sema/SemaDecl.cpp' l='9474'>/// Returns an implicit CodeSegAttr if a __declspec(code_seg) is found on a
+/// containing class. Otherwise it will return implicit SectionAttr if the
+/// function is a definition and there is an active value on CodeSegStack
+/// (from the current #pragma code-seg value).
+///
+/// \param FD Function being declared.
+/// \param IsDefinition Whether it is a definition or just a declarartion.
+/// \returns A CodeSegAttr or SectionAttr to apply to the function or
+///          nullptr if no attribute should be added.</doc>

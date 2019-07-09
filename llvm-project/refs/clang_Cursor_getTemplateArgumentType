@@ -1,0 +1,21 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='3528' type='CXType clang_Cursor_getTemplateArgumentType(CXCursor C, unsigned int I)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='3510'>/**
+ * Retrieve a CXType representing the type of a TemplateArgument of a
+ *  function decl representing a template specialization.
+ *
+ * If the argument CXCursor does not represent a FunctionDecl whose I&apos;th
+ * template argument has a kind of CXTemplateArgKind_Integral, an invalid type
+ * is returned.
+ *
+ * For example, for the following declaration and specialization:
+ *   template &lt;typename T, int kInt, bool kBool&gt;
+ *   void foo() { ... }
+ *
+ *   template &lt;&gt;
+ *   void foo&lt;float, -7, true&gt;();
+ *
+ * If called with I = 0, &quot;float&quot;, will be returned.
+ * Invalid types will be returned for I == 1 or 2.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='1012' u='c' c='PrintCursor'/>
+<def f='llvm/clang/tools/libclang/CXCursor.cpp' l='1304' ll='1316' type='CXType clang_Cursor_getTemplateArgumentType(CXCursor C, unsigned int I)'/>

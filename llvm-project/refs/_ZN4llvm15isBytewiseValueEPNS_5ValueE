@@ -1,0 +1,20 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='227' type='llvm::Value * llvm::isBytewiseValue(llvm::Value * V)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='221'>/// If the specified value can be set by repeating the same byte in memory,
+  /// return the i8 value that it is represented with. This is true for all i8
+  /// values obviously, but is also true for i32 0, i32 -1, i16 0xF0F0, double
+  /// 0.0 etc. If the value can&apos;t be handled with a repeated byte store (e.g.
+  /// i16 0x1234), return null. If the value is entirely undef and padding,
+  /// return undef.</doc>
+<use f='llvm/clang/lib/CodeGen/CGDecl.cpp' l='993' u='c' c='_ZL27shouldUseMemSetToInitializePN4llvm8ConstantEm'/>
+<def f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='3293' ll='3380' type='llvm::Value * llvm::isBytewiseValue(llvm::Value * V)'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='3332' u='c' c='_ZN4llvm15isBytewiseValueEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='3360' u='c' c='_ZN4llvm15isBytewiseValueEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='3367' u='c' c='_ZN4llvm15isBytewiseValueEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='3373' u='c' c='_ZN4llvm15isBytewiseValueEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopIdiomRecognize.cpp' l='453' u='c' c='_ZN12_GLOBAL__N_118LoopIdiomRecognize12isLegalStoreEPN4llvm9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopIdiomRecognize.cpp' l='630' u='c' c='_ZN12_GLOBAL__N_118LoopIdiomRecognize17processLoopStoresERN4llvm15SmallVectorImplIPNS1_9StoreInstEEEPKNS1_4SCEVENS0_9ForMemsetE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopIdiomRecognize.cpp' l='663' u='c' c='_ZN12_GLOBAL__N_118LoopIdiomRecognize17processLoopStoresERN4llvm15SmallVectorImplIPNS1_9StoreInstEEEPKNS1_4SCEVENS0_9ForMemsetE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopIdiomRecognize.cpp' l='883' u='c' c='_ZN12_GLOBAL__N_118LoopIdiomRecognize23processLoopStridedStoreEPN4llvm5ValueEjjS3_PNS1_11InstructionERNS1_15SmallPtrSetImplIS5_EEPKNS1_14SCEVAddRecExprEPKNS1_4SCEVEbb'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='415' u='c' c='_ZN4llvm13MemCpyOptPass20tryMergingIntoMemsetEPNS_11InstructionEPNS_5ValueES4_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='757' u='c' c='_ZN4llvm13MemCpyOptPass12processStoreEPNS_9StoreInstERNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11InstructionELb1ELb0EvEELb0ELb0EEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='1237' u='c' c='_ZN4llvm13MemCpyOptPass13processMemCpyEPNS_10MemCpyInstE'/>

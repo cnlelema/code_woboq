@@ -1,0 +1,21 @@
+<def f='llvm/llvm/include/llvm/CodeGen/GlobalISel/CallLowering.h' l='216' ll='225' type='bool llvm::CallLowering::lowerCall(llvm::MachineIRBuilder &amp; MIRBuilder, CallingConv::ID CallConv, const llvm::MachineOperand &amp; Callee, const llvm::CallLowering::ArgInfo &amp; OrigRet, ArrayRef&lt;llvm::CallLowering::ArgInfo&gt; OrigArgs, unsigned int SwiftErrorVReg) const'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/CallLowering.cpp' l='62' u='c' c='_ZNK4llvm12CallLowering9lowerCallERNS_16MachineIRBuilderENS_17ImmutableCallSiteEjNS_8ArrayRefIjEEjSt8functionIFjvEE'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/CallLowering.h' l='198'>/// This hook must be implemented to lower the given call instruction,
+  /// including argument and return value marshalling.
+  ///
+  /// \p CallConv is the calling convention to be used for the call.
+  ///
+  /// \p Callee is the destination of the call. It should be either a register,
+  /// globaladdress, or externalsymbol.
+  ///
+  /// \p OrigRet is a descriptor for the return type of the function.
+  ///
+  /// \p OrigArgs is a list of descriptors of the arguments passed to the
+  /// function.
+  ///
+  /// \p SwiftErrorVReg is non-zero if the call has a swifterror inout
+  /// parameter, and contains the vreg that the swifterror should be copied into
+  /// after the call.
+  ///
+  /// \return true if the lowering succeeded, false otherwise.</doc>
+<ovr f='llvm/llvm/lib/Target/AArch64/AArch64CallLowering.cpp' l='425' c='_ZNK4llvm19AArch64CallLowering9lowerCallERNS_16MachineIRBuilderEjRKNS_14MachineOperandERKNS_12CallLowering7ArgInfoENS_8ArrayRefIS7_EEj'/>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>DWARFDebugMacro.h source code [llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFDebugMacro.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::DWARFDebugMacro "/>
+<link rel="stylesheet" href="../../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFDebugMacro.h'; var root_path = '../../../../../..'; var data_path = '../../../../../../../data';</script>
+<script src='../../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>llvm</a>/<a href='../../../..'>llvm</a>/<a href='../../..'>include</a>/<a href='../..'>llvm</a>/<a href='..'>DebugInfo</a>/<a href='./'>DWARF</a>/<a href='DWARFDebugMacro.h.html'>DWARFDebugMacro.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- DWARFDebugMacro.h ----------------------------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLVM_DEBUGINFO_DWARF_DWARFDEBUGMACRO_H">LLVM_DEBUGINFO_DWARF_DWARFDEBUGMACRO_H</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLVM_DEBUGINFO_DWARF_DWARFDEBUGMACRO_H" data-ref="_M/LLVM_DEBUGINFO_DWARF_DWARFDEBUGMACRO_H">LLVM_DEBUGINFO_DWARF_DWARFDEBUGMACRO_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="../../ADT/SmallVector.h.html">"llvm/ADT/SmallVector.h"</a></u></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../../Support/DataExtractor.h.html">"llvm/Support/DataExtractor.h"</a></u></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="../../../../../../include/c++/7/cstdint.html">&lt;cstdint&gt;</a></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><b>class</b> <a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream" id="llvm::raw_ostream">raw_ostream</a>;</td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><b>class</b> <dfn class="type def" id="llvm::DWARFDebugMacro" title='llvm::DWARFDebugMacro' data-ref="llvm::DWARFDebugMacro">DWARFDebugMacro</dfn> {</td></tr>
+<tr><th id="21">21</th><td>  <i class="doc">/// A single macro entry within a macro list.</i></td></tr>
+<tr><th id="22">22</th><td>  <b>struct</b> <dfn class="type def" id="llvm::DWARFDebugMacro::Entry" title='llvm::DWARFDebugMacro::Entry' data-ref="llvm::DWARFDebugMacro::Entry">Entry</dfn> {</td></tr>
+<tr><th id="23">23</th><td>    <i class="doc">/// The type of the macro entry.</i></td></tr>
+<tr><th id="24">24</th><td>    <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="decl" id="llvm::DWARFDebugMacro::Entry::Type" title='llvm::DWARFDebugMacro::Entry::Type' data-ref="llvm::DWARFDebugMacro::Entry::Type">Type</dfn>;</td></tr>
+<tr><th id="25">25</th><td>    <b>union</b> {</td></tr>
+<tr><th id="26">26</th><td>      <i class="doc">/// The source line where the macro is defined.</i></td></tr>
+<tr><th id="27">27</th><td>      <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="decl" id="llvm::DWARFDebugMacro::Entry::(anonymous)::Line" title='llvm::DWARFDebugMacro::Entry::(anonymous union)::Line' data-ref="llvm::DWARFDebugMacro::Entry::(anonymous)::Line">Line</dfn>;</td></tr>
+<tr><th id="28">28</th><td>      <i class="doc">/// Vendor extension constant value.</i></td></tr>
+<tr><th id="29">29</th><td>      <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="decl" id="llvm::DWARFDebugMacro::Entry::(anonymous)::ExtConstant" title='llvm::DWARFDebugMacro::Entry::(anonymous union)::ExtConstant' data-ref="llvm::DWARFDebugMacro::Entry::(anonymous)::ExtConstant">ExtConstant</dfn>;</td></tr>
+<tr><th id="30">30</th><td>    };</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td>    <b>union</b> {</td></tr>
+<tr><th id="33">33</th><td>      <i class="doc">/// The string (name, value) of the macro entry.</i></td></tr>
+<tr><th id="34">34</th><td>      <em>const</em> <em>char</em> *<dfn class="decl" id="llvm::DWARFDebugMacro::Entry::(anonymous)::MacroStr" title='llvm::DWARFDebugMacro::Entry::(anonymous union)::MacroStr' data-ref="llvm::DWARFDebugMacro::Entry::(anonymous)::MacroStr">MacroStr</dfn>;</td></tr>
+<tr><th id="35">35</th><td>      <i>// An unsigned integer indicating the identity of the source file.</i></td></tr>
+<tr><th id="36">36</th><td>      <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="decl" id="llvm::DWARFDebugMacro::Entry::(anonymous)::File" title='llvm::DWARFDebugMacro::Entry::(anonymous union)::File' data-ref="llvm::DWARFDebugMacro::Entry::(anonymous)::File">File</dfn>;</td></tr>
+<tr><th id="37">37</th><td>      <i class="doc">/// Vendor extension string.</i></td></tr>
+<tr><th id="38">38</th><td>      <em>const</em> <em>char</em> *<dfn class="decl" id="llvm::DWARFDebugMacro::Entry::(anonymous)::ExtStr" title='llvm::DWARFDebugMacro::Entry::(anonymous union)::ExtStr' data-ref="llvm::DWARFDebugMacro::Entry::(anonymous)::ExtStr">ExtStr</dfn>;</td></tr>
+<tr><th id="39">39</th><td>    };</td></tr>
+<tr><th id="40">40</th><td>  };</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td>  <b>using</b> <dfn class="typedef" id="llvm::DWARFDebugMacro::MacroList" title='llvm::DWARFDebugMacro::MacroList' data-type='SmallVector&lt;llvm::DWARFDebugMacro::Entry, 4&gt;' data-ref="llvm::DWARFDebugMacro::MacroList">MacroList</dfn> = <a class="type" href="../../../../../clang/include/clang/Basic/LLVM.h.html#llvm::SmallVector" title='llvm::SmallVector' data-ref="llvm::SmallVector">SmallVector</a>&lt;<a class="type" href="#llvm::DWARFDebugMacro::Entry" title='llvm::DWARFDebugMacro::Entry' data-ref="llvm::DWARFDebugMacro::Entry">Entry</a>, <var>4</var>&gt;;</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>  <i class="doc">/// A list of all the macro entries in the debug_macinfo section.</i></td></tr>
+<tr><th id="45">45</th><td>  <a class="typedef" href="#llvm::DWARFDebugMacro::MacroList" title='llvm::DWARFDebugMacro::MacroList' data-type='SmallVector&lt;llvm::DWARFDebugMacro::Entry, 4&gt;' data-ref="llvm::DWARFDebugMacro::MacroList">MacroList</a> <dfn class="decl" id="llvm::DWARFDebugMacro::Macros" title='llvm::DWARFDebugMacro::Macros' data-ref="llvm::DWARFDebugMacro::Macros">Macros</dfn>;</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><b>public</b>:</td></tr>
+<tr><th id="48">48</th><td>  <dfn class="decl" id="_ZN4llvm15DWARFDebugMacroC1Ev" title='llvm::DWARFDebugMacro::DWARFDebugMacro' data-ref="_ZN4llvm15DWARFDebugMacroC1Ev">DWARFDebugMacro</dfn>() = <b>default</b>;</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>  <i class="doc">/// Print the macro list found within the debug_macinfo section.</i></td></tr>
+<tr><th id="51">51</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm15DWARFDebugMacro4dumpERNS_11raw_ostreamE" title='llvm::DWARFDebugMacro::dump' data-ref="_ZNK4llvm15DWARFDebugMacro4dumpERNS_11raw_ostreamE">dump</dfn>(<a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col9 decl" id="2149OS" title='OS' data-type='llvm::raw_ostream &amp;' data-ref="2149OS">OS</dfn>) <em>const</em>;</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>  <i class="doc">/// Parse the debug_macinfo section accessible via the 'data' parameter.</i></td></tr>
+<tr><th id="54">54</th><td>  <em>void</em> <dfn class="decl" id="_ZN4llvm15DWARFDebugMacro5parseENS_13DataExtractorE" title='llvm::DWARFDebugMacro::parse' data-ref="_ZN4llvm15DWARFDebugMacro5parseENS_13DataExtractorE">parse</dfn>(<a class="type" href="../../Support/DataExtractor.h.html#llvm::DataExtractor" title='llvm::DataExtractor' data-ref="llvm::DataExtractor">DataExtractor</a> <dfn class="local col0 decl" id="2150data" title='data' data-type='llvm::DataExtractor' data-ref="2150data">data</dfn>);</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>  <i class="doc">/// Return whether the section has any entries.</i></td></tr>
+<tr><th id="57">57</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm15DWARFDebugMacro5emptyEv" title='llvm::DWARFDebugMacro::empty' data-ref="_ZNK4llvm15DWARFDebugMacro5emptyEv">empty</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::DWARFDebugMacro::Macros" title='llvm::DWARFDebugMacro::Macros' data-ref="llvm::DWARFDebugMacro::Macros">Macros</a>.<a class="ref" href="../../ADT/SmallVector.h.html#_ZNK4llvm15SmallVectorBase5emptyEv" title='llvm::SmallVectorBase::empty' data-ref="_ZNK4llvm15SmallVectorBase5emptyEv">empty</a>(); }</td></tr>
+<tr><th id="58">58</th><td>};</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><u>#<span data-ppcond="9">endif</span> // LLVM_DEBUGINFO_DWARF_DWARFDEBUGMACRO_H</u></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../../clang/lib/CodeGen/ObjectFilePCHContainerOperations.cpp.html'>llvm/clang/lib/CodeGen/ObjectFilePCHContainerOperations.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

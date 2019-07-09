@@ -1,0 +1,16 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='6101' type='CXResult clang_findIncludesInFile(CXTranslationUnit TU, CXFile file, CXCursorAndRangeVisitor visitor)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='6089'>/**
+ * Find #import/#include directives in a specific file.
+ *
+ * \param TU translation unit containing the file to query.
+ *
+ * \param file to search for #import/#include directives.
+ *
+ * \param visitor callback that will receive pairs of CXCursor/CXSourceRange for
+ * each directive found.
+ *
+ * \returns one of the CXResult enumerators.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='3231' u='c' c='find_file_includes_in'/>
+<def f='llvm/clang/tools/libclang/CIndexHigh.cpp' l='478' ll='509' type='CXResult clang_findIncludesInFile(CXTranslationUnit TU, CXFile file, CXCursorAndRangeVisitor visitor)'/>
+<use f='llvm/clang/tools/libclang/CIndexHigh.cpp' l='531' u='c' c='clang_findIncludesInFileWithBlock'/>

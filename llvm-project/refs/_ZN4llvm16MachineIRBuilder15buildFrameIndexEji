@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='359' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildFrameIndex(unsigned int Res, int Idx)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='350'>/// Build and insert \p Res = G_FRAME_INDEX \p Idx
+  ///
+  /// G_FRAME_INDEX materializes the address of an alloca value or other
+  /// stack-based object.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Res must be a generic virtual register with pointer type.
+  ///
+  /// \return a MachineInstrBuilder for the newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='1416' u='c' c='_ZN4llvm12IRTranslator15translateAllocaERKNS_4UserERNS_16MachineIRBuilderE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='163' ll='168' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildFrameIndex(unsigned int Res, int Idx)'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64CallLowering.cpp' l='66' u='c' c='_ZN12_GLOBAL__N_118IncomingArgHandler15getStackAddressEmlRN4llvm18MachinePointerInfoE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMCallLowering.cpp' l='313' u='c' c='_ZN12_GLOBAL__N_120IncomingValueHandler15getStackAddressEmlRN4llvm18MachinePointerInfoE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsCallLowering.cpp' l='192' u='c' c='_ZN12_GLOBAL__N_120IncomingValueHandler15getStackAddressERKN4llvm11CCValAssignERPNS1_17MachineMemOperandE'/>
+<use f='llvm/llvm/lib/Target/X86/X86CallLowering.cpp' l='241' u='c' c='_ZN12_GLOBAL__N_120IncomingValueHandler15getStackAddressEmlRN4llvm18MachinePointerInfoE'/>

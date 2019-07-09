@@ -1,0 +1,70 @@
+<def f='llvm/llvm/include/llvm/Transforms/IPO/Attributor.h' l='414' ll='542'/>
+<size>32</size>
+<doc f='llvm/llvm/include/llvm/Transforms/IPO/Attributor.h' l='370'>/// Base struct for all &quot;concrete attribute&quot; deductions.
+///
+/// The abstract attribute is a minimal interface that allows the Attributor to
+/// orchestrate the abstract/fixpoint analysis. The design allows to hide away
+/// implementation choices made for the subclasses but also to structure their
+/// implementation and simplify the use of other abstract attributes in-flight.
+///
+/// To allow easy creation of new attributes, most methods have default
+/// implementations. The ones that do not are generally straight forward, except
+/// `AbstractAttribute::updateImpl` which is the location of most reasoning
+/// associated with the abstract attribute. The update is invoked by the
+/// Attributor in case the situation used to justify the current optimistic
+/// state might have changed. The Attributor determines this automatically
+/// by monitoring the `Attributor::getAAFor` calls made by abstract attributes.
+///
+/// The `updateImpl` method should inspect the IR and other abstract attributes
+/// in-flight to justify the best possible (=optimistic) state. The actual
+/// implementation is, similar to the underlying abstract state encoding, not
+/// exposed. In the most common case, the `updateImpl` will go through a list of
+/// reasons why its optimistic state is valid given the current information. If
+/// any combination of them holds and is sufficient to justify the current
+/// optimistic state, the method shall return UNCHAGED. If not, the optimistic
+/// state is adjusted to the situation and the method shall return CHANGED.
+///
+/// If the manifestation of the &quot;concrete attribute&quot; deduced by the subclass
+/// differs from the &quot;default&quot; behavior, which is a (set of) LLVM-IR
+/// attribute(s) for an argument, call site argument, function return value, or
+/// function, the `AbstractAttribute::manifest` method should be overloaded.
+///
+/// NOTE: If the state obtained via getState() is INVALID, thus if
+///       AbstractAttribute::getState().isValidState() returns false, no
+///       information provided by the methods of this class should be used.
+/// NOTE: The Attributor currently runs as a call graph SCC pass. Partially to
+///       this *current* choice there are certain limitations to what we can do.
+///       As a general rule of thumb, &quot;concrete&quot; abstract attributes should *for
+///       now* only perform &quot;backward&quot; information propagation. That means
+///       optimistic information obtained through abstract attributes should
+///       only be used at positions that precede the origin of the information
+///       with regards to the program flow. More practically, information can
+///       *now* be propagated from instructions to their enclosing function, but
+///       *not* from call sites to the called function. The mechanisms to allow
+///       both directions will be added in the future.
+/// NOTE: The mechanics of adding a new &quot;concrete&quot; abstract attribute are
+///       described in the file comment.</doc>
+<fun r='_ZN4llvm17AbstractAttributeC1EPNS_5ValueERS1_RNS_16InformationCacheE'/>
+<fun r='_ZN4llvm17AbstractAttributeC1ERNS_5ValueERNS_16InformationCacheE'/>
+<fun r='_ZN4llvm17AbstractAttributeD1Ev'/>
+<fun r='_ZN4llvm17AbstractAttribute10initializeERNS_10AttributorE'/>
+<fun r='_ZNK4llvm17AbstractAttribute8getStateEv'/>
+<fun r='_ZN4llvm17AbstractAttribute16getAnchoredValueEv'/>
+<fun r='_ZNK4llvm17AbstractAttribute16getAnchoredValueEv'/>
+<fun r='_ZN4llvm17AbstractAttribute14getAnchorScopeEv'/>
+<fun r='_ZNK4llvm17AbstractAttribute14getAnchorScopeEv'/>
+<fun r='_ZN4llvm17AbstractAttribute18getAssociatedValueEv'/>
+<fun r='_ZNK4llvm17AbstractAttribute18getAssociatedValueEv'/>
+<fun r='_ZNK4llvm17AbstractAttribute19getManifestPositionEv'/>
+<fun r='_ZNK4llvm17AbstractAttribute11getAttrKindEv'/>
+<fun r='_ZNK4llvm17AbstractAttribute20getDeducedAttributesERNS_15SmallVectorImplINS_9AttributeEEE'/>
+<fun r='_ZNK4llvm17AbstractAttribute5printERNS_11raw_ostreamE'/>
+<fun r='_ZNK4llvm17AbstractAttribute4dumpEv'/>
+<fun r='_ZNK4llvm17AbstractAttribute8getAsStrEv'/>
+<fun r='_ZN4llvm17AbstractAttribute6updateERNS_10AttributorE'/>
+<fun r='_ZN4llvm17AbstractAttribute8manifestERNS_10AttributorE'/>
+<fun r='_ZN4llvm17AbstractAttribute8getStateEv'/>
+<fun r='_ZN4llvm17AbstractAttribute10updateImplERNS_10AttributorE'/>
+<mbr r='llvm::AbstractAttribute::AssociatedVal' o='64' t='llvm::Value *'/>
+<mbr r='llvm::AbstractAttribute::AnchoredVal' o='128' t='llvm::Value &amp;'/>
+<mbr r='llvm::AbstractAttribute::InfoCache' o='192' t='llvm::InformationCache &amp;'/>

@@ -1,0 +1,30 @@
+<def f='llvm/clang/include/clang/AST/ASTImporterLookupTable.h' l='47' ll='70'/>
+<size>32</size>
+<doc f='llvm/clang/include/clang/AST/ASTImporterLookupTable.h' l='28'>// There are certain cases when normal C/C++ lookup (localUncachedLookup)
+// does not find AST nodes. E.g.:
+// Example 1:
+//   template &lt;class T&gt;
+//   struct X {
+//     friend void foo(); // this is never found in the DC of the TU.
+//   };
+// Example 2:
+//   // The fwd decl to Foo is not found in the lookupPtr of the DC of the
+//   // translation unit decl.
+//   // Here we could find the node by doing a traverse throught the list of
+//   // the Decls in the DC, but that would not scale.
+//   struct A { struct Foo *p; };
+// This is a severe problem because the importer decides if it has to create a
+// new Decl or not based on the lookup results.
+// To overcome these cases we need an importer specific lookup table which
+// holds every node and we are not interested in any C/C++ specific visibility
+// considerations. Simply, we must know if there is an existing Decl in a
+// given DC. Once we found it then we can handle any visibility related tasks.</doc>
+<fun r='_ZN5clang22ASTImporterLookupTable3addEPNS_11DeclContextEPNS_9NamedDeclE'/>
+<fun r='_ZN5clang22ASTImporterLookupTable6removeEPNS_11DeclContextEPNS_9NamedDeclE'/>
+<mbr r='clang::ASTImporterLookupTable::LookupTable' o='0' t='DCMap'/>
+<fun r='_ZN5clang22ASTImporterLookupTableC1ERNS_19TranslationUnitDeclE'/>
+<fun r='_ZN5clang22ASTImporterLookupTable3addEPNS_9NamedDeclE'/>
+<fun r='_ZN5clang22ASTImporterLookupTable6removeEPNS_9NamedDeclE'/>
+<fun r='_ZNK5clang22ASTImporterLookupTable6lookupEPNS_11DeclContextENS_15DeclarationNameE'/>
+<fun r='_ZNK5clang22ASTImporterLookupTable4dumpEPNS_11DeclContextE'/>
+<fun r='_ZNK5clang22ASTImporterLookupTable4dumpEv'/>

@@ -1,0 +1,40 @@
+<def f='llvm/clang/include/clang/Basic/Diagnostic.h' l='1044' ll='1177'/>
+<size>16</size>
+<doc f='llvm/clang/include/clang/Basic/Diagnostic.h' l='1028'>//===----------------------------------------------------------------------===//
+// DiagnosticBuilder
+//===----------------------------------------------------------------------===//
+
+/// A little helper class used to produce diagnostics.
+///
+/// This is constructed by the DiagnosticsEngine::Report method, and
+/// allows insertion of extra information (arguments and source ranges) into
+/// the currently &quot;in flight&quot; diagnostic.  When the temporary for the builder
+/// is destroyed, the diagnostic is issued.
+///
+/// Note that many of these will be created as temporary objects (many call
+/// sites), so we want them to be small and we never want their address taken.
+/// This ensures that compilers with somewhat reasonable optimizers will promote
+/// the common fields to registers, eliminating increments of the NumArgs field,
+/// for example.</doc>
+<mbr r='clang::DiagnosticBuilder::DiagObj' o='0' t='clang::DiagnosticsEngine *'/>
+<mbr r='clang::DiagnosticBuilder::NumArgs' o='64' t='unsigned int'/>
+<mbr r='clang::DiagnosticBuilder::IsActive' o='96' t='bool'/>
+<mbr r='clang::DiagnosticBuilder::IsForceEmit' o='104' t='bool'/>
+<fun r='_ZN5clang17DiagnosticBuilderC1Ev'/>
+<fun r='_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineE'/>
+<fun r='_ZN5clang17DiagnosticBuilder11FlushCountsEv'/>
+<fun r='_ZNK5clang17DiagnosticBuilder5ClearEv'/>
+<fun r='_ZNK5clang17DiagnosticBuilder8isActiveEv'/>
+<fun r='_ZN5clang17DiagnosticBuilder4EmitEv'/>
+<fun r='_ZN5clang17DiagnosticBuilderC1ERKS0_'/>
+<fun r='_ZN5clang17DiagnosticBuilderaSERKS0_'/>
+<fun r='_ZN5clang17DiagnosticBuilderD1Ev'/>
+<fun r='_ZN5clang17DiagnosticBuilder8getEmptyEv'/>
+<fun r='_ZNK5clang17DiagnosticBuilder12setForceEmitEv'/>
+<fun r='_ZNK5clang17DiagnosticBuildercvbEv'/>
+<fun r='_ZNK5clang17DiagnosticBuilder9AddStringEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang17DiagnosticBuilder12AddTaggedValElNS_17DiagnosticsEngine12ArgumentKindE'/>
+<fun r='_ZNK5clang17DiagnosticBuilder14AddSourceRangeERKNS_15CharSourceRangeE'/>
+<fun r='_ZNK5clang17DiagnosticBuilder12AddFixItHintERKNS_9FixItHintE'/>
+<fun r='_ZNK5clang17DiagnosticBuilder12addFlagValueEN4llvm9StringRefE'/>
+<ovr f='llvm/clang/include/clang/Sema/Sema.h' l='1306' c='clang::Sema::SemaDiagnosticBuilder'/>

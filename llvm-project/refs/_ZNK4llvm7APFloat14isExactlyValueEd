@@ -1,0 +1,18 @@
+<def f='llvm/llvm/include/llvm/ADT/APFloat.h' l='1129' ll='1134' type='bool llvm::APFloat::isExactlyValue(double V) const'/>
+<doc f='llvm/llvm/include/llvm/ADT/APFloat.h' l='1121'>/// We don&apos;t rely on operator== working on double values, as
+  /// it returns true for things that are clearly not equal, like -0.0 and 0.0.
+  /// As such, this method can be used to do an exact bit-for-bit comparison of
+  /// two floating point values.
+  ///
+  /// We leave the version with the double argument here because it&apos;s just so
+  /// convenient to write &quot;2.0&quot; and the like.  Without this function we&apos;d
+  /// have to duplicate its logic everywhere it&apos;s called.</doc>
+<use f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='1627' u='c' c='_ZNK4llvm16ConstantFPSDNode14isExactlyValueEd'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='12574' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner9visitFPOWEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='12575' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner9visitFPOWEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='12601' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner9visitFPOWEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='12602' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner9visitFPOWEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='7351' u='c' c='_ZN4llvm12SelectionDAG15simplifyFPBinopEjNS_7SDValueES1_'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64InstructionSelector.cpp' l='1225' u='c' c='_ZNK12_GLOBAL__N_126AArch64InstructionSelector6selectERN4llvm12MachineInstrERNS1_15CodeGenCoverageE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='1390' u='c' c='_ZN4llvm17LibCallSimplifier18replacePowWithSqrtEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='1390' u='c' c='_ZN4llvm17LibCallSimplifier18replacePowWithSqrtEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>

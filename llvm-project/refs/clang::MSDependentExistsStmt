@@ -1,0 +1,47 @@
+<inh f='llvm/clang/include/clang/AST/Stmt.h' l='66' c='clang::Stmt'/>
+<def f='llvm/clang/include/clang/AST/StmtCXX.h' l='252' ll='312'/>
+<size>64</size>
+<doc f='llvm/clang/include/clang/AST/StmtCXX.h' l='225'>/// Representation of a Microsoft __if_exists or __if_not_exists
+/// statement with a dependent name.
+///
+/// The __if_exists statement can be used to include a sequence of statements
+/// in the program only when a particular dependent name does not exist. For
+/// example:
+///
+/// \code
+/// template&lt;typename T&gt;
+/// void call_foo(T &amp;t) {
+///   __if_exists (T::foo) {
+///     t.foo(); // okay: only called when T::foo exists.
+///   }
+/// }
+/// \endcode
+///
+/// Similarly, the __if_not_exists statement can be used to include the
+/// statements when a particular name does not exist.
+///
+/// Note that this statement only captures __if_exists and __if_not_exists
+/// statements whose name is dependent. All non-dependent cases are handled
+/// directly in the parser, so that they don&apos;t introduce a new scope. Clang
+/// introduces scopes in the dependent case to keep names inside the compound
+/// statement from leaking out into the surround statements, which would
+/// compromise the template instantiation model. This behavior differs from
+/// Visual C++ (which never introduces a scope), but is a fairly reasonable
+/// approximation of the VC++ behavior.</doc>
+<mbr r='clang::MSDependentExistsStmt::KeywordLoc' o='64' t='clang::SourceLocation'/>
+<mbr r='clang::MSDependentExistsStmt::IsIfExists' o='96' t='bool'/>
+<mbr r='clang::MSDependentExistsStmt::QualifierLoc' o='128' t='clang::NestedNameSpecifierLoc'/>
+<mbr r='clang::MSDependentExistsStmt::NameInfo' o='256' t='clang::DeclarationNameInfo'/>
+<mbr r='clang::MSDependentExistsStmt::SubStmt' o='448' t='clang::Stmt *'/>
+<fun r='_ZN5clang21MSDependentExistsStmtC1ENS_14SourceLocationEbNS_22NestedNameSpecifierLocENS_19DeclarationNameInfoEPNS_12CompoundStmtE'/>
+<fun r='_ZNK5clang21MSDependentExistsStmt13getKeywordLocEv'/>
+<fun r='_ZNK5clang21MSDependentExistsStmt10isIfExistsEv'/>
+<fun r='_ZNK5clang21MSDependentExistsStmt13isIfNotExistsEv'/>
+<fun r='_ZNK5clang21MSDependentExistsStmt15getQualifierLocEv'/>
+<fun r='_ZNK5clang21MSDependentExistsStmt11getNameInfoEv'/>
+<fun r='_ZNK5clang21MSDependentExistsStmt10getSubStmtEv'/>
+<fun r='_ZNK5clang21MSDependentExistsStmt11getBeginLocEv'/>
+<fun r='_ZNK5clang21MSDependentExistsStmt9getEndLocEv'/>
+<fun r='_ZN5clang21MSDependentExistsStmt8childrenEv'/>
+<fun r='_ZNK5clang21MSDependentExistsStmt8childrenEv'/>
+<fun r='_ZN5clang21MSDependentExistsStmt7classofEPKNS_4StmtE'/>

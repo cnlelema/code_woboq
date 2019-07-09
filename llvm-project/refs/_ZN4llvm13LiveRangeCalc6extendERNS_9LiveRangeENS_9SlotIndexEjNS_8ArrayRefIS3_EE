@@ -1,0 +1,21 @@
+<dec f='llvm/llvm/lib/CodeGen/LiveRangeCalc.h' l='211' type='void llvm::LiveRangeCalc::extend(llvm::LiveRange &amp; LR, llvm::SlotIndex Use, unsigned int PhysReg, ArrayRef&lt;llvm::SlotIndex&gt; Undefs)'/>
+<doc f='llvm/llvm/lib/CodeGen/LiveRangeCalc.h' l='197'>//===--------------------------------------------------------------------===//
+  // Mid-level interface.
+  //===--------------------------------------------------------------------===//
+  //
+  // Modify existing live ranges.
+  //
+
+  /// Extend the live range of @p LR to reach @p Use.
+  ///
+  /// The existing values in @p LR must be live so they jointly dominate @p Use.
+  /// If @p Use is not dominated by a single existing value, PHI-defs are
+  /// inserted as required to preserve SSA form.
+  ///
+  /// PhysReg, when set, is used to verify live-in lists on basic blocks.</doc>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='618' u='c' c='_ZN4llvm13LiveIntervals15extendToIndicesERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEES5_'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='212' u='c' c='_ZN4llvm13LiveRangeCalc12extendToUsesERNS_9LiveRangeEjNS_11LaneBitmaskEPNS_12LiveIntervalE'/>
+<def f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='241' ll='264' type='void llvm::LiveRangeCalc::extend(llvm::LiveRange &amp; LR, llvm::SlotIndex Use, unsigned int PhysReg, ArrayRef&lt;llvm::SlotIndex&gt; Undefs)'/>
+<use f='llvm/llvm/lib/CodeGen/SplitKit.cpp' l='1255' u='c' c='_ZN4llvm11SplitEditor14extendPHIRangeERNS_17MachineBasicBlockERNS_13LiveRangeCalcERNS_9LiveRangeENS_11LaneBitmaskENS_8ArrayRefINS_9SlotIndexEEE'/>
+<use f='llvm/llvm/lib/CodeGen/SplitKit.cpp' l='1367' u='c' c='_ZN4llvm11SplitEditor15rewriteAssignedEb'/>
+<use f='llvm/llvm/lib/CodeGen/SplitKit.cpp' l='1393' u='c' c='_ZN4llvm11SplitEditor15rewriteAssignedEb'/>

@@ -1,0 +1,98 @@
+<def f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyldImpl.h' l='241' ll='582'/>
+<ovr f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyldCOFF.h' l='26' c='llvm::RuntimeDyldCOFF'/>
+<ovr f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyldELF.h' l='26' c='llvm::RuntimeDyldELF'/>
+<ovr f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyldMachO.h' l='26' c='llvm::RuntimeDyldMachO'/>
+<size>5384</size>
+<smbr r='llvm::RuntimeDyldImpl::AbsoluteSymbolSection' t='const unsigned int'/>
+<mbr r='llvm::RuntimeDyldImpl::MemMgr' o='64' t='RuntimeDyld::MemoryManager &amp;'/>
+<mbr r='llvm::RuntimeDyldImpl::Resolver' o='128' t='llvm::JITSymbolResolver &amp;'/>
+<mbr r='llvm::RuntimeDyldImpl::Sections' o='192' t='SectionList'/>
+<mbr r='llvm::RuntimeDyldImpl::GlobalSymbolTable' o='41280' t='RTDyldSymbolTable'/>
+<mbr r='llvm::RuntimeDyldImpl::Relocations' o='41536' t='std::unordered_map&lt;unsigned int, RelocationList&gt;'/>
+<mbr r='llvm::RuntimeDyldImpl::ExternalSymbolRelocations' o='41984' t='StringMap&lt;RelocationList&gt;'/>
+<mbr r='llvm::RuntimeDyldImpl::Arch' o='42240' t='Triple::ArchType'/>
+<mbr r='llvm::RuntimeDyldImpl::IsTargetLittleEndian' o='42272' t='bool'/>
+<mbr r='llvm::RuntimeDyldImpl::IsMipsO32ABI' o='42280' t='bool'/>
+<mbr r='llvm::RuntimeDyldImpl::IsMipsN32ABI' o='42288' t='bool'/>
+<mbr r='llvm::RuntimeDyldImpl::IsMipsN64ABI' o='42296' t='bool'/>
+<mbr r='llvm::RuntimeDyldImpl::ProcessAllSections' o='42304' t='bool'/>
+<mbr r='llvm::RuntimeDyldImpl::lock' o='42368' t='sys::Mutex'/>
+<mbr r='llvm::RuntimeDyldImpl::NotifyStubEmitted' o='42496' t='NotifyStubEmittedFunction'/>
+<fun r='_ZNK4llvm15RuntimeDyldImpl14getMaxStubSizeEv'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl16getStubAlignmentEv'/>
+<mbr r='llvm::RuntimeDyldImpl::HasError' o='42752' t='bool'/>
+<mbr r='llvm::RuntimeDyldImpl::ErrorStr' o='42816' t='std::string'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl12writeInt16BEEPht'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl12writeInt32BEEPhj'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl12writeInt64BEEPhm'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl10setMipsABIERKNS_6object10ObjectFileE'/>
+<fun r='_ZNK4llvm15RuntimeDyldImpl18readBytesUnalignedEPhj'/>
+<fun r='_ZNK4llvm15RuntimeDyldImpl19writeBytesUnalignedEmPhj'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl17getJITSymbolFlagsERKNS_6object9SymbolRefE'/>
+<fun r='_ZNK4llvm15RuntimeDyldImpl25modifyAddressBasedOnFlagsEmNS_14JITSymbolFlagsE'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl17emitCommonSymbolsERKNS_6object10ObjectFileERSt6vectorINS1_9SymbolRefESaIS6_EEmj'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl11emitSectionERKNS_6object10ObjectFileERKNS1_10SectionRefEb'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl17findOrEmitSectionERKNS_6object10ObjectFileERKNS1_10SectionRefEbRSt3mapIS5_jSt4lessIS5_ESaISt4pairIS6_jEEE'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl23addRelocationForSectionERKNS_15RelocationEntryEj'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl22addRelocationForSymbolERKNS_15RelocationEntryENS_9StringRefE'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl18createStubFunctionEPhj'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl21resolveRelocationListERKNS_11SmallVectorINS_15RelocationEntryELj64EEEm'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl17resolveRelocationERKNS_15RelocationEntryEm'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl20processRelocationRefEjNS_6object16content_iteratorINS1_13RelocationRefEEERKNS1_10ObjectFileERSt3mapINS1_10SectionRefEjSt4le2989577'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl30applyExternalSymbolRelocationsENS_9StringMapINS_18JITEvaluatedSymbolENS_15MallocAllocatorEEE'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl22resolveExternalSymbolsEv'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl21computeTotalAllocSizeERKNS_6object10ObjectFileERmRjS5_S6_S5_S6_'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl14computeGOTSizeERKNS_6object10ObjectFileE'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl25computeSectionStubBufSizeERKNS_6object10ObjectFileERKNS1_10SectionRefE'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl14loadObjectImplERKNS_6object10ObjectFileE'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl15getGOTEntrySizeEv'/>
+<fun r='_ZNK4llvm15RuntimeDyldImpl18relocationNeedsGotERKNS_6object13RelocationRefE'/>
+<fun r='_ZNK4llvm15RuntimeDyldImpl19relocationNeedsStubERKNS_6object13RelocationRefE'/>
+<fun r='_ZN4llvm15RuntimeDyldImplC1ERNS_11RuntimeDyld13MemoryManagerERNS_17JITSymbolResolverE'/>
+<fun r='_ZN4llvm15RuntimeDyldImplD1Ev'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl21setProcessAllSectionsEb'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl10loadObjectERKNS_6object10ObjectFileE'/>
+<fun r='_ZNK4llvm15RuntimeDyldImpl21getSectionLoadAddressEj'/>
+<fun r='_ZNK4llvm15RuntimeDyldImpl17getSectionAddressEj'/>
+<fun r='_ZNK4llvm15RuntimeDyldImpl17getSectionContentEj'/>
+<fun r='_ZNK4llvm15RuntimeDyldImpl21getSymbolLocalAddressENS_9StringRefE'/>
+<fun r='_ZNK4llvm15RuntimeDyldImpl18getSymbolSectionIDENS_9StringRefE'/>
+<fun r='_ZNK4llvm15RuntimeDyldImpl9getSymbolENS_9StringRefE'/>
+<fun r='_ZNK4llvm15RuntimeDyldImpl14getSymbolTableEv'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl18resolveRelocationsEv'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl23resolveLocalRelocationsEv'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl13finalizeAsyncESt10unique_ptrIS0_St14default_deleteIS0_EESt8functionIFvNS_5ErrorEEES1_INS_12MemoryBufferES2_IS9_EE'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl22reassignSectionAddressEjm'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl17mapSectionAddressEPKvm'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl8hasErrorEv'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl10clearErrorEv'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl14getErrorStringEv'/>
+<fun r='_ZNK4llvm15RuntimeDyldImpl16isCompatibleFileERKNS_6object10ObjectFileE'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl20setNotifyStubEmittedESt8functionIFvNS_9StringRefES2_S2_jjEE'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl16registerEHFramesEv'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl18deregisterEHFramesEv'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl12finalizeLoadERKNS_6object10ObjectFileERSt3mapINS1_10SectionRefEjSt4lessIS6_ESaISt4pairIKS6_jEEE'/>
+<fun r='_ZN4llvm15RuntimeDyldImplD1Ev'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl16registerEHFramesEv'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl18deregisterEHFramesEv'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl18resolveRelocationsEv'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl23resolveLocalRelocationsEv'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl17mapSectionAddressEPKvm'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl14loadObjectImplERKNS_6object10ObjectFileE'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl21computeTotalAllocSizeERKNS_6object10ObjectFileERmRjS5_S6_S5_S6_'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl14computeGOTSizeERKNS_6object10ObjectFileE'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl25computeSectionStubBufSizeERKNS_6object10ObjectFileERKNS1_10SectionRefE'/>
+<fun r='_ZNK4llvm15RuntimeDyldImpl18readBytesUnalignedEPhj'/>
+<fun r='_ZNK4llvm15RuntimeDyldImpl19writeBytesUnalignedEmPhj'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl17getJITSymbolFlagsERKNS_6object9SymbolRefE'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl17emitCommonSymbolsERKNS_6object10ObjectFileERSt6vectorINS1_9SymbolRefESaIS6_EEmj'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl11emitSectionERKNS_6object10ObjectFileERKNS1_10SectionRefEb'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl17findOrEmitSectionERKNS_6object10ObjectFileERKNS1_10SectionRefEbRSt3mapIS5_jSt4lessIS5_ESaISt4pairIS6_jEEE'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl23addRelocationForSectionERKNS_15RelocationEntryEj'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl22addRelocationForSymbolERKNS_15RelocationEntryENS_9StringRefE'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl18createStubFunctionEPhj'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl22reassignSectionAddressEjm'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl21resolveRelocationListERKNS_11SmallVectorINS_15RelocationEntryELj64EEEm'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl30applyExternalSymbolRelocationsENS_9StringMapINS_18JITEvaluatedSymbolENS_15MallocAllocatorEEE'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl22resolveExternalSymbolsEv'/>
+<fun r='_ZN4llvm15RuntimeDyldImpl13finalizeAsyncESt10unique_ptrIS0_St14default_deleteIS0_EESt8functionIFvNS_5ErrorEEES1_INS_12MemoryBufferES2_IS9_EE'/>

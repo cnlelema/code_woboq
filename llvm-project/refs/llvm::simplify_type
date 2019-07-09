@@ -1,0 +1,88 @@
+<def f='llvm/llvm/include/llvm/Support/Casting.h' l='33' ll='38'/>
+<def f='llvm/llvm/include/llvm/Support/Casting.h' l='40' ll='50'/>
+<def f='llvm/llvm/include/llvm/ADT/IntrusiveRefCntPtr.h' l='251' ll='257'/>
+<def f='llvm/llvm/include/llvm/ADT/IntrusiveRefCntPtr.h' l='259' ll='265'/>
+<def f='llvm/clang/include/clang/AST/Type.h' l='1256' ll='1262'/>
+<def f='llvm/clang/include/clang/AST/CanonicalType.h' l='366' ll='373'/>
+<size>1</size>
+<doc f='llvm/llvm/include/llvm/Support/Casting.h' l='25'>//===----------------------------------------------------------------------===//
+//                          isa&lt;x&gt; Support Templates
+//===----------------------------------------------------------------------===//
+
+// Define a template that can be specialized by smart pointers to reflect the
+// fact that they are automatically dereferenced, and are not involved with the
+// template selection process...  the default implementation is a noop.
+//</doc>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='1254'>/// Implement simplify_type for QualType, so that we can dyn_cast from QualType
+/// to a specific Type class.</doc>
+<doc f='llvm/clang/include/clang/AST/CanonicalType.h' l='363'>/// Implement simplify_type for CanQual&lt;T&gt;, so that we can dyn_cast from
+/// CanQual&lt;T&gt; to a specific Type class. We&apos;re prefer isa/dyn_cast/cast/etc.
+/// to return smart pointer (proxies?).</doc>
+<fun r='_ZN4llvm13simplify_type18getSimplifiedValueERT_'/>
+<fun r='_ZN4llvm13simplify_typeIKT_E18getSimplifiedValueERS2_'/>
+<fun r='_ZN4llvm13simplify_typeINS_18IntrusiveRefCntPtrIT_EEE18getSimplifiedValueERS3_'/>
+<fun r='_ZN4llvm13simplify_typeIKNS_18IntrusiveRefCntPtrIT_EEE18getSimplifiedValueERS4_'/>
+<fun r='_ZN4llvm13simplify_typeIN5clang8QualTypeEE18getSimplifiedValueES2_'/>
+<fun r='_ZN4llvm13simplify_typeIN5clang7CanQualIT_EEE18getSimplifiedValueES4_'/>
+<def f='llvm/llvm/include/llvm/IR/Use.h' l='165' ll='169'/>
+<def f='llvm/llvm/include/llvm/IR/Use.h' l='170' ll='174'/>
+<def f='llvm/llvm/include/llvm/ADT/ilist_iterator.h' l='185' ll='191'/>
+<def f='llvm/llvm/include/llvm/ADT/ilist_iterator.h' l='192' ll='194'/>
+<def f='llvm/llvm/include/llvm/IR/User.h' l='317' ll='323'/>
+<def f='llvm/llvm/include/llvm/IR/User.h' l='324' ll='330'/>
+<def f='llvm/llvm/include/llvm/IR/Metadata.h' l='753' ll='757'/>
+<def f='llvm/llvm/include/llvm/IR/Metadata.h' l='759' ll='763'/>
+<def f='llvm/llvm/include/llvm/IR/TrackingMDRef.h' l='145' ll='149'/>
+<def f='llvm/llvm/include/llvm/IR/TrackingMDRef.h' l='151' ll='157'/>
+<def f='llvm/llvm/include/llvm/IR/TrackingMDRef.h' l='159' ll='165'/>
+<def f='llvm/llvm/include/llvm/IR/TrackingMDRef.h' l='167' ll='173'/>
+<size>1</size>
+<doc f='llvm/llvm/include/llvm/IR/Use.h' l='163'>/// Allow clients to treat uses just like values when using
+/// casting operators.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/ilist_iterator.h' l='181'>/// Allow ilist_iterators to convert into pointers to a node automatically when
+/// used by the dyn_cast, cast, isa mechanisms...
+///
+/// FIXME: remove this, since there is no implicit conversion to NodeTy.</doc>
+<doc f='llvm/llvm/include/llvm/IR/TrackingMDRef.h' l='144'>// Expose the underlying metadata to casting.</doc>
+<fun r='_ZN4llvm13simplify_typeINS_3UseEE18getSimplifiedValueERS1_'/>
+<fun r='_ZN4llvm13simplify_typeIKNS_3UseEE18getSimplifiedValueERS2_'/>
+<fun r='_ZN4llvm13simplify_typeINS_14ilist_iteratorIT_Lb0EXT0_EEEE18getSimplifiedValueERKS3_'/>
+<fun r='_ZN4llvm13simplify_typeIPNS_3UseEE18getSimplifiedValueERS2_'/>
+<fun r='_ZN4llvm13simplify_typeIPKNS_3UseEE18getSimplifiedValueERS3_'/>
+<fun r='_ZN4llvm13simplify_typeINS_9MDOperandEE18getSimplifiedValueERS1_'/>
+<fun r='_ZN4llvm13simplify_typeIKNS_9MDOperandEE18getSimplifiedValueERS2_'/>
+<fun r='_ZN4llvm13simplify_typeINS_13TrackingMDRefEE18getSimplifiedValueERS1_'/>
+<fun r='_ZN4llvm13simplify_typeIKNS_13TrackingMDRefEE18getSimplifiedValueERS2_'/>
+<fun r='_ZN4llvm13simplify_typeINS_18TypedTrackingMDRefIT_EEE18getSimplifiedValueERS3_'/>
+<fun r='_ZN4llvm13simplify_typeIKNS_18TypedTrackingMDRefIT_EEE18getSimplifiedValueERS4_'/>
+<def f='llvm/clang/include/clang/Analysis/CFG.h' l='1261' ll='1267'/>
+<size>1</size>
+<doc f='llvm/clang/include/clang/Analysis/CFG.h' l='1259'>/// Implement simplify_type for CFGTerminator, so that we can dyn_cast from
+/// CFGTerminator to a specific Stmt class.</doc>
+<fun r='_ZN4llvm13simplify_typeIN5clang13CFGTerminatorEE18getSimplifiedValueES2_'/>
+<def f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='163' ll='167'/>
+<def f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='168' ll='172'/>
+<def f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='208' ll='212'/>
+<def f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='213' ll='219'/>
+<size>1</size>
+<doc f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='161'>// Specialize simplify_type to allow WeakVH to participate in
+// dyn_cast, isa, etc.</doc>
+<doc f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='206'>// Specialize simplify_type to allow WeakTrackingVH to participate in
+// dyn_cast, isa, etc.</doc>
+<fun r='_ZN4llvm13simplify_typeINS_6WeakVHEE18getSimplifiedValueERS1_'/>
+<fun r='_ZN4llvm13simplify_typeIKNS_6WeakVHEE18getSimplifiedValueERS2_'/>
+<fun r='_ZN4llvm13simplify_typeINS_14WeakTrackingVHEE18getSimplifiedValueERS1_'/>
+<fun r='_ZN4llvm13simplify_typeIKNS_14WeakTrackingVHEE18getSimplifiedValueERS2_'/>
+<def f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='238' ll='244'/>
+<def f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='245' ll='251'/>
+<def f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='341' ll='347'/>
+<size>1</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='236'>/// Allow casting operators to work directly on
+/// SDValues as if they were SDNode*&apos;s.</doc>
+<doc f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='339'>/// simplify_type specializations - Allow casting operators to work directly on
+/// SDValues as if they were SDNode*&apos;s.</doc>
+<fun r='_ZN4llvm13simplify_typeINS_7SDValueEE18getSimplifiedValueERS1_'/>
+<fun r='_ZN4llvm13simplify_typeIKNS_7SDValueEE18getSimplifiedValueERS2_'/>
+<fun r='_ZN4llvm13simplify_typeINS_5SDUseEE18getSimplifiedValueERS1_'/>
+<def f='llvm/llvm/unittests/Support/Casting.cpp' l='80' ll='83'/>
+<size>1</size>

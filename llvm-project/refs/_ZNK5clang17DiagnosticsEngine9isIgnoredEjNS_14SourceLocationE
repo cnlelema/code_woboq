@@ -1,0 +1,19 @@
+<def f='llvm/clang/include/clang/Basic/Diagnostic.h' l='820' ll='823' type='bool clang::DiagnosticsEngine::isIgnored(unsigned int DiagID, clang::SourceLocation Loc) const'/>
+<doc f='llvm/clang/include/clang/Basic/Diagnostic.h' l='808'>//===--------------------------------------------------------------------===//
+  // DiagnosticsEngine classification and reporting interfaces.
+  //
+
+  /// Determine whether the diagnostic is known to be ignored.
+  ///
+  /// This can be used to opportunistically avoid expensive checks when it&apos;s
+  /// known for certain that the diagnostic has been suppressed at the
+  /// specified location \p Loc.
+  ///
+  /// \param Loc The source location we are interested in finding out the
+  /// diagnostic state. Can be null in order to query the latest state.</doc>
+<use f='llvm/clang/lib/Sema/AnalysisBasedWarnings.cpp' l='1975' u='c' c='_ZL9isEnabledRN5clang17DiagnosticsEngineEj'/>
+<use f='llvm/clang/lib/Sema/SemaCast.cpp' l='1827' u='c' c='_ZN5clang4Sema30CheckCompatibleReinterpretCastENS_8QualTypeES1_bNS_11SourceRangeE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='13685' u='c' c='_ZN5clang4Sema21DiagnoseEmptyLoopBodyEPKNS_4StmtES3_'/>
+<use f='llvm/clang/lib/Sema/SemaExprObjC.cpp' l='2294' u='c' c='_ZL18applyCocoaAPICheckRN5clang4SemaEPKNS_15ObjCMessageExprEjPFbS4_RKNS_5NSAPIERNS_4edit6CommitEE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='3898' u='c' c='_ZL27checkNullabilityConsistencyRN5clang4SemaEN12_GLOBAL__N_117SimplePointerKindENS_14SourceLocationES4_'/>
+<use f='llvm/clang/tools/diagtool/TreeView.cpp' l='52' u='c' c='_ZN11TreePrinter9isIgnoredEj'/>

@@ -1,0 +1,77 @@
+<def f='llvm/clang/lib/CodeGen/CodeGenTypes.h' l='59' ll='314'/>
+<size>536</size>
+<doc f='llvm/clang/lib/CodeGen/CodeGenTypes.h' l='57'>/// This class organizes the cross-module state that is used while lowering
+/// AST types to LLVM types.</doc>
+<mbr r='clang::CodeGen::CodeGenTypes::CGM' o='0' t='clang::CodeGen::CodeGenModule &amp;'/>
+<mbr r='clang::CodeGen::CodeGenTypes::Context' o='64' t='clang::ASTContext &amp;'/>
+<mbr r='clang::CodeGen::CodeGenTypes::TheModule' o='128' t='llvm::Module &amp;'/>
+<mbr r='clang::CodeGen::CodeGenTypes::Target' o='192' t='const clang::TargetInfo &amp;'/>
+<mbr r='clang::CodeGen::CodeGenTypes::TheCXXABI' o='256' t='clang::CodeGen::CGCXXABI &amp;'/>
+<mbr r='clang::CodeGen::CodeGenTypes::TheABIInfo' o='320' t='const clang::CodeGen::ABIInfo &amp;'/>
+<mbr r='clang::CodeGen::CodeGenTypes::InterfaceTypes' o='384' t='llvm::DenseMap&lt;const ObjCInterfaceType *, llvm::Type *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenTypes::CGRecordLayouts' o='640' t='llvm::DenseMap&lt;const Type *, CGRecordLayout *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenTypes::RecordDeclTypes' o='896' t='llvm::DenseMap&lt;const Type *, llvm::StructType *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenTypes::FunctionInfos' o='1152' t='llvm::FoldingSet&lt;CGFunctionInfo&gt;'/>
+<mbr r='clang::CodeGen::CodeGenTypes::RecordsBeingLaidOut' o='1344' t='llvm::SmallPtrSet&lt;const Type *, 4&gt;'/>
+<mbr r='clang::CodeGen::CodeGenTypes::FunctionsBeingProcessed' o='1920' t='llvm::SmallPtrSet&lt;const CGFunctionInfo *, 4&gt;'/>
+<mbr r='clang::CodeGen::CodeGenTypes::SkippedLayout' o='2496' t='bool'/>
+<mbr r='clang::CodeGen::CodeGenTypes::DeferredRecords' o='2560' t='SmallVector&lt;const clang::RecordDecl *, 8&gt;'/>
+<mbr r='clang::CodeGen::CodeGenTypes::TypeCache' o='3200' t='llvm::DenseMap&lt;const Type *, llvm::Type *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenTypes::RecordsWithOpaqueMemberPointers' o='3456' t='llvm::SmallSet&lt;const Type *, 8&gt;'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes27ConvertFunctionTypeInternalENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypesC1ERNS0_13CodeGenModuleE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypesD1Ev'/>
+<fun r='_ZNK5clang7CodeGen12CodeGenTypes13getDataLayoutEv'/>
+<fun r='_ZNK5clang7CodeGen12CodeGenTypes10getContextEv'/>
+<fun r='_ZNK5clang7CodeGen12CodeGenTypes10getABIInfoEv'/>
+<fun r='_ZNK5clang7CodeGen12CodeGenTypes9getTargetEv'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes6getCGMEv'/>
+<fun r='_ZNK5clang7CodeGen12CodeGenTypes9getCXXABIEv'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes14getLLVMContextEv'/>
+<fun r='_ZNK5clang7CodeGen12CodeGenTypes14getCodeGenOptsEv'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes27ClangCallConvToLLVMCallConvENS_11CallingConvE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes14DeriveThisTypeEPKNS_13CXXRecordDeclEPKNS_13CXXMethodDeclE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes11ConvertTypeENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes17ConvertTypeForMemENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes15GetFunctionTypeERKNS0_14CGFunctionInfoE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes15GetFunctionTypeENS_10GlobalDeclE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes21isFuncTypeConvertibleEPKNS_12FunctionTypeE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes26isFuncParamTypeConvertibleENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes23inheritingCtorHasParamsERKNS_20InheritedConstructorENS_11CXXCtorTypeE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes24GetFunctionTypeForVTableENS_10GlobalDeclE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes17getCGRecordLayoutEPKNS_10RecordDeclE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes19UpdateCompletedTypeEPKNS_7TagDeclE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes24RefreshTypeCacheForClassEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes24arrangeGlobalDeclarationENS_10GlobalDeclE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes11arrangeCallERKNS0_14CGFunctionInfoERKNS0_11CallArgListE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes26arrangeFunctionDeclarationEPKNS_12FunctionDeclE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes23arrangeFreeFunctionCallERKNS0_11CallArgListEPKNS_12FunctionTypeEb'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes23arrangeFreeFunctionTypeENS_7CanQualINS_17FunctionProtoTypeEEE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes23arrangeFreeFunctionTypeENS_7CanQualINS_19FunctionNoProtoTypeEEE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes22arrangeNullaryFunctionEv'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes33arrangeBuiltinFunctionDeclarationENS_8QualTypeERKNS0_15FunctionArgListE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes33arrangeBuiltinFunctionDeclarationENS_7CanQualINS_4TypeEEEN4llvm8ArrayRefIS4_EE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes26arrangeBuiltinFunctionCallENS_8QualTypeERKNS0_11CallArgListE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes28arrangeObjCMethodDeclarationEPKNS_14ObjCMethodDeclE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes31arrangeObjCMessageSendSignatureEPKNS_14ObjCMethodDeclENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes34arrangeUnprototypedObjCMessageSendENS_8QualTypeERKNS0_11CallArgListE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes31arrangeBlockFunctionDeclarationEPKNS_17FunctionProtoTypeERKNS0_15FunctionArgListE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes24arrangeBlockFunctionCallERKNS0_11CallArgListEPKNS_12FunctionTypeE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes27arrangeCXXMethodDeclarationEPKNS_13CXXMethodDeclE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes29arrangeCXXStructorDeclarationENS_10GlobalDeclE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes25arrangeCXXConstructorCallERKNS0_11CallArgListEPKNS_18CXXConstructorDeclENS_11CXXCtorTypeEjjb'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes20arrangeCXXMethodCallERKNS0_11CallArgListEPKNS_17FunctionProtoTypeENS0_12RequiredArgsEj'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes32arrangeUnprototypedMustTailThunkEPKNS_13CXXMethodDeclE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes20arrangeMSCtorClosureEPKNS_18CXXConstructorDeclENS_11CXXCtorTypeE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes20arrangeCXXMethodTypeEPKNS_13CXXRecordDeclEPKNS_17FunctionProtoTypeEPKNS_13CXXMethodDeclE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes23arrangeLLVMFunctionInfoENS_7CanQualINS_4TypeEEEbbN4llvm8ArrayRefIS4_EENS_12FunctionType7ExtInfoENS6_INS8_16ExtParamet2596383'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes19ComputeRecordLayoutEPKNS_10RecordDeclEPN4llvm10StructTypeE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes17addRecordTypeNameEPKNS_10RecordDeclEPN4llvm10StructTypeENS5_9StringRefE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes21ConvertRecordDeclTypeEPKNS_10RecordDeclE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes16getExpandedTypesENS_8QualTypeERPPN4llvm4TypeE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes19isZeroInitializableENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes26isPointerZeroInitializableENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen12CodeGenTypes19isZeroInitializableEPKNS_10RecordDeclE'/>
+<fun r='_ZNK5clang7CodeGen12CodeGenTypes22isRecordLayoutCompleteEPKNS_4TypeE'/>
+<fun r='_ZNK5clang7CodeGen12CodeGenTypes21noRecordsBeingLaidOutEv'/>
+<fun r='_ZNK5clang7CodeGen12CodeGenTypes20isRecordBeingLaidOutEPKNS_4TypeE'/>

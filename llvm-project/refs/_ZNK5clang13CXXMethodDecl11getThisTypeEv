@@ -1,0 +1,23 @@
+<dec f='llvm/clang/include/clang/AST/DeclCXX.h' l='2251' type='clang::QualType clang::CXXMethodDecl::getThisType() const'/>
+<doc f='llvm/clang/include/clang/AST/DeclCXX.h' l='2245'>/// Returns the type of the \c this pointer.
+  ///
+  /// Should only be called for instance (i.e., non-static) methods. Note
+  /// that for the call operator of a lambda closure type, this returns the
+  /// desugared &apos;this&apos; type (a pointer to the closure type), not the captured
+  /// &apos;this&apos; type.</doc>
+<def f='llvm/clang/lib/AST/DeclCXX.cpp' l='2253' ll='2263' type='clang::QualType clang::CXXMethodDecl::getThisType() const'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='5158' u='c' c='_ZL18HandleFunctionCallN5clang14SourceLocationEPKNS_12FunctionDeclEPKN12_GLOBAL__N_16LValueEN4llvm8ArrayRefIPKNS_4ExprEEEPKNS_4StmtERNS4_8EvalInfoERNS_7APValueES7_'/>
+<use f='llvm/clang/lib/CodeGen/CGBlocks.cpp' l='560' u='c' c='_ZL16computeBlockInfoRN5clang7CodeGen13CodeGenModuleEPNS0_15CodeGenFunctionERNS0_11CGBlockInfoE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='1457' u='c' c='_ZN5clang7CodeGen11CGDebugInfo21getOrCreateMethodTypeEPKNS_13CXXMethodDeclEPN4llvm6DIFileE'/>
+<use f='llvm/clang/lib/CodeGen/CGVTables.cpp' l='233' u='c' c='_ZN5clang7CodeGen15CodeGenFunction10StartThunkEPN4llvm8FunctionENS_10GlobalDeclERKNS0_14CGFunctionInfoEb'/>
+<use f='llvm/clang/lib/CodeGen/CGVTables.cpp' l='312' u='c' c='_ZN5clang7CodeGen15CodeGenFunction25EmitCallAndReturnForThunkEN4llvm14FunctionCalleeEPKNS_9ThunkInfoEb'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenFunction.cpp' l='1019' u='c' c='_ZN5clang7CodeGen15CodeGenFunction13StartFunctionENS_10GlobalDeclENS_8QualTypeEPN4llvm8FunctionERKNS0_14CGFunctionInfoERKNS0_15FunctionArgListENS_14SourceLocationESD_'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenFunction.cpp' l='1119' u='c' c='_ZN5clang7CodeGen15CodeGenFunction20BuildFunctionArgListENS_10GlobalDeclERNS0_15FunctionArgListE'/>
+<use f='llvm/clang/lib/Sema/SemaCoroutine.cpp' l='86' u='c' c='_ZL17lookupPromiseTypeRN5clang4SemaEPKNS_12FunctionDeclENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaCoroutine.cpp' l='494' u='c' c='_ZN5clang4Sema21buildCoroutinePromiseENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='1166' u='c' c='_ZL23checkForConsumableClassRN5clang4SemaEPKNS_13CXXMethodDeclERKNS_10ParsedAttrE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='2695' u='c' c='_ZN5clang4Sema29PerformObjectMemberConversionEPNS_4ExprEPNS_19NestedNameSpecifierEPNS_9NamedDeclES6_'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='1079' u='c' c='_ZN5clang4Sema18getCurrentThisTypeEv'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='5236' u='c' c='_ZN5clang4Sema35PerformObjectArgumentInitializationEPNS_4ExprEPNS_19NestedNameSpecifierEPNS_9NamedDeclEPNS_13CXXMethodDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='5241' u='c' c='_ZN5clang4Sema35PerformObjectArgumentInitializationEPNS_4ExprEPNS_19NestedNameSpecifierEPNS_9NamedDeclEPNS_13CXXMethodDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='701' u='c' c='_ZN5clang4Sema26ActOnDependentIdExpressionERKNS_12CXXScopeSpecENS_14SourceLocationERKNS_19DeclarationNameInfoEbPKNS_24TemplateArgumentListInfoE'/>

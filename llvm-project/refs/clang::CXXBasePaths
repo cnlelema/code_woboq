@@ -1,0 +1,62 @@
+<def f='llvm/clang/include/clang/AST/CXXInheritance.h' l='118' ll='237'/>
+<size>1</size>
+<doc f='llvm/clang/include/clang/AST/CXXInheritance.h' l='89'>/// BasePaths - Represents the set of paths from a derived class to
+/// one of its (direct or indirect) bases. For example, given the
+/// following class hierarchy:
+///
+/// @code
+/// class A { };
+/// class B : public A { };
+/// class C : public A { };
+/// class D : public B, public C{ };
+/// @endcode
+///
+/// There are two potential BasePaths to represent paths from D to a
+/// base subobject of type A. One path is (D,0) -&gt; (B,0) -&gt; (A,0)
+/// and another is (D,0)-&gt;(C,0)-&gt;(A,1). These two paths actually
+/// refer to two different base class subobjects of the same type,
+/// so the BasePaths object refers to an ambiguous path. On the
+/// other hand, consider the following class hierarchy:
+///
+/// @code
+/// class A { };
+/// class B : public virtual A { };
+/// class C : public virtual A { };
+/// class D : public B, public C{ };
+/// @endcode
+///
+/// Here, there are two potential BasePaths again, (D, 0) -&gt; (B, 0)
+/// -&gt; (A,v) and (D, 0) -&gt; (C, 0) -&gt; (A, v), but since both of them
+/// refer to the same base class subobject of type A (the virtual
+/// one), there is no ambiguity.</doc>
+<mbr r='clang::CXXBasePaths::Origin' t='clang::CXXRecordDecl *'/>
+<mbr r='clang::CXXBasePaths::Paths' t='std::list&lt;CXXBasePath&gt;'/>
+<mbr r='clang::CXXBasePaths::ClassSubobjects' t='llvm::SmallDenseMap&lt;QualType, IsVirtBaseAndNumberNonVirtBases, 8&gt;'/>
+<mbr r='clang::CXXBasePaths::VisitedDependentRecords' t='llvm::SmallPtrSet&lt;const CXXRecordDecl *, 4&gt;'/>
+<mbr r='clang::CXXBasePaths::DetectedVirtual' t='const clang::RecordType *'/>
+<mbr r='clang::CXXBasePaths::ScratchPath' t='clang::CXXBasePath'/>
+<mbr r='clang::CXXBasePaths::DeclsFound' t='std::unique_ptr&lt;NamedDecl *[]&gt;'/>
+<mbr r='clang::CXXBasePaths::NumDeclsFound' t='unsigned int'/>
+<mbr r='clang::CXXBasePaths::FindAmbiguities' t='bool'/>
+<mbr r='clang::CXXBasePaths::RecordPaths' t='bool'/>
+<mbr r='clang::CXXBasePaths::DetectVirtual' t='bool'/>
+<fun r='_ZN5clang12CXXBasePaths17ComputeDeclsFoundEv'/>
+<fun r='_ZN5clang12CXXBasePaths13lookupInBasesERNS_10ASTContextEPKNS_13CXXRecordDeclEN4llvm12function_refIFbPKNS_16CXXBaseSpecifierERNS_11CXXBasePathEEEEb'/>
+<fun r='_ZN5clang12CXXBasePathsC1Ebbb'/>
+<fun r='_ZN5clang12CXXBasePaths5beginEv'/>
+<fun r='_ZN5clang12CXXBasePaths3endEv'/>
+<fun r='_ZNK5clang12CXXBasePaths5beginEv'/>
+<fun r='_ZNK5clang12CXXBasePaths3endEv'/>
+<fun r='_ZN5clang12CXXBasePaths5frontEv'/>
+<fun r='_ZNK5clang12CXXBasePaths5frontEv'/>
+<fun r='_ZN5clang12CXXBasePaths11found_declsEv'/>
+<fun r='_ZN5clang12CXXBasePaths11isAmbiguousENS_7CanQualINS_4TypeEEE'/>
+<fun r='_ZNK5clang12CXXBasePaths20isFindingAmbiguitiesEv'/>
+<fun r='_ZNK5clang12CXXBasePaths16isRecordingPathsEv'/>
+<fun r='_ZN5clang12CXXBasePaths17setRecordingPathsEb'/>
+<fun r='_ZNK5clang12CXXBasePaths18isDetectingVirtualEv'/>
+<fun r='_ZNK5clang12CXXBasePaths18getDetectedVirtualEv'/>
+<fun r='_ZNK5clang12CXXBasePaths9getOriginEv'/>
+<fun r='_ZN5clang12CXXBasePaths9setOriginEPNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang12CXXBasePaths5clearEv'/>
+<fun r='_ZN5clang12CXXBasePaths4swapERS0_'/>

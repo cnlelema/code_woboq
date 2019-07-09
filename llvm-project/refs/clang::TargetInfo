@@ -1,0 +1,286 @@
+<inh f='llvm/clang/include/clang/Basic/TargetInfo.h' l='54' c='clang::TransferrableTargetInfo'/>
+<inh f='llvm/llvm/include/llvm/ADT/IntrusiveRefCntPtr.h' l='70' c='llvm::RefCountedBase'/>
+<def f='llvm/clang/include/clang/Basic/TargetInfo.h' l='163' ll='1442'/>
+<size>328</size>
+<doc f='llvm/clang/include/clang/Basic/TargetInfo.h' l='161'>/// Exposes information about the current target.
+///</doc>
+<mbr r='clang::TargetInfo::TargetOpts' o='128' t='std::shared_ptr&lt;TargetOptions&gt;'/>
+<mbr r='clang::TargetInfo::Triple' o='256' t='llvm::Triple'/>
+<mbr r='clang::TargetInfo::BigEndian' o='704' t='bool'/>
+<mbr r='clang::TargetInfo::TLSSupported' o='712' t='bool'/>
+<mbr r='clang::TargetInfo::VLASupported' o='720' t='bool'/>
+<mbr r='clang::TargetInfo::NoAsmVariants' o='728' t='bool'/>
+<mbr r='clang::TargetInfo::CapabilityABI' o='736' t='bool'/>
+<mbr r='clang::TargetInfo::HasLegalHalfType' o='744' t='bool'/>
+<mbr r='clang::TargetInfo::HasFloat128' o='752' t='bool'/>
+<mbr r='clang::TargetInfo::HasFloat16' o='760' t='bool'/>
+<mbr r='clang::TargetInfo::MaxAtomicPromoteWidth' o='768' t='unsigned short'/>
+<mbr r='clang::TargetInfo::MaxAtomicInlineWidth' o='784' t='unsigned short'/>
+<mbr r='clang::TargetInfo::SimdDefaultAlign' o='800' t='unsigned short'/>
+<mbr r='clang::TargetInfo::DataLayout' o='832' t='std::unique_ptr&lt;llvm::DataLayout&gt;'/>
+<mbr r='clang::TargetInfo::MCountName' o='896' t='const char *'/>
+<mbr r='clang::TargetInfo::RegParmMax' o='960' t='unsigned char'/>
+<mbr r='clang::TargetInfo::SSERegParmMax' o='968' t='unsigned char'/>
+<mbr r='clang::TargetInfo::TheCXXABI' o='992' t='clang::TargetCXXABI'/>
+<mbr r='clang::TargetInfo::AddrSpaceMap' o='1024' t='const LangASMap *'/>
+<mbr r='clang::TargetInfo::PlatformName' o='1088' t='llvm::StringRef'/>
+<mbr r='clang::TargetInfo::PlatformMinVersion' o='1216' t='llvm::VersionTuple'/>
+<mbr r='clang::TargetInfo::HasAlignMac68kSupport' o='1344' t='unsigned int'/>
+<mbr r='clang::TargetInfo::RealTypeUsesObjCFPRet' o='1345' t='unsigned int'/>
+<mbr r='clang::TargetInfo::ComplexLongDoubleUsesFP2Ret' o='1348' t='unsigned int'/>
+<mbr r='clang::TargetInfo::HasBuiltinMSVaList' o='1349' t='unsigned int'/>
+<mbr r='clang::TargetInfo::IsRenderScriptTarget' o='1350' t='unsigned int'/>
+<fun r='_ZN5clang10TargetInfoC1ERKN4llvm6TripleE'/>
+<fun r='_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefE'/>
+<fun r='_ZN5clang10TargetInfo16CreateTargetInfoERNS_17DiagnosticsEngineERKSt10shared_ptrINS_13TargetOptionsEE'/>
+<fun r='_ZN5clang10TargetInfoD1Ev'/>
+<fun r='_ZNK5clang10TargetInfo13getTargetOptsEv'/>
+<mbr r='clang::TargetInfo::UseAddrSpaceMapMangling' o='1352' t='bool'/>
+<fun r='_ZNK5clang10TargetInfo11getSizeTypeEv'/>
+<fun r='_ZNK5clang10TargetInfo17getSignedSizeTypeEv'/>
+<fun r='_ZNK5clang10TargetInfo13getIntMaxTypeEv'/>
+<fun r='_ZNK5clang10TargetInfo14getUIntMaxTypeEv'/>
+<fun r='_ZNK5clang10TargetInfo14getPtrDiffTypeEj'/>
+<fun r='_ZNK5clang10TargetInfo22getUnsignedPtrDiffTypeEj'/>
+<fun r='_ZNK5clang10TargetInfo13getIntPtrTypeEv'/>
+<fun r='_ZNK5clang10TargetInfo14getUIntPtrTypeEv'/>
+<fun r='_ZNK5clang10TargetInfo12getWCharTypeEv'/>
+<fun r='_ZNK5clang10TargetInfo11getWIntTypeEv'/>
+<fun r='_ZNK5clang10TargetInfo13getChar16TypeEv'/>
+<fun r='_ZNK5clang10TargetInfo13getChar32TypeEv'/>
+<fun r='_ZNK5clang10TargetInfo12getInt64TypeEv'/>
+<fun r='_ZNK5clang10TargetInfo13getUInt64TypeEv'/>
+<fun r='_ZNK5clang10TargetInfo16getSigAtomicTypeEv'/>
+<fun r='_ZNK5clang10TargetInfo16getProcessIDTypeEv'/>
+<fun r='_ZN5clang10TargetInfo28getCorrespondingUnsignedTypeENS_23TransferrableTargetInfo7IntTypeE'/>
+<fun r='_ZNK5clang10TargetInfo36doUnsignedFixedPointTypesHavePaddingEv'/>
+<fun r='_ZNK5clang10TargetInfo12getTypeWidthENS_23TransferrableTargetInfo7IntTypeE'/>
+<fun r='_ZNK5clang10TargetInfo17getIntTypeByWidthEjb'/>
+<fun r='_ZNK5clang10TargetInfo22getLeastIntTypeByWidthEjb'/>
+<fun r='_ZNK5clang10TargetInfo18getRealTypeByWidthEj'/>
+<fun r='_ZNK5clang10TargetInfo12getTypeAlignENS_23TransferrableTargetInfo7IntTypeE'/>
+<fun r='_ZN5clang10TargetInfo12isTypeSignedENS_23TransferrableTargetInfo7IntTypeE'/>
+<fun r='_ZNK5clang10TargetInfo15getPointerWidthEj'/>
+<fun r='_ZNK5clang10TargetInfo15getPointerRangeEj'/>
+<fun r='_ZNK5clang10TargetInfo15getPointerAlignEj'/>
+<fun r='_ZNK5clang10TargetInfo18getMaxPointerRangeEv'/>
+<fun r='_ZNK5clang10TargetInfo19getNullPointerValueENS_6LangASE'/>
+<fun r='_ZNK5clang10TargetInfo23getCHERICapabilityWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo23getCHERICapabilityAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo33getPointerRangeForCHERICapabilityEv'/>
+<fun r='_ZNK5clang10TargetInfo12getBoolWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo12getBoolAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo12getCharWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo12getCharAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo13getShortWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo13getShortAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo11getIntWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo11getIntAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo14getIntCapWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo14getIntCapAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo12getLongWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo12getLongAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo16getLongLongWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo16getLongLongAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo18getShortAccumWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo18getShortAccumAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo13getAccumWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo13getAccumAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo17getLongAccumWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo17getLongAccumAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo18getShortFractWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo18getShortFractAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo13getFractWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo13getFractAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo17getLongFractWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo17getLongFractAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo18getShortAccumScaleEv'/>
+<fun r='_ZNK5clang10TargetInfo18getShortAccumIBitsEv'/>
+<fun r='_ZNK5clang10TargetInfo13getAccumScaleEv'/>
+<fun r='_ZNK5clang10TargetInfo13getAccumIBitsEv'/>
+<fun r='_ZNK5clang10TargetInfo17getLongAccumScaleEv'/>
+<fun r='_ZNK5clang10TargetInfo17getLongAccumIBitsEv'/>
+<fun r='_ZNK5clang10TargetInfo26getUnsignedShortAccumScaleEv'/>
+<fun r='_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv'/>
+<fun r='_ZNK5clang10TargetInfo21getUnsignedAccumScaleEv'/>
+<fun r='_ZNK5clang10TargetInfo21getUnsignedAccumIBitsEv'/>
+<fun r='_ZNK5clang10TargetInfo25getUnsignedLongAccumScaleEv'/>
+<fun r='_ZNK5clang10TargetInfo25getUnsignedLongAccumIBitsEv'/>
+<fun r='_ZNK5clang10TargetInfo18getShortFractScaleEv'/>
+<fun r='_ZNK5clang10TargetInfo13getFractScaleEv'/>
+<fun r='_ZNK5clang10TargetInfo17getLongFractScaleEv'/>
+<fun r='_ZNK5clang10TargetInfo26getUnsignedShortFractScaleEv'/>
+<fun r='_ZNK5clang10TargetInfo21getUnsignedFractScaleEv'/>
+<fun r='_ZNK5clang10TargetInfo25getUnsignedLongFractScaleEv'/>
+<fun r='_ZNK5clang10TargetInfo13hasInt128TypeEv'/>
+<fun r='_ZNK5clang10TargetInfo16hasLegalHalfTypeEv'/>
+<fun r='_ZNK5clang10TargetInfo15hasFloat128TypeEv'/>
+<fun r='_ZNK5clang10TargetInfo14hasFloat16TypeEv'/>
+<fun r='_ZNK5clang10TargetInfo16getSuitableAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo34getDefaultAlignForAttributeAlignedEv'/>
+<fun r='_ZNK5clang10TargetInfo17getMinGlobalAlignEm'/>
+<fun r='_ZNK5clang10TargetInfo11getNewAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo13getWCharWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo13getWCharAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo14getChar16WidthEv'/>
+<fun r='_ZNK5clang10TargetInfo14getChar16AlignEv'/>
+<fun r='_ZNK5clang10TargetInfo14getChar32WidthEv'/>
+<fun r='_ZNK5clang10TargetInfo14getChar32AlignEv'/>
+<fun r='_ZNK5clang10TargetInfo12getHalfWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo12getHalfAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo13getHalfFormatEv'/>
+<fun r='_ZNK5clang10TargetInfo13getFloatWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo13getFloatAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo14getFloatFormatEv'/>
+<fun r='_ZNK5clang10TargetInfo14getDoubleWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo14getDoubleAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo15getDoubleFormatEv'/>
+<fun r='_ZNK5clang10TargetInfo18getLongDoubleWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo18getLongDoubleAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo19getLongDoubleFormatEv'/>
+<fun r='_ZNK5clang10TargetInfo16getFloat128WidthEv'/>
+<fun r='_ZNK5clang10TargetInfo16getFloat128AlignEv'/>
+<fun r='_ZNK5clang10TargetInfo17getFloat128FormatEv'/>
+<fun r='_ZNK5clang10TargetInfo32useFloat128ManglingForLongDoubleEv'/>
+<fun r='_ZNK5clang10TargetInfo18getFloatEvalMethodEv'/>
+<fun r='_ZNK5clang10TargetInfo21getLargeArrayMinWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo18getLargeArrayAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo24getMaxAtomicPromoteWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo23getMaxAtomicInlineWidthEv'/>
+<fun r='_ZN5clang10TargetInfo17setMaxAtomicWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo16hasBuiltinAtomicEmm'/>
+<fun r='_ZNK5clang10TargetInfo17getMaxVectorAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo19getSimdDefaultAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo21getExnObjectAlignmentEv'/>
+<fun r='_ZNK5clang10TargetInfo15getIntMaxTWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo18getUnwindWordWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo16getRegisterWidthEv'/>
+<fun r='_ZNK5clang10TargetInfo13getMCountNameEv'/>
+<fun r='_ZNK5clang10TargetInfo24useSignedCharForObjCBoolEv'/>
+<fun r='_ZN5clang10TargetInfo23noSignedCharForObjCBoolEv'/>
+<fun r='_ZNK5clang10TargetInfo24useBitFieldTypeAlignmentEv'/>
+<fun r='_ZNK5clang10TargetInfo30useZeroLengthBitfieldAlignmentEv'/>
+<fun r='_ZNK5clang10TargetInfo29getZeroLengthBitfieldBoundaryEv'/>
+<fun r='_ZNK5clang10TargetInfo28useExplicitBitFieldAlignmentEv'/>
+<fun r='_ZNK5clang10TargetInfo21hasAlignMac68kSupportEv'/>
+<fun r='_ZN5clang10TargetInfo11getTypeNameENS_23TransferrableTargetInfo7IntTypeE'/>
+<fun r='_ZNK5clang10TargetInfo21getTypeConstantSuffixENS_23TransferrableTargetInfo7IntTypeE'/>
+<fun r='_ZN5clang10TargetInfo21getTypeFormatModifierENS_23TransferrableTargetInfo7IntTypeE'/>
+<fun r='_ZNK5clang10TargetInfo23useObjCFPRetForRealTypeENS_23TransferrableTargetInfo8RealTypeE'/>
+<fun r='_ZNK5clang10TargetInfo33useObjCFP2RetForComplexLongDoubleEv'/>
+<fun r='_ZNK5clang10TargetInfo27useFP16ConversionIntrinsicsEv'/>
+<fun r='_ZNK5clang10TargetInfo26useAddressSpaceMapManglingEv'/>
+<fun r='_ZNK5clang10TargetInfo16getTargetDefinesERKNS_11LangOptionsERNS_12MacroBuilderE'/>
+<fun r='_ZNK5clang10TargetInfo17getTargetBuiltinsEv'/>
+<fun r='_ZNK5clang10TargetInfo17isCLZForZeroUndefEv'/>
+<fun r='_ZNK5clang10TargetInfo20getBuiltinVaListKindEv'/>
+<fun r='_ZNK5clang10TargetInfo18hasBuiltinMSVaListEv'/>
+<fun r='_ZNK5clang10TargetInfo20isRenderScriptTargetEv'/>
+<fun r='_ZNK5clang10TargetInfo14isValidClobberEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang10TargetInfo22isValidGCCRegisterNameEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang10TargetInfo28getNormalizedGCCRegisterNameEN4llvm9StringRefEb'/>
+<fun r='_ZNK5clang10TargetInfo21getConstraintRegisterEN4llvm9StringRefES2_'/>
+<fun r='_ZNK5clang10TargetInfo30validateGlobalRegisterVariableEN4llvm9StringRefEjRb'/>
+<fun r='_ZNK5clang10TargetInfo24validateOutputConstraintERNS0_14ConstraintInfoE'/>
+<fun r='_ZNK5clang10TargetInfo23validateInputConstraintEN4llvm15MutableArrayRefINS0_14ConstraintInfoEEERS3_'/>
+<fun r='_ZNK5clang10TargetInfo18validateOutputSizeEN4llvm9StringRefEj'/>
+<fun r='_ZNK5clang10TargetInfo17validateInputSizeEN4llvm9StringRefEj'/>
+<fun r='_ZNK5clang10TargetInfo26validateConstraintModifierEN4llvm9StringRefEcjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZNK5clang10TargetInfo21validateAsmConstraintERPKcRNS0_14ConstraintInfoE'/>
+<fun r='_ZNK5clang10TargetInfo19resolveSymbolicNameERPKcN4llvm8ArrayRefINS0_14ConstraintInfoEEERj'/>
+<fun r='_ZNK5clang10TargetInfo17convertConstraintERPKc'/>
+<fun r='_ZNK5clang10TargetInfo11getClobbersEv'/>
+<fun r='_ZNK5clang10TargetInfo9isNan2008Ev'/>
+<fun r='_ZNK5clang10TargetInfo9getTripleEv'/>
+<fun r='_ZNK5clang10TargetInfo13getDataLayoutEv'/>
+<fun r='_ZNK5clang10TargetInfo22hasProtectedVisibilityEv'/>
+<fun r='_ZNK5clang10TargetInfo23isValidSectionSpecifierEN4llvm9StringRefE'/>
+<fun r='_ZN5clang10TargetInfo6adjustERNS_11LangOptionsE'/>
+<fun r='_ZNK5clang10TargetInfo19adjustTargetOptionsERKNS_14CodeGenOptionsERNS_13TargetOptionsE'/>
+<fun r='_ZNK5clang10TargetInfo14initFeatureMapERN4llvm9StringMapIbNS1_15MallocAllocatorEEERNS_17DiagnosticsEngineENS1_9StringRefERKSt6vectorINSt7__cxx1112basi3674307'/>
+<fun r='_ZNK5clang10TargetInfo6getABIEv'/>
+<fun r='_ZNK5clang10TargetInfo9getCXXABIEv'/>
+<fun r='_ZN5clang10TargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZNK5clang10TargetInfo16fillValidCPUListERN4llvm15SmallVectorImplINS1_9StringRefEEE'/>
+<fun r='_ZNK5clang10TargetInfo14isValidCPUNameEN4llvm9StringRefE'/>
+<fun r='_ZN5clang10TargetInfo6setABIERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN5clang10TargetInfo9setFPMathEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang10TargetInfo17setFeatureEnabledERN4llvm9StringMapIbNS1_15MallocAllocatorEEENS1_9StringRefEb'/>
+<fun r='_ZNK5clang10TargetInfo18isValidFeatureNameEN4llvm9StringRefE'/>
+<fun r='_ZN5clang10TargetInfo20handleTargetFeaturesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EERNS_17DiagnosticsEngineE'/>
+<fun r='_ZNK5clang10TargetInfo10hasFeatureEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang10TargetInfo23supportsMultiVersioningEv'/>
+<fun r='_ZNK5clang10TargetInfo13supportsIFuncEv'/>
+<fun r='_ZNK5clang10TargetInfo19validateCpuSupportsEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang10TargetInfo24multiVersionSortPriorityEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang10TargetInfo13validateCpuIsEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang10TargetInfo30validateCPUSpecificCPUDispatchEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang10TargetInfo28CPUSpecificManglingCharacterEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang10TargetInfo33getCPUSpecificCPUDispatchFeaturesEN4llvm9StringRefERNS1_15SmallVectorImplIS2_EE'/>
+<fun r='_ZNK5clang10TargetInfo13getRegParmMaxEv'/>
+<fun r='_ZNK5clang10TargetInfo14isTLSSupportedEv'/>
+<fun r='_ZNK5clang10TargetInfo14getMaxTLSAlignEv'/>
+<fun r='_ZNK5clang10TargetInfo14isVLASupportedEv'/>
+<fun r='_ZNK5clang10TargetInfo17isSEHTrySupportedEv'/>
+<fun r='_ZNK5clang10TargetInfo16hasNoAsmVariantsEv'/>
+<fun r='_ZNK5clang10TargetInfo23getEHDataRegisterNumberEj'/>
+<fun r='_ZNK5clang10TargetInfo29getStaticInitSectionSpecifierEv'/>
+<fun r='_ZNK5clang10TargetInfo18getAddressSpaceMapEv'/>
+<fun r='_ZNK5clang10TargetInfo28getOpenCLBuiltinAddressSpaceEj'/>
+<fun r='_ZNK5clang10TargetInfo26getCUDABuiltinAddressSpaceEj'/>
+<fun r='_ZNK5clang10TargetInfo23getConstantAddressSpaceEv'/>
+<fun r='_ZNK5clang10TargetInfo15getPlatformNameEv'/>
+<fun r='_ZNK5clang10TargetInfo21getPlatformMinVersionEv'/>
+<fun r='_ZNK5clang10TargetInfo11isBigEndianEv'/>
+<fun r='_ZNK5clang10TargetInfo14isLittleEndianEv'/>
+<fun r='_ZNK5clang10TargetInfo26areAllPointersCapabilitiesEv'/>
+<fun r='_ZNK5clang10TargetInfo21getDefaultCallingConvENS0_21CallingConvMethodTypeE'/>
+<fun r='_ZNK5clang10TargetInfo22checkCallingConventionENS_11CallingConvE'/>
+<fun r='_ZNK5clang10TargetInfo20SupportsCapabilitiesEv'/>
+<fun r='_ZNK5clang10TargetInfo18getCallingConvKindEb'/>
+<fun r='_ZNK5clang10TargetInfo15hasSjLjLoweringEv'/>
+<fun r='_ZNK5clang10TargetInfo32checkCFProtectionBranchSupportedERNS_17DiagnosticsEngineE'/>
+<fun r='_ZNK5clang10TargetInfo32checkCFProtectionReturnSupportedERNS_17DiagnosticsEngineE'/>
+<fun r='_ZNK5clang10TargetInfo33allowsLargerPreferedTypeAlignmentEv'/>
+<fun r='_ZN5clang10TargetInfo22setSupportedOpenCLOptsEv'/>
+<fun r='_ZN5clang10TargetInfo22setOpenCLExtensionOptsEv'/>
+<fun r='_ZN5clang10TargetInfo22getSupportedOpenCLOptsEv'/>
+<fun r='_ZNK5clang10TargetInfo22getSupportedOpenCLOptsEv'/>
+<fun r='_ZNK5clang10TargetInfo22getOpenCLTypeAddrSpaceENS0_14OpenCLTypeKindE'/>
+<fun r='_ZNK5clang10TargetInfo22getVtblPtrAddressSpaceEv'/>
+<fun r='_ZNK5clang10TargetInfo20getDWARFAddressSpaceEj'/>
+<fun r='_ZNK5clang10TargetInfo13getSDKVersionEv'/>
+<fun r='_ZNK5clang10TargetInfo14validateTargetERNS_17DiagnosticsEngineE'/>
+<fun r='_ZN5clang10TargetInfo12setAuxTargetEPKS0_'/>
+<fun r='_ZN5clang10TargetInfo13copyAuxTargetEPKS0_'/>
+<fun r='_ZNK5clang10TargetInfo16getPointerWidthVEj'/>
+<fun r='_ZNK5clang10TargetInfo16getPointerRangeVEj'/>
+<fun r='_ZNK5clang10TargetInfo16getPointerAlignVEj'/>
+<fun r='_ZNK5clang10TargetInfo15getPtrDiffTypeVEj'/>
+<fun r='_ZNK5clang10TargetInfo14getGCCRegNamesEv'/>
+<fun r='_ZNK5clang10TargetInfo16getGCCRegAliasesEv'/>
+<fun r='_ZNK5clang10TargetInfo18getGCCAddlRegNamesEv'/>
+<fun r='_ZNK5clang10TargetInfo19CheckFixedPointBitsEv'/>
+<ovr f='llvm/clang/lib/Basic/Targets/AArch64.h' l='23' c='clang::targets::AArch64TargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/AMDGPU.h' l='26' c='clang::targets::AMDGPUTargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/ARC.h' l='24' c='clang::targets::ARCTargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/ARM.h' l='26' c='clang::targets::ARMTargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/AVR.h' l='25' c='clang::targets::AVRTargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/BPF.h' l='24' c='clang::targets::BPFTargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/Hexagon.h' l='25' c='clang::targets::HexagonTargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/Lanai.h' l='24' c='clang::targets::LanaiTargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/Le64.h' l='24' c='clang::targets::Le64TargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/MSP430.h' l='24' c='clang::targets::MSP430TargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/Mips.h' l='31' c='clang::targets::MipsTargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/NVPTX.h' l='48' c='clang::targets::NVPTXTargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/PNaCl.h' l='25' c='clang::targets::PNaClTargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/PPC.h' l='27' c='clang::targets::PPCTargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/RISCV.h' l='25' c='clang::targets::RISCVTargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/SPIR.h' l='36' c='clang::targets::SPIRTargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/Sparc.h' l='22' c='clang::targets::SparcTargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/SystemZ.h' l='24' c='clang::targets::SystemZTargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/TCE.h' l='45' c='clang::targets::TCETargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/WebAssembly.h' l='24' c='clang::targets::WebAssemblyTargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/X86.h' l='27' c='clang::targets::X86TargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/XCore.h' l='24' c='clang::targets::XCoreTargetInfo'/>
+<fun r='_ZN5clang10TargetInfo16CreateTargetInfoERNS_17DiagnosticsEngineERKSt10shared_ptrINS_13TargetOptionsEE'/>

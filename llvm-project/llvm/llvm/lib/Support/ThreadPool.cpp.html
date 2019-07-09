@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ThreadPool.cpp source code [llvm/llvm/lib/Support/ThreadPool.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/Support/ThreadPool.cpp'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>llvm</a>/<a href='../..'>llvm</a>/<a href='..'>lib</a>/<a href='./'>Support</a>/<a href='ThreadPool.cpp.html'>ThreadPool.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//==-- llvm/Support/ThreadPool.cpp - A ThreadPool implementation -*- C++ -*-==//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file implements a crude C++11 based thread pool.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../../include/llvm/Support/ThreadPool.h.html">"llvm/Support/ThreadPool.h"</a></u></td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><u>#include "llvm/Config/llvm-config.h"</u></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="../../include/llvm/Support/Threading.h.html">"llvm/Support/Threading.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../include/llvm/Support/raw_ostream.h.html">"llvm/Support/raw_ostream.h"</a></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><b>using</b> <b>namespace</b> <span class="namespace">llvm</span>;</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#<span data-ppcond="21">if</span> <span class="macro" title="1" data-ref="_M/LLVM_ENABLE_THREADS">LLVM_ENABLE_THREADS</span></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i>// Default to hardware_concurrency</i></td></tr>
+<tr><th id="24">24</th><td><a class="type" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool" title='llvm::ThreadPool' data-ref="llvm::ThreadPool">ThreadPool</a>::<dfn class="decl def" id="_ZN4llvm10ThreadPoolC1Ev" title='llvm::ThreadPool::ThreadPool' data-ref="_ZN4llvm10ThreadPoolC1Ev">ThreadPool</dfn>() : <a class="type" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool" title='llvm::ThreadPool' data-ref="llvm::ThreadPool">ThreadPool</a><a class="ref" href="#_ZN4llvm10ThreadPoolC1Ej" title='llvm::ThreadPool::ThreadPool' data-ref="_ZN4llvm10ThreadPoolC1Ej">(</a><a class="ref" href="../../include/llvm/Support/Threading.h.html#_ZN4llvm20hardware_concurrencyEv" title='llvm::hardware_concurrency' data-ref="_ZN4llvm20hardware_concurrencyEv">hardware_concurrency</a>()) {}</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><a class="type" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool" title='llvm::ThreadPool' data-ref="llvm::ThreadPool">ThreadPool</a>::<dfn class="decl def" id="_ZN4llvm10ThreadPoolC1Ej" title='llvm::ThreadPool::ThreadPool' data-ref="_ZN4llvm10ThreadPoolC1Ej">ThreadPool</dfn>(<em>unsigned</em> <dfn class="local col1 decl" id="1ThreadCount" title='ThreadCount' data-type='unsigned int' data-ref="1ThreadCount">ThreadCount</dfn>)</td></tr>
+<tr><th id="27">27</th><td>    : <a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::ActiveThreads" title='llvm::ThreadPool::ActiveThreads' data-ref="llvm::ThreadPool::ActiveThreads">ActiveThreads</a><a class="ref" href="../../../../include/c++/7/atomic.html#_ZNSt6atomicIjEC1Ej" title='std::atomic&lt;unsigned int&gt;::atomic' data-ref="_ZNSt6atomicIjEC1Ej">(</a><var>0</var>), <a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::EnableFlag" title='llvm::ThreadPool::EnableFlag' data-ref="llvm::ThreadPool::EnableFlag">EnableFlag</a>(<b>true</b>) {</td></tr>
+<tr><th id="28">28</th><td>  <i>// Create ThreadCount threads that will loop forever, wait on QueueCondition</i></td></tr>
+<tr><th id="29">29</th><td><i>  // for tasks to be queued or the Pool to be destroyed.</i></td></tr>
+<tr><th id="30">30</th><td>  <a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::Threads" title='llvm::ThreadPool::Threads' data-ref="llvm::ThreadPool::Threads">Threads</a>.<a class="ref" href="../../../../include/c++/7/bits/stl_vector.h.html#_ZNSt6vector7reserveEm" title='std::vector::reserve' data-ref="_ZNSt6vector7reserveEm">reserve</a>(<a class="local col1 ref" href="#1ThreadCount" title='ThreadCount' data-ref="1ThreadCount">ThreadCount</a>);</td></tr>
+<tr><th id="31">31</th><td>  <b>for</b> (<em>unsigned</em> <dfn class="local col2 decl" id="2ThreadID" title='ThreadID' data-type='unsigned int' data-ref="2ThreadID">ThreadID</dfn> = <var>0</var>; <a class="local col2 ref" href="#2ThreadID" title='ThreadID' data-ref="2ThreadID">ThreadID</a> &lt; <a class="local col1 ref" href="#1ThreadCount" title='ThreadCount' data-ref="1ThreadCount">ThreadCount</a>; ++<a class="local col2 ref" href="#2ThreadID" title='ThreadID' data-ref="2ThreadID">ThreadID</a>) {</td></tr>
+<tr><th id="32">32</th><td>    <a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::Threads" title='llvm::ThreadPool::Threads' data-ref="llvm::ThreadPool::Threads">Threads</a>.<a class="ref" href="../../../../include/c++/7/bits/stl_vector.h.html#_ZNSt6vector12emplace_backEDpOT_" title='std::vector::emplace_back' data-ref="_ZNSt6vector12emplace_backEDpOT_">emplace_back</a>([&amp;] {</td></tr>
+<tr><th id="33">33</th><td>      <b>while</b> (<b>true</b>) {</td></tr>
+<tr><th id="34">34</th><td>        <a class="typedef" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::PackagedTaskTy" title='llvm::ThreadPool::PackagedTaskTy' data-type='std::packaged_task&lt;void ()&gt;' data-ref="llvm::ThreadPool::PackagedTaskTy">PackagedTaskTy</a> <a class="ref fake" href="../../../../include/c++/7/future.html#_ZNSt13packaged_taskIFT_DpT0_EEC1Ev" title='std::packaged_task&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;::packaged_task&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;' data-ref="_ZNSt13packaged_taskIFT_DpT0_EEC1Ev"></a><dfn class="local col3 decl" id="3Task" title='Task' data-type='PackagedTaskTy' data-ref="3Task">Task</dfn>;</td></tr>
+<tr><th id="35">35</th><td>        {</td></tr>
+<tr><th id="36">36</th><td>          <span class="namespace">std::</span><a class="type" href="../../../../include/c++/7/bits/std_mutex.h.html#std::unique_lock" title='std::unique_lock' data-ref="std::unique_lock">unique_lock</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../include/c++/7/bits/std_mutex.h.html#std::mutex" title='std::mutex' data-ref="std::mutex">mutex</a>&gt; <dfn class="local col4 decl" id="4LockGuard" title='LockGuard' data-type='std::unique_lock&lt;std::mutex&gt;' data-ref="4LockGuard">LockGuard</dfn><a class="ref" href="../../../../include/c++/7/bits/std_mutex.h.html#_ZNSt11unique_lockC1ERT_" title='std::unique_lock::unique_lock&lt;_Mutex&gt;' data-ref="_ZNSt11unique_lockC1ERT_">(</a><a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::QueueLock" title='llvm::ThreadPool::QueueLock' data-ref="llvm::ThreadPool::QueueLock">QueueLock</a>);</td></tr>
+<tr><th id="37">37</th><td>          <i>// Wait for tasks to be pushed in the queue</i></td></tr>
+<tr><th id="38">38</th><td>          <a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::QueueCondition" title='llvm::ThreadPool::QueueCondition' data-ref="llvm::ThreadPool::QueueCondition">QueueCondition</a>.<a class="ref" href="../../../../include/c++/7/condition_variable.html#_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexET_" title='std::condition_variable::wait' data-ref="_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexET_">wait</a>(<span class='refarg'><a class="local col4 ref" href="#4LockGuard" title='LockGuard' data-ref="4LockGuard">LockGuard</a></span>,</td></tr>
+<tr><th id="39">39</th><td>                              [&amp;] { <b>return</b> !<a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::EnableFlag" title='llvm::ThreadPool::EnableFlag' data-ref="llvm::ThreadPool::EnableFlag">EnableFlag</a> || !<a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::Tasks" title='llvm::ThreadPool::Tasks' data-ref="llvm::ThreadPool::Tasks">Tasks</a>.<a class="ref" href="../../../../include/c++/7/bits/stl_queue.h.html#_ZNKSt5queue5emptyEv" title='std::queue::empty' data-ref="_ZNKSt5queue5emptyEv">empty</a>(); });</td></tr>
+<tr><th id="40">40</th><td>          <i>// Exit condition</i></td></tr>
+<tr><th id="41">41</th><td>          <b>if</b> (!<a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::EnableFlag" title='llvm::ThreadPool::EnableFlag' data-ref="llvm::ThreadPool::EnableFlag">EnableFlag</a> &amp;&amp; <a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::Tasks" title='llvm::ThreadPool::Tasks' data-ref="llvm::ThreadPool::Tasks">Tasks</a>.<a class="ref" href="../../../../include/c++/7/bits/stl_queue.h.html#_ZNKSt5queue5emptyEv" title='std::queue::empty' data-ref="_ZNKSt5queue5emptyEv">empty</a>())</td></tr>
+<tr><th id="42">42</th><td>            <b>return</b>;</td></tr>
+<tr><th id="43">43</th><td>          <i>// Yeah, we have a task, grab it and release the lock on the queue</i></td></tr>
+<tr><th id="44">44</th><td><i></i></td></tr>
+<tr><th id="45">45</th><td><i>          // We first need to signal that we are active before popping the queue</i></td></tr>
+<tr><th id="46">46</th><td><i>          // in order for wait() to properly detect that even if the queue is</i></td></tr>
+<tr><th id="47">47</th><td><i>          // empty, there is still a task in flight.</i></td></tr>
+<tr><th id="48">48</th><td>          {</td></tr>
+<tr><th id="49">49</th><td>            <span class="namespace">std::</span><a class="type" href="../../../../include/c++/7/bits/std_mutex.h.html#std::unique_lock" title='std::unique_lock' data-ref="std::unique_lock">unique_lock</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../include/c++/7/bits/std_mutex.h.html#std::mutex" title='std::mutex' data-ref="std::mutex">mutex</a>&gt; <dfn class="local col5 decl" id="5LockGuard" title='LockGuard' data-type='std::unique_lock&lt;std::mutex&gt;' data-ref="5LockGuard">LockGuard</dfn><a class="ref" href="../../../../include/c++/7/bits/std_mutex.h.html#_ZNSt11unique_lockC1ERT_" title='std::unique_lock::unique_lock&lt;_Mutex&gt;' data-ref="_ZNSt11unique_lockC1ERT_">(</a><a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::CompletionLock" title='llvm::ThreadPool::CompletionLock' data-ref="llvm::ThreadPool::CompletionLock">CompletionLock</a>);</td></tr>
+<tr><th id="50">50</th><td>            <a class="ref" href="../../../../include/c++/7/bits/atomic_base.h.html#_ZNSt13__atomic_baseppEv" title='std::__atomic_base::operator++' data-ref="_ZNSt13__atomic_baseppEv">++</a><a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::ActiveThreads" title='llvm::ThreadPool::ActiveThreads' data-ref="llvm::ThreadPool::ActiveThreads">ActiveThreads</a>;</td></tr>
+<tr><th id="51">51</th><td>          }</td></tr>
+<tr><th id="52">52</th><td>          <a class="local col3 ref" href="#3Task" title='Task' data-ref="3Task">Task</a> <a class="ref" href="../../../../include/c++/7/future.html#_ZNSt13packaged_taskIFT_DpT0_EEaSEOS_IS3_E" title='std::packaged_task&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;::operator=' data-ref="_ZNSt13packaged_taskIFT_DpT0_EEaSEOS_IS3_E">=</a> <span class="namespace">std::</span><a class="ref" href="../../../../include/c++/7/bits/move.h.html#_ZSt4moveOT_" title='std::move' data-ref="_ZSt4moveOT_">move</a>(<span class='refarg'><a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::Tasks" title='llvm::ThreadPool::Tasks' data-ref="llvm::ThreadPool::Tasks">Tasks</a>.<a class="ref" href="../../../../include/c++/7/bits/stl_queue.h.html#_ZNSt5queue5frontEv" title='std::queue::front' data-ref="_ZNSt5queue5frontEv">front</a>()</span>);</td></tr>
+<tr><th id="53">53</th><td>          <a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::Tasks" title='llvm::ThreadPool::Tasks' data-ref="llvm::ThreadPool::Tasks">Tasks</a>.<a class="ref" href="../../../../include/c++/7/bits/stl_queue.h.html#_ZNSt5queue3popEv" title='std::queue::pop' data-ref="_ZNSt5queue3popEv">pop</a>();</td></tr>
+<tr><th id="54">54</th><td>        }</td></tr>
+<tr><th id="55">55</th><td>        <i>// Run the task we just grabbed</i></td></tr>
+<tr><th id="56">56</th><td>        <a class="local col3 ref" href="#3Task" title='Task' data-ref="3Task">Task</a><a class="ref" href="../../../../include/c++/7/future.html#_ZNSt13packaged_taskIFT_DpT0_EEclES2_" title='std::packaged_task&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;::operator()' data-ref="_ZNSt13packaged_taskIFT_DpT0_EEclES2_">()</a>;</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>        {</td></tr>
+<tr><th id="59">59</th><td>          <i>// Adjust `ActiveThreads`, in case someone waits on ThreadPool::wait()</i></td></tr>
+<tr><th id="60">60</th><td>          <span class="namespace">std::</span><a class="type" href="../../../../include/c++/7/bits/std_mutex.h.html#std::unique_lock" title='std::unique_lock' data-ref="std::unique_lock">unique_lock</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../include/c++/7/bits/std_mutex.h.html#std::mutex" title='std::mutex' data-ref="std::mutex">mutex</a>&gt; <dfn class="local col6 decl" id="6LockGuard" title='LockGuard' data-type='std::unique_lock&lt;std::mutex&gt;' data-ref="6LockGuard">LockGuard</dfn><a class="ref" href="../../../../include/c++/7/bits/std_mutex.h.html#_ZNSt11unique_lockC1ERT_" title='std::unique_lock::unique_lock&lt;_Mutex&gt;' data-ref="_ZNSt11unique_lockC1ERT_">(</a><a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::CompletionLock" title='llvm::ThreadPool::CompletionLock' data-ref="llvm::ThreadPool::CompletionLock">CompletionLock</a>);</td></tr>
+<tr><th id="61">61</th><td>          <a class="ref" href="../../../../include/c++/7/bits/atomic_base.h.html#_ZNSt13__atomic_basemmEv" title='std::__atomic_base::operator--' data-ref="_ZNSt13__atomic_basemmEv">--</a><a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::ActiveThreads" title='llvm::ThreadPool::ActiveThreads' data-ref="llvm::ThreadPool::ActiveThreads">ActiveThreads</a>;</td></tr>
+<tr><th id="62">62</th><td>        }</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>        <i>// Notify task completion, in case someone waits on ThreadPool::wait()</i></td></tr>
+<tr><th id="65">65</th><td>        <a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::CompletionCondition" title='llvm::ThreadPool::CompletionCondition' data-ref="llvm::ThreadPool::CompletionCondition">CompletionCondition</a>.<a class="ref" href="../../../../include/c++/7/condition_variable.html#_ZNSt18condition_variable10notify_allEv" title='std::condition_variable::notify_all' data-ref="_ZNSt18condition_variable10notify_allEv">notify_all</a>();</td></tr>
+<tr><th id="66">66</th><td>      }</td></tr>
+<tr><th id="67">67</th><td>    });</td></tr>
+<tr><th id="68">68</th><td>  }</td></tr>
+<tr><th id="69">69</th><td>}</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><em>void</em> <a class="type" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool" title='llvm::ThreadPool' data-ref="llvm::ThreadPool">ThreadPool</a>::<dfn class="decl def" id="_ZN4llvm10ThreadPool4waitEv" title='llvm::ThreadPool::wait' data-ref="_ZN4llvm10ThreadPool4waitEv">wait</dfn>() {</td></tr>
+<tr><th id="72">72</th><td>  <i>// Wait for all threads to complete and the queue to be empty</i></td></tr>
+<tr><th id="73">73</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/7/bits/std_mutex.h.html#std::unique_lock" title='std::unique_lock' data-ref="std::unique_lock">unique_lock</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../include/c++/7/bits/std_mutex.h.html#std::mutex" title='std::mutex' data-ref="std::mutex">mutex</a>&gt; <dfn class="local col7 decl" id="7LockGuard" title='LockGuard' data-type='std::unique_lock&lt;std::mutex&gt;' data-ref="7LockGuard">LockGuard</dfn><a class="ref" href="../../../../include/c++/7/bits/std_mutex.h.html#_ZNSt11unique_lockC1ERT_" title='std::unique_lock::unique_lock&lt;_Mutex&gt;' data-ref="_ZNSt11unique_lockC1ERT_">(</a><a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::CompletionLock" title='llvm::ThreadPool::CompletionLock' data-ref="llvm::ThreadPool::CompletionLock">CompletionLock</a>);</td></tr>
+<tr><th id="74">74</th><td>  <i>// The order of the checks for ActiveThreads and Tasks.empty() matters because</i></td></tr>
+<tr><th id="75">75</th><td><i>  // any active threads might be modifying the Tasks queue, and this would be a</i></td></tr>
+<tr><th id="76">76</th><td><i>  // race.</i></td></tr>
+<tr><th id="77">77</th><td>  <a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::CompletionCondition" title='llvm::ThreadPool::CompletionCondition' data-ref="llvm::ThreadPool::CompletionCondition">CompletionCondition</a>.<a class="ref" href="../../../../include/c++/7/condition_variable.html#_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexET_" title='std::condition_variable::wait' data-ref="_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexET_">wait</a>(<span class='refarg'><a class="local col7 ref" href="#7LockGuard" title='LockGuard' data-ref="7LockGuard">LockGuard</a></span>,</td></tr>
+<tr><th id="78">78</th><td>                           [&amp;] { <b>return</b> !<a class="ref fake" href="../../../../include/c++/7/bits/atomic_base.h.html#_ZNKSt13__atomic_basecvT_Ev" title='std::__atomic_base::operator type-parameter-0-0' data-ref="_ZNKSt13__atomic_basecvT_Ev"></a><a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::ActiveThreads" title='llvm::ThreadPool::ActiveThreads' data-ref="llvm::ThreadPool::ActiveThreads">ActiveThreads</a> &amp;&amp; <a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::Tasks" title='llvm::ThreadPool::Tasks' data-ref="llvm::ThreadPool::Tasks">Tasks</a>.<a class="ref" href="../../../../include/c++/7/bits/stl_queue.h.html#_ZNKSt5queue5emptyEv" title='std::queue::empty' data-ref="_ZNKSt5queue5emptyEv">empty</a>(); });</td></tr>
+<tr><th id="79">79</th><td>}</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td><span class="namespace">std::</span><a class="type" href="../../../../include/c++/7/future.html#std::shared_future" title='std::shared_future' data-ref="std::shared_future">shared_future</a>&lt;<em>void</em>&gt; <a class="type" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool" title='llvm::ThreadPool' data-ref="llvm::ThreadPool">ThreadPool</a>::<dfn class="decl def" id="_ZN4llvm10ThreadPool9asyncImplESt8functionIFvvEE" title='llvm::ThreadPool::asyncImpl' data-ref="_ZN4llvm10ThreadPool9asyncImplESt8functionIFvvEE">asyncImpl</dfn>(<a class="typedef" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::TaskTy" title='llvm::ThreadPool::TaskTy' data-type='std::function&lt;void ()&gt;' data-ref="llvm::ThreadPool::TaskTy">TaskTy</a> <dfn class="local col8 decl" id="8Task" title='Task' data-type='TaskTy' data-ref="8Task">Task</dfn>) {</td></tr>
+<tr><th id="82">82</th><td>  <i class="doc">/// Wrap the Task in a packaged_task to return a future object.</i></td></tr>
+<tr><th id="83">83</th><td>  <a class="typedef" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::PackagedTaskTy" title='llvm::ThreadPool::PackagedTaskTy' data-type='std::packaged_task&lt;void ()&gt;' data-ref="llvm::ThreadPool::PackagedTaskTy">PackagedTaskTy</a> <dfn class="local col9 decl" id="9PackagedTask" title='PackagedTask' data-type='PackagedTaskTy' data-ref="9PackagedTask">PackagedTask</dfn><a class="ref" href="../../../../include/c++/7/future.html#_ZNSt13packaged_taskIFT_DpT0_EEC1EOT_" title='std::packaged_task&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;::packaged_task&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;' data-ref="_ZNSt13packaged_taskIFT_DpT0_EEC1EOT_">(</a><span class="namespace">std::</span><a class="ref" href="../../../../include/c++/7/bits/move.h.html#_ZSt4moveOT_" title='std::move' data-ref="_ZSt4moveOT_">move</a>(<span class='refarg'><a class="local col8 ref" href="#8Task" title='Task' data-ref="8Task">Task</a></span>));</td></tr>
+<tr><th id="84">84</th><td>  <em>auto</em> <dfn class="local col0 decl" id="10Future" title='Future' data-type='std::future&lt;void&gt;' data-ref="10Future">Future</dfn> = <a class="local col9 ref" href="#9PackagedTask" title='PackagedTask' data-ref="9PackagedTask">PackagedTask</a>.<a class="ref" href="../../../../include/c++/7/future.html#_ZNSt13packaged_taskIFT_DpT0_EE10get_futureEv" title='std::packaged_task&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;::get_future' data-ref="_ZNSt13packaged_taskIFT_DpT0_EE10get_futureEv">get_future</a>();</td></tr>
+<tr><th id="85">85</th><td>  {</td></tr>
+<tr><th id="86">86</th><td>    <i>// Lock the queue and push the new task</i></td></tr>
+<tr><th id="87">87</th><td>    <span class="namespace">std::</span><a class="type" href="../../../../include/c++/7/bits/std_mutex.h.html#std::unique_lock" title='std::unique_lock' data-ref="std::unique_lock">unique_lock</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../include/c++/7/bits/std_mutex.h.html#std::mutex" title='std::mutex' data-ref="std::mutex">mutex</a>&gt; <dfn class="local col1 decl" id="11LockGuard" title='LockGuard' data-type='std::unique_lock&lt;std::mutex&gt;' data-ref="11LockGuard">LockGuard</dfn><a class="ref" href="../../../../include/c++/7/bits/std_mutex.h.html#_ZNSt11unique_lockC1ERT_" title='std::unique_lock::unique_lock&lt;_Mutex&gt;' data-ref="_ZNSt11unique_lockC1ERT_">(</a><a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::QueueLock" title='llvm::ThreadPool::QueueLock' data-ref="llvm::ThreadPool::QueueLock">QueueLock</a>);</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td>    <i>// Don't allow enqueueing after disabling the pool</i></td></tr>
+<tr><th id="90">90</th><td>    <a class="macro" href="../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (EnableFlag &amp;&amp; &quot;Queuing a thread during ThreadPool destruction&quot;) ? void (0) : __assert_fail (&quot;EnableFlag &amp;&amp; \&quot;Queuing a thread during ThreadPool destruction\&quot;&quot;, &quot;/root/cheri/llvm-project/llvm/lib/Support/ThreadPool.cpp&quot;, 90, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::EnableFlag" title='llvm::ThreadPool::EnableFlag' data-ref="llvm::ThreadPool::EnableFlag">EnableFlag</a> &amp;&amp; <q>"Queuing a thread during ThreadPool destruction"</q>);</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>    <a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::Tasks" title='llvm::ThreadPool::Tasks' data-ref="llvm::ThreadPool::Tasks">Tasks</a>.<a class="ref" href="../../../../include/c++/7/bits/stl_queue.h.html#_ZNSt5queue4pushEONT0_10value_typeE" title='std::queue::push' data-ref="_ZNSt5queue4pushEONT0_10value_typeE">push</a>(<span class="namespace">std::</span><a class="ref" href="../../../../include/c++/7/bits/move.h.html#_ZSt4moveOT_" title='std::move' data-ref="_ZSt4moveOT_">move</a>(<span class='refarg'><a class="local col9 ref" href="#9PackagedTask" title='PackagedTask' data-ref="9PackagedTask">PackagedTask</a></span>));</td></tr>
+<tr><th id="93">93</th><td>  }</td></tr>
+<tr><th id="94">94</th><td>  <a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::QueueCondition" title='llvm::ThreadPool::QueueCondition' data-ref="llvm::ThreadPool::QueueCondition">QueueCondition</a>.<a class="ref" href="../../../../include/c++/7/condition_variable.html#_ZNSt18condition_variable10notify_oneEv" title='std::condition_variable::notify_one' data-ref="_ZNSt18condition_variable10notify_oneEv">notify_one</a>();</td></tr>
+<tr><th id="95">95</th><td>  <b>return</b> <a class="local col0 ref" href="#10Future" title='Future' data-ref="10Future">Future</a>.<a class="ref" href="../../../../include/c++/7/future.html#_ZNSt6futureIvE5shareEv" title='std::future&lt;void&gt;::share' data-ref="_ZNSt6futureIvE5shareEv">share</a>();</td></tr>
+<tr><th id="96">96</th><td>}</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td><i>// The destructor joins all threads, waiting for completion.</i></td></tr>
+<tr><th id="99">99</th><td><a class="type" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool" title='llvm::ThreadPool' data-ref="llvm::ThreadPool">ThreadPool</a>::<dfn class="decl def" id="_ZN4llvm10ThreadPoolD1Ev" title='llvm::ThreadPool::~ThreadPool' data-ref="_ZN4llvm10ThreadPoolD1Ev">~ThreadPool</dfn>() {</td></tr>
+<tr><th id="100">100</th><td>  {</td></tr>
+<tr><th id="101">101</th><td>    <span class="namespace">std::</span><a class="type" href="../../../../include/c++/7/bits/std_mutex.h.html#std::unique_lock" title='std::unique_lock' data-ref="std::unique_lock">unique_lock</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../include/c++/7/bits/std_mutex.h.html#std::mutex" title='std::mutex' data-ref="std::mutex">mutex</a>&gt; <dfn class="local col2 decl" id="12LockGuard" title='LockGuard' data-type='std::unique_lock&lt;std::mutex&gt;' data-ref="12LockGuard">LockGuard</dfn><a class="ref" href="../../../../include/c++/7/bits/std_mutex.h.html#_ZNSt11unique_lockC1ERT_" title='std::unique_lock::unique_lock&lt;_Mutex&gt;' data-ref="_ZNSt11unique_lockC1ERT_">(</a><a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::QueueLock" title='llvm::ThreadPool::QueueLock' data-ref="llvm::ThreadPool::QueueLock">QueueLock</a>);</td></tr>
+<tr><th id="102">102</th><td>    <a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::EnableFlag" title='llvm::ThreadPool::EnableFlag' data-ref="llvm::ThreadPool::EnableFlag">EnableFlag</a> = <b>false</b>;</td></tr>
+<tr><th id="103">103</th><td>  }</td></tr>
+<tr><th id="104">104</th><td>  <a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::QueueCondition" title='llvm::ThreadPool::QueueCondition' data-ref="llvm::ThreadPool::QueueCondition">QueueCondition</a>.<a class="ref" href="../../../../include/c++/7/condition_variable.html#_ZNSt18condition_variable10notify_allEv" title='std::condition_variable::notify_all' data-ref="_ZNSt18condition_variable10notify_allEv">notify_all</a>();</td></tr>
+<tr><th id="105">105</th><td>  <b>for</b> (<em>auto</em> &amp;<dfn class="local col3 decl" id="13Worker" title='Worker' data-type='std::thread &amp;' data-ref="13Worker">Worker</dfn> : <a class="member" href="../../include/llvm/Support/ThreadPool.h.html#llvm::ThreadPool::Threads" title='llvm::ThreadPool::Threads' data-ref="llvm::ThreadPool::Threads">Threads</a>)</td></tr>
+<tr><th id="106">106</th><td>    <a class="local col3 ref" href="#13Worker" title='Worker' data-ref="13Worker">Worker</a>.<a class="ref" href="../../../../include/c++/7/thread.html#_ZNSt6thread4joinEv" title='std::thread::join' data-ref="_ZNSt6thread4joinEv">join</a>();</td></tr>
+<tr><th id="107">107</th><td>}</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td><u>#<span data-ppcond="21">else</span> // LLVM_ENABLE_THREADS Disabled</u></td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>ThreadPool::ThreadPool() : ThreadPool(<var>0</var>) {}</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><i>// No threads are launched, issue a warning if ThreadCount is not 0</i></td></tr>
+<tr><th id="114">114</th><td>ThreadPool::ThreadPool(<em>unsigned</em> ThreadCount)</td></tr>
+<tr><th id="115">115</th><td>    : ActiveThreads(<var>0</var>) {</td></tr>
+<tr><th id="116">116</th><td>  <b>if</b> (ThreadCount) {</td></tr>
+<tr><th id="117">117</th><td>    errs() &lt;&lt; <q>"Warning: request a ThreadPool with "</q> &lt;&lt; ThreadCount</td></tr>
+<tr><th id="118">118</th><td>           &lt;&lt; <q>" threads, but LLVM_ENABLE_THREADS has been turned off\n"</q>;</td></tr>
+<tr><th id="119">119</th><td>  }</td></tr>
+<tr><th id="120">120</th><td>}</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td><em>void</em> ThreadPool::wait() {</td></tr>
+<tr><th id="123">123</th><td>  <i>// Sequential implementation running the tasks</i></td></tr>
+<tr><th id="124">124</th><td>  <b>while</b> (!Tasks.empty()) {</td></tr>
+<tr><th id="125">125</th><td>    <em>auto</em> Task = std::move(Tasks.front());</td></tr>
+<tr><th id="126">126</th><td>    Tasks.pop();</td></tr>
+<tr><th id="127">127</th><td>    Task();</td></tr>
+<tr><th id="128">128</th><td>  }</td></tr>
+<tr><th id="129">129</th><td>}</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td>std::shared_future&lt;<em>void</em>&gt; ThreadPool::asyncImpl(TaskTy Task) {</td></tr>
+<tr><th id="132">132</th><td>  <i>// Get a Future with launch::deferred execution using std::async</i></td></tr>
+<tr><th id="133">133</th><td>  <em>auto</em> Future = std::async(std::launch::deferred, std::move(Task)).share();</td></tr>
+<tr><th id="134">134</th><td>  <i>// Wrap the future so that both ThreadPool::wait() can operate and the</i></td></tr>
+<tr><th id="135">135</th><td><i>  // returned future can be sync'ed on.</i></td></tr>
+<tr><th id="136">136</th><td>  PackagedTaskTy PackagedTask([Future]() { Future.get(); });</td></tr>
+<tr><th id="137">137</th><td>  Tasks.push(std::move(PackagedTask));</td></tr>
+<tr><th id="138">138</th><td>  <b>return</b> Future;</td></tr>
+<tr><th id="139">139</th><td>}</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td>ThreadPool::~ThreadPool() {</td></tr>
+<tr><th id="142">142</th><td>  wait();</td></tr>
+<tr><th id="143">143</th><td>}</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td><u>#<span data-ppcond="21">endif</span></u></td></tr>
+<tr><th id="146">146</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

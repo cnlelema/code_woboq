@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/LivePhysRegs.h' l='128' type='void llvm::LivePhysRegs::stepForward(const llvm::MachineInstr &amp; MI, SmallVectorImpl&lt;std::pair&lt;MCPhysReg, const MachineOperand *&gt; &gt; &amp; Clobbers)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/LivePhysRegs.h' l='122'>/// Simulates liveness when stepping forward over an instruction(bundle).
+  /// Remove killed-uses, add defs. This is the not recommended way, because it
+  /// depends on accurate kill flags. If possible use stepBackward() instead of
+  /// this function. The clobbers set will be the list of registers either
+  /// defined or clobbered by a regmask.  The operand will identify whether this
+  /// is a regmask or register operand.</doc>
+<use f='llvm/llvm/lib/CodeGen/IfConversion.cpp' l='1374' u='c' c='_ZL16UpdatePredRedefsRN4llvm12MachineInstrERNS_12LivePhysRegsE'/>
+<use f='llvm/llvm/lib/CodeGen/IfConversion.cpp' l='1743' u='c' c='_ZN12_GLOBAL__N_111IfConverter22IfConvertDiamondCommonERNS0_6BBInfoES2_S2_jjbbbb'/>
+<def f='llvm/llvm/lib/CodeGen/LivePhysRegs.cpp' l='84' ll='117' type='void llvm::LivePhysRegs::stepForward(const llvm::MachineInstr &amp; MI, SmallVectorImpl&lt;std::pair&lt;MCPhysReg, const MachineOperand *&gt; &gt; &amp; Clobbers)'/>
+<doc f='llvm/llvm/lib/CodeGen/LivePhysRegs.cpp' l='80'>/// Simulates liveness when stepping forward over an instruction(bundle): Remove
+/// killed-uses, add defs. This is the not recommended way, because it depends
+/// on accurate kill flags. If possible use stepBackward() instead of this
+/// function.</doc>

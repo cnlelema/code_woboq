@@ -1,0 +1,31 @@
+<def f='llvm/llvm/lib/CodeGen/AsmPrinter/DebugLocStream.h' l='31' ll='150'/>
+<size>2472</size>
+<doc f='llvm/llvm/lib/CodeGen/AsmPrinter/DebugLocStream.h' l='24'>/// Byte stream of .debug_loc entries.
+///
+/// Stores a unified stream of .debug_loc entries.  There&apos;s \a List for each
+/// variable/inlined-at pair, and an \a Entry for each \a DebugLocEntry.
+///
+/// FIXME: Do we need all these temp symbols?
+/// FIXME: Why not output directly to the output stream?</doc>
+<mbr r='llvm::DebugLocStream::Lists' o='0' t='SmallVector&lt;llvm::DebugLocStream::List, 4&gt;'/>
+<mbr r='llvm::DebugLocStream::Entries' o='896' t='SmallVector&lt;llvm::DebugLocStream::Entry, 32&gt;'/>
+<mbr r='llvm::DebugLocStream::DWARFBytes' o='9216' t='SmallString&lt;256&gt;'/>
+<mbr r='llvm::DebugLocStream::Comments' o='11392' t='SmallVector&lt;std::string, 32&gt;'/>
+<mbr r='llvm::DebugLocStream::GenerateComments' o='19712' t='bool'/>
+<fun r='_ZN4llvm14DebugLocStreamC1Eb'/>
+<fun r='_ZNK4llvm14DebugLocStream11getNumListsEv'/>
+<fun r='_ZNK4llvm14DebugLocStream7getListEm'/>
+<fun r='_ZNK4llvm14DebugLocStream8getListsEv'/>
+<fun r='_ZN4llvm14DebugLocStream9startListEPNS_16DwarfCompileUnitE'/>
+<fun r='_ZN4llvm14DebugLocStream12finalizeListERNS_10AsmPrinterE'/>
+<fun r='_ZN4llvm14DebugLocStream10startEntryEPKNS_8MCSymbolES3_'/>
+<fun r='_ZN4llvm14DebugLocStream13finalizeEntryEv'/>
+<fun r='_ZN4llvm14DebugLocStream11getStreamerEv'/>
+<fun r='_ZNK4llvm14DebugLocStream10getEntriesERKNS0_4ListE'/>
+<fun r='_ZNK4llvm14DebugLocStream8getBytesERKNS0_5EntryE'/>
+<fun r='_ZNK4llvm14DebugLocStream11getCommentsERKNS0_5EntryE'/>
+<fun r='_ZNK4llvm14DebugLocStream8getIndexERKNS0_4ListE'/>
+<fun r='_ZNK4llvm14DebugLocStream8getIndexERKNS0_5EntryE'/>
+<fun r='_ZNK4llvm14DebugLocStream13getNumEntriesEm'/>
+<fun r='_ZNK4llvm14DebugLocStream11getNumBytesEm'/>
+<fun r='_ZNK4llvm14DebugLocStream14getNumCommentsEm'/>

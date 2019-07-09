@@ -1,0 +1,27 @@
+<dec f='llvm/clang/include/clang/AST/ExprObjC.h' l='1135' type='static clang::ObjCMessageExpr * clang::ObjCMessageExpr::Create(const clang::ASTContext &amp; Context, clang::QualType T, clang::ExprValueKind VK, clang::SourceLocation LBracLoc, clang::SourceLocation SuperLoc, bool IsInstanceSuper, clang::QualType SuperType, clang::Selector Sel, ArrayRef&lt;clang::SourceLocation&gt; SelLocs, clang::ObjCMethodDecl * Method, ArrayRef&lt;clang::Expr *&gt; Args, clang::SourceLocation RBracLoc, bool isImplicit)'/>
+<doc f='llvm/clang/include/clang/AST/ExprObjC.h' l='1110'>/// Create a message send to super.
+  ///
+  /// \param Context The ASTContext in which this expression will be created.
+  ///
+  /// \param T The result type of this message.
+  ///
+  /// \param VK The value kind of this message.  A message returning
+  /// a l-value or r-value reference will be an l-value or x-value,
+  /// respectively.
+  ///
+  /// \param LBracLoc The location of the open square bracket &apos;[&apos;.
+  ///
+  /// \param SuperLoc The location of the &quot;super&quot; keyword.
+  ///
+  /// \param IsInstanceSuper Whether this is an instance &quot;super&quot;
+  /// message (otherwise, it&apos;s a class &quot;super&quot; message).
+  ///
+  /// \param Sel The selector used to determine which method gets called.
+  ///
+  /// \param Method The Objective-C method against which this message
+  /// send was type-checked. May be nullptr.
+  ///
+  /// \param Args The message send arguments.
+  ///
+  /// \param RBracLoc The location of the closing square bracket &apos;]&apos;.</doc>
+<def f='llvm/clang/lib/AST/ExprObjC.cpp' l='205' ll='223' type='static clang::ObjCMessageExpr * clang::ObjCMessageExpr::Create(const clang::ASTContext &amp; Context, clang::QualType T, clang::ExprValueKind VK, clang::SourceLocation LBracLoc, clang::SourceLocation SuperLoc, bool IsInstanceSuper, clang::QualType SuperType, clang::Selector Sel, ArrayRef&lt;clang::SourceLocation&gt; SelLocs, clang::ObjCMethodDecl * Method, ArrayRef&lt;clang::Expr *&gt; Args, clang::SourceLocation RBracLoc, bool isImplicit)'/>

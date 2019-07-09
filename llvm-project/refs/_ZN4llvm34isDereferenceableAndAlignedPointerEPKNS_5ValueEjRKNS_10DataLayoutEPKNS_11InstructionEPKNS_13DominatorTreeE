@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/Analysis/Loads.h' l='36' type='bool llvm::isDereferenceableAndAlignedPointer(const llvm::Value * V, unsigned int Align, const llvm::DataLayout &amp; DL, const llvm::Instruction * CtxI = nullptr, const llvm::DominatorTree * DT = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/Loads.h' l='32'>/// Returns true if V is always a dereferenceable pointer with alignment
+/// greater or equal than requested. If the context instruction is specified
+/// performs context-sensitive analysis and returns true if the pointer is
+/// dereferenceable at the specified instruction.</doc>
+<def f='llvm/llvm/lib/Analysis/Loads.cpp' l='128' ll='150' type='bool llvm::isDereferenceableAndAlignedPointer(const llvm::Value * V, unsigned int Align, const llvm::DataLayout &amp; DL, const llvm::Instruction * CtxI = nullptr, const llvm::DominatorTree * DT = nullptr)'/>
+<use f='llvm/llvm/lib/Analysis/Loads.cpp' l='155' u='c' c='_ZN4llvm24isDereferenceablePointerEPKNS_5ValueERKNS_10DataLayoutEPKNS_11InstructionEPKNS_13DominatorTreeE'/>
+<use f='llvm/llvm/lib/Analysis/Loads.cpp' l='211' u='c' c='_ZN4llvm27isSafeToLoadUnconditionallyEPNS_5ValueEjRKNS_10DataLayoutEPNS_11InstructionEPKNS_13DominatorTreeE'/>
+<use f='llvm/llvm/lib/Analysis/MemDerefPrinter.cpp' l='58' u='c' c='_ZN12_GLOBAL__N_115MemDerefPrinter13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4087' u='c' c='_ZN4llvm28isSafeToSpeculativelyExecuteEPKNS_5ValueEPKNS_11InstructionEPKNS_13DominatorTreeE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1077' u='c' c='_ZN4llvm12InstCombiner18simplifyMaskedLoadERNS_13IntrinsicInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='2009' u='c' c='_ZN4llvm28promoteLoopAccessesToScalarsERKNS_14SmallSetVectorIPNS_5ValueELj8EEERNS_15SmallVectorImplIPNS_10BasicBlockEEERNS6_IPNS_11InstructionEEERNS6_2137798'/>

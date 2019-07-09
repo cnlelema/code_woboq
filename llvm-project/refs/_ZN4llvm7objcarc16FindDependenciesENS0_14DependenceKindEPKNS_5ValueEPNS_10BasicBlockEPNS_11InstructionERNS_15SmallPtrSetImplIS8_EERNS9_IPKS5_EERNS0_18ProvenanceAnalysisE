@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/lib/Transforms/ObjCARC/DependencyAnalysis.h' l='53' type='void llvm::objcarc::FindDependencies(llvm::objcarc::DependenceKind Flavor, const llvm::Value * Arg, llvm::BasicBlock * StartBB, llvm::Instruction * StartInst, SmallPtrSetImpl&lt;llvm::Instruction *&gt; &amp; DependingInstructions, SmallPtrSetImpl&lt;const llvm::BasicBlock *&gt; &amp; Visited, llvm::objcarc::ProvenanceAnalysis &amp; PA)'/>
+<def f='llvm/llvm/lib/Transforms/ObjCARC/DependencyAnalysis.cpp' l='218' ll='271' type='void llvm::objcarc::FindDependencies(llvm::objcarc::DependenceKind Flavor, const llvm::Value * Arg, llvm::BasicBlock * StartBB, llvm::Instruction * StartInst, SmallPtrSetImpl&lt;llvm::Instruction *&gt; &amp; DependingInsts, SmallPtrSetImpl&lt;const llvm::BasicBlock *&gt; &amp; Visited, llvm::objcarc::ProvenanceAnalysis &amp; PA)'/>
+<doc f='llvm/llvm/lib/Transforms/ObjCARC/DependencyAnalysis.cpp' l='214'>/// Walk up the CFG from StartPos (which is in StartBB) and find local and
+/// non-local dependencies on Arg.
+///
+/// TODO: Cache results?</doc>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCContract.cpp' l='164' u='c' c='_ZN12_GLOBAL__N_115ObjCARCContract19contractAutoreleaseERN4llvm8FunctionEPNS1_11InstructionENS1_7objcarc11ARCInstKindERNS1_15SmallPtrSetImplIS5_EERNS82024181'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCContract.cpp' l='168' u='c' c='_ZN12_GLOBAL__N_115ObjCARCContract19contractAutoreleaseERN4llvm8FunctionEPNS1_11InstructionENS1_7objcarc11ARCInstKindERNS1_15SmallPtrSetImplIS5_EERNS82024181'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='965' u='c' c='_ZN12_GLOBAL__N_110ObjCARCOpt23OptimizeIndividualCallsERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='971' u='c' c='_ZN12_GLOBAL__N_110ObjCARCOpt23OptimizeIndividualCallsERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='2062' u='c' c='_ZL28HasSafePathToPredecessorCallPKN4llvm5ValueEPNS_11InstructionERNS_15SmallPtrSetImplIS4_EERNS5_IPKNS_10BasicBlockEEERNS_7objcarc18ProvenanceAnalysisE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='2087' u='c' c='_ZL33FindPredecessorRetainWithSafePathPKN4llvm5ValueEPNS_10BasicBlockEPNS_11InstructionERNS_15SmallPtrSetImplIS6_EERNS7_IPKS3_EERNS_7objcarc18ProvenanceAnalysisE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='2112' u='c' c='_ZL38FindPredecessorAutoreleaseWithSafePathPKN4llvm5ValueEPNS_10BasicBlockEPNS_10ReturnInstERNS_15SmallPtrSetImplIPNS_11InstructionEEERNS7_IPKS3_EERNS12251248'/>

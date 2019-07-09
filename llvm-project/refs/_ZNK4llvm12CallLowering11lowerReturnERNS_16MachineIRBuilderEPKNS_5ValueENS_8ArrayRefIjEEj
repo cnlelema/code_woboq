@@ -1,0 +1,11 @@
+<def f='llvm/llvm/include/llvm/CodeGen/GlobalISel/CallLowering.h' l='165' ll='173' type='bool llvm::CallLowering::lowerReturn(llvm::MachineIRBuilder &amp; MIRBuilder, const llvm::Value * Val, ArrayRef&lt;unsigned int&gt; VRegs, unsigned int SwiftErrorVReg) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/CallLowering.h' l='157'>/// This hook must be implemented to lower outgoing return values, described
+  /// by \p Val, into the specified virtual registers \p VRegs.
+  /// This hook is used by GlobalISel.
+  ///
+  /// \p SwiftErrorVReg is non-zero if the function has a swifterror parameter
+  /// that needs to be implicitly returned.
+  ///
+  /// \return True if the lowering succeeds, false otherwise.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='366' u='c' c='_ZN4llvm12IRTranslator12translateRetERKNS_4UserERNS_16MachineIRBuilderE'/>
+<ovr f='llvm/llvm/lib/Target/AArch64/AArch64CallLowering.cpp' l='233' c='_ZNK4llvm19AArch64CallLowering11lowerReturnERNS_16MachineIRBuilderEPKNS_5ValueENS_8ArrayRefIjEEj'/>

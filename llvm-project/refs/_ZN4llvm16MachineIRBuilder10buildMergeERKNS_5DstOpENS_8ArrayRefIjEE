@@ -1,0 +1,37 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='720' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildMerge(const llvm::DstOp &amp; Res, ArrayRef&lt;unsigned int&gt; Ops)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='709'>/// Build and insert \p Res = G_MERGE_VALUES \p Op0, ...
+  ///
+  /// G_MERGE_VALUES combines the input elements contiguously into a larger
+  /// register.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre The entire register \p Res (and no more) must be covered by the input
+  ///      registers.
+  /// \pre The type of all \p Ops registers must be identical.
+  ///
+  /// \return a MachineInstrBuilder for the newly created instruction.</doc>
+<use f='llvm/llvm/include/llvm/CodeGen/GlobalISel/LegalizationArtifactCombiner.h' l='237' u='c' c='_ZN4llvm28LegalizationArtifactCombiner16tryCombineMergesERNS_12MachineInstrERNS_15SmallVectorImplIPS1_EE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='179' u='c' c='_ZN4llvm15LegalizerHelper11insertPartsEjNS_3LLTES1_NS_8ArrayRefIjEES1_S3_'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='480' u='c' c='_ZN4llvm15LegalizerHelper12narrowScalarERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='545' u='c' c='_ZN4llvm15LegalizerHelper12narrowScalarERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='577' u='c' c='_ZN4llvm15LegalizerHelper12narrowScalarERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2274' u='c' c='_ZN4llvm15LegalizerHelper27narrowScalarShiftByConstantERNS_12MachineInstrERKNS_5APIntENS_3LLTES6_'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2347' u='c' c='_ZN4llvm15LegalizerHelper27narrowScalarShiftByConstantERNS_12MachineInstrERKNS_5APIntENS_3LLTES6_'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2475' u='c' c='_ZN4llvm15LegalizerHelper17narrowScalarShiftERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2652' u='c' c='_ZN4llvm15LegalizerHelper15narrowScalarMulERNS_12MachineInstrENS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2717' u='c' c='_ZN4llvm15LegalizerHelper19narrowScalarExtractERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2792' u='c' c='_ZN4llvm15LegalizerHelper18narrowScalarInsertERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='523' u='c' c='_ZN4llvm16MachineIRBuilder13buildSequenceEjNS_8ArrayRefIjEENS1_ImEE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='543' ll='550' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildMerge(const llvm::DstOp &amp; Res, ArrayRef&lt;unsigned int&gt; Ops)'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64CallLowering.cpp' l='302' u='c' c='_ZNK4llvm19AArch64CallLowering11lowerReturnERNS_16MachineIRBuilderEPKNS_5ValueENS_8ArrayRefIjEEj'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULegalizerInfo.cpp' l='875' u='c' c='_ZNK4llvm19AMDGPULegalizerInfo21legalizeAddrSpaceCastERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULegalizerInfo.cpp' l='985' u='c' c='_ZNK4llvm19AMDGPULegalizerInfo22legalizeIntrinsicTruncERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPURegisterBankInfo.cpp' l='622' u='c' c='_ZNK4llvm22AMDGPURegisterBankInfo22executeInWaterfallLoopERNS_12MachineInstrERNS_19MachineRegisterInfoENS_8ArrayRefIjEE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPURegisterBankInfo.cpp' l='679' u='c' c='_ZNK4llvm22AMDGPURegisterBankInfo22executeInWaterfallLoopERNS_12MachineInstrERNS_19MachineRegisterInfoENS_8ArrayRefIjEE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMCallLowering.cpp' l='399' u='c' c='_ZN12_GLOBAL__N_120IncomingValueHandler17assignCustomValueERKN4llvm12CallLowering7ArgInfoENS1_8ArrayRefINS1_11CCValAssignEEE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMCallLowering.cpp' l='468' u='c' c='_ZNK4llvm15ARMCallLowering20lowerFormalArgumentsERNS_16MachineIRBuilderERKNS_8FunctionENS_8ArrayRefIjEE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMCallLowering.cpp' l='604' u='c' c='_ZNK4llvm15ARMCallLowering9lowerCallERNS_16MachineIRBuilderEjRKNS_14MachineOperandERKNS_12CallLowering7ArgInfoENS_8ArrayRefIS7_EE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsCallLowering.cpp' l='216' u='c' c='_ZN12_GLOBAL__N_120IncomingValueHandler11handleSplitERN4llvm15SmallVectorImplIjEENS1_8ArrayRefINS1_11CCValAssignEEEjjRKNS1_3EVTE'/>
+<use f='llvm/llvm/lib/Target/X86/X86CallLowering.cpp' l='353' u='c' c='_ZNK4llvm15X86CallLowering20lowerFormalArgumentsERNS_16MachineIRBuilderERKNS_8FunctionENS_8ArrayRefIjEE'/>
+<use f='llvm/llvm/lib/Target/X86/X86CallLowering.cpp' l='468' u='c' c='_ZNK4llvm15X86CallLowering9lowerCallERNS_16MachineIRBuilderEjRKNS_14MachineOperandERKNS_12CallLowering7ArgInfoENS_8ArrayRefIS7_EE'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/MachineIRBuilderTest.cpp' l='190' u='c' c='_ZN25GISelMITest_BuildXor_Test8TestBodyEv'/>

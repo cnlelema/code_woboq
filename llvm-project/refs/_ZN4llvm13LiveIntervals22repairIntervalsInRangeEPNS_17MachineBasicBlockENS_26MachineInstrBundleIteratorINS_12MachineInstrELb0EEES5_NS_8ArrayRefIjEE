@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/LiveIntervals.h' l='332' type='void llvm::LiveIntervals::repairIntervalsInRange(llvm::MachineBasicBlock * MBB, MachineBasicBlock::iterator Begin, MachineBasicBlock::iterator End, ArrayRef&lt;unsigned int&gt; OrigRegs)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/LiveIntervals.h' l='323'>/// Update live intervals for instructions in a range of iterators. It is
+    /// intended for use after target hooks that may insert or remove
+    /// instructions, and is only efficient for a small number of instructions.
+    ///
+    /// OrigRegs is a vector of registers that were originally used by the
+    /// instructions in the range between the two iterators.
+    ///
+    /// Currently, the only only changes that are supported are simple removal
+    /// and addition of uses.</doc>
+<def f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='1559' ll='1609' type='void llvm::LiveIntervals::repairIntervalsInRange(llvm::MachineBasicBlock * MBB, MachineBasicBlock::iterator Begin, MachineBasicBlock::iterator End, ArrayRef&lt;unsigned int&gt; OrigRegs)'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='1072' u='c' c='_ZN4llvm17MachineBasicBlock17SplitCriticalEdgeEPS0_RNS_4PassE'/>
+<use f='llvm/llvm/lib/CodeGen/TwoAddressInstructionPass.cpp' l='1442' u='c' c='_ZN12_GLOBAL__N_125TwoAddressInstructionPass23tryInstructionTransformERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_jjjb'/>
+<use f='llvm/llvm/lib/CodeGen/TwoAddressInstructionPass.cpp' l='1879' u='c' c='_ZN12_GLOBAL__N_125TwoAddressInstructionPass20eliminateRegSequenceERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE'/>

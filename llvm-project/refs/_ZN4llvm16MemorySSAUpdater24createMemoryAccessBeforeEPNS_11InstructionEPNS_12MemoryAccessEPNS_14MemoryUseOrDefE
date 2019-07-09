@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/Analysis/MemorySSAUpdater.h' l='216' type='llvm::MemoryUseOrDef * llvm::MemorySSAUpdater::createMemoryAccessBefore(llvm::Instruction * I, llvm::MemoryAccess * Definition, llvm::MemoryUseOrDef * InsertPt)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/MemorySSAUpdater.h' l='206'>/// Create a MemoryAccess in MemorySSA before or after an existing
+  /// MemoryAccess.
+  ///
+  /// Returns the new MemoryAccess.
+  /// This should be called when a memory instruction is created that is being
+  /// used to replace an existing memory instruction. It will *not* create PHI
+  /// nodes, or verify the clobbering definition.
+  ///
+  /// Note: If a MemoryAccess already exists for I, this function will make it
+  /// inaccessible and it *must* have removeMemoryAccess called on it.</doc>
+<def f='llvm/llvm/lib/Analysis/MemorySSAUpdater.cpp' l='1314' ll='1322' type='llvm::MemoryUseOrDef * llvm::MemorySSAUpdater::createMemoryAccessBefore(llvm::Instruction * I, llvm::MemoryAccess * Definition, llvm::MemoryUseOrDef * InsertPt)'/>
+<use f='llvm/llvm/lib/CodeGen/InterleavedLoadCombinePass.cpp' l='1225' u='c' c='_ZN12_GLOBAL__N_126InterleavedLoadCombineImpl7combineERNSt7__cxx114listINS_10VectorInfoESaIS3_EEERN4llvm25OptimizationRemarkEmitterE'/>

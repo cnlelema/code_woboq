@@ -1,0 +1,20 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/CodeExtractor.h' l='86' type='void llvm::CodeExtractor::CodeExtractor(ArrayRef&lt;llvm::BasicBlock *&gt; BBs, llvm::DominatorTree * DT = nullptr, bool AggregateArgs = false, llvm::BlockFrequencyInfo * BFI = nullptr, llvm::BranchProbabilityInfo * BPI = nullptr, llvm::AssumptionCache * AC = nullptr, bool AllowVarArgs = false, bool AllowAlloca = false, std::string Suffix = &quot;&quot;)'/>
+<use f='llvm/llvm/lib/Transforms/IPO/BlockExtractor.cpp' l='207' u='c' c='_ZN12_GLOBAL__N_114BlockExtractor11runOnModuleERN4llvm6ModuleE'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/CodeExtractor.h' l='76'>/// Create a code extractor for a sequence of blocks.
+    ///
+    /// Given a sequence of basic blocks where the first block in the sequence
+    /// dominates the rest, prepare a code extractor object for pulling this
+    /// sequence out into its new function. When a DominatorTree is also given,
+    /// extra checking and transformations are enabled. If AllowVarArgs is true,
+    /// vararg functions can be extracted. This is safe, if all vararg handling
+    /// code is extracted, including vastart. If AllowAlloca is true, then
+    /// extraction of blocks containing alloca instructions would be possible,
+    /// however code extractor won&apos;t validate whether extraction is legal.</doc>
+<use f='llvm/llvm/lib/Transforms/IPO/HotColdSplitting.cpp' l='334' u='c' c='_ZN12_GLOBAL__N_116HotColdSplitting17extractColdRegionERKN4llvm11SmallVectorIPNS1_10BasicBlockELj0EEERNS1_13DominatorTreeEPNS1_18BlockFrequencyInfoERN14963532'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='1130' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEv'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='1214' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEv'/>
+<def f='llvm/llvm/lib/Transforms/Utils/CodeExtractor.cpp' l='244' ll='252' type='void llvm::CodeExtractor::CodeExtractor(ArrayRef&lt;llvm::BasicBlock *&gt; BBs, llvm::DominatorTree * DT = nullptr, bool AggregateArgs = false, llvm::BlockFrequencyInfo * BFI = nullptr, llvm::BranchProbabilityInfo * BPI = nullptr, llvm::AssumptionCache * AC = nullptr, bool AllowVarArgs = false, bool AllowAlloca = false, std::string Suffix = &quot;&quot;)'/>
+<use f='llvm/llvm/unittests/Transforms/Utils/CodeExtractorTest.cpp' l='61' u='c' c='_ZN12_GLOBAL__N_127CodeExtractor_ExitStub_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Transforms/Utils/CodeExtractorTest.cpp' l='111' u='c' c='_ZN12_GLOBAL__N_143CodeExtractor_ExitPHIOnePredFromRegion_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Transforms/Utils/CodeExtractorTest.cpp' l='185' u='c' c='_ZN12_GLOBAL__N_152CodeExtractor_StoreOutputInvokeResultAfterEHPad_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Transforms/Utils/CodeExtractorTest.cpp' l='219' u='c' c='_ZN12_GLOBAL__N_152CodeExtractor_StoreOutputInvokeResultInExitStub_Test8TestBodyEv'/>

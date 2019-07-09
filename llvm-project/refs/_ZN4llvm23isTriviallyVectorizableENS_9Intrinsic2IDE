@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/Analysis/VectorUtils.h' l='42' type='bool llvm::isTriviallyVectorizable(Intrinsic::ID ID)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/VectorUtils.h' l='38'>/// Identify if the intrinsic is trivially vectorizable.
+/// This method returns true if the intrinsic&apos;s argument types are all
+/// scalars for the scalar form of the intrinsic and all vectors for
+/// the vector form of the intrinsic.</doc>
+<def f='llvm/llvm/lib/Analysis/VectorUtils.cpp' l='42' ll='86' type='bool llvm::isTriviallyVectorizable(Intrinsic::ID ID)'/>
+<doc f='llvm/llvm/lib/Analysis/VectorUtils.cpp' l='39'>/// Return true if all of the intrinsic&apos;s arguments and return type are scalars
+/// for the scalar form of the intrinsic and vectors for the vector form of the
+/// intrinsic.</doc>
+<use f='llvm/llvm/lib/Transforms/Scalar/Scalarizer.cpp' l='480' u='c' c='_ZL22isTriviallyScalariableN4llvm9Intrinsic2IDE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp' l='2509' u='c' c='_ZN4llvm13slpvectorizer7BoUpSLP13buildTree_recENS_8ArrayRefIPNS_5ValueEEEjRKNS1_8EdgeInfoE'/>

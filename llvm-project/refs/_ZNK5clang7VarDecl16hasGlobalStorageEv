@@ -1,0 +1,24 @@
+<def f='llvm/clang/include/clang/AST/Decl.h' l='1077' type='bool clang::VarDecl::hasGlobalStorage() const'/>
+<doc f='llvm/clang/include/clang/AST/Decl.h' l='1073'>/// Returns true for all variables that do not have local storage.
+  ///
+  /// This includes all global variables as well as static variables declared
+  /// within a function.</doc>
+<use f='llvm/clang/include/clang/AST/GlobalDecl.h' l='90' u='c' c='_ZNK5clang10GlobalDecl18getDynamicInitKindEv'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='1618' u='c' c='_ZNK5clang10ASTContext12getDeclAlignEPKNS_4DeclEb'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='1819' u='c' c='_ZL14IsGlobalLValueN5clang7APValue10LValueBaseE'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='3509' u='c' c='_ZNK5clang12ast_matchers8internal31matcher_hasGlobalStorageMatcher7matchesERKNS_7VarDeclEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE'/>
+<use f='llvm/clang/lib/Analysis/LiveVariables.cpp' l='180' u='c' c='_ZL13isAlwaysAlivePKN5clang7VarDeclE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='3080' u='c' c='_ZL20setObjCGCLValueClassRKN5clang10ASTContextEPKNS_4ExprERNS_7CodeGen6LValueEb'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='3670' u='c' c='_ZN5clang7CodeGen13CodeGenModule18GetAddrOfGlobalVarEPKNS_7VarDeclEPN4llvm4TypeENS0_15ForDefinition_tE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='7074' u='c' c='_ZN5clang4Sema22getShadowedDeclarationEPKNS_7VarDeclERKNS_12LookupResultE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='12032' u='c' c='_ZN5clang4Sema32CheckCompleteVariableDeclarationEPNS_7VarDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='4453' u='c' c='_ZL18handleConstantAttrRN5clang4SemaEPNS_4DeclERKNS_10ParsedAttrE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='6442' u='c' c='_ZL11isGlobalVarPKN5clang4DeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='6601' u='c' c='_ZL17handleDestroyAttrRN5clang4SemaEPNS_4DeclERKNS_10ParsedAttrE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='13156' u='c' c='_ZN5clang4Sema25FinalizeVarWithDestructorEPNS_7VarDeclEPKNS_10RecordTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='14985' u='c' c='_ZL18isNonlocalVariablePKN5clang4DeclE'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='8244' u='c' c='_ZN5clang22InitializationSequence7PerformERNS_4SemaERKNS_17InitializedEntityERKNS_18InitializationKindEN4llvm15MutableArrayRefIPNS_4ExprEEEPNS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='905' u='c' c='_ZNK12_GLOBAL__N_110DSAStackTy6getDSAERSt16reverse_iteratorIPKNS0_12SharingMapTyEEPN5clang9ValueDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='2060' u='c' c='_ZN12_GLOBAL__N_116VarDeclFilterCCC17ValidateCandidateERKN5clang14TypoCorrectionE'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='2133' u='c' c='_ZN5clang4Sema23ActOnOpenMPIdExpressionEPNS_5ScopeERNS_12CXXScopeSpecERKNS_19DeclarationNameInfoENS_19OpenMPDirectiveKindE'/>
+<use f='llvm/clang/lib/Sema/SemaStmt.cpp' l='765' u='c' c='_ZL33ShouldDiagnoseSwitchCaseNotInEnumRKN5clang4SemaEPKNS_8EnumDeclEPKNS_4ExprERPSt4pairIN4llvm6APSIntEPNS_16EnumConstantDeclEESG_RKSB_'/>

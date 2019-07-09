@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/ExecutionEngine/ExecutionEngine.h' l='195' type='void llvm::ExecutionEngine::addArchive(object::OwningBinary&lt;object::Archive&gt; A)'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/ExecutionEngine.h' l='189'>/// addArchive - Add an Archive to the execution engine.
+  ///
+  /// This method is only supported by MCJIT.  MCJIT will use the archive to
+  /// resolve external symbols in objects it is loading.  If a symbol is found
+  /// in the Archive the contained object file will be extracted (in memory)
+  /// and loaded for possible execution.</doc>
+<def f='llvm/llvm/lib/ExecutionEngine/ExecutionEngine.cpp' l='139' ll='141' type='void llvm::ExecutionEngine::addArchive(object::OwningBinary&lt;object::Archive&gt; A)'/>
+<ovr f='llvm/llvm/lib/ExecutionEngine/MCJIT/MCJIT.cpp' l='134' c='_ZN4llvm5MCJIT10addArchiveENS_6object12OwningBinaryINS1_7ArchiveEEE'/>
+<ovr f='llvm/llvm/lib/ExecutionEngine/Orc/OrcMCJITReplacement.h' l='310' c='_ZN4llvm3orc19OrcMCJITReplacement10addArchiveENS_6object12OwningBinaryINS2_7ArchiveEEE'/>
+<use f='llvm/llvm/tools/lli/lli.cpp' l='516' u='c' c='main'/>

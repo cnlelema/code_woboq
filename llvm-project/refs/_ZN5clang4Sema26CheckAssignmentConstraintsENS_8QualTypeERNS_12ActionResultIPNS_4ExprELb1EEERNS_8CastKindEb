@@ -1,0 +1,25 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='9950' type='clang::Sema::AssignConvertType clang::Sema::CheckAssignmentConstraints(clang::QualType LHSType, ExprResult &amp; RHS, clang::CastKind &amp; Kind, bool ConvertRHS = true)'/>
+<doc f='llvm/clang/include/clang/Sema/Sema.h' l='9947'>/// Check assignment constraints and optionally prepare for a conversion of
+  /// the RHS to the LHS type. The conversion is prepared for if ConvertRHS
+  /// is true.</doc>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='8007' u='c' c='_ZN5clang4Sema26CheckAssignmentConstraintsENS_14SourceLocationENS_8QualTypeES2_'/>
+<def f='llvm/clang/lib/Sema/SemaExpr.cpp' l='8035' ll='8400' type='Sema::AssignConvertType clang::Sema::CheckAssignmentConstraints(clang::QualType LHSType, ExprResult &amp; RHS, clang::CastKind &amp; Kind, bool ConvertRHS = true)'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='8057' u='c' c='_ZN5clang4Sema26CheckAssignmentConstraintsENS_8QualTypeERNS_12ActionResultIPNS_4ExprELb1EEERNS_8CastKindEb'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='8584' u='c' c='_ZN5clang4Sema32CheckSingleAssignmentConstraintsENS_8QualTypeERNS_12ActionResultIPNS_4ExprELb1EEEbbb'/>
+<doc f='llvm/clang/lib/Sema/SemaExpr.cpp' l='8018'>/// CheckAssignmentConstraints (C99 6.5.16) - This routine currently
+/// has code to accommodate several GCC extensions when type checking
+/// pointers. Here are some objectionable examples that GCC considers warnings:
+///
+///  int a, *pint;
+///  short *pshort;
+///  struct foo *pfoo;
+///
+///  pint = pshort; // warning: assignment from incompatible pointer type
+///  a = pint; // warning: assignment makes integer from pointer without a cast
+///  pint = a; // warning: assignment makes pointer from integer without a cast
+///  pint = pfoo; // warning: assignment from incompatible pointer type
+///
+/// As a result, the code for dealing with pointers is more complex than the
+/// C99 spec dictates.
+///
+/// Sets &apos;Kind&apos; for any result kind except Incompatible.</doc>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>R600RegisterInfo.h source code [llvm/llvm/lib/Target/AMDGPU/R600RegisterInfo.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::R600RegisterInfo "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/Target/AMDGPU/R600RegisterInfo.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>lib</a>/<a href='..'>Target</a>/<a href='./'>AMDGPU</a>/<a href='R600RegisterInfo.h.html'>R600RegisterInfo.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- R600RegisterInfo.h - R600 Register Info Interface ------*- C++ -*--===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>/// \file</i></td></tr>
+<tr><th id="10">10</th><td><i>/// Interface definition for R600RegisterInfo</i></td></tr>
+<tr><th id="11">11</th><td><i>//</i></td></tr>
+<tr><th id="12">12</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><u>#<span data-ppcond="14">ifndef</span> <span class="macro" data-ref="_M/LLVM_LIB_TARGET_AMDGPU_R600REGISTERINFO_H">LLVM_LIB_TARGET_AMDGPU_R600REGISTERINFO_H</span></u></td></tr>
+<tr><th id="15">15</th><td><u>#define <dfn class="macro" id="_M/LLVM_LIB_TARGET_AMDGPU_R600REGISTERINFO_H" data-ref="_M/LLVM_LIB_TARGET_AMDGPU_R600REGISTERINFO_H">LLVM_LIB_TARGET_AMDGPU_R600REGISTERINFO_H</dfn></u></td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/GET_REGINFO_HEADER" data-ref="_M/GET_REGINFO_HEADER">GET_REGINFO_HEADER</dfn></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <span class='error' title="&apos;R600GenRegisterInfo.inc&apos; file not found">"R600GenRegisterInfo.inc"</span></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><b>struct</b> <dfn class="type def" id="llvm::R600RegisterInfo" title='llvm::R600RegisterInfo' data-ref="llvm::R600RegisterInfo">R600RegisterInfo</dfn> final : <b>public</b> R600GenRegisterInfo {</td></tr>
+<tr><th id="23">23</th><td>  <a class="type" href="../../../include/llvm/CodeGen/TargetRegisterInfo.h.html#llvm::RegClassWeight" title='llvm::RegClassWeight' data-ref="llvm::RegClassWeight">RegClassWeight</a> <dfn class="decl" id="llvm::R600RegisterInfo::RCW" title='llvm::R600RegisterInfo::RCW' data-ref="llvm::R600RegisterInfo::RCW">RCW</dfn>;</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td>  <dfn class="decl" id="_ZN4llvm16R600RegisterInfoC1Ev" title='llvm::R600RegisterInfo::R600RegisterInfo' data-ref="_ZN4llvm16R600RegisterInfoC1Ev">R600RegisterInfo</dfn>();</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td>  <a class="type" href="../../../include/llvm/ADT/BitVector.h.html#llvm::BitVector" title='llvm::BitVector' data-ref="llvm::BitVector">BitVector</a> <dfn class="decl" id="_ZNK4llvm16R600RegisterInfo15getReservedRegsERKNS_15MachineFunctionE" title='llvm::R600RegisterInfo::getReservedRegs' data-ref="_ZNK4llvm16R600RegisterInfo15getReservedRegsERKNS_15MachineFunctionE">getReservedRegs</dfn>(<em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col4 decl" id="414MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="414MF">MF</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="28">28</th><td>  <em>const</em> <a class="typedef" href="../../../include/llvm/MC/MCRegisterInfo.h.html#llvm::MCPhysReg" title='llvm::MCPhysReg' data-type='uint16_t' data-ref="llvm::MCPhysReg">MCPhysReg</a> *<dfn class="decl" id="_ZNK4llvm16R600RegisterInfo18getCalleeSavedRegsEPKNS_15MachineFunctionE" title='llvm::R600RegisterInfo::getCalleeSavedRegs' data-ref="_ZNK4llvm16R600RegisterInfo18getCalleeSavedRegsEPKNS_15MachineFunctionE">getCalleeSavedRegs</dfn>(<em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> *<dfn class="local col5 decl" id="415MF" title='MF' data-type='const llvm::MachineFunction *' data-ref="415MF">MF</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="29">29</th><td>  <em>unsigned</em> <dfn class="decl" id="_ZNK4llvm16R600RegisterInfo16getFrameRegisterERKNS_15MachineFunctionE" title='llvm::R600RegisterInfo::getFrameRegister' data-ref="_ZNK4llvm16R600RegisterInfo16getFrameRegisterERKNS_15MachineFunctionE">getFrameRegister</dfn>(<em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col6 decl" id="416MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="416MF">MF</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td>  <i class="doc">/// get the HW encoding for a register's channel.</i></td></tr>
+<tr><th id="32">32</th><td>  <em>unsigned</em> <dfn class="decl" id="_ZNK4llvm16R600RegisterInfo12getHWRegChanEj" title='llvm::R600RegisterInfo::getHWRegChan' data-ref="_ZNK4llvm16R600RegisterInfo12getHWRegChanEj">getHWRegChan</dfn>(<em>unsigned</em> <dfn class="local col7 decl" id="417reg" title='reg' data-type='unsigned int' data-ref="417reg">reg</dfn>) <em>const</em>;</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td>  <em>unsigned</em> <dfn class="decl" id="_ZNK4llvm16R600RegisterInfo13getHWRegIndexEj" title='llvm::R600RegisterInfo::getHWRegIndex' data-ref="_ZNK4llvm16R600RegisterInfo13getHWRegIndexEj">getHWRegIndex</dfn>(<em>unsigned</em> <dfn class="local col8 decl" id="418Reg" title='Reg' data-type='unsigned int' data-ref="418Reg">Reg</dfn>) <em>const</em>;</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td>  <i class="doc">/// get the register class of the specified type to use in the</i></td></tr>
+<tr><th id="37">37</th><td><i class="doc">  /// CFGStructurizer</i></td></tr>
+<tr><th id="38">38</th><td>  <em>const</em> <a class="type" href="../../../include/llvm/CodeGen/TargetRegisterInfo.h.html#llvm::TargetRegisterClass" title='llvm::TargetRegisterClass' data-ref="llvm::TargetRegisterClass">TargetRegisterClass</a> *<dfn class="decl" id="_ZNK4llvm16R600RegisterInfo26getCFGStructurizerRegClassENS_3MVTE" title='llvm::R600RegisterInfo::getCFGStructurizerRegClass' data-ref="_ZNK4llvm16R600RegisterInfo26getCFGStructurizerRegClassENS_3MVTE">getCFGStructurizerRegClass</dfn>(<a class="type" href="../../../include/llvm/Support/MachineValueType.h.html#llvm::MVT" title='llvm::MVT' data-ref="llvm::MVT">MVT</a> <dfn class="local col9 decl" id="419VT" title='VT' data-type='llvm::MVT' data-ref="419VT">VT</dfn>) <em>const</em>;</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td>  <em>const</em> <a class="type" href="../../../include/llvm/CodeGen/TargetRegisterInfo.h.html#llvm::RegClassWeight" title='llvm::RegClassWeight' data-ref="llvm::RegClassWeight">RegClassWeight</a> &amp;</td></tr>
+<tr><th id="41">41</th><td>    <dfn class="decl" id="_ZNK4llvm16R600RegisterInfo17getRegClassWeightEPKNS_19TargetRegisterClassE" title='llvm::R600RegisterInfo::getRegClassWeight' data-ref="_ZNK4llvm16R600RegisterInfo17getRegClassWeightEPKNS_19TargetRegisterClassE">getRegClassWeight</dfn>(<em>const</em> <a class="type" href="../../../include/llvm/CodeGen/TargetRegisterInfo.h.html#llvm::TargetRegisterClass" title='llvm::TargetRegisterClass' data-ref="llvm::TargetRegisterClass">TargetRegisterClass</a> *<dfn class="local col0 decl" id="420RC" title='RC' data-type='const llvm::TargetRegisterClass *' data-ref="420RC">RC</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td>  <i>// \returns true if \p Reg can be defined in one ALU clause and used in</i></td></tr>
+<tr><th id="44">44</th><td><i>  // another.</i></td></tr>
+<tr><th id="45">45</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK4llvm16R600RegisterInfo26isPhysRegLiveAcrossClausesEj" title='llvm::R600RegisterInfo::isPhysRegLiveAcrossClauses' data-ref="_ZNK4llvm16R600RegisterInfo26isPhysRegLiveAcrossClausesEj">isPhysRegLiveAcrossClauses</dfn>(<em>unsigned</em> <dfn class="local col1 decl" id="421Reg" title='Reg' data-type='unsigned int' data-ref="421Reg">Reg</dfn>) <em>const</em>;</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm16R600RegisterInfo19eliminateFrameIndexENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEijPNS_12RegScavengerE" title='llvm::R600RegisterInfo::eliminateFrameIndex' data-ref="_ZNK4llvm16R600RegisterInfo19eliminateFrameIndexENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEijPNS_12RegScavengerE">eliminateFrameIndex</dfn>(<a class="type" href="../../../include/llvm/CodeGen/MachineBasicBlock.h.html#llvm::MachineBasicBlock" title='llvm::MachineBasicBlock' data-ref="llvm::MachineBasicBlock">MachineBasicBlock</a>::<a class="typedef" href="../../../include/llvm/CodeGen/MachineBasicBlock.h.html#llvm::MachineBasicBlock::iterator" title='llvm::MachineBasicBlock::iterator' data-type='MachineInstrBundleIterator&lt;llvm::MachineInstr&gt;' data-ref="llvm::MachineBasicBlock::iterator">iterator</a> <dfn class="local col2 decl" id="422MI" title='MI' data-type='MachineBasicBlock::iterator' data-ref="422MI">MI</dfn>, <em>int</em> <dfn class="local col3 decl" id="423SPAdj" title='SPAdj' data-type='int' data-ref="423SPAdj">SPAdj</dfn>,</td></tr>
+<tr><th id="48">48</th><td>                           <em>unsigned</em> <dfn class="local col4 decl" id="424FIOperandNum" title='FIOperandNum' data-type='unsigned int' data-ref="424FIOperandNum">FIOperandNum</dfn>,</td></tr>
+<tr><th id="49">49</th><td>                           <a class="type" href="../../../include/llvm/CodeGen/TargetFrameLowering.h.html#llvm::RegScavenger" title='llvm::RegScavenger' data-ref="llvm::RegScavenger">RegScavenger</a> *<dfn class="local col5 decl" id="425RS" title='RS' data-type='llvm::RegScavenger *' data-ref="425RS">RS</dfn> = <b>nullptr</b>) <em>const</em> override;</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm16R600RegisterInfo21reserveRegisterTuplesERNS_9BitVectorEj" title='llvm::R600RegisterInfo::reserveRegisterTuples' data-ref="_ZNK4llvm16R600RegisterInfo21reserveRegisterTuplesERNS_9BitVectorEj">reserveRegisterTuples</dfn>(<a class="type" href="../../../include/llvm/ADT/BitVector.h.html#llvm::BitVector" title='llvm::BitVector' data-ref="llvm::BitVector">BitVector</a> &amp;<dfn class="local col6 decl" id="426Reserved" title='Reserved' data-type='llvm::BitVector &amp;' data-ref="426Reserved">Reserved</dfn>, <em>unsigned</em> <dfn class="local col7 decl" id="427Reg" title='Reg' data-type='unsigned int' data-ref="427Reg">Reg</dfn>) <em>const</em>;</td></tr>
+<tr><th id="52">52</th><td>};</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td>} <i>// End namespace llvm</i></td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><u>#<span data-ppcond="14">endif</span></u></td></tr>
+<tr><th id="57">57</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='AMDGPUAlwaysInlinePass.cpp.html'>llvm/llvm/lib/Target/AMDGPU/AMDGPUAlwaysInlinePass.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

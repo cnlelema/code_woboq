@@ -1,0 +1,19 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='5393' type='CXString clang_getCompletionParent(CXCompletionString completion_string, enum CXCursorKind * kind)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='5376'>/**
+ * Retrieve the parent context of the given completion string.
+ *
+ * The parent context of a completion string is the semantic parent of
+ * the declaration (if any) that the code completion represents. For example,
+ * a code completion for an Objective-C method would have the method&apos;s class
+ * or protocol as its context.
+ *
+ * \param completion_string The code completion string whose parent is
+ * being queried.
+ *
+ * \param kind DEPRECATED: always set to CXCursor_NotImplemented if non-NULL.
+ *
+ * \returns The name of the completion parent, e.g., &quot;NSObject&quot; if
+ * the completion string represents a method in the NSObject class.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='2492' u='c' c='print_completion_result'/>
+<def f='llvm/clang/tools/libclang/CIndexCodeCompletion.cpp' l='217' ll='228' type='CXString clang_getCompletionParent(CXCompletionString completion_string, CXCursorKind * kind)'/>

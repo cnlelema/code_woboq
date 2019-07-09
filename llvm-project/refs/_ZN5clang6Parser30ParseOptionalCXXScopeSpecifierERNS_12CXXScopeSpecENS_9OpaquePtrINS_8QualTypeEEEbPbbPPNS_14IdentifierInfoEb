@@ -1,0 +1,71 @@
+<dec f='llvm/clang/include/clang/Parse/Parser.h' l='1748' type='bool clang::Parser::ParseOptionalCXXScopeSpecifier(clang::CXXScopeSpec &amp; SS, ParsedType ObjectType, bool EnteringContext, bool * MayBePseudoDestructor = nullptr, bool IsTypename = false, clang::IdentifierInfo ** LastII = nullptr, bool OnlyNamespace = false)'/>
+<use f='llvm/clang/lib/Parse/ParseDecl.cpp' l='4283' u='c' c='_ZN5clang6Parser18ParseEnumSpecifierENS_14SourceLocationERNS_8DeclSpecERKNS0_18ParsedTemplateInfoENS_15AccessSpecifierENS0_15DeclSpecContextE'/>
+<use f='llvm/clang/lib/Parse/ParseDecl.cpp' l='5100' u='c' c='_ZN5clang6Parser23isConstructorDeclaratorEbb'/>
+<use f='llvm/clang/lib/Parse/ParseDecl.cpp' l='5484' u='c' c='_ZN5clang6Parser23ParseDeclaratorInternalERNS_10DeclaratorEMS0_FvS2_E'/>
+<use f='llvm/clang/lib/Parse/ParseDecl.cpp' l='5707' u='c' c='_ZN5clang6Parser21ParseDirectDeclaratorERNS_10DeclaratorE'/>
+<use f='llvm/clang/lib/Parse/ParseDeclCXX.cpp' l='293' u='c' c='_ZN5clang6Parser19ParseNamespaceAliasENS_14SourceLocationES1_PNS_14IdentifierInfoERS1_'/>
+<use f='llvm/clang/lib/Parse/ParseDeclCXX.cpp' l='533' u='c' c='_ZN5clang6Parser19ParseUsingDirectiveENS_17DeclaratorContextENS_14SourceLocationERS2_RNS_16ParsedAttributesE'/>
+<use f='llvm/clang/lib/Parse/ParseDeclCXX.cpp' l='600' u='c' c='_ZN5clang6Parser20ParseUsingDeclaratorENS_17DeclaratorContextERNS0_15UsingDeclaratorE'/>
+<use f='llvm/clang/lib/Parse/ParseDeclCXX.cpp' l='1115' u='c' c='_ZN5clang6Parser22ParseBaseTypeSpecifierERNS_14SourceLocationES2_'/>
+<use f='llvm/clang/lib/Parse/ParseDeclCXX.cpp' l='1545' u='c' c='_ZN5clang6Parser19ParseClassSpecifierENS_3tok9TokenKindENS_14SourceLocationERNS_8DeclSpecERKNS0_18ParsedTemplateInfoENS_15AccessSpecifierEbNS0_15DeclS11386427'/>
+<use f='llvm/clang/lib/Parse/ParseDeclCXX.cpp' l='2495' u='c' c='_ZN5clang6Parser30ParseCXXClassMemberDeclarationENS_15AccessSpecifierERNS_16ParsedAttributesERKNS0_18ParsedTemplateInfoEPNS_21ParsingDeclRAIIObjectE'/>
+<use f='llvm/clang/lib/Parse/ParseDeclCXX.cpp' l='3475' u='c' c='_ZN5clang6Parser19ParseMemInitializerEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='1341' u='c' c='_ZN5clang6Parser19ParseCastExpressionEbbRbNS0_13TypeCastStateEb'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='1760' u='c' c='_ZN5clang6Parser28ParsePostfixExpressionSuffixENS_12ActionResultIPNS_4ExprELb1EEE'/>
+<def f='llvm/clang/lib/Parse/ParseExprCXX.cpp' l='146' ll='556' type='bool clang::Parser::ParseOptionalCXXScopeSpecifier(clang::CXXScopeSpec &amp; SS, ParsedType ObjectType, bool EnteringContext, bool * MayBePseudoDestructor = nullptr, bool IsTypename = false, clang::IdentifierInfo ** LastII = nullptr, bool OnlyNamespace = false)'/>
+<use f='llvm/clang/lib/Parse/ParseExprCXX.cpp' l='632' u='c' c='_ZN5clang6Parser20ParseCXXIdExpressionEb'/>
+<use f='llvm/clang/lib/Parse/ParseExprCXX.cpp' l='2802' u='c' c='_ZN5clang6Parser18ParseUnqualifiedIdERNS_12CXXScopeSpecEbbbbNS_9OpaquePtrINS_8QualTypeEEEPNS_14SourceLocationERNS_13UnqualifiedIdE'/>
+<doc f='llvm/clang/lib/Parse/ParseExprCXX.cpp' l='102'>/// Parse global scope or nested-name-specifier if present.
+///
+/// Parses a C++ global scope specifier (&apos;::&apos;) or nested-name-specifier (which
+/// may be preceded by &apos;::&apos;). Note that this routine will not parse ::new or
+/// ::delete; it will just leave them in the token stream.
+///
+///       &apos;::&apos;[opt] nested-name-specifier
+///       &apos;::&apos;
+///
+///       nested-name-specifier:
+///         type-name &apos;::&apos;
+///         namespace-name &apos;::&apos;
+///         nested-name-specifier identifier &apos;::&apos;
+///         nested-name-specifier &apos;template&apos;[opt] simple-template-id &apos;::&apos;
+///
+///
+/// \param SS the scope specifier that will be set to the parsed
+/// nested-name-specifier (or empty)
+///
+/// \param ObjectType if this nested-name-specifier is being parsed following
+/// the &quot;.&quot; or &quot;-&gt;&quot; of a member access expression, this parameter provides the
+/// type of the object whose members are being accessed.
+///
+/// \param EnteringContext whether we will be entering into the context of
+/// the nested-name-specifier after parsing it.
+///
+/// \param MayBePseudoDestructor When non-NULL, points to a flag that
+/// indicates whether this nested-name-specifier may be part of a
+/// pseudo-destructor name. In this case, the flag will be set false
+/// if we don&apos;t actually end up parsing a destructor name. Moreorover,
+/// if we do end up determining that we are parsing a destructor name,
+/// the last component of the nested-name-specifier is not parsed as
+/// part of the scope specifier.
+///
+/// \param IsTypename If \c true, this nested-name-specifier is known to be
+/// part of a type name. This is used to improve error recovery.
+///
+/// \param LastII When non-NULL, points to an IdentifierInfo* that will be
+/// filled in with the leading identifier in the last component of the
+/// nested-name-specifier, if any.
+///
+/// \param OnlyNamespace If true, only considers namespaces in lookup.
+///
+/// \returns true if there was an error parsing a scope specifier</doc>
+<use f='llvm/clang/lib/Parse/ParseOpenMP.cpp' l='1515' u='c' c='_ZN5clang6Parser24ParseOpenMPSimpleVarListENS_19OpenMPDirectiveKindERKN4llvm12function_refIFvRNS_12CXXScopeSpecENS_19DeclarationNameInfoEEEEb'/>
+<use f='llvm/clang/lib/Parse/ParseOpenMP.cpp' l='2090' u='c' c='_ZN5clang6Parser19parseMapperModifierERNS0_19OpenMPVarListDataTyE'/>
+<use f='llvm/clang/lib/Parse/ParseOpenMP.cpp' l='2195' u='c' c='_ZN5clang6Parser18ParseOpenMPVarListENS_19OpenMPDirectiveKindENS_16OpenMPClauseKindERN4llvm15SmallVectorImplIPNS_4ExprEEERNS0_19OpenMPVarListDataTyE'/>
+<use f='llvm/clang/lib/Parse/ParseStmtAsm.cpp' l='225' u='c' c='_ZN5clang6Parser20ParseMSAsmIdentifierERN4llvm15SmallVectorImplINS_5TokenEEERjb'/>
+<use f='llvm/clang/lib/Parse/ParseTemplate.cpp' l='1169' u='c' c='_ZN5clang6Parser29ParseTemplateTemplateArgumentEv'/>
+<use f='llvm/clang/lib/Parse/Parser.cpp' l='1579' u='c' c='_ZN5clang6Parser15TryAnnotateNameEbPNS_27CorrectionCandidateCallbackE'/>
+<use f='llvm/clang/lib/Parse/Parser.cpp' l='1782' u='c' c='_ZN5clang6Parser27TryAnnotateTypeOrScopeTokenEv'/>
+<use f='llvm/clang/lib/Parse/Parser.cpp' l='1855' u='c' c='_ZN5clang6Parser27TryAnnotateTypeOrScopeTokenEv'/>
+<use f='llvm/clang/lib/Parse/Parser.cpp' l='1987' u='c' c='_ZN5clang6Parser24TryAnnotateCXXScopeTokenEb'/>
+<use f='llvm/clang/lib/Parse/Parser.cpp' l='2096' u='c' c='_ZN5clang6Parser31ParseMicrosoftIfExistsConditionERNS0_17IfExistsConditionE'/>

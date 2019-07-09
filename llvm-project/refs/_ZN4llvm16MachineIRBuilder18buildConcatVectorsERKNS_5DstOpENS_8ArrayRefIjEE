@@ -1,0 +1,20 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='782' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildConcatVectors(const llvm::DstOp &amp; Res, ArrayRef&lt;unsigned int&gt; Ops)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='771'>/// Build and insert \p Res = G_CONCAT_VECTORS \p Op0, ...
+  ///
+  /// G_CONCAT_VECTORS creates a vector from the concatenation of 2 or more
+  /// vectors.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre The entire register \p Res (and no more) must be covered by the input
+  ///      registers.
+  /// \pre The type of all source operands must be identical.
+  ///
+  /// \return a MachineInstrBuilder for the newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='184' u='c' c='_ZN4llvm15LegalizerHelper11insertPartsEjNS_3LLTES1_NS_8ArrayRefIjEES1_S3_'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='770' u='c' c='_ZN4llvm15LegalizerHelper21moreElementsVectorSrcERNS_12MachineInstrENS_3LLTEj'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1638' u='c' c='_ZN4llvm15LegalizerHelper30fewerElementsVectorImplicitDefERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1731' u='c' c='_ZN4llvm15LegalizerHelper24fewerElementsVectorBasicERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1878' u='c' c='_ZN4llvm15LegalizerHelper24fewerElementsVectorCastsERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1945' u='c' c='_ZN4llvm15LegalizerHelper22fewerElementsVectorCmpERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2017' u='c' c='_ZN4llvm15LegalizerHelper25fewerElementsVectorSelectERNS_12MachineInstrEjNS_3LLTE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='604' ll='611' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildConcatVectors(const llvm::DstOp &amp; Res, ArrayRef&lt;unsigned int&gt; Ops)'/>

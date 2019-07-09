@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/Analysis/BranchProbabilityInfo.h' l='194' type='bool llvm::BranchProbabilityInfo::calcColdCallHeuristics(const llvm::BasicBlock * BB)'/>
+<def f='llvm/llvm/lib/Analysis/BranchProbabilityInfo.cpp' l='349' ll='389' type='bool llvm::BranchProbabilityInfo::calcColdCallHeuristics(const llvm::BasicBlock * BB)'/>
+<use f='llvm/llvm/lib/Analysis/BranchProbabilityInfo.cpp' l='982' u='c' c='_ZN4llvm21BranchProbabilityInfo9calculateERKNS_8FunctionERKNS_8LoopInfoEPKNS_17TargetLibraryInfoE'/>
+<doc f='llvm/llvm/lib/Analysis/BranchProbabilityInfo.cpp' l='341'>/// Calculate edge weights for edges leading to cold blocks.
+///
+/// A cold block is one post-dominated by  a block with a call to a
+/// cold function.  Those edges are unlikely to be taken, so we give
+/// them relatively low weight.
+///
+/// Return true if we could compute the weights for cold edges.
+/// Return false, otherwise.</doc>

@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/include/llvm/IR/IRBuilder.h' l='597' type='llvm::CallInst * llvm::IRBuilderBase::CreateMaskedStore(llvm::Value * Val, llvm::Value * Ptr, unsigned int Align, llvm::Value * Mask)'/>
+<doc f='llvm/llvm/include/llvm/IR/IRBuilder.h' l='596'>/// Create a call to Masked Store intrinsic</doc>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='9611' u='c' c='_ZL18EmitX86MaskedStoreRN5clang7CodeGen15CodeGenFunctionEN4llvm8ArrayRefIPNS3_5ValueEEEj'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='1289' u='c' c='_ZL18UpgradeMaskedStoreRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_S6_b'/>
+<def f='llvm/llvm/lib/IR/IRBuilder.cpp' l='507' ll='516' type='llvm::CallInst * llvm::IRBuilderBase::CreateMaskedStore(llvm::Value * Val, llvm::Value * Ptr, unsigned int Align, llvm::Value * Mask)'/>
+<doc f='llvm/llvm/lib/IR/IRBuilder.cpp' l='501'>/// Create a call to a Masked Store intrinsic.
+/// \p Val   - data to be stored,
+/// \p Ptr   - base pointer for the store
+/// \p Align - alignment of the destination location
+/// \p Mask  - vector of booleans which indicates what vector lanes should
+///            be accessed in memory</doc>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1365' u='c' c='_ZL22simplifyX86MaskedStoreRN4llvm13IntrinsicInstERNS_12InstCombinerE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/MemorySanitizer.cpp' l='2910' u='c' c='_ZN12_GLOBAL__N_122MemorySanitizerVisitor17handleMaskedStoreERN4llvm13IntrinsicInstE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='2203' u='c' c='_ZN4llvm19InnerLoopVectorizer24vectorizeInterleaveGroupEPNS_11InstructionEPNS_11SmallVectorIPNS_5ValueELj2EEE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='2313' u='c' c='_ZN4llvm19InnerLoopVectorizer26vectorizeMemoryInstructionEPNS_11InstructionEPNS_11SmallVectorIPNS_5ValueELj2EEE'/>

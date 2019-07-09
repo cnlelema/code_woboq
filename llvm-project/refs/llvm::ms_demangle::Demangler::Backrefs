@@ -1,0 +1,38 @@
+<dec f='llvm/llvm/include/llvm/Demangle/MicrosoftDemangle.h' l='271' type='llvm::ms_demangle::BackrefContext'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='924' u='m' c='_ZN4llvm11ms_demangle9Demangler14memorizeStringENS_16itanium_demangle10StringViewE'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='926' u='m' c='_ZN4llvm11ms_demangle9Demangler14memorizeStringENS_16itanium_demangle10StringViewE'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='927' u='m' c='_ZN4llvm11ms_demangle9Demangler14memorizeStringENS_16itanium_demangle10StringViewE'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='931' u='m' c='_ZN4llvm11ms_demangle9Demangler14memorizeStringENS_16itanium_demangle10StringViewE'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='931' u='m' c='_ZN4llvm11ms_demangle9Demangler14memorizeStringENS_16itanium_demangle10StringViewE'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='938' u='m' c='_ZN4llvm11ms_demangle9Demangler19demangleBackRefNameERNS_16itanium_demangle10StringViewE'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='944' u='m' c='_ZN4llvm11ms_demangle9Demangler19demangleBackRefNameERNS_16itanium_demangle10StringViewE'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='970' u='a' c='_ZN4llvm11ms_demangle9Demangler33demangleTemplateInstantiationNameERNS_16itanium_demangle10StringViewENS0_19NameBackrefBehaviorE'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='977' u='a' c='_ZN4llvm11ms_demangle9Demangler33demangleTemplateInstantiationNameERNS_16itanium_demangle10StringViewENS0_19NameBackrefBehaviorE'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='2112' u='m' c='_ZN4llvm11ms_demangle9Demangler29demangleFunctionParameterListERNS_16itanium_demangle10StringViewERb'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='2119' u='m' c='_ZN4llvm11ms_demangle9Demangler29demangleFunctionParameterListERNS_16itanium_demangle10StringViewERb'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='2138' u='m' c='_ZN4llvm11ms_demangle9Demangler29demangleFunctionParameterListERNS_16itanium_demangle10StringViewERb'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='2139' u='m' c='_ZN4llvm11ms_demangle9Demangler29demangleFunctionParameterListERNS_16itanium_demangle10StringViewERb'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='2139' u='m' c='_ZN4llvm11ms_demangle9Demangler29demangleFunctionParameterListERNS_16itanium_demangle10StringViewERb'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='2291' u='m' c='_ZN4llvm11ms_demangle9Demangler18dumpBackReferencesEv'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='2297' u='m' c='_ZN4llvm11ms_demangle9Demangler18dumpBackReferencesEv'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='2300' u='m' c='_ZN4llvm11ms_demangle9Demangler18dumpBackReferencesEv'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='2308' u='m' c='_ZN4llvm11ms_demangle9Demangler18dumpBackReferencesEv'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='2310' u='m' c='_ZN4llvm11ms_demangle9Demangler18dumpBackReferencesEv'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='2311' u='m' c='_ZN4llvm11ms_demangle9Demangler18dumpBackReferencesEv'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='2312' u='m' c='_ZN4llvm11ms_demangle9Demangler18dumpBackReferencesEv'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='2313' u='m' c='_ZN4llvm11ms_demangle9Demangler18dumpBackReferencesEv'/>
+<use f='llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' l='2315' u='m' c='_ZN4llvm11ms_demangle9Demangler18dumpBackReferencesEv'/>
+<offset>192</offset>
+<doc f='llvm/llvm/include/llvm/Demangle/MicrosoftDemangle.h' l='258'>// A single type uses one global back-ref table for all function params.
+  // This means back-refs can even go &quot;into&quot; other types.  Examples:
+  //
+  //  // Second int* is a back-ref to first.
+  //  void foo(int *, int*);
+  //
+  //  // Second int* is not a back-ref to first (first is not a function param).
+  //  int* foo(int*);
+  //
+  //  // Second int* is a back-ref to first (ALL function types share the same
+  //  // back-ref map.
+  //  using F = void(*)(int*);
+  //  F G(int *);</doc>

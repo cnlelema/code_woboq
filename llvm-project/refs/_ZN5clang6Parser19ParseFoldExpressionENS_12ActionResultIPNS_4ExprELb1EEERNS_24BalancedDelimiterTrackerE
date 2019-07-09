@@ -1,0 +1,13 @@
+<dec f='llvm/clang/include/clang/Parse/Parser.h' l='1734' type='ExprResult clang::Parser::ParseFoldExpression(ExprResult LHS, clang::BalancedDelimiterTracker &amp; T)'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='2636' u='c' c='_ZN5clang6Parser20ParseParenExpressionERNS0_16ParenParseOptionEbbRNS_9OpaquePtrINS_8QualTypeEEERNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='2650' u='c' c='_ZN5clang6Parser20ParseParenExpressionERNS0_16ParenParseOptionEbbRNS_9OpaquePtrINS_8QualTypeEEERNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='2670' u='c' c='_ZN5clang6Parser20ParseParenExpressionERNS0_16ParenParseOptionEbbRNS_9OpaquePtrINS_8QualTypeEEERNS_14SourceLocationE'/>
+<def f='llvm/clang/lib/Parse/ParseExpr.cpp' l='2842' ll='2885' type='ExprResult clang::Parser::ParseFoldExpression(ExprResult LHS, clang::BalancedDelimiterTracker &amp; T)'/>
+<doc f='llvm/clang/lib/Parse/ParseExpr.cpp' l='2834'>/// Parse A C++1z fold-expression after the opening paren and optional
+/// left-hand-side expression.
+///
+/// \verbatim
+///   fold-expression:
+///       ( cast-expression fold-operator ... )
+///       ( ... fold-operator cast-expression )
+///       ( cast-expression fold-operator ... fold-operator cast-expression )</doc>

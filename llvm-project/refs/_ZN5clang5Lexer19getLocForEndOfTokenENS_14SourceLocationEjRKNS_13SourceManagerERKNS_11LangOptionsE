@@ -1,0 +1,47 @@
+<dec f='llvm/clang/include/clang/Lex/Lexer.h' l='371' type='static clang::SourceLocation clang::Lexer::getLocForEndOfToken(clang::SourceLocation Loc, unsigned int Offset, const clang::SourceManager &amp; SM, const clang::LangOptions &amp; LangOpts)'/>
+<use f='llvm/clang/include/clang/Lex/Lexer.h' l='382' u='c' c='_ZN5clang5Lexer14getAsCharRangeENS_11SourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<use f='llvm/clang/include/clang/Lex/Preprocessor.h' l='1773' u='c' c='_ZN5clang12Preprocessor19getLocForEndOfTokenENS_14SourceLocationEj'/>
+<doc f='llvm/clang/include/clang/Lex/Lexer.h' l='356'>/// Computes the source location just past the end of the
+  /// token at this source location.
+  ///
+  /// This routine can be used to produce a source location that
+  /// points just past the end of the token referenced by \p Loc, and
+  /// is generally used when a diagnostic needs to point just after a
+  /// token where it expected something different that it received. If
+  /// the returned source location would not be meaningful (e.g., if
+  /// it points into a macro), this routine returns an invalid
+  /// source location.
+  ///
+  /// \param Offset an offset from the end of the token, where the source
+  /// location should refer to. The default offset (0) produces a source
+  /// location pointing just past the end of the token; an offset of 1 produces
+  /// a source location pointing to the last character in the token, etc.</doc>
+<use f='llvm/clang/lib/Edit/Commit.cpp' l='272' u='c' c='_ZN5clang4edit6Commit19canInsertAfterTokenENS_14SourceLocationERNS0_10FileOffsetERS2_'/>
+<def f='llvm/clang/lib/Lex/Lexer.cpp' l='770' ll='788' type='static clang::SourceLocation clang::Lexer::getLocForEndOfToken(clang::SourceLocation Loc, unsigned int Offset, const clang::SourceManager &amp; SM, const clang::LangOptions &amp; LangOpts)'/>
+<use f='llvm/clang/lib/Lex/Lexer.cpp' l='847' u='c' c='_ZL21makeRangeFromFileLocsN5clang15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<use f='llvm/clang/lib/Lex/Lexer.cpp' l='1236' u='c' c='_ZN5clang5Lexer13findNextTokenENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<doc f='llvm/clang/lib/Lex/Lexer.cpp' l='755'>/// Computes the source location just past the end of the
+/// token at this source location.
+///
+/// This routine can be used to produce a source location that
+/// points just past the end of the token referenced by \p Loc, and
+/// is generally used when a diagnostic needs to point just after a
+/// token where it expected something different that it received. If
+/// the returned source location would not be meaningful (e.g., if
+/// it points into a macro), this routine returns an invalid
+/// source location.
+///
+/// \param Offset an offset from the end of the token, where the source
+/// location should refer to. The default offset (0) produces a source
+/// location pointing just past the end of the token; an offset of 1 produces
+/// a source location pointing to the last character in the token, etc.</doc>
+<use f='llvm/clang/lib/Parse/ParseExprCXX.cpp' l='1061' u='c' c='_ZN5clang6Parser21ParseLambdaIntroducerERNS_16LambdaIntroducerEPNS0_30LambdaIntroducerTentativeParseE'/>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='48' u='c' c='_ZN5clang4Sema19getLocForEndOfTokenENS_14SourceLocationEj'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='8072' u='c' c='_ZL24createAttributeInsertionPKN5clang9NamedDeclERKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='8690' u='c' c='_ZN12_GLOBAL__N_129DiagnoseUnguardedAvailability24DiagnoseDeclAvailabilityEPN5clang9NamedDeclENS1_11SourceRangeEPNS1_17ObjCInterfaceDeclE'/>
+<use f='llvm/clang/lib/Tooling/ASTDiff/ASTDiff.cpp' l='999' u='c' c='_ZNK5clang4diff10SyntaxTree21getSourceRangeOffsetsERKNS0_4NodeE'/>
+<use f='llvm/clang/lib/Tooling/Refactoring/ASTSelection.cpp' l='144' u='c' c='_ZN12_GLOBAL__N_118ASTSelectionFinder16selectionKindForEN5clang15CharSourceRangeE'/>
+<use f='llvm/clang/lib/Tooling/Refactoring/RangeSelector.cpp' l='123' u='c' c='_ZN5clang7tooling5afterESt8functionIFN4llvm8ExpectedINS_15CharSourceRangeEEERKNS_12ast_matchers11MatchFinder11MatchResultEEE'/>
+<use f='llvm/clang/include/clang/Tooling/Refactoring/RecursiveSymbolVisitor.h' l='54' u='c' c='_ZN5clang7tooling22RecursiveSymbolVisitor23VisitCXXConstructorDeclEPKNS_18CXXConstructorDeclE'/>
+<use f='llvm/clang/include/clang/Tooling/Refactoring/RecursiveSymbolVisitor.h' l='89' u='c' c='_ZN5clang7tooling22RecursiveSymbolVisitor12VisitTypeLocENS_7TypeLocE'/>
+<use f='llvm/clang/lib/Tooling/Refactoring/Rename/USRLocFinder.cpp' l='89' u='c' c='_ZN5clang7tooling12_GLOBAL__N_123USRLocFindingASTVisitor19checkAndAddLocationENS_14SourceLocationE'/>

@@ -1,0 +1,61 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='392' type='bool llvm::isSafeToSpeculativelyExecute(const llvm::Value * V, const llvm::Instruction * CtxI = nullptr, const llvm::DominatorTree * DT = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='369'>/// Return true if the instruction does not have any effects besides
+  /// calculating the result and does not have undefined behavior.
+  ///
+  /// This method never returns true for an instruction that returns true for
+  /// mayHaveSideEffects; however, this method also does some other checks in
+  /// addition. It checks for undefined behavior, like dividing by zero or
+  /// loading from an invalid pointer (but not for undefined results, like a
+  /// shift with a shift amount larger than the width of the result). It checks
+  /// for malloc and alloca because speculatively executing them might cause a
+  /// memory leak. It also returns false for instructions related to control
+  /// flow, specifically terminators and PHI nodes.
+  ///
+  /// If the CtxI is specified this method performs context-sensitive analysis
+  /// and returns true if it is safe to execute the instruction immediately
+  /// before the CtxI.
+  ///
+  /// If the CtxI is NOT specified this method only looks at the instruction
+  /// itself and its operands, so if this method returns true, it is safe to
+  /// move the instruction as long as the correct dominance relationships for
+  /// the operands and users hold.
+  ///
+  /// This method can return true for instructions that read memory;
+  /// for such instructions, moving them may change the resulting value.</doc>
+<use f='llvm/llvm/lib/Analysis/CodeMetrics.cpp' l='37' u='c' c='_ZL26appendSpeculatableOperandsPKN4llvm5ValueERNS_15SmallPtrSetImplIS2_EERNS_15SmallVectorImplIS2_EE'/>
+<use f='llvm/llvm/lib/Analysis/IVUsers.cpp' l='182' u='c' c='_ZN4llvm7IVUsers12AddUsersImplEPNS_11InstructionERNS_15SmallPtrSetImplIPNS_4LoopEEE'/>
+<use f='llvm/llvm/lib/Analysis/LoopInfo.cpp' l='84' u='c' c='_ZNK4llvm4Loop17makeLoopInvariantEPNS_11InstructionERbS2_PNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/lib/Analysis/PHITransAddr.cpp' l='31' u='c' c='_ZL11CanPHITransPN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Analysis/PHITransAddr.cpp' l='188' u='c' c='_ZN4llvm12PHITransAddr19PHITranslateSubExprEPNS_5ValueEPNS_10BasicBlockES4_PKNS_13DominatorTreeE'/>
+<use f='llvm/llvm/lib/Analysis/PHITransAddr.cpp' l='381' u='c' c='_ZN4llvm12PHITransAddr26InsertPHITranslatedSubExprEPNS_5ValueEPNS_10BasicBlockES4_RKNS_13DominatorTreeERNS_15SmallVectorImplIPNS_11InstructionEEE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='572' u='c' c='_ZL18isEphemeralValueOfPKN4llvm11InstructionEPKNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='651' u='c' c='_ZN4llvm23isValidAssumeForContextEPKNS_11InstructionES2_PKNS_13DominatorTreeE'/>
+<def f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4035' ll='4121' type='bool llvm::isSafeToSpeculativelyExecute(const llvm::Value * V, const llvm::Instruction * CtxI = nullptr, const llvm::DominatorTree * DT = nullptr)'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4124' u='c' c='_ZN4llvm20mayBeMemoryDependentERKNS_11InstructionE'/>
+<use f='llvm/llvm/lib/CodeGen/Analysis.cpp' l='532' u='c' c='_ZN4llvm20isInTailCallPositionENS_17ImmutableCallSiteERKNS_13TargetMachineE'/>
+<use f='llvm/llvm/lib/CodeGen/Analysis.cpp' l='544' u='c' c='_ZN4llvm20isInTailCallPositionENS_17ImmutableCallSiteERKNS_13TargetMachineE'/>
+<use f='llvm/llvm/lib/CodeGen/CodeGenPrepare.cpp' l='5856' u='c' c='_ZL17sinkSelectOperandPKN4llvm19TargetTransformInfoEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='1400' u='c' c='_ZN4llvm12InstCombiner15foldVectorBinopERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/ControlHeightReduction.cpp' l='507' u='c' c='_ZL11isHoistablePN4llvm11InstructionERNS_13DominatorTreeE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1061' u='c' c='_ZN4llvm3GVN14PerformLoadPREEPNS_8LoadInstERNS_11SmallVectorINS_3gvn21AvailableValueInBlockELj64EEERNS3_IPNS_10BasicBlockELj64EEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='2253' u='c' c='_ZN4llvm3GVN16performScalarPREEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GuardWidening.cpp' l='504' u='c' c='_ZNK12_GLOBAL__N_117GuardWideningImpl13isAvailableAtEPKN4llvm5ValueEPKNS1_11InstructionERNS1_15SmallPtrSetImplIS7_EE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GuardWidening.cpp' l='524' u='c' c='_ZNK12_GLOBAL__N_117GuardWideningImpl15makeAvailableAtEPN4llvm5ValueEPNS1_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='1413' u='c' c='_ZN4llvm17JumpThreadingPass30SimplifyPartiallyRedundantLoadEPNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='1687' u='c' c='_ZL30isSafeToExecuteUnconditionallyRN4llvm11InstructionEPKNS_13DominatorTreeEPKNS_4LoopEPKNS_14LoopSafetyInfoEPNS_25OptimizationRemarkEmitterEPKS0_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopRerollPass.cpp' l='1293' u='c' c='_ZN12_GLOBAL__N_110LoopReroll14DAGRootTracker8validateERNS0_16ReductionTrackerE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopRerollPass.cpp' l='1325' u='c' c='_ZN12_GLOBAL__N_110LoopReroll14DAGRootTracker8validateERNS0_16ReductionTrackerE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopRerollPass.cpp' l='1327' u='c' c='_ZN12_GLOBAL__N_110LoopReroll14DAGRootTracker8validateERNS0_16ReductionTrackerE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SpeculativeExecution.cpp' l='269' u='c' c='_ZN4llvm24SpeculativeExecutionPass22considerHoistingFromToERNS_10BasicBlockES2_'/>
+<use f='llvm/llvm/lib/Transforms/Utils/FlattenCFG.cpp' l='193' u='c' c='_ZN12_GLOBAL__N_113FlattenCFGOpt20FlattenParallelAndOrEPN4llvm10BasicBlockERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/FlattenCFG.cpp' l='439' u='c' c='_ZN12_GLOBAL__N_113FlattenCFGOpt13MergeIfRegionEPN4llvm10BasicBlockERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopRotationUtils.cpp' l='528' u='c' c='_ZL21shouldSpeculateInstrsN4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_11InstructionELb1ELb0EvEELb0ELb0EEES5_PNS_4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='312' u='c' c='_ZL22ComputeSpeculationCostPKN4llvm4UserERKNS_19TargetTransformInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='376' u='c' c='_ZL19DominatesMergePointPN4llvm5ValueEPNS_10BasicBlockERNS_15SmallPtrSetImplIPNS_11InstructionEEERjRKNS_19TargetTransformInfoEj'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='1390' u='c' c='_ZL21HoistThenElseCodeToIfPN4llvm10BranchInstERKNS_19TargetTransformInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='1392' u='c' c='_ZL21HoistThenElseCodeToIfPN4llvm10BranchInstERKNS_19TargetTransformInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='1806' u='c' c='_ZL30SinkCommonCodeFromPredecessorsPN4llvm10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='2006' u='c' c='_ZL22SpeculativelyExecuteBBPN4llvm10BranchInstEPNS_10BasicBlockERKNS_19TargetTransformInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='2066' u='c' c='_ZL22SpeculativelyExecuteBBPN4llvm10BranchInstEPNS_10BasicBlockERKNS_19TargetTransformInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='2067' u='c' c='_ZL22SpeculativelyExecuteBBPN4llvm10BranchInstEPNS_10BasicBlockERKNS_19TargetTransformInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='2626' u='c' c='_ZN4llvm22FoldBranchToCommonDestEPNS_10BranchInstEPNS_16MemorySSAUpdaterEj'/>

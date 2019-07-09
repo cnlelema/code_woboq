@@ -1,0 +1,29 @@
+<inh f='include/c++/7/bits/stl_iterator_base_types.h' l='118' c='std::iterator'/>
+<def f='llvm/llvm/include/llvm/Support/LineIterator.h' l='31' ll='84'/>
+<size>32</size>
+<doc f='llvm/llvm/include/llvm/Support/LineIterator.h' l='20'>/// A forward iterator which reads text lines from a buffer.
+///
+/// This class provides a forward iterator interface for reading one line at
+/// a time from a buffer. When default constructed the iterator will be the
+/// &quot;end&quot; iterator.
+///
+/// The iterator is aware of what line number it is currently processing. It
+/// strips blank lines by default, and comment lines given a comment-starting
+/// character.
+///
+/// Note that this iterator requires the buffer to be nul terminated.</doc>
+<mbr r='llvm::line_iterator::Buffer' o='0' t='const llvm::MemoryBuffer *'/>
+<mbr r='llvm::line_iterator::CommentMarker' o='64' t='char'/>
+<mbr r='llvm::line_iterator::SkipBlanks' o='72' t='bool'/>
+<mbr r='llvm::line_iterator::LineNumber' o='96' t='unsigned int'/>
+<mbr r='llvm::line_iterator::CurrentLine' o='128' t='llvm::StringRef'/>
+<fun r='_ZN4llvm13line_iteratorC1Ev'/>
+<fun r='_ZN4llvm13line_iteratorC1ERKNS_12MemoryBufferEbc'/>
+<fun r='_ZNK4llvm13line_iterator9is_at_eofEv'/>
+<fun r='_ZNK4llvm13line_iterator9is_at_endEv'/>
+<fun r='_ZNK4llvm13line_iterator11line_numberEv'/>
+<fun r='_ZN4llvm13line_iteratorppEv'/>
+<fun r='_ZN4llvm13line_iteratorppEi'/>
+<fun r='_ZNK4llvm13line_iteratordeEv'/>
+<fun r='_ZNK4llvm13line_iteratorptEv'/>
+<fun r='_ZN4llvm13line_iterator7advanceEv'/>

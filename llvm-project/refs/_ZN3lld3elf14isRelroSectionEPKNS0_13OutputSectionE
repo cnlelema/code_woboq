@@ -1,0 +1,11 @@
+<dec f='llvm/lld/ELF/Writer.h' l='58' type='bool lld::elf::isRelroSection(const lld::elf::OutputSection * Sec)'/>
+<use f='llvm/lld/ELF/Arch/Cheri.cpp' l='541' u='c' c='_ZN3lld3elf21CheriCapRelocsSection7writeToEPh'/>
+<def f='llvm/lld/ELF/Writer.cpp' l='819' ll='894' type='bool lld::elf::isRelroSection(const lld::elf::OutputSection * Sec)'/>
+<use f='llvm/lld/ELF/Writer.cpp' l='997' u='c' c='_ZL14getSectionRankPKN3lld3elf13OutputSectionE'/>
+<use f='llvm/lld/ELF/Writer.cpp' l='2251' u='c' c='_ZN12_GLOBAL__N_16Writer11createPhdrsERN3lld3elf9PartitionE'/>
+<doc f='llvm/lld/ELF/Writer.cpp' l='813'>// Today&apos;s loaders have a feature to make segments read-only after
+// processing dynamic relocations to enhance security. PT_GNU_RELRO
+// is defined for that.
+//
+// This function returns true if a section needs to be put into a
+// PT_GNU_RELRO segment.</doc>

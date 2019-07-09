@@ -1,0 +1,22 @@
+<dec f='llvm/llvm/include/llvm/Support/VirtualFileSystem.h' l='296' type='std::error_code llvm::vfs::FileSystem::makeAbsolute(SmallVectorImpl&lt;char&gt; &amp; Path) const'/>
+<doc f='llvm/llvm/include/llvm/Support/VirtualFileSystem.h' l='285'>/// Make \a Path an absolute path.
+  ///
+  /// Makes \a Path absolute using the current directory if it is not already.
+  /// An empty \a Path will result in the current directory.
+  ///
+  /// /absolute/path   =&gt; /absolute/path
+  /// relative/../path =&gt; &lt;current-directory&gt;/relative/../path
+  ///
+  /// \param Path A path that is modified to be an absolute path.
+  /// \returns success if \a path has been made absolute, otherwise a
+  ///          platform-specific error_code.</doc>
+<use f='llvm/clang/lib/Basic/FileManager.cpp' l='359' u='c' c='_ZNK5clang11FileManager16makeAbsolutePathERN4llvm15SmallVectorImplIcEE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Clang.cpp' l='891' u='c' c='_ZL22addPGOAndCoverageFlagsRKN5clang6driver9ToolChainERNS0_11CompilationERKNS0_6DriverERKNS0_9InputInfoERKN4llvm3opt7ArgListERNSC_11SmallVectorIPKcLj16EEE'/>
+<use f='llvm/clang/lib/Format/Format.cpp' l='2464' u='c' c='_ZN5clang6format8getStyleEN4llvm9StringRefES2_S2_S2_PNS1_3vfs10FileSystemE'/>
+<use f='llvm/clang/lib/Tooling/Tooling.cpp' l='210' u='c' c='_ZN5clang7tooling15getAbsolutePathERN4llvm3vfs10FileSystemENS1_9StringRefE'/>
+<def f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='122' ll='132' type='std::error_code llvm::vfs::FileSystem::makeAbsolute(SmallVectorImpl&lt;char&gt; &amp; Path) const'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='700' u='c' c='_ZN4llvm3vfs18InMemoryFileSystem7addFileERKNS_5TwineElSt10unique_ptrINS_12MemoryBufferESt14default_deleteIS6_EENS_8OptionalIjEESB_NSA_INS_3sys2fs9file758498'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='810' u='c' c='_ZN4llvm3vfsL18lookupInMemoryNodeERKNS0_18InMemoryFileSystemEPNS0_6detail17InMemoryDirectoryERKNS_5TwineE'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='952' u='c' c='_ZN4llvm3vfs18InMemoryFileSystem26setCurrentWorkingDirectoryERKNS_5TwineE'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='971' u='c' c='_ZNK4llvm3vfs18InMemoryFileSystem11getRealPathERKNS_5TwineERNS_15SmallVectorImplIcEE'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='1603' u='c' c='_ZNK4llvm3vfs21RedirectingFileSystem10lookupPathERKNS_5TwineE'/>

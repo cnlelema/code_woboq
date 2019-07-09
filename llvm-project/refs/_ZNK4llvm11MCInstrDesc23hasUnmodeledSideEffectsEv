@@ -1,0 +1,13 @@
+<def f='llvm/llvm/include/llvm/MC/MCInstrDesc.h' l='424' ll='426' type='bool llvm::MCInstrDesc::hasUnmodeledSideEffects() const'/>
+<doc f='llvm/llvm/include/llvm/MC/MCInstrDesc.h' l='412'>/// Return true if this instruction has side
+  /// effects that are not modeled by other flags.  This does not return true
+  /// for instructions whose effects are captured by:
+  ///
+  ///  1. Their operand list and implicit definition/use list.  Register use/def
+  ///     info is explicit for instructions.
+  ///  2. Memory accesses.  Use mayLoad/mayStore.
+  ///  3. Calling, branching, returning: use isCall/isReturn/isBranch.
+  ///
+  /// Examples of side effects would be modifying &apos;invisible&apos; machine state like
+  /// a control register, flushing a cache, modifying a register invisible to
+  /// LLVM, etc.</doc>

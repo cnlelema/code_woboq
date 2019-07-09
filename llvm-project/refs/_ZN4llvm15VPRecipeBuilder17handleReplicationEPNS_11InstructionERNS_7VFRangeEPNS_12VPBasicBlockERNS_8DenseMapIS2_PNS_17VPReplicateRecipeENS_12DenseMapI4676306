@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/lib/Transforms/Vectorize/VPRecipeBuilder.h' l='119' type='llvm::VPBasicBlock * llvm::VPRecipeBuilder::handleReplication(llvm::Instruction * I, llvm::VFRange &amp; Range, llvm::VPBasicBlock * VPBB, DenseMap&lt;llvm::Instruction *, llvm::VPReplicateRecipe *&gt; &amp; PredInst2Recipe, VPlanPtr &amp; Plan)'/>
+<def f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='6688' ll='6725' type='llvm::VPBasicBlock * llvm::VPRecipeBuilder::handleReplication(llvm::Instruction * I, llvm::VFRange &amp; Range, llvm::VPBasicBlock * VPBB, DenseMap&lt;llvm::Instruction *, llvm::VPReplicateRecipe *&gt; &amp; PredInst2Recipe, VPlanPtr &amp; Plan)'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='6922' u='c' c='_ZN4llvm24LoopVectorizationPlanner23buildVPlanWithVPRecipesERNS_7VFRangeERNS_15SmallPtrSetImplIPNS_5ValueEEERNS3_IPNS_11InstructionEEE'/>
+<doc f='llvm/llvm/lib/Transforms/Vectorize/VPRecipeBuilder.h' l='113'>/// Build a VPReplicationRecipe for \p I and enclose it within a Region if it
+  /// is predicated. \return \p VPBB augmented with this new recipe if \p I is
+  /// not predicated, otherwise \return a new VPBasicBlock that succeeds the new
+  /// Region. Update the packing decision of predicated instructions if they
+  /// feed \p I. Range.End may be decreased to ensure same recipe behavior from
+  /// \p Range.Start to \p Range.End.</doc>

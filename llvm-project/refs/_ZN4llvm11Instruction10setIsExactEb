@@ -1,0 +1,37 @@
+<dec f='llvm/llvm/include/llvm/IR/Instruction.h' l='333' type='void llvm::Instruction::setIsExact(bool b = true)'/>
+<doc f='llvm/llvm/include/llvm/IR/Instruction.h' l='331'>/// Set or clear the exact flag on this instruction, which must be an operator
+  /// which supports this flag. See LangRef.html for the meaning of this flag.</doc>
+<use f='llvm/llvm/include/llvm/IR/InstrTypes.h' l='330' u='c' c='_ZN4llvm14BinaryOperator11CreateExactENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineE'/>
+<use f='llvm/llvm/include/llvm/IR/InstrTypes.h' l='336' u='c' c='_ZN4llvm14BinaryOperator11CreateExactENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/include/llvm/IR/InstrTypes.h' l='342' u='c' c='_ZN4llvm14BinaryOperator11CreateExactENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineEPS1_'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='5733' u='c' c='_ZN4llvm8LLParser16ParseInstructionERPNS_11InstructionEPNS_10BasicBlockERNS0_16PerFunctionStateE'/>
+<use f='llvm/llvm/lib/Bitcode/Reader/BitcodeReader.cpp' l='3700' u='c' c='_ZN12_GLOBAL__N_113BitcodeReader17parseFunctionBodyEPN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/IR/Constants.cpp' l='3051' u='c' c='_ZN4llvm12ConstantExpr16getAsInstructionEv'/>
+<def f='llvm/llvm/lib/IR/Instruction.cpp' l='108' ll='110' type='void llvm::Instruction::setIsExact(bool b = true)'/>
+<use f='llvm/llvm/lib/IR/Instruction.cpp' l='253' u='c' c='_ZN4llvm11Instruction11copyIRFlagsEPKNS_5ValueEb'/>
+<use f='llvm/llvm/lib/IR/Instruction.cpp' l='275' u='c' c='_ZN4llvm11Instruction10andIRFlagsEPKNS_5ValueE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUCodeGenPrepare.cpp' l='302' u='c' c='_ZNK12_GLOBAL__N_120AMDGPUCodeGenPrepare21promoteUniformOpToI32ERN4llvm14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAddSub.cpp' l='1728' u='c' c='_ZN4llvm12InstCombiner8visitSubERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='80' u='c' c='_ZL25simplifyValueKnownNonZeroPN4llvm5ValueERNS_12InstCombinerERNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='676' u='c' c='_ZN4llvm12InstCombiner20commonIDivTransformsERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='702' u='c' c='_ZN4llvm12InstCombiner20commonIDivTransformsERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='811' u='c' c='_ZL15foldUDivPow2CstPN4llvm5ValueES1_RKNS_14BinaryOperatorERNS_12InstCombinerE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='835' u='c' c='_ZL11foldUDivShlPN4llvm5ValueES1_RKNS_14BinaryOperatorERNS_12InstCombinerE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='936' u='c' c='_ZN4llvm12InstCombiner9visitUDivERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='1062' u='c' c='_ZN4llvm12InstCombiner9visitSDivERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='1080' u='c' c='_ZN4llvm12InstCombiner9visitSDivERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='1090' u='c' c='_ZN4llvm12InstCombiner9visitSDivERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineShifts.cpp' l='213' u='c' c='_ZL16foldShiftedShiftPN4llvm14BinaryOperatorEjbRNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineShifts.cpp' l='624' u='c' c='_ZN4llvm12InstCombiner8visitShlERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineShifts.cpp' l='716' u='c' c='_ZN4llvm12InstCombiner9visitLShrERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineShifts.cpp' l='789' u='c' c='_ZN4llvm12InstCombiner9visitLShrERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineShifts.cpp' l='841' u='c' c='_ZN4llvm12InstCombiner9visitAShrERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineShifts.cpp' l='874' u='c' c='_ZN4llvm12InstCombiner9visitAShrERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineSimplifyDemanded.cpp' l='958' u='c' c='_ZN4llvm12InstCombiner26simplifyShrShlDemandedBitsEPNS_11InstructionERKNS_5APIntES2_S5_S5_RNS_9KnownBitsE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineVectorOps.cpp' l='1068' u='c' c='_ZL8buildNewPN4llvm11InstructionENS_8ArrayRefIPNS_5ValueEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/CorrelatedValuePropagation.cpp' l='568' u='c' c='_ZL17processUDivOrURemPN4llvm14BinaryOperatorEPNS_13LazyValueInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/CorrelatedValuePropagation.cpp' l='605' u='c' c='_ZL11processSDivPN4llvm14BinaryOperatorEPNS_13LazyValueInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/CorrelatedValuePropagation.cpp' l='628' u='c' c='_ZL11processAShrPN4llvm14BinaryOperatorEPNS_13LazyValueInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyIndVar.cpp' l='306' u='c' c='_ZN12_GLOBAL__N_114SimplifyIndvar13eliminateSDivEPN4llvm14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyIndVar.cpp' l='755' u='c' c='_ZN12_GLOBAL__N_114SimplifyIndvar20strengthenRightShiftEPN4llvm14BinaryOperatorEPNS1_5ValueE'/>
+<use f='llvm/llvm/unittests/Transforms/Utils/CloningTest.cpp' l='155' u='c' c='_ZN12_GLOBAL__N_127CloneInstruction_Exact_Test8TestBodyEv'/>

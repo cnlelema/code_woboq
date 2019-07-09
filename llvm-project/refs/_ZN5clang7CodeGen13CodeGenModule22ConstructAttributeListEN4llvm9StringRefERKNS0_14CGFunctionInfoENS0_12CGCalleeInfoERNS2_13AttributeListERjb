@@ -1,0 +1,15 @@
+<dec f='llvm/clang/lib/CodeGen/CodeGenModule.h' l='1130' type='void clang::CodeGen::CodeGenModule::ConstructAttributeList(llvm::StringRef Name, const clang::CodeGen::CGFunctionInfo &amp; Info, clang::CodeGen::CGCalleeInfo CalleeInfo, llvm::AttributeList &amp; Attrs, unsigned int &amp; CallingConv, bool AttrOnCallSite)'/>
+<doc f='llvm/clang/lib/CodeGen/CodeGenModule.h' l='1120'>/// Get the LLVM attributes and calling convention to use for a particular
+  /// function type.
+  ///
+  /// \param Name - The function name.
+  /// \param Info - The function type information.
+  /// \param CalleeInfo - The callee information these attributes are being
+  /// constructed for. If valid, the attributes applied to this decl may
+  /// contribute to the function attributes and calling convention.
+  /// \param Attrs [out] - On return, the attribute list to use.
+  /// \param CallingConv [out] - On return, the LLVM calling convention to use.</doc>
+<def f='llvm/clang/lib/CodeGen/CGCall.cpp' l='1879' ll='2219' type='void clang::CodeGen::CodeGenModule::ConstructAttributeList(llvm::StringRef Name, const clang::CodeGen::CGFunctionInfo &amp; FI, clang::CodeGen::CGCalleeInfo CalleeInfo, llvm::AttributeList &amp; AttrList, unsigned int &amp; CallingConv, bool AttrOnCallSite)'/>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='4339' u='c' c='_ZN5clang7CodeGen15CodeGenFunction8EmitCallERKNS0_14CGFunctionInfoERKNS0_8CGCalleeENS0_15ReturnValueSlotERKNS0_11CallArgListEPPN4llvm8CallBaseENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/CodeGen/CGVTables.cpp' l='413' u='c' c='_ZN5clang7CodeGen15CodeGenFunction17EmitMustTailThunkENS_10GlobalDeclEPN4llvm5ValueENS3_14FunctionCalleeE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='1324' u='c' c='_ZN5clang7CodeGen13CodeGenModule25SetLLVMFunctionAttributesENS_10GlobalDeclERKNS0_14CGFunctionInfoEPN4llvm8FunctionE'/>

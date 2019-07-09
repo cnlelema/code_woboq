@@ -1,0 +1,8 @@
+<dec f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='917' type='bool llvm::InstCombiner::mergeStoreIntoSuccessor(llvm::StoreInst &amp; SI)'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1519' u='c' c='_ZN4llvm12InstCombiner14visitStoreInstERNS_9StoreInstE'/>
+<def f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1529' ll='1641' type='bool llvm::InstCombiner::mergeStoreIntoSuccessor(llvm::StoreInst &amp; SI)'/>
+<doc f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1524'>/// Try to transform:
+///   if () { *P = v1; } else { *P = v2 }
+/// or:
+///   *P = v1; if () { *P = v2; }
+/// into a phi node with a store in the successor.</doc>

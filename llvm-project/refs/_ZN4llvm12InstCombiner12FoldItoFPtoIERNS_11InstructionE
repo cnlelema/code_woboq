@@ -1,0 +1,8 @@
+<dec f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='362' type='llvm::Instruction * llvm::InstCombiner::FoldItoFPtoI(llvm::Instruction &amp; FI)'/>
+<def f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp' l='1687' ll='1725' type='llvm::Instruction * llvm::InstCombiner::FoldItoFPtoI(llvm::Instruction &amp; FI)'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp' l='1732' u='c' c='_ZN4llvm12InstCombiner11visitFPToUIERNS_10FPToUIInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp' l='1743' u='c' c='_ZN4llvm12InstCombiner11visitFPToSIERNS_10FPToSIInstE'/>
+<doc f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp' l='1683'>// fpto{s/u}i({u/s}itofp(X)) --&gt; X or zext(X) or sext(X) or trunc(X)
+// This is safe if the intermediate type has enough bits in its mantissa to
+// accurately represent all values of X.  For example, this won&apos;t work with
+// i64 -&gt; float -&gt; i64.</doc>

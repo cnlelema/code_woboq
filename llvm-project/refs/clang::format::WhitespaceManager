@@ -1,0 +1,37 @@
+<def f='llvm/clang/lib/Format/WhitespaceManager.h' l='37' ll='211'/>
+<size>2264</size>
+<doc f='llvm/clang/lib/Format/WhitespaceManager.h' l='26'>/// Manages the whitespaces around tokens and their replacements.
+///
+/// This includes special handling for certain constructs, e.g. the alignment of
+/// trailing line comments.
+///
+/// To guarantee correctness of alignment operations, the \c WhitespaceManager
+/// must be informed about every token in the source file; for each token, there
+/// must be exactly one call to either \c replaceWhitespace or
+/// \c addUntouchableToken.
+///
+/// There may be multiple calls to \c breakToken for a given token.</doc>
+<fun r='_ZN5clang6format17WhitespaceManagerC1ERKNS_13SourceManagerERKNS0_11FormatStyleEb'/>
+<fun r='_ZNK5clang6format17WhitespaceManager7useCRLFEv'/>
+<fun r='_ZN5clang6format17WhitespaceManager17replaceWhitespaceERNS0_11FormatTokenEjjjb'/>
+<fun r='_ZN5clang6format17WhitespaceManager19addUntouchableTokenERKNS0_11FormatTokenEb'/>
+<fun r='_ZN5clang6format17WhitespaceManager14addReplacementERKNS_7tooling11ReplacementE'/>
+<fun r='_ZN5clang6format17WhitespaceManager24replaceWhitespaceInTokenERKNS0_11FormatTokenEjjN4llvm9StringRefES6_bji'/>
+<fun r='_ZN5clang6format17WhitespaceManager20generateReplacementsEv'/>
+<fun r='_ZN5clang6format17WhitespaceManager29calculateLineBreakInformationEv'/>
+<fun r='_ZN5clang6format17WhitespaceManager27alignConsecutiveAssignmentsEv'/>
+<fun r='_ZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEv'/>
+<fun r='_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEv'/>
+<fun r='_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj'/>
+<fun r='_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEv'/>
+<fun r='_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj'/>
+<fun r='_ZN5clang6format17WhitespaceManager15generateChangesEv'/>
+<fun r='_ZN5clang6format17WhitespaceManager16storeReplacementENS_11SourceRangeEN4llvm9StringRefE'/>
+<fun r='_ZN5clang6format17WhitespaceManager17appendNewlineTextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj'/>
+<fun r='_ZN5clang6format17WhitespaceManager24appendEscapedNewlineTextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjjj'/>
+<fun r='_ZN5clang6format17WhitespaceManager16appendIndentTextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjjj'/>
+<mbr r='clang::format::WhitespaceManager::Changes' o='0' t='SmallVector&lt;clang::format::WhitespaceManager::Change, 16&gt;'/>
+<mbr r='clang::format::WhitespaceManager::SourceMgr' o='17536' t='const clang::SourceManager &amp;'/>
+<mbr r='clang::format::WhitespaceManager::Replaces' o='17600' t='tooling::Replacements'/>
+<mbr r='clang::format::WhitespaceManager::Style' o='17984' t='const clang::format::FormatStyle &amp;'/>
+<mbr r='clang::format::WhitespaceManager::UseCRLF' o='18048' t='bool'/>

@@ -1,0 +1,117 @@
+<def f='llvm/llvm/include/llvm/Analysis/DependenceAnalysis.h' l='271' ll='929'/>
+<size>48</size>
+<doc f='llvm/llvm/include/llvm/Analysis/DependenceAnalysis.h' l='269'>/// DependenceInfo - This class is the main dependence-analysis driver.
+  ///</doc>
+<fun r='_ZN4llvm14DependenceInfoC1EPNS_8FunctionEPNS_9AAResultsEPNS_15ScalarEvolutionEPNS_8LoopInfoE'/>
+<fun r='_ZN4llvm14DependenceInfo10invalidateERNS_8FunctionERKNS_17PreservedAnalysesERNS_15AnalysisManagerIS1_JEE11InvalidatorE'/>
+<fun r='_ZN4llvm14DependenceInfo7dependsEPNS_11InstructionES2_b'/>
+<fun r='_ZN4llvm14DependenceInfo17getSplitIterationERKNS_10DependenceEj'/>
+<fun r='_ZNK4llvm14DependenceInfo11getFunctionEv'/>
+<mbr r='llvm::DependenceInfo::AA' o='0' t='AliasAnalysis *'/>
+<mbr r='llvm::DependenceInfo::SE' o='64' t='llvm::ScalarEvolution *'/>
+<mbr r='llvm::DependenceInfo::LI' o='128' t='llvm::LoopInfo *'/>
+<mbr r='llvm::DependenceInfo::F' o='192' t='llvm::Function *'/>
+<fun r='_ZN4llvm14DependenceInfo22establishNestingLevelsEPKNS_11InstructionES3_'/>
+<mbr r='llvm::DependenceInfo::CommonLevels' o='256' t='unsigned int'/>
+<mbr r='llvm::DependenceInfo::SrcLevels' o='288' t='unsigned int'/>
+<mbr r='llvm::DependenceInfo::MaxLevels' o='320' t='unsigned int'/>
+<fun r='_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE'/>
+<fun r='_ZNK4llvm14DependenceInfo10mapDstLoopEPKNS_4LoopE'/>
+<fun r='_ZNK4llvm14DependenceInfo15isLoopInvariantEPKNS_4SCEVEPKNS_4LoopE'/>
+<fun r='_ZN4llvm14DependenceInfo18unifySubscriptTypeENS_8ArrayRefIPNS0_9SubscriptEEE'/>
+<fun r='_ZN4llvm14DependenceInfo24removeMatchingExtensionsEPNS0_9SubscriptE'/>
+<fun r='_ZNK4llvm14DependenceInfo18collectCommonLoopsEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE'/>
+<fun r='_ZN4llvm14DependenceInfo17checkSrcSubscriptEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE'/>
+<fun r='_ZN4llvm14DependenceInfo17checkDstSubscriptEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE'/>
+<fun r='_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_'/>
+<fun r='_ZNK4llvm14DependenceInfo15isKnownLessThanEPKNS_4SCEVES3_'/>
+<fun r='_ZNK4llvm14DependenceInfo18isKnownNonNegativeEPKNS_4SCEVEPKNS_5ValueE'/>
+<fun r='_ZNK4llvm14DependenceInfo17collectUpperBoundEPKNS_4LoopEPNS_4TypeE'/>
+<fun r='_ZNK4llvm14DependenceInfo25collectConstantUpperBoundEPKNS_4LoopEPNS_4TypeE'/>
+<fun r='_ZN4llvm14DependenceInfo12classifyPairEPKNS_4SCEVEPKNS_4LoopES3_S6_RNS_14SmallBitVectorE'/>
+<fun r='_ZNK4llvm14DependenceInfo7testZIVEPKNS_4SCEVES3_RNS_14FullDependenceE'/>
+<fun r='_ZNK4llvm14DependenceInfo7testSIVEPKNS_4SCEVES3_RjRNS_14FullDependenceERNS0_10ConstraintERS3_'/>
+<fun r='_ZNK4llvm14DependenceInfo8testRDIVEPKNS_4SCEVES3_RNS_14FullDependenceE'/>
+<fun r='_ZNK4llvm14DependenceInfo7testMIVEPKNS_4SCEVES3_RKNS_14SmallBitVectorERNS_14FullDependenceE'/>
+<fun r='_ZNK4llvm14DependenceInfo13strongSIVtestEPKNS_4SCEVES3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintE'/>
+<fun r='_ZNK4llvm14DependenceInfo19weakCrossingSIVtestEPKNS_4SCEVES3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintERS3_'/>
+<fun r='_ZNK4llvm14DependenceInfo12exactSIVtestEPKNS_4SCEVES3_S3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintE'/>
+<fun r='_ZNK4llvm14DependenceInfo18weakZeroSrcSIVtestEPKNS_4SCEVES3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintE'/>
+<fun r='_ZNK4llvm14DependenceInfo18weakZeroDstSIVtestEPKNS_4SCEVES3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintE'/>
+<fun r='_ZNK4llvm14DependenceInfo13exactRDIVtestEPKNS_4SCEVES3_S3_S3_PKNS_4LoopES6_RNS_14FullDependenceE'/>
+<fun r='_ZNK4llvm14DependenceInfo16symbolicRDIVtestEPKNS_4SCEVES3_S3_S3_PKNS_4LoopES6_'/>
+<fun r='_ZNK4llvm14DependenceInfo10gcdMIVtestEPKNS_4SCEVES3_RNS_14FullDependenceE'/>
+<fun r='_ZNK4llvm14DependenceInfo15banerjeeMIVtestEPKNS_4SCEVES3_RKNS_14SmallBitVectorERNS_14FullDependenceE'/>
+<fun r='_ZNK4llvm14DependenceInfo16collectCoeffInfoEPKNS_4SCEVEbRS3_'/>
+<fun r='_ZNK4llvm14DependenceInfo15getPositivePartEPKNS_4SCEVE'/>
+<fun r='_ZNK4llvm14DependenceInfo15getNegativePartEPKNS_4SCEVE'/>
+<fun r='_ZNK4llvm14DependenceInfo13getLowerBoundEPNS0_9BoundInfoE'/>
+<fun r='_ZNK4llvm14DependenceInfo13getUpperBoundEPNS0_9BoundInfoE'/>
+<fun r='_ZNK4llvm14DependenceInfo17exploreDirectionsEjPNS0_15CoefficientInfoES2_PNS0_9BoundInfoERKNS_14SmallBitVectorERjPKNS_4SCEVE'/>
+<fun r='_ZNK4llvm14DependenceInfo10testBoundsEhjPNS0_9BoundInfoEPKNS_4SCEVE'/>
+<fun r='_ZNK4llvm14DependenceInfo13findBoundsALLEPNS0_15CoefficientInfoES2_PNS0_9BoundInfoEj'/>
+<fun r='_ZNK4llvm14DependenceInfo12findBoundsLTEPNS0_15CoefficientInfoES2_PNS0_9BoundInfoEj'/>
+<fun r='_ZNK4llvm14DependenceInfo12findBoundsGTEPNS0_15CoefficientInfoES2_PNS0_9BoundInfoEj'/>
+<fun r='_ZNK4llvm14DependenceInfo12findBoundsEQEPNS0_15CoefficientInfoES2_PNS0_9BoundInfoEj'/>
+<fun r='_ZN4llvm14DependenceInfo20intersectConstraintsEPNS0_10ConstraintEPKS1_'/>
+<fun r='_ZN4llvm14DependenceInfo9propagateERPKNS_4SCEVES4_RNS_14SmallBitVectorERNS_15SmallVectorImplINS0_10ConstraintEEERb'/>
+<fun r='_ZN4llvm14DependenceInfo17propagateDistanceERPKNS_4SCEVES4_RNS0_10ConstraintERb'/>
+<fun r='_ZN4llvm14DependenceInfo14propagatePointERPKNS_4SCEVES4_RNS0_10ConstraintE'/>
+<fun r='_ZN4llvm14DependenceInfo13propagateLineERPKNS_4SCEVES4_RNS0_10ConstraintERb'/>
+<fun r='_ZNK4llvm14DependenceInfo15findCoefficientEPKNS_4SCEVEPKNS_4LoopE'/>
+<fun r='_ZNK4llvm14DependenceInfo15zeroCoefficientEPKNS_4SCEVEPKNS_4LoopE'/>
+<fun r='_ZNK4llvm14DependenceInfo16addToCoefficientEPKNS_4SCEVEPKNS_4LoopES3_'/>
+<fun r='_ZNK4llvm14DependenceInfo15updateDirectionERNS_10Dependence7DVEntryERKNS0_10ConstraintE'/>
+<fun r='_ZN4llvm14DependenceInfo14tryDelinearizeEPNS_11InstructionES2_RNS_15SmallVectorImplINS0_9SubscriptEEE'/>
+<fun r='_ZN4llvm14DependenceInfo20intersectConstraintsEPNS0_10ConstraintEPKS1_'/>
+<fun r='_ZN4llvm14DependenceInfo22establishNestingLevelsEPKNS_11InstructionES3_'/>
+<fun r='_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE'/>
+<fun r='_ZNK4llvm14DependenceInfo10mapDstLoopEPKNS_4LoopE'/>
+<fun r='_ZNK4llvm14DependenceInfo15isLoopInvariantEPKNS_4SCEVEPKNS_4LoopE'/>
+<fun r='_ZNK4llvm14DependenceInfo18collectCommonLoopsEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE'/>
+<fun r='_ZN4llvm14DependenceInfo18unifySubscriptTypeENS_8ArrayRefIPNS0_9SubscriptEEE'/>
+<fun r='_ZN4llvm14DependenceInfo24removeMatchingExtensionsEPNS0_9SubscriptE'/>
+<fun r='_ZN4llvm14DependenceInfo17checkSrcSubscriptEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE'/>
+<fun r='_ZN4llvm14DependenceInfo17checkDstSubscriptEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE'/>
+<fun r='_ZN4llvm14DependenceInfo12classifyPairEPKNS_4SCEVEPKNS_4LoopES3_S6_RNS_14SmallBitVectorE'/>
+<fun r='_ZNK4llvm14DependenceInfo16isKnownPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_'/>
+<fun r='_ZNK4llvm14DependenceInfo15isKnownLessThanEPKNS_4SCEVES3_'/>
+<fun r='_ZNK4llvm14DependenceInfo18isKnownNonNegativeEPKNS_4SCEVEPKNS_5ValueE'/>
+<fun r='_ZNK4llvm14DependenceInfo17collectUpperBoundEPKNS_4LoopEPNS_4TypeE'/>
+<fun r='_ZNK4llvm14DependenceInfo25collectConstantUpperBoundEPKNS_4LoopEPNS_4TypeE'/>
+<fun r='_ZNK4llvm14DependenceInfo7testZIVEPKNS_4SCEVES3_RNS_14FullDependenceE'/>
+<fun r='_ZNK4llvm14DependenceInfo13strongSIVtestEPKNS_4SCEVES3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintE'/>
+<fun r='_ZNK4llvm14DependenceInfo19weakCrossingSIVtestEPKNS_4SCEVES3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintERS3_'/>
+<fun r='_ZNK4llvm14DependenceInfo12exactSIVtestEPKNS_4SCEVES3_S3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintE'/>
+<fun r='_ZNK4llvm14DependenceInfo18weakZeroSrcSIVtestEPKNS_4SCEVES3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintE'/>
+<fun r='_ZNK4llvm14DependenceInfo18weakZeroDstSIVtestEPKNS_4SCEVES3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintE'/>
+<fun r='_ZNK4llvm14DependenceInfo13exactRDIVtestEPKNS_4SCEVES3_S3_S3_PKNS_4LoopES6_RNS_14FullDependenceE'/>
+<fun r='_ZNK4llvm14DependenceInfo16symbolicRDIVtestEPKNS_4SCEVES3_S3_S3_PKNS_4LoopES6_'/>
+<fun r='_ZNK4llvm14DependenceInfo7testSIVEPKNS_4SCEVES3_RjRNS_14FullDependenceERNS0_10ConstraintERS3_'/>
+<fun r='_ZNK4llvm14DependenceInfo8testRDIVEPKNS_4SCEVES3_RNS_14FullDependenceE'/>
+<fun r='_ZNK4llvm14DependenceInfo7testMIVEPKNS_4SCEVES3_RKNS_14SmallBitVectorERNS_14FullDependenceE'/>
+<fun r='_ZNK4llvm14DependenceInfo10gcdMIVtestEPKNS_4SCEVES3_RNS_14FullDependenceE'/>
+<fun r='_ZNK4llvm14DependenceInfo15banerjeeMIVtestEPKNS_4SCEVES3_RKNS_14SmallBitVectorERNS_14FullDependenceE'/>
+<fun r='_ZNK4llvm14DependenceInfo17exploreDirectionsEjPNS0_15CoefficientInfoES2_PNS0_9BoundInfoERKNS_14SmallBitVectorERjPKNS_4SCEVE'/>
+<fun r='_ZNK4llvm14DependenceInfo10testBoundsEhjPNS0_9BoundInfoEPKNS_4SCEVE'/>
+<fun r='_ZNK4llvm14DependenceInfo13findBoundsALLEPNS0_15CoefficientInfoES2_PNS0_9BoundInfoEj'/>
+<fun r='_ZNK4llvm14DependenceInfo12findBoundsEQEPNS0_15CoefficientInfoES2_PNS0_9BoundInfoEj'/>
+<fun r='_ZNK4llvm14DependenceInfo12findBoundsLTEPNS0_15CoefficientInfoES2_PNS0_9BoundInfoEj'/>
+<fun r='_ZNK4llvm14DependenceInfo12findBoundsGTEPNS0_15CoefficientInfoES2_PNS0_9BoundInfoEj'/>
+<fun r='_ZNK4llvm14DependenceInfo15getPositivePartEPKNS_4SCEVE'/>
+<fun r='_ZNK4llvm14DependenceInfo15getNegativePartEPKNS_4SCEVE'/>
+<fun r='_ZNK4llvm14DependenceInfo16collectCoeffInfoEPKNS_4SCEVEbRS3_'/>
+<fun r='_ZNK4llvm14DependenceInfo13getLowerBoundEPNS0_9BoundInfoE'/>
+<fun r='_ZNK4llvm14DependenceInfo13getUpperBoundEPNS0_9BoundInfoE'/>
+<fun r='_ZNK4llvm14DependenceInfo15findCoefficientEPKNS_4SCEVEPKNS_4LoopE'/>
+<fun r='_ZNK4llvm14DependenceInfo15zeroCoefficientEPKNS_4SCEVEPKNS_4LoopE'/>
+<fun r='_ZNK4llvm14DependenceInfo16addToCoefficientEPKNS_4SCEVEPKNS_4LoopES3_'/>
+<fun r='_ZN4llvm14DependenceInfo9propagateERPKNS_4SCEVES4_RNS_14SmallBitVectorERNS_15SmallVectorImplINS0_10ConstraintEEERb'/>
+<fun r='_ZN4llvm14DependenceInfo17propagateDistanceERPKNS_4SCEVES4_RNS0_10ConstraintERb'/>
+<fun r='_ZN4llvm14DependenceInfo13propagateLineERPKNS_4SCEVES4_RNS0_10ConstraintERb'/>
+<fun r='_ZN4llvm14DependenceInfo14propagatePointERPKNS_4SCEVES4_RNS0_10ConstraintE'/>
+<fun r='_ZNK4llvm14DependenceInfo15updateDirectionERNS_10Dependence7DVEntryERKNS0_10ConstraintE'/>
+<fun r='_ZN4llvm14DependenceInfo14tryDelinearizeEPNS_11InstructionES2_RNS_15SmallVectorImplINS0_9SubscriptEEE'/>
+<fun r='_ZN4llvm14DependenceInfo10invalidateERNS_8FunctionERKNS_17PreservedAnalysesERNS_15AnalysisManagerIS1_JEE11InvalidatorE'/>
+<fun r='_ZN4llvm14DependenceInfo7dependsEPNS_11InstructionES2_b'/>
+<fun r='_ZN4llvm14DependenceInfo17getSplitIterationERKNS_10DependenceEj'/>

@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/IR/ProfileSummary.h' l='69' type='llvm::Metadata * llvm::ProfileSummary::getMD(llvm::LLVMContext &amp; Context)'/>
+<doc f='llvm/llvm/include/llvm/IR/ProfileSummary.h' l='68'>/// Return summary information as metadata.</doc>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='511' u='c' c='_ZN5clang7CodeGen13CodeGenModule7ReleaseEv'/>
+<def f='llvm/llvm/lib/IR/ProfileSummary.cpp' l='68' ll='81' type='llvm::Metadata * llvm::ProfileSummary::getMD(llvm::LLVMContext &amp; Context)'/>
+<doc f='llvm/llvm/lib/IR/ProfileSummary.cpp' l='63'>// This returns an MDTuple representing this ProfileSummary object. The first
+// entry of this tuple is another MDTuple of two elements: a string
+// &quot;ProfileFormat&quot; and a string representing the format (&quot;InstrProf&quot; or
+// &quot;SampleProfile&quot;). The rest of the elements of the outer MDTuple are specific
+// to the kind of profile summary as returned by getFormatSpecificMD.</doc>
+<use f='llvm/llvm/lib/Transforms/IPO/SampleProfile.cpp' l='1603' u='c' c='_ZN12_GLOBAL__N_119SampleProfileLoader11runOnModuleERN4llvm6ModuleEPNS1_15AnalysisManagerIS2_JEEEPNS1_18ProfileSummaryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/PGOInstrumentation.cpp' l='1689' u='c' c='_ZL20annotateAllFunctionsRN4llvm6ModuleENS_9StringRefES2_NS_12function_refIFPNS_21BranchProbabilityInfoERNS_8FunctionEEEENS3_IFPNS_18BlockFrequencyInfoES7_EEEb'/>
+<use f='llvm/llvm/unittests/ProfileData/InstrProfTest.cpp' l='183' u='c' c='_ZN12_GLOBAL__N_138InstrProfTest_get_profile_summary_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ProfileData/SampleProfTest.cpp' l='186' u='c' c='_ZN12_GLOBAL__N_114SampleProfTest13testRoundTripEN4llvm10sampleprof19SampleProfileFormatEb'/>

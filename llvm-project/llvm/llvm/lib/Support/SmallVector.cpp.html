@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SmallVector.cpp source code [llvm/llvm/lib/Support/SmallVector.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/Support/SmallVector.cpp'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>llvm</a>/<a href='../..'>llvm</a>/<a href='..'>lib</a>/<a href='./'>Support</a>/<a href='SmallVector.cpp.html'>SmallVector.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- llvm/ADT/SmallVector.cpp - 'Normally small' vectors ----------------===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file implements the SmallVector class.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../../include/llvm/ADT/SmallVector.h.html">"llvm/ADT/SmallVector.h"</a></u></td></tr>
+<tr><th id="14">14</th><td><b>using</b> <b>namespace</b> <span class="namespace">llvm</span>;</td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><i>// Check that no bytes are wasted and everything is well-aligned.</i></td></tr>
+<tr><th id="17">17</th><td><b>namespace</b> {</td></tr>
+<tr><th id="18">18</th><td><b>struct</b> <dfn class="tu type def" id="(anonymousnamespace)::Struct16B" title='(anonymous namespace)::Struct16B' data-ref="(anonymousnamespace)::Struct16B">Struct16B</dfn> {</td></tr>
+<tr><th id="19">19</th><td>  <b>alignas</b>(<var>16</var>) <em>void</em> *<dfn class="tu decl" id="(anonymousnamespace)::Struct16B::X" title='(anonymous namespace)::Struct16B::X' data-type='void *' data-ref="(anonymousnamespace)::Struct16B::X">X</dfn>;</td></tr>
+<tr><th id="20">20</th><td>};</td></tr>
+<tr><th id="21">21</th><td><b>struct</b> <dfn class="tu type def" id="(anonymousnamespace)::Struct32B" title='(anonymous namespace)::Struct32B' data-ref="(anonymousnamespace)::Struct32B">Struct32B</dfn> {</td></tr>
+<tr><th id="22">22</th><td>  <b>alignas</b>(<var>32</var>) <em>void</em> *<dfn class="tu decl" id="(anonymousnamespace)::Struct32B::X" title='(anonymous namespace)::Struct32B::X' data-type='void *' data-ref="(anonymousnamespace)::Struct32B::X">X</dfn>;</td></tr>
+<tr><th id="23">23</th><td>};</td></tr>
+<tr><th id="24">24</th><td>}</td></tr>
+<tr><th id="25">25</th><td><b>static_assert</b>(<b>sizeof</b>(<a class="type" href="../../include/llvm/ADT/SmallVector.h.html#llvm::SmallVector" title='llvm::SmallVector' data-ref="llvm::SmallVector">SmallVector</a>&lt;<em>void</em> *, <var>0</var>&gt;) ==</td></tr>
+<tr><th id="26">26</th><td>                  <b>sizeof</b>(<em>unsigned</em>) * <var>2</var> + <b>sizeof</b>(<em>void</em> *),</td></tr>
+<tr><th id="27">27</th><td>              <q>"wasted space in SmallVector size 0"</q>);</td></tr>
+<tr><th id="28">28</th><td><b>static_assert</b>(<b>alignof</b>(<a class="type" href="../../include/llvm/ADT/SmallVector.h.html#llvm::SmallVector" title='llvm::SmallVector' data-ref="llvm::SmallVector">SmallVector</a>&lt;<a class="tu type" href="#(anonymousnamespace)::Struct16B" title='(anonymous namespace)::Struct16B' data-ref="(anonymousnamespace)::Struct16B">Struct16B</a>, <var>0</var>&gt;) &gt;= <b>alignof</b>(<a class="tu type" href="#(anonymousnamespace)::Struct16B" title='(anonymous namespace)::Struct16B' data-ref="(anonymousnamespace)::Struct16B">Struct16B</a>),</td></tr>
+<tr><th id="29">29</th><td>              <q>"wrong alignment for 16-byte aligned T"</q>);</td></tr>
+<tr><th id="30">30</th><td><b>static_assert</b>(<b>alignof</b>(<a class="type" href="../../include/llvm/ADT/SmallVector.h.html#llvm::SmallVector" title='llvm::SmallVector' data-ref="llvm::SmallVector">SmallVector</a>&lt;<a class="tu type" href="#(anonymousnamespace)::Struct32B" title='(anonymous namespace)::Struct32B' data-ref="(anonymousnamespace)::Struct32B">Struct32B</a>, <var>0</var>&gt;) &gt;= <b>alignof</b>(<a class="tu type" href="#(anonymousnamespace)::Struct32B" title='(anonymous namespace)::Struct32B' data-ref="(anonymousnamespace)::Struct32B">Struct32B</a>),</td></tr>
+<tr><th id="31">31</th><td>              <q>"wrong alignment for 32-byte aligned T"</q>);</td></tr>
+<tr><th id="32">32</th><td><b>static_assert</b>(<b>sizeof</b>(<a class="type" href="../../include/llvm/ADT/SmallVector.h.html#llvm::SmallVector" title='llvm::SmallVector' data-ref="llvm::SmallVector">SmallVector</a>&lt;<a class="tu type" href="#(anonymousnamespace)::Struct16B" title='(anonymous namespace)::Struct16B' data-ref="(anonymousnamespace)::Struct16B">Struct16B</a>, <var>0</var>&gt;) &gt;= <b>alignof</b>(<a class="tu type" href="#(anonymousnamespace)::Struct16B" title='(anonymous namespace)::Struct16B' data-ref="(anonymousnamespace)::Struct16B">Struct16B</a>),</td></tr>
+<tr><th id="33">33</th><td>              <q>"missing padding for 16-byte aligned T"</q>);</td></tr>
+<tr><th id="34">34</th><td><b>static_assert</b>(<b>sizeof</b>(<a class="type" href="../../include/llvm/ADT/SmallVector.h.html#llvm::SmallVector" title='llvm::SmallVector' data-ref="llvm::SmallVector">SmallVector</a>&lt;<a class="tu type" href="#(anonymousnamespace)::Struct32B" title='(anonymous namespace)::Struct32B' data-ref="(anonymousnamespace)::Struct32B">Struct32B</a>, <var>0</var>&gt;) &gt;= <b>alignof</b>(<a class="tu type" href="#(anonymousnamespace)::Struct32B" title='(anonymous namespace)::Struct32B' data-ref="(anonymousnamespace)::Struct32B">Struct32B</a>),</td></tr>
+<tr><th id="35">35</th><td>              <q>"missing padding for 32-byte aligned T"</q>);</td></tr>
+<tr><th id="36">36</th><td><b>static_assert</b>(<b>sizeof</b>(<a class="type" href="../../include/llvm/ADT/SmallVector.h.html#llvm::SmallVector" title='llvm::SmallVector' data-ref="llvm::SmallVector">SmallVector</a>&lt;<em>void</em> *, <var>1</var>&gt;) ==</td></tr>
+<tr><th id="37">37</th><td>                  <b>sizeof</b>(<em>unsigned</em>) * <var>2</var> + <b>sizeof</b>(<em>void</em> *) * <var>2</var>,</td></tr>
+<tr><th id="38">38</th><td>              <q>"wasted space in SmallVector size 1"</q>);</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><i class="doc">/// grow_pod - This is an implementation of the grow() method which only works</i></td></tr>
+<tr><th id="41">41</th><td><i class="doc">/// on POD-like datatypes and is out of line to reduce code duplication.</i></td></tr>
+<tr><th id="42">42</th><td><em>void</em> <a class="type" href="../../include/llvm/ADT/SmallVector.h.html#llvm::SmallVectorBase" title='llvm::SmallVectorBase' data-ref="llvm::SmallVectorBase">SmallVectorBase</a>::<dfn class="decl def" id="_ZN4llvm15SmallVectorBase8grow_podEPvmm" title='llvm::SmallVectorBase::grow_pod' data-ref="_ZN4llvm15SmallVectorBase8grow_podEPvmm">grow_pod</dfn>(<em>void</em> *<dfn class="local col1 decl" id="1FirstEl" title='FirstEl' data-type='void *' data-ref="1FirstEl">FirstEl</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col2 decl" id="2MinCapacity" title='MinCapacity' data-type='size_t' data-ref="2MinCapacity">MinCapacity</dfn>,</td></tr>
+<tr><th id="43">43</th><td>                               <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col3 decl" id="3TSize" title='TSize' data-type='size_t' data-ref="3TSize">TSize</dfn>) {</td></tr>
+<tr><th id="44">44</th><td>  <i>// Ensure we can fit the new capacity in 32 bits.</i></td></tr>
+<tr><th id="45">45</th><td>  <b>if</b> (<a class="local col2 ref" href="#2MinCapacity" title='MinCapacity' data-ref="2MinCapacity">MinCapacity</a> &gt; <a class="macro" href="../../../../include/stdint.h.html#139" title="(4294967295U)" data-ref="_M/UINT32_MAX">UINT32_MAX</a>)</td></tr>
+<tr><th id="46">46</th><td>    <a class="ref" href="../../include/llvm/Support/ErrorHandling.h.html#_ZN4llvm22report_bad_alloc_errorEPKcb" title='llvm::report_bad_alloc_error' data-ref="_ZN4llvm22report_bad_alloc_errorEPKcb">report_bad_alloc_error</a>(<q>"SmallVector capacity overflow during allocation"</q>);</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col4 decl" id="4NewCapacity" title='NewCapacity' data-type='size_t' data-ref="4NewCapacity">NewCapacity</dfn> = <var>2</var> * <a class="member" href="../../include/llvm/ADT/SmallVector.h.html#_ZNK4llvm15SmallVectorBase8capacityEv" title='llvm::SmallVectorBase::capacity' data-ref="_ZNK4llvm15SmallVectorBase8capacityEv">capacity</a>() + <var>1</var>; <i>// Always grow.</i></td></tr>
+<tr><th id="49">49</th><td>  <a class="local col4 ref" href="#4NewCapacity" title='NewCapacity' data-ref="4NewCapacity">NewCapacity</a> =</td></tr>
+<tr><th id="50">50</th><td>      <span class="namespace">std::</span><a class="ref" href="../../../../include/c++/7/bits/algorithmfwd.h.html#_ZSt3minRKT_S1_" title='std::min' data-ref="_ZSt3minRKT_S1_">min</a>(<span class="namespace">std::</span><a class="ref" href="../../../../include/c++/7/bits/algorithmfwd.h.html#_ZSt3maxRKT_S1_" title='std::max' data-ref="_ZSt3maxRKT_S1_">max</a>(<a class="local col4 ref" href="#4NewCapacity" title='NewCapacity' data-ref="4NewCapacity">NewCapacity</a>, <a class="local col2 ref" href="#2MinCapacity" title='MinCapacity' data-ref="2MinCapacity">MinCapacity</a>), <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span>(<a class="macro" href="../../../../include/stdint.h.html#139" title="(4294967295U)" data-ref="_M/UINT32_MAX">UINT32_MAX</a>));</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>  <em>void</em> *<dfn class="local col5 decl" id="5NewElts" title='NewElts' data-type='void *' data-ref="5NewElts">NewElts</dfn>;</td></tr>
+<tr><th id="53">53</th><td>  <b>if</b> (<a class="member" href="../../include/llvm/ADT/SmallVector.h.html#llvm::SmallVectorBase::BeginX" title='llvm::SmallVectorBase::BeginX' data-ref="llvm::SmallVectorBase::BeginX">BeginX</a> == <a class="local col1 ref" href="#1FirstEl" title='FirstEl' data-ref="1FirstEl">FirstEl</a>) {</td></tr>
+<tr><th id="54">54</th><td>    <a class="local col5 ref" href="#5NewElts" title='NewElts' data-ref="5NewElts">NewElts</a> = <a class="ref" href="../../include/llvm/Support/MemAlloc.h.html#_ZN4llvm11safe_mallocEm" title='llvm::safe_malloc' data-ref="_ZN4llvm11safe_mallocEm">safe_malloc</a>(<a class="local col4 ref" href="#4NewCapacity" title='NewCapacity' data-ref="4NewCapacity">NewCapacity</a> * <a class="local col3 ref" href="#3TSize" title='TSize' data-ref="3TSize">TSize</a>);</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>    <i>// Copy the elements over.  No need to run dtors on PODs.</i></td></tr>
+<tr><th id="57">57</th><td>    <a class="ref" href="../../../../include/string.h.html#memcpy" title='memcpy' data-ref="memcpy">memcpy</a>(<a class="local col5 ref" href="#5NewElts" title='NewElts' data-ref="5NewElts">NewElts</a>, <b>this</b>-&gt;<a class="member" href="../../include/llvm/ADT/SmallVector.h.html#llvm::SmallVectorBase::BeginX" title='llvm::SmallVectorBase::BeginX' data-ref="llvm::SmallVectorBase::BeginX">BeginX</a>, <a class="member" href="../../include/llvm/ADT/SmallVector.h.html#_ZNK4llvm15SmallVectorBase4sizeEv" title='llvm::SmallVectorBase::size' data-ref="_ZNK4llvm15SmallVectorBase4sizeEv">size</a>() * <a class="local col3 ref" href="#3TSize" title='TSize' data-ref="3TSize">TSize</a>);</td></tr>
+<tr><th id="58">58</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="59">59</th><td>    <i>// If this wasn't grown from the inline copy, grow the allocated space.</i></td></tr>
+<tr><th id="60">60</th><td>    <a class="local col5 ref" href="#5NewElts" title='NewElts' data-ref="5NewElts">NewElts</a> = <a class="ref" href="../../include/llvm/Support/MemAlloc.h.html#_ZN4llvm12safe_reallocEPvm" title='llvm::safe_realloc' data-ref="_ZN4llvm12safe_reallocEPvm">safe_realloc</a>(<b>this</b>-&gt;<a class="member" href="../../include/llvm/ADT/SmallVector.h.html#llvm::SmallVectorBase::BeginX" title='llvm::SmallVectorBase::BeginX' data-ref="llvm::SmallVectorBase::BeginX">BeginX</a>, <a class="local col4 ref" href="#4NewCapacity" title='NewCapacity' data-ref="4NewCapacity">NewCapacity</a> * <a class="local col3 ref" href="#3TSize" title='TSize' data-ref="3TSize">TSize</a>);</td></tr>
+<tr><th id="61">61</th><td>  }</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>  <b>this</b>-&gt;<a class="member" href="../../include/llvm/ADT/SmallVector.h.html#llvm::SmallVectorBase::BeginX" title='llvm::SmallVectorBase::BeginX' data-ref="llvm::SmallVectorBase::BeginX">BeginX</a> = <a class="local col5 ref" href="#5NewElts" title='NewElts' data-ref="5NewElts">NewElts</a>;</td></tr>
+<tr><th id="64">64</th><td>  <b>this</b>-&gt;<a class="member" href="../../include/llvm/ADT/SmallVector.h.html#llvm::SmallVectorBase::Capacity" title='llvm::SmallVectorBase::Capacity' data-ref="llvm::SmallVectorBase::Capacity">Capacity</a> = <a class="local col4 ref" href="#4NewCapacity" title='NewCapacity' data-ref="4NewCapacity">NewCapacity</a>;</td></tr>
+<tr><th id="65">65</th><td>}</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

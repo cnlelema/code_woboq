@@ -1,0 +1,29 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='4167' type='unsigned int clang_visitChildren(CXCursor parent, CXCursorVisitor visitor, CXClientData client_data)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='4145'>/**
+ * Visit the children of a particular cursor.
+ *
+ * This function visits all the direct children of the given cursor,
+ * invoking the given \p visitor function with the cursors of each
+ * visited child. The traversal may be recursive, if the visitor returns
+ * \c CXChildVisit_Recurse. The traversal may also be ended prematurely, if
+ * the visitor returns \c CXChildVisit_Break.
+ *
+ * \param parent the cursor whose child may be visited. All kinds of
+ * cursors can be visited, including invalid cursors (which, by
+ * definition, have no children).
+ *
+ * \param visitor the visitor function that will be invoked for each
+ * child of \p parent.
+ *
+ * \param client_data pointer data supplied by the client, which will
+ * be passed to the visitor each time it is invoked.
+ *
+ * \returns a non-zero value if the traversal was terminated
+ * prematurely by the visitor returning \c CXChildVisit_Break.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='1955' u='c' c='perform_test_load'/>
+<def f='llvm/clang/tools/libclang/CIndex.cpp' l='4382' ll='4388' type='unsigned int clang_visitChildren(CXCursor parent, CXCursorVisitor visitor, CXClientData client_data)'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='4424' u='c' c='clang_visitChildrenWithBlock'/>
+<use f='llvm/clang/tools/libclang/CIndexHigh.cpp' l='228' u='c' c='_ZL16findIdRefsInFileP21CXTranslationUnitImpl8CXCursorPKN5clang9FileEntryE23CXCursorAndRangeVisitor'/>
+<use f='llvm/clang/unittests/libclang/LibclangTest.cpp' l='473' u='c' c='_ZN46LibclangParseTest_EvaluateChildExpression_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/libclang/LibclangTest.cpp' l='479' u='c' c='_ZN46LibclangParseTest_EvaluateChildExpression_Test8TestBodyEv'/>

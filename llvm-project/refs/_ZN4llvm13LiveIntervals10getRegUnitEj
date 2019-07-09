@@ -1,0 +1,26 @@
+<def f='llvm/llvm/include/llvm/CodeGen/LiveIntervals.h' l='392' ll='401' type='llvm::LiveRange &amp; llvm::LiveIntervals::getRegUnit(unsigned int Unit)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/LiveIntervals.h' l='379'>// Register unit functions.
+    //
+    // Fixed interference occurs when MachineInstrs use physregs directly
+    // instead of virtual registers. This typically happens when passing
+    // arguments to a function call, or when instructions require operands in
+    // fixed registers.
+    //
+    // Each physreg has one or more register units, see MCRegisterInfo. We
+    // track liveness per register unit to handle aliasing registers more
+    // efficiently.
+
+    /// Return the live range for register unit \p Unit. It will be computed if
+    /// it doesn&apos;t exist.</doc>
+<use f='llvm/llvm/lib/CodeGen/InterferenceCache.cpp' l='119' u='c' c='_ZN4llvm17InterferenceCache5Entry5resetEjPNS_17LiveIntervalUnionEPKNS_18TargetRegisterInfoEPKNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='148' u='c' c='_ZN4llvm13LiveIntervals20runOnMachineFunctionERNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='703' u='c' c='_ZN4llvm13LiveIntervals12addKillFlagsEPKNS_10VirtRegMapE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='967' u='c' c='_ZN4llvm13LiveIntervals8HMEditor12getRegUnitLIEj'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRegMatrix.cpp' l='171' u='c' c='_ZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERNS_12LiveIntervalEj'/>
+<use f='llvm/llvm/lib/CodeGen/RegAllocGreedy.cpp' l='2203' u='c' c='_ZN12_GLOBAL__N_18RAGreedy14calcGapWeightsEjRN4llvm15SmallVectorImplIfEE'/>
+<use f='llvm/llvm/lib/CodeGen/RegAllocPBQP.cpp' l='625' u='c' c='_ZN12_GLOBAL__N_112RegAllocPBQP15initializeGraphERN4llvm4PBQP8RegAlloc11PBQPRAGraphERNS1_10VirtRegMapERNS1_7SpillerE'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterCoalescer.cpp' l='1995' u='c' c='_ZN12_GLOBAL__N_117RegisterCoalescer19joinReservedPhysRegERN4llvm13CoalescerPairE'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterCoalescer.cpp' l='2073' u='c' c='_ZN12_GLOBAL__N_117RegisterCoalescer19joinReservedPhysRegERN4llvm13CoalescerPairE'/>
+<use f='llvm/llvm/lib/CodeGen/VirtRegMap.cpp' l='477' u='c' c='_ZNK12_GLOBAL__N_115VirtRegRewriter17subRegLiveThroughERKN4llvm12MachineInstrEj'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCVSXFMAMutate.cpp' l='322' u='c' c='_ZN12_GLOBAL__N_115PPCVSXFMAMutate12processBlockERN4llvm17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZInstrInfo.cpp' l='1025' u='c' c='_ZNK4llvm16SystemZInstrInfo21foldMemoryOperandImplERNS_15MachineFunctionERNS_12MachineInstrENS_8ArrayRefIjEENS_26MachineInstrBundleIteratorIS3_Lb0EEEi15416259'/>

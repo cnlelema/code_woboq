@@ -1,0 +1,18 @@
+<dec f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.h' l='388' type='374'/>
+<doc f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.h' l='375'>/// An SDNode for Power9 vector absolute value difference.
+      /// operand #0 vector
+      /// operand #1 vector
+      /// operand #2 constant i32 0 or 1, to indicate whether needs to patch
+      /// the most significant bit for signed i32
+      ///
+      /// Power9 VABSD* instructions are designed to support unsigned integer
+      /// vectors (byte/halfword/word), if we want to make use of them for signed
+      /// integer vectors, we have to flip their sign bits first. To flip sign bit
+      /// for byte/halfword integer vector would become inefficient, but for word
+      /// integer vector, we can leverage XVNEGSP to make it efficiently. eg:
+      /// abs(sub(a,b)) =&gt; VABSDUW(a+0x80000000, b+0x80000000) 
+      ///               =&gt; VABSDUW((XVNEGSP a), (XVNEGSP b))</doc>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='1394' c='_ZNK4llvm17PPCTargetLowering17getTargetNodeNameEj'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='15145' u='r' c='_ZNK4llvm17PPCTargetLowering10combineABSEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='15154' u='r' c='_ZNK4llvm17PPCTargetLowering10combineABSEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='15219' u='r' c='_ZNK4llvm17PPCTargetLowering14combineVSelectEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>

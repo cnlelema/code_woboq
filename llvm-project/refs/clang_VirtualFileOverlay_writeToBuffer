@@ -1,0 +1,12 @@
+<dec f='llvm/clang/include/clang-c/BuildSystem.h' l='81' type='enum CXErrorCode clang_VirtualFileOverlay_writeToBuffer(CXVirtualFileOverlay , unsigned int options, char ** out_buffer_ptr, unsigned int * out_buffer_size)'/>
+<doc f='llvm/clang/include/clang-c/BuildSystem.h' l='71'>/**
+ * Write out the \c CXVirtualFileOverlay object to a char buffer.
+ *
+ * \param options is reserved, always pass 0.
+ * \param out_buffer_ptr pointer to receive the buffer pointer, which should be
+ * disposed using \c clang_free().
+ * \param out_buffer_size pointer to receive the buffer size.
+ * \returns 0 for success, non-zero to indicate an error.
+ */</doc>
+<def f='llvm/clang/tools/libclang/BuildSystem.cpp' l='69' ll='85' type='enum CXErrorCode clang_VirtualFileOverlay_writeToBuffer(CXVirtualFileOverlay VFO, unsigned int , char ** out_buffer_ptr, unsigned int * out_buffer_size)'/>
+<use f='llvm/clang/unittests/libclang/LibclangTest.cpp' l='66' u='c' c='_ZN12_GLOBAL__N_17TestVFOD1Ev'/>

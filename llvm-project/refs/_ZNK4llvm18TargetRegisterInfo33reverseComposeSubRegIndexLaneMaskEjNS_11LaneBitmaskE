@@ -1,0 +1,14 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetRegisterInfo.h' l='622' ll='627' type='llvm::LaneBitmask llvm::TargetRegisterInfo::reverseComposeSubRegIndexLaneMask(unsigned int IdxA, llvm::LaneBitmask LaneMask) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetRegisterInfo.h' l='615'>/// Transform a lanemask given for a virtual register to the corresponding
+  /// lanemask before using subregister with index \p IdxA.
+  /// This is the reverse of composeSubRegIndexLaneMask(), assuming Mask is a
+  /// valie lane mask (no invalid bits set) the following holds:
+  /// X0 = composeSubRegIndexLaneMask(Idx, Mask)
+  /// X1 = reverseComposeSubRegIndexLaneMask(Idx, X0)
+  /// =&gt; X1 == Mask</doc>
+<use f='llvm/llvm/lib/CodeGen/DetectDeadLanes.cpp' l='243' u='c' c='_ZNK12_GLOBAL__N_115DetectDeadLanes17transferUsedLanesERKN4llvm12MachineInstrENS1_11LaneBitmaskERKNS1_14MachineOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/DetectDeadLanes.cpp' l='248' u='c' c='_ZNK12_GLOBAL__N_115DetectDeadLanes17transferUsedLanesERKN4llvm12MachineInstrENS1_11LaneBitmaskERKNS1_14MachineOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/DetectDeadLanes.cpp' l='297' u='c' c='_ZN12_GLOBAL__N_115DetectDeadLanes24transferDefinedLanesStepERKN4llvm14MachineOperandENS1_11LaneBitmaskE'/>
+<use f='llvm/llvm/lib/CodeGen/DetectDeadLanes.cpp' l='336' u='c' c='_ZNK12_GLOBAL__N_115DetectDeadLanes20transferDefinedLanesERKN4llvm14MachineOperandEjNS1_11LaneBitmaskE'/>
+<use f='llvm/llvm/lib/CodeGen/DetectDeadLanes.cpp' l='400' u='c' c='_ZN12_GLOBAL__N_115DetectDeadLanes28determineInitialDefinedLanesEj'/>
+<use f='llvm/llvm/lib/Target/Hexagon/RDFRegisters.cpp' l='234' u='c' c='_ZNK4llvm3rdf20PhysicalRegisterInfo5mapToENS0_11RegisterRefEj'/>

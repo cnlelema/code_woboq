@@ -1,0 +1,113 @@
+<dec f='llvm/llvm/include/llvm/Support/DataExtractor.h' l='395' type='uint64_t llvm::DataExtractor::getULEB128(uint32_t * offset_ptr) const'/>
+<doc f='llvm/llvm/include/llvm/Support/DataExtractor.h' l='379'>/// Extract a unsigned LEB128 value from \a *offset_ptr.
+  ///
+  /// Extracts an unsigned LEB128 number from this object&apos;s data
+  /// starting at the offset pointed to by \a offset_ptr. The offset
+  /// pointed to by \a offset_ptr will be updated with the offset of
+  /// the byte following the last extracted byte.
+  ///
+  /// @param[in,out] offset_ptr
+  ///     A pointer to an offset within the data that will be advanced
+  ///     by the appropriate number of bytes if the value is extracted
+  ///     correctly. If the offset is out of bounds or there are not
+  ///     enough bytes to extract this value, the offset will be left
+  ///     unmodified.
+  ///
+  /// @return
+  ///     The extracted unsigned integer value.</doc>
+<use f='llvm/lld/lib/ReaderWriter/MachO/MachONormalizedFileToAtoms.cpp' l='839' u='c' c='_ZN3lld6mach_o12_GLOBAL__N_1L17getCUAbbrevOffsetEN4llvm13DataExtractorEm'/>
+<use f='llvm/lld/lib/ReaderWriter/MachO/MachONormalizedFileToAtoms.cpp' l='841' u='c' c='_ZN3lld6mach_o12_GLOBAL__N_1L17getCUAbbrevOffsetEN4llvm13DataExtractorEm'/>
+<use f='llvm/lld/lib/ReaderWriter/MachO/MachONormalizedFileToAtoms.cpp' l='845' u='c' c='_ZN3lld6mach_o12_GLOBAL__N_1L17getCUAbbrevOffsetEN4llvm13DataExtractorEm'/>
+<use f='llvm/lld/lib/ReaderWriter/MachO/MachONormalizedFileToAtoms.cpp' l='845' u='c' c='_ZN3lld6mach_o12_GLOBAL__N_1L17getCUAbbrevOffsetEN4llvm13DataExtractorEm'/>
+<use f='llvm/lld/lib/ReaderWriter/MachO/MachONormalizedFileToAtoms.cpp' l='898' u='c' c='_ZN3lld6mach_o12_GLOBAL__N_1L12readCompUnitERKNS0_10normalized14NormalizedFileERKNS2_7SectionES8_S8_N4llvm9StringRefE'/>
+<use f='llvm/lld/lib/ReaderWriter/MachO/MachONormalizedFileToAtoms.cpp' l='901' u='c' c='_ZN3lld6mach_o12_GLOBAL__N_1L12readCompUnitERKNS0_10normalized14NormalizedFileERKNS2_7SectionES8_S8_N4llvm9StringRefE'/>
+<use f='llvm/lld/lib/ReaderWriter/MachO/MachONormalizedFileToAtoms.cpp' l='910' u='c' c='_ZN3lld6mach_o12_GLOBAL__N_1L12readCompUnitERKNS0_10normalized14NormalizedFileERKNS2_7SectionES8_S8_N4llvm9StringRefE'/>
+<use f='llvm/lld/lib/ReaderWriter/MachO/MachONormalizedFileToAtoms.cpp' l='912' u='c' c='_ZN3lld6mach_o12_GLOBAL__N_1L12readCompUnitERKNS0_10normalized14NormalizedFileERKNS2_7SectionES8_S8_N4llvm9StringRefE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAbbreviationDeclaration.cpp' l='44' u='c' c='_ZN4llvm28DWARFAbbreviationDeclaration7extractENS_13DataExtractorEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAbbreviationDeclaration.cpp' l='49' u='c' c='_ZN4llvm28DWARFAbbreviationDeclaration7extractENS_13DataExtractorEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAbbreviationDeclaration.cpp' l='63' u='c' c='_ZN4llvm28DWARFAbbreviationDeclaration7extractENS_13DataExtractorEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAbbreviationDeclaration.cpp' l='64' u='c' c='_ZN4llvm28DWARFAbbreviationDeclaration7extractENS_13DataExtractorEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAcceleratorTable.cpp' l='446' u='c' c='_ZN4llvm15DWARFDebugNames9NameIndex24extractAttributeEncodingEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAcceleratorTable.cpp' l='447' u='c' c='_ZN4llvm15DWARFDebugNames9NameIndex24extractAttributeEncodingEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAcceleratorTable.cpp' l='472' u='c' c='_ZN4llvm15DWARFDebugNames9NameIndex13extractAbbrevEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAcceleratorTable.cpp' l='476' u='c' c='_ZN4llvm15DWARFDebugNames9NameIndex13extractAbbrevEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAcceleratorTable.cpp' l='606' u='c' c='_ZNK4llvm15DWARFDebugNames9NameIndex8getEntryEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDataExtractor.cpp' l='52' u='c' c='_ZNK4llvm18DWARFDataExtractor17getEncodedPointerEPjhm'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugFrame.cpp' l='58' u='c' c='_ZN4llvm5dwarf10CFIProgram5parseENS_13DataExtractorEPjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugFrame.cpp' l='98' u='c' c='_ZN4llvm5dwarf10CFIProgram5parseENS_13DataExtractorEPjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugFrame.cpp' l='112' u='c' c='_ZN4llvm5dwarf10CFIProgram5parseENS_13DataExtractorEPjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugFrame.cpp' l='113' u='c' c='_ZN4llvm5dwarf10CFIProgram5parseENS_13DataExtractorEPjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugFrame.cpp' l='122' u='c' c='_ZN4llvm5dwarf10CFIProgram5parseENS_13DataExtractorEPjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugFrame.cpp' l='128' u='c' c='_ZN4llvm5dwarf10CFIProgram5parseENS_13DataExtractorEPjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugFrame.cpp' l='140' u='c' c='_ZN4llvm5dwarf10CFIProgram5parseENS_13DataExtractorEPjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugFrame.cpp' l='141' u='c' c='_ZN4llvm5dwarf10CFIProgram5parseENS_13DataExtractorEPjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugFrame.cpp' l='397' u='c' c='_ZN4llvm15DWARFDebugFrame5parseENS_18DWARFDataExtractorE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugFrame.cpp' l='400' u='c' c='_ZN4llvm15DWARFDebugFrame5parseENS_18DWARFDataExtractorE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugFrame.cpp' l='444' u='c' c='_ZN4llvm15DWARFDebugFrame5parseENS_18DWARFDataExtractorE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugFrame.cpp' l='499' u='c' c='_ZN4llvm15DWARFDebugFrame5parseENS_18DWARFDataExtractorE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugInfoEntry.cpp' l='35' u='c' c='_ZN4llvm19DWARFDebugInfoEntry11extractFastERKNS_9DWARFUnitEPjRKNS_18DWARFDataExtractorEjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='159' u='c' c='_ZL20parseV2DirFileTablesRKN4llvm18DWARFDataExtractorEPjmRNS_14DWARFDebugLine18ContentTypeTrackerERSt6vectorINS_14DWARFFormValueESaIS8_EERS7_INS4_13FileNameEntryESaISC_EE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='160' u='c' c='_ZL20parseV2DirFileTablesRKN4llvm18DWARFDataExtractorEPjmRNS_14DWARFDebugLine18ContentTypeTrackerERSt6vectorINS_14DWARFFormValueESaIS8_EERS7_INS4_13FileNameEntryESaISC_EE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='161' u='c' c='_ZL20parseV2DirFileTablesRKN4llvm18DWARFDataExtractorEPjmRNS_14DWARFDebugLine18ContentTypeTrackerERSt6vectorINS_14DWARFFormValueESaIS8_EERS7_INS4_13FileNameEntryESaISC_EE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='184' u='c' c='_ZL18parseV5EntryFormatRKN4llvm18DWARFDataExtractorEPjmPNS_14DWARFDebugLine18ContentTypeTrackerE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='185' u='c' c='_ZL18parseV5EntryFormatRKN4llvm18DWARFDataExtractorEPjmPNS_14DWARFDebugLine18ContentTypeTrackerE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='521' u='c' c='_ZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPjRKNS_12DWARFContextEPKNS_9DWARFUnitESt8functionIFvNS_5ErrorEEEPNS_11raw_ostreamE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='604' u='c' c='_ZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPjRKNS_12DWARFContextEPKNS_9DWARFUnitESt8functionIFvNS_5ErrorEEEPNS_11raw_ostreamE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='605' u='c' c='_ZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPjRKNS_12DWARFContextEPKNS_9DWARFUnitESt8functionIFvNS_5ErrorEEEPNS_11raw_ostreamE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='606' u='c' c='_ZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPjRKNS_12DWARFContextEPKNS_9DWARFUnitESt8functionIFvNS_5ErrorEEEPNS_11raw_ostreamE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='616' u='c' c='_ZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPjRKNS_12DWARFContextEPKNS_9DWARFUnitESt8functionIFvNS_5ErrorEEEPNS_11raw_ostreamE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='660' u='c' c='_ZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPjRKNS_12DWARFContextEPKNS_9DWARFUnitESt8functionIFvNS_5ErrorEEEPNS_11raw_ostreamE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='678' u='c' c='_ZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPjRKNS_12DWARFContextEPKNS_9DWARFUnitESt8functionIFvNS_5ErrorEEEPNS_11raw_ostreamE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='686' u='c' c='_ZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPjRKNS_12DWARFContextEPKNS_9DWARFUnitESt8functionIFvNS_5ErrorEEEPNS_11raw_ostreamE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='760' u='c' c='_ZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPjRKNS_12DWARFContextEPKNS_9DWARFUnitESt8functionIFvNS_5ErrorEEEPNS_11raw_ostreamE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='773' u='c' c='_ZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPjRKNS_12DWARFContextEPKNS_9DWARFUnitESt8functionIFvNS_5ErrorEEEPNS_11raw_ostreamE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLoc.cpp' l='160' u='c' c='_ZN4llvm18DWARFDebugLoclists20parseOneLocationListENS_13DataExtractorEPjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLoc.cpp' l='166' u='c' c='_ZN4llvm18DWARFDebugLoclists20parseOneLocationListENS_13DataExtractorEPjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLoc.cpp' l='170' u='c' c='_ZN4llvm18DWARFDebugLoclists20parseOneLocationListENS_13DataExtractorEPjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLoc.cpp' l='173' u='c' c='_ZN4llvm18DWARFDebugLoclists20parseOneLocationListENS_13DataExtractorEPjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLoc.cpp' l='174' u='c' c='_ZN4llvm18DWARFDebugLoclists20parseOneLocationListENS_13DataExtractorEPjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLoc.cpp' l='187' u='c' c='_ZN4llvm18DWARFDebugLoclists20parseOneLocationListENS_13DataExtractorEPjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugMacro.cpp' l='61' u='c' c='_ZN4llvm15DWARFDebugMacro5parseENS_13DataExtractorE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugMacro.cpp' l='78' u='c' c='_ZN4llvm15DWARFDebugMacro5parseENS_13DataExtractorE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugMacro.cpp' l='84' u='c' c='_ZN4llvm15DWARFDebugMacro5parseENS_13DataExtractorE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugMacro.cpp' l='86' u='c' c='_ZN4llvm15DWARFDebugMacro5parseENS_13DataExtractorE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugMacro.cpp' l='92' u='c' c='_ZN4llvm15DWARFDebugMacro5parseENS_13DataExtractorE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugRnglists.cpp' l='36' u='c' c='_ZN4llvm14RangeListEntry7extractENS_18DWARFDataExtractorEjPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugRnglists.cpp' l='52' u='c' c='_ZN4llvm14RangeListEntry7extractENS_18DWARFDataExtractorEjPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugRnglists.cpp' l='53' u='c' c='_ZN4llvm14RangeListEntry7extractENS_18DWARFDataExtractorEjPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugRnglists.cpp' l='64' u='c' c='_ZN4llvm14RangeListEntry7extractENS_18DWARFDataExtractorEjPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugRnglists.cpp' l='65' u='c' c='_ZN4llvm14RangeListEntry7extractENS_18DWARFDataExtractorEjPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugRnglists.cpp' l='96' u='c' c='_ZN4llvm14RangeListEntry7extractENS_18DWARFDataExtractorEjPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDie.cpp' l='581' u='c' c='_ZNK4llvm8DWARFDie4dumpERNS_11raw_ostreamEjNS_13DIDumpOptionsE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFExpression.cpp' l='179' u='c' c='_ZN4llvm15DWARFExpression9Operation7extractENS_13DataExtractorEthj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFExpression.cpp' l='182' u='c' c='_ZN4llvm15DWARFExpression9Operation7extractENS_13DataExtractorEthj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFFormValue.cpp' l='118' u='c' c='_ZN4llvm14DWARFFormValue9skipValueENS_5dwarf4FormENS_13DataExtractorEPjNS1_10FormParamsE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFFormValue.cpp' l='191' u='c' c='_ZN4llvm14DWARFFormValue9skipValueENS_5dwarf4FormENS_13DataExtractorEPjNS1_10FormParamsE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFFormValue.cpp' l='196' u='c' c='_ZN4llvm14DWARFFormValue9skipValueENS_5dwarf4FormENS_13DataExtractorEPjNS1_10FormParamsE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFFormValue.cpp' l='261' u='c' c='_ZN4llvm14DWARFFormValue12extractValueERKNS_18DWARFDataExtractorEPjNS_5dwarf10FormParamsEPKNS_12DWARFContextEPKNS_9DWARFUnitE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFFormValue.cpp' l='315' u='c' c='_ZN4llvm14DWARFFormValue12extractValueERKNS_18DWARFDataExtractorEPjNS_5dwarf10FormParamsEPKNS_12DWARFContextEPKNS_9DWARFUnitE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFFormValue.cpp' l='321' u='c' c='_ZN4llvm14DWARFFormValue12extractValueERKNS_18DWARFDataExtractorEPjNS_5dwarf10FormParamsEPKNS_12DWARFContextEPKNS_9DWARFUnitE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFFormValue.cpp' l='344' u='c' c='_ZN4llvm14DWARFFormValue12extractValueERKNS_18DWARFDataExtractorEPjNS_5dwarf10FormParamsEPKNS_12DWARFContextEPKNS_9DWARFUnitE'/>
+<use f='llvm/llvm/lib/Object/MachOObjectFile.cpp' l='4624' u='c' c='_ZNK4llvm6object15MachOObjectFile12ReadULEB128sEmRNS_15SmallVectorImplImEE'/>
+<def f='llvm/llvm/lib/Support/DataExtractor.cpp' l='147' ll='166' type='uint64_t llvm::DataExtractor::getULEB128(uint32_t * offset_ptr) const'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfStreamer.cpp' l='649' u='c' c='_ZN4llvm8dsymutil13DwarfStreamer18translateLineTableENS_13DataExtractorEj'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfStreamer.cpp' l='650' u='c' c='_ZN4llvm8dsymutil13DwarfStreamer18translateLineTableENS_13DataExtractorEj'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfStreamer.cpp' l='651' u='c' c='_ZN4llvm8dsymutil13DwarfStreamer18translateLineTableENS_13DataExtractorEj'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='101' u='c' c='_ZL11getCUAbbrevN4llvm9StringRefEm'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='103' u='c' c='_ZL11getCUAbbrevN4llvm9StringRefEm'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='107' u='c' c='_ZL11getCUAbbrevN4llvm9StringRefEm'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='107' u='c' c='_ZL11getCUAbbrevN4llvm9StringRefEm'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='127' u='c' c='_ZL16getIndexedStringN4llvm5dwarf4FormENS_13DataExtractorERjNS_9StringRefES4_'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='153' u='c' c='_ZL16getCUIdentifiersN4llvm9StringRefES0_S0_S0_'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='157' u='c' c='_ZL16getCUIdentifiersN4llvm9StringRefES0_S0_S0_'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='166' u='c' c='_ZL16getCUIdentifiersN4llvm9StringRefES0_S0_S0_'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='167' u='c' c='_ZL16getCUIdentifiersN4llvm9StringRefES0_S0_S0_'/>
+<use f='llvm/llvm/tools/obj2yaml/dwarf2yaml.cpp' l='134' u='c' c='_Z13dumpDebugInfoRN4llvm12DWARFContextERNS_9DWARFYAML4DataE'/>
+<use f='llvm/llvm/tools/obj2yaml/dwarf2yaml.cpp' l='234' u='c' c='_Z13dumpFileEntryRN4llvm13DataExtractorERjRNS_9DWARFYAML4FileE'/>
+<use f='llvm/llvm/tools/obj2yaml/dwarf2yaml.cpp' l='235' u='c' c='_Z13dumpFileEntryRN4llvm13DataExtractorERjRNS_9DWARFYAML4FileE'/>
+<use f='llvm/llvm/tools/obj2yaml/dwarf2yaml.cpp' l='236' u='c' c='_Z13dumpFileEntryRN4llvm13DataExtractorERjRNS_9DWARFYAML4FileE'/>
+<use f='llvm/llvm/tools/obj2yaml/dwarf2yaml.cpp' l='294' u='c' c='_Z14dumpDebugLinesRN4llvm12DWARFContextERNS_9DWARFYAML4DataE'/>
+<use f='llvm/llvm/tools/obj2yaml/dwarf2yaml.cpp' l='325' u='c' c='_Z14dumpDebugLinesRN4llvm12DWARFContextERNS_9DWARFYAML4DataE'/>
+<use f='llvm/llvm/tools/obj2yaml/dwarf2yaml.cpp' l='339' u='c' c='_Z14dumpDebugLinesRN4llvm12DWARFContextERNS_9DWARFYAML4DataE'/>
+<use f='llvm/llvm/unittests/Support/DataExtractorTest.cpp' l='104' u='c' c='_ZN12_GLOBAL__N_129DataExtractorTest_LEB128_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/DataExtractorTest.cpp' l='112' u='c' c='_ZN12_GLOBAL__N_129DataExtractorTest_LEB128_Test8TestBodyEv'/>

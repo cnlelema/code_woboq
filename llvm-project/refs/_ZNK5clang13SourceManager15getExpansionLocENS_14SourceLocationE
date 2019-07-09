@@ -1,0 +1,47 @@
+<def f='llvm/clang/include/clang/Basic/SourceManager.h' l='1119' ll='1124' type='clang::SourceLocation clang::SourceManager::getExpansionLoc(clang::SourceLocation Loc) const'/>
+<doc f='llvm/clang/include/clang/Basic/SourceManager.h' l='1117'>/// Given a SourceLocation object \p Loc, return the expansion
+  /// location referenced by the ID.</doc>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='186' u='c' c='_ZNK5clang10ASTContext27getRawCommentForDeclNoCacheEPKNS_4DeclE'/>
+<use f='llvm/clang/lib/AST/JSONNodeDumper.cpp' l='181' u='c' c='_ZN5clang14JSONNodeDumper20createSourceLocationENS_14SourceLocationE'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='249' u='c' c='_ZNK5clang12ast_matchers8internal36matcher_isExpansionInMainFileMatcher7matchesERKT_PNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='269' u='c' c='_ZNK5clang12ast_matchers8internal40matcher_isExpansionInSystemHeaderMatcher7matchesERKT_PNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='295' u='c' c='_ZNK5clang12ast_matchers8internal41matcher_isExpansionInFileMatching0Matcher7matchesERKT_PNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE'/>
+<use f='llvm/clang/lib/Basic/DiagnosticIDs.cpp' l='498' u='c' c='_ZNK5clang13DiagnosticIDs21getDiagnosticSeverityEjNS_14SourceLocationERKNS_17DiagnosticsEngineE'/>
+<use f='llvm/clang/lib/Basic/SourceLocation.cpp' l='62' u='c' c='_ZNK5clang14SourceLocation5printERN4llvm11raw_ostreamERKNS_13SourceManagerE'/>
+<use f='llvm/clang/lib/Basic/SourceLocation.cpp' l='109' u='c' c='_ZL15PrintDifferenceRN4llvm11raw_ostreamERKN5clang13SourceManagerENS2_14SourceLocationENS2_11PresumedLocE'/>
+<use f='llvm/clang/lib/Basic/SourceLocation.cpp' l='147' u='c' c='_ZNK5clang13FullSourceLoc15getExpansionLocEv'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='172' u='c' c='_ZN5clang7CodeGen11CGDebugInfo11setLocationENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Frontend/ASTUnit.cpp' l='682' u='c' c='_ZL12isInMainFileRKN5clang10DiagnosticE'/>
+<use f='llvm/clang/lib/Frontend/DependencyFile.cpp' l='48' u='c' c='_ZN12_GLOBAL__N_123DepCollectorPPCallbacks11FileChangedEN5clang14SourceLocationENS1_11PPCallbacks16FileChangeReasonENS1_6SrcMgr18CharacteristicKindENS1_6FileIDE'/>
+<use f='llvm/clang/lib/Frontend/DependencyFile.cpp' l='295' u='c' c='_ZN12_GLOBAL__N_17DFGImpl11FileChangedEN5clang14SourceLocationENS1_11PPCallbacks16FileChangeReasonENS1_6SrcMgr18CharacteristicKindENS1_6FileIDE'/>
+<use f='llvm/clang/lib/Frontend/DependencyGraph.cpp' l='84' u='c' c='_ZN12_GLOBAL__N_123DependencyGraphCallback18InclusionDirectiveEN5clang14SourceLocationERKNS1_5TokenEN4llvm9StringRefEbNS1_15CharSourceRangeEPKNS1_9Fil1053258'/>
+<use f='llvm/clang/include/clang/Basic/PlistSupport.h' l='40' u='c' c='_ZN5clang6markup6AddFIDERN4llvm8DenseMapINS_6FileIDEjNS1_12DenseMapInfoIS3_EENS1_6detail12DenseMapPairIS3_jEEEERNS1_15SmallVectorImplIS3_EERKNS_13Sour5882725'/>
+<use f='llvm/clang/include/clang/Basic/PlistSupport.h' l='52' u='c' c='_ZN5clang6markup6GetFIDERKN4llvm8DenseMapINS_6FileIDEjNS1_12DenseMapInfoIS3_EENS1_6detail12DenseMapPairIS3_jEEEERKNS_13SourceManagerENS_14SourceLocationE'/>
+<use f='llvm/clang/include/clang/Basic/PlistSupport.h' l='111' u='c' c='_ZN5clang6markup12EmitLocationERN4llvm11raw_ostreamERKNS_13SourceManagerENS_14SourceLocationERKNS1_8DenseMapINS_6FileIDEjNS1_12DenseMapInfoIS9_EENS1_61301203'/>
+<use f='llvm/clang/lib/Frontend/Rewrite/RewriteMacros.cpp' l='114' u='c' c='_ZN5clang20RewriteMacrosInInputERNS_12PreprocessorEPN4llvm11raw_ostreamE'/>
+<use f='llvm/clang/lib/Frontend/Rewrite/RewriteMacros.cpp' l='199' u='c' c='_ZN5clang20RewriteMacrosInInputERNS_12PreprocessorEPN4llvm11raw_ostreamE'/>
+<use f='llvm/clang/lib/Frontend/TextDiagnostic.cpp' l='873' u='c' c='_ZN5clang14TextDiagnostic17emitDiagnosticLocENS_13FullSourceLocENS_11PresumedLocENS_17DiagnosticsEngine5LevelEN4llvm8ArrayRefINS_15CharSourceRangeEEE'/>
+<use f='llvm/clang/lib/Frontend/VerifyDiagnosticConsumer.cpp' l='721' u='c' c='_ZN5clang24VerifyDiagnosticConsumer16HandleDiagnosticENS_17DiagnosticsEngine5LevelERKNS_10DiagnosticE'/>
+<use f='llvm/clang/lib/Index/USRGeneration.cpp' l='30' u='c' c='_ZL8printLocRN4llvm11raw_ostreamEN5clang14SourceLocationERKNS2_13SourceManagerEb'/>
+<use f='llvm/clang/lib/Lex/Lexer.cpp' l='458' u='c' c='_ZN5clang5Lexer11getRawTokenENS_14SourceLocationERNS_5TokenERKNS_13SourceManagerERKNS_11LangOptionsEb'/>
+<use f='llvm/clang/lib/Lex/PPDirectives.cpp' l='595' u='c' c='_ZN5clang12Preprocessor20getModuleForLocationENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Lex/PPDirectives.cpp' l='638' u='c' c='_ZN5clang12Preprocessor38getModuleHeaderToIncludeForDiagnosticsENS_14SourceLocationEPNS_6ModuleES1_'/>
+<use f='llvm/clang/lib/Lex/PPExpressions.cpp' l='844' u='c' c='_ZN5clang12Preprocessor27EvaluateDirectiveExpressionERPNS_14IdentifierInfoE'/>
+<use f='llvm/clang/lib/Lex/TokenLexer.cpp' l='73' u='c' c='_ZN5clang10TokenLexer4InitERNS_5TokenENS_14SourceLocationEPNS_9MacroInfoEPNS_9MacroArgsE'/>
+<use f='llvm/clang/lib/Parse/ParseDeclCXX.cpp' l='3868' u='c' c='_ZN5clang6Parser32TryParseCXX11AttributeIdentifierERNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseDeclCXX.cpp' l='3873' u='c' c='_ZN5clang6Parser32TryParseCXX11AttributeIdentifierERNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Rewrite/HTMLRewrite.cpp' l='35' u='c' c='_ZN5clang4html14HighlightRangeERNS_8RewriterENS_14SourceLocationES3_PKcS5_b'/>
+<use f='llvm/clang/lib/Rewrite/HTMLRewrite.cpp' l='36' u='c' c='_ZN5clang4html14HighlightRangeERNS_8RewriterENS_14SourceLocationES3_PKcS5_b'/>
+<use f='llvm/clang/lib/Rewrite/HTMLRewrite.cpp' l='633' u='c' c='_ZN5clang4html15HighlightMacrosERNS_8RewriterENS_6FileIDERKNS_12PreprocessorE'/>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='1661' u='c' c='_ZN5clang4Sema17findMacroSpellingERNS_14SourceLocationEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='8665' u='c' c='_ZN12_GLOBAL__N_129DiagnoseUnguardedAvailability24DiagnoseDeclAvailabilityEPN5clang9NamedDeclENS1_11SourceRangeEPNS1_17ObjCInterfaceDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='9478' u='c' c='_ZN5clang4Sema19ActOnUsingDirectiveEPNS_5ScopeENS_14SourceLocationES3_RNS_12CXXScopeSpecES3_PNS_14IdentifierInfoERKNS_20ParsedAttributesViewE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='3782' u='c' c='_ZL37getNullabilityCompletenessCheckFileIDRN5clang4SemaENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='6247' u='c' c='_ZL27handleObjCOwnershipTypeAttrRN12_GLOBAL__N_119TypeProcessingStateERN5clang10ParsedAttrERNS2_8QualTypeE'/>
+<use f='llvm/clang/lib/Tooling/ASTDiff/ASTDiff.cpp' l='1005' u='c' c='_ZNK5clang4diff10SyntaxTree21getSourceRangeOffsetsERKNS0_4NodeE'/>
+<use f='llvm/clang/lib/Tooling/ASTDiff/ASTDiff.cpp' l='1006' u='c' c='_ZNK5clang4diff10SyntaxTree21getSourceRangeOffsetsERKNS0_4NodeE'/>
+<use f='llvm/clang/lib/Tooling/Syntax/Tokens.cpp' l='122' u='c' c='_ZNK5clang6syntax11TokenBuffer23spelledForExpandedTokenEPKNS0_5TokenE'/>
+<use f='llvm/clang/lib/Tooling/Syntax/Tokens.cpp' l='342' u='c' c='_ZN5clang6syntax14TokenCollector7Builder21processMacroExpansionENS_15CharSourceRangeERj'/>
+<use f='llvm/clang/lib/Tooling/Syntax/Tokens.cpp' l='356' u='c' c='_ZN5clang6syntax14TokenCollector7Builder18buildSpelledTokensEv'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='7532' u='c' c='_ZL24clang_annotateTokensImplP21CXTranslationUnitImplPN5clang7ASTUnitEP7CXTokenjP8CXCursor'/>
+<use f='llvm/clang/tools/libclang/CXSourceLocation.cpp' l='240' u='c' c='clang_getExpansionLocation'/>

@@ -1,0 +1,43 @@
+<dec f='llvm/llvm/include/llvm/Support/Memory.h' l='101' type='static std::error_code llvm::sys::Memory::releaseMappedMemory(llvm::sys::MemoryBlock &amp; Block)'/>
+<use f='llvm/llvm/include/llvm/Support/Memory.h' l='142' u='c' c='_ZN4llvm3sys17OwningMemoryBlockD1Ev'/>
+<doc f='llvm/llvm/include/llvm/Support/Memory.h' l='92'>/// This method releases a block of memory that was allocated with the
+    /// allocateMappedMemory method. It should not be used to release any
+    /// memory block allocated any other way.
+    /// \p Block describes the memory to be released.
+    ///
+    /// \r error_success if the function was successful, or an error_code
+    /// describing the failure if an error occurred.
+    ///
+    /// Release mapped memory.</doc>
+<use f='llvm/llvm/lib/ExecutionEngine/JITLink/JITLink.cpp' l='168' u='c' c='_ZZN4llvm7jitlink22InProcessMemoryManager8allocateERKNS_8DenseMapIjNS0_20JITLinkMemoryManager14SegmentRequestENS_12DenseMapInfoIjEENS_6detail12DenseMa4307015'/>
+<use f='llvm/llvm/lib/ExecutionEngine/SectionMemoryManager.cpp' l='257' u='c' c='_ZN4llvm12_GLOBAL__N_114DefaultMMapper19releaseMappedMemoryERNS_3sys11MemoryBlockE'/>
+<def f='llvm/llvm/lib/Support/Unix/Memory.inc' l='163' ll='175' type='static std::error_code llvm::sys::Memory::releaseMappedMemory(llvm::sys::MemoryBlock &amp; M)'/>
+<use f='llvm/llvm/include/llvm/ExecutionEngine/Orc/OrcRemoteTargetServer.h' l='118' u='c' c='_ZN4llvm3orc6remote21OrcRemoteTargetServer9AllocatorD1Ev'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='105' u='c' c='_ZN12_GLOBAL__N_137MappedMemoryTest_AllocAndRelease_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='121' u='c' c='_ZN12_GLOBAL__N_141MappedMemoryTest_AllocAndReleaseHuge_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='145' u='c' c='_ZN12_GLOBAL__N_145MappedMemoryTest_MultipleAllocAndRelease_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='146' u='c' c='_ZN12_GLOBAL__N_145MappedMemoryTest_MultipleAllocAndRelease_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='151' u='c' c='_ZN12_GLOBAL__N_145MappedMemoryTest_MultipleAllocAndRelease_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='152' u='c' c='_ZN12_GLOBAL__N_145MappedMemoryTest_MultipleAllocAndRelease_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='173' u='c' c='_ZN12_GLOBAL__N_132MappedMemoryTest_BasicWrite_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='220' u='c' c='_ZN12_GLOBAL__N_135MappedMemoryTest_MultipleWrite_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='221' u='c' c='_ZN12_GLOBAL__N_135MappedMemoryTest_MultipleWrite_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='231' u='c' c='_ZN12_GLOBAL__N_135MappedMemoryTest_MultipleWrite_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='237' u='c' c='_ZN12_GLOBAL__N_135MappedMemoryTest_MultipleWrite_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='285' u='c' c='_ZN12_GLOBAL__N_134MappedMemoryTest_EnabledWrite_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='286' u='c' c='_ZN12_GLOBAL__N_134MappedMemoryTest_EnabledWrite_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='298' u='c' c='_ZN12_GLOBAL__N_134MappedMemoryTest_EnabledWrite_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='299' u='c' c='_ZN12_GLOBAL__N_134MappedMemoryTest_EnabledWrite_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='323' u='c' c='_ZN12_GLOBAL__N_136MappedMemoryTest_SuccessiveNear_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='324' u='c' c='_ZN12_GLOBAL__N_136MappedMemoryTest_SuccessiveNear_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='325' u='c' c='_ZN12_GLOBAL__N_136MappedMemoryTest_SuccessiveNear_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='346' u='c' c='_ZN12_GLOBAL__N_135MappedMemoryTest_DuplicateNear_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='347' u='c' c='_ZN12_GLOBAL__N_135MappedMemoryTest_DuplicateNear_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='348' u='c' c='_ZN12_GLOBAL__N_135MappedMemoryTest_DuplicateNear_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='373' u='c' c='_ZN12_GLOBAL__N_130MappedMemoryTest_ZeroNear_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='374' u='c' c='_ZN12_GLOBAL__N_130MappedMemoryTest_ZeroNear_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='375' u='c' c='_ZN12_GLOBAL__N_130MappedMemoryTest_ZeroNear_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='400' u='c' c='_ZN12_GLOBAL__N_134MappedMemoryTest_ZeroSizeNear_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='401' u='c' c='_ZN12_GLOBAL__N_134MappedMemoryTest_ZeroSizeNear_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='402' u='c' c='_ZN12_GLOBAL__N_134MappedMemoryTest_ZeroSizeNear_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryTest.cpp' l='415' u='c' c='_ZN12_GLOBAL__N_135MappedMemoryTest_UnalignedNear_Test8TestBodyEv'/>

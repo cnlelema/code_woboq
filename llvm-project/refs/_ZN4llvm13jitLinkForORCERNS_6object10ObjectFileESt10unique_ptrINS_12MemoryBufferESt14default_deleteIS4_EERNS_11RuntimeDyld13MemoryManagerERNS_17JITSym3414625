@@ -1,0 +1,7 @@
+<dec f='llvm/llvm/include/llvm/ExecutionEngine/RuntimeDyld.h' l='294' type='void llvm::jitLinkForORC(object::ObjectFile &amp; Obj, std::unique_ptr&lt;MemoryBuffer&gt; UnderlyingBuffer, RuntimeDyld::MemoryManager &amp; MemMgr, llvm::JITSymbolResolver &amp; Resolver, bool ProcessAllSections, std::function&lt;Error (std::unique_ptr&lt;LoadedObjectInfo&gt;, std::map&lt;StringRef, JITEvaluatedSymbol&gt;)&gt; OnLoaded, std::function&lt;void (Error)&gt; OnEmitted)'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/RuntimeDyld.h' l='288'>// Asynchronous JIT link for ORC.
+//
+// Warning: This API is experimental and probably should not be used by anyone
+// but ORC&apos;s RTDyldObjectLinkingLayer2. Internally it constructs a RuntimeDyld
+// instance and uses continuation passing to perform the fix-up and finalize
+// steps asynchronously.</doc>

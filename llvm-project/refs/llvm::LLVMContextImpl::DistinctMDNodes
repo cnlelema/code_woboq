@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/lib/IR/LLVMContextImpl.h' l='1289' type='std::vector&lt;MDNode *&gt;'/>
+<offset>11200</offset>
+<doc f='llvm/llvm/lib/IR/LLVMContextImpl.h' l='1285'>// MDNodes may be uniqued or not uniqued.  When they&apos;re not uniqued, they
+  // aren&apos;t in the MDNodeSet, but they&apos;re still shared between objects, so no
+  // one object can destroy them.  Keep track of them here so we can delete
+  // them on context teardown.</doc>
+<use f='llvm/llvm/lib/IR/LLVMContextImpl.cpp' l='60' c='_ZN4llvm15LLVMContextImplD1Ev'/>
+<use f='llvm/llvm/lib/IR/LLVMContextImpl.cpp' l='74' c='_ZN4llvm15LLVMContextImplD1Ev'/>
+<use f='llvm/llvm/lib/IR/Metadata.cpp' l='855' u='m' c='_ZN4llvm6MDNode22storeDistinctInContextEv'/>

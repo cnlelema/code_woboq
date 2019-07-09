@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ProcessTest.cpp source code [llvm/llvm/unittests/Support/ProcessTest.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/unittests/Support/ProcessTest.cpp'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>llvm</a>/<a href='../..'>llvm</a>/<a href='..'>unittests</a>/<a href='./'>Support</a>/<a href='ProcessTest.cpp.html'>ProcessTest.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- unittest/Support/ProcessTest.cpp -----------------------------------===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#include <a href="../../include/llvm/Support/Process.h.html">"llvm/Support/Process.h"</a></u></td></tr>
+<tr><th id="10">10</th><td><u>#include <a href="../../utils/unittest/googletest/include/gtest/gtest.h.html">"gtest/gtest.h"</a></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#<span data-ppcond="12">ifdef</span> <span class="macro" data-ref="_M/_WIN32">_WIN32</span></u></td></tr>
+<tr><th id="13">13</th><td><u>#include &lt;windows.h&gt;</u></td></tr>
+<tr><th id="14">14</th><td><u>#<span data-ppcond="12">endif</span></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><b>namespace</b> {</td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><b>using</b> <b>namespace</b> <span class="namespace">llvm</span>;</td></tr>
+<tr><th id="19">19</th><td><b>using</b> <b>namespace</b> <span class="namespace">sys</span>;</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><a class="macro" href="../../utils/unittest/googletest/include/gtest/gtest.h.html#2187" title="class ProcessTest_GetRandomNumberTest_Test : public ::testing::Test { public: ProcessTest_GetRandomNumberTest_Test() {} private: virtual void TestBody(); static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); ProcessTest_GetRandomNumberTest_Test(ProcessTest_GetRandomNumberTest_Test const &amp;); void operator=(ProcessTest_GetRandomNumberTest_Test const &amp;);};::testing::TestInfo* const ProcessTest_GetRandomNumberTest_Test ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( &quot;ProcessTest&quot;, &quot;GetRandomNumberTest&quot;, __null, __null, ::testing::internal::CodeLocation(&quot;/root/cheri/llvm-project/llvm/unittests/Support/ProcessTest.cpp&quot;, 21), (::testing::internal::GetTestTypeId()), ::testing::Test::SetUpTestCase, ::testing::Test::TearDownTestCase, new ::testing::internal::TestFactoryImpl&lt; ProcessTest_GetRandomNumberTest_Test&gt;);void ProcessTest_GetRandomNumberTest_Test::TestBody()" data-ref="_M/TEST">TEST</a>(ProcessTest, GetRandomNumberTest) {</td></tr>
+<tr><th id="22">22</th><td>  <em>const</em> <em>unsigned</em> <dfn class="local col1 decl" id="1r1" title='r1' data-type='const unsigned int' data-ref="1r1">r1</dfn> = <a class="type" href="../../include/llvm/Support/Process.h.html#llvm::sys::Process" title='llvm::sys::Process' data-ref="llvm::sys::Process">Process</a>::<a class="ref" href="../../include/llvm/Support/Process.h.html#_ZN4llvm3sys7Process15GetRandomNumberEv" title='llvm::sys::Process::GetRandomNumber' data-ref="_ZN4llvm3sys7Process15GetRandomNumberEv">GetRandomNumber</a>();</td></tr>
+<tr><th id="23">23</th><td>  <em>const</em> <em>unsigned</em> <dfn class="local col2 decl" id="2r2" title='r2' data-type='const unsigned int' data-ref="2r2">r2</dfn> = <a class="type" href="../../include/llvm/Support/Process.h.html#llvm::sys::Process" title='llvm::sys::Process' data-ref="llvm::sys::Process">Process</a>::<a class="ref" href="../../include/llvm/Support/Process.h.html#_ZN4llvm3sys7Process15GetRandomNumberEv" title='llvm::sys::Process::GetRandomNumber' data-ref="_ZN4llvm3sys7Process15GetRandomNumberEv">GetRandomNumber</a>();</td></tr>
+<tr><th id="24">24</th><td>  <i>// It should be extremely unlikely that both r1 and r2 are 0.</i></td></tr>
+<tr><th id="25">25</th><td>  <a class="macro" href="../../utils/unittest/googletest/include/gtest/gtest.h.html#1926" title="switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::CmpHelperNE(&quot;(r1 | r2)&quot;, &quot;0u&quot;, (r1 | r2), 0u))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, &quot;/root/cheri/llvm-project/llvm/unittests/Support/ProcessTest.cpp&quot;, 25, gtest_ar.failure_message()) = ::testing::Message()" data-ref="_M/EXPECT_NE">EXPECT_NE</a>((<a class="local col1 ref" href="#1r1" title='r1' data-ref="1r1">r1</a> | <a class="local col2 ref" href="#2r2" title='r2' data-ref="2r2">r2</a>), <var>0u</var>);</td></tr>
+<tr><th id="26">26</th><td>}</td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifdef</span> <span class="macro" data-ref="_M/_MSC_VER">_MSC_VER</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#define setenv(name, var, ignore) _putenv_s(name, var)</u></td></tr>
+<tr><th id="30">30</th><td><u>#<span data-ppcond="28">endif</span></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#<span data-ppcond="32">if</span> HAVE_SETENV || _MSC_VER</u></td></tr>
+<tr><th id="33">33</th><td>TEST(ProcessTest, Basic) {</td></tr>
+<tr><th id="34">34</th><td>  setenv(<q>"__LLVM_TEST_ENVIRON_VAR__"</q>, <q>"abc"</q>, <b>true</b>);</td></tr>
+<tr><th id="35">35</th><td>  Optional&lt;std::string&gt; val(Process::GetEnv(<q>"__LLVM_TEST_ENVIRON_VAR__"</q>));</td></tr>
+<tr><th id="36">36</th><td>  EXPECT_TRUE(val.hasValue());</td></tr>
+<tr><th id="37">37</th><td>  EXPECT_STREQ(<q>"abc"</q>, val-&gt;c_str());</td></tr>
+<tr><th id="38">38</th><td>}</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td>TEST(ProcessTest, None) {</td></tr>
+<tr><th id="41">41</th><td>  Optional&lt;std::string&gt; val(</td></tr>
+<tr><th id="42">42</th><td>      Process::GetEnv(<q>"__LLVM_TEST_ENVIRON_NO_SUCH_VAR__"</q>));</td></tr>
+<tr><th id="43">43</th><td>  EXPECT_FALSE(val.hasValue());</td></tr>
+<tr><th id="44">44</th><td>}</td></tr>
+<tr><th id="45">45</th><td><u>#<span data-ppcond="32">endif</span></u></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><u>#<span data-ppcond="47">ifdef</span> <span class="macro" data-ref="_M/_WIN32">_WIN32</span></u></td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>TEST(ProcessTest, EmptyVal) {</td></tr>
+<tr><th id="50">50</th><td>  SetEnvironmentVariableA(<q>"__LLVM_TEST_ENVIRON_VAR__"</q>, <q>""</q>);</td></tr>
+<tr><th id="51">51</th><td>  Optional&lt;std::string&gt; val(Process::GetEnv(<q>"__LLVM_TEST_ENVIRON_VAR__"</q>));</td></tr>
+<tr><th id="52">52</th><td>  EXPECT_TRUE(val.hasValue());</td></tr>
+<tr><th id="53">53</th><td>  EXPECT_STREQ(<q>""</q>, val-&gt;c_str());</td></tr>
+<tr><th id="54">54</th><td>}</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>TEST(ProcessTest, Wchar) {</td></tr>
+<tr><th id="57">57</th><td>  SetEnvironmentVariableW(L<q>"__LLVM_TEST_ENVIRON_VAR__"</q>, L<q>"abcdefghijklmnopqrs"</q>);</td></tr>
+<tr><th id="58">58</th><td>  Optional&lt;std::string&gt; val(Process::GetEnv(<q>"__LLVM_TEST_ENVIRON_VAR__"</q>));</td></tr>
+<tr><th id="59">59</th><td>  EXPECT_TRUE(val.hasValue());</td></tr>
+<tr><th id="60">60</th><td>  EXPECT_STREQ(<q>"abcdefghijklmnopqrs"</q>, val-&gt;c_str());</td></tr>
+<tr><th id="61">61</th><td>}</td></tr>
+<tr><th id="62">62</th><td><u>#<span data-ppcond="47">endif</span></u></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>} <i>// end anonymous namespace</i></td></tr>
+<tr><th id="65">65</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

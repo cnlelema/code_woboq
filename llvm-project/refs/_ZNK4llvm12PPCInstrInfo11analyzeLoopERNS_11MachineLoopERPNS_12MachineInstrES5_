@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.h' l='477' type='bool llvm::PPCInstrInfo::analyzeLoop(llvm::MachineLoop &amp; L, llvm::MachineInstr *&amp; IndVarInst, llvm::MachineInstr *&amp; CmpInst) const'/>
+<doc f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.h' l='470'>/// Analyze the loop code to find the loop induction variable and compare used
+  /// to compute the number of iterations. Currently, we analyze loop that are
+  /// controlled using hardware loops.  In this case, the induction variable
+  /// instruction is null.  For all other cases, this function returns true,
+  /// which means we&apos;re unable to analyze it. \p IndVarInst and \p CmpInst will
+  /// return new values when we can analyze the readonly loop \p L, otherwise,
+  /// nothing got changed</doc>
+<def f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp' l='3930' ll='3941' type='bool llvm::PPCInstrInfo::analyzeLoop(llvm::MachineLoop &amp; L, llvm::MachineInstr *&amp; IndVarInst, llvm::MachineInstr *&amp; CmpInst) const'/>

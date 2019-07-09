@@ -1,0 +1,173 @@
+<inh f='llvm/llvm/include/llvm/CodeGen/MachineFunctionPass.h' l='30' c='llvm::MachineFunctionPass'/>
+<def f='llvm/llvm/include/llvm/CodeGen/GlobalISel/IRTranslator.h' l='59' ll='561'/>
+<size>840</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/IRTranslator.h' l='51'>// Technically the pass should run on an hypothetical MachineModule,
+// since it should translate Global into some sort of MachineGlobal.
+// The MachineGlobal should ultimately just be a transfer of ownership of
+// the interesting bits that are relevant to represent a global value.
+// That being said, we could investigate what would it cost to just duplicate
+// the information from the LLVM IR.
+// The idea is that ultimately we would be able to free up the memory used
+// by the LLVM IR as soon as the translation is over.</doc>
+<smbr r='llvm::IRTranslator::ID' t='char'/>
+<mbr r='llvm::IRTranslator::CLI' o='832' t='const llvm::CallLowering *'/>
+<mbr r='llvm::IRTranslator::VMap' o='896' t='llvm::IRTranslator::ValueToVRegInfo'/>
+<mbr r='llvm::IRTranslator::BBToMBB' o='3072' t='DenseMap&lt;const llvm::BasicBlock *, llvm::MachineBasicBlock *&gt;'/>
+<mbr r='llvm::IRTranslator::MachinePreds' o='3328' t='DenseMap&lt;CFGEdge, SmallVector&lt;llvm::MachineBasicBlock *, 1&gt; &gt;'/>
+<mbr r='llvm::IRTranslator::PendingPHIs' o='3584' t='SmallVector&lt;std::pair&lt;const PHINode *, SmallVector&lt;MachineInstr *, 1&gt; &gt;, 4&gt;'/>
+<mbr r='llvm::IRTranslator::FrameIndices' o='4736' t='DenseMap&lt;const llvm::AllocaInst *, int&gt;'/>
+<mbr r='llvm::IRTranslator::SwiftError' o='4992' t='llvm::SwiftErrorValueTracking'/>
+<fun r='_ZN4llvm12IRTranslator9translateERKNS_11InstructionE'/>
+<fun r='_ZN4llvm12IRTranslator9translateERKNS_8ConstantEj'/>
+<fun r='_ZN4llvm12IRTranslator16translateBitCastERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateLoadERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator14translateStoreERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator16translateMemfuncERKNS_8CallInstERNS_16MachineIRBuilderEj'/>
+<fun r='_ZN4llvm12IRTranslator13getStackGuardEjRNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator26translateOverflowIntrinsicERKNS_8CallInstEjRNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator24getSimpleIntrinsicOpcodeENS_9Intrinsic2IDE'/>
+<fun r='_ZN4llvm12IRTranslator24translateSimpleIntrinsicERKNS_8CallInstENS_9Intrinsic2IDERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator23translateKnownIntrinsicERKNS_8CallInstENS_9Intrinsic2IDERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator18translateInlineAsmERKNS_8CallInstERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator8packRegsERKNS_5ValueERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator10unpackRegsERKNS_5ValueEjRNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator12valueIsSplitERKNS_5ValueEPNS_15SmallVectorImplImEE'/>
+<fun r='_ZN4llvm12IRTranslator13translateCallERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator15translateInvokeERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator15translateCallBrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator19translateLandingPadERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateCastEjRKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator12translatePHIERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator16translateCompareERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateICmpERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateFCmpERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator17finishPendingPhisEv'/>
+<fun r='_ZN4llvm12IRTranslator17translateBinaryOpEjRKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator11translateBrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator15translateSwitchERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator19translateIndirectBrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator21translateExtractValueERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator20translateInsertValueERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator15translateSelectERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator22translateGetElementPtrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator15translateAllocaERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator12translateRetERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateFSubERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateFNegERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator12translateAddERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator12translateSubERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator12translateAndERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator12translateMulERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator11translateOrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator12translateXorERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateUDivERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateSDivERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateURemERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateSRemERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator17translateIntToPtrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator17translatePtrToIntERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator14translateTruncERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator16translateFPTruncERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator14translateFPExtERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator15translateFPToUIERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator15translateFPToSIERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator15translateUIToFPERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator15translateSIToFPERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator20translateUnreachableERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateSExtERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateZExtERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator12translateShlERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateLShrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateAShrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateFAddERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateFMulERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateFDivERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateFRemERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator14translateVAArgERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator22translateInsertElementERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator23translateExtractElementERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator22translateShuffleVectorERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator22translateAtomicCmpXchgERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator18translateAtomicRMWERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator15translateResumeERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator19translateCleanupRetERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator17translateCatchRetERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator20translateCatchSwitchERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator14translateFenceERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator22translateAddrSpaceCastERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator19translateCleanupPadERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator17translateCatchPadERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator16translateUserOp1ERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator16translateUserOp2ERKNS_4UserERNS_16MachineIRBuilderE'/>
+<mbr r='llvm::IRTranslator::CurBuilder' o='6272' t='std::unique_ptr&lt;MachineIRBuilder&gt;'/>
+<mbr r='llvm::IRTranslator::EntryBuilder' o='6336' t='std::unique_ptr&lt;MachineIRBuilder&gt;'/>
+<mbr r='llvm::IRTranslator::MF' o='6400' t='llvm::MachineFunction *'/>
+<mbr r='llvm::IRTranslator::MRI' o='6464' t='llvm::MachineRegisterInfo *'/>
+<mbr r='llvm::IRTranslator::DL' o='6528' t='const llvm::DataLayout *'/>
+<mbr r='llvm::IRTranslator::TPC' o='6592' t='const llvm::TargetPassConfig *'/>
+<mbr r='llvm::IRTranslator::ORE' o='6656' t='std::unique_ptr&lt;OptimizationRemarkEmitter&gt;'/>
+<fun r='_ZN4llvm12IRTranslator16finalizeFunctionEv'/>
+<fun r='_ZN4llvm12IRTranslator16getOrCreateVRegsERKNS_5ValueE'/>
+<fun r='_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE'/>
+<fun r='_ZN4llvm12IRTranslator13allocateVRegsERKNS_5ValueE'/>
+<fun r='_ZN4llvm12IRTranslator21getOrCreateFrameIndexERKNS_10AllocaInstE'/>
+<fun r='_ZN4llvm12IRTranslator17getMemOpAlignmentERKNS_11InstructionE'/>
+<fun r='_ZN4llvm12IRTranslator6getMBBERKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm12IRTranslator17addMachineCFGPredESt4pairIPKNS_10BasicBlockES4_EPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm12IRTranslator17getMachinePredBBsESt4pairIPKNS_10BasicBlockES4_E'/>
+<fun r='_ZN4llvm12IRTranslatorC1Ev'/>
+<fun r='_ZNK4llvm12IRTranslator11getPassNameEv'/>
+<fun r='_ZNK4llvm12IRTranslator16getAnalysisUsageERNS_13AnalysisUsageE'/>
+<fun r='_ZN4llvm12IRTranslator20runOnMachineFunctionERNS_15MachineFunctionE'/>
+<smbr r='llvm::IRTranslator::ID' t='char'/>
+<fun r='_ZN4llvm12IRTranslatorC1Ev'/>
+<fun r='_ZNK4llvm12IRTranslator16getAnalysisUsageERNS_13AnalysisUsageE'/>
+<fun r='_ZN4llvm12IRTranslator13allocateVRegsERKNS_5ValueE'/>
+<fun r='_ZN4llvm12IRTranslator16getOrCreateVRegsERKNS_5ValueE'/>
+<fun r='_ZN4llvm12IRTranslator21getOrCreateFrameIndexERKNS_10AllocaInstE'/>
+<fun r='_ZN4llvm12IRTranslator17getMemOpAlignmentERKNS_11InstructionE'/>
+<fun r='_ZN4llvm12IRTranslator6getMBBERKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm12IRTranslator17addMachineCFGPredESt4pairIPKNS_10BasicBlockES4_EPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm12IRTranslator17translateBinaryOpEjRKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateFSubERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateFNegERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator16translateCompareERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator12translateRetERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator11translateBrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator15translateSwitchERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator19translateIndirectBrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateLoadERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator14translateStoreERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator21translateExtractValueERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator20translateInsertValueERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator15translateSelectERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator16translateBitCastERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateCastEjRKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator22translateGetElementPtrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator16translateMemfuncERKNS_8CallInstERNS_16MachineIRBuilderEj'/>
+<fun r='_ZN4llvm12IRTranslator13getStackGuardEjRNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator26translateOverflowIntrinsicERKNS_8CallInstEjRNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator24getSimpleIntrinsicOpcodeENS_9Intrinsic2IDE'/>
+<fun r='_ZN4llvm12IRTranslator24translateSimpleIntrinsicERKNS_8CallInstENS_9Intrinsic2IDERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator23translateKnownIntrinsicERKNS_8CallInstENS_9Intrinsic2IDERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator18translateInlineAsmERKNS_8CallInstERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator8packRegsERKNS_5ValueERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator10unpackRegsERKNS_5ValueEjRNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator13translateCallERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator15translateInvokeERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator15translateCallBrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator19translateLandingPadERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator15translateAllocaERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator14translateVAArgERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator22translateInsertElementERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator23translateExtractElementERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator22translateShuffleVectorERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator12translatePHIERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator22translateAtomicCmpXchgERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator18translateAtomicRMWERKNS_4UserERNS_16MachineIRBuilderE'/>
+<fun r='_ZN4llvm12IRTranslator17finishPendingPhisEv'/>
+<fun r='_ZN4llvm12IRTranslator12valueIsSplitERKNS_5ValueEPNS_15SmallVectorImplImEE'/>
+<fun r='_ZN4llvm12IRTranslator9translateERKNS_11InstructionE'/>
+<fun r='_ZN4llvm12IRTranslator9translateERKNS_8ConstantEj'/>
+<fun r='_ZN4llvm12IRTranslator16finalizeFunctionEv'/>
+<fun r='_ZN4llvm12IRTranslator20runOnMachineFunctionERNS_15MachineFunctionE'/>

@@ -1,0 +1,38 @@
+<dec f='llvm/llvm/lib/Target/X86/Disassembler/X86DisassemblerDecoder.h' l='675' type='int llvm::X86Disassembler::decodeInstruction(llvm::X86Disassembler::InternalInstruction * insn, byteReader_t reader, const void * readerArg, dlog_t logger, void * loggerArg, const void * miiArg, uint64_t startLoc, llvm::X86Disassembler::DisassemblerMode mode)'/>
+<use f='llvm/llvm/lib/Target/X86/Disassembler/X86Disassembler.cpp' l='227' u='c' c='_ZNK12_GLOBAL__N_122X86GenericDisassembler14getInstructionERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamES8_'/>
+<doc f='llvm/llvm/lib/Target/X86/Disassembler/X86DisassemblerDecoder.h' l='660'>/// Decode one instruction and store the decoding results in
+/// a buffer provided by the consumer.
+/// \param insn      The buffer to store the instruction in.  Allocated by the
+///                  consumer.
+/// \param reader    The byteReader_t for the bytes to be read.
+/// \param readerArg An argument to pass to the reader for storing context
+///                  specific to the consumer.  May be NULL.
+/// \param logger    The dlog_t to be used in printing status messages from the
+///                  disassembler.  May be NULL.
+/// \param loggerArg An argument to pass to the logger for storing context
+///                  specific to the logger.  May be NULL.
+/// \param startLoc  The address (in the reader&apos;s address space) of the first
+///                  byte in the instruction.
+/// \param mode      The mode (16-bit, 32-bit, 64-bit) to decode in.
+/// \return          Nonzero if there was an error during decode, 0 otherwise.</doc>
+<def f='llvm/llvm/lib/Target/X86/Disassembler/X86DisassemblerDecoder.cpp' l='1904' ll='1937' type='int llvm::X86Disassembler::decodeInstruction(struct InternalInstruction * insn, byteReader_t reader, const void * readerArg, dlog_t logger, void * loggerArg, const void * miiArg, uint64_t startLoc, llvm::X86Disassembler::DisassemblerMode mode)'/>
+<doc f='llvm/llvm/lib/Target/X86/Disassembler/X86DisassemblerDecoder.cpp' l='1884'>/*
+ * decodeInstruction - Reads and interprets a full instruction provided by the
+ *   user.
+ *
+ * @param insn      - A pointer to the instruction to be populated.  Must be
+ *                    pre-allocated.
+ * @param reader    - The function to be used to read the instruction&apos;s bytes.
+ * @param readerArg - A generic argument to be passed to the reader to store
+ *                    any internal state.
+ * @param logger    - If non-NULL, the function to be used to write log messages
+ *                    and warnings.
+ * @param loggerArg - A generic argument to be passed to the logger to store
+ *                    any internal state.
+ * @param startLoc  - The address (in the reader&apos;s address space) of the first
+ *                    byte in the instruction.
+ * @param mode      - The mode (real mode, IA-32e, or IA-32e in 64-bit mode) to
+ *                    decode the instruction in.
+ * @return          - 0 if the instruction&apos;s memory could be read; nonzero if
+ *                    not.
+ */</doc>

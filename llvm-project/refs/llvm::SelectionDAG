@@ -1,0 +1,363 @@
+<def f='llvm/llvm/include/llvm/CodeGen/SelectionDAG.h' l='221' ll='1734'/>
+<size>928</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/SelectionDAG.h' l='210'>/// This is used to represent a portion of an LLVM function in a low-level
+/// Data Dependence DAG representation suitable for instruction selection.
+/// This DAG is constructed as the first step of instruction selection in order
+/// to allow implementation of machine specific optimizations
+/// and code simplifications.
+///
+/// The representation used by the SelectionDAG is a target-independent
+/// representation, which has some similarities to the GCC RTL representation,
+/// but is significantly more simple, powerful, and is a graph form instead of a
+/// linear form.
+///</doc>
+<mbr r='llvm::SelectionDAG::TM' o='0' t='const llvm::TargetMachine &amp;'/>
+<mbr r='llvm::SelectionDAG::TSI' o='64' t='const llvm::SelectionDAGTargetInfo *'/>
+<mbr r='llvm::SelectionDAG::TLI' o='128' t='const llvm::TargetLowering *'/>
+<mbr r='llvm::SelectionDAG::LibInfo' o='192' t='const llvm::TargetLibraryInfo *'/>
+<mbr r='llvm::SelectionDAG::MF' o='256' t='llvm::MachineFunction *'/>
+<mbr r='llvm::SelectionDAG::SDAGISelPass' o='320' t='llvm::Pass *'/>
+<mbr r='llvm::SelectionDAG::Context' o='384' t='llvm::LLVMContext *'/>
+<mbr r='llvm::SelectionDAG::OptLevel' o='448' t='CodeGenOpt::Level'/>
+<mbr r='llvm::SelectionDAG::DA' o='512' t='llvm::LegacyDivergenceAnalysis *'/>
+<mbr r='llvm::SelectionDAG::FLI' o='576' t='llvm::FunctionLoweringInfo *'/>
+<mbr r='llvm::SelectionDAG::ORE' o='640' t='llvm::OptimizationRemarkEmitter *'/>
+<mbr r='llvm::SelectionDAG::EntryNode' o='704' t='llvm::SDNode'/>
+<mbr r='llvm::SelectionDAG::Root' o='1344' t='llvm::SDValue'/>
+<mbr r='llvm::SelectionDAG::AllNodes' o='1472' t='ilist&lt;llvm::SDNode&gt;'/>
+<mbr r='llvm::SelectionDAG::NodeAllocator' o='1600' t='NodeAllocatorType'/>
+<mbr r='llvm::SelectionDAG::CSEMap' o='2496' t='FoldingSet&lt;llvm::SDNode&gt;'/>
+<mbr r='llvm::SelectionDAG::OperandAllocator' o='2688' t='BumpPtrAllocator'/>
+<mbr r='llvm::SelectionDAG::OperandRecycler' o='3520' t='ArrayRecycler&lt;llvm::SDUse&gt;'/>
+<mbr r='llvm::SelectionDAG::Allocator' o='4160' t='BumpPtrAllocator'/>
+<mbr r='llvm::SelectionDAG::DbgInfo' o='4992' t='llvm::SDDbgInfo *'/>
+<mbr r='llvm::SelectionDAG::NextPersistentId' o='5056' t='uint16_t'/>
+<mbr r='llvm::SelectionDAG::NewNodesMustHaveLegalTypes' o='5072' t='bool'/>
+<mbr r='llvm::SelectionDAG::UpdateListeners' o='5120' t='llvm::SelectionDAG::DAGUpdateListener *'/>
+<fun r='_ZN4llvm12SelectionDAG22setSubgraphColorHelperEPNS_6SDNodeEPKcRNS_8DenseSetIS2_NS_12DenseMapInfoIS2_EEEEiRb'/>
+<fun r='_ZN4llvm12SelectionDAG9newSDNodeEDpOT0_'/>
+<fun r='_ZN4llvm12SelectionDAG28getSyntheticNodeSubclassDataEjDpOT0_'/>
+<fun r='_ZN4llvm12SelectionDAG28getSyntheticNodeSubclassDataEjjNS_8SDVTListENS_3EVTEPNS_17MachineMemOperandE'/>
+<fun r='_ZN4llvm12SelectionDAG14createOperandsEPNS_6SDNodeENS_8ArrayRefINS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG14removeOperandsEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG22CreateTopologicalOrderERSt6vectorIPNS_6SDNodeESaIS3_EE'/>
+<fun r='_ZN4llvm12SelectionDAGC1ERKNS_13TargetMachineENS_10CodeGenOpt5LevelE'/>
+<fun r='_ZN4llvm12SelectionDAGC1ERKS0_'/>
+<fun r='_ZN4llvm12SelectionDAGaSERKS0_'/>
+<fun r='_ZN4llvm12SelectionDAGD1Ev'/>
+<fun r='_ZN4llvm12SelectionDAG4initERNS_15MachineFunctionERNS_25OptimizationRemarkEmitterEPNS_4PassEPKNS_17TargetLibraryInfoEPNS_24LegacyDivergenceAnalysisE'/>
+<fun r='_ZN4llvm12SelectionDAG23setFunctionLoweringInfoEPNS_20FunctionLoweringInfoE'/>
+<fun r='_ZN4llvm12SelectionDAG5clearEv'/>
+<fun r='_ZNK4llvm12SelectionDAG18getMachineFunctionEv'/>
+<fun r='_ZNK4llvm12SelectionDAG7getPassEv'/>
+<fun r='_ZNK4llvm12SelectionDAG13getDataLayoutEv'/>
+<fun r='_ZNK4llvm12SelectionDAG9getTargetEv'/>
+<fun r='_ZNK4llvm12SelectionDAG12getSubtargetEv'/>
+<fun r='_ZNK4llvm12SelectionDAG21getTargetLoweringInfoEv'/>
+<fun r='_ZNK4llvm12SelectionDAG10getLibInfoEv'/>
+<fun r='_ZNK4llvm12SelectionDAG19getSelectionDAGInfoEv'/>
+<fun r='_ZNK4llvm12SelectionDAG21getDivergenceAnalysisEv'/>
+<fun r='_ZNK4llvm12SelectionDAG10getContextEv'/>
+<fun r='_ZNK4llvm12SelectionDAG6getOREEv'/>
+<fun r='_ZN4llvm12SelectionDAG9viewGraphERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN4llvm12SelectionDAG9viewGraphEv'/>
+<mbr r='llvm::SelectionDAG::NodeGraphAttrs' o='5184' t='std::map&lt;const SDNode *, std::string&gt;'/>
+<fun r='_ZN4llvm12SelectionDAG15clearGraphAttrsEv'/>
+<fun r='_ZN4llvm12SelectionDAG13setGraphAttrsEPKNS_6SDNodeEPKc'/>
+<fun r='_ZNK4llvm12SelectionDAG13getGraphAttrsEPKNS_6SDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG13setGraphColorEPKNS_6SDNodeEPKc'/>
+<fun r='_ZN4llvm12SelectionDAG16setSubgraphColorEPNS_6SDNodeEPKc'/>
+<fun r='_ZNK4llvm12SelectionDAG14allnodes_beginEv'/>
+<fun r='_ZNK4llvm12SelectionDAG12allnodes_endEv'/>
+<fun r='_ZN4llvm12SelectionDAG14allnodes_beginEv'/>
+<fun r='_ZN4llvm12SelectionDAG12allnodes_endEv'/>
+<fun r='_ZNK4llvm12SelectionDAG13allnodes_sizeEv'/>
+<fun r='_ZN4llvm12SelectionDAG8allnodesEv'/>
+<fun r='_ZNK4llvm12SelectionDAG8allnodesEv'/>
+<fun r='_ZNK4llvm12SelectionDAG7getRootEv'/>
+<fun r='_ZNK4llvm12SelectionDAG12getEntryNodeEv'/>
+<fun r='_ZN4llvm12SelectionDAG7setRootENS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG18VerifyDAGDiverenceEv'/>
+<fun r='_ZN4llvm12SelectionDAG7CombineENS_12CombineLevelEPNS_9AAResultsENS_10CodeGenOpt5LevelE'/>
+<fun r='_ZN4llvm12SelectionDAG13LegalizeTypesEv'/>
+<fun r='_ZN4llvm12SelectionDAG8LegalizeEv'/>
+<fun r='_ZN4llvm12SelectionDAG10LegalizeOpEPNS_6SDNodeERNS_14SmallSetVectorIS2_Lj16EEE'/>
+<fun r='_ZN4llvm12SelectionDAG15LegalizeVectorsEv'/>
+<fun r='_ZN4llvm12SelectionDAG15RemoveDeadNodesEv'/>
+<fun r='_ZN4llvm12SelectionDAG10DeleteNodeEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG9getVTListENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG9getVTListENS_3EVTES1_'/>
+<fun r='_ZN4llvm12SelectionDAG9getVTListENS_3EVTES1_S1_'/>
+<fun r='_ZN4llvm12SelectionDAG9getVTListENS_3EVTES1_S1_S1_'/>
+<fun r='_ZN4llvm12SelectionDAG9getVTListENS_8ArrayRefINS_3EVTEEE'/>
+<fun r='_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb'/>
+<fun r='_ZN4llvm12SelectionDAG11getConstantERKNS_5APIntERKNS_5SDLocENS_3EVTEbb'/>
+<fun r='_ZN4llvm12SelectionDAG18getAllOnesConstantERKNS_5SDLocENS_3EVTEbb'/>
+<fun r='_ZN4llvm12SelectionDAG11getConstantERKNS_11ConstantIntERKNS_5SDLocENS_3EVTEbb'/>
+<fun r='_ZN4llvm12SelectionDAG17getIntPtrConstantEmRKNS_5SDLocEb'/>
+<fun r='_ZN4llvm12SelectionDAG17getNullCapabilityERKNS_5SDLocENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG22getShiftAmountConstantEmNS_3EVTERKNS_5SDLocEb'/>
+<fun r='_ZN4llvm12SelectionDAG17getTargetConstantEmRKNS_5SDLocENS_3EVTEb'/>
+<fun r='_ZN4llvm12SelectionDAG17getTargetConstantERKNS_5APIntERKNS_5SDLocENS_3EVTEb'/>
+<fun r='_ZN4llvm12SelectionDAG17getTargetConstantERKNS_11ConstantIntERKNS_5SDLocENS_3EVTEb'/>
+<fun r='_ZN4llvm12SelectionDAG15getBoolConstantEbRKNS_5SDLocENS_3EVTES4_'/>
+<fun r='_ZN4llvm12SelectionDAG13getConstantFPEdRKNS_5SDLocENS_3EVTEb'/>
+<fun r='_ZN4llvm12SelectionDAG13getConstantFPERKNS_7APFloatERKNS_5SDLocENS_3EVTEb'/>
+<fun r='_ZN4llvm12SelectionDAG13getConstantFPERKNS_10ConstantFPERKNS_5SDLocENS_3EVTEb'/>
+<fun r='_ZN4llvm12SelectionDAG19getTargetConstantFPEdRKNS_5SDLocENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG19getTargetConstantFPERKNS_7APFloatERKNS_5SDLocENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG19getTargetConstantFPERKNS_10ConstantFPERKNS_5SDLocENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG16getGlobalAddressEPKNS_11GlobalValueERKNS_5SDLocENS_3EVTElbh'/>
+<fun r='_ZN4llvm12SelectionDAG22getTargetGlobalAddressEPKNS_11GlobalValueERKNS_5SDLocENS_3EVTElh'/>
+<fun r='_ZN4llvm12SelectionDAG13getFrameIndexEiNS_3EVTEb'/>
+<fun r='_ZN4llvm12SelectionDAG19getTargetFrameIndexEiNS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG12getJumpTableEiNS_3EVTEbh'/>
+<fun r='_ZN4llvm12SelectionDAG18getTargetJumpTableEiNS_3EVTEh'/>
+<fun r='_ZN4llvm12SelectionDAG15getConstantPoolEPKNS_8ConstantENS_3EVTEjibh'/>
+<fun r='_ZN4llvm12SelectionDAG21getTargetConstantPoolEPKNS_8ConstantENS_3EVTEjih'/>
+<fun r='_ZN4llvm12SelectionDAG15getConstantPoolEPNS_24MachineConstantPoolValueENS_3EVTEjibh'/>
+<fun r='_ZN4llvm12SelectionDAG21getTargetConstantPoolEPNS_24MachineConstantPoolValueENS_3EVTEjih'/>
+<fun r='_ZN4llvm12SelectionDAG14getTargetIndexEiNS_3EVTElh'/>
+<fun r='_ZN4llvm12SelectionDAG13getBasicBlockEPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm12SelectionDAG13getBasicBlockEPNS_17MachineBasicBlockENS_5SDLocE'/>
+<fun r='_ZN4llvm12SelectionDAG17getExternalSymbolEPKcNS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG17getExternalSymbolEPKcRKNS_5SDLocENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG23getTargetExternalSymbolEPKcNS_3EVTEh'/>
+<fun r='_ZN4llvm12SelectionDAG25getExternalFunctionSymbolEPKc'/>
+<fun r='_ZN4llvm12SelectionDAG31getTargetExternalFunctionSymbolEPKch'/>
+<fun r='_ZN4llvm12SelectionDAG11getMCSymbolEPNS_8MCSymbolENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG12getValueTypeENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG11getRegisterEjNS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG15getRegisterMaskEPKj'/>
+<fun r='_ZN4llvm12SelectionDAG10getEHLabelERKNS_5SDLocENS_7SDValueEPNS_8MCSymbolE'/>
+<fun r='_ZN4llvm12SelectionDAG12getLabelNodeEjRKNS_5SDLocENS_7SDValueEPNS_8MCSymbolE'/>
+<fun r='_ZN4llvm12SelectionDAG15getBlockAddressEPKNS_12BlockAddressENS_3EVTElbh'/>
+<fun r='_ZN4llvm12SelectionDAG21getTargetBlockAddressEPKNS_12BlockAddressENS_3EVTElh'/>
+<fun r='_ZN4llvm12SelectionDAG12getCopyToRegENS_7SDValueERKNS_5SDLocEjS1_'/>
+<fun r='_ZN4llvm12SelectionDAG12getCopyToRegENS_7SDValueERKNS_5SDLocEjS1_S1_'/>
+<fun r='_ZN4llvm12SelectionDAG12getCopyToRegENS_7SDValueERKNS_5SDLocES1_S1_S1_'/>
+<fun r='_ZN4llvm12SelectionDAG14getCopyFromRegENS_7SDValueERKNS_5SDLocEjNS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG14getCopyFromRegENS_7SDValueERKNS_5SDLocEjNS_3EVTES1_'/>
+<fun r='_ZN4llvm12SelectionDAG11getCondCodeENS_3ISD8CondCodeE'/>
+<fun r='_ZN4llvm12SelectionDAG16getVectorShuffleENS_3EVTERKNS_5SDLocENS_7SDValueES5_NS_8ArrayRefIiEE'/>
+<fun r='_ZN4llvm12SelectionDAG14getBuildVectorENS_3EVTERKNS_5SDLocENS_8ArrayRefINS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG14getBuildVectorENS_3EVTERKNS_5SDLocENS_8ArrayRefINS_5SDUseEEE'/>
+<fun r='_ZN4llvm12SelectionDAG19getSplatBuildVectorENS_3EVTERKNS_5SDLocENS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG24getCommutedVectorShuffleERKNS_19ShuffleVectorSDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG18getFPExtendOrRoundENS_7SDValueERKNS_5SDLocENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG16getAnyExtOrTruncENS_7SDValueERKNS_5SDLocENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG14getSExtOrTruncENS_7SDValueERKNS_5SDLocENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG14getZExtOrTruncENS_7SDValueERKNS_5SDLocENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG18getZeroExtendInRegENS_7SDValueERKNS_5SDLocENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG16getPtrExtOrTruncENS_7SDValueERKNS_5SDLocENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG17getPtrExtendInRegENS_7SDValueERKNS_5SDLocENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG17getBoolExtOrTruncENS_7SDValueERKNS_5SDLocENS_3EVTES5_'/>
+<fun r='_ZN4llvm12SelectionDAG6getNOTERKNS_5SDLocENS_7SDValueENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG13getLogicalNOTERKNS_5SDLocENS_7SDValueENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG13getPointerAddENS_5SDLocENS_7SDValueElNS_11SDNodeFlagsE'/>
+<fun r='_ZN4llvm12SelectionDAG13getPointerAddENS_5SDLocENS_7SDValueES2_NS_11SDNodeFlagsE'/>
+<fun r='_ZN4llvm12SelectionDAG13getCSetBoundsENS_7SDValueES1_b'/>
+<fun r='_ZN4llvm12SelectionDAG13getCSetBoundsENS_7SDValueEmb'/>
+<fun r='_ZN4llvm12SelectionDAG18getObjectPtrOffsetERKNS_5SDLocENS_7SDValueEl'/>
+<fun r='_ZN4llvm12SelectionDAG18getObjectPtrOffsetERKNS_5SDLocENS_7SDValueES4_'/>
+<fun r='_ZN4llvm12SelectionDAG16getCALLSEQ_STARTENS_7SDValueEmmRKNS_5SDLocE'/>
+<fun r='_ZN4llvm12SelectionDAG14getCALLSEQ_ENDENS_7SDValueES1_S1_S1_RKNS_5SDLocE'/>
+<fun r='_ZN4llvm12SelectionDAG7isUndefEjNS_8ArrayRefINS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG22getGLOBAL_OFFSET_TABLEENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_8ArrayRefINS_5SDUseEEE'/>
+<fun r='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_8ArrayRefINS_7SDValueEEENS_11SDNodeFlagsE'/>
+<fun r='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_8ArrayRefINS_3EVTEEENS4_INS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_8SDVTListENS_8ArrayRefINS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueENS_11SDNodeFlagsE'/>
+<fun r='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_11SDNodeFlagsE'/>
+<fun r='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_NS_11SDNodeFlagsE'/>
+<fun r='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_S5_'/>
+<fun r='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_S5_S5_'/>
+<fun r='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_8SDVTListE'/>
+<fun r='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_8SDVTListENS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_8SDVTListENS_7SDValueES5_'/>
+<fun r='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_8SDVTListENS_7SDValueES5_S5_'/>
+<fun r='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_8SDVTListENS_7SDValueES5_S5_S5_'/>
+<fun r='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_8SDVTListENS_7SDValueES5_S5_S5_S5_'/>
+<fun r='_ZN4llvm12SelectionDAG27getStackArgumentTokenFactorENS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG9getMemcpyENS_7SDValueERKNS_5SDLocES1_S1_S1_jbbbbNS_18MachinePointerInfoES5_NS_9StringRefE'/>
+<fun r='_ZN4llvm12SelectionDAG10getMemmoveENS_7SDValueERKNS_5SDLocES1_S1_S1_jbbbNS_18MachinePointerInfoES5_NS_9StringRefE'/>
+<fun r='_ZN4llvm12SelectionDAG9getMemsetENS_7SDValueERKNS_5SDLocES1_S1_S1_jbbNS_18MachinePointerInfoE'/>
+<fun r='_ZN4llvm12SelectionDAG15getAtomicMemcpyENS_7SDValueERKNS_5SDLocES1_jS1_jS1_PNS_4TypeEjbNS_18MachinePointerInfoES7_'/>
+<fun r='_ZN4llvm12SelectionDAG16getAtomicMemmoveENS_7SDValueERKNS_5SDLocES1_jS1_jS1_PNS_4TypeEjbNS_18MachinePointerInfoES7_'/>
+<fun r='_ZN4llvm12SelectionDAG15getAtomicMemsetENS_7SDValueERKNS_5SDLocES1_jS1_S1_PNS_4TypeEjbNS_18MachinePointerInfoE'/>
+<fun r='_ZN4llvm12SelectionDAG8getSetCCERKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_3ISD8CondCodeE'/>
+<fun r='_ZN4llvm12SelectionDAG9getSelectERKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_'/>
+<fun r='_ZN4llvm12SelectionDAG11getSelectCCERKNS_5SDLocENS_7SDValueES4_S4_S4_NS_3ISD8CondCodeE'/>
+<fun r='_ZN4llvm12SelectionDAG14simplifySelectENS_7SDValueES1_S1_'/>
+<fun r='_ZN4llvm12SelectionDAG13simplifyShiftENS_7SDValueES1_'/>
+<fun r='_ZN4llvm12SelectionDAG15simplifyFPBinopEjNS_7SDValueES1_'/>
+<fun r='_ZN4llvm12SelectionDAG8getVAArgENS_3EVTERKNS_5SDLocENS_7SDValueES5_S5_j'/>
+<fun r='_ZN4llvm12SelectionDAG16getAtomicCmpSwapEjRKNS_5SDLocENS_3EVTENS_8SDVTListENS_7SDValueES6_S6_S6_PNS_17MachineMemOperandE'/>
+<fun r='_ZN4llvm12SelectionDAG9getAtomicEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_PNS_17MachineMemOperandE'/>
+<fun r='_ZN4llvm12SelectionDAG9getAtomicEjRKNS_5SDLocENS_3EVTES4_NS_7SDValueES5_PNS_17MachineMemOperandE'/>
+<fun r='_ZN4llvm12SelectionDAG9getAtomicEjRKNS_5SDLocENS_3EVTENS_8SDVTListENS_8ArrayRefINS_7SDValueEEEPNS_17MachineMemOperandE'/>
+<fun r='_ZN4llvm12SelectionDAG19getMemIntrinsicNodeEjRKNS_5SDLocENS_8SDVTListENS_8ArrayRefINS_7SDValueEEENS_3EVTENS_18MachinePointerInfoEjNS_17MachineMemOperand5FlagsEj'/>
+<fun r='_ZN4llvm12SelectionDAG19getMemIntrinsicNodeEjRKNS_5SDLocENS_8SDVTListENS_8ArrayRefINS_7SDValueEEENS_3EVTEPNS_17MachineMemOperandE'/>
+<fun r='_ZN4llvm12SelectionDAG15getLifetimeNodeEbRKNS_5SDLocENS_7SDValueEill'/>
+<fun r='_ZN4llvm12SelectionDAG14getMergeValuesENS_8ArrayRefINS_7SDValueEEERKNS_5SDLocE'/>
+<fun r='_ZN4llvm12SelectionDAG7getLoadENS_3EVTERKNS_5SDLocENS_7SDValueES5_NS_18MachinePointerInfoEjNS_17MachineMemOperand5FlagsERKNS_9AAMDNodesEPKNS_6MDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG7getLoadENS_3EVTERKNS_5SDLocENS_7SDValueES5_PNS_17MachineMemOperandE'/>
+<fun r='_ZN4llvm12SelectionDAG10getExtLoadENS_3ISD11LoadExtTypeERKNS_5SDLocENS_3EVTENS_7SDValueES7_NS_18MachinePointerInfoES6_jNS_17MachineMemOperand5FlagsERKNS_9AAMDNodesE'/>
+<fun r='_ZN4llvm12SelectionDAG10getExtLoadENS_3ISD11LoadExtTypeERKNS_5SDLocENS_3EVTENS_7SDValueES7_S6_PNS_17MachineMemOperandE'/>
+<fun r='_ZN4llvm12SelectionDAG14getIndexedLoadENS_7SDValueERKNS_5SDLocES1_S1_NS_3ISD14MemIndexedModeE'/>
+<fun r='_ZN4llvm12SelectionDAG7getLoadENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3EVTERKNS_5SDLocENS_7SDValueES8_S8_NS_18MachinePointerInfoES4_jNS_17Machin12803204'/>
+<fun r='_ZN4llvm12SelectionDAG7getLoadENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3EVTERKNS_5SDLocENS_7SDValueES8_S8_S4_PNS_17MachineMemOperandE'/>
+<fun r='_ZN4llvm12SelectionDAG8getStoreENS_7SDValueERKNS_5SDLocES1_S1_NS_18MachinePointerInfoEjNS_17MachineMemOperand5FlagsERKNS_9AAMDNodesE'/>
+<fun r='_ZN4llvm12SelectionDAG8getStoreENS_7SDValueERKNS_5SDLocES1_S1_PNS_17MachineMemOperandE'/>
+<fun r='_ZN4llvm12SelectionDAG13getTruncStoreENS_7SDValueERKNS_5SDLocES1_S1_NS_18MachinePointerInfoENS_3EVTEjNS_17MachineMemOperand5FlagsERKNS_9AAMDNodesE'/>
+<fun r='_ZN4llvm12SelectionDAG13getTruncStoreENS_7SDValueERKNS_5SDLocES1_S1_NS_3EVTEPNS_17MachineMemOperandE'/>
+<fun r='_ZN4llvm12SelectionDAG15getIndexedStoreENS_7SDValueERKNS_5SDLocES1_S1_NS_3ISD14MemIndexedModeE'/>
+<fun r='_ZN4llvm12SelectionDAG20getMemBasePlusOffsetENS_7SDValueEjRKNS_5SDLocENS_11SDNodeFlagsE'/>
+<fun r='_ZN4llvm12SelectionDAG13getMaskedLoadENS_3EVTERKNS_5SDLocENS_7SDValueES5_S5_S5_S1_PNS_17MachineMemOperandENS_3ISD11LoadExtTypeEb'/>
+<fun r='_ZN4llvm12SelectionDAG14getMaskedStoreENS_7SDValueERKNS_5SDLocES1_S1_S1_NS_3EVTEPNS_17MachineMemOperandEbb'/>
+<fun r='_ZN4llvm12SelectionDAG15getMaskedGatherENS_8SDVTListENS_3EVTERKNS_5SDLocENS_8ArrayRefINS_7SDValueEEEPNS_17MachineMemOperandE'/>
+<fun r='_ZN4llvm12SelectionDAG16getMaskedScatterENS_8SDVTListENS_3EVTERKNS_5SDLocENS_8ArrayRefINS_7SDValueEEEPNS_17MachineMemOperandE'/>
+<fun r='_ZN4llvm12SelectionDAG18getTargetMemSDNodeENS_8SDVTListENS_8ArrayRefINS_7SDValueEEERKNS_5SDLocENS_3EVTEPNS_17MachineMemOperandE'/>
+<fun r='_ZN4llvm12SelectionDAG11getSrcValueEPKNS_5ValueE'/>
+<fun r='_ZN4llvm12SelectionDAG9getMDNodeEPKNS_6MDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG10getBitcastENS_3EVTENS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG16getAddrSpaceCastERKNS_5SDLocENS_3EVTENS_7SDValueEjj'/>
+<fun r='_ZN4llvm12SelectionDAG21getShiftAmountOperandENS_3EVTENS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG11expandVAArgEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG12expandVACopyEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG30getSymbolFunctionGlobalAddressENS_7SDValueEPPNS_8FunctionE'/>
+<fun r='_ZN4llvm12SelectionDAG18UpdateNodeOperandsEPNS_6SDNodeENS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG18UpdateNodeOperandsEPNS_6SDNodeENS_7SDValueES3_'/>
+<fun r='_ZN4llvm12SelectionDAG18UpdateNodeOperandsEPNS_6SDNodeENS_7SDValueES3_S3_'/>
+<fun r='_ZN4llvm12SelectionDAG18UpdateNodeOperandsEPNS_6SDNodeENS_7SDValueES3_S3_S3_'/>
+<fun r='_ZN4llvm12SelectionDAG18UpdateNodeOperandsEPNS_6SDNodeENS_7SDValueES3_S3_S3_S3_'/>
+<fun r='_ZN4llvm12SelectionDAG18UpdateNodeOperandsEPNS_6SDNodeENS_8ArrayRefINS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG14getTokenFactorERKNS_5SDLocERNS_15SmallVectorImplINS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG14setNodeMemRefsEPNS_13MachineSDNodeENS_8ArrayRefIPNS_17MachineMemOperandEEE'/>
+<fun r='_ZN4llvm12SelectionDAG16updateDivergenceEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_3EVTENS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_3EVTENS_7SDValueES4_'/>
+<fun r='_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_3EVTENS_7SDValueES4_S4_'/>
+<fun r='_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_3EVTENS_8ArrayRefINS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_3EVTES3_'/>
+<fun r='_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_3EVTES3_NS_8ArrayRefINS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_3EVTES3_S3_NS_8ArrayRefINS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_3EVTES3_NS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_3EVTES3_NS_7SDValueES4_'/>
+<fun r='_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_8SDVTListENS_8ArrayRefINS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG11MorphNodeToEPNS_6SDNodeEjNS_8SDVTListENS_8ArrayRefINS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG18mutateStrictFPToFPEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_'/>
+<fun r='_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_'/>
+<fun r='_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTENS_8ArrayRefINS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTES4_NS_7SDValueES5_'/>
+<fun r='_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTES4_NS_7SDValueES5_S5_'/>
+<fun r='_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTES4_NS_8ArrayRefINS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTES4_S4_NS_7SDValueES5_'/>
+<fun r='_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTES4_S4_NS_7SDValueES5_S5_'/>
+<fun r='_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTES4_S4_NS_8ArrayRefINS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_8ArrayRefINS_3EVTEEENS4_INS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_8SDVTListENS_8ArrayRefINS_7SDValueEEE'/>
+<fun r='_ZN4llvm12SelectionDAG22getTargetExtractSubregEiRKNS_5SDLocENS_3EVTENS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG21getTargetInsertSubregEiRKNS_5SDLocENS_3EVTENS_7SDValueES5_'/>
+<fun r='_ZN4llvm12SelectionDAG15getNodeIfExistsEjNS_8SDVTListENS_8ArrayRefINS_7SDValueEEENS_11SDNodeFlagsE'/>
+<fun r='_ZN4llvm12SelectionDAG11getDbgValueEPNS_10DIVariableEPNS_12DIExpressionEPNS_6SDNodeEjbRKNS_8DebugLocEj'/>
+<fun r='_ZN4llvm12SelectionDAG19getConstantDbgValueEPNS_10DIVariableEPNS_12DIExpressionEPKNS_5ValueERKNS_8DebugLocEj'/>
+<fun r='_ZN4llvm12SelectionDAG21getFrameIndexDbgValueEPNS_10DIVariableEPNS_12DIExpressionEjbRKNS_8DebugLocEj'/>
+<fun r='_ZN4llvm12SelectionDAG15getVRegDbgValueEPNS_10DIVariableEPNS_12DIExpressionEjbRKNS_8DebugLocEj'/>
+<fun r='_ZN4llvm12SelectionDAG11getDbgLabelEPNS_7DILabelERKNS_8DebugLocEj'/>
+<fun r='_ZN4llvm12SelectionDAG17transferDbgValuesENS_7SDValueES1_jjb'/>
+<fun r='_ZN4llvm12SelectionDAG14RemoveDeadNodeEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG15RemoveDeadNodesERNS_15SmallVectorImplIPNS_6SDNodeEEE'/>
+<fun r='_ZN4llvm12SelectionDAG18ReplaceAllUsesWithENS_7SDValueES1_'/>
+<fun r='_ZN4llvm12SelectionDAG18ReplaceAllUsesWithEPNS_6SDNodeES2_'/>
+<fun r='_ZN4llvm12SelectionDAG18ReplaceAllUsesWithEPNS_6SDNodeEPKNS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG25ReplaceAllUsesOfValueWithENS_7SDValueES1_'/>
+<fun r='_ZN4llvm12SelectionDAG26ReplaceAllUsesOfValuesWithEPKNS_7SDValueES3_j'/>
+<fun r='_ZN4llvm12SelectionDAG28makeEquivalentMemoryOrderingEPNS_10LoadSDNodeENS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG22AssignTopologicalOrderEv'/>
+<fun r='_ZN4llvm12SelectionDAG14RepositionNodeENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_6SDNodeELb1ELb0EvEELb0ELb0EEEPS4_'/>
+<fun r='_ZN4llvm12SelectionDAG21EVTToAPFloatSemanticsENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG11AddDbgValueEPNS_10SDDbgValueEPNS_6SDNodeEb'/>
+<fun r='_ZN4llvm12SelectionDAG11AddDbgLabelEPNS_10SDDbgLabelE'/>
+<fun r='_ZNK4llvm12SelectionDAG12GetDbgValuesEPKNS_6SDNodeE'/>
+<fun r='_ZNK4llvm12SelectionDAG14hasDebugValuesEv'/>
+<fun r='_ZNK4llvm12SelectionDAG8DbgBeginEv'/>
+<fun r='_ZNK4llvm12SelectionDAG6DbgEndEv'/>
+<fun r='_ZNK4llvm12SelectionDAG17ByvalParmDbgBeginEv'/>
+<fun r='_ZNK4llvm12SelectionDAG15ByvalParmDbgEndEv'/>
+<fun r='_ZNK4llvm12SelectionDAG13DbgLabelBeginEv'/>
+<fun r='_ZNK4llvm12SelectionDAG11DbgLabelEndEv'/>
+<fun r='_ZN4llvm12SelectionDAG16salvageDebugInfoERNS_6SDNodeE'/>
+<fun r='_ZNK4llvm12SelectionDAG4dumpEv'/>
+<fun r='_ZN4llvm12SelectionDAG20CreateStackTemporaryENS_3EVTEj'/>
+<fun r='_ZN4llvm12SelectionDAG20CreateStackTemporaryENS_3EVTES1_'/>
+<fun r='_ZN4llvm12SelectionDAG16FoldSymbolOffsetEjNS_3EVTEPKNS_19GlobalAddressSDNodeEPKNS_6SDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG22FoldConstantArithmeticEjRKNS_5SDLocENS_3EVTEPNS_6SDNodeES6_'/>
+<fun r='_ZN4llvm12SelectionDAG22FoldConstantArithmeticEjRKNS_5SDLocENS_3EVTEPKNS_14ConstantSDNodeES7_'/>
+<fun r='_ZN4llvm12SelectionDAG28FoldConstantVectorArithmeticEjRKNS_5SDLocENS_3EVTENS_8ArrayRefINS_7SDValueEEENS_11SDNodeFlagsE'/>
+<fun r='_ZN4llvm12SelectionDAG18foldConstantFPMathEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_'/>
+<fun r='_ZN4llvm12SelectionDAG9FoldSetCCENS_3EVTENS_7SDValueES2_NS_3ISD8CondCodeERKNS_5SDLocE'/>
+<fun r='_ZN4llvm12SelectionDAG15GetDemandedBitsENS_7SDValueERKNS_5APIntE'/>
+<fun r='_ZN4llvm12SelectionDAG15GetDemandedBitsENS_7SDValueERKNS_5APIntES4_'/>
+<fun r='_ZNK4llvm12SelectionDAG13SignBitIsZeroENS_7SDValueEj'/>
+<fun r='_ZNK4llvm12SelectionDAG17MaskedValueIsZeroENS_7SDValueERKNS_5APIntEj'/>
+<fun r='_ZNK4llvm12SelectionDAG17MaskedValueIsZeroENS_7SDValueERKNS_5APIntES4_j'/>
+<fun r='_ZNK4llvm12SelectionDAG16computeKnownBitsENS_7SDValueEj'/>
+<fun r='_ZNK4llvm12SelectionDAG16computeKnownBitsENS_7SDValueERKNS_5APIntEj'/>
+<fun r='_ZNK4llvm12SelectionDAG19computeOverflowKindENS_7SDValueES1_'/>
+<fun r='_ZNK4llvm12SelectionDAG22isKnownToBeAPowerOfTwoENS_7SDValueE'/>
+<fun r='_ZNK4llvm12SelectionDAG18ComputeNumSignBitsENS_7SDValueEj'/>
+<fun r='_ZNK4llvm12SelectionDAG18ComputeNumSignBitsENS_7SDValueERKNS_5APIntEj'/>
+<fun r='_ZNK4llvm12SelectionDAG24isBaseWithConstantOffsetENS_7SDValueE'/>
+<fun r='_ZNK4llvm12SelectionDAG15isKnownNeverNaNENS_7SDValueEbj'/>
+<fun r='_ZNK4llvm12SelectionDAG16isKnownNeverSNaNENS_7SDValueEj'/>
+<fun r='_ZNK4llvm12SelectionDAG21isKnownNeverZeroFloatENS_7SDValueE'/>
+<fun r='_ZNK4llvm12SelectionDAG16isKnownNeverZeroENS_7SDValueE'/>
+<fun r='_ZNK4llvm12SelectionDAG9isEqualToENS_7SDValueES1_'/>
+<fun r='_ZNK4llvm12SelectionDAG19haveNoCommonBitsSetENS_7SDValueES1_'/>
+<fun r='_ZN4llvm12SelectionDAG12isSplatValueENS_7SDValueERKNS_5APIntERS2_'/>
+<fun r='_ZN4llvm12SelectionDAG12isSplatValueENS_7SDValueEb'/>
+<fun r='_ZN4llvm12SelectionDAG20getSplatSourceVectorENS_7SDValueERi'/>
+<fun r='_ZN4llvm12SelectionDAG13getSplatValueENS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG19matchBinOpReductionEPNS_6SDNodeERNS_3ISD8NodeTypeENS_8ArrayRefIS4_EE'/>
+<fun r='_ZN4llvm12SelectionDAG14UnrollVectorOpEPNS_6SDNodeEj'/>
+<fun r='_ZN4llvm12SelectionDAG22UnrollVectorOverflowOpEPNS_6SDNodeEj'/>
+<fun r='_ZNK4llvm12SelectionDAG30areNonVolatileConsecutiveLoadsEPNS_10LoadSDNodeES2_ji'/>
+<fun r='_ZNK4llvm12SelectionDAG17InferPtrAlignmentENS_7SDValueE'/>
+<fun r='_ZNK4llvm12SelectionDAG15GetSplitDestVTsERKNS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG11SplitVectorERKNS_7SDValueERKNS_5SDLocERKNS_3EVTES9_'/>
+<fun r='_ZN4llvm12SelectionDAG11SplitVectorERKNS_7SDValueERKNS_5SDLocE'/>
+<fun r='_ZN4llvm12SelectionDAG18SplitVectorOperandEPKNS_6SDNodeEj'/>
+<fun r='_ZN4llvm12SelectionDAG11WidenVectorERKNS_7SDValueERKNS_5SDLocE'/>
+<fun r='_ZN4llvm12SelectionDAG21ExtractVectorElementsENS_7SDValueERNS_15SmallVectorImplIS1_EEjj'/>
+<fun r='_ZNK4llvm12SelectionDAG15getEVTAlignmentENS_3EVTE'/>
+<fun r='_ZN4llvm12SelectionDAG37isConstantIntBuildVectorOrConstantIntENS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG35isConstantFPBuildVectorOrConstantFPENS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG24isConstantValueOfAnyTypeENS_7SDValueE'/>
+<fun r='_ZN4llvm12SelectionDAG10InsertNodeEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG21RemoveNodeFromCSEMapsEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG24AddModifiedNodeToCSEMapsEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG20FindModifiedNodeSlotEPNS_6SDNodeENS_7SDValueERPv'/>
+<fun r='_ZN4llvm12SelectionDAG20FindModifiedNodeSlotEPNS_6SDNodeENS_7SDValueES3_RPv'/>
+<fun r='_ZN4llvm12SelectionDAG20FindModifiedNodeSlotEPNS_6SDNodeENS_8ArrayRefINS_7SDValueEEERPv'/>
+<fun r='_ZN4llvm12SelectionDAG24UpdateSDLocOnMergeSDNodeEPNS_6SDNodeERKNS_5SDLocE'/>
+<fun r='_ZN4llvm12SelectionDAG22DeleteNodeNotInCSEMapsEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG14DeallocateNodeEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG14allnodes_clearEv'/>
+<fun r='_ZN4llvm12SelectionDAG19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv'/>
+<fun r='_ZN4llvm12SelectionDAG19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERKNS_5SDLocERPv'/>
+<mbr r='llvm::SelectionDAG::VTListMap' o='5568' t='FoldingSet&lt;llvm::SDVTListNode&gt;'/>
+<mbr r='llvm::SelectionDAG::CondCodeNodes' o='5760' t='std::vector&lt;CondCodeSDNode *&gt;'/>
+<mbr r='llvm::SelectionDAG::ValueTypeNodes' o='5952' t='std::vector&lt;SDNode *&gt;'/>
+<mbr r='llvm::SelectionDAG::ExtendedValueTypeNodes' o='6144' t='std::map&lt;EVT, SDNode *, EVT::compareRawBits&gt;'/>
+<mbr r='llvm::SelectionDAG::ExternalSymbols' o='6528' t='StringMap&lt;llvm::SDNode *&gt;'/>
+<mbr r='llvm::SelectionDAG::TargetExternalSymbols' o='6784' t='std::map&lt;std::pair&lt;std::string, unsigned char&gt;, SDNode *&gt;'/>
+<mbr r='llvm::SelectionDAG::MCSymbols' o='7168' t='DenseMap&lt;llvm::MCSymbol *, llvm::SDNode *&gt;'/>
+<fun r='_ZN4llvm12SelectionDAG18getTargetMemSDNodeENS_8SDVTListENS_8ArrayRefINS_7SDValueEEERKNS_5SDLocENS_3EVTEPNS_17MachineMemOperandE'/>

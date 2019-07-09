@@ -1,0 +1,50 @@
+<inh f='llvm/llvm/include/llvm/CodeGen/ScheduleDAG.h' l='555' c='llvm::ScheduleDAG'/>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGSDNodes.h' l='45' ll='188'/>
+<ovr f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGFast.cpp' l='68' c='(anonymousnamespace)::ScheduleDAGFast'/>
+<ovr f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGFast.cpp' l='643' c='(anonymousnamespace)::ScheduleDAGLinearize'/>
+<size>672</size>
+<doc f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGSDNodes.h' l='31'>/// ScheduleDAGSDNodes - A ScheduleDAG for scheduling SDNode-based DAGs.
+  ///
+  /// Edges between SUnits are initially based on edges in the SelectionDAG,
+  /// and additional edges can be added by the schedulers as heuristics.
+  /// SDNodes such as Constants, Registers, and a few others that are not
+  /// interesting to schedulers are not allocated SUnits.
+  ///
+  /// SDNodes with MVT::Glue operands are grouped along with the flagged
+  /// nodes into a single SUnit so that they are scheduled together.
+  ///
+  /// SDNode-based scheduling graphs do not use SDep::Anti or SDep::Output
+  /// edges.  Physical register dependence information is not carried in
+  /// the DAG and must be handled explicitly by schedulers.
+  ///</doc>
+<mbr r='llvm::ScheduleDAGSDNodes::BB' o='4992' t='llvm::MachineBasicBlock *'/>
+<mbr r='llvm::ScheduleDAGSDNodes::DAG' o='5056' t='llvm::SelectionDAG *'/>
+<mbr r='llvm::ScheduleDAGSDNodes::InstrItins' o='5120' t='const llvm::InstrItineraryData *'/>
+<mbr r='llvm::ScheduleDAGSDNodes::Sequence' o='5184' t='std::vector&lt;SUnit *&gt;'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodesC1ERNS_15MachineFunctionE'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodesD1Ev'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodes3RunEPNS_12SelectionDAGEPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodes13isPassiveNodeEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodes8newSUnitEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodes5CloneEPNS_5SUnitE'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodes15BuildSchedGraphEPNS_9AAResultsE'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodes18InitNumRegDefsLeftEPNS_5SUnitE'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodes14computeLatencyEPNS_5SUnitE'/>
+<fun r='_ZNK4llvm18ScheduleDAGSDNodes21computeOperandLatencyEPNS_6SDNodeES2_jRNS_4SDepE'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodes8ScheduleEv'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodes23VerifyScheduledSequenceEb'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodes12EmitScheduleERNS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE'/>
+<fun r='_ZNK4llvm18ScheduleDAGSDNodes8dumpNodeERKNS_5SUnitE'/>
+<fun r='_ZNK4llvm18ScheduleDAGSDNodes4dumpEv'/>
+<fun r='_ZNK4llvm18ScheduleDAGSDNodes12dumpScheduleEv'/>
+<fun r='_ZNK4llvm18ScheduleDAGSDNodes17getGraphNodeLabelEPKNS_5SUnitE'/>
+<fun r='_ZNK4llvm18ScheduleDAGSDNodes10getDAGNameEv'/>
+<fun r='_ZNK4llvm18ScheduleDAGSDNodes22getCustomGraphFeaturesERNS_11GraphWriterIPNS_11ScheduleDAGEEE'/>
+<fun r='_ZNK4llvm18ScheduleDAGSDNodes18forceUnitLatenciesEv'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodes23ClusterNeighboringLoadsEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodes12ClusterNodesEv'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodes15BuildSchedUnitsEv'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodes13AddSchedEdgesEv'/>
+<fun r='_ZN4llvm18ScheduleDAGSDNodes15EmitPhysRegCopyEPNS_5SUnitERNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEENS_26MachineInstrBu6779371'/>
+<ovr f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGRRList.cpp' l='138' c='(anonymousnamespace)::ScheduleDAGRRList'/>
+<ovr f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGVLIW.cpp' l='51' c='(anonymousnamespace)::ScheduleDAGVLIW'/>

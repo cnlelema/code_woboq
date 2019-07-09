@@ -1,0 +1,41 @@
+<dec f='llvm/llvm/include/llvm/IR/Function.h' l='848' type='bool llvm::NullPointerIsDefined(const llvm::Function * F, unsigned int AS = 0)'/>
+<doc f='llvm/llvm/include/llvm/IR/Function.h' l='843'>/// Check whether null pointer dereferencing is considered undefined behavior
+/// for a given function or an address space.
+/// Null pointer access in non-zero address space is not considered undefined.
+/// Return value: false =&gt; null pointer dereference is undefined.
+/// Return value: true =&gt;  null pointer dereference is not undefined.</doc>
+<use f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='1753' u='c' c='_ZN4llvm13BasicAAResult10aliasCheckEPKNS_5ValueENS_12LocationSizeENS_9AAMDNodesES3_S4_S5_RNS_11AAQueryInfoES3_S3_'/>
+<use f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='1756' u='c' c='_ZN4llvm13BasicAAResult10aliasCheckEPKNS_5ValueENS_12LocationSizeENS_9AAMDNodesES3_S4_S5_RNS_11AAQueryInfoES3_S3_'/>
+<use f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='1794' u='c' c='_ZN4llvm13BasicAAResult10aliasCheckEPKNS_5ValueENS_12LocationSizeENS_9AAMDNodesES3_S4_S5_RNS_11AAQueryInfoES3_S3_'/>
+<use f='llvm/llvm/lib/Analysis/ConstantFolding.cpp' l='1690' u='c' c='_ZN12_GLOBAL__N_1L22ConstantFoldScalarCallEN4llvm9StringRefEjPNS0_4TypeENS0_8ArrayRefIPNS0_8ConstantEEEPKNS0_17TargetLibraryInfoEPKNS0_8CallBaseE'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='2247' u='c' c='_ZL18computePointerICmpRKN4llvm10DataLayoutEPKNS_17TargetLibraryInfoEPKNS_13DominatorTreeENS_7CmpInst9PredicateEPNS_15AssumptionCacheEPKNS_11Instructi10406885'/>
+<use f='llvm/llvm/lib/Analysis/LazyValueInfo.cpp' l='728' u='c' c='_ZN12_GLOBAL__N_117LazyValueInfoImpl23solveBlockValueNonLocalERN4llvm19ValueLatticeElementEPNS1_5ValueEPNS1_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Analysis/LazyValueInfo.cpp' l='763' u='c' c='_ZN12_GLOBAL__N_117LazyValueInfoImpl23solveBlockValueNonLocalERN4llvm19ValueLatticeElementEPNS1_5ValueEPNS1_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Analysis/LoopAccessAnalysis.cpp' l='916' u='c' c='_ZN12_GLOBAL__N_114AccessAnalysis18processMemAccessesEv'/>
+<use f='llvm/llvm/lib/Analysis/LoopAccessAnalysis.cpp' l='1035' u='c' c='_ZN4llvm12getPtrStrideERNS_25PredicatedScalarEvolutionEPNS_5ValueEPKNS_4LoopERKNS_8DenseMapIPKS2_S3_NS_12DenseMapInfoIS9_EENS_6detail12DenseMapPairIS9_S3_EEEEbb'/>
+<use f='llvm/llvm/lib/Analysis/LoopAccessAnalysis.cpp' l='1083' u='c' c='_ZN4llvm12getPtrStrideERNS_25PredicatedScalarEvolutionEPNS_5ValueEPKNS_4LoopERKNS_8DenseMapIPKS2_S3_NS_12DenseMapInfoIS9_EENS_6detail12DenseMapPairIS9_S3_EEEEbb'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='1960' u='c' c='_ZL17isGEPKnownNonNullPKN4llvm11GEPOperatorEjRKN12_GLOBAL__N_15QueryE'/>
+<use f='llvm/llvm/lib/IR/ConstantFold.cpp' l='1575' u='c' c='_ZL20evaluateICmpRelationPN4llvm8ConstantES1_b'/>
+<use f='llvm/llvm/lib/IR/ConstantFold.cpp' l='1806' u='c' c='_ZN4llvm30ConstantFoldCompareInstructionEtPNS_8ConstantES1_'/>
+<use f='llvm/llvm/lib/IR/ConstantFold.cpp' l='1818' u='c' c='_ZN4llvm30ConstantFoldCompareInstructionEtPNS_8ConstantES1_'/>
+<use f='llvm/llvm/lib/IR/Function.cpp' l='81' u='c' c='_ZNK4llvm8Argument14hasNonNullAttrEv'/>
+<def f='llvm/llvm/lib/IR/Function.cpp' l='1571' ll='1582' type='bool llvm::NullPointerIsDefined(const llvm::Function * F, unsigned int AS = 0)'/>
+<use f='llvm/llvm/lib/IR/Instructions.cpp' l='308' u='c' c='_ZNK4llvm8CallBase15isReturnNonNullEv'/>
+<use f='llvm/llvm/lib/Transforms/IPO/GlobalOpt.cpp' l='618' u='c' c='_ZL28AllUsesOfValueWillTrapIfNullPKN4llvm5ValueERNS_15SmallPtrSetImplIPKNS_7PHINodeEEE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/GlobalOpt.cpp' l='683' u='c' c='_ZL31OptimizeAwayTrappingUsesOfValuePN4llvm5ValueEPNS_8ConstantE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/GlobalOpt.cpp' l='1587' u='c' c='_ZL24optimizeOnceStoredGlobalPN4llvm14GlobalVariableEPNS_5ValueENS_14AtomicOrderingERKNS_10DataLayoutEPNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='4211' u='c' c='_ZN4llvm12InstCombiner13visitCallBaseERNS_8CallBaseE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='968' u='c' c='_ZL25canSimplifyNullStoreOrGEPRN4llvm9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='975' u='c' c='_ZL25canSimplifyNullStoreOrGEPRN4llvm9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='982' u='c' c='_ZL24canSimplifyNullLoadOrGEPRN4llvm8LoadInstEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='987' u='c' c='_ZL24canSimplifyNullLoadOrGEPRN4llvm8LoadInstEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1085' u='c' c='_ZN4llvm12InstCombiner13visitLoadInstERNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1093' u='c' c='_ZN4llvm12InstCombiner13visitLoadInstERNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/DeadStoreElimination.cpp' l='316' u='c' c='_ZL14getPointerSizePKN4llvm5ValueERKNS_10DataLayoutERKNS_17TargetLibraryInfoEPKNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SCCP.cpp' l='1165' u='c' c='_ZN12_GLOBAL__N_110SCCPSolver13visitLoadInstERN4llvm8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='2077' u='c' c='_ZL15markAliveBlocksRN4llvm8FunctionERNS_15SmallPtrSetImplIPNS_10BasicBlockEEEPNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='2106' u='c' c='_ZL15markAliveBlocksRN4llvm8FunctionERNS_15SmallPtrSetImplIPNS_10BasicBlockEEEPNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='2120' u='c' c='_ZL15markAliveBlocksRN4llvm8FunctionERNS_15SmallPtrSetImplIPNS_10BasicBlockEEEPNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='6005' u='c' c='_ZL29passingValueIsAlwaysUndefinedPN4llvm5ValueEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='6011' u='c' c='_ZL29passingValueIsAlwaysUndefinedPN4llvm5ValueEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='6017' u='c' c='_ZL29passingValueIsAlwaysUndefinedPN4llvm5ValueEPNS_11InstructionE'/>

@@ -1,0 +1,20 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='679' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildStore(unsigned int Val, unsigned int Addr, llvm::MachineMemOperand &amp; MMO)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='670'>/// Build and insert `G_STORE Val, Addr, MMO`.
+  ///
+  /// Stores the value \p Val to \p Addr.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Val must be a generic virtual register.
+  /// \pre \p Addr must be a generic virtual register with pointer type.
+  ///
+  /// \return a MachineInstrBuilder for the newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='540' u='c' c='_ZN4llvm12IRTranslator14translateStoreERKNS_4UserERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='651' u='c' c='_ZN4llvm15LegalizerHelper12narrowScalarERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2157' u='c' c='_ZN4llvm15LegalizerHelper20reduceLoadStoreWidthERNS_12MachineInstrEjNS_3LLTE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='353' ll='362' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildStore(unsigned int Val, unsigned int Addr, llvm::MachineMemOperand &amp; MMO)'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64CallLowering.cpp' l='170' u='c' c='_ZN12_GLOBAL__N_118OutgoingArgHandler20assignValueToAddressEjjmRN4llvm18MachinePointerInfoERNS1_11CCValAssignE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64LegalizerInfo.cpp' l='631' u='c' c='_ZNK4llvm20AArch64LegalizerInfo17legalizeLoadStoreERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderERNS_19GISelChangeObserverE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64LegalizerInfo.cpp' l='684' u='c' c='_ZNK4llvm20AArch64LegalizerInfo13legalizeVaArgERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMCallLowering.cpp' l='135' u='c' c='_ZN12_GLOBAL__N_120OutgoingValueHandler20assignValueToAddressEjjmRN4llvm18MachinePointerInfoERNS1_11CCValAssignE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsCallLowering.cpp' l='314' u='c' c='_ZN12_GLOBAL__N_120OutgoingValueHandler20assignValueToAddressEjRKN4llvm11CCValAssignE'/>
+<use f='llvm/llvm/lib/Target/X86/X86CallLowering.cpp' l='152' u='c' c='_ZN12_GLOBAL__N_120OutgoingValueHandler20assignValueToAddressEjjmRN4llvm18MachinePointerInfoERNS1_11CCValAssignE'/>

@@ -1,0 +1,81 @@
+<def f='llvm/clang/include/clang/AST/Expr.h' l='200' ll='202' type='bool clang::Expr::isInstantiationDependent() const'/>
+<use f='llvm/clang/include/clang/AST/Expr.h' l='936' u='c' c='_ZN5clang8FullExprC1ENS_4Stmt9StmtClassEPNS_4ExprE'/>
+<use f='llvm/clang/include/clang/AST/Expr.h' l='4380' u='c' c='_ZN5clang12InitListExpr7setInitEjPNS_4ExprE'/>
+<use f='llvm/clang/include/clang/AST/ExprCXX.h' l='4538' u='c' c='_ZN5clang20CoroutineSuspendExprC1ENS_4Stmt9StmtClassENS_14SourceLocationEPNS_4ExprES5_S5_S5_PNS_15OpaqueValueExprE'/>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='183'>/// Whether this expression is instantiation-dependent, meaning that
+  /// it depends in some way on a template parameter, even if neither its type
+  /// nor (constant) value can change due to the template instantiation.
+  ///
+  /// In the following example, the expression \c sizeof(sizeof(T() + T())) is
+  /// instantiation-dependent (since it involves a template parameter \c T), but
+  /// is neither type- nor value-dependent, since the type of the inner
+  /// \c sizeof is known (\c std::size_t) and therefore the size of the outer
+  /// \c sizeof is known.
+  ///
+  /// \code
+  /// template&lt;typename T&gt;
+  /// void f(T x, T y) {
+  ///   sizeof(sizeof(T() + T());
+  /// }
+  /// \endcode
+  ///</doc>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='3625' u='c' c='_ZNK5clang10ASTContext28getDependentAddressSpaceTypeENS_8QualTypeEPNS_4ExprENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='4939' u='c' c='_ZNK5clang10ASTContext15getDecltypeTypeEPNS_4ExprENS_8QualTypeE'/>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='7942' u='c' c='_ZN5clang11ASTImporter6ImportEPNS_4StmtE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='1242' u='c' c='_ZN5clang8CallExprC1ENS_4Stmt9StmtClassEPNS_4ExprEN4llvm8ArrayRefIS4_EES7_NS_8QualTypeENS_13ExprValueKindENS_14SourceLocationEjNS0_11ADLCallKindE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='1336' u='c' c='_ZN5clang8CallExpr25updateDependenciesFromArgEPNS_4ExprE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='1519' u='c' c='_ZN5clang24UnaryExprOrTypeTraitExprC1ENS_20UnaryExprOrTypeTraitEPNS_4ExprENS_8QualTypeENS_14SourceLocationES5_'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='3264' u='c' c='_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='4067' u='c' c='_ZN5clang18DesignatedInitExprC1ERKNS_10ASTContextENS_8QualTypeEN4llvm8ArrayRefINS0_10DesignatorEEENS_14SourceLocationEbNS6_IPNS_4ExprEEESB_'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='4083' u='c' c='_ZN5clang18DesignatedInitExprC1ERKNS_10ASTContextENS_8QualTypeEN4llvm8ArrayRefINS0_10DesignatorEEENS_14SourceLocationEbNS6_IPNS_4ExprEEESB_'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='4084' u='c' c='_ZN5clang18DesignatedInitExprC1ERKNS_10ASTContextENS_8QualTypeEN4llvm8ArrayRefINS0_10DesignatorEEENS_14SourceLocationEbNS6_IPNS_4ExprEEESB_'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='4328' u='c' c='_ZN5clang16PseudoObjectExprC1ENS_8QualTypeENS_13ExprValueKindEPNS_4ExprEN4llvm8ArrayRefIS4_EEj'/>
+<use f='llvm/clang/lib/AST/ExprCXX.cpp' l='127' u='c' c='_ZN5clang10CXXNewExprC1EbPNS_12FunctionDeclES2_bbN4llvm8ArrayRefIPNS_4ExprEEENS_11SourceRangeENS3_8OptionalIS6_EENS0_19InitializationStyleES6_NS_8Qual4044799'/>
+<use f='llvm/clang/lib/AST/ExprCXX.cpp' l='137' u='c' c='_ZN5clang10CXXNewExprC1EbPNS_12FunctionDeclES2_bbN4llvm8ArrayRefIPNS_4ExprEEENS_11SourceRangeENS3_8OptionalIS6_EENS0_19InitializationStyleES6_NS_8Qual4044799'/>
+<use f='llvm/clang/lib/AST/ExprObjC.cpp' l='73' u='c' c='_ZN5clang21ObjCDictionaryLiteralC1EN4llvm8ArrayRefINS_21ObjCDictionaryElementEEEbNS_8QualTypeEPNS_14ObjCMethodDeclENS_11SourceRangeE'/>
+<use f='llvm/clang/lib/AST/ExprObjC.cpp' l='74' u='c' c='_ZN5clang21ObjCDictionaryLiteralC1EN4llvm8ArrayRefINS_21ObjCDictionaryElementEEEbNS_8QualTypeEPNS_14ObjCMethodDeclENS_11SourceRangeE'/>
+<use f='llvm/clang/lib/AST/TemplateBase.cpp' l='182' u='c' c='_ZNK5clang16TemplateArgument24isInstantiationDependentEv'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='3053' u='c' c='_ZN5clang17FunctionProtoTypeC1ENS_8QualTypeEN4llvm8ArrayRefIS1_EES1_RKNS0_12ExtProtoInfoE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='3117' u='c' c='_ZNK5clang17FunctionProtoType38hasInstantiationDependentExceptionSpecEv'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='3243' u='c' c='_ZN5clang14TypeOfExprTypeC1EPNS_4ExprENS_8QualTypeE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='3268' u='c' c='_ZN5clang12DecltypeTypeC1EPNS_4ExprENS_8QualTypeES3_'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='3269' u='c' c='_ZN5clang12DecltypeTypeC1EPNS_4ExprENS_8QualTypeES3_'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='3274' u='c' c='_ZNK5clang12DecltypeType9isSugaredEv'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='851' u='c' c='_ZNK5clang12ast_matchers8internal39matcher_isInstantiationDependentMatcher7matchesERKNS_4ExprEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='254' u='c' c='_ZL20SemaBuiltinAlignmentRN5clang4SemaEPNS_8CallExprEjb'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='6020' u='c' c='_ZN5clang4Sema17SemaBuiltinAssumeEPNS_8CallExprE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='12602' u='c' c='_ZN5clang4Sema18CheckCompletedExprEPNS_4ExprENS_14SourceLocationEb'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='1306' u='c' c='_ZN5clang4Sema25ActOnCXXTypeConstructExprENS_9OpaquePtrINS_8QualTypeEEENS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES4_b'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='7445' u='c' c='_ZL57CheckIfAnyEnclosingLambdasMustCaptureAnyPotentialCapturesPN5clang4ExprEPNS_4sema15LambdaScopeInfoERNS_4SemaE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='7793' u='c' c='_ZN5clang4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEN4llvm12function_refIFNS_12ActionResultIS2_Lb1EEES2_EEE'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='2427' u='c' c='_ZL25applyOMPAllocateAttributeRN5clang4SemaEPNS_7VarDeclEiPNS_4ExprENS_11SourceRangeE'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='2645' u='c' c='_ZN12_GLOBAL__N_114DSAAttrChecker16VisitDeclRefExprEPN5clang11DeclRefExprE'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='2763' u='c' c='_ZN12_GLOBAL__N_114DSAAttrChecker15VisitMemberExprEPN5clang10MemberExprE'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='6654' u='c' c='_ZL28checkSimdlenSafelenSpecifiedRN5clang4SemaEN4llvm8ArrayRefIPNS_9OMPClauseEEE'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='6658' u='c' c='_ZL28checkSimdlenSafelenSpecifiedRN5clang4SemaEN4llvm8ArrayRefIPNS_9OMPClauseEEE'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='6911' u='c' c='_ZN5clang4Sema28ActOnOpenMPCriticalDirectiveERKNS_19DeclarationNameInfoEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationESB_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7377' u='c' c='_ZN12_GLOBAL__N_125OpenMPAtomicUpdateChecker14checkStatementEPN5clang4StmtEjj'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7409' u='c' c='_ZN12_GLOBAL__N_125OpenMPAtomicUpdateChecker14checkStatementEPN5clang4StmtEjj'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7534' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7535' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7544' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7545' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7547' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7556' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7597' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7598' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7606' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7607' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7609' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7618' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7697' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7807' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='7808' u='c' c='_ZN5clang4Sema26ActOnOpenMPAtomicDirectiveEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS_14SourceLocationES8_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='9775' u='c' c='_ZN5clang4Sema19ActOnOpenMPIfClauseENS_19OpenMPDirectiveKindEPNS_4ExprENS_14SourceLocationES4_S4_S4_S4_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='9805' u='c' c='_ZN5clang4Sema22ActOnOpenMPFinalClauseEPNS_4ExprENS_14SourceLocationES3_S3_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='9864' u='c' c='_ZL25isNonNegativeIntegerValueRPN5clang4ExprERNS_4SemaENS_16OpenMPClauseKindEb'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='9920' u='c' c='_ZN5clang4Sema37VerifyPositiveIntegerConstantInClauseEPNS_4ExprENS_16OpenMPClauseKindEb'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='10408' u='c' c='_ZN5clang4Sema25ActOnOpenMPScheduleClauseENS_28OpenMPScheduleClauseModifierES1_NS_24OpenMPScheduleClauseKindEPNS_4ExprENS_14SourceLocationES5_S5_S5_S5_S5_S5_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='12631' u='c' c='_ZN5clang4Sema23ActOnOpenMPLinearClauseEN4llvm8ArrayRefIPNS_4ExprEEES4_NS_14SourceLocationES6_NS_22OpenMPLinearClauseKindES6_S6_S6_'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='14785' u='c' c='_ZN5clang4Sema29ActOnOpenMPDistScheduleClauseENS_28OpenMPDistScheduleClauseKindEPNS_4ExprENS_14SourceLocationES4_S4_S4_S4_'/>
+<use f='llvm/clang/lib/Serialization/ASTWriterStmt.cpp' l='427' u='c' c='_ZN5clang13ASTStmtWriter9VisitExprEPNS_4ExprE'/>

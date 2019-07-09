@@ -1,0 +1,81 @@
+<def f='llvm/llvm/include/llvm/CodeGen/CallingConvLower.h' l='189' ll='571'/>
+<size>328</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/CallingConvLower.h' l='186'>/// CCState - This class holds information needed while lowering arguments and
+/// return values.  It captures which registers are already assigned and which
+/// stack slots are used.  It provides accessors to allocate these values.</doc>
+<mbr r='llvm::CCState::CallingConv' o='0' t='CallingConv::ID'/>
+<mbr r='llvm::CCState::IsVarArg' o='32' t='bool'/>
+<mbr r='llvm::CCState::AnalyzingMustTailForwardedRegs' o='40' t='bool'/>
+<mbr r='llvm::CCState::MF' o='64' t='llvm::MachineFunction &amp;'/>
+<mbr r='llvm::CCState::TRI' o='128' t='const llvm::TargetRegisterInfo &amp;'/>
+<mbr r='llvm::CCState::Locs' o='192' t='SmallVectorImpl&lt;llvm::CCValAssign&gt; &amp;'/>
+<mbr r='llvm::CCState::Context' o='256' t='llvm::LLVMContext &amp;'/>
+<mbr r='llvm::CCState::StackOffset' o='320' t='unsigned int'/>
+<mbr r='llvm::CCState::MaxStackArgAlign' o='352' t='unsigned int'/>
+<mbr r='llvm::CCState::UsedRegs' o='384' t='SmallVector&lt;uint32_t, 16&gt;'/>
+<mbr r='llvm::CCState::PendingLocs' o='1024' t='SmallVector&lt;llvm::CCValAssign, 4&gt;'/>
+<mbr r='llvm::CCState::PendingArgFlags' o='1536' t='SmallVector&lt;ISD::ArgFlagsTy, 4&gt;'/>
+<mbr r='llvm::CCState::ByValRegs' o='2048' t='SmallVector&lt;llvm::CCState::ByValInfo, 4&gt;'/>
+<mbr r='llvm::CCState::InRegsParamsProcessed' o='2560' t='unsigned int'/>
+<fun r='_ZN4llvm7CCStateC1EjbRNS_15MachineFunctionERNS_15SmallVectorImplINS_11CCValAssignEEERNS_11LLVMContextE'/>
+<fun r='_ZN4llvm7CCState6addLocERKNS_11CCValAssignE'/>
+<fun r='_ZNK4llvm7CCState10getContextEv'/>
+<fun r='_ZNK4llvm7CCState18getMachineFunctionEv'/>
+<fun r='_ZNK4llvm7CCState14getCallingConvEv'/>
+<fun r='_ZNK4llvm7CCState8isVarArgEv'/>
+<fun r='_ZNK4llvm7CCState18getNextStackOffsetEv'/>
+<fun r='_ZNK4llvm7CCState23getAlignedCallFrameSizeEv'/>
+<fun r='_ZNK4llvm7CCState11isAllocatedEj'/>
+<fun r='_ZN4llvm7CCState22AnalyzeFormalArgumentsERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E'/>
+<fun r='_ZN4llvm7CCState16AnalyzeArgumentsERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E'/>
+<fun r='_ZN4llvm7CCState13AnalyzeReturnERKNS_15SmallVectorImplINS_3ISD9OutputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E'/>
+<fun r='_ZN4llvm7CCState11CheckReturnERKNS_15SmallVectorImplINS_3ISD9OutputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E'/>
+<fun r='_ZN4llvm7CCState19AnalyzeCallOperandsERKNS_15SmallVectorImplINS_3ISD9OutputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E'/>
+<fun r='_ZN4llvm7CCState19AnalyzeCallOperandsERNS_15SmallVectorImplINS_3MVTEEERNS1_INS_3ISD10ArgFlagsTyEEEPFbjS2_S2_NS_11CCValAssign7LocInfoES6_RS0_E'/>
+<fun r='_ZN4llvm7CCState16AnalyzeArgumentsERKNS_15SmallVectorImplINS_3ISD9OutputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E'/>
+<fun r='_ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E'/>
+<fun r='_ZNK4llvm7CCState20IsShadowAllocatedRegEj'/>
+<fun r='_ZN4llvm7CCState17AnalyzeCallResultENS_3MVTEPFbjS1_S1_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERS0_E'/>
+<fun r='_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE'/>
+<fun r='_ZN4llvm7CCState11AllocateRegEj'/>
+<fun r='_ZN4llvm7CCState11AllocateRegEjj'/>
+<fun r='_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE'/>
+<fun r='_ZN4llvm7CCState16AllocateRegBlockENS_8ArrayRefItEEj'/>
+<fun r='_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEEPKt'/>
+<fun r='_ZN4llvm7CCState13AllocateStackEjj'/>
+<fun r='_ZN4llvm7CCState18ensureMaxAlignmentEj'/>
+<fun r='_ZN4llvm7CCState13AllocateStackEjjj'/>
+<fun r='_ZN4llvm7CCState13AllocateStackEjjNS_8ArrayRefItEE'/>
+<fun r='_ZN4llvm7CCState11HandleByValEjNS_3MVTES1_NS_11CCValAssign7LocInfoEiiNS_3ISD10ArgFlagsTyE'/>
+<fun r='_ZNK4llvm7CCState20getInRegsParamsCountEv'/>
+<fun r='_ZNK4llvm7CCState24getInRegsParamsProcessedEv'/>
+<fun r='_ZNK4llvm7CCState18getInRegsParamInfoEjRjS1_'/>
+<fun r='_ZN4llvm7CCState18addInRegsParamInfoEjj'/>
+<fun r='_ZN4llvm7CCState15nextInRegsParamEv'/>
+<fun r='_ZN4llvm7CCState18clearByValRegsInfoEv'/>
+<fun r='_ZN4llvm7CCState19rewindByValRegsInfoEv'/>
+<fun r='_ZN4llvm7CCState14getPendingLocsEv'/>
+<fun r='_ZN4llvm7CCState18getPendingArgFlagsEv'/>
+<fun r='_ZN4llvm7CCState27getRemainingRegParmsForTypeERNS_15SmallVectorImplItEENS_3MVTEPFbjS4_S4_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERS0_E'/>
+<fun r='_ZN4llvm7CCState33analyzeMustTailForwardedRegistersERNS_15SmallVectorImplINS_17ForwardedRegisterEEENS_8ArrayRefINS_3MVTEEEPFbjS6_S6_NS_11CCValAssign7L9693002'/>
+<fun r='_ZN4llvm7CCState17resultsCompatibleEjjRNS_15MachineFunctionERNS_11LLVMContextERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTESB_NS_11CCValAssig5738750'/>
+<fun r='_ZN4llvm7CCState26AnalyzeArgumentsSecondPassERKNS_15SmallVectorImplIT_EEPFbjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERS0_E'/>
+<fun r='_ZN4llvm7CCState13MarkAllocatedEj'/>
+<fun r='_ZN4llvm7CCStateC1EjbRNS_15MachineFunctionERNS_15SmallVectorImplINS_11CCValAssignEEERNS_11LLVMContextE'/>
+<fun r='_ZN4llvm7CCState11HandleByValEjNS_3MVTES1_NS_11CCValAssign7LocInfoEiiNS_3ISD10ArgFlagsTyE'/>
+<fun r='_ZN4llvm7CCState13MarkAllocatedEj'/>
+<fun r='_ZNK4llvm7CCState20IsShadowAllocatedRegEj'/>
+<fun r='_ZN4llvm7CCState22AnalyzeFormalArgumentsERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E'/>
+<fun r='_ZN4llvm7CCState11CheckReturnERKNS_15SmallVectorImplINS_3ISD9OutputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E'/>
+<fun r='_ZN4llvm7CCState13AnalyzeReturnERKNS_15SmallVectorImplINS_3ISD9OutputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E'/>
+<fun r='_ZN4llvm7CCState19AnalyzeCallOperandsERKNS_15SmallVectorImplINS_3ISD9OutputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E'/>
+<fun r='_ZN4llvm7CCState19AnalyzeCallOperandsERNS_15SmallVectorImplINS_3MVTEEERNS1_INS_3ISD10ArgFlagsTyEEEPFbjS2_S2_NS_11CCValAssign7LocInfoES6_RS0_E'/>
+<fun r='_ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E'/>
+<fun r='_ZN4llvm7CCState17AnalyzeCallResultENS_3MVTEPFbjS1_S1_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERS0_E'/>
+<fun r='_ZN4llvm7CCState27getRemainingRegParmsForTypeERNS_15SmallVectorImplItEENS_3MVTEPFbjS4_S4_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERS0_E'/>
+<fun r='_ZN4llvm7CCState33analyzeMustTailForwardedRegistersERNS_15SmallVectorImplINS_17ForwardedRegisterEEENS_8ArrayRefINS_3MVTEEEPFbjS6_S6_NS_11CCValAssign7L9693002'/>
+<fun r='_ZN4llvm7CCState17resultsCompatibleEjjRNS_15MachineFunctionERNS_11LLVMContextERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTESB_NS_11CCValAssig5738750'/>
+<ovr f='llvm/llvm/lib/Target/Hexagon/HexagonISelLowering.cpp' l='114' c='(anonymousnamespace)::HexagonCCState'/>
+<ovr f='llvm/llvm/lib/Target/Mips/MipsCCState.h' l='20' c='llvm::MipsCCState'/>
+<ovr f='llvm/llvm/lib/Target/PowerPC/PPCCCState.h' l='18' c='llvm::PPCCCState'/>
+<ovr f='llvm/llvm/lib/Target/SystemZ/SystemZCallingConv.h' l='25' c='llvm::SystemZCCState'/>

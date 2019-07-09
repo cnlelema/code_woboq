@@ -1,0 +1,22 @@
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/LazyReexports.h' l='36' ll='107'/>
+<ovr f='llvm/llvm/include/llvm/ExecutionEngine/Orc/LazyReexports.h' l='110' c='llvm::orc::LocalLazyCallThroughManager'/>
+<size>160</size>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/LazyReexports.h' l='28'>/// Manages a set of &apos;lazy call-through&apos; trampolines. These are compiler
+/// re-entry trampolines that are pre-bound to look up a given symbol in a given
+/// JITDylib, then jump to that address. Since compilation of symbols is
+/// triggered on first lookup, these call-through trampolines can be used to
+/// implement lazy compilation.
+///
+/// The easiest way to construct these call-throughs is using the lazyReexport
+/// function.</doc>
+<fun r='_ZN4llvm3orc22LazyCallThroughManager28createNotifyResolvedFunctionET_'/>
+<fun r='_ZN4llvm3orc22LazyCallThroughManager24getCallThroughTrampolineERNS0_8JITDylibENS0_15SymbolStringPtrESt10shared_ptrINS1_22NotifyResolvedFunctionEE'/>
+<fun r='_ZN4llvm3orc22LazyCallThroughManagerC1ERNS0_16ExecutionSessionEmSt10unique_ptrINS0_14TrampolinePoolESt14default_deleteIS5_EE'/>
+<fun r='_ZN4llvm3orc22LazyCallThroughManager19callThroughToSymbolEm'/>
+<fun r='_ZN4llvm3orc22LazyCallThroughManager17setTrampolinePoolESt10unique_ptrINS0_14TrampolinePoolESt14default_deleteIS3_EE'/>
+<mbr r='llvm::orc::LazyCallThroughManager::LCTMMutex' o='0' t='std::mutex'/>
+<mbr r='llvm::orc::LazyCallThroughManager::ES' o='320' t='llvm::orc::ExecutionSession &amp;'/>
+<mbr r='llvm::orc::LazyCallThroughManager::ErrorHandlerAddr' o='384' t='JITTargetAddress'/>
+<mbr r='llvm::orc::LazyCallThroughManager::TP' o='448' t='std::unique_ptr&lt;TrampolinePool&gt;'/>
+<mbr r='llvm::orc::LazyCallThroughManager::Reexports' o='512' t='ReexportsMap'/>
+<mbr r='llvm::orc::LazyCallThroughManager::Notifiers' o='896' t='NotifiersMap'/>

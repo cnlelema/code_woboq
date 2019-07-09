@@ -1,0 +1,13 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='93' ll='99' type='bool llvm::TargetInstrInfo::isTriviallyReMaterializable(const llvm::MachineInstr &amp; MI, AliasAnalysis * AA = nullptr) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='88'>/// Return true if the instruction is trivially rematerializable, meaning it
+  /// has no side effects and requires no operands that aren&apos;t always available.
+  /// This means the only allowed uses are constants and unallocatable physical
+  /// registers so that the instructions result is independent of the place
+  /// in the function.</doc>
+<use f='llvm/llvm/lib/CodeGen/CalcSpillWeights.cpp' l='131' u='c' c='_ZL18isRematerializableRKN4llvm12LiveIntervalERKNS_13LiveIntervalsEPNS_10VirtRegMapERKNS_15TargetInstrInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeEdit.cpp' l='75' u='c' c='_ZN4llvm13LiveRangeEdit21checkRematerializableEPNS_6VNInfoEPKNS_12MachineInstrEPNS_9AAResultsE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeEdit.cpp' l='361' u='c' c='_ZN4llvm13LiveRangeEdit16eliminateDeadDefEPNS_12MachineInstrERNS_9SetVectorIPNS_12LiveIntervalENS_11SmallVectorIS5_Lj8EEENS_11SmallPtrSetIS5_Lj8EEEEEPNS_9AAResultsE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineLICM.cpp' l='1219' u='c' c='_ZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineLICM.cpp' l='1272' u='c' c='_ZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/RegAllocGreedy.cpp' l='1823' u='c' c='_ZN12_GLOBAL__N_18RAGreedy23isSplitBenefitWorthCostERN4llvm12LiveIntervalE'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterCoalescer.cpp' l='1224' u='c' c='_ZN12_GLOBAL__N_117RegisterCoalescer23reMaterializeTrivialDefERKN4llvm13CoalescerPairEPNS1_12MachineInstrERb'/>

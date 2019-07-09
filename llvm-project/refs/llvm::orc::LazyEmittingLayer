@@ -1,0 +1,15 @@
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/LazyEmittingLayer.h' l='41' ll='255'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/LazyEmittingLayer.h' l='35'>/// Lazy-emitting IR layer.
+///
+///   This layer accepts LLVM IR Modules (via addModule) but does not
+/// immediately emit them the layer below. Instead, emission to the base layer
+/// is deferred until the first time the client requests the address (via
+/// JITSymbol::getAddress) for a symbol contained in this layer.</doc>
+<mbr r='llvm::orc::LazyEmittingLayer::BaseLayer' t='BaseLayerT &amp;'/>
+<mbr r='llvm::orc::LazyEmittingLayer::ModuleMap' t='std::map&lt;VModuleKey, std::unique_ptr&lt;EmissionDeferredModule&gt; &gt;'/>
+<fun r='_ZN4llvm3orc17LazyEmittingLayerC1ERT_'/>
+<fun r='_ZN4llvm3orc17LazyEmittingLayer9addModuleEmSt10unique_ptrINS_6ModuleESt14default_deleteIS3_EE'/>
+<fun r='_ZN4llvm3orc17LazyEmittingLayer12removeModuleEm'/>
+<fun r='_ZN4llvm3orc17LazyEmittingLayer10findSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb'/>
+<fun r='_ZN4llvm3orc17LazyEmittingLayer12findSymbolInEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb'/>
+<fun r='_ZN4llvm3orc17LazyEmittingLayer15emitAndFinalizeEm'/>

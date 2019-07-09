@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/Support/CrashRecoveryContext.h' l='81' type='bool llvm::CrashRecoveryContext::RunSafely(function_ref&lt;void ()&gt; Fn)'/>
+<use f='llvm/llvm/include/llvm/Support/CrashRecoveryContext.h' l='83' u='c' c='_ZN4llvm20CrashRecoveryContext9RunSafelyEPFvPvES1_'/>
+<doc f='llvm/llvm/include/llvm/Support/CrashRecoveryContext.h' l='74'>/// Execute the provided callback function (with the given arguments) in
+  /// a protected context.
+  ///
+  /// \return True if the function completed successfully, and false if the
+  /// function crashed (or HandleCrash was called explicitly). Clients should
+  /// make as little assumptions as possible about the program state when
+  /// RunSafely has returned false.</doc>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='8723' u='c' c='_ZN5clang9RunSafelyERN4llvm20CrashRecoveryContextENS0_12function_refIFvvEEEj'/>
+<def f='llvm/llvm/lib/Support/CrashRecoveryContext.cpp' l='346' ll='360' type='bool llvm::CrashRecoveryContext::RunSafely(function_ref&lt;void ()&gt; Fn)'/>
+<use f='llvm/llvm/lib/Support/CrashRecoveryContext.cpp' l='401' u='c' c='_ZL26RunSafelyOnThread_DispatchPv'/>
+<use f='llvm/llvm/unittests/Support/CrashRecoveryTest.cpp' l='30' u='c' c='_ZN28CrashRecoveryTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CrashRecoveryTest.cpp' l='32' u='c' c='_ZN28CrashRecoveryTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CrashRecoveryTest.cpp' l='33' u='c' c='_ZN28CrashRecoveryTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CrashRecoveryTest.cpp' l='50' u='c' c='_ZN30CrashRecoveryTest_Cleanup_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CrashRecoveryTest.cpp' l='58' u='c' c='_ZN30CrashRecoveryTest_Cleanup_Test8TestBodyEv'/>

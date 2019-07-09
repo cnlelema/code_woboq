@@ -1,0 +1,109 @@
+<inh f='llvm/lld/ELF/SyntheticSections.h' l='38' c='lld::elf::SyntheticSection'/>
+<def f='llvm/lld/ELF/Arch/Cheri.h' l='189' ll='275'/>
+<size>504</size>
+<doc f='llvm/lld/ELF/Arch/Cheri.h' l='118'>// General cap table structure (for CapSize = 2*WordSize):
+//
+// +-------------------------------+
+// |       Small Index Cap 1       |
+// +-------------------------------+
+// |               :               |
+// +-------------------------------+
+// |       Small Index Cap m       |
+// +-------------------------------+
+// |       Large Index Cap 1       |
+// +-------------------------------+
+// |               :               |
+// +-------------------------------+
+// |       Large Index Cap n       |
+// +---------------+---------------+
+// | Dyn TLS Mod 1 | Dyn TLS Off 2 |
+// +---------------+---------------+
+// |               :               |
+// +---------------+---------------+
+// | Dyn TLS Mod p | Dyn TLS Off p |
+// +---------------+---------------+
+// |  IE TPREL 1   |  IE TPREL 2   |
+// +---------------+---------------+
+// |               :               |
+// +---------------+---------------+
+// | IE TPREL q-1  |  IE TPREL q   |
+// +-------------------------------+
+//
+// If we are compiling with per function/per file tables it starts as follows:
+// +---------------------------------------+
+// | Small Index Cap 1 for File/Function 1 |
+// +---------------------------------------+
+// |                :                      |
+// +---------------------------------------+
+// | Small Index Cap m for File/Function 1 |
+// +---------------------------------------+
+// | Large Index Cap 1 for File/Function 1 |
+// +---------------------------------------+
+// |                :                      |
+// +---------------------------------------+
+// | Large Index Cap n for File/Function 1 |
+// +---------------------------------------+
+// | Small Index Cap 1 for File/Function 2 |
+// +---------------------------------------+
+// |                :                      |
+// +---------------------------------------+
+// | Small Index Cap m for File/Function 2 |
+// +---------------------------------------+
+// | Large Index Cap 1 for File/Function 2 |
+// +---------------------------------------+
+// |                :                      |
+// +---------------------------------------+
+// | Large Index Cap n for File/Function 2 |
+// +---------------------------------------+
+// |                :                      |
+// |                :                      |
+// +---------------------------------------+
+// | Small Index Cap 1 for File/Function N |
+// +---------------------------------------+
+// |                :                      |
+// +---------------------------------------+
+// | Small Index Cap m for File/Function N |
+// +---------------------------------------+
+// | Large Index Cap 1 for File/Function N |
+// +---------------------------------------+
+// |                :                      |
+// +---------------------------------------+
+// | Large Index Cap n for File/Function N |
+// +---------------------------------------+
+// TODO: TLS caps also need to be per file/function</doc>
+<fun r='_ZN3lld3elf20CheriCapTableSectionC1Ev'/>
+<fun r='_ZN3lld3elf20CheriCapTableSection8addEntryERNS0_6SymbolENS0_7RelExprEPNS0_16InputSectionBaseEm'/>
+<fun r='_ZN3lld3elf20CheriCapTableSection14addDynTlsEntryERNS0_6SymbolE'/>
+<fun r='_ZN3lld3elf20CheriCapTableSection11addTlsIndexEv'/>
+<fun r='_ZN3lld3elf20CheriCapTableSection11addTlsEntryERNS0_6SymbolE'/>
+<fun r='_ZNK3lld3elf20CheriCapTableSection8getIndexERKNS0_6SymbolEPNS0_16InputSectionBaseEm'/>
+<fun r='_ZNK3lld3elf20CheriCapTableSection15getDynTlsOffsetERKNS0_6SymbolE'/>
+<fun r='_ZNK3lld3elf20CheriCapTableSection17getTlsIndexOffsetEv'/>
+<fun r='_ZNK3lld3elf20CheriCapTableSection12getTlsOffsetERKNS0_6SymbolE'/>
+<fun r='_ZNK3lld3elf20CheriCapTableSection8isNeededEv'/>
+<fun r='_ZN3lld3elf20CheriCapTableSection7writeToEPh'/>
+<fun r='_ZN3lld3elf20CheriCapTableSection33assignValuesAndAddCapTableSymbolsEv'/>
+<fun r='_ZNK3lld3elf20CheriCapTableSection7getSizeEv'/>
+<fun r='_ZN3lld3elf20CheriCapTableSection13assignIndicesEmRNS1_11CaptableMapERKN4llvm5TwineE'/>
+<fun r='_ZNK3lld3elf20CheriCapTableSection30getCaptableMapForFileAndOffsetEPNS0_16InputSectionBaseEm'/>
+<fun r='_ZN3lld3elf20CheriCapTableSection30getCaptableMapForFileAndOffsetEPNS0_16InputSectionBaseEm'/>
+<fun r='_ZNK3lld3elf20CheriCapTableSection16nonTlsEntryCountEv'/>
+<mbr r='lld::elf::CheriCapTableSection::PerFileEntries' o='1536' t='llvm::MapVector&lt;InputFile *, CaptableMap&gt;'/>
+<mbr r='lld::elf::CheriCapTableSection::PerFunctionEntries' o='1984' t='llvm::MapVector&lt;Symbol *, CaptableMap&gt;'/>
+<mbr r='lld::elf::CheriCapTableSection::GlobalEntries' o='2432' t='lld::elf::CheriCapTableSection::CaptableMap'/>
+<mbr r='lld::elf::CheriCapTableSection::DynTlsEntries' o='2944' t='lld::elf::CheriCapTableSection::CaptableMap'/>
+<mbr r='lld::elf::CheriCapTableSection::TlsEntries' o='3456' t='lld::elf::CheriCapTableSection::CaptableMap'/>
+<mbr r='lld::elf::CheriCapTableSection::ValuesAssigned' o='3968' t='bool'/>
+<fun r='_ZN3lld3elf20CheriCapTableSectionC1Ev'/>
+<fun r='_ZN3lld3elf20CheriCapTableSection7writeToEPh'/>
+<fun r='_ZN3lld3elf20CheriCapTableSection30getCaptableMapForFileAndOffsetEPNS0_16InputSectionBaseEm'/>
+<fun r='_ZN3lld3elf20CheriCapTableSection8addEntryERNS0_6SymbolENS0_7RelExprEPNS0_16InputSectionBaseEm'/>
+<fun r='_ZN3lld3elf20CheriCapTableSection14addDynTlsEntryERNS0_6SymbolE'/>
+<fun r='_ZN3lld3elf20CheriCapTableSection11addTlsIndexEv'/>
+<fun r='_ZN3lld3elf20CheriCapTableSection11addTlsEntryERNS0_6SymbolE'/>
+<fun r='_ZNK3lld3elf20CheriCapTableSection8getIndexERKNS0_6SymbolEPNS0_16InputSectionBaseEm'/>
+<fun r='_ZNK3lld3elf20CheriCapTableSection15getDynTlsOffsetERKNS0_6SymbolE'/>
+<fun r='_ZNK3lld3elf20CheriCapTableSection17getTlsIndexOffsetEv'/>
+<fun r='_ZNK3lld3elf20CheriCapTableSection12getTlsOffsetERKNS0_6SymbolE'/>
+<fun r='_ZN3lld3elf20CheriCapTableSection13assignIndicesEmRNS1_11CaptableMapERKN4llvm5TwineE'/>
+<fun r='_ZN3lld3elf20CheriCapTableSection33assignValuesAndAddCapTableSymbolsEv'/>

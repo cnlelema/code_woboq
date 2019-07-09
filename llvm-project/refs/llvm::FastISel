@@ -1,0 +1,177 @@
+<def f='llvm/llvm/include/llvm/CodeGen/FastISel.h' l='66' ll='594'/>
+<size>176</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/FastISel.h' l='63'>/// This is a fast-path instruction selection class that generates poor
+/// code and doesn&apos;t support illegal types or non-trivial lowering, but runs
+/// quickly.</doc>
+<mbr r='llvm::FastISel::LocalValueMap' o='64' t='DenseMap&lt;const llvm::Value *, unsigned int&gt;'/>
+<mbr r='llvm::FastISel::FuncInfo' o='320' t='llvm::FunctionLoweringInfo &amp;'/>
+<mbr r='llvm::FastISel::MF' o='384' t='llvm::MachineFunction *'/>
+<mbr r='llvm::FastISel::MRI' o='448' t='llvm::MachineRegisterInfo &amp;'/>
+<mbr r='llvm::FastISel::MFI' o='512' t='llvm::MachineFrameInfo &amp;'/>
+<mbr r='llvm::FastISel::MCP' o='576' t='llvm::MachineConstantPool &amp;'/>
+<mbr r='llvm::FastISel::DbgLoc' o='640' t='llvm::DebugLoc'/>
+<mbr r='llvm::FastISel::TM' o='704' t='const llvm::TargetMachine &amp;'/>
+<mbr r='llvm::FastISel::DL' o='768' t='const llvm::DataLayout &amp;'/>
+<mbr r='llvm::FastISel::TII' o='832' t='const llvm::TargetInstrInfo &amp;'/>
+<mbr r='llvm::FastISel::TLI' o='896' t='const llvm::TargetLowering &amp;'/>
+<mbr r='llvm::FastISel::TRI' o='960' t='const llvm::TargetRegisterInfo &amp;'/>
+<mbr r='llvm::FastISel::LibInfo' o='1024' t='const llvm::TargetLibraryInfo *'/>
+<mbr r='llvm::FastISel::SkipTargetIndependentISel' o='1088' t='bool'/>
+<mbr r='llvm::FastISel::LastLocalValue' o='1152' t='llvm::MachineInstr *'/>
+<mbr r='llvm::FastISel::EmitStartPt' o='1216' t='llvm::MachineInstr *'/>
+<mbr r='llvm::FastISel::LastFlushPoint' o='1280' t='MachineBasicBlock::iterator'/>
+<fun r='_ZN4llvm8FastISelD1Ev'/>
+<fun r='_ZN4llvm8FastISel17getLastLocalValueEv'/>
+<fun r='_ZN4llvm8FastISel17setLastLocalValueEPNS_12MachineInstrE'/>
+<fun r='_ZN4llvm8FastISel13startNewBlockEv'/>
+<fun r='_ZN4llvm8FastISel16finishBasicBlockEv'/>
+<fun r='_ZNK4llvm8FastISel14getCurDebugLocEv'/>
+<fun r='_ZN4llvm8FastISel14lowerArgumentsEv'/>
+<fun r='_ZN4llvm8FastISel17selectInstructionEPKNS_11InstructionE'/>
+<fun r='_ZN4llvm8FastISel14selectOperatorEPKNS_4UserEj'/>
+<fun r='_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE'/>
+<fun r='_ZN4llvm8FastISel17lookUpRegForValueEPKNS_5ValueE'/>
+<fun r='_ZN4llvm8FastISel17getRegForGEPIndexEPKNS_5ValueE'/>
+<fun r='_ZN4llvm8FastISel13tryToFoldLoadEPKNS_8LoadInstEPKNS_11InstructionE'/>
+<fun r='_ZN4llvm8FastISel19tryToFoldLoadIntoMIEPNS_12MachineInstrEjPKNS_8LoadInstE'/>
+<fun r='_ZN4llvm8FastISel17recomputeInsertPtEv'/>
+<fun r='_ZN4llvm8FastISel14removeDeadCodeENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES3_'/>
+<fun r='_ZN4llvm8FastISel19enterLocalValueAreaEv'/>
+<fun r='_ZN4llvm8FastISel19leaveLocalValueAreaENS0_9SavePointE'/>
+<fun r='_ZN4llvm8FastISelC1ERNS_20FunctionLoweringInfoEPKNS_17TargetLibraryInfoEb'/>
+<fun r='_ZN4llvm8FastISel21fastSelectInstructionEPKNS_11InstructionE'/>
+<fun r='_ZN4llvm8FastISel18fastLowerArgumentsEv'/>
+<fun r='_ZN4llvm8FastISel13fastLowerCallERNS0_16CallLoweringInfoE'/>
+<fun r='_ZN4llvm8FastISel22fastLowerIntrinsicCallEPKNS_13IntrinsicInstE'/>
+<fun r='_ZN4llvm8FastISel9fastEmit_ENS_3MVTES1_j'/>
+<fun r='_ZN4llvm8FastISel10fastEmit_rENS_3MVTES1_jjb'/>
+<fun r='_ZN4llvm8FastISel11fastEmit_rrENS_3MVTES1_jjbjb'/>
+<fun r='_ZN4llvm8FastISel11fastEmit_riENS_3MVTES1_jjbm'/>
+<fun r='_ZN4llvm8FastISel12fastEmit_ri_ENS_3MVTEjjbmS1_'/>
+<fun r='_ZN4llvm8FastISel10fastEmit_iENS_3MVTES1_jm'/>
+<fun r='_ZN4llvm8FastISel10fastEmit_fENS_3MVTES1_jPKNS_10ConstantFPE'/>
+<fun r='_ZN4llvm8FastISel13fastEmitInst_EjPKNS_19TargetRegisterClassE'/>
+<fun r='_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEjb'/>
+<fun r='_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjbjb'/>
+<fun r='_ZN4llvm8FastISel16fastEmitInst_rrrEjPKNS_19TargetRegisterClassEjbjbjb'/>
+<fun r='_ZN4llvm8FastISel15fastEmitInst_riEjPKNS_19TargetRegisterClassEjbm'/>
+<fun r='_ZN4llvm8FastISel16fastEmitInst_riiEjPKNS_19TargetRegisterClassEjbmm'/>
+<fun r='_ZN4llvm8FastISel14fastEmitInst_fEjPKNS_19TargetRegisterClassEPKNS_10ConstantFPE'/>
+<fun r='_ZN4llvm8FastISel16fastEmitInst_rriEjPKNS_19TargetRegisterClassEjbjbm'/>
+<fun r='_ZN4llvm8FastISel14fastEmitInst_iEjPKNS_19TargetRegisterClassEm'/>
+<fun r='_ZN4llvm8FastISel26fastEmitInst_extractsubregENS_3MVTEjbj'/>
+<fun r='_ZN4llvm8FastISel18fastEmitZExtFromI1ENS_3MVTEjb'/>
+<fun r='_ZN4llvm8FastISel14fastEmitBranchEPNS_17MachineBasicBlockERKNS_8DebugLocE'/>
+<fun r='_ZN4llvm8FastISel16finishCondBranchEPKNS_10BasicBlockEPNS_17MachineBasicBlockES5_'/>
+<fun r='_ZN4llvm8FastISel14updateValueMapEPKNS_5ValueEjj'/>
+<fun r='_ZN4llvm8FastISel15createResultRegEPKNS_19TargetRegisterClassE'/>
+<fun r='_ZN4llvm8FastISel24constrainOperandRegClassERKNS_11MCInstrDescEjj'/>
+<fun r='_ZN4llvm8FastISel23fastMaterializeConstantEPKNS_8ConstantE'/>
+<fun r='_ZN4llvm8FastISel21fastMaterializeAllocaEPKNS_10AllocaInstE'/>
+<fun r='_ZN4llvm8FastISel24fastMaterializeFloatZeroEPKNS_10ConstantFPE'/>
+<fun r='_ZN4llvm8FastISel17canFoldAddIntoGEPEPKNS_4UserEPKNS_5ValueE'/>
+<fun r='_ZN4llvm8FastISel14hasTrivialKillEPKNS_5ValueE'/>
+<fun r='_ZNK4llvm8FastISel26createMachineMemOperandForEPKNS_11InstructionE'/>
+<fun r='_ZNK4llvm8FastISel20optimizeCmpPredicateEPKNS_7CmpInstE'/>
+<fun r='_ZN4llvm8FastISel11lowerCallToEPKNS_8CallInstEPNS_8MCSymbolEj'/>
+<fun r='_ZN4llvm8FastISel11lowerCallToEPKNS_8CallInstEPKcj'/>
+<fun r='_ZN4llvm8FastISel11lowerCallToERNS0_16CallLoweringInfoE'/>
+<fun r='_ZN4llvm8FastISel22isCommutativeIntrinsicEPKNS_13IntrinsicInstE'/>
+<fun r='_ZN4llvm8FastISel9lowerCallEPKNS_8CallInstE'/>
+<fun r='_ZN4llvm8FastISel14selectBinaryOpEPKNS_4UserEj'/>
+<fun r='_ZN4llvm8FastISel10selectFNegEPKNS_4UserEPKNS_5ValueE'/>
+<fun r='_ZN4llvm8FastISel19selectGetElementPtrEPKNS_4UserE'/>
+<fun r='_ZN4llvm8FastISel14selectStackmapEPKNS_8CallInstE'/>
+<fun r='_ZN4llvm8FastISel16selectPatchpointEPKNS_8CallInstE'/>
+<fun r='_ZN4llvm8FastISel10selectCallEPKNS_4UserE'/>
+<fun r='_ZN4llvm8FastISel19selectIntrinsicCallEPKNS_13IntrinsicInstE'/>
+<fun r='_ZN4llvm8FastISel13selectBitCastEPKNS_4UserE'/>
+<fun r='_ZN4llvm8FastISel10selectCastEPKNS_4UserEj'/>
+<fun r='_ZN4llvm8FastISel18selectExtractValueEPKNS_4UserE'/>
+<fun r='_ZN4llvm8FastISel17selectInsertValueEPKNS_4UserE'/>
+<fun r='_ZN4llvm8FastISel21selectXRayCustomEventEPKNS_8CallInstE'/>
+<fun r='_ZN4llvm8FastISel20selectXRayTypedEventEPKNS_8CallInstE'/>
+<fun r='_ZN4llvm8FastISel31handlePHINodesInSuccessorBlocksEPKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm8FastISel19materializeConstantEPKNS_5ValueENS_3MVTE'/>
+<fun r='_ZN4llvm8FastISel22materializeRegForValueEPKNS_5ValueENS_3MVTE'/>
+<fun r='_ZN4llvm8FastISel18flushLocalValueMapEv'/>
+<fun r='_ZN4llvm8FastISel24removeDeadLocalValueCodeEPNS_12MachineInstrE'/>
+<fun r='_ZN4llvm8FastISel29sinkLocalValueMaterializationERNS_12MachineInstrEjRNS0_12InstOrderMapE'/>
+<mbr r='llvm::FastISel::SavedInsertPt' o='1344' t='MachineBasicBlock::iterator'/>
+<fun r='_ZN4llvm8FastISel19addStackMapLiveVarsERNS_15SmallVectorImplINS_14MachineOperandEEEPKNS_8CallInstEj'/>
+<fun r='_ZN4llvm8FastISel17lowerCallOperandsEPKNS_8CallInstEjjPKNS_5ValueEbRNS0_16CallLoweringInfoE'/>
+<fun r='_ZN4llvm8FastISel13startNewBlockEv'/>
+<fun r='_ZN4llvm8FastISel16finishBasicBlockEv'/>
+<fun r='_ZN4llvm8FastISel14lowerArgumentsEv'/>
+<fun r='_ZN4llvm8FastISel18flushLocalValueMapEv'/>
+<fun r='_ZN4llvm8FastISel29sinkLocalValueMaterializationERNS_12MachineInstrEjRNS0_12InstOrderMapE'/>
+<fun r='_ZN4llvm8FastISel14hasTrivialKillEPKNS_5ValueE'/>
+<fun r='_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE'/>
+<fun r='_ZN4llvm8FastISel19materializeConstantEPKNS_5ValueENS_3MVTE'/>
+<fun r='_ZN4llvm8FastISel22materializeRegForValueEPKNS_5ValueENS_3MVTE'/>
+<fun r='_ZN4llvm8FastISel17lookUpRegForValueEPKNS_5ValueE'/>
+<fun r='_ZN4llvm8FastISel14updateValueMapEPKNS_5ValueEjj'/>
+<fun r='_ZN4llvm8FastISel17getRegForGEPIndexEPKNS_5ValueE'/>
+<fun r='_ZN4llvm8FastISel17recomputeInsertPtEv'/>
+<fun r='_ZN4llvm8FastISel14removeDeadCodeENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES3_'/>
+<fun r='_ZN4llvm8FastISel19enterLocalValueAreaEv'/>
+<fun r='_ZN4llvm8FastISel19leaveLocalValueAreaENS0_9SavePointE'/>
+<fun r='_ZN4llvm8FastISel14selectBinaryOpEPKNS_4UserEj'/>
+<fun r='_ZN4llvm8FastISel19selectGetElementPtrEPKNS_4UserE'/>
+<fun r='_ZN4llvm8FastISel19addStackMapLiveVarsERNS_15SmallVectorImplINS_14MachineOperandEEEPKNS_8CallInstEj'/>
+<fun r='_ZN4llvm8FastISel14selectStackmapEPKNS_8CallInstE'/>
+<fun r='_ZN4llvm8FastISel17lowerCallOperandsEPKNS_8CallInstEjjPKNS_5ValueEbRNS0_16CallLoweringInfoE'/>
+<fun r='_ZN4llvm8FastISel16selectPatchpointEPKNS_8CallInstE'/>
+<fun r='_ZN4llvm8FastISel21selectXRayCustomEventEPKNS_8CallInstE'/>
+<fun r='_ZN4llvm8FastISel20selectXRayTypedEventEPKNS_8CallInstE'/>
+<fun r='_ZN4llvm8FastISel11lowerCallToEPKNS_8CallInstEPKcj'/>
+<fun r='_ZN4llvm8FastISel11lowerCallToEPKNS_8CallInstEPNS_8MCSymbolEj'/>
+<fun r='_ZN4llvm8FastISel11lowerCallToERNS0_16CallLoweringInfoE'/>
+<fun r='_ZN4llvm8FastISel9lowerCallEPKNS_8CallInstE'/>
+<fun r='_ZN4llvm8FastISel10selectCallEPKNS_4UserE'/>
+<fun r='_ZN4llvm8FastISel19selectIntrinsicCallEPKNS_13IntrinsicInstE'/>
+<fun r='_ZN4llvm8FastISel10selectCastEPKNS_4UserEj'/>
+<fun r='_ZN4llvm8FastISel13selectBitCastEPKNS_4UserE'/>
+<fun r='_ZN4llvm8FastISel24removeDeadLocalValueCodeEPNS_12MachineInstrE'/>
+<fun r='_ZN4llvm8FastISel17selectInstructionEPKNS_11InstructionE'/>
+<fun r='_ZN4llvm8FastISel14fastEmitBranchEPNS_17MachineBasicBlockERKNS_8DebugLocE'/>
+<fun r='_ZN4llvm8FastISel16finishCondBranchEPKNS_10BasicBlockEPNS_17MachineBasicBlockES5_'/>
+<fun r='_ZN4llvm8FastISel10selectFNegEPKNS_4UserEPKNS_5ValueE'/>
+<fun r='_ZN4llvm8FastISel18selectExtractValueEPKNS_4UserE'/>
+<fun r='_ZN4llvm8FastISel14selectOperatorEPKNS_4UserEj'/>
+<fun r='_ZN4llvm8FastISelC1ERNS_20FunctionLoweringInfoEPKNS_17TargetLibraryInfoEb'/>
+<fun r='_ZN4llvm8FastISelD1Ev'/>
+<fun r='_ZN4llvm8FastISel18fastLowerArgumentsEv'/>
+<fun r='_ZN4llvm8FastISel13fastLowerCallERNS0_16CallLoweringInfoE'/>
+<fun r='_ZN4llvm8FastISel22fastLowerIntrinsicCallEPKNS_13IntrinsicInstE'/>
+<fun r='_ZN4llvm8FastISel9fastEmit_ENS_3MVTES1_j'/>
+<fun r='_ZN4llvm8FastISel10fastEmit_rENS_3MVTES1_jjb'/>
+<fun r='_ZN4llvm8FastISel11fastEmit_rrENS_3MVTES1_jjbjb'/>
+<fun r='_ZN4llvm8FastISel10fastEmit_iENS_3MVTES1_jm'/>
+<fun r='_ZN4llvm8FastISel10fastEmit_fENS_3MVTES1_jPKNS_10ConstantFPE'/>
+<fun r='_ZN4llvm8FastISel11fastEmit_riENS_3MVTES1_jjbm'/>
+<fun r='_ZN4llvm8FastISel12fastEmit_ri_ENS_3MVTEjjbmS1_'/>
+<fun r='_ZN4llvm8FastISel15createResultRegEPKNS_19TargetRegisterClassE'/>
+<fun r='_ZN4llvm8FastISel24constrainOperandRegClassERKNS_11MCInstrDescEjj'/>
+<fun r='_ZN4llvm8FastISel13fastEmitInst_EjPKNS_19TargetRegisterClassE'/>
+<fun r='_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEjb'/>
+<fun r='_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjbjb'/>
+<fun r='_ZN4llvm8FastISel16fastEmitInst_rrrEjPKNS_19TargetRegisterClassEjbjbjb'/>
+<fun r='_ZN4llvm8FastISel15fastEmitInst_riEjPKNS_19TargetRegisterClassEjbm'/>
+<fun r='_ZN4llvm8FastISel16fastEmitInst_riiEjPKNS_19TargetRegisterClassEjbmm'/>
+<fun r='_ZN4llvm8FastISel14fastEmitInst_fEjPKNS_19TargetRegisterClassEPKNS_10ConstantFPE'/>
+<fun r='_ZN4llvm8FastISel16fastEmitInst_rriEjPKNS_19TargetRegisterClassEjbjbm'/>
+<fun r='_ZN4llvm8FastISel14fastEmitInst_iEjPKNS_19TargetRegisterClassEm'/>
+<fun r='_ZN4llvm8FastISel26fastEmitInst_extractsubregENS_3MVTEjbj'/>
+<fun r='_ZN4llvm8FastISel18fastEmitZExtFromI1ENS_3MVTEjb'/>
+<fun r='_ZN4llvm8FastISel31handlePHINodesInSuccessorBlocksEPKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm8FastISel13tryToFoldLoadEPKNS_8LoadInstEPKNS_11InstructionE'/>
+<fun r='_ZN4llvm8FastISel17canFoldAddIntoGEPEPKNS_4UserEPKNS_5ValueE'/>
+<fun r='_ZNK4llvm8FastISel26createMachineMemOperandForEPKNS_11InstructionE'/>
+<fun r='_ZNK4llvm8FastISel20optimizeCmpPredicateEPKNS_7CmpInstE'/>
+<ovr f='llvm/llvm/lib/Target/AArch64/AArch64FastISel.cpp' l='79' c='(anonymousnamespace)::AArch64FastISel'/>
+<ovr f='llvm/llvm/lib/Target/ARM/ARMFastISel.cpp' l='108' c='(anonymousnamespace)::ARMFastISel'/>
+<ovr f='llvm/llvm/lib/Target/Mips/MipsFastISel.cpp' l='82' c='(anonymousnamespace)::MipsFastISel'/>
+<ovr f='llvm/llvm/lib/Target/PowerPC/PPCFastISel.cpp' l='86' c='(anonymousnamespace)::PPCFastISel'/>
+<ovr f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyFastISel.cpp' l='48' c='(anonymousnamespace)::WebAssemblyFastISel'/>
+<ovr f='llvm/llvm/lib/Target/X86/X86FastISel.cpp' l='47' c='(anonymousnamespace)::X86FastISel'/>

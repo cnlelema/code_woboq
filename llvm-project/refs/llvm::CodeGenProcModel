@@ -1,0 +1,40 @@
+<def f='llvm/llvm/utils/TableGen/CodeGenSchedule.h' l='214' ll='277'/>
+<size>248</size>
+<doc f='llvm/llvm/utils/TableGen/CodeGenSchedule.h' l='200'>// Processor model.
+//
+// ModelName is a unique name used to name an instantiation of MCSchedModel.
+//
+// ModelDef is NULL for inferred Models. This happens when a processor defines
+// an itinerary but no machine model. If the processor defines neither a machine
+// model nor itinerary, then ModelDef remains pointing to NoModel. NoModel has
+// the special &quot;NoModel&quot; field set to true.
+//
+// ItinsDef always points to a valid record definition, but may point to the
+// default NoItineraries. NoItineraries has an empty list of InstrItinData
+// records.
+//
+// ItinDefList orders this processor&apos;s InstrItinData records by SchedClass idx.</doc>
+<mbr r='llvm::CodeGenProcModel::Index' o='0' t='unsigned int'/>
+<mbr r='llvm::CodeGenProcModel::ModelName' o='64' t='std::string'/>
+<mbr r='llvm::CodeGenProcModel::ModelDef' o='320' t='llvm::Record *'/>
+<mbr r='llvm::CodeGenProcModel::ItinsDef' o='384' t='llvm::Record *'/>
+<mbr r='llvm::CodeGenProcModel::ItinDefList' o='448' t='RecVec'/>
+<mbr r='llvm::CodeGenProcModel::ItinRWDefs' o='640' t='RecVec'/>
+<mbr r='llvm::CodeGenProcModel::UnsupportedFeaturesDefs' o='832' t='RecVec'/>
+<mbr r='llvm::CodeGenProcModel::WriteResDefs' o='1024' t='RecVec'/>
+<mbr r='llvm::CodeGenProcModel::ReadAdvanceDefs' o='1216' t='RecVec'/>
+<mbr r='llvm::CodeGenProcModel::ProcResourceDefs' o='1408' t='RecVec'/>
+<mbr r='llvm::CodeGenProcModel::RegisterFiles' o='1600' t='std::vector&lt;CodeGenRegisterFile&gt;'/>
+<mbr r='llvm::CodeGenProcModel::RetireControlUnit' o='1792' t='llvm::Record *'/>
+<mbr r='llvm::CodeGenProcModel::LoadQueue' o='1856' t='llvm::Record *'/>
+<mbr r='llvm::CodeGenProcModel::StoreQueue' o='1920' t='llvm::Record *'/>
+<fun r='_ZN4llvm16CodeGenProcModelC1EjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6RecordES8_'/>
+<fun r='_ZNK4llvm16CodeGenProcModel14hasItinerariesEv'/>
+<fun r='_ZNK4llvm16CodeGenProcModel18hasInstrSchedModelEv'/>
+<fun r='_ZNK4llvm16CodeGenProcModel21hasExtraProcessorInfoEv'/>
+<fun r='_ZNK4llvm16CodeGenProcModel18getProcResourceIdxEPNS_6RecordE'/>
+<fun r='_ZNK4llvm16CodeGenProcModel13isUnsupportedERKNS_18CodeGenInstructionE'/>
+<fun r='_ZNK4llvm16CodeGenProcModel4dumpEv'/>
+<fun r='_ZNK4llvm16CodeGenProcModel18getProcResourceIdxEPNS_6RecordE'/>
+<fun r='_ZNK4llvm16CodeGenProcModel13isUnsupportedERKNS_18CodeGenInstructionE'/>
+<fun r='_ZNK4llvm16CodeGenProcModel4dumpEv'/>

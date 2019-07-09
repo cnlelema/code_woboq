@@ -1,0 +1,20 @@
+<def f='llvm/llvm/include/llvm/CodeGen/RegisterPressure.h' l='103' ll='132'/>
+<size>4</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/RegisterPressure.h' l='95'>/// Capture a change in pressure for a single pressure set. UnitInc may be
+/// expressed in terms of upward or downward pressure depending on the client
+/// and will be dynamically adjusted for current liveness.
+///
+/// Pressure increments are tiny, typically 1-2 units, and this is only for
+/// heuristics, so we don&apos;t check UnitInc overflow. Instead, we may have a
+/// higher level assert that pressure is consistent within a region. We also
+/// effectively ignore dead defs which don&apos;t affect heuristics much.</doc>
+<mbr r='llvm::PressureChange::PSetID' o='0' t='uint16_t'/>
+<mbr r='llvm::PressureChange::UnitInc' o='16' t='int16_t'/>
+<fun r='_ZN4llvm14PressureChangeC1Ev'/>
+<fun r='_ZN4llvm14PressureChangeC1Ej'/>
+<fun r='_ZNK4llvm14PressureChange7isValidEv'/>
+<fun r='_ZNK4llvm14PressureChange7getPSetEv'/>
+<fun r='_ZNK4llvm14PressureChange12getPSetOrMaxEv'/>
+<fun r='_ZNK4llvm14PressureChange10getUnitIncEv'/>
+<fun r='_ZN4llvm14PressureChange10setUnitIncEi'/>
+<fun r='_ZNK4llvm14PressureChangeeqERKS0_'/>

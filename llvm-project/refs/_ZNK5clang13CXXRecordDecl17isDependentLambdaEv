@@ -1,0 +1,13 @@
+<def f='llvm/clang/include/clang/AST/DeclCXX.h' l='1979' ll='1981' type='bool clang::CXXRecordDecl::isDependentLambda() const'/>
+<doc f='llvm/clang/include/clang/AST/DeclCXX.h' l='1968'>/// Determine whether this lambda expression was known to be dependent
+  /// at the time it was created, even if its context does not appear to be
+  /// dependent.
+  ///
+  /// This flag is a workaround for an issue with parsing, where default
+  /// arguments are parsed before their enclosing function declarations have
+  /// been created. This means that any lambda expressions within those
+  /// default arguments will have as their DeclContext the context enclosing
+  /// the function declaration, which may be non-dependent even when the
+  /// function declaration itself is dependent. This flag indicates when we
+  /// know that the lambda is dependent despite that.</doc>
+<use f='llvm/clang/lib/AST/DeclBase.cpp' l='1092' u='c' c='_ZNK5clang11DeclContext18isDependentContextEv'/>

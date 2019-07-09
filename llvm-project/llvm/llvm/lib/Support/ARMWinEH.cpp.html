@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ARMWinEH.cpp source code [llvm/llvm/lib/Support/ARMWinEH.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/Support/ARMWinEH.cpp'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>llvm</a>/<a href='../..'>llvm</a>/<a href='..'>lib</a>/<a href='./'>Support</a>/<a href='ARMWinEH.cpp.html'>ARMWinEH.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- ARMWinEH.cpp - Windows on ARM EH Support Functions ------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#include <a href="../../include/llvm/Support/ARMWinEH.h.html">"llvm/Support/ARMWinEH.h"</a></u></td></tr>
+<tr><th id="10">10</th><td><u>#include <a href="../../include/llvm/Support/raw_ostream.h.html">"llvm/Support/raw_ostream.h"</a></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="13">13</th><td><b>namespace</b> <span class="namespace">ARM</span> {</td></tr>
+<tr><th id="14">14</th><td><b>namespace</b> <span class="namespace">WinEH</span> {</td></tr>
+<tr><th id="15">15</th><td><span class="namespace">std::</span><a class="type" href="../../../../include/c++/7/bits/stl_pair.h.html#std::pair" title='std::pair' data-ref="std::pair">pair</a>&lt;<a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint16_t" title='uint16_t' data-type='__uint16_t' data-ref="uint16_t">uint16_t</a>, <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a>&gt; <dfn class="decl def" id="_ZN4llvm3ARM5WinEH17SavedRegisterMaskERKNS1_15RuntimeFunctionE" title='llvm::ARM::WinEH::SavedRegisterMask' data-ref="_ZN4llvm3ARM5WinEH17SavedRegisterMaskERKNS1_15RuntimeFunctionE">SavedRegisterMask</dfn>(<em>const</em> <a class="type" href="../../include/llvm/Support/ARMWinEH.h.html#llvm::ARM::WinEH::RuntimeFunction" title='llvm::ARM::WinEH::RuntimeFunction' data-ref="llvm::ARM::WinEH::RuntimeFunction">RuntimeFunction</a> &amp;<dfn class="local col7 decl" id="17RF" title='RF' data-type='const llvm::ARM::WinEH::RuntimeFunction &amp;' data-ref="17RF">RF</dfn>) {</td></tr>
+<tr><th id="16">16</th><td>  <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col8 decl" id="18NumRegisters" title='NumRegisters' data-type='uint8_t' data-ref="18NumRegisters">NumRegisters</dfn> = <a class="local col7 ref" href="#17RF" title='RF' data-ref="17RF">RF</a>.<a class="ref" href="../../include/llvm/Support/ARMWinEH.h.html#_ZNK4llvm3ARM5WinEH15RuntimeFunction3RegEv" title='llvm::ARM::WinEH::RuntimeFunction::Reg' data-ref="_ZNK4llvm3ARM5WinEH15RuntimeFunction3RegEv">Reg</a>();</td></tr>
+<tr><th id="17">17</th><td>  <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col9 decl" id="19RegistersVFP" title='RegistersVFP' data-type='uint8_t' data-ref="19RegistersVFP">RegistersVFP</dfn> = <a class="local col7 ref" href="#17RF" title='RF' data-ref="17RF">RF</a>.<a class="ref" href="../../include/llvm/Support/ARMWinEH.h.html#_ZNK4llvm3ARM5WinEH15RuntimeFunction1REv" title='llvm::ARM::WinEH::RuntimeFunction::R' data-ref="_ZNK4llvm3ARM5WinEH15RuntimeFunction1REv">R</a>();</td></tr>
+<tr><th id="18">18</th><td>  <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col0 decl" id="20LinkRegister" title='LinkRegister' data-type='uint8_t' data-ref="20LinkRegister">LinkRegister</dfn> = <a class="local col7 ref" href="#17RF" title='RF' data-ref="17RF">RF</a>.<a class="ref" href="../../include/llvm/Support/ARMWinEH.h.html#_ZNK4llvm3ARM5WinEH15RuntimeFunction1LEv" title='llvm::ARM::WinEH::RuntimeFunction::L' data-ref="_ZNK4llvm3ARM5WinEH15RuntimeFunction1LEv">L</a>();</td></tr>
+<tr><th id="19">19</th><td>  <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col1 decl" id="21ChainedFrame" title='ChainedFrame' data-type='uint8_t' data-ref="21ChainedFrame">ChainedFrame</dfn> = <a class="local col7 ref" href="#17RF" title='RF' data-ref="17RF">RF</a>.<a class="ref" href="../../include/llvm/Support/ARMWinEH.h.html#_ZNK4llvm3ARM5WinEH15RuntimeFunction1CEv" title='llvm::ARM::WinEH::RuntimeFunction::C' data-ref="_ZNK4llvm3ARM5WinEH15RuntimeFunction1CEv">C</a>();</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td>  <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint16_t" title='uint16_t' data-type='__uint16_t' data-ref="uint16_t">uint16_t</a> <dfn class="local col2 decl" id="22GPRMask" title='GPRMask' data-type='uint16_t' data-ref="22GPRMask">GPRMask</dfn> = (<a class="local col1 ref" href="#21ChainedFrame" title='ChainedFrame' data-ref="21ChainedFrame">ChainedFrame</a> &lt;&lt; <var>11</var>) | (<a class="local col0 ref" href="#20LinkRegister" title='LinkRegister' data-ref="20LinkRegister">LinkRegister</a> &lt;&lt; <var>14</var>);</td></tr>
+<tr><th id="22">22</th><td>  <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col3 decl" id="23VFPMask" title='VFPMask' data-type='uint32_t' data-ref="23VFPMask">VFPMask</dfn> = <var>0</var>;</td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td>  <b>if</b> (<a class="local col9 ref" href="#19RegistersVFP" title='RegistersVFP' data-ref="19RegistersVFP">RegistersVFP</a>)</td></tr>
+<tr><th id="25">25</th><td>    <a class="local col3 ref" href="#23VFPMask" title='VFPMask' data-ref="23VFPMask">VFPMask</a> |= (((<var>1</var> &lt;&lt; ((<a class="local col8 ref" href="#18NumRegisters" title='NumRegisters' data-ref="18NumRegisters">NumRegisters</a> + <var>1</var>) % <var>8</var>)) - <var>1</var>) &lt;&lt; <var>8</var>);</td></tr>
+<tr><th id="26">26</th><td>  <b>else</b></td></tr>
+<tr><th id="27">27</th><td>    <a class="local col2 ref" href="#22GPRMask" title='GPRMask' data-ref="22GPRMask">GPRMask</a> |= (((<var>1</var> &lt;&lt; (<a class="local col8 ref" href="#18NumRegisters" title='NumRegisters' data-ref="18NumRegisters">NumRegisters</a> + <var>1</var>)) - <var>1</var>) &lt;&lt; <var>4</var>);</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td>  <b>if</b> (<a class="ref" href="../../include/llvm/Support/ARMWinEH.h.html#_ZN4llvm3ARM5WinEH15PrologueFoldingERKNS1_15RuntimeFunctionE" title='llvm::ARM::WinEH::PrologueFolding' data-ref="_ZN4llvm3ARM5WinEH15PrologueFoldingERKNS1_15RuntimeFunctionE">PrologueFolding</a>(<a class="local col7 ref" href="#17RF" title='RF' data-ref="17RF">RF</a>))</td></tr>
+<tr><th id="30">30</th><td>    <a class="local col2 ref" href="#22GPRMask" title='GPRMask' data-ref="22GPRMask">GPRMask</a> |= (((<var>1</var> &lt;&lt; (<a class="local col8 ref" href="#18NumRegisters" title='NumRegisters' data-ref="18NumRegisters">NumRegisters</a> + <var>1</var>)) - <var>1</var>) &lt;&lt; (~<a class="local col7 ref" href="#17RF" title='RF' data-ref="17RF">RF</a>.<a class="ref" href="../../include/llvm/Support/ARMWinEH.h.html#_ZNK4llvm3ARM5WinEH15RuntimeFunction11StackAdjustEv" title='llvm::ARM::WinEH::RuntimeFunction::StackAdjust' data-ref="_ZNK4llvm3ARM5WinEH15RuntimeFunction11StackAdjustEv">StackAdjust</a>() &amp; <var>0x3</var>));</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td>  <b>return</b> <span class="namespace">std::</span><a class="ref" href="../../../../include/c++/7/bits/stl_pair.h.html#_ZSt9make_pairOT_OT0_" title='std::make_pair' data-ref="_ZSt9make_pairOT_OT0_">make_pair</a>(<span class='refarg'><a class="local col2 ref" href="#22GPRMask" title='GPRMask' data-ref="22GPRMask">GPRMask</a></span>, <span class='refarg'><a class="local col3 ref" href="#23VFPMask" title='VFPMask' data-ref="23VFPMask">VFPMask</a></span>);</td></tr>
+<tr><th id="33">33</th><td>}</td></tr>
+<tr><th id="34">34</th><td>}</td></tr>
+<tr><th id="35">35</th><td>}</td></tr>
+<tr><th id="36">36</th><td>}</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

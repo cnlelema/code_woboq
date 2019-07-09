@@ -1,0 +1,66 @@
+<dec f='llvm/clang/include/clang/AST/ASTContext.h' l='1322' type='clang::QualType clang::ASTContext::getLValueReferenceType(clang::QualType T, bool SpelledAsLValue = true, clang::ASTContext::PointerInterpretationKind PIK = PIK_Default) const'/>
+<doc f='llvm/clang/include/clang/AST/ASTContext.h' l='1320'>/// Return the uniqued reference to the type for an lvalue reference
+  /// to the specified type.</doc>
+<def f='llvm/clang/lib/AST/ASTContext.cpp' l='3056' ll='3095' type='clang::QualType clang::ASTContext::getLValueReferenceType(clang::QualType T, bool SpelledAsLValue = true, clang::ASTContext::PointerInterpretationKind PIK = PIK_Default) const'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='3080' u='c' c='_ZNK5clang10ASTContext22getLValueReferenceTypeENS_8QualTypeEbNS0_25PointerInterpretationKindE'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='3276' u='c' c='_ZNK5clang10ASTContext27getVariableArrayDecayedTypeENS_8QualTypeE'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='9661' u='c' c='_ZL17DecodeTypeFromStrRPKcRKN5clang10ASTContextERNS3_19GetBuiltinTypeErrorERbb'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='9780' u='c' c='_ZL17DecodeTypeFromStrRPKcRKN5clang10ASTContextERNS3_19GetBuiltinTypeErrorERbb'/>
+<doc f='llvm/clang/lib/AST/ASTContext.cpp' l='3054'>/// getLValueReferenceType - Return the uniqued reference to the type for an
+/// lvalue reference to the specified type.</doc>
+<use f='llvm/clang/lib/AST/ASTDiagnostic.cpp' l='193' u='c' c='_ZL7DesugarRN5clang10ASTContextENS_8QualTypeERb'/>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='1041' u='c' c='_ZN5clang15ASTNodeImporter24VisitLValueReferenceTypeEPKNS_19LValueReferenceTypeE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='4667' u='c' c='_ZNK5clang4Expr20getRealReferenceTypeERNS_10ASTContextEb'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='4644' u='c' c='_ZL16checkDynamicTypeRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprERKNS_6LValueE11AccessKindsb'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='12070' u='c' c='_ZNK5clang4Expr16EvaluateAsLValueERNS0_10EvalResultERKNS_10ASTContextE'/>
+<use f='llvm/clang/lib/AST/ExprObjC.cpp' l='312' u='c' c='_ZNK5clang15ObjCMessageExpr17getCallReturnTypeERNS_10ASTContextE'/>
+<use f='llvm/clang/lib/AST/MicrosoftMangle.cpp' l='2238' u='c' c='_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler18mangleFunctionTypeEPKN5clang12FunctionTypeEPKNS1_12FunctionDeclEbb'/>
+<use f='llvm/clang/lib/AST/QualTypeNames.cpp' l='407' u='c' c='_ZN5clang8TypeName21getFullyQualifiedTypeENS_8QualTypeERKNS_10ASTContextEb'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='858' u='c' c='_ZN12_GLOBAL__N_122SimpleTransformVisitor24VisitLValueReferenceTypeEPKN5clang19LValueReferenceTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='1820' u='c' c='_ZN5clang7CodeGen11CGDebugInfo21CollectTemplateParamsEPKNS_21TemplateParameterListEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS5_6DIFileE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='313' u='c' c='_ZL21getCanonicalParamTypeRN5clang10ASTContextENS_8QualTypeE'/>
+<use f='llvm/clang/lib/CodeGen/MicrosoftCXXABI.cpp' l='3942' u='c' c='_ZN12_GLOBAL__N_115MicrosoftCXXABI23getAddrOfCXXCtorClosureEPKN5clang18CXXConstructorDeclENS1_11CXXCtorTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaCoroutine.cpp' l='89' u='c' c='_ZL17lookupPromiseTypeRN5clang4SemaEPKNS_12FunctionDeclENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='6614' u='c' c='_ZN5clang4Sema37CheckExplicitlyDefaultedSpecialMemberEPNS_13CXXMethodDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='11891' u='c' c='_ZN5clang4Sema29DeclareImplicitCopyAssignmentEPNS_13CXXRecordDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='11896' u='c' c='_ZN5clang4Sema29DeclareImplicitCopyAssignmentEPNS_13CXXRecordDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='12215' u='c' c='_ZN5clang4Sema29DeclareImplicitMoveAssignmentEPNS_13CXXRecordDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='12593' u='c' c='_ZN5clang4Sema30DeclareImplicitCopyConstructorEPNS_13CXXRecordDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='14300' u='c' c='_ZN5clang4Sema14BuildVAArgExprENS_14SourceLocationEPNS_4ExprEPNS_14TypeSourceInfoES1_'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='15822' u='c' c='_ZL23captureInCapturedRegionPN5clang4sema23CapturedRegionScopeInfoEPNS_7VarDeclENS_14SourceLocationEbRNS_8QualTypeES7_bRNS_4SemaEb'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='15868' u='c' c='_ZL15captureInLambdaPN5clang4sema15LambdaScopeInfoEPNS_7VarDeclENS_14SourceLocationEbRNS_8QualTypeES7_bNS_4Sema14TryCaptureKindES5_bRS8_b'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='16057' u='c' c='_ZN5clang4Sema18tryCaptureVariableEPNS_7VarDeclENS_14SourceLocationENS0_14TryCaptureKindES3_bRNS_8QualTypeES6_PKj'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='17360' u='c' c='_ZN12_GLOBAL__N_121RebuildUnknownAnyExpr13VisitCallExprEPN5clang8CallExprE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='17445' u='c' c='_ZN12_GLOBAL__N_121RebuildUnknownAnyExpr21VisitImplicitCastExprEPN5clang16ImplicitCastExprE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='5583' u='c' c='_ZL19TryClassUnificationRN5clang4SemaEPNS_4ExprES3_NS_14SourceLocationERbRNS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='7960' u='c' c='_ZN5clang22InitializationSequence7PerformERNS_4SemaERKNS_17InitializedEntityERKNS_18InitializationKindEN4llvm15MutableArrayRefIPNS_4ExprEEEPNS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='3284' u='c' c='_ZL16buildCaptureDeclRN5clang4SemaEPNS_14IdentifierInfoEPNS_4ExprEbb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='7858' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder35addPlusPlusMinusMinusStyleOverloadsEN5clang8QualTypeEbb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='7858' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder35addPlusPlusMinusMinusStyleOverloadsEN5clang8QualTypeEbb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='7869' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder35addPlusPlusMinusMinusStyleOverloadsEN5clang8QualTypeEbb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='7879' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder35addPlusPlusMinusMinusStyleOverloadsEN5clang8QualTypeEbb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='7885' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder35addPlusPlusMinusMinusStyleOverloadsEN5clang8QualTypeEbb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='8440' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder29addAssignmentPointerOverloadsEb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='8440' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder29addAssignmentPointerOverloadsEb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='8451' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder29addAssignmentPointerOverloadsEb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='8460' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder29addAssignmentPointerOverloadsEb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='8467' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder29addAssignmentPointerOverloadsEb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='8487' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder29addAssignmentPointerOverloadsEb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='8487' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder29addAssignmentPointerOverloadsEb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='8500' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder29addAssignmentPointerOverloadsEb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='8509' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder29addAssignmentPointerOverloadsEb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='8516' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder29addAssignmentPointerOverloadsEb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='8559' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder32addAssignmentArithmeticOverloadsEb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='8578' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder32addAssignmentArithmeticOverloadsEb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='8585' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder32addAssignmentArithmeticOverloadsEb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='8623' u='c' c='_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder30addAssignmentIntegralOverloadsEv'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='10545' u='c' c='_ZL22NoteSurrogateCandidateRN5clang4SemaEPNS_17OverloadCandidateE'/>
+<use f='llvm/clang/lib/Sema/SemaStmt.cpp' l='2722' u='c' c='_ZL39DiagnoseForRangeReferenceVariableCopiesRN5clang4SemaEPKNS_7VarDeclENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='3613' u='c' c='_ZL41AdjustFunctionParmAndArgTypesForDeductionRN5clang4SemaEPNS_21TemplateParameterListEjRNS_8QualTypeES5_PNS_4ExprERj'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='4686' u='c' c='_ZL30AddImplicitObjectParameterTypeRN5clang10ASTContextEPNS_13CXXMethodDeclERN4llvm15SmallVectorImplINS_8QualTypeEEE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='2092' u='c' c='_ZN5clang4Sema18BuildReferenceTypeENS_8QualTypeEbNS_14SourceLocationENS_15DeclarationNameE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='6474' u='c' c='_ZN12_GLOBAL__N_121FunctionTypeUnwrapper4wrapERN5clang10ASTContextEPKNS1_4TypeEj'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='7516' u='c' c='_ZL25HandleCHERICapabilityAttrRN5clang8QualTypeERN12_GLOBAL__N_119TypeProcessingStateE16TypeAttrLocationRNS_10ParsedAttrE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='8540' u='c' c='_ZL18getDecltypeForExprRN5clang4SemaEPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='8556' u='c' c='_ZL18getDecltypeForExprRN5clang4SemaEPNS_4ExprE'/>
+<use f='llvm/clang/lib/Serialization/ASTReader.cpp' l='6005' u='c' c='_ZN5clang9ASTReader14readTypeRecordEj'/>

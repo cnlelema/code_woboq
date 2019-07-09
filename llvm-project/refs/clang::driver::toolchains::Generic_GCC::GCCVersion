@@ -1,0 +1,30 @@
+<def f='llvm/clang/lib/Driver/ToolChains/Gnu.h' l='156' ll='178'/>
+<size>144</size>
+<doc f='llvm/clang/lib/Driver/ToolChains/Gnu.h' l='141'>/// Struct to store and manipulate GCC versions.
+  ///
+  /// We rely on assumptions about the form and structure of GCC version
+  /// numbers: they consist of at most three &apos;.&apos;-separated components, and each
+  /// component is a non-negative integer except for the last component. For
+  /// the last component we are very flexible in order to tolerate release
+  /// candidates or &apos;x&apos; wildcards.
+  ///
+  /// Note that the ordering established among GCCVersions is based on the
+  /// preferred version string to use. For example we prefer versions without
+  /// a hard-coded patch number to those with a hard coded patch number.
+  ///
+  /// Currently this doesn&apos;t provide any logic for textual suffixes to patches
+  /// in the way that (for example) Debian&apos;s version format does. If that ever
+  /// becomes necessary, it can be added.</doc>
+<mbr r='clang::driver::toolchains::Generic_GCC::GCCVersion::Text' o='0' t='std::string'/>
+<mbr r='clang::driver::toolchains::Generic_GCC::GCCVersion::Major' o='256' t='int'/>
+<mbr r='clang::driver::toolchains::Generic_GCC::GCCVersion::Minor' o='288' t='int'/>
+<mbr r='clang::driver::toolchains::Generic_GCC::GCCVersion::Patch' o='320' t='int'/>
+<mbr r='clang::driver::toolchains::Generic_GCC::GCCVersion::MajorStr' o='384' t='std::string'/>
+<mbr r='clang::driver::toolchains::Generic_GCC::GCCVersion::MinorStr' o='640' t='std::string'/>
+<mbr r='clang::driver::toolchains::Generic_GCC::GCCVersion::PatchSuffix' o='896' t='std::string'/>
+<fun r='_ZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersion11isOlderThanEiiiN4llvm9StringRefE'/>
+<fun r='_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_'/>
+<fun r='_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersiongtERKS3_'/>
+<fun r='_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionleERKS3_'/>
+<fun r='_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersiongeERKS3_'/>

@@ -1,0 +1,12 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='371' ll='375' type='llvm::MachineInstr * llvm::TargetInstrInfo::convertToThreeAddress(MachineFunction::iterator &amp; MFI, llvm::MachineInstr &amp; MI, llvm::LiveVariables * LV) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='361'>/// This method must be implemented by targets that
+  /// set the M_CONVERTIBLE_TO_3_ADDR flag.  When this flag is set, the target
+  /// may be able to convert a two-address instruction into one or more true
+  /// three-address instructions on demand.  This allows the X86 target (for
+  /// example) to convert ADD and SHL instructions into LEA instructions if they
+  /// would require register copies due to two-addressness.
+  ///
+  /// This method returns a null pointer if the transformation cannot be
+  /// performed, otherwise it returns the last new instruction.
+  ///</doc>
+<use f='llvm/llvm/lib/CodeGen/TwoAddressInstructionPass.cpp' l='736' u='c' c='_ZN12_GLOBAL__N_125TwoAddressInstructionPass18convertInstTo3AddrERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_jjj'/>

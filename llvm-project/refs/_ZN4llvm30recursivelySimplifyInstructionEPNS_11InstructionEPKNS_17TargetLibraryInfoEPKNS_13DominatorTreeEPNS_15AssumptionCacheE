@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/include/llvm/Analysis/InstructionSimplify.h' l='288' type='bool llvm::recursivelySimplifyInstruction(llvm::Instruction * I, const llvm::TargetLibraryInfo * TLI = nullptr, const llvm::DominatorTree * DT = nullptr, llvm::AssumptionCache * AC = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/InstructionSimplify.h' l='282'>/// Recursively attempt to simplify an instruction.
+///
+/// This routine uses SimplifyInstruction to simplify &apos;I&apos;, and if successful
+/// replaces uses of &apos;I&apos; with the simplified value. It then recurses on each
+/// of the users impacted. It returns true if any simplifications were
+/// performed.</doc>
+<def f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='5320' ll='5325' type='bool llvm::recursivelySimplifyInstruction(llvm::Instruction * I, const llvm::TargetLibraryInfo * TLI = nullptr, const llvm::DominatorTree * DT = nullptr, llvm::AssumptionCache * AC = nullptr)'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='663' u='c' c='_ZN4llvm28RemovePredecessorAndSimplifyEPNS_10BasicBlockES1_PNS_14DomTreeUpdaterE'/>

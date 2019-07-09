@@ -1,0 +1,68 @@
+<def f='llvm/llvm/include/llvm/IR/PassManager.h' l='488' ll='546' type='llvm::PreservedAnalyses llvm::PassManager::run(IRUnitT &amp; IR, AnalysisManagerT &amp; AM, ExtraArgTs... ExtraArgs)'/>
+<dec f='llvm/llvm/include/llvm/Analysis/CGSCCPassManager.h' l='136' type='llvm::PreservedAnalyses llvm::PassManager&lt;llvm::LazyCallGraph::SCC, llvm::AnalysisManager&lt;LazyCallGraph::SCC, llvm::LazyCallGraph &amp;&gt;, llvm::LazyCallGraph &amp;, llvm::CGSCCUpdateResult &amp;&gt;::run(LazyCallGraph::SCC &amp; InitialC, CGSCCAnalysisManager &amp; AM, llvm::LazyCallGraph &amp; G, llvm::CGSCCUpdateResult &amp; UR)'/>
+<dec f='llvm/llvm/include/llvm/Transforms/Scalar/LoopPassManager.h' l='67' type='llvm::PreservedAnalyses llvm::PassManager&lt;llvm::Loop, llvm::AnalysisManager&lt;llvm::Loop, llvm::LoopStandardAnalysisResults &amp;&gt;, llvm::LoopStandardAnalysisResults &amp;, llvm::LPMUpdater &amp;&gt;::run(llvm::Loop &amp; InitialL, LoopAnalysisManager &amp; AM, llvm::LoopStandardAnalysisResults &amp; AnalysisResults, llvm::LPMUpdater &amp; U)'/>
+<use f='llvm/llvm/include/llvm/Transforms/Scalar/LoopPassManager.h' l='284' u='c' c='_ZN4llvm25FunctionToLoopPassAdaptor3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE'/>
+<use f='llvm/clang/lib/CodeGen/BackendUtil.cpp' l='1318' u='c' c='_ZN12_GLOBAL__N_118EmitAssemblyHelper30EmitAssemblyWithNewPassManagerEN5clang13BackendActionESt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EE'/>
+<doc f='llvm/llvm/include/llvm/IR/PassManager.h' l='486'>/// Run all of the passes in this manager over the given unit of IR.
+  /// ExtraArgs are passed to each pass.</doc>
+<doc f='llvm/llvm/include/llvm/Analysis/CGSCCPassManager.h' l='130'>// Explicit specialization and instantiation declarations for the pass manager.
+// See the comments on the definition of the specialization for details on how
+// it differs from the primary template.</doc>
+<doc f='llvm/llvm/include/llvm/Transforms/Scalar/LoopPassManager.h' l='61'>// Explicit specialization and instantiation declarations for the pass manager.
+// See the comments on the definition of the specialization for details on how
+// it differs from the primary template.</doc>
+<def f='llvm/llvm/lib/Analysis/CGSCCPassManager.cpp' l='50' ll='129' type='llvm::PreservedAnalyses llvm::PassManager&lt;llvm::LazyCallGraph::SCC, llvm::AnalysisManager&lt;LazyCallGraph::SCC, llvm::LazyCallGraph &amp;&gt;, llvm::LazyCallGraph &amp;, llvm::CGSCCUpdateResult &amp;&gt;::run(LazyCallGraph::SCC &amp; InitialC, CGSCCAnalysisManager &amp; AM, llvm::LazyCallGraph &amp; G, llvm::CGSCCUpdateResult &amp; UR)'/>
+<doc f='llvm/llvm/lib/Analysis/CGSCCPassManager.cpp' l='48'>/// Explicitly specialize the pass manager run method to handle call graph
+/// updates.</doc>
+<use f='llvm/llvm/lib/FuzzMutate/IRMutator.cpp' l='76' u='c' c='_ZL17eliminateDeadCodeRN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/LTO/LTOBackend.cpp' l='216' u='c' c='_ZN12_GLOBAL__N_1L14runNewPMPassesERN4llvm3lto6ConfigERNS0_6ModuleEPNS0_13TargetMachineEjbPNS0_18ModuleSummaryIndexEPKS8_'/>
+<use f='llvm/llvm/lib/LTO/LTOBackend.cpp' l='261' u='c' c='_ZN12_GLOBAL__N_1L20runNewPMCustomPassesERN4llvm6ModuleEPNS0_13TargetMachineENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b'/>
+<def f='llvm/llvm/lib/Transforms/Scalar/LoopPassManager.cpp' l='22' ll='93' type='llvm::PreservedAnalyses llvm::PassManager&lt;llvm::Loop, llvm::AnalysisManager&lt;llvm::Loop, llvm::LoopStandardAnalysisResults &amp;&gt;, llvm::LoopStandardAnalysisResults &amp;, llvm::LPMUpdater &amp;&gt;::run(llvm::Loop &amp; L, LoopAnalysisManager &amp; AM, llvm::LoopStandardAnalysisResults &amp; AR, llvm::LPMUpdater &amp; U)'/>
+<doc f='llvm/llvm/lib/Transforms/Scalar/LoopPassManager.cpp' l='20'>/// Explicitly specialize the pass manager&apos;s run method to handle loop nest
+/// structure updates.</doc>
+<use f='llvm/llvm/tools/llvm-opt-fuzzer/llvm-opt-fuzzer.cpp' l='154' u='c' c='LLVMFuzzerTestOneInput'/>
+<use f='llvm/llvm/tools/opt/NewPMDriver.cpp' l='359' u='c' c='_ZN4llvm15runPassPipelineENS_9StringRefERNS_6ModuleEPNS_13TargetMachineEPNS_14ToolOutputFileES6_S6_S0_NS_8opt_tool10OutputKindENS7_12VerifierKindEbbbbb'/>
+<use f='llvm/llvm/unittests/Analysis/CGSCCPassManagerTest.cpp' l='324' u='c' c='_ZN12_GLOBAL__N_131CGSCCPassManagerTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/CGSCCPassManagerTest.cpp' l='411' u='c' c='_ZN12_GLOBAL__N_162CGSCCPassManagerTest_TestSCCPassInvalidatesModuleAnalysis_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/CGSCCPassManagerTest.cpp' l='495' u='c' c='_ZN12_GLOBAL__N_178CGSCCPassManagerTest_TestFunctionPassInsideCGSCCInvalidatesModuleAnalysis_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/CGSCCPassManagerTest.cpp' l='536' u='c' c='_ZN12_GLOBAL__N_162CGSCCPassManagerTest_TestModulePassInvalidatesSCCAnalysis_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/CGSCCPassManagerTest.cpp' l='575' u='c' c='_ZN12_GLOBAL__N_162CGSCCPassManagerTest_TestModulePassCanPreserveSCCAnalysis_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/CGSCCPassManagerTest.cpp' l='610' u='c' c='_ZN12_GLOBAL__N_172CGSCCPassManagerTest_TestModulePassInvalidatesSCCAnalysisOnCGChange_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/CGSCCPassManagerTest.cpp' l='656' u='c' c='_ZN12_GLOBAL__N_164CGSCCPassManagerTest_TestSCCPassInvalidatesFunctionAnalysis_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/CGSCCPassManagerTest.cpp' l='704' u='c' c='_ZN12_GLOBAL__N_164CGSCCPassManagerTest_TestSCCPassCanPreserveFunctionAnalysis_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/CGSCCPassManagerTest.cpp' l='750' u='c' c='_ZN12_GLOBAL__N_180CGSCCPassManagerTest_TestModulePassInvalidatesFunctionAnalysisNestedInCGSCC_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/CGSCCPassManagerTest.cpp' l='793' u='c' c='_ZN12_GLOBAL__N_180CGSCCPassManagerTest_TestModulePassCanPreserveFunctionAnalysisNestedInCGSCC_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/CGSCCPassManagerTest.cpp' l='831' u='c' c='_ZN12_GLOBAL__N_190CGSCCPassManagerTest_TestModulePassInvalidatesFunctionAnalysisNestedInCGSCCOnCGChange_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/CGSCCPassManagerTest.cpp' l='1091' u='c' c='_ZN12_GLOBAL__N_158CGSCCPassManagerTest_TestIndirectAnalysisInvalidation_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/CGSCCPassManagerTest.cpp' l='1255' u='c' c='_ZN12_GLOBAL__N_161CGSCCPassManagerTest_TestAnalysisInvalidationCGSCCUpdate_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='480' u='c' c='_ZN12_GLOBAL__N_131ModuleCallbacksTest_Passes_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='514' u='c' c='_ZN12_GLOBAL__N_143ModuleCallbacksTest_InstrumentedPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='545' u='c' c='_ZN12_GLOBAL__N_150ModuleCallbacksTest_InstrumentedSkippedPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='556' u='c' c='_ZN12_GLOBAL__N_133FunctionCallbacksTest_Passes_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='595' u='c' c='_ZN12_GLOBAL__N_145FunctionCallbacksTest_InstrumentedPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='631' u='c' c='_ZN12_GLOBAL__N_152FunctionCallbacksTest_InstrumentedSkippedPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='642' u='c' c='_ZN12_GLOBAL__N_129LoopCallbacksTest_Passes_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='682' u='c' c='_ZN12_GLOBAL__N_141LoopCallbacksTest_InstrumentedPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='726' u='c' c='_ZN12_GLOBAL__N_153LoopCallbacksTest_InstrumentedInvalidatingPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='761' u='c' c='_ZN12_GLOBAL__N_148LoopCallbacksTest_InstrumentedSkippedPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='772' u='c' c='_ZN12_GLOBAL__N_130CGSCCCallbacksTest_Passes_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='811' u='c' c='_ZN12_GLOBAL__N_142CGSCCCallbacksTest_InstrumentedPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='854' u='c' c='_ZN12_GLOBAL__N_154CGSCCCallbacksTest_InstrumentedInvalidatingPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='889' u='c' c='_ZN12_GLOBAL__N_149CGSCCCallbacksTest_InstrumentedSkippedPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='904' u='c' c='_ZN12_GLOBAL__N_142ModuleCallbacksTest_AnalysisUtilities_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='914' u='c' c='_ZN12_GLOBAL__N_137CGSCCCallbacksTest_PassUtilities_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='924' u='c' c='_ZN12_GLOBAL__N_144FunctionCallbacksTest_AnalysisUtilities_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='935' u='c' c='_ZN12_GLOBAL__N_136LoopCallbacksTest_PassUtilities_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='975' u='c' c='_ZN12_GLOBAL__N_146ModuleCallbacksTest_ParseTopLevelPipeline_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassManagerTest.cpp' l='488' u='c' c='_ZN12_GLOBAL__N_126PassManagerTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassManagerTest.cpp' l='574' u='c' c='_ZN12_GLOBAL__N_146PassManagerTest_CustomizedPassManagerArgs_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassManagerTest.cpp' l='762' u='c' c='_ZN12_GLOBAL__N_149PassManagerTest_IndirectAnalysisInvalidation_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Transforms/Scalar/LoopPassManagerTest.cpp' l='371' u='c' c='_ZN12_GLOBAL__N_130LoopPassManagerTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Transforms/Scalar/LoopPassManagerTest.cpp' l='455' u='c' c='_ZN12_GLOBAL__N_163LoopPassManagerTest_FunctionPassInvalidationOfLoopAnalyses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Transforms/Scalar/LoopPassManagerTest.cpp' l='543' u='c' c='_ZN12_GLOBAL__N_161LoopPassManagerTest_ModulePassInvalidationOfLoopAnalyses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Transforms/Scalar/LoopPassManagerTest.cpp' l='665' u='c' c='_ZN12_GLOBAL__N_154LoopPassManagerTest_InvalidationOfBundledAnalyses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Transforms/Scalar/LoopPassManagerTest.cpp' l='767' u='c' c='_ZN12_GLOBAL__N_145LoopPassManagerTest_IndirectInvalidation_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Transforms/Scalar/LoopPassManagerTest.cpp' l='849' u='c' c='_ZN12_GLOBAL__N_154LoopPassManagerTest_IndirectOuterPassInvalidation_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Transforms/Scalar/LoopPassManagerTest.cpp' l='1051' u='c' c='_ZN12_GLOBAL__N_143LoopPassManagerTest_LoopChildInsertion_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Transforms/Scalar/LoopPassManagerTest.cpp' l='1304' u='c' c='_ZN12_GLOBAL__N_142LoopPassManagerTest_LoopPeerInsertion_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Transforms/Scalar/LoopPassManagerTest.cpp' l='1583' u='c' c='_ZN12_GLOBAL__N_137LoopPassManagerTest_LoopDeletion_Test8TestBodyEv'/>

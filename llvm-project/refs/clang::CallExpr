@@ -1,0 +1,71 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<def f='llvm/clang/include/clang/AST/Expr.h' l='2460' ll='2736'/>
+<ovr f='llvm/clang/include/clang/AST/ExprCXX.h' l='77' c='clang::CXXOperatorCallExpr'/>
+<ovr f='llvm/clang/include/clang/AST/ExprCXX.h' l='170' c='clang::CXXMemberCallExpr'/>
+<ovr f='llvm/clang/include/clang/AST/ExprCXX.h' l='218' c='clang::CUDAKernelCallExpr'/>
+<ovr f='llvm/clang/include/clang/AST/ExprCXX.h' l='468' c='clang::UserDefinedLiteral'/>
+<size>24</size>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='2454'>/// CallExpr - Represents a function call (C99 6.5.2.2, C++ [expr.call]).
+/// CallExpr itself represents a normal function call, e.g., &quot;f(x, 2)&quot;,
+/// while its subclasses may represent alternative syntax that (semantically)
+/// results in a function call. For example, CXXOperatorCallExpr is
+/// a subclass for overloaded operator calls that use operator syntax, e.g.,
+/// &quot;str1 + str2&quot; to resolve to a function call.</doc>
+<mbr r='clang::CallExpr::NumArgs' o='128' t='unsigned int'/>
+<mbr r='clang::CallExpr::RParenLoc' o='160' t='clang::SourceLocation'/>
+<fun r='_ZN5clang8CallExpr25updateDependenciesFromArgEPNS_4ExprE'/>
+<fun r='_ZN5clang8CallExpr16getTrailingStmtsEv'/>
+<fun r='_ZNK5clang8CallExpr16getTrailingStmtsEv'/>
+<fun r='_ZN5clang8CallExpr23offsetToTrailingObjectsENS_4Stmt9StmtClassE'/>
+<smbr r='clang::CallExpr::NotADL' t='const clang::CallExpr::ADLCallKind'/>
+<smbr r='clang::CallExpr::UsesADL' t='const clang::CallExpr::ADLCallKind'/>
+<fun r='_ZN5clang8CallExprC1ENS_4Stmt9StmtClassEPNS_4ExprEN4llvm8ArrayRefIS4_EES7_NS_8QualTypeENS_13ExprValueKindENS_14SourceLocationEjNS0_11ADLCallKindE'/>
+<fun r='_ZN5clang8CallExprC1ENS_4Stmt9StmtClassEjjNS1_10EmptyShellE'/>
+<fun r='_ZN5clang8CallExpr21sizeOfTrailingObjectsEjj'/>
+<fun r='_ZN5clang8CallExpr9getPreArgEj'/>
+<fun r='_ZNK5clang8CallExpr9getPreArgEj'/>
+<fun r='_ZN5clang8CallExpr9setPreArgEjPNS_4StmtE'/>
+<fun r='_ZNK5clang8CallExpr13getNumPreArgsEv'/>
+<fun r='_ZN5clang8CallExpr6CreateERKNS_10ASTContextEPNS_4ExprEN4llvm8ArrayRefIS5_EENS_8QualTypeENS_13ExprValueKindENS_14SourceLocationEjNS0_11ADLCallKindE'/>
+<fun r='_ZN5clang8CallExpr15CreateTemporaryEPvPNS_4ExprENS_8QualTypeENS_13ExprValueKindENS_14SourceLocationENS0_11ADLCallKindE'/>
+<fun r='_ZN5clang8CallExpr11CreateEmptyERKNS_10ASTContextEjNS_4Stmt10EmptyShellE'/>
+<fun r='_ZN5clang8CallExpr9getCalleeEv'/>
+<fun r='_ZNK5clang8CallExpr9getCalleeEv'/>
+<fun r='_ZN5clang8CallExpr9setCalleeEPNS_4ExprE'/>
+<fun r='_ZNK5clang8CallExpr14getADLCallKindEv'/>
+<fun r='_ZN5clang8CallExpr14setADLCallKindENS0_11ADLCallKindE'/>
+<fun r='_ZNK5clang8CallExpr7usesADLEv'/>
+<fun r='_ZN5clang8CallExpr13getCalleeDeclEv'/>
+<fun r='_ZNK5clang8CallExpr13getCalleeDeclEv'/>
+<fun r='_ZN5clang8CallExpr15getDirectCalleeEv'/>
+<fun r='_ZNK5clang8CallExpr15getDirectCalleeEv'/>
+<fun r='_ZNK5clang8CallExpr10getNumArgsEv'/>
+<fun r='_ZN5clang8CallExpr7getArgsEv'/>
+<fun r='_ZNK5clang8CallExpr7getArgsEv'/>
+<fun r='_ZN5clang8CallExpr6getArgEj'/>
+<fun r='_ZNK5clang8CallExpr6getArgEj'/>
+<fun r='_ZN5clang8CallExpr6setArgEjPNS_4ExprE'/>
+<fun r='_ZN5clang8CallExpr13shrinkNumArgsEj'/>
+<fun r='_ZN5clang8CallExpr16setNumArgsUnsafeEj'/>
+<fun r='_ZN5clang8CallExpr9argumentsEv'/>
+<fun r='_ZNK5clang8CallExpr9argumentsEv'/>
+<fun r='_ZN5clang8CallExpr9arg_beginEv'/>
+<fun r='_ZN5clang8CallExpr7arg_endEv'/>
+<fun r='_ZNK5clang8CallExpr9arg_beginEv'/>
+<fun r='_ZNK5clang8CallExpr7arg_endEv'/>
+<fun r='_ZN5clang8CallExpr14getRawSubExprsEv'/>
+<fun r='_ZNK5clang8CallExpr12getNumCommasEv'/>
+<fun r='_ZNK5clang8CallExpr16getBuiltinCalleeEv'/>
+<fun r='_ZNK5clang8CallExpr24isUnevaluatedBuiltinCallERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8CallExpr17getCallReturnTypeERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8CallExpr19getUnusedResultAttrERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8CallExpr19hasUnusedResultAttrERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8CallExpr12getRParenLocEv'/>
+<fun r='_ZN5clang8CallExpr12setRParenLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang8CallExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang8CallExpr9getEndLocEv'/>
+<fun r='_ZNK5clang8CallExpr20isBuiltinAssumeFalseERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8CallExpr15isCallToStdMoveEv'/>
+<fun r='_ZN5clang8CallExpr7classofEPKNS_4StmtE'/>
+<fun r='_ZN5clang8CallExpr8childrenEv'/>
+<fun r='_ZNK5clang8CallExpr8childrenEv'/>

@@ -1,0 +1,15 @@
+<dec f='llvm/clang/include/clang/Lex/Preprocessor.h' l='2244' type='const clang::FileEntry * clang::Preprocessor::getModuleHeaderToIncludeForDiagnostics(clang::SourceLocation IncLoc, clang::Module * M, clang::SourceLocation MLoc)'/>
+<doc f='llvm/clang/include/clang/Lex/Preprocessor.h' l='2233'>/// We want to produce a diagnostic at location IncLoc concerning a
+  /// missing module import.
+  ///
+  /// \param IncLoc The location at which the missing import was detected.
+  /// \param M The desired module.
+  /// \param MLoc A location within the desired module at which some desired
+  ///        effect occurred (eg, where a desired entity was declared).
+  ///
+  /// \return A file that can be #included to import a module containing MLoc.
+  ///         Null if no such file could be determined or if a #include is not
+  ///         appropriate.</doc>
+<def f='llvm/clang/lib/Lex/PPDirectives.cpp' l='611' ll='679' type='const clang::FileEntry * clang::Preprocessor::getModuleHeaderToIncludeForDiagnostics(clang::SourceLocation IncLoc, clang::Module * M, clang::SourceLocation Loc)'/>
+<use f='llvm/clang/lib/Sema/SemaLookup.cpp' l='5246' u='c' c='_ZN5clang4Sema21diagnoseMissingImportENS_14SourceLocationEPNS_9NamedDeclES1_N4llvm8ArrayRefIPNS_6ModuleEEENS0_17MissingImportKindEb'/>
+<use f='llvm/clang/lib/Sema/SemaLookup.cpp' l='5279' u='c' c='_ZN5clang4Sema21diagnoseMissingImportENS_14SourceLocationEPNS_9NamedDeclES1_N4llvm8ArrayRefIPNS_6ModuleEEENS0_17MissingImportKindEb'/>

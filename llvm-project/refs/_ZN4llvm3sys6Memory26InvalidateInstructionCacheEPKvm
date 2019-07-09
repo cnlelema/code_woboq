@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/Support/Memory.h' l='124' type='static void llvm::sys::Memory::InvalidateInstructionCache(const void * Addr, size_t Len)'/>
+<doc f='llvm/llvm/include/llvm/Support/Memory.h' l='121'>/// InvalidateInstructionCache - Before the JIT can run a block of code
+    /// that has been emitted it must invalidate the instruction cache on some
+    /// platforms.</doc>
+<use f='llvm/llvm/lib/ExecutionEngine/JITLink/JITLink.cpp' l='181' u='c' c='_ZZN4llvm7jitlink22InProcessMemoryManager8allocateERKNS_8DenseMapIjNS0_20JITLinkMemoryManager14SegmentRequestENS_12DenseMapInfoIjEENS_6detail12DenseMa7311220'/>
+<use f='llvm/llvm/lib/ExecutionEngine/SectionMemoryManager.cpp' l='224' u='c' c='_ZN4llvm20SectionMemoryManager26invalidateInstructionCacheEv'/>
+<use f='llvm/llvm/lib/Support/Unix/Memory.inc' l='212' u='c' c='_ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj'/>
+<def f='llvm/llvm/lib/Support/Unix/Memory.inc' l='220' ll='265' type='static void llvm::sys::Memory::InvalidateInstructionCache(const void * Addr, size_t Len)'/>
+<doc f='llvm/llvm/lib/Support/Unix/Memory.inc' l='217'>/// InvalidateInstructionCache - Before the JIT can run a block of code
+/// that has been emitted it must invalidate the instruction cache on some
+/// platforms.</doc>

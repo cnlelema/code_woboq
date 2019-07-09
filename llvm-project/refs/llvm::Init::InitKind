@@ -1,0 +1,14 @@
+<def f='llvm/llvm/include/llvm/TableGen/Record.h' l='302' ll='328'/>
+<doc f='llvm/llvm/include/llvm/TableGen/Record.h' l='289'>/// Discriminator enum (for isa&lt;&gt;, dyn_cast&lt;&gt;, et al.)
+  ///
+  /// This enum is laid out by a preorder traversal of the inheritance
+  /// hierarchy, and does not contain an entry for abstract classes, as per
+  /// the recommendation in docs/HowToSetUpLLVMStyleRTTI.rst.
+  ///
+  /// We also explicitly include &quot;first&quot; and &quot;last&quot; values for each
+  /// interior node of the inheritance tree, to make it easier to read the
+  /// corresponding classof().
+  ///
+  /// We could pack these a bit tighter by not having the IK_FirstXXXInit
+  /// and IK_LastXXXInit be their own values, but that would degrade
+  /// readability for really no benefit.</doc>

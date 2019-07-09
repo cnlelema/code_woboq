@@ -1,0 +1,41 @@
+<inh f='llvm/clang/include/clang/AST/Decl.h' l='688' c='clang::DeclaratorDecl'/>
+<def f='llvm/clang/include/clang/AST/DeclCXX.h' l='4049' ll='4074'/>
+<size>1</size>
+<doc f='llvm/clang/include/clang/AST/DeclCXX.h' l='4022'>/// An instance of this class represents the declaration of a property
+/// member.  This is a Microsoft extension to C++, first introduced in
+/// Visual Studio .NET 2003 as a parallel to similar features in C#
+/// and Managed C++.
+///
+/// A property must always be a non-static class member.
+///
+/// A property member superficially resembles a non-static data
+/// member, except preceded by a property attribute:
+///   __declspec(property(get=GetX, put=PutX)) int x;
+/// Either (but not both) of the &apos;get&apos; and &apos;put&apos; names may be omitted.
+///
+/// A reference to a property is always an lvalue.  If the lvalue
+/// undergoes lvalue-to-rvalue conversion, then a getter name is
+/// required, and that member is called with no arguments.
+/// If the lvalue is assigned into, then a setter name is required,
+/// and that member is called with one argument, the value assigned.
+/// Both operations are potentially overloaded.  Compound assignments
+/// are permitted, as are the increment and decrement operators.
+///
+/// The getter and putter methods are permitted to be overloaded,
+/// although their return and parameter types are subject to certain
+/// restrictions according to the type of the property.
+///
+/// A property declared using an incomplete array type may
+/// additionally be subscripted, adding extra parameters to the getter
+/// and putter methods.</doc>
+<mbr r='clang::MSPropertyDecl::GetterId' t='clang::IdentifierInfo *'/>
+<mbr r='clang::MSPropertyDecl::SetterId' t='clang::IdentifierInfo *'/>
+<fun r='_ZN5clang14MSPropertyDeclC1EPNS_11DeclContextENS_14SourceLocationENS_15DeclarationNameENS_8QualTypeEPNS_14TypeSourceInfoES3_PNS_14IdentifierInfoES9_'/>
+<fun r='_ZN5clang14MSPropertyDecl6anchorEv'/>
+<fun r='_ZN5clang14MSPropertyDecl6CreateERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationENS_15DeclarationNameENS_8QualTypeEPNS_14TypeSourceInfoES5_PNS_14IdentifierInfoESB_'/>
+<fun r='_ZN5clang14MSPropertyDecl18CreateDeserializedERNS_10ASTContextEj'/>
+<fun r='_ZN5clang14MSPropertyDecl7classofEPKNS_4DeclE'/>
+<fun r='_ZNK5clang14MSPropertyDecl9hasGetterEv'/>
+<fun r='_ZNK5clang14MSPropertyDecl11getGetterIdEv'/>
+<fun r='_ZNK5clang14MSPropertyDecl9hasSetterEv'/>
+<fun r='_ZNK5clang14MSPropertyDecl11getSetterIdEv'/>

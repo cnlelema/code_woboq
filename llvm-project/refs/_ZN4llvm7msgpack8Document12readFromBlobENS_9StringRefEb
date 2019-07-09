@@ -1,0 +1,22 @@
+<dec f='llvm/llvm/include/llvm/BinaryFormat/MsgPackDocument.h' l='356' type='bool llvm::msgpack::Document::readFromBlob(llvm::StringRef Blob, bool Multi)'/>
+<doc f='llvm/llvm/include/llvm/BinaryFormat/MsgPackDocument.h' l='348'>/// Read a MsgPack document from a binary MsgPack blob.
+  /// The blob data must remain valid for the lifetime of this Document (because
+  /// a string object in the document contains a StringRef into the original
+  /// blob).
+  /// If Multi, then this sets root to an array and adds top-level objects to
+  /// it. If !Multi, then it only reads a single top-level object, even if there
+  /// are more, and sets root to that.
+  /// Returns false if failed due to illegal format.</doc>
+<def f='llvm/llvm/lib/BinaryFormat/MsgPackDocument.cpp' l='76' ll='169' type='bool llvm::msgpack::Document::readFromBlob(llvm::StringRef Blob, bool Multi)'/>
+<doc f='llvm/llvm/lib/BinaryFormat/MsgPackDocument.cpp' l='69'>// Read a document from a binary msgpack blob.
+// The blob data must remain valid for the lifetime of this Document (because a
+// string object in the document contains a StringRef into the original blob).
+// If Multi, then this sets root to an array and adds top-level objects to it.
+// If !Multi, then it only reads a single top-level object, even if there are
+// more, and sets root to that.
+// Returns false if failed due to illegal format.</doc>
+<use f='llvm/llvm/lib/Target/AMDGPU/Utils/AMDGPUPALMetadata.cpp' l='85' u='c' c='_ZN4llvm17AMDGPUPALMetadata18setFromMsgPackBlobENS_9StringRefE'/>
+<use f='llvm/llvm/tools/llvm-readobj/ELFDumper.cpp' l='4509' u='c' c='_ZL13getAMDGPUNotejN4llvm8ArrayRefIhEE'/>
+<use f='llvm/llvm/unittests/BinaryFormat/MsgPackDocumentTest.cpp' l='18' u='c' c='_ZN32MsgPackDocument_TestReadInt_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/BinaryFormat/MsgPackDocumentTest.cpp' l='26' u='c' c='_ZN34MsgPackDocument_TestReadArray_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/BinaryFormat/MsgPackDocumentTest.cpp' l='40' u='c' c='_ZN32MsgPackDocument_TestReadMap_Test8TestBodyEv'/>

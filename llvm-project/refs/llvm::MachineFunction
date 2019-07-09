@@ -1,0 +1,187 @@
+<def f='llvm/llvm/include/llvm/CodeGen/MachineFunction.h' l='222' ll='949'/>
+<size>816</size>
+<mbr r='llvm::MachineFunction::F' o='0' t='const llvm::Function &amp;'/>
+<mbr r='llvm::MachineFunction::Target' o='64' t='const llvm::LLVMTargetMachine &amp;'/>
+<mbr r='llvm::MachineFunction::STI' o='128' t='const llvm::TargetSubtargetInfo *'/>
+<mbr r='llvm::MachineFunction::Ctx' o='192' t='llvm::MCContext &amp;'/>
+<mbr r='llvm::MachineFunction::MMI' o='256' t='llvm::MachineModuleInfo &amp;'/>
+<mbr r='llvm::MachineFunction::RegInfo' o='320' t='llvm::MachineRegisterInfo *'/>
+<mbr r='llvm::MachineFunction::MFInfo' o='384' t='llvm::MachineFunctionInfo *'/>
+<mbr r='llvm::MachineFunction::FrameInfo' o='448' t='llvm::MachineFrameInfo *'/>
+<mbr r='llvm::MachineFunction::ConstantPool' o='512' t='llvm::MachineConstantPool *'/>
+<mbr r='llvm::MachineFunction::JumpTableInfo' o='576' t='llvm::MachineJumpTableInfo *'/>
+<mbr r='llvm::MachineFunction::WasmEHInfo' o='640' t='llvm::WasmEHFuncInfo *'/>
+<mbr r='llvm::MachineFunction::WinEHInfo' o='704' t='llvm::WinEHFuncInfo *'/>
+<mbr r='llvm::MachineFunction::MBBNumbering' o='768' t='std::vector&lt;MachineBasicBlock *&gt;'/>
+<mbr r='llvm::MachineFunction::Allocator' o='960' t='BumpPtrAllocator'/>
+<mbr r='llvm::MachineFunction::InstructionRecycler' o='1792' t='Recycler&lt;llvm::MachineInstr&gt;'/>
+<mbr r='llvm::MachineFunction::OperandRecycler' o='1856' t='ArrayRecycler&lt;llvm::MachineOperand&gt;'/>
+<mbr r='llvm::MachineFunction::BasicBlockRecycler' o='2496' t='Recycler&lt;llvm::MachineBasicBlock&gt;'/>
+<mbr r='llvm::MachineFunction::BasicBlocks' o='2560' t='BasicBlockListType'/>
+<mbr r='llvm::MachineFunction::FunctionNumber' o='2688' t='unsigned int'/>
+<mbr r='llvm::MachineFunction::Alignment' o='2720' t='unsigned int'/>
+<mbr r='llvm::MachineFunction::ExposesReturnsTwice' o='2752' t='bool'/>
+<mbr r='llvm::MachineFunction::HasInlineAsm' o='2760' t='bool'/>
+<mbr r='llvm::MachineFunction::HasWinCFI' o='2768' t='bool'/>
+<mbr r='llvm::MachineFunction::Properties' o='2816' t='llvm::MachineFunctionProperties'/>
+<mbr r='llvm::MachineFunction::PSVManager' o='3008' t='std::unique_ptr&lt;PseudoSourceValueManager&gt;'/>
+<mbr r='llvm::MachineFunction::FrameInstructions' o='3072' t='std::vector&lt;MCCFIInstruction&gt;'/>
+<mbr r='llvm::MachineFunction::LandingPads' o='3264' t='std::vector&lt;LandingPadInfo&gt;'/>
+<mbr r='llvm::MachineFunction::LPadToCallSiteMap' o='3456' t='DenseMap&lt;llvm::MCSymbol *, SmallVector&lt;unsigned int, 4&gt; &gt;'/>
+<mbr r='llvm::MachineFunction::WasmLPadToIndexMap' o='3712' t='DenseMap&lt;const llvm::MachineBasicBlock *, unsigned int&gt;'/>
+<mbr r='llvm::MachineFunction::CallSiteMap' o='3968' t='DenseMap&lt;llvm::MCSymbol *, unsigned int&gt;'/>
+<mbr r='llvm::MachineFunction::CodeViewAnnotations' o='4224' t='std::vector&lt;std::pair&lt;MCSymbol *, MDNode *&gt; &gt;'/>
+<mbr r='llvm::MachineFunction::CodeViewHeapAllocSites' o='4416' t='std::vector&lt;std::tuple&lt;MCSymbol *, MCSymbol *, DIType *&gt; &gt;'/>
+<mbr r='llvm::MachineFunction::CallsEHReturn' o='4608' t='bool'/>
+<mbr r='llvm::MachineFunction::CallsUnwindInit' o='4616' t='bool'/>
+<mbr r='llvm::MachineFunction::HasEHScopes' o='4624' t='bool'/>
+<mbr r='llvm::MachineFunction::HasEHFunclets' o='4632' t='bool'/>
+<mbr r='llvm::MachineFunction::TypeInfos' o='4672' t='std::vector&lt;const GlobalValue *&gt;'/>
+<mbr r='llvm::MachineFunction::FilterIds' o='4864' t='std::vector&lt;unsigned int&gt;'/>
+<mbr r='llvm::MachineFunction::FilterEnds' o='5056' t='std::vector&lt;unsigned int&gt;'/>
+<mbr r='llvm::MachineFunction::PersonalityTypeCache' o='5248' t='llvm::EHPersonality'/>
+<fun r='_ZN4llvm15MachineFunction5clearEv'/>
+<fun r='_ZN4llvm15MachineFunction4initEv'/>
+<mbr r='llvm::MachineFunction::TheDelegate' o='5312' t='llvm::MachineFunction::Delegate *'/>
+<fun r='_ZN4llvm15MachineFunction15handleInsertionERNS_12MachineInstrE'/>
+<fun r='_ZN4llvm15MachineFunction13handleRemovalERNS_12MachineInstrE'/>
+<mbr r='llvm::MachineFunction::VariableDbgInfos' o='5376' t='VariableDbgInfoMapTy'/>
+<fun r='_ZN4llvm15MachineFunctionC1ERKNS_8FunctionERKNS_17LLVMTargetMachineERKNS_19TargetSubtargetInfoEjRNS_17MachineModuleInfoE'/>
+<fun r='_ZN4llvm15MachineFunctionC1ERKS0_'/>
+<fun r='_ZN4llvm15MachineFunctionaSERKS0_'/>
+<fun r='_ZN4llvm15MachineFunctionD1Ev'/>
+<fun r='_ZN4llvm15MachineFunction5resetEv'/>
+<fun r='_ZN4llvm15MachineFunction13resetDelegateEPNS0_8DelegateE'/>
+<fun r='_ZN4llvm15MachineFunction11setDelegateEPNS0_8DelegateE'/>
+<fun r='_ZNK4llvm15MachineFunction6getMMIEv'/>
+<fun r='_ZNK4llvm15MachineFunction10getContextEv'/>
+<fun r='_ZNK4llvm15MachineFunction13getPSVManagerEv'/>
+<fun r='_ZNK4llvm15MachineFunction13getDataLayoutEv'/>
+<fun r='_ZNK4llvm15MachineFunction11getFunctionEv'/>
+<fun r='_ZNK4llvm15MachineFunction7getNameEv'/>
+<fun r='_ZNK4llvm15MachineFunction17getFunctionNumberEv'/>
+<fun r='_ZNK4llvm15MachineFunction9getTargetEv'/>
+<fun r='_ZNK4llvm15MachineFunction12getSubtargetEv'/>
+<fun r='_ZNK4llvm15MachineFunction12getSubtargetEv'/>
+<fun r='_ZN4llvm15MachineFunction10getRegInfoEv'/>
+<fun r='_ZNK4llvm15MachineFunction10getRegInfoEv'/>
+<fun r='_ZN4llvm15MachineFunction12getFrameInfoEv'/>
+<fun r='_ZNK4llvm15MachineFunction12getFrameInfoEv'/>
+<fun r='_ZNK4llvm15MachineFunction16getJumpTableInfoEv'/>
+<fun r='_ZN4llvm15MachineFunction16getJumpTableInfoEv'/>
+<fun r='_ZN4llvm15MachineFunction24getOrCreateJumpTableInfoEj'/>
+<fun r='_ZN4llvm15MachineFunction15getConstantPoolEv'/>
+<fun r='_ZNK4llvm15MachineFunction15getConstantPoolEv'/>
+<fun r='_ZNK4llvm15MachineFunction17getWasmEHFuncInfoEv'/>
+<fun r='_ZN4llvm15MachineFunction17getWasmEHFuncInfoEv'/>
+<fun r='_ZNK4llvm15MachineFunction16getWinEHFuncInfoEv'/>
+<fun r='_ZN4llvm15MachineFunction16getWinEHFuncInfoEv'/>
+<fun r='_ZNK4llvm15MachineFunction12getAlignmentEv'/>
+<fun r='_ZN4llvm15MachineFunction12setAlignmentEj'/>
+<fun r='_ZN4llvm15MachineFunction15ensureAlignmentEj'/>
+<fun r='_ZNK4llvm15MachineFunction19exposesReturnsTwiceEv'/>
+<fun r='_ZN4llvm15MachineFunction22setExposesReturnsTwiceEb'/>
+<fun r='_ZNK4llvm15MachineFunction12hasInlineAsmEv'/>
+<fun r='_ZN4llvm15MachineFunction15setHasInlineAsmEb'/>
+<fun r='_ZNK4llvm15MachineFunction9hasWinCFIEv'/>
+<fun r='_ZN4llvm15MachineFunction12setHasWinCFIEb'/>
+<fun r='_ZNK4llvm15MachineFunction13getPropertiesEv'/>
+<fun r='_ZN4llvm15MachineFunction13getPropertiesEv'/>
+<fun r='_ZN4llvm15MachineFunction7getInfoEv'/>
+<fun r='_ZNK4llvm15MachineFunction7getInfoEv'/>
+<fun r='_ZNK4llvm15MachineFunction16getBlockNumberedEj'/>
+<fun r='_ZNK4llvm15MachineFunction16shouldSplitStackEv'/>
+<fun r='_ZNK4llvm15MachineFunction14getNumBlockIDsEv'/>
+<fun r='_ZN4llvm15MachineFunction14RenumberBlocksEPNS_17MachineBasicBlockE'/>
+<fun r='_ZNK4llvm15MachineFunction5printERNS_11raw_ostreamEPKNS_11SlotIndexesE'/>
+<fun r='_ZNK4llvm15MachineFunction7viewCFGEv'/>
+<fun r='_ZNK4llvm15MachineFunction11viewCFGOnlyEv'/>
+<fun r='_ZNK4llvm15MachineFunction4dumpEv'/>
+<fun r='_ZNK4llvm15MachineFunction6verifyEPNS_4PassEPKcb'/>
+<fun r='_ZN4llvm15MachineFunction16getSublistAccessEPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm15MachineFunction9addLiveInEjPKNS_19TargetRegisterClassE'/>
+<fun r='_ZN4llvm15MachineFunction5beginEv'/>
+<fun r='_ZNK4llvm15MachineFunction5beginEv'/>
+<fun r='_ZN4llvm15MachineFunction3endEv'/>
+<fun r='_ZNK4llvm15MachineFunction3endEv'/>
+<fun r='_ZN4llvm15MachineFunction6rbeginEv'/>
+<fun r='_ZNK4llvm15MachineFunction6rbeginEv'/>
+<fun r='_ZN4llvm15MachineFunction4rendEv'/>
+<fun r='_ZNK4llvm15MachineFunction4rendEv'/>
+<fun r='_ZNK4llvm15MachineFunction4sizeEv'/>
+<fun r='_ZNK4llvm15MachineFunction5emptyEv'/>
+<fun r='_ZNK4llvm15MachineFunction5frontEv'/>
+<fun r='_ZN4llvm15MachineFunction5frontEv'/>
+<fun r='_ZNK4llvm15MachineFunction4backEv'/>
+<fun r='_ZN4llvm15MachineFunction4backEv'/>
+<fun r='_ZN4llvm15MachineFunction9push_backEPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm15MachineFunction10push_frontEPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm15MachineFunction6insertENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_17MachineBasicBlockELb1ELb0EvEELb0ELb0EEEPS4_'/>
+<fun r='_ZN4llvm15MachineFunction6spliceENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_17MachineBasicBlockELb1ELb0EvEELb0ELb0EEES6_'/>
+<fun r='_ZN4llvm15MachineFunction6spliceENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_17MachineBasicBlockELb1ELb0EvEELb0ELb0EEEPS4_'/>
+<fun r='_ZN4llvm15MachineFunction6spliceENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_17MachineBasicBlockELb1ELb0EvEELb0ELb0EEES6_S6_'/>
+<fun r='_ZN4llvm15MachineFunction6removeENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_17MachineBasicBlockELb1ELb0EvEELb0ELb0EEE'/>
+<fun r='_ZN4llvm15MachineFunction6removeEPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm15MachineFunction5eraseENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_17MachineBasicBlockELb1ELb0EvEELb0ELb0EEE'/>
+<fun r='_ZN4llvm15MachineFunction5eraseEPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm15MachineFunction4sortET_'/>
+<fun r='_ZNK4llvm15MachineFunction19getInstructionCountEv'/>
+<fun r='_ZN4llvm15MachineFunction17addToMBBNumberingEPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm15MachineFunction22removeFromMBBNumberingEj'/>
+<fun r='_ZN4llvm15MachineFunction18CreateMachineInstrERKNS_11MCInstrDescERKNS_8DebugLocEb'/>
+<fun r='_ZN4llvm15MachineFunction17CloneMachineInstrEPKNS_12MachineInstrE'/>
+<fun r='_ZN4llvm15MachineFunction23CloneMachineInstrBundleERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKS4_'/>
+<fun r='_ZN4llvm15MachineFunction18DeleteMachineInstrEPNS_12MachineInstrE'/>
+<fun r='_ZN4llvm15MachineFunction23CreateMachineBasicBlockEPKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm15MachineFunction23DeleteMachineBasicBlockEPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsEmjRKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESA_'/>
+<fun r='_ZN4llvm15MachineFunction20getMachineMemOperandEPKNS_17MachineMemOperandElm'/>
+<fun r='_ZN4llvm15MachineFunction20getMachineMemOperandEPKNS_17MachineMemOperandERKNS_9AAMDNodesE'/>
+<fun r='_ZN4llvm15MachineFunction20getMachineMemOperandEPKNS_17MachineMemOperandENS1_5FlagsE'/>
+<fun r='_ZN4llvm15MachineFunction20allocateOperandArrayENS_13ArrayRecyclerINS_14MachineOperandELm8EE8CapacityE'/>
+<fun r='_ZN4llvm15MachineFunction22deallocateOperandArrayENS_13ArrayRecyclerINS_14MachineOperandELm8EE8CapacityEPS2_'/>
+<fun r='_ZN4llvm15MachineFunction15allocateRegMaskEv'/>
+<fun r='_ZN4llvm15MachineFunction17createMIExtraInfoENS_8ArrayRefIPNS_17MachineMemOperandEEEPNS_8MCSymbolES6_'/>
+<fun r='_ZN4llvm15MachineFunction24createExternalSymbolNameENS_9StringRefE'/>
+<fun r='_ZNK4llvm15MachineFunction12getJTISymbolEjRNS_9MCContextEb'/>
+<fun r='_ZNK4llvm15MachineFunction16getPICBaseSymbolEv'/>
+<fun r='_ZNK4llvm15MachineFunction20getFrameInstructionsEv'/>
+<fun r='_ZN4llvm15MachineFunction12addFrameInstERKNS_16MCCFIInstructionE'/>
+<fun r='_ZNK4llvm15MachineFunction13callsEHReturnEv'/>
+<fun r='_ZN4llvm15MachineFunction16setCallsEHReturnEb'/>
+<fun r='_ZNK4llvm15MachineFunction15callsUnwindInitEv'/>
+<fun r='_ZN4llvm15MachineFunction18setCallsUnwindInitEb'/>
+<fun r='_ZNK4llvm15MachineFunction11hasEHScopesEv'/>
+<fun r='_ZN4llvm15MachineFunction14setHasEHScopesEb'/>
+<fun r='_ZNK4llvm15MachineFunction13hasEHFuncletsEv'/>
+<fun r='_ZN4llvm15MachineFunction16setHasEHFuncletsEb'/>
+<fun r='_ZN4llvm15MachineFunction25getOrCreateLandingPadInfoEPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm15MachineFunction15tidyLandingPadsEPNS_8DenseMapIPNS_8MCSymbolEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEEb'/>
+<fun r='_ZNK4llvm15MachineFunction14getLandingPadsEv'/>
+<fun r='_ZN4llvm15MachineFunction9addInvokeEPNS_17MachineBasicBlockEPNS_8MCSymbolES4_'/>
+<fun r='_ZN4llvm15MachineFunction13addLandingPadEPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm15MachineFunction16addCatchTypeInfoEPNS_17MachineBasicBlockENS_8ArrayRefIPKNS_11GlobalValueEEE'/>
+<fun r='_ZN4llvm15MachineFunction17addFilterTypeInfoEPNS_17MachineBasicBlockENS_8ArrayRefIPKNS_11GlobalValueEEE'/>
+<fun r='_ZN4llvm15MachineFunction10addCleanupEPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm15MachineFunction18addSEHCatchHandlerEPNS_17MachineBasicBlockEPKNS_8FunctionEPKNS_12BlockAddressE'/>
+<fun r='_ZN4llvm15MachineFunction20addSEHCleanupHandlerEPNS_17MachineBasicBlockEPKNS_8FunctionE'/>
+<fun r='_ZN4llvm15MachineFunction12getTypeIDForEPKNS_11GlobalValueE'/>
+<fun r='_ZN4llvm15MachineFunction14getFilterIDForERSt6vectorIjSaIjEE'/>
+<fun r='_ZN4llvm15MachineFunction21setCallSiteLandingPadEPNS_8MCSymbolENS_8ArrayRefIjEE'/>
+<fun r='_ZN4llvm15MachineFunction22setWasmLandingPadIndexEPKNS_17MachineBasicBlockEj'/>
+<fun r='_ZNK4llvm15MachineFunction22hasWasmLandingPadIndexEPKNS_17MachineBasicBlockE'/>
+<fun r='_ZNK4llvm15MachineFunction22getWasmLandingPadIndexEPKNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm15MachineFunction21getCallSiteLandingPadEPNS_8MCSymbolE'/>
+<fun r='_ZN4llvm15MachineFunction21hasCallSiteLandingPadEPNS_8MCSymbolE'/>
+<fun r='_ZN4llvm15MachineFunction21setCallSiteBeginLabelEPNS_8MCSymbolEj'/>
+<fun r='_ZNK4llvm15MachineFunction21getCallSiteBeginLabelEPNS_8MCSymbolE'/>
+<fun r='_ZNK4llvm15MachineFunction21hasCallSiteBeginLabelEPNS_8MCSymbolE'/>
+<fun r='_ZN4llvm15MachineFunction21addCodeViewAnnotationEPNS_8MCSymbolEPNS_6MDNodeE'/>
+<fun r='_ZNK4llvm15MachineFunction22getCodeViewAnnotationsEv'/>
+<fun r='_ZN4llvm15MachineFunction24addCodeViewHeapAllocSiteEPNS_12MachineInstrEPNS_6MDNodeE'/>
+<fun r='_ZNK4llvm15MachineFunction25getCodeViewHeapAllocSitesEv'/>
+<fun r='_ZNK4llvm15MachineFunction12getTypeInfosEv'/>
+<fun r='_ZNK4llvm15MachineFunction12getFilterIdsEv'/>
+<fun r='_ZN4llvm15MachineFunction18setVariableDbgInfoEPKNS_15DILocalVariableEPKNS_12DIExpressionEiPKNS_10DILocationE'/>
+<fun r='_ZN4llvm15MachineFunction18getVariableDbgInfoEv'/>
+<fun r='_ZNK4llvm15MachineFunction18getVariableDbgInfoEv'/>

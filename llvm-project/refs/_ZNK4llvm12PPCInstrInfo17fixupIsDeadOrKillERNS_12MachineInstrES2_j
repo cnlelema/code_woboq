@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.h' l='420' type='void llvm::PPCInstrInfo::fixupIsDeadOrKill(llvm::MachineInstr &amp; StartMI, llvm::MachineInstr &amp; EndMI, unsigned int RegNo) const'/>
+<doc f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.h' l='411'>/// Fixup killed/dead flag for register \p RegNo between instructions [\p
+  /// StartMI, \p EndMI]. Some PostRA transformations may violate register
+  /// killed/dead flags semantics, this function can be called to fix up. Before
+  /// calling this function,
+  /// 1. Ensure that \p RegNo liveness is killed after instruction \p EndMI.
+  /// 2. Ensure that there is no new definition between (\p StartMI, \p EndMI)
+  ///    and possible definition for \p RegNo is \p StartMI or \p EndMI.
+  /// 3. Ensure that all instructions between [\p StartMI, \p EndMI] are in same
+  ///    basic block.</doc>
+<def f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp' l='2446' ll='2521' type='void llvm::PPCInstrInfo::fixupIsDeadOrKill(llvm::MachineInstr &amp; StartMI, llvm::MachineInstr &amp; EndMI, unsigned int RegNo) const'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp' l='2771' u='c' c='_ZNK4llvm12PPCInstrInfo22convertToImmediateFormERNS_12MachineInstrEPPS1_'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp' l='3475' u='c' c='_ZNK4llvm12PPCInstrInfo26transformToImmFormFedByAddERNS_12MachineInstrERKNS_12ImmInstrInfoEjS2_b'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp' l='3480' u='c' c='_ZNK4llvm12PPCInstrInfo26transformToImmFormFedByAddERNS_12MachineInstrERKNS_12ImmInstrInfoEjS2_b'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp' l='3623' u='c' c='_ZNK4llvm12PPCInstrInfo25transformToImmFormFedByLIERNS_12MachineInstrERKNS_12ImmInstrInfoEjS2_l'/>

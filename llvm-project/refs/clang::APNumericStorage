@@ -1,0 +1,19 @@
+<def f='llvm/clang/include/clang/AST/Expr.h' l='1324' ll='1347'/>
+<ovr f='llvm/clang/include/clang/AST/Expr.h' l='1349' c='clang::APIntStorage'/>
+<ovr f='llvm/clang/include/clang/AST/Expr.h' l='1357' c='clang::APFloatStorage'/>
+<size>16</size>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='1316'>/// Used by IntegerLiteral/FloatingLiteral to store the numeric without
+/// leaking memory.
+///
+/// For large floats/integers, APFloat/APInt will allocate memory from the heap
+/// to represent these numbers.  Unfortunately, when we use a BumpPtrAllocator
+/// to allocate IntegerLiteral/FloatingLiteral nodes the memory associated with
+/// the APFloat/APInt values will never get freed. APNumericStorage uses
+/// ASTContext&apos;s allocator for memory allocation.</doc>
+<mbr r='clang::APNumericStorage::BitWidth' o='64' t='unsigned int'/>
+<fun r='_ZNK5clang16APNumericStorage13hasAllocationEv'/>
+<fun r='_ZN5clang16APNumericStorageC1ERKS0_'/>
+<fun r='_ZN5clang16APNumericStorageaSERKS0_'/>
+<fun r='_ZN5clang16APNumericStorageC1Ev'/>
+<fun r='_ZNK5clang16APNumericStorage11getIntValueEv'/>
+<fun r='_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContextERKN4llvm5APIntE'/>

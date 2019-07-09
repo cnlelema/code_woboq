@@ -1,0 +1,15 @@
+<dec f='llvm/clang/include/clang/AST/Expr.h' l='241' type='bool clang::Expr::isUnusedResultAWarning(const clang::Expr *&amp; WarnExpr, clang::SourceLocation &amp; Loc, clang::SourceRange &amp; R1, clang::SourceRange &amp; R2, clang::ASTContext &amp; Ctx) const'/>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='237'>/// isUnusedResultAWarning - Return true if this immediate expression should
+  /// be warned about if the result is unused.  If so, fill in expr, location,
+  /// and ranges with expr to warn on and source locations/ranges appropriate
+  /// for a warning.</doc>
+<def f='llvm/clang/lib/AST/Expr.cpp' l='2315' ll='2646' type='bool clang::Expr::isUnusedResultAWarning(const clang::Expr *&amp; WarnE, clang::SourceLocation &amp; Loc, clang::SourceRange &amp; R1, clang::SourceRange &amp; R2, clang::ASTContext &amp; Ctx) const'/>
+<doc f='llvm/clang/lib/AST/Expr.cpp' l='2307'>//===----------------------------------------------------------------------===//
+// Generic Expression Routines
+//===----------------------------------------------------------------------===//
+
+/// isUnusedResultAWarning - Return true if this immediate expression should
+/// be warned about if the result is unused.  If so, fill in Loc and Ranges
+/// with location to warn on and the source range[s] to report with the
+/// warning.</doc>
+<use f='llvm/clang/lib/Sema/SemaStmt.cpp' l='225' u='c' c='_ZN5clang4Sema24DiagnoseUnusedExprResultEPKNS_4StmtE'/>

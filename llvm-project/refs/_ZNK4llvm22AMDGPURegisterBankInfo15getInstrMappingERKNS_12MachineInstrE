@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/lib/Target/AMDGPU/AMDGPURegisterBankInfo.h' l='98' type='const llvm::RegisterBankInfo::InstructionMapping &amp; llvm::AMDGPURegisterBankInfo::getInstrMapping(const llvm::MachineInstr &amp; MI) const'/>
+<inh f='llvm/llvm/include/llvm/CodeGen/GlobalISel/RegisterBankInfo.h' l='677' c='_ZNK4llvm16RegisterBankInfo15getInstrMappingERKNS_12MachineInstrE'/>
+<def f='llvm/llvm/lib/Target/AMDGPU/AMDGPURegisterBankInfo.cpp' l='992' ll='1421' type='const RegisterBankInfo::InstructionMapping &amp; llvm::AMDGPURegisterBankInfo::getInstrMapping(const llvm::MachineInstr &amp; MI) const'/>
+<doc f='llvm/llvm/lib/Target/AMDGPU/AMDGPURegisterBankInfo.cpp' l='986'>///
+/// This function must return a legal mapping, because
+/// AMDGPURegisterBankInfo::getInstrAlternativeMappings() is not called
+/// in RegBankSelect::Mode::Fast.  Any mapping that would cause a
+/// VGPR to SGPR generated is illegal.
+///</doc>

@@ -1,0 +1,707 @@
+<def f='llvm/clang/include/clang/ASTMatchers/ASTMatchersInternal.h' l='96' ll='98' type='ResultT clang::ast_matchers::internal::VariadicFunction::operator()(const ArgT &amp; Arg1, const ArgsT &amp;... Args) const'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='2506' ll='2508' u='c' c='_ZN5clang12ast_matchers11alignOfExprERKNS0_8internal7MatcherINS_24UnaryExprOrTypeTraitExprEEE'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='2506' ll='2508' u='c' c='_ZN5clang12ast_matchers11alignOfExprERKNS0_8internal7MatcherINS_24UnaryExprOrTypeTraitExprEEE'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='2515' ll='2516' u='c' c='_ZN5clang12ast_matchers10sizeOfExprERKNS0_8internal7MatcherINS_24UnaryExprOrTypeTraitExprEEE'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='2515' ll='2516' u='c' c='_ZN5clang12ast_matchers10sizeOfExprERKNS0_8internal7MatcherINS_24UnaryExprOrTypeTraitExprEEE'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='3153' u='c' c='_ZNK5clang12ast_matchers8internal22matcher_callee1Matcher7matchesERKNS_8CallExprEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='3257' u='c' c='_ZNK5clang12ast_matchers8internal24matcher_pointsTo1Matcher7matchesERKNS_8QualTypeEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='3318' u='c' c='_ZNK5clang12ast_matchers8internal26matcher_references1Matcher7matchesERKNS_8QualTypeEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='3916' u='c' c='_ZNK5clang12ast_matchers8internal40matcher_forEachArgumentWithParam0Matcher7matchesERKT_PNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='5177' ll='5178' u='c' c='_ZN5clang12ast_matchers26isInstantiated_getInstanceEv'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='5177' u='c' c='_ZN5clang12ast_matchers26isInstantiated_getInstanceEv'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='5178' u='c' c='_ZN5clang12ast_matchers26isInstantiated_getInstanceEv'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='5179' u='c' c='_ZN5clang12ast_matchers26isInstantiated_getInstanceEv'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='5197' ll='5199' u='c' c='_ZN5clang12ast_matchers37isInTemplateInstantiation_getInstanceEv'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='5198' ll='5199' u='c' c='_ZN5clang12ast_matchers37isInTemplateInstantiation_getInstanceEv'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='5198' u='c' c='_ZN5clang12ast_matchers37isInTemplateInstantiation_getInstanceEv'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='5199' u='c' c='_ZN5clang12ast_matchers37isInTemplateInstantiation_getInstanceEv'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='6319' u='c' c='_ZN5clang12ast_matchers31nullPointerConstant_getInstanceEv'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='6319' u='c' c='_ZN5clang12ast_matchers31nullPointerConstant_getInstanceEv'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='60' u='c'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='60' u='c'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='65' u='c'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='65' u='c'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='69' ll='75' u='c'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='70' u='c'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='71' u='c'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='72' ll='73' u='c'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='74' ll='75' u='c'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='142' u='c' c='_ZN5clang20ExprMutationAnalyzer14tryEachDeclRefEPKNS_4DeclEMS0_FPKNS_4StmtEPKNS_4ExprEE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='157' ll='178' u='c' c='_ZN5clang20ExprMutationAnalyzer13isUnevaluatedEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='162' ll='163' u='c' c='_ZN5clang20ExprMutationAnalyzer13isUnevaluatedEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='164' ll='178' u='c' c='_ZN5clang20ExprMutationAnalyzer13isUnevaluatedEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='167' ll='168' u='c' c='_ZN5clang20ExprMutationAnalyzer13isUnevaluatedEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='172' ll='173' u='c' c='_ZN5clang20ExprMutationAnalyzer13isUnevaluatedEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='176' ll='177' u='c' c='_ZN5clang20ExprMutationAnalyzer13isUnevaluatedEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='208' ll='209' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='213' ll='214' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='218' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='220' ll='229' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='220' ll='221' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='222' ll='224' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='225' ll='229' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='225' ll='229' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='226' ll='227' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='228' ll='229' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='236' ll='239' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='238' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='241' ll='243' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='248' ll='252' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='249' ll='250' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='261' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='264' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='265' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='266' ll='269' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='266' ll='268' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='270' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='276' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='283' ll='284' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='287' ll='290' u='c' c='_ZN5clang20ExprMutationAnalyzer18findDirectMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='299' ll='301' u='c' c='_ZN5clang20ExprMutationAnalyzer18findMemberMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='299' u='c' c='_ZN5clang20ExprMutationAnalyzer18findMemberMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='300' ll='301' u='c' c='_ZN5clang20ExprMutationAnalyzer18findMemberMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='310' u='c' c='_ZN5clang20ExprMutationAnalyzer24findArrayElementMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='319' ll='323' u='c' c='_ZN5clang20ExprMutationAnalyzer16findCastMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='320' ll='321' u='c' c='_ZN5clang20ExprMutationAnalyzer16findCastMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='322' ll='323' u='c' c='_ZN5clang20ExprMutationAnalyzer16findCastMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='330' ll='332' u='c' c='_ZN5clang20ExprMutationAnalyzer16findCastMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='330' ll='331' u='c' c='_ZN5clang20ExprMutationAnalyzer16findCastMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='331' u='c' c='_ZN5clang20ExprMutationAnalyzer16findCastMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='342' ll='345' u='c' c='_ZN5clang20ExprMutationAnalyzer21findRangeLoopMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='343' u='c' c='_ZN5clang20ExprMutationAnalyzer21findRangeLoopMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='355' ll='359' u='c' c='_ZN5clang20ExprMutationAnalyzer21findReferenceMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='357' ll='358' u='c' c='_ZN5clang20ExprMutationAnalyzer21findReferenceMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='367' ll='379' u='c' c='_ZN5clang20ExprMutationAnalyzer21findReferenceMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='368' ll='378' u='c' c='_ZN5clang20ExprMutationAnalyzer21findReferenceMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='371' ll='373' u='c' c='_ZN5clang20ExprMutationAnalyzer21findReferenceMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='377' ll='378' u='c' c='_ZN5clang20ExprMutationAnalyzer21findReferenceMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='378' u='c' c='_ZN5clang20ExprMutationAnalyzer21findReferenceMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='387' u='c' c='_ZN5clang20ExprMutationAnalyzer23findFunctionArgMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='391' ll='395' u='c' c='_ZN5clang20ExprMutationAnalyzer23findFunctionArgMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='391' ll='393' u='c' c='_ZN5clang20ExprMutationAnalyzer23findFunctionArgMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='392' ll='393' u='c' c='_ZN5clang20ExprMutationAnalyzer23findFunctionArgMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='392' ll='393' u='c' c='_ZN5clang20ExprMutationAnalyzer23findFunctionArgMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/ExprMutationAnalyzer.cpp' l='394' ll='395' u='c' c='_ZN5clang20ExprMutationAnalyzer23findFunctionArgMutationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Analysis/RetainSummaryManager.cpp' l='143' u='c' c='_ZL10isSubclassPKN5clang4DeclEN4llvm9StringRefE'/>
+<use f='llvm/clang/unittests/AST/ASTImporterGenericRedeclTest.cpp' l='25' u='c' c='_ZN5clang12ast_matchers8Function10getPatternEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterGenericRedeclTest.cpp' l='34' u='c' c='_ZN5clang12ast_matchers5Class10getPatternEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterGenericRedeclTest.cpp' l='42' u='c' c='_ZN5clang12ast_matchers8Variable10getPatternEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterGenericRedeclTest.cpp' l='55' u='c' c='_ZN5clang12ast_matchers16FunctionTemplate10getPatternEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterGenericRedeclTest.cpp' l='64' u='c' c='_ZN5clang12ast_matchers13ClassTemplate10getPatternEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterGenericRedeclTest.cpp' l='89' u='c' c='_ZN5clang12ast_matchers20FunctionTemplateSpec10getPatternEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterGenericRedeclTest.cpp' l='106' u='c' c='_ZN5clang12ast_matchers17ClassTemplateSpec10getPatternEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='116' ll='117' u='c' c='_ZN5clang12ast_matchers14TestImportBase10testImportERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS7_SaIS7_EES9_SE_RNS0_13MatchVer2709706'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='117' u='c' c='_ZN5clang12ast_matchers14TestImportBase10testImportERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS7_SaIS7_EES9_SE_RNS0_13MatchVer2709706'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='154' u='c' c='_ZN5clang12ast_matchers14TestImportBase12ImportActionC1EN4llvm9StringRefES4_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='256' u='c' c='_ZN5clang12ast_matchers56CanonicalRedeclChain_ShouldBeConsequentWithMatchers_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='266' u='c' c='_ZN5clang12ast_matchers57CanonicalRedeclChain_ShouldBeConsequentWithMatchers2_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='280' u='c' c='_ZN5clang12ast_matchers58CanonicalRedeclChain_ShouldBeSameForAllDeclInTheChain_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='338' u='c' c='_ZN5clang12ast_matchers44RedirectingImporterTest_InterceptImport_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='355' u='c' c='_ZN5clang12ast_matchers52RedirectingImporterTest_InterceptIndirectImport_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='366' ll='367' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportStringLiteral_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='367' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportStringLiteral_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='371' ll='372' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportStringLiteral_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='372' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportStringLiteral_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='376' ll='377' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportStringLiteral_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='377' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportStringLiteral_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='388' u='c' c='_ZN5clang12ast_matchers32ImportExpr_ImportChooseExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='396' u='c' c='_ZN5clang12ast_matchers33ImportExpr_ImportGNUNullExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='396' u='c' c='_ZN5clang12ast_matchers33ImportExpr_ImportGNUNullExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='404' u='c' c='_ZN5clang12ast_matchers43ImportExpr_ImportCXXNullPtrLiteralExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='413' ll='414' u='c' c='_ZN5clang12ast_matchers42ImportExpr_ImportFloatinglLiteralExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='414' u='c' c='_ZN5clang12ast_matchers42ImportExpr_ImportFloatinglLiteralExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='418' ll='419' u='c' c='_ZN5clang12ast_matchers42ImportExpr_ImportFloatinglLiteralExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='419' u='c' c='_ZN5clang12ast_matchers42ImportExpr_ImportFloatinglLiteralExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='427' u='c' c='_ZN5clang12ast_matchers42ImportExpr_ImportImaginaryLiteralExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='437' ll='447' u='c' c='_ZN5clang12ast_matchers41ImportExpr_ImportCompoundLiteralExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='438' ll='447' u='c' c='_ZN5clang12ast_matchers41ImportExpr_ImportCompoundLiteralExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='440' ll='447' u='c' c='_ZN5clang12ast_matchers41ImportExpr_ImportCompoundLiteralExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='442' ll='443' u='c' c='_ZN5clang12ast_matchers41ImportExpr_ImportCompoundLiteralExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='444' ll='445' u='c' c='_ZN5clang12ast_matchers41ImportExpr_ImportCompoundLiteralExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='446' ll='447' u='c' c='_ZN5clang12ast_matchers41ImportExpr_ImportCompoundLiteralExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='455' ll='460' u='c' c='_ZN5clang12ast_matchers33ImportExpr_ImportCXXThisExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='458' ll='460' u='c' c='_ZN5clang12ast_matchers33ImportExpr_ImportCXXThisExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='468' ll='473' u='c' c='_ZN5clang12ast_matchers32ImportExpr_ImportAtomicExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='469' ll='473' u='c' c='_ZN5clang12ast_matchers32ImportExpr_ImportAtomicExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='471' ll='472' u='c' c='_ZN5clang12ast_matchers32ImportExpr_ImportAtomicExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='471' u='c' c='_ZN5clang12ast_matchers32ImportExpr_ImportAtomicExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='473' u='c' c='_ZN5clang12ast_matchers32ImportExpr_ImportAtomicExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='481' ll='485' u='c' c='_ZN5clang12ast_matchers47ImportExpr_ImportLabelDeclAndAddrLabelExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='483' u='c' c='_ZN5clang12ast_matchers47ImportExpr_ImportLabelDeclAndAddrLabelExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='483' u='c' c='_ZN5clang12ast_matchers47ImportExpr_ImportLabelDeclAndAddrLabelExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='485' u='c' c='_ZN5clang12ast_matchers47ImportExpr_ImportLabelDeclAndAddrLabelExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='485' u='c' c='_ZN5clang12ast_matchers47ImportExpr_ImportLabelDeclAndAddrLabelExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='501' ll='508' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportParenListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='501' ll='508' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportParenListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='502' ll='508' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportParenListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='503' ll='508' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportParenListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='503' ll='508' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportParenListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='505' ll='508' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportParenListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='505' ll='508' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportParenListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='506' ll='508' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportParenListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='506' ll='508' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportParenListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='506' ll='508' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportParenListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='516' ll='517' u='c' c='_ZN5clang12ast_matchers28ImportExpr_ImportSwitch_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='517' u='c' c='_ZN5clang12ast_matchers28ImportExpr_ImportSwitch_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='517' u='c' c='_ZN5clang12ast_matchers28ImportExpr_ImportSwitch_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='525' ll='538' u='c' c='_ZN5clang12ast_matchers30ImportExpr_ImportStmtExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='526' ll='538' u='c' c='_ZN5clang12ast_matchers30ImportExpr_ImportStmtExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='530' ll='538' u='c' c='_ZN5clang12ast_matchers30ImportExpr_ImportStmtExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='531' ll='536' u='c' c='_ZN5clang12ast_matchers30ImportExpr_ImportStmtExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='532' ll='536' u='c' c='_ZN5clang12ast_matchers30ImportExpr_ImportStmtExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='536' u='c' c='_ZN5clang12ast_matchers30ImportExpr_ImportStmtExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='546' ll='552' u='c' c='_ZN5clang12ast_matchers41ImportExpr_ImportConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='547' ll='551' u='c' c='_ZN5clang12ast_matchers41ImportExpr_ImportConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='548' u='c' c='_ZN5clang12ast_matchers41ImportExpr_ImportConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='549' u='c' c='_ZN5clang12ast_matchers41ImportExpr_ImportConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='551' u='c' c='_ZN5clang12ast_matchers41ImportExpr_ImportConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='551' u='c' c='_ZN5clang12ast_matchers41ImportExpr_ImportConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='560' ll='573' u='c' c='_ZN5clang12ast_matchers47ImportExpr_ImportBinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='561' ll='573' u='c' c='_ZN5clang12ast_matchers47ImportExpr_ImportBinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='563' ll='566' u='c' c='_ZN5clang12ast_matchers47ImportExpr_ImportBinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='564' ll='565' u='c' c='_ZN5clang12ast_matchers47ImportExpr_ImportBinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='565' u='c' c='_ZN5clang12ast_matchers47ImportExpr_ImportBinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='568' ll='569' u='c' c='_ZN5clang12ast_matchers47ImportExpr_ImportBinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='569' u='c' c='_ZN5clang12ast_matchers47ImportExpr_ImportBinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='571' ll='573' u='c' c='_ZN5clang12ast_matchers47ImportExpr_ImportBinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='573' u='c' c='_ZN5clang12ast_matchers47ImportExpr_ImportBinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='584' ll='597' u='c' c='_ZN5clang12ast_matchers40ImportExpr_ImportDesignatedInitExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='585' ll='597' u='c' c='_ZN5clang12ast_matchers40ImportExpr_ImportDesignatedInitExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='586' ll='589' u='c' c='_ZN5clang12ast_matchers40ImportExpr_ImportDesignatedInitExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='588' u='c' c='_ZN5clang12ast_matchers40ImportExpr_ImportDesignatedInitExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='589' u='c' c='_ZN5clang12ast_matchers40ImportExpr_ImportDesignatedInitExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='590' ll='593' u='c' c='_ZN5clang12ast_matchers40ImportExpr_ImportDesignatedInitExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='592' u='c' c='_ZN5clang12ast_matchers40ImportExpr_ImportDesignatedInitExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='593' u='c' c='_ZN5clang12ast_matchers40ImportExpr_ImportDesignatedInitExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='594' ll='597' u='c' c='_ZN5clang12ast_matchers40ImportExpr_ImportDesignatedInitExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='596' u='c' c='_ZN5clang12ast_matchers40ImportExpr_ImportDesignatedInitExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='597' u='c' c='_ZN5clang12ast_matchers40ImportExpr_ImportDesignatedInitExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='606' ll='611' u='c' c='_ZN5clang12ast_matchers36ImportExpr_ImportPredefinedExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='607' ll='611' u='c' c='_ZN5clang12ast_matchers36ImportExpr_ImportPredefinedExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='610' ll='611' u='c' c='_ZN5clang12ast_matchers36ImportExpr_ImportPredefinedExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='622' ll='637' u='c' c='_ZN5clang12ast_matchers34ImportExpr_ImportInitListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='623' ll='637' u='c' c='_ZN5clang12ast_matchers34ImportExpr_ImportInitListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='625' ll='626' u='c' c='_ZN5clang12ast_matchers34ImportExpr_ImportInitListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='628' ll='632' u='c' c='_ZN5clang12ast_matchers34ImportExpr_ImportInitListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='630' u='c' c='_ZN5clang12ast_matchers34ImportExpr_ImportInitListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='631' ll='632' u='c' c='_ZN5clang12ast_matchers34ImportExpr_ImportInitListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='634' ll='637' u='c' c='_ZN5clang12ast_matchers34ImportExpr_ImportInitListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='636' u='c' c='_ZN5clang12ast_matchers34ImportExpr_ImportInitListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='637' u='c' c='_ZN5clang12ast_matchers34ImportExpr_ImportInitListExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='649' ll='650' u='c' c='_ZN5clang12ast_matchers31ImportExpr_ImportVAArgExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='650' u='c' c='_ZN5clang12ast_matchers31ImportExpr_ImportVAArgExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='659' ll='662' u='c' c='_ZN5clang12ast_matchers38ImportExpr_CXXTemporaryObjectExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='660' ll='662' u='c' c='_ZN5clang12ast_matchers38ImportExpr_CXXTemporaryObjectExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='660' ll='662' u='c' c='_ZN5clang12ast_matchers38ImportExpr_CXXTemporaryObjectExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='661' ll='662' u='c' c='_ZN5clang12ast_matchers38ImportExpr_CXXTemporaryObjectExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='661' ll='662' u='c' c='_ZN5clang12ast_matchers38ImportExpr_CXXTemporaryObjectExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='670' u='c' c='_ZN5clang12ast_matchers32ImportType_ImportAtomicType_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='670' u='c' c='_ZN5clang12ast_matchers32ImportType_ImportAtomicType_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='691' ll='692' u='c' c='_ZN5clang12ast_matchers49ImportExpr_ImportCXXDependentScopeMemberExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='692' u='c' c='_ZN5clang12ast_matchers49ImportExpr_ImportCXXDependentScopeMemberExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='701' ll='702' u='c' c='_ZN5clang12ast_matchers49ImportExpr_ImportCXXDependentScopeMemberExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='702' u='c' c='_ZN5clang12ast_matchers49ImportExpr_ImportCXXDependentScopeMemberExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='713' ll='715' u='c' c='_ZN5clang12ast_matchers39ImportType_ImportTypeAliasTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='714' u='c' c='_ZN5clang12ast_matchers39ImportType_ImportTypeAliasTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='715' u='c' c='_ZN5clang12ast_matchers39ImportType_ImportTypeAliasTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='728' ll='731' u='c' c='_ZN5clang12ast_matchers33ImportDecl_ImportVarTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='729' u='c' c='_ZN5clang12ast_matchers33ImportDecl_ImportVarTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='730' ll='731' u='c' c='_ZN5clang12ast_matchers33ImportDecl_ImportVarTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='730' ll='731' u='c' c='_ZN5clang12ast_matchers33ImportDecl_ImportVarTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='744' ll='745' u='c' c='_ZN5clang12ast_matchers35ImportType_ImportPackExpansion_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='745' u='c' c='_ZN5clang12ast_matchers35ImportType_ImportPackExpansion_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='745' u='c' c='_ZN5clang12ast_matchers35ImportType_ImportPackExpansion_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='762' ll='763' u='c' c='_ZN5clang12ast_matchers53ImportType_ImportDependentTemplateSpecialization_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='762' ll='763' u='c' c='_ZN5clang12ast_matchers53ImportType_ImportDependentTemplateSpecialization_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='763' u='c' c='_ZN5clang12ast_matchers53ImportType_ImportDependentTemplateSpecialization_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='778' u='c' c='_ZN5clang12ast_matchers36ImportExpr_ImportSizeOfPackExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='788' ll='789' u='c' c='_ZN5clang12ast_matchers36ImportExpr_ImportSizeOfPackExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='788' ll='789' u='c' c='_ZN5clang12ast_matchers36ImportExpr_ImportSizeOfPackExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='788' ll='789' u='c' c='_ZN5clang12ast_matchers36ImportExpr_ImportSizeOfPackExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='789' u='c' c='_ZN5clang12ast_matchers36ImportExpr_ImportSizeOfPackExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='808' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportTypeTraitExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='808' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportTypeTraitExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='822' ll='826' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportCXXTypeidExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='823' ll='824' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportCXXTypeidExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='825' ll='826' u='c' c='_ZN5clang12ast_matchers35ImportExpr_ImportCXXTypeidExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='837' ll='839' u='c' c='_ZN5clang12ast_matchers41ImportExpr_ImportTypeTraitExprValDep_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='837' ll='839' u='c' c='_ZN5clang12ast_matchers41ImportExpr_ImportTypeTraitExprValDep_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='838' ll='839' u='c' c='_ZN5clang12ast_matchers41ImportExpr_ImportTypeTraitExprValDep_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='839' u='c' c='_ZN5clang12ast_matchers41ImportExpr_ImportTypeTraitExprValDep_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='850' ll='851' u='c' c='_ZN5clang12ast_matchers38ImportDecl_ImportRecordDeclInFunc_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='850' ll='851' u='c' c='_ZN5clang12ast_matchers38ImportDecl_ImportRecordDeclInFunc_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='851' u='c' c='_ZN5clang12ast_matchers38ImportDecl_ImportRecordDeclInFunc_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='851' u='c' c='_ZN5clang12ast_matchers38ImportDecl_ImportRecordDeclInFunc_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='922' ll='923' u='c' c='_ZN5clang12ast_matchers45ImportExpr_ImportCXXPseudoDestructorExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='923' u='c' c='_ZN5clang12ast_matchers45ImportExpr_ImportCXXPseudoDestructorExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='932' u='c' c='_ZN5clang12ast_matchers31ImportDecl_ImportUsingDecl_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='954' u='c' c='_ZN5clang12ast_matchers37ImportDecl_ImportUsingShadowDecl_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='967' u='c' c='_ZN5clang12ast_matchers42ImportExpr_ImportUnresolvedLookupExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='980' ll='981' u='c' c='_ZN5clang12ast_matchers48ImportExpr_ImportCXXUnresolvedConstructExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='981' u='c' c='_ZN5clang12ast_matchers48ImportExpr_ImportCXXUnresolvedConstructExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='990' ll='991' u='c' c='_ZN5clang12ast_matchers48ImportExpr_ImportCXXUnresolvedConstructExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='991' u='c' c='_ZN5clang12ast_matchers48ImportExpr_ImportCXXUnresolvedConstructExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1003' ll='1004' u='c' c='_ZN5clang12ast_matchers46ImportDecl_ImportTemplatedDeclForTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1003' ll='1004' u='c' c='_ZN5clang12ast_matchers46ImportDecl_ImportTemplatedDeclForTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1004' u='c' c='_ZN5clang12ast_matchers46ImportDecl_ImportTemplatedDeclForTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1009' ll='1010' u='c' c='_ZN5clang12ast_matchers46ImportDecl_ImportTemplatedDeclForTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1009' ll='1010' u='c' c='_ZN5clang12ast_matchers46ImportDecl_ImportTemplatedDeclForTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1010' u='c' c='_ZN5clang12ast_matchers46ImportDecl_ImportTemplatedDeclForTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1023' ll='1024' u='c' c='_ZN5clang12ast_matchers56ImportDecl_ImportClassTemplatePartialSpecialization_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1034' ll='1035' u='c' c='_ZN5clang12ast_matchers35ImportExpr_CXXOperatorCallExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1034' ll='1035' u='c' c='_ZN5clang12ast_matchers35ImportExpr_CXXOperatorCallExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1045' ll='1046' u='c' c='_ZN5clang12ast_matchers39ImportExpr_DependentSizedArrayType_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1045' ll='1046' u='c' c='_ZN5clang12ast_matchers39ImportExpr_DependentSizedArrayType_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1046' u='c' c='_ZN5clang12ast_matchers39ImportExpr_DependentSizedArrayType_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1202' ll='1206' u='c' c='_ZN5clang12ast_matchers79ASTImporterOptionSpecificTestBase_ImportFunctionWithBackReferringParameter_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1305' u='c' c='_ZN5clang12ast_matchers107ASTImporterOptionSpecificTestBase_TUshouldNotContainClassTemplateSpecializationOfImplicitInstantiation_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1313' ll='1314' u='c' c='_ZN5clang12ast_matchers107ASTImporterOptionSpecificTestBase_TUshouldNotContainClassTemplateSpecializationOfImplicitInstantiation_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1313' ll='1314' u='c' c='_ZN5clang12ast_matchers107ASTImporterOptionSpecificTestBase_TUshouldNotContainClassTemplateSpecializationOfImplicitInstantiation_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1348' ll='1349' u='c' c='_ZN5clang12ast_matchers104ASTImporterOptionSpecificTestBase_TUshouldContainClassTemplateSpecializationOfExplicitInstantiation_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1348' ll='1349' u='c' c='_ZN5clang12ast_matchers104ASTImporterOptionSpecificTestBase_TUshouldContainClassTemplateSpecializationOfExplicitInstantiation_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1355' u='c' c='_ZN5clang12ast_matchers104ASTImporterOptionSpecificTestBase_TUshouldContainClassTemplateSpecializationOfExplicitInstantiation_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1355' u='c' c='_ZN5clang12ast_matchers104ASTImporterOptionSpecificTestBase_TUshouldContainClassTemplateSpecializationOfExplicitInstantiation_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1406' u='c' c='_ZN5clang12ast_matchers72ASTImporterOptionSpecificTestBase_ShouldImportImplicitCXXRecordDecl_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1424' u='c' c='_ZN5clang12ast_matchers87ASTImporterOptionSpecificTestBase_ShouldImportImplicitCXXRecordDeclOfClassTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1424' u='c' c='_ZN5clang12ast_matchers87ASTImporterOptionSpecificTestBase_ShouldImportImplicitCXXRecordDeclOfClassTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1441' ll='1443' u='c' c='_ZN5clang12ast_matchers105ASTImporterOptionSpecificTestBase_ShouldImportImplicitCXXRecordDeclOfClassTemplateSpecializationDecl_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1441' ll='1443' u='c' c='_ZN5clang12ast_matchers105ASTImporterOptionSpecificTestBase_ShouldImportImplicitCXXRecordDeclOfClassTemplateSpecializationDecl_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1443' u='c' c='_ZN5clang12ast_matchers105ASTImporterOptionSpecificTestBase_ShouldImportImplicitCXXRecordDeclOfClassTemplateSpecializationDecl_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1485' ll='1487' u='c' c='_ZN5clang12ast_matchers91ASTImporterOptionSpecificTestBase_ShouldImportMembersOfClassTemplateSpecializationDecl_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1485' ll='1487' u='c' c='_ZN5clang12ast_matchers91ASTImporterOptionSpecificTestBase_ShouldImportMembersOfClassTemplateSpecializationDecl_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1487' u='c' c='_ZN5clang12ast_matchers91ASTImporterOptionSpecificTestBase_ShouldImportMembersOfClassTemplateSpecializationDecl_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1487' u='c' c='_ZN5clang12ast_matchers91ASTImporterOptionSpecificTestBase_ShouldImportMembersOfClassTemplateSpecializationDecl_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1786' u='c' c='_ZN5clang12ast_matchers63ASTImporterOptionSpecificTestBase_ImportDoesUpdateUsedFlag_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1812' u='c' c='_ZN5clang12ast_matchers64ASTImporterOptionSpecificTestBase_ImportDoesUpdateUsedFlag2_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1830' u='c' c='_ZN5clang12ast_matchers64ASTImporterOptionSpecificTestBase_ImportDoesUpdateUsedFlag3_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1861' u='c' c='_ZN5clang12ast_matchers59ASTImporterOptionSpecificTestBase_ReimportWithUsedFlag_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1881' u='c' c='_ZN5clang12ast_matchers55ImportFunctions_ImportPrototypeOfRecursiveFunction_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1899' u='c' c='_ZN5clang12ast_matchers56ImportFunctions_ImportDefinitionOfRecursiveFunction_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1923' u='c' c='_ZN5clang12ast_matchers54ImportFunctions_OverriddenMethodsShouldBeImported_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1923' u='c' c='_ZN5clang12ast_matchers54ImportFunctions_OverriddenMethodsShouldBeImported_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1940' u='c' c='_ZN5clang12ast_matchers71ImportFunctions_VirtualFlagShouldBePreservedWhenImportingPrototype_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1940' u='c' c='_ZN5clang12ast_matchers71ImportFunctions_VirtualFlagShouldBePreservedWhenImportingPrototype_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1983' u='c' c='_ZN5clang12ast_matchers48ImportFunctions_ImportOverriddenMethodTwice_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1983' u='c' c='_ZN5clang12ast_matchers48ImportFunctions_ImportOverriddenMethodTwice_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1985' u='c' c='_ZN5clang12ast_matchers48ImportFunctions_ImportOverriddenMethodTwice_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='1985' u='c' c='_ZN5clang12ast_matchers48ImportFunctions_ImportOverriddenMethodTwice_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2013' u='c' c='_ZN5clang12ast_matchers63ImportFunctions_ImportOverriddenMethodTwiceDefinitionFirst_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2013' u='c' c='_ZN5clang12ast_matchers63ImportFunctions_ImportOverriddenMethodTwiceDefinitionFirst_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2015' u='c' c='_ZN5clang12ast_matchers63ImportFunctions_ImportOverriddenMethodTwiceDefinitionFirst_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2015' u='c' c='_ZN5clang12ast_matchers63ImportFunctions_ImportOverriddenMethodTwiceDefinitionFirst_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2016' ll='2017' u='c' c='_ZN5clang12ast_matchers63ImportFunctions_ImportOverriddenMethodTwiceDefinitionFirst_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2017' u='c' c='_ZN5clang12ast_matchers63ImportFunctions_ImportOverriddenMethodTwiceDefinitionFirst_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2018' ll='2019' u='c' c='_ZN5clang12ast_matchers63ImportFunctions_ImportOverriddenMethodTwiceDefinitionFirst_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2019' u='c' c='_ZN5clang12ast_matchers63ImportFunctions_ImportOverriddenMethodTwiceDefinitionFirst_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2020' u='c' c='_ZN5clang12ast_matchers63ImportFunctions_ImportOverriddenMethodTwiceDefinitionFirst_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2051' u='c' c='_ZN5clang12ast_matchers61ImportFunctions_ImportOverriddenMethodTwiceOutOfClassDef_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2051' u='c' c='_ZN5clang12ast_matchers61ImportFunctions_ImportOverriddenMethodTwiceOutOfClassDef_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2052' ll='2053' u='c' c='_ZN5clang12ast_matchers61ImportFunctions_ImportOverriddenMethodTwiceOutOfClassDef_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2053' u='c' c='_ZN5clang12ast_matchers61ImportFunctions_ImportOverriddenMethodTwiceOutOfClassDef_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2054' ll='2055' u='c' c='_ZN5clang12ast_matchers61ImportFunctions_ImportOverriddenMethodTwiceOutOfClassDef_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2054' u='c' c='_ZN5clang12ast_matchers61ImportFunctions_ImportOverriddenMethodTwiceOutOfClassDef_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2104' u='c' c='_ZN5clang12ast_matchers75ImportFunctions_ImportOverriddenMethodTwiceOutOfClassDefInSeparateCode_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2104' u='c' c='_ZN5clang12ast_matchers75ImportFunctions_ImportOverriddenMethodTwiceOutOfClassDefInSeparateCode_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2105' ll='2106' u='c' c='_ZN5clang12ast_matchers75ImportFunctions_ImportOverriddenMethodTwiceOutOfClassDefInSeparateCode_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2106' u='c' c='_ZN5clang12ast_matchers75ImportFunctions_ImportOverriddenMethodTwiceOutOfClassDefInSeparateCode_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2108' u='c' c='_ZN5clang12ast_matchers75ImportFunctions_ImportOverriddenMethodTwiceOutOfClassDefInSeparateCode_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2108' u='c' c='_ZN5clang12ast_matchers75ImportFunctions_ImportOverriddenMethodTwiceOutOfClassDefInSeparateCode_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2109' ll='2110' u='c' c='_ZN5clang12ast_matchers75ImportFunctions_ImportOverriddenMethodTwiceOutOfClassDefInSeparateCode_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2110' u='c' c='_ZN5clang12ast_matchers75ImportFunctions_ImportOverriddenMethodTwiceOutOfClassDefInSeparateCode_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2111' u='c' c='_ZN5clang12ast_matchers75ImportFunctions_ImportOverriddenMethodTwiceOutOfClassDefInSeparateCode_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2163' u='c' c='_ZN5clang12ast_matchers61ASTImporterOptionSpecificTestBase_ImportVariableChainInC_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2184' u='c' c='_ZN5clang12ast_matchers59ImportFunctions_ImportFromDifferentScopedAnonNamespace_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2294' u='c' c='_ZN5clang12ast_matchers63ImportFriendFunctions_ImportFriendFunctionRedeclChainProto_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2313' u='c' c='_ZN5clang12ast_matchers84ImportFriendFunctions_ImportFriendFunctionRedeclChainProto_OutOfClassProtoFirst_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2330' u='c' c='_ZN5clang12ast_matchers61ImportFriendFunctions_ImportFriendFunctionRedeclChainDef_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2349' u='c' c='_ZN5clang12ast_matchers75ImportFriendFunctions_ImportFriendFunctionRedeclChainDef_OutOfClassDef_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2366' u='c' c='_ZN5clang12ast_matchers70ImportFriendFunctions_ImportFriendFunctionRedeclChainDefWithClass_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2395' u='c' c='_ZN5clang12ast_matchers85ImportFriendFunctions_ImportFriendFunctionRedeclChainDefWithClass_ImportTheProto_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2423' u='c' c='_ZN5clang12ast_matchers61ImportFriendFunctions_ImportFriendFunctionFromMultipleTU_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2447' u='c' c='_ZN5clang12ast_matchers33ImportFriendFunctions_Lookup_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2448' u='c' c='_ZN5clang12ast_matchers33ImportFriendFunctions_Lookup_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2481' u='c' c='_ZN5clang12ast_matchers56ImportFriendFunctions_DISABLED_LookupWithProtoAfter_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2482' u='c' c='_ZN5clang12ast_matchers56ImportFriendFunctions_DISABLED_LookupWithProtoAfter_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2531' u='c' c='_ZN5clang12ast_matchers48ImportFriendFunctions_LookupWithProtoBefore_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2532' u='c' c='_ZN5clang12ast_matchers48ImportFriendFunctions_LookupWithProtoBefore_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2575' u='c' c='_ZN5clang12ast_matchers52ImportFriendFunctions_ImportFriendChangesLookup_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2679' ll='2680' u='c' c='_ZN5clang12ast_matchers36ImportDecl_ImportEnumSequential_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2679' u='c' c='_ZN5clang12ast_matchers36ImportDecl_ImportEnumSequential_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2682' u='c' c='_ZN5clang12ast_matchers36ImportDecl_ImportEnumSequential_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2683' u='c' c='_ZN5clang12ast_matchers36ImportDecl_ImportEnumSequential_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2709' ll='2710' u='c' c='_ZN5clang12ast_matchers41ImportExpr_DependentScopeDeclRefExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2709' ll='2710' u='c' c='_ZN5clang12ast_matchers41ImportExpr_DependentScopeDeclRefExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2709' ll='2710' u='c' c='_ZN5clang12ast_matchers41ImportExpr_DependentScopeDeclRefExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2710' u='c' c='_ZN5clang12ast_matchers41ImportExpr_DependentScopeDeclRefExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2720' ll='2721' u='c' c='_ZN5clang12ast_matchers41ImportExpr_DependentScopeDeclRefExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2720' ll='2721' u='c' c='_ZN5clang12ast_matchers41ImportExpr_DependentScopeDeclRefExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2720' ll='2721' u='c' c='_ZN5clang12ast_matchers41ImportExpr_DependentScopeDeclRefExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2721' u='c' c='_ZN5clang12ast_matchers41ImportExpr_DependentScopeDeclRefExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2733' ll='2734' u='c' c='_ZN5clang12ast_matchers33ImportExpr_DependentNameType_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2734' u='c' c='_ZN5clang12ast_matchers33ImportExpr_DependentNameType_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2734' u='c' c='_ZN5clang12ast_matchers33ImportExpr_DependentNameType_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2746' ll='2747' u='c' c='_ZN5clang12ast_matchers36ImportExpr_UnresolvedMemberExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2746' ll='2747' u='c' c='_ZN5clang12ast_matchers36ImportExpr_UnresolvedMemberExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2747' u='c' c='_ZN5clang12ast_matchers36ImportExpr_UnresolvedMemberExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2747' u='c' c='_ZN5clang12ast_matchers36ImportExpr_UnresolvedMemberExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2779' u='c' c='_ZN5clang12ast_matchers21ImportImplicitMethods4testERKT_PKcj'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2811' u='c' c='_ZN5clang12ast_matchers45ImportImplicitMethods_DefaultConstructor_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2815' u='c' c='_ZN5clang12ast_matchers42ImportImplicitMethods_CopyConstructor_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2819' u='c' c='_ZN5clang12ast_matchers42ImportImplicitMethods_MoveConstructor_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2827' u='c' c='_ZN5clang12ast_matchers41ImportImplicitMethods_CopyAssignment_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2831' u='c' c='_ZN5clang12ast_matchers41ImportImplicitMethods_MoveAssignment_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2838' u='c' c='_ZN5clang12ast_matchers50ImportImplicitMethods_DoNotImportUserProvided_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2845' u='c' c='_ZN5clang12ast_matchers45ImportImplicitMethods_DoNotImportDefault_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2852' u='c' c='_ZN5clang12ast_matchers45ImportImplicitMethods_DoNotImportDeleted_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='2859' u='c' c='_ZN5clang12ast_matchers49ImportImplicitMethods_DoNotImportOtherMethod_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3128' ll='3129' u='c' c='_ZN5clang12ast_matchers81ASTImporterOptionSpecificTestBase_MergeFunctionOfClassTemplateSpecialization_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3215' ll='3216' u='c' c='_ZN5clang12ast_matchers77ASTImporterOptionSpecificTestBase_MergeCtorOfClassTemplateSpecialization_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3215' u='c' c='_ZN5clang12ast_matchers77ASTImporterOptionSpecificTestBase_MergeCtorOfClassTemplateSpecialization_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3429' u='c' c='_ZN5clang12ast_matchers63ImportClasses_ImportDefinitionWhenProtoIsInNestedToContext_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3447' u='c' c='_ZN5clang12ast_matchers66ImportClasses_ImportDefinitionWhenProtoIsInNestedToContextCXX_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3465' u='c' c='_ZN5clang12ast_matchers54ImportClasses_ImportNestedPrototypeThenDefinition_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3536' u='c' c='_ZN5clang12ast_matchers53ImportFriendClasses_ImportOfRecursiveFriendClass_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3554' ll='3555' u='c' c='_ZN5clang12ast_matchers61ImportFriendClasses_ImportOfRecursiveFriendClassTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3555' u='c' c='_ZN5clang12ast_matchers61ImportFriendClasses_ImportOfRecursiveFriendClassTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3555' u='c' c='_ZN5clang12ast_matchers61ImportFriendClasses_ImportOfRecursiveFriendClassTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3567' u='c' c='_ZN5clang12ast_matchers60ImportFriendClasses_ProperPrevDeclForClassTemplateDecls_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3821' ll='3822' u='c' c='_ZN5clang12ast_matchers98ImportFunctionTemplateSpecializations_TUshouldNotContainFunctionTemplateImplicitInstantiation_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3822' u='c' c='_ZN5clang12ast_matchers98ImportFunctionTemplateSpecializations_TUshouldNotContainFunctionTemplateImplicitInstantiation_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3845' u='c' c='_ZN5clang12ast_matchers98ImportFunctionTemplateSpecializations_TUshouldNotContainFunctionTemplateExplicitInstantiation_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3846' u='c' c='_ZN5clang12ast_matchers98ImportFunctionTemplateSpecializations_TUshouldNotContainFunctionTemplateExplicitInstantiation_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3869' u='c' c='_ZN5clang12ast_matchers88ImportFunctionTemplateSpecializations_TUshouldContainFunctionTemplateSpecialization_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3870' u='c' c='_ZN5clang12ast_matchers88ImportFunctionTemplateSpecializations_TUshouldContainFunctionTemplateSpecialization_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='3891' ll='3892' u='c' c='_ZN5clang12ast_matchers84ImportFunctionTemplateSpecializations_FunctionTemplateSpecializationRedeclChain_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterVisibilityTest.cpp' l='28' u='c' c='_ZN5clang12ast_matchers13GetFunPatternclEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterVisibilityTest.cpp' l='32' u='c' c='_ZN5clang12ast_matchers13GetVarPatternclEv'/>
+<use f='llvm/clang/unittests/AST/ASTImporterVisibilityTest.cpp' l='36' u='c' c='_ZN5clang12ast_matchers15GetClassPatternclEv'/>
+<use f='llvm/clang/unittests/AST/DeclPrinterTest.cpp' l='113' u='c' c='_ZN12_GLOBAL__N_123PrintedDeclCXX98MatchesEN4llvm9StringRefES1_S1_PFvRN5clang14PrintingPolicyEE'/>
+<use f='llvm/clang/unittests/AST/DeclPrinterTest.cpp' l='138' u='c' c='_ZN12_GLOBAL__N_123PrintedDeclCXX11MatchesEN4llvm9StringRefES1_S1_'/>
+<use f='llvm/clang/unittests/AST/NamedDeclPrinterTest.cpp' l='101' u='c' c='_ZN12_GLOBAL__N_128PrintedNamedDeclCXX98MatchesEN4llvm9StringRefES1_S1_'/>
+<use f='llvm/clang/unittests/AST/NamedDeclPrinterTest.cpp' l='113' u='c' c='_ZN12_GLOBAL__N_135PrintedWrittenNamedDeclCXX11MatchesEN4llvm9StringRefES1_S1_'/>
+<use f='llvm/clang/unittests/AST/NamedDeclPrinterTest.cpp' l='125' u='c' c='_ZN12_GLOBAL__N_137PrintedWrittenPropertyDeclObjCMatchesEN4llvm9StringRefES1_S1_'/>
+<use f='llvm/clang/unittests/AST/OMPStructuredBlockTest.cpp' l='34' ll='35' u='c' c='_ZN12_GLOBAL__N_134OMPInnermostStructuredBlockMatcherEv'/>
+<use f='llvm/clang/unittests/AST/OMPStructuredBlockTest.cpp' l='35' u='c' c='_ZN12_GLOBAL__N_134OMPInnermostStructuredBlockMatcherEv'/>
+<use f='llvm/clang/unittests/AST/OMPStructuredBlockTest.cpp' l='40' u='c' c='_ZN12_GLOBAL__N_129OMPStandaloneDirectiveMatcherEv'/>
+<use f='llvm/clang/unittests/AST/OMPStructuredBlockTest.cpp' l='40' u='c' c='_ZN12_GLOBAL__N_129OMPStandaloneDirectiveMatcherEv'/>
+<use f='llvm/clang/unittests/AST/OMPStructuredBlockTest.cpp' l='359' ll='362' u='c' c='_Z27OMPSectionsDirectiveMatcherv'/>
+<use f='llvm/clang/unittests/AST/OMPStructuredBlockTest.cpp' l='361' u='c' c='_Z27OMPSectionsDirectiveMatcherv'/>
+<use f='llvm/clang/unittests/AST/OMPStructuredBlockTest.cpp' l='362' u='c' c='_Z27OMPSectionsDirectiveMatcherv'/>
+<use f='llvm/clang/unittests/AST/StmtPrinterTest.cpp' l='37' ll='38' u='c' c='_ZN12_GLOBAL__N_119FunctionBodyMatcherEN4llvm9StringRefE'/>
+<use f='llvm/clang/unittests/AST/StmtPrinterTest.cpp' l='38' u='c' c='_ZN12_GLOBAL__N_119FunctionBodyMatcherEN4llvm9StringRefE'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='76' u='c' c='_ZN5clang12ast_matchers25StructuralEquivalenceTest14makeNamedDeclsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_8LanguageEPKc'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='237' u='c' c='_ZN5clang12ast_matchers57StructuralEquivalenceFunctionTest_DifferentOperators_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='238' u='c' c='_ZN5clang12ast_matchers57StructuralEquivalenceFunctionTest_DifferentOperators_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='246' u='c' c='_ZN5clang12ast_matchers52StructuralEquivalenceFunctionTest_SameOperators_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='247' u='c' c='_ZN5clang12ast_matchers52StructuralEquivalenceFunctionTest_SameOperators_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='438' u='c' c='_ZN5clang12ast_matchers47StructuralEquivalenceCXXMethodTest_Virtual_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='483' u='c' c='_ZN5clang12ast_matchers55StructuralEquivalenceCXXMethodTest_AccessSpecifier_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='496' u='c' c='_ZN5clang12ast_matchers51StructuralEquivalenceCXXMethodTest_Constructor_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='496' u='c' c='_ZN5clang12ast_matchers51StructuralEquivalenceCXXMethodTest_Constructor_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='503' u='c' c='_ZN5clang12ast_matchers56StructuralEquivalenceCXXMethodTest_ConstructorParam_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='511' u='c' c='_ZN5clang12ast_matchers59StructuralEquivalenceCXXMethodTest_ConstructorExplicit_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='519' u='c' c='_ZN5clang12ast_matchers58StructuralEquivalenceCXXMethodTest_ConstructorDefault_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='535' u='c' c='_ZN5clang12ast_matchers48StructuralEquivalenceCXXMethodTest_Operator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='536' u='c' c='_ZN5clang12ast_matchers48StructuralEquivalenceCXXMethodTest_Operator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='545' u='c' c='_ZN5clang12ast_matchers51StructuralEquivalenceCXXMethodTest_OutOfClass1_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='554' u='c' c='_ZN5clang12ast_matchers51StructuralEquivalenceCXXMethodTest_OutOfClass2_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='571' u='c' c='_ZN5clang12ast_matchers41StructuralEquivalenceRecordTest_Name_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='572' u='c' c='_ZN5clang12ast_matchers41StructuralEquivalenceRecordTest_Name_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='770' u='c' c='_ZN5clang12ast_matchers58StructuralEquivalenceRecordTest_TemplateVsNonTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersInternalTest.cpp' l='62' u='c' c='_ZN5clang12ast_matchers27AstMatcherPMacro_Works_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersInternalTest.cpp' l='85' u='c' c='_ZN5clang12ast_matchers38AstPolymorphicMatcherPMacro_Works_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersInternalTest.cpp' l='97' u='c' c='_ZN5clang12ast_matchers38AstPolymorphicMatcherPMacro_Works_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='51' u='c' c='_ZN5clang12ast_matchers32DeclarationMatcher_MatchHas_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='51' u='c' c='_ZN5clang12ast_matchers32DeclarationMatcher_MatchHas_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='56' u='c' c='_ZN5clang12ast_matchers32DeclarationMatcher_MatchHas_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='56' u='c' c='_ZN5clang12ast_matchers32DeclarationMatcher_MatchHas_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='65' ll='74' u='c' c='_ZN5clang12ast_matchers46DeclarationMatcher_MatchHasRecursiveAllOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='66' ll='69' u='c' c='_ZN5clang12ast_matchers46DeclarationMatcher_MatchHasRecursiveAllOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='67' u='c' c='_ZN5clang12ast_matchers46DeclarationMatcher_MatchHasRecursiveAllOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='68' u='c' c='_ZN5clang12ast_matchers46DeclarationMatcher_MatchHasRecursiveAllOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='70' ll='73' u='c' c='_ZN5clang12ast_matchers46DeclarationMatcher_MatchHasRecursiveAllOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='71' u='c' c='_ZN5clang12ast_matchers46DeclarationMatcher_MatchHasRecursiveAllOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='72' u='c' c='_ZN5clang12ast_matchers46DeclarationMatcher_MatchHasRecursiveAllOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='123' ll='139' u='c' c='_ZN5clang12ast_matchers46DeclarationMatcher_MatchHasRecursiveAnyOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='125' ll='131' u='c' c='_ZN5clang12ast_matchers46DeclarationMatcher_MatchHasRecursiveAnyOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='127' ll='128' u='c' c='_ZN5clang12ast_matchers46DeclarationMatcher_MatchHasRecursiveAnyOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='129' ll='130' u='c' c='_ZN5clang12ast_matchers46DeclarationMatcher_MatchHasRecursiveAnyOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='132' ll='138' u='c' c='_ZN5clang12ast_matchers46DeclarationMatcher_MatchHasRecursiveAnyOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='135' ll='136' u='c' c='_ZN5clang12ast_matchers46DeclarationMatcher_MatchHasRecursiveAnyOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='137' ll='138' u='c' c='_ZN5clang12ast_matchers46DeclarationMatcher_MatchHasRecursiveAnyOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='154' ll='156' u='c' c='_ZN5clang12ast_matchers32DeclarationMatcher_MatchNot_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='166' ll='170' u='c' c='_ZN5clang12ast_matchers32DeclarationMatcher_MatchNot_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='168' u='c' c='_ZN5clang12ast_matchers32DeclarationMatcher_MatchNot_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='170' u='c' c='_ZN5clang12ast_matchers32DeclarationMatcher_MatchNot_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='176' u='c' c='_ZN5clang12ast_matchers32DeclarationMatcher_MatchNot_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='192' ll='194' u='c' c='_ZN5clang12ast_matchers37DeclarationMatcher_HasDescendant_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='193' u='c' c='_ZN5clang12ast_matchers37DeclarationMatcher_HasDescendant_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='207' ll='210' u='c' c='_ZN5clang12ast_matchers37DeclarationMatcher_HasDescendant_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='208' ll='209' u='c' c='_ZN5clang12ast_matchers37DeclarationMatcher_HasDescendant_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='208' u='c' c='_ZN5clang12ast_matchers37DeclarationMatcher_HasDescendant_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='230' ll='233' u='c' c='_ZN5clang12ast_matchers37DeclarationMatcher_HasDescendant_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='231' ll='232' u='c' c='_ZN5clang12ast_matchers37DeclarationMatcher_HasDescendant_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='231' u='c' c='_ZN5clang12ast_matchers37DeclarationMatcher_HasDescendant_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='252' u='c' c='_ZN5clang12ast_matchers48DeclarationMatcher_HasDescendantMemoization_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='274' ll='276' u='c' c='_ZN5clang12ast_matchers46DeclarationMatcher_HasAncestorMemoization_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='276' u='c' c='_ZN5clang12ast_matchers46DeclarationMatcher_HasAncestorMemoization_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='292' ll='293' u='c' c='_ZN5clang12ast_matchers34DeclarationMatcher_MatchAnyOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='301' u='c' c='_ZN5clang12ast_matchers34DeclarationMatcher_MatchAnyOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='306' ll='307' u='c' c='_ZN5clang12ast_matchers34DeclarationMatcher_MatchAnyOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='315' u='c' c='_ZN5clang12ast_matchers34DeclarationMatcher_MatchAnyOf_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='326' u='c' c='_ZN5clang12ast_matchers38DeclarationMatcher_ClassIsDerived_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='334' u='c' c='_ZN5clang12ast_matchers38DeclarationMatcher_ClassIsDerived_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='343' u='c' c='_ZN5clang12ast_matchers38DeclarationMatcher_ClassIsDerived_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='540' u='c' c='_ZN5clang12ast_matchers32DeclarationMatcher_IsLambda_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='540' u='c' c='_ZN5clang12ast_matchers32DeclarationMatcher_IsLambda_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='546' u='c' c='_ZN5clang12ast_matchers29Matcher_BindMatchedNodes_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='555' u='c' c='_ZN5clang12ast_matchers29Matcher_BindMatchedNodes_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='555' u='c' c='_ZN5clang12ast_matchers29Matcher_BindMatchedNodes_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='562' u='c' c='_ZN5clang12ast_matchers29Matcher_BindMatchedNodes_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='562' u='c' c='_ZN5clang12ast_matchers29Matcher_BindMatchedNodes_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='571' ll='573' u='c' c='_ZN5clang12ast_matchers42Matcher_BindTheSameNameInAlternatives_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='573' u='c' c='_ZN5clang12ast_matchers42Matcher_BindTheSameNameInAlternatives_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='574' ll='576' u='c' c='_ZN5clang12ast_matchers42Matcher_BindTheSameNameInAlternatives_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='575' u='c' c='_ZN5clang12ast_matchers42Matcher_BindTheSameNameInAlternatives_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='589' u='c' c='_ZN5clang12ast_matchers38Matcher_BindsIDForMemoizedResults_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='613' u='c' c='_ZN5clang12ast_matchers53Matcher_HasOperatorNameForOverloadedOperatorCall_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='618' u='c' c='_ZN5clang12ast_matchers53Matcher_HasOperatorNameForOverloadedOperatorCall_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='624' u='c' c='_ZN5clang12ast_matchers53Matcher_HasOperatorNameForOverloadedOperatorCall_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='628' u='c' c='_ZN5clang12ast_matchers53Matcher_HasOperatorNameForOverloadedOperatorCall_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='633' u='c' c='_ZN5clang12ast_matchers53Matcher_HasOperatorNameForOverloadedOperatorCall_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='658' u='c' c='_ZN5clang12ast_matchers28Matcher_VarDecl_Storage_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='663' u='c' c='_ZN5clang12ast_matchers28Matcher_VarDecl_Storage_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='670' u='c' c='_ZN5clang12ast_matchers34Matcher_VarDecl_IsStaticLocal_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='816' u='c' c='_ZN5clang12ast_matchers26Matcher_ArgumentCount_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='824' u='c' c='_ZN5clang12ast_matchers27Matcher_ParameterCount_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='833' ll='834' u='c' c='_ZN5clang12ast_matchers23Matcher_References_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='834' u='c' c='_ZN5clang12ast_matchers23Matcher_References_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='1060' ll='1061' u='c' c='_ZN5clang12ast_matchers32Matcher_ConstructorArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='1061' u='c' c='_ZN5clang12ast_matchers32Matcher_ConstructorArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='1061' u='c' c='_ZN5clang12ast_matchers32Matcher_ConstructorArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='1076' ll='1077' u='c' c='_ZN5clang12ast_matchers32Matcher_ConstructorArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='1077' u='c' c='_ZN5clang12ast_matchers32Matcher_ConstructorArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='1077' u='c' c='_ZN5clang12ast_matchers32Matcher_ConstructorArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='1084' u='c' c='_ZN5clang12ast_matchers37Matcher_ConstructorArgumentCount_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='1102' u='c' c='_ZN5clang12ast_matchers42Matcher_ConstructorListInitialization_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='1193' u='c' c='_ZN5clang12ast_matchers26StringLiteral_HasSize_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='1329' u='c' c='_ZN5clang12ast_matchers25Matcher_IsDefinition_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='1334' u='c' c='_ZN5clang12ast_matchers25Matcher_IsDefinition_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='1339' u='c' c='_ZN5clang12ast_matchers25Matcher_IsDefinition_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='1344' u='c' c='_ZN5clang12ast_matchers25Matcher_IsDefinition_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='1784' u='c' c='_ZN5clang12ast_matchers38IsInTemplateInstantiation_Sharing_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='2294' u='c' c='_ZN5clang12ast_matchers31IsAssignmentOperator_Basic_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='2296' u='c' c='_ZN5clang12ast_matchers31IsAssignmentOperator_Basic_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='2329' u='c' c='_ZN5clang12ast_matchers49OMPExecutableDirective_isStandaloneDirective_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='2394' u='c' c='_ZN5clang12ast_matchers37OMPExecutableDirective_hasClause_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='2433' u='c' c='_ZN5clang12ast_matchers32OMPDefaultClause_isNoneKind_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='2433' u='c' c='_ZN5clang12ast_matchers32OMPDefaultClause_isNoneKind_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='2472' u='c' c='_ZN5clang12ast_matchers34OMPDefaultClause_isSharedKind_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='2472' u='c' c='_ZN5clang12ast_matchers34OMPDefaultClause_isSharedKind_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='2511' u='c' c='_ZN5clang12ast_matchers56OMPExecutableDirective_isAllowedToContainClauseKind_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='40' u='c' c='_ZN5clang12ast_matchers44NameableDeclaration_MatchesVariousDecls_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='53' u='c' c='_ZN5clang12ast_matchers46NameableDeclaration_REMatchesVariousDecls_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='64' u='c' c='_ZN5clang12ast_matchers46NameableDeclaration_REMatchesVariousDecls_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='68' u='c' c='_ZN5clang12ast_matchers46NameableDeclaration_REMatchesVariousDecls_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='74' u='c' c='_ZN5clang12ast_matchers46NameableDeclaration_REMatchesVariousDecls_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='90' u='c' c='_ZN5clang12ast_matchers34DeclarationMatcher_MatchClass_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='90' u='c' c='_ZN5clang12ast_matchers34DeclarationMatcher_MatchClass_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='118' u='c' c='_ZN5clang12ast_matchers36ClassTemplate_DoesNotMatchClass_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='124' u='c' c='_ZN5clang12ast_matchers39ClassTemplate_MatchesClassTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='181' u='c' c='_ZN5clang12ast_matchers25EnumConstant_Matches_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='202' u='c' c='_ZN5clang12ast_matchers20Matcher_ADLCall_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='203' u='c' c='_ZN5clang12ast_matchers20Matcher_ADLCall_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='239' u='c' c='_ZN5clang12ast_matchers17Matcher_Call_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='239' u='c' c='_ZN5clang12ast_matchers17Matcher_Call_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='245' u='c' c='_ZN5clang12ast_matchers17Matcher_Call_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='245' u='c' c='_ZN5clang12ast_matchers17Matcher_Call_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='264' u='c' c='_ZN5clang12ast_matchers17Matcher_Call_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='264' u='c' c='_ZN5clang12ast_matchers17Matcher_Call_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='370' u='c' c='_ZN5clang12ast_matchers28Matcher_ThisPointerType_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='370' u='c' c='_ZN5clang12ast_matchers28Matcher_ThisPointerType_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='400' ll='402' u='c' c='_ZN5clang12ast_matchers26Matcher_VariableUsage_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='401' ll='402' u='c' c='_ZN5clang12ast_matchers26Matcher_VariableUsage_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='402' u='c' c='_ZN5clang12ast_matchers26Matcher_VariableUsage_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='402' u='c' c='_ZN5clang12ast_matchers26Matcher_VariableUsage_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='426' u='c' c='_ZN5clang12ast_matchers27Matcher_CalledVariable_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='426' u='c' c='_ZN5clang12ast_matchers27Matcher_CalledVariable_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='426' u='c' c='_ZN5clang12ast_matchers27Matcher_CalledVariable_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='497' u='c' c='_ZN5clang12ast_matchers41Function_MatchesFunctionDeclarations_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='497' u='c' c='_ZN5clang12ast_matchers41Function_MatchesFunctionDeclarations_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='848' u='c' c='_ZN5clang12ast_matchers23Matcher_Conditions_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='848' u='c' c='_ZN5clang12ast_matchers23Matcher_Conditions_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='858' ll='860' u='c' c='_ZN5clang12ast_matchers32Matcher_ConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='859' u='c' c='_ZN5clang12ast_matchers32Matcher_ConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='860' u='c' c='_ZN5clang12ast_matchers32Matcher_ConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='866' ll='867' u='c' c='_ZN5clang12ast_matchers32Matcher_ConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='867' u='c' c='_ZN5clang12ast_matchers32Matcher_ConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='879' ll='884' u='c' c='_ZN5clang12ast_matchers38Matcher_BinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='880' ll='883' u='c' c='_ZN5clang12ast_matchers38Matcher_BinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='882' ll='883' u='c' c='_ZN5clang12ast_matchers38Matcher_BinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='883' u='c' c='_ZN5clang12ast_matchers38Matcher_BinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='884' u='c' c='_ZN5clang12ast_matchers38Matcher_BinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='888' ll='891' u='c' c='_ZN5clang12ast_matchers38Matcher_BinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='889' ll='890' u='c' c='_ZN5clang12ast_matchers38Matcher_BinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='890' u='c' c='_ZN5clang12ast_matchers38Matcher_BinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='891' u='c' c='_ZN5clang12ast_matchers38Matcher_BinaryConditionalOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='1505' ll='1506' u='c' c='_ZN5clang12ast_matchers21NNS_MatchesTypes_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='1506' u='c' c='_ZN5clang12ast_matchers21NNS_MatchesTypes_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='1514' ll='1515' u='c' c='_ZN5clang12ast_matchers30NNS_MatchesNamespaceDecls_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='1769' u='c' c='_ZN5clang12ast_matchers35OMPExecutableDirective_Matches_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='1793' u='c' c='_ZN5clang12ast_matchers29OMPDefaultClause_Matches_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='124' ll='125' u='c' c='_ZN5clang12ast_matchers25StatementMatcher_Has_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='124' u='c' c='_ZN5clang12ast_matchers25StatementMatcher_Has_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='125' u='c' c='_ZN5clang12ast_matchers25StatementMatcher_Has_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='125' u='c' c='_ZN5clang12ast_matchers25StatementMatcher_Has_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='135' ll='136' u='c' c='_ZN5clang12ast_matchers35StatementMatcher_HasDescendant_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='135' u='c' c='_ZN5clang12ast_matchers35StatementMatcher_HasDescendant_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='136' u='c' c='_ZN5clang12ast_matchers35StatementMatcher_HasDescendant_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='136' u='c' c='_ZN5clang12ast_matchers35StatementMatcher_HasDescendant_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='147' u='c' c='_ZN5clang12ast_matchers33TypeMatcher_MatchesClassType_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='153' u='c' c='_ZN5clang12ast_matchers33TypeMatcher_MatchesClassType_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='160' u='c' c='_ZN5clang12ast_matchers33TypeMatcher_MatchesClassType_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='160' u='c' c='_ZN5clang12ast_matchers33TypeMatcher_MatchesClassType_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='301' u='c' c='_ZN5clang12ast_matchers47HasType_TakesQualTypeMatcherAndMatchesExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='313' u='c' c='_ZN5clang12ast_matchers52HasType_TakesQualTypeMatcherAndMatchesValueDecl_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='324' u='c' c='_ZN5clang12ast_matchers43HasType_TakesDeclMatcherAndMatchesExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='333' u='c' c='_ZN5clang12ast_matchers48HasType_TakesDeclMatcherAndMatchesValueDecl_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='371' u='c' c='_ZN5clang12ast_matchers31Callee_MatchesDeclarations_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='371' u='c' c='_ZN5clang12ast_matchers31Callee_MatchesDeclarations_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='376' u='c' c='_ZN5clang12ast_matchers31Callee_MatchesDeclarations_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='391' ll='392' u='c' c='_ZN5clang12ast_matchers21Matcher_Argument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='392' u='c' c='_ZN5clang12ast_matchers21Matcher_Argument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='392' u='c' c='_ZN5clang12ast_matchers21Matcher_Argument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='399' ll='400' u='c' c='_ZN5clang12ast_matchers21Matcher_Argument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='400' u='c' c='_ZN5clang12ast_matchers21Matcher_Argument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='400' u='c' c='_ZN5clang12ast_matchers21Matcher_Argument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='406' u='c' c='_ZN5clang12ast_matchers24Matcher_AnyArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='406' u='c' c='_ZN5clang12ast_matchers24Matcher_AnyArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='407' u='c' c='_ZN5clang12ast_matchers24Matcher_AnyArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='408' u='c' c='_ZN5clang12ast_matchers24Matcher_AnyArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='410' u='c' c='_ZN5clang12ast_matchers24Matcher_AnyArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='411' u='c' c='_ZN5clang12ast_matchers24Matcher_AnyArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='438' ll='439' u='c' c='_ZN5clang12ast_matchers24Matcher_AnyArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='540' u='c' c='_ZN5clang12ast_matchers32MatcherCXXMemberCallExpr_On_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='540' u='c' c='_ZN5clang12ast_matchers32MatcherCXXMemberCallExpr_On_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='544' u='c' c='_ZN5clang12ast_matchers32MatcherCXXMemberCallExpr_On_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='544' u='c' c='_ZN5clang12ast_matchers32MatcherCXXMemberCallExpr_On_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='555' u='c' c='_ZN5clang12ast_matchers32MatcherCXXMemberCallExpr_On_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='573' ll='574' u='c' c='_ZN5clang12ast_matchers54MatcherCXXMemberCallExpr_OnImplicitObjectArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='574' u='c' c='_ZN5clang12ast_matchers54MatcherCXXMemberCallExpr_OnImplicitObjectArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='578' ll='579' u='c' c='_ZN5clang12ast_matchers54MatcherCXXMemberCallExpr_OnImplicitObjectArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='579' u='c' c='_ZN5clang12ast_matchers54MatcherCXXMemberCallExpr_OnImplicitObjectArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='590' u='c' c='_ZN5clang12ast_matchers54MatcherCXXMemberCallExpr_OnImplicitObjectArgument_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='608' u='c' c='_ZN5clang12ast_matchers26Matcher_HasObjectExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='608' u='c' c='_ZN5clang12ast_matchers26Matcher_HasObjectExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='612' ll='613' u='c' c='_ZN5clang12ast_matchers26Matcher_HasObjectExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='613' u='c' c='_ZN5clang12ast_matchers26Matcher_HasObjectExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='620' u='c' c='_ZN5clang12ast_matchers53ForEachArgumentWithParam_ReportsNoFalsePositives_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='620' u='c' c='_ZN5clang12ast_matchers53ForEachArgumentWithParam_ReportsNoFalsePositives_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='621' u='c' c='_ZN5clang12ast_matchers53ForEachArgumentWithParam_ReportsNoFalsePositives_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='623' u='c' c='_ZN5clang12ast_matchers53ForEachArgumentWithParam_ReportsNoFalsePositives_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='633' u='c' c='_ZN5clang12ast_matchers54ForEachArgumentWithParam_MatchesCXXMemberCallExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='633' u='c' c='_ZN5clang12ast_matchers54ForEachArgumentWithParam_MatchesCXXMemberCallExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='634' u='c' c='_ZN5clang12ast_matchers54ForEachArgumentWithParam_MatchesCXXMemberCallExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='636' u='c' c='_ZN5clang12ast_matchers54ForEachArgumentWithParam_MatchesCXXMemberCallExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='648' u='c' c='_ZN5clang12ast_matchers54ForEachArgumentWithParam_MatchesCXXMemberCallExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='662' u='c' c='_ZN5clang12ast_matchers45ForEachArgumentWithParam_MatchesCallExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='662' u='c' c='_ZN5clang12ast_matchers45ForEachArgumentWithParam_MatchesCallExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='663' u='c' c='_ZN5clang12ast_matchers45ForEachArgumentWithParam_MatchesCallExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='665' u='c' c='_ZN5clang12ast_matchers45ForEachArgumentWithParam_MatchesCallExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='686' u='c' c='_ZN5clang12ast_matchers50ForEachArgumentWithParam_MatchesConstructExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='686' u='c' c='_ZN5clang12ast_matchers50ForEachArgumentWithParam_MatchesConstructExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='687' u='c' c='_ZN5clang12ast_matchers50ForEachArgumentWithParam_MatchesConstructExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='689' u='c' c='_ZN5clang12ast_matchers50ForEachArgumentWithParam_MatchesConstructExpr_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1100' u='c' c='_ZN5clang12ast_matchers40MatchBinaryOperator_HasOperatorName_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1108' ll='1109' u='c' c='_ZN5clang12ast_matchers40MatchBinaryOperator_HasLHSAndHasRHS_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1108' u='c' c='_ZN5clang12ast_matchers40MatchBinaryOperator_HasLHSAndHasRHS_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1109' u='c' c='_ZN5clang12ast_matchers40MatchBinaryOperator_HasLHSAndHasRHS_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1115' ll='1116' u='c' c='_ZN5clang12ast_matchers40MatchBinaryOperator_HasLHSAndHasRHS_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1123' u='c' c='_ZN5clang12ast_matchers41MatchBinaryOperator_HasEitherOperand_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1123' u='c' c='_ZN5clang12ast_matchers41MatchBinaryOperator_HasEitherOperand_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1232' u='c' c='_ZN5clang12ast_matchers39MatchUnaryOperator_HasOperatorName_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1240' u='c' c='_ZN5clang12ast_matchers39MatchUnaryOperator_HasUnaryOperand_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1240' u='c' c='_ZN5clang12ast_matchers39MatchUnaryOperator_HasUnaryOperand_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1301' ll='1302' u='c' c='_ZN5clang12ast_matchers20Matcher_OfClass_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1301' ll='1302' u='c' c='_ZN5clang12ast_matchers20Matcher_OfClass_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1336' u='c' c='_ZN5clang12ast_matchers25Matcher_HasCondition_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1336' u='c' c='_ZN5clang12ast_matchers25Matcher_HasCondition_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1341' u='c' c='_ZN5clang12ast_matchers25Matcher_HasCondition_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1341' u='c' c='_ZN5clang12ast_matchers25Matcher_HasCondition_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1346' u='c' c='_ZN5clang12ast_matchers25Matcher_HasCondition_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1346' u='c' c='_ZN5clang12ast_matchers25Matcher_HasCondition_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1351' u='c' c='_ZN5clang12ast_matchers25Matcher_HasCondition_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1351' u='c' c='_ZN5clang12ast_matchers25Matcher_HasCondition_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1689' u='c' c='_ZN5clang12ast_matchers28SingleDecl_IsSingleDecl_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1689' u='c' c='_ZN5clang12ast_matchers28SingleDecl_IsSingleDecl_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1697' u='c' c='_ZN5clang12ast_matchers33DeclStmt_ContainsDeclaration_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='1787' ll='1788' u='c' c='_ZN5clang12ast_matchers46ForEachDescendant_NestedForEachDescendant_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='2384' u='c' c='_ZN5clang12ast_matchers36StatementMatcher_HasReturnValue_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='2427' ll='2428' u='c' c='_ZN5clang12ast_matchers29Matcher_ForEachOverriden_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='2505' ll='2506' u='c' c='_ZN5clang12ast_matchers59ClassTemplateSpecializationDecl_HasSpecializedTemplate_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/Dynamic/ParserTest.cpp' l='30' u='c' c='_ZN5clang12ast_matchers7dynamic12_GLOBAL__N_18MockSema13expectMatcherEN4llvm9StringRefE'/>
+<use f='llvm/clang/unittests/ASTMatchers/Dynamic/ParserTest.cpp' l='204' u='c' c='_ZN5clang12ast_matchers7dynamic12_GLOBAL__N_118getTestNamedValuesEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/Dynamic/RegistryTest.cpp' l='151' ll='152' u='c' c='_ZN5clang12ast_matchers7dynamic12_GLOBAL__N_141RegistryTest_ConstructWithSimpleArgs_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/Dynamic/RegistryTest.cpp' l='179' ll='181' u='c' c='_ZN5clang12ast_matchers7dynamic12_GLOBAL__N_142RegistryTest_ConstructWithMatcherArgs_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/Dynamic/RegistryTest.cpp' l='209' ll='212' u='c' c='_ZN5clang12ast_matchers7dynamic12_GLOBAL__N_136RegistryTest_OverloadedMatchers_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/Dynamic/RegistryTest.cpp' l='216' ll='217' u='c' c='_ZN5clang12ast_matchers7dynamic12_GLOBAL__N_136RegistryTest_OverloadedMatchers_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/Dynamic/RegistryTest.cpp' l='217' u='c' c='_ZN5clang12ast_matchers7dynamic12_GLOBAL__N_136RegistryTest_OverloadedMatchers_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/Dynamic/RegistryTest.cpp' l='372' ll='378' u='c' c='_ZN5clang12ast_matchers7dynamic12_GLOBAL__N_128RegistryTest_VariadicOp_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/Dynamic/RegistryTest.cpp' l='373' u='c' c='_ZN5clang12ast_matchers7dynamic12_GLOBAL__N_128RegistryTest_VariadicOp_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RangeSelectorTest.cpp' l='97' ll='104' u='c' c='_ZN12_GLOBAL__N_118selectFromAssortedESt8functionIFN4llvm8ExpectedIN5clang15CharSourceRangeEEERKNS3_12ast_matchers11MatchFinder11MatchResultEEE'/>
+<use f='llvm/clang/unittests/Tooling/RangeSelectorTest.cpp' l='99' ll='103' u='c' c='_ZN12_GLOBAL__N_118selectFromAssortedESt8functionIFN4llvm8ExpectedIN5clang15CharSourceRangeEEERKNS3_12ast_matchers11MatchFinder11MatchResultEEE'/>
+<use f='llvm/clang/unittests/Tooling/RangeSelectorTest.cpp' l='101' ll='102' u='c' c='_ZN12_GLOBAL__N_118selectFromAssortedESt8functionIFN4llvm8ExpectedIN5clang15CharSourceRangeEEERKNS3_12ast_matchers11MatchFinder11MatchResultEEE'/>
+<use f='llvm/clang/unittests/Tooling/RangeSelectorTest.cpp' l='101' u='c' c='_ZN12_GLOBAL__N_118selectFromAssortedESt8functionIFN4llvm8ExpectedIN5clang15CharSourceRangeEEERKNS3_12ast_matchers11MatchFinder11MatchResultEEE'/>
+<use f='llvm/clang/unittests/Tooling/RangeSelectorTest.cpp' l='179' ll='180' u='c' c='_ZN12_GLOBAL__N_130RangeSelectorTest_RangeOp_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RangeSelectorTest.cpp' l='297' u='c' c='_ZN12_GLOBAL__N_136RangeSelectorTest_NameOpDeclRef_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RangeSelectorTest.cpp' l='332' u='c' c='_ZN12_GLOBAL__N_141RangeSelectorTest_NameOpDeclRefError_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RangeSelectorTest.cpp' l='399' u='c' c='_ZN12_GLOBAL__N_143RangeSelectorTest_CallArgsOpWithParens_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RangeSelectorTest.cpp' l='399' u='c' c='_ZN12_GLOBAL__N_143RangeSelectorTest_CallArgsOpWithParens_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RangeSelectorTest.cpp' l='531' u='c' c='_ZN12_GLOBAL__N_134RangeSelectorTest_ExpansionOp_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringCallbacksTest.cpp' l='62' u='c' c='_ZN5clang7tooling45RefactoringCallbacksTest_ReplacesInteger_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringCallbacksTest.cpp' l='72' ll='73' u='c' c='_ZN5clang7tooling50RefactoringCallbacksTest_ReplacesStmtWithStmt_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringCallbacksTest.cpp' l='72' u='c' c='_ZN5clang7tooling50RefactoringCallbacksTest_ReplacesStmtWithStmt_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringCallbacksTest.cpp' l='83' ll='84' u='c' c='_ZN5clang7tooling44RefactoringCallbacksTest_ReplacesIfStmt_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringCallbacksTest.cpp' l='83' ll='84' u='c' c='_ZN5clang7tooling44RefactoringCallbacksTest_ReplacesIfStmt_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringCallbacksTest.cpp' l='84' u='c' c='_ZN5clang7tooling44RefactoringCallbacksTest_ReplacesIfStmt_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringCallbacksTest.cpp' l='84' u='c' c='_ZN5clang7tooling44RefactoringCallbacksTest_ReplacesIfStmt_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringCallbacksTest.cpp' l='93' u='c' c='_ZN5clang7tooling56RefactoringCallbacksTest_RemovesEntireIfOnEmptyElse_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringCallbacksTest.cpp' l='93' u='c' c='_ZN5clang7tooling56RefactoringCallbacksTest_RemovesEntireIfOnEmptyElse_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringCallbacksTest.cpp' l='111' u='c' c='_ZN5clang7tooling49RefactoringCallbacksTest_TemplateSimpleSubst_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringCallbacksTest.cpp' l='122' u='c' c='_ZN5clang7tooling45RefactoringCallbacksTest_TemplateLiteral_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/StencilTest.cpp' l='52' ll='53' u='c' c='_ZN12_GLOBAL__N_1L11wrapMatcherERKN5clang12ast_matchers8internal7MatcherINS0_4StmtEEE'/>
+<use f='llvm/clang/unittests/Tooling/StencilTest.cpp' l='53' u='c' c='_ZN12_GLOBAL__N_1L11wrapMatcherERKN5clang12ast_matchers8internal7MatcherINS0_4StmtEEE'/>
+<use f='llvm/clang/unittests/Tooling/StencilTest.cpp' l='102' ll='108' u='c' c='_ZN12_GLOBAL__N_111StencilTest9testErrorERKN5clang7tooling7StencilEN7testing7MatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE'/>
+<use f='llvm/clang/unittests/Tooling/StencilTest.cpp' l='103' ll='107' u='c' c='_ZN12_GLOBAL__N_111StencilTest9testErrorERKN5clang7tooling7StencilEN7testing7MatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE'/>
+<use f='llvm/clang/unittests/Tooling/StencilTest.cpp' l='104' ll='106' u='c' c='_ZN12_GLOBAL__N_111StencilTest9testErrorERKN5clang7tooling7StencilEN7testing7MatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE'/>
+<use f='llvm/clang/unittests/Tooling/StencilTest.cpp' l='104' ll='105' u='c' c='_ZN12_GLOBAL__N_111StencilTest9testErrorERKN5clang7tooling7StencilEN7testing7MatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE'/>
+<use f='llvm/clang/unittests/Tooling/StencilTest.cpp' l='140' ll='141' u='c' c='_ZN12_GLOBAL__N_132StencilTest_SingleStatement_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/StencilTest.cpp' l='159' ll='160' u='c' c='_ZN12_GLOBAL__N_144StencilTest_SingleStatementCallOperator_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/StencilTest.cpp' l='176' ll='177' u='c' c='_ZN12_GLOBAL__N_128StencilTest_UnboundNode_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='143' u='c' c='_ZN12_GLOBAL__N_1L14ruleStrlenSizeEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='143' u='c' c='_ZN12_GLOBAL__N_1L14ruleStrlenSizeEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='145' ll='149' u='c' c='_ZN12_GLOBAL__N_1L14ruleStrlenSizeEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='145' u='c' c='_ZN12_GLOBAL__N_1L14ruleStrlenSizeEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='146' ll='149' u='c' c='_ZN12_GLOBAL__N_1L14ruleStrlenSizeEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='147' u='c' c='_ZN12_GLOBAL__N_1L14ruleStrlenSizeEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='149' u='c' c='_ZN12_GLOBAL__N_1L14ruleStrlenSizeEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='181' ll='184' u='c' c='_ZN12_GLOBAL__N_125TransformerTest_Flag_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='181' ll='182' u='c' c='_ZN12_GLOBAL__N_125TransformerTest_Flag_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='181' ll='182' u='c' c='_ZN12_GLOBAL__N_125TransformerTest_Flag_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='184' u='c' c='_ZN12_GLOBAL__N_125TransformerTest_Flag_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='203' u='c' c='_ZN12_GLOBAL__N_142TransformerTest_NodePartNameNamedDecl_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='235' u='c' c='_ZN12_GLOBAL__N_140TransformerTest_NodePartNameDeclRef_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='235' u='c' c='_ZN12_GLOBAL__N_140TransformerTest_NodePartNameDeclRef_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='253' u='c' c='_ZN12_GLOBAL__N_147TransformerTest_NodePartNameDeclRefFailure_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='262' u='c' c='_ZN12_GLOBAL__N_135TransformerTest_NodePartMember_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='427' ll='428' u='c' c='_ZN12_GLOBAL__N_132TransformerTest_MultiChange_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='438' ll='441' u='c' c='_ZN12_GLOBAL__N_141TransformerTest_OrderedRuleUnrelated_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='438' ll='439' u='c' c='_ZN12_GLOBAL__N_141TransformerTest_OrderedRuleUnrelated_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='438' ll='439' u='c' c='_ZN12_GLOBAL__N_141TransformerTest_OrderedRuleUnrelated_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='441' u='c' c='_ZN12_GLOBAL__N_141TransformerTest_OrderedRuleUnrelated_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='465' ll='468' u='c' c='_ZN12_GLOBAL__N_122ruleStrlenSizeDistinctEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='465' u='c' c='_ZN12_GLOBAL__N_122ruleStrlenSizeDistinctEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='466' ll='468' u='c' c='_ZN12_GLOBAL__N_122ruleStrlenSizeDistinctEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='468' u='c' c='_ZN12_GLOBAL__N_122ruleStrlenSizeDistinctEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='547' u='c' c='_ZN12_GLOBAL__N_143TransformerTest_OverlappingEditsInRule_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='575' u='c' c='_ZN12_GLOBAL__N_146TransformerTest_ErrorOccurredMatchSkipped_Test8TestBodyEv'/>

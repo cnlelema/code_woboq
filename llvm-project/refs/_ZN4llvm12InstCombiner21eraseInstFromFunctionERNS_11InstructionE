@@ -1,0 +1,50 @@
+<def f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='644' ll='660' type='llvm::Instruction * llvm::InstCombiner::eraseInstFromFunction(llvm::Instruction &amp; I)'/>
+<doc f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='639'>/// Combiner aware instruction erasure.
+  ///
+  /// When dealing with an instruction that has side effects or produces a void
+  /// value, we can&apos;t rely on DCE to delete the instruction. Instead, visit
+  /// methods should return the value returned by this function.</doc>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAtomicRMW.cpp' l='128' u='c' c='_ZN4llvm12InstCombiner18visitAtomicRMWInstERNS_13AtomicRMWInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1098' u='c' c='_ZN4llvm12InstCombiner19simplifyMaskedStoreERNS_13IntrinsicInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1143' u='c' c='_ZN4llvm12InstCombiner21simplifyMaskedScatterERNS_13IntrinsicInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1339' u='c' c='_ZL22simplifyX86MaskedStoreRN4llvm13IntrinsicInstERNS_12InstCombinerE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1368' u='c' c='_ZL22simplifyX86MaskedStoreRN4llvm13IntrinsicInstERNS_12InstCombinerE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1487' u='c' c='_ZL25removeTriviallyEmptyRangeRN4llvm13IntrinsicInstEjjRNS_12InstCombinerE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1488' u='c' c='_ZL25removeTriviallyEmptyRangeRN4llvm13IntrinsicInstEjjRNS_12InstCombinerE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1804' u='c' c='_ZN4llvm12InstCombiner13visitCallInstERNS_8CallInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1841' u='c' c='_ZN4llvm12InstCombiner13visitCallInstERNS_8CallInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='3993' u='c' c='_ZN4llvm12InstCombiner14visitFenceInstERNS_9FenceInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='4049' u='c' c='_ZN4llvm12InstCombiner15tryOptimizeCallEPNS_8CallInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='4199' u='c' c='_ZN4llvm12InstCombiner13visitCallBaseERNS_8CallBaseE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='4225' u='c' c='_ZN4llvm12InstCombiner13visitCallBaseERNS_8CallBaseE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='4269' u='c' c='_ZN4llvm12InstCombiner13visitCallBaseERNS_8CallBaseE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='4555' u='c' c='_ZN4llvm12InstCombiner26transformConstExprCastCallERNS_8CallBaseE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='410' u='c' c='_ZN4llvm12InstCombiner15visitAllocaInstERNS_10AllocaInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='420' u='c' c='_ZN4llvm12InstCombiner15visitAllocaInstERNS_10AllocaInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='650' u='c' c='_ZL26combineLoadToOperationTypeRN4llvm12InstCombinerERNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='668' u='c' c='_ZL26combineLoadToOperationTypeRN4llvm12InstCombinerERNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1387' u='c' c='_ZL35removeBitcastsFromLoadStoreOnMinMaxRN4llvm12InstCombinerERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1397' u='c' c='_ZN4llvm12InstCombiner14visitStoreInstERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1413' u='c' c='_ZN4llvm12InstCombiner14visitStoreInstERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1416' u='c' c='_ZN4llvm12InstCombiner14visitStoreInstERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1432' u='c' c='_ZN4llvm12InstCombiner14visitStoreInstERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1436' u='c' c='_ZN4llvm12InstCombiner14visitStoreInstERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1445' u='c' c='_ZN4llvm12InstCombiner14visitStoreInstERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1468' u='c' c='_ZN4llvm12InstCombiner14visitStoreInstERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1480' u='c' c='_ZN4llvm12InstCombiner14visitStoreInstERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1506' u='c' c='_ZN4llvm12InstCombiner14visitStoreInstERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1638' u='c' c='_ZN4llvm12InstCombiner23mergeStoreIntoSuccessorERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1639' u='c' c='_ZN4llvm12InstCombiner23mergeStoreIntoSuccessorERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='1031' u='c' c='_ZN4llvm12InstCombiner13foldOpIntoPhiERNS_11InstructionEPNS_7PHINodeE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='2360' u='c' c='_ZN4llvm12InstCombiner14visitAllocSiteERNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='2382' u='c' c='_ZN4llvm12InstCombiner14visitAllocSiteERNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='2394' u='c' c='_ZN4llvm12InstCombiner14visitAllocSiteERNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='2396' u='c' c='_ZN4llvm12InstCombiner14visitAllocSiteERNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='2489' u='c' c='_ZN4llvm12InstCombiner9visitFreeERNS_8CallInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='2495' u='c' c='_ZN4llvm12InstCombiner9visitFreeERNS_8CallInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='2689' u='c' c='_ZN4llvm12InstCombiner21visitExtractValueInstERNS_16ExtractValueInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='3172' u='c' c='_ZN4llvm12InstCombiner3runEv'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='3192' u='c' c='_ZN4llvm12InstCombiner3runEv'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='3212' u='c' c='_ZN4llvm12InstCombiner3runEv'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='3298' u='c' c='_ZN4llvm12InstCombiner3runEv'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='3306' u='c' c='_ZN4llvm12InstCombiner3runEv'/>

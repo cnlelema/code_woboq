@@ -1,0 +1,18 @@
+<dec f='llvm/llvm/include/llvm/Object/Binary.h' l='172' type='Expected&lt;std::unique_ptr&lt;Binary&gt; &gt; llvm::object::createBinary(llvm::MemoryBufferRef Source, llvm::LLVMContext * Context = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Object/Binary.h' l='169'>/// Create a Binary from Source, autodetecting the file type.
+///
+/// @param Source The data to create the Binary from.</doc>
+<use f='llvm/clang/tools/clang-offload-bundler/ClangOffloadBundler.cpp' l='717' u='c' c='_ZL23CreateObjectFileHandlerRN4llvm12MemoryBufferE'/>
+<use f='llvm/lld/COFF/DriverUtils.cpp' l='705' u='c' c='_ZN3lld4coff16convertResToCOFFEN4llvm8ArrayRefINS1_15MemoryBufferRefEEE'/>
+<use f='llvm/lld/COFF/InputFiles.cpp' l='121' u='c' c='_ZN3lld4coff7ObjFile5parseEv'/>
+<use f='llvm/lld/wasm/InputFiles.cpp' l='55' u='c' c='_ZN3lld4wasm16createObjectFileEN4llvm15MemoryBufferRefENS1_9StringRefE'/>
+<use f='llvm/lld/wasm/InputFiles.cpp' l='247' u='c' c='_ZN3lld4wasm7ObjFile5parseEb'/>
+<use f='llvm/llvm/lib/Object/Archive.cpp' l='524' u='c' c='_ZNK4llvm6object7Archive5Child11getAsBinaryEPNS_11LLVMContextE'/>
+<def f='llvm/llvm/lib/Object/Binary.cpp' l='45' ll='90' type='Expected&lt;std::unique_ptr&lt;Binary&gt; &gt; llvm::object::createBinary(llvm::MemoryBufferRef Buffer, llvm::LLVMContext * Context = nullptr)'/>
+<use f='llvm/llvm/lib/Object/Binary.cpp' l='101' u='c' c='_ZN4llvm6object12createBinaryENS_9StringRefE'/>
+<use f='llvm/llvm/lib/Object/Object.cpp' l='69' u='c' c='LLVMCreateBinary'/>
+<use f='llvm/llvm/lib/ProfileData/Coverage/CoverageMappingReader.cpp' l='651' u='c' c='_ZL16loadBinaryFormatN4llvm15MemoryBufferRefERNS_15InstrProfSymtabERNS_9StringRefERhRNS_7support10endiannessES3_'/>
+<use f='llvm/llvm/tools/llvm-dwarfdump/llvm-dwarfdump.cpp' l='487' u='c' c='_ZL12handleBufferN4llvm9StringRefENS_15MemoryBufferRefESt8functionIFbRNS_6object10ObjectFileERNS_12DWARFContextENS_5TwineERNS_11raw_ostreamEEESA_'/>
+<use f='llvm/llvm/tools/llvm-elfabi/ELFObjHandler.cpp' l='371' u='c' c='_ZN4llvm6elfabi11readELFFileENS_15MemoryBufferRefE'/>
+<use f='llvm/llvm/tools/llvm-nm/llvm-nm.cpp' l='1762' u='c' c='_ZL23dumpSymbolNamesFromFileRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/tools/llvm-objdump/MachODump.cpp' l='7247' u='c' c='_ZN4llvmL16DisassembleMachOENS_9StringRefEPNS_6object15MachOObjectFileES0_S0_'/>

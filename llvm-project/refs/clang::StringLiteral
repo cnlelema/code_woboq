@@ -1,0 +1,61 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<inh f='llvm/llvm/include/llvm/Support/TrailingObjects.h' l='233' c='llvm::TrailingObjects'/>
+<def f='llvm/clang/include/clang/AST/Expr.h' l='1625' ll='1814'/>
+<size>16</size>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='1608'>/// StringLiteral - This represents a string literal expression, e.g. &quot;foo&quot;
+/// or L&quot;bar&quot; (wide strings). The actual string data can be obtained with
+/// getBytes() and is NOT null-terminated. The length of the string data is
+/// determined by calling getByteLength().
+///
+/// The C type for a string is always a ConstantArrayType. In C++, the char
+/// type is const qualified, in C it is not.
+///
+/// Note that strings in C can be formed by concatenation of multiple string
+/// literal pptokens in translation phase #6. This keeps track of the locations
+/// of each of these pieces.
+///
+/// Strings in C can also be truncated and extended by assigning into arrays,
+/// e.g. with constructs like:
+///   char X[2] = &quot;foobar&quot;;
+/// In this case, getByteLength() will return 6, but the string literal will
+/// have type &quot;char[2]&quot;.</doc>
+<fun r='_ZNK5clang13StringLiteral18numTrailingObjectsEN4llvm25trailing_objects_internal19TrailingObjectsBase13OverloadTokenIjEE'/>
+<fun r='_ZNK5clang13StringLiteral18numTrailingObjectsEN4llvm25trailing_objects_internal19TrailingObjectsBase13OverloadTokenINS_14SourceLocationEEE'/>
+<fun r='_ZNK5clang13StringLiteral18numTrailingObjectsEN4llvm25trailing_objects_internal19TrailingObjectsBase13OverloadTokenIcEE'/>
+<fun r='_ZN5clang13StringLiteral16getStrDataAsCharEv'/>
+<fun r='_ZNK5clang13StringLiteral16getStrDataAsCharEv'/>
+<fun r='_ZNK5clang13StringLiteral18getStrDataAsUInt16Ev'/>
+<fun r='_ZNK5clang13StringLiteral18getStrDataAsUInt32Ev'/>
+<fun r='_ZN5clang13StringLiteralC1ERKNS_10ASTContextEN4llvm9StringRefENS0_10StringKindEbNS_8QualTypeEPKNS_14SourceLocationEj'/>
+<fun r='_ZN5clang13StringLiteralC1ENS_4Stmt10EmptyShellEjjj'/>
+<fun r='_ZN5clang13StringLiteral16mapCharByteWidthERKNS_10TargetInfoENS0_10StringKindE'/>
+<fun r='_ZN5clang13StringLiteral14setStrTokenLocEjNS_14SourceLocationE'/>
+<fun r='_ZN5clang13StringLiteral6CreateERKNS_10ASTContextEN4llvm9StringRefENS0_10StringKindEbNS_8QualTypeEPKNS_14SourceLocationEj'/>
+<fun r='_ZN5clang13StringLiteral6CreateERKNS_10ASTContextEN4llvm9StringRefENS0_10StringKindEbNS_8QualTypeENS_14SourceLocationE'/>
+<fun r='_ZN5clang13StringLiteral11CreateEmptyERKNS_10ASTContextEjjj'/>
+<fun r='_ZNK5clang13StringLiteral9getStringEv'/>
+<fun r='_ZNK5clang13StringLiteral8getBytesEv'/>
+<fun r='_ZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamE'/>
+<fun r='_ZNK5clang13StringLiteral11getCodeUnitEm'/>
+<fun r='_ZNK5clang13StringLiteral13getByteLengthEv'/>
+<fun r='_ZNK5clang13StringLiteral9getLengthEv'/>
+<fun r='_ZNK5clang13StringLiteral16getCharByteWidthEv'/>
+<fun r='_ZNK5clang13StringLiteral7getKindEv'/>
+<fun r='_ZNK5clang13StringLiteral7isAsciiEv'/>
+<fun r='_ZNK5clang13StringLiteral6isWideEv'/>
+<fun r='_ZNK5clang13StringLiteral6isUTF8Ev'/>
+<fun r='_ZNK5clang13StringLiteral7isUTF16Ev'/>
+<fun r='_ZNK5clang13StringLiteral7isUTF32Ev'/>
+<fun r='_ZNK5clang13StringLiteral8isPascalEv'/>
+<fun r='_ZNK5clang13StringLiteral16containsNonAsciiEv'/>
+<fun r='_ZNK5clang13StringLiteral22containsNonAsciiOrNullEv'/>
+<fun r='_ZNK5clang13StringLiteral18getNumConcatenatedEv'/>
+<fun r='_ZNK5clang13StringLiteral14getStrTokenLocEj'/>
+<fun r='_ZNK5clang13StringLiteral17getLocationOfByteEjRKNS_13SourceManagerERKNS_11LangOptionsERKNS_10TargetInfoEPjSA_'/>
+<fun r='_ZNK5clang13StringLiteral12tokloc_beginEv'/>
+<fun r='_ZNK5clang13StringLiteral10tokloc_endEv'/>
+<fun r='_ZNK5clang13StringLiteral11getBeginLocEv'/>
+<fun r='_ZNK5clang13StringLiteral9getEndLocEv'/>
+<fun r='_ZN5clang13StringLiteral7classofEPKNS_4StmtE'/>
+<fun r='_ZN5clang13StringLiteral8childrenEv'/>
+<fun r='_ZNK5clang13StringLiteral8childrenEv'/>

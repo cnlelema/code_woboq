@@ -1,0 +1,19 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='10499' type='clang::Sema::DeviceDiagBuilder clang::Sema::CUDADiagIfDeviceCode(clang::SourceLocation Loc, unsigned int DiagID)'/>
+<doc f='llvm/clang/include/clang/Sema/Sema.h' l='10483'>/// Creates a DeviceDiagBuilder that emits the diagnostic if the current context
+  /// is &quot;used as device code&quot;.
+  ///
+  /// - If CurContext is a __host__ function, does not emit any diagnostics.
+  /// - If CurContext is a __device__ or __global__ function, emits the
+  ///   diagnostics immediately.
+  /// - If CurContext is a __host__ __device__ function and we are compiling for
+  ///   the device, creates a diagnostic which is emitted if and when we realize
+  ///   that the function will be codegen&apos;ed.
+  ///
+  /// Example usage:
+  ///
+  ///  // Variable-length arrays are not allowed in CUDA device code.
+  ///  if (CUDADiagIfDeviceCode(Loc, diag::err_cuda_vla) &lt;&lt; CurrentCUDATarget())
+  ///    return ExprError();
+  ///  // Otherwise, continue parsing as normal.</doc>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='1645' u='c' c='_ZN5clang4Sema10targetDiagENS_14SourceLocationEj'/>
+<def f='llvm/clang/lib/Sema/SemaCUDA.cpp' l='623' ll='648' type='Sema::DeviceDiagBuilder clang::Sema::CUDADiagIfDeviceCode(clang::SourceLocation Loc, unsigned int DiagID)'/>

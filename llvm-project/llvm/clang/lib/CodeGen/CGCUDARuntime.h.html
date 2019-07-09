@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CGCUDARuntime.h source code [llvm/clang/lib/CodeGen/CGCUDARuntime.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="clang::CodeGen::CGCUDARuntime "/>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/clang/lib/CodeGen/CGCUDARuntime.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>llvm</a>/<a href='../..'>clang</a>/<a href='..'>lib</a>/<a href='./'>CodeGen</a>/<a href='CGCUDARuntime.h.html'>CGCUDARuntime.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===----- CGCUDARuntime.h - Interface to CUDA Runtimes ---------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This provides an abstract class for CUDA code generation.  Concrete</i></td></tr>
+<tr><th id="10">10</th><td><i>// subclasses of this implement code generation for specific CUDA</i></td></tr>
+<tr><th id="11">11</th><td><i>// runtime libraries.</i></td></tr>
+<tr><th id="12">12</th><td><i>//</i></td></tr>
+<tr><th id="13">13</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><u>#<span data-ppcond="15">ifndef</span> <span class="macro" data-ref="_M/LLVM_CLANG_LIB_CODEGEN_CGCUDARUNTIME_H">LLVM_CLANG_LIB_CODEGEN_CGCUDARUNTIME_H</span></u></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/LLVM_CLANG_LIB_CODEGEN_CGCUDARUNTIME_H" data-ref="_M/LLVM_CLANG_LIB_CODEGEN_CGCUDARUNTIME_H">LLVM_CLANG_LIB_CODEGEN_CGCUDARUNTIME_H</dfn></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="19">19</th><td><b>class</b> <a class="type" href="../../../llvm/include/llvm/IR/Function.h.html#llvm::Function" title='llvm::Function' data-ref="llvm::Function" id="llvm::Function">Function</a>;</td></tr>
+<tr><th id="20">20</th><td><b>class</b> <a class="type" href="../../../llvm/include/llvm/IR/GlobalVariable.h.html#llvm::GlobalVariable" title='llvm::GlobalVariable' data-ref="llvm::GlobalVariable" id="llvm::GlobalVariable">GlobalVariable</a>;</td></tr>
+<tr><th id="21">21</th><td>}</td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>namespace</b> <span class="namespace">clang</span> {</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><b>class</b> <a class="type" href="../../include/clang/AST/ExprCXX.h.html#clang::CUDAKernelCallExpr" title='clang::CUDAKernelCallExpr' data-ref="clang::CUDAKernelCallExpr" id="clang::CUDAKernelCallExpr">CUDAKernelCallExpr</a>;</td></tr>
+<tr><th id="26">26</th><td><b>class</b> <a class="type" href="../../include/clang/AST/Decl.h.html#clang::VarDecl" title='clang::VarDecl' data-ref="clang::VarDecl" id="clang::VarDecl">VarDecl</a>;</td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><b>namespace</b> <span class="namespace">CodeGen</span> {</td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><b>class</b> <a class="type" href="CodeGenFunction.h.html#clang::CodeGen::CodeGenFunction" title='clang::CodeGen::CodeGenFunction' data-ref="clang::CodeGen::CodeGenFunction" id="clang::CodeGen::CodeGenFunction">CodeGenFunction</a>;</td></tr>
+<tr><th id="31">31</th><td><b>class</b> <a class="type" href="CodeGenModule.h.html#clang::CodeGen::CodeGenModule" title='clang::CodeGen::CodeGenModule' data-ref="clang::CodeGen::CodeGenModule" id="clang::CodeGen::CodeGenModule">CodeGenModule</a>;</td></tr>
+<tr><th id="32">32</th><td><b>class</b> <a class="type" href="CGCall.h.html#clang::CodeGen::FunctionArgList" title='clang::CodeGen::FunctionArgList' data-ref="clang::CodeGen::FunctionArgList" id="clang::CodeGen::FunctionArgList">FunctionArgList</a>;</td></tr>
+<tr><th id="33">33</th><td><b>class</b> <a class="type" href="CGCall.h.html#clang::CodeGen::ReturnValueSlot" title='clang::CodeGen::ReturnValueSlot' data-ref="clang::CodeGen::ReturnValueSlot" id="clang::CodeGen::ReturnValueSlot">ReturnValueSlot</a>;</td></tr>
+<tr><th id="34">34</th><td><b>class</b> <a class="type" href="CGValue.h.html#clang::CodeGen::RValue" title='clang::CodeGen::RValue' data-ref="clang::CodeGen::RValue" id="clang::CodeGen::RValue">RValue</a>;</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><b>class</b> <dfn class="type def" id="clang::CodeGen::CGCUDARuntime" title='clang::CodeGen::CGCUDARuntime' data-ref="clang::CodeGen::CGCUDARuntime">CGCUDARuntime</dfn> {</td></tr>
+<tr><th id="37">37</th><td><b>protected</b>:</td></tr>
+<tr><th id="38">38</th><td>  <a class="type" href="CodeGenModule.h.html#clang::CodeGen::CodeGenModule" title='clang::CodeGen::CodeGenModule' data-ref="clang::CodeGen::CodeGenModule">CodeGenModule</a> &amp;<dfn class="decl" id="clang::CodeGen::CGCUDARuntime::CGM" title='clang::CodeGen::CGCUDARuntime::CGM' data-ref="clang::CodeGen::CGCUDARuntime::CGM">CGM</dfn>;</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>public</b>:</td></tr>
+<tr><th id="41">41</th><td>  <i>// Global variable properties that must be passed to CUDA runtime.</i></td></tr>
+<tr><th id="42">42</th><td>  <b>enum</b> <dfn class="type def" id="clang::CodeGen::CGCUDARuntime::DeviceVarFlags" title='clang::CodeGen::CGCUDARuntime::DeviceVarFlags' data-ref="clang::CodeGen::CGCUDARuntime::DeviceVarFlags">DeviceVarFlags</dfn> {</td></tr>
+<tr><th id="43">43</th><td>    <dfn class="enum" id="clang::CodeGen::CGCUDARuntime::DeviceVarFlags::ExternDeviceVar" title='clang::CodeGen::CGCUDARuntime::DeviceVarFlags::ExternDeviceVar' data-ref="clang::CodeGen::CGCUDARuntime::DeviceVarFlags::ExternDeviceVar">ExternDeviceVar</dfn> = <var>0x01</var>,   <i>// extern</i></td></tr>
+<tr><th id="44">44</th><td>    <dfn class="enum" id="clang::CodeGen::CGCUDARuntime::DeviceVarFlags::ConstantDeviceVar" title='clang::CodeGen::CGCUDARuntime::DeviceVarFlags::ConstantDeviceVar' data-ref="clang::CodeGen::CGCUDARuntime::DeviceVarFlags::ConstantDeviceVar">ConstantDeviceVar</dfn> = <var>0x02</var>, <i>// __constant__</i></td></tr>
+<tr><th id="45">45</th><td>  };</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td>  <dfn class="decl def" id="_ZN5clang7CodeGen13CGCUDARuntimeC1ERNS0_13CodeGenModuleE" title='clang::CodeGen::CGCUDARuntime::CGCUDARuntime' data-ref="_ZN5clang7CodeGen13CGCUDARuntimeC1ERNS0_13CodeGenModuleE">CGCUDARuntime</dfn>(<a class="type" href="CodeGenModule.h.html#clang::CodeGen::CodeGenModule" title='clang::CodeGen::CodeGenModule' data-ref="clang::CodeGen::CodeGenModule">CodeGenModule</a> &amp;<dfn class="local col1 decl" id="1CGM" title='CGM' data-type='clang::CodeGen::CodeGenModule &amp;' data-ref="1CGM">CGM</dfn>) : <a class="member" href="#clang::CodeGen::CGCUDARuntime::CGM" title='clang::CodeGen::CGCUDARuntime::CGM' data-ref="clang::CodeGen::CGCUDARuntime::CGM">CGM</a>(<a class="local col1 ref" href="#1CGM" title='CGM' data-ref="1CGM">CGM</a>) {}</td></tr>
+<tr><th id="48">48</th><td>  <b>virtual</b> <dfn class="virtual decl" id="_ZN5clang7CodeGen13CGCUDARuntimeD1Ev" title='clang::CodeGen::CGCUDARuntime::~CGCUDARuntime' data-ref="_ZN5clang7CodeGen13CGCUDARuntimeD1Ev">~CGCUDARuntime</dfn>();</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>  <b>virtual</b> <a class="type" href="CGValue.h.html#clang::CodeGen::RValue" title='clang::CodeGen::RValue' data-ref="clang::CodeGen::RValue">RValue</a> <dfn class="virtual decl" id="_ZN5clang7CodeGen13CGCUDARuntime22EmitCUDAKernelCallExprERNS0_15CodeGenFunctionEPKNS_18CUDAKernelCallExprENS0_15ReturnValueSlotE" title='clang::CodeGen::CGCUDARuntime::EmitCUDAKernelCallExpr' data-ref="_ZN5clang7CodeGen13CGCUDARuntime22EmitCUDAKernelCallExprERNS0_15CodeGenFunctionEPKNS_18CUDAKernelCallExprENS0_15ReturnValueSlotE">EmitCUDAKernelCallExpr</dfn>(<a class="type" href="CodeGenFunction.h.html#clang::CodeGen::CodeGenFunction" title='clang::CodeGen::CodeGenFunction' data-ref="clang::CodeGen::CodeGenFunction">CodeGenFunction</a> &amp;<dfn class="local col2 decl" id="2CGF" title='CGF' data-type='clang::CodeGen::CodeGenFunction &amp;' data-ref="2CGF">CGF</dfn>,</td></tr>
+<tr><th id="51">51</th><td>                                        <em>const</em> <a class="type" href="../../include/clang/AST/ExprCXX.h.html#clang::CUDAKernelCallExpr" title='clang::CUDAKernelCallExpr' data-ref="clang::CUDAKernelCallExpr">CUDAKernelCallExpr</a> *<dfn class="local col3 decl" id="3E" title='E' data-type='const clang::CUDAKernelCallExpr *' data-ref="3E">E</dfn>,</td></tr>
+<tr><th id="52">52</th><td>                                        <a class="type" href="CGCall.h.html#clang::CodeGen::ReturnValueSlot" title='clang::CodeGen::ReturnValueSlot' data-ref="clang::CodeGen::ReturnValueSlot">ReturnValueSlot</a> <dfn class="local col4 decl" id="4ReturnValue" title='ReturnValue' data-type='clang::CodeGen::ReturnValueSlot' data-ref="4ReturnValue">ReturnValue</dfn>);</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td>  <i class="doc">/// Emits a kernel launch stub.</i></td></tr>
+<tr><th id="55">55</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZN5clang7CodeGen13CGCUDARuntime14emitDeviceStubERNS0_15CodeGenFunctionERNS0_15FunctionArgListE" title='clang::CodeGen::CGCUDARuntime::emitDeviceStub' data-ref="_ZN5clang7CodeGen13CGCUDARuntime14emitDeviceStubERNS0_15CodeGenFunctionERNS0_15FunctionArgListE">emitDeviceStub</dfn>(<a class="type" href="CodeGenFunction.h.html#clang::CodeGen::CodeGenFunction" title='clang::CodeGen::CodeGenFunction' data-ref="clang::CodeGen::CodeGenFunction">CodeGenFunction</a> &amp;<dfn class="local col5 decl" id="5CGF" title='CGF' data-type='clang::CodeGen::CodeGenFunction &amp;' data-ref="5CGF">CGF</dfn>, <a class="type" href="CGCall.h.html#clang::CodeGen::FunctionArgList" title='clang::CodeGen::FunctionArgList' data-ref="clang::CodeGen::FunctionArgList">FunctionArgList</a> &amp;<dfn class="local col6 decl" id="6Args" title='Args' data-type='clang::CodeGen::FunctionArgList &amp;' data-ref="6Args">Args</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="56">56</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZN5clang7CodeGen13CGCUDARuntime17registerDeviceVarEPKNS_7VarDeclERN4llvm14GlobalVariableEj" title='clang::CodeGen::CGCUDARuntime::registerDeviceVar' data-ref="_ZN5clang7CodeGen13CGCUDARuntime17registerDeviceVarEPKNS_7VarDeclERN4llvm14GlobalVariableEj">registerDeviceVar</dfn>(<em>const</em> <a class="type" href="../../include/clang/AST/Decl.h.html#clang::VarDecl" title='clang::VarDecl' data-ref="clang::VarDecl">VarDecl</a> *<dfn class="local col7 decl" id="7VD" title='VD' data-type='const clang::VarDecl *' data-ref="7VD">VD</dfn>, <span class="namespace">llvm::</span><a class="type" href="../../../llvm/include/llvm/IR/GlobalVariable.h.html#llvm::GlobalVariable" title='llvm::GlobalVariable' data-ref="llvm::GlobalVariable">GlobalVariable</a> &amp;<dfn class="local col8 decl" id="8Var" title='Var' data-type='llvm::GlobalVariable &amp;' data-ref="8Var">Var</dfn>,</td></tr>
+<tr><th id="57">57</th><td>                                 <em>unsigned</em> <dfn class="local col9 decl" id="9Flags" title='Flags' data-type='unsigned int' data-ref="9Flags">Flags</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>  <i class="doc">/// Constructs and returns a module initialization function or nullptr if it's</i></td></tr>
+<tr><th id="60">60</th><td><i class="doc">  /// not needed. Must be called after all kernels have been emitted.</i></td></tr>
+<tr><th id="61">61</th><td>  <b>virtual</b> <span class="namespace">llvm::</span><a class="type" href="../../../llvm/include/llvm/IR/Function.h.html#llvm::Function" title='llvm::Function' data-ref="llvm::Function">Function</a> *<dfn class="virtual decl" id="_ZN5clang7CodeGen13CGCUDARuntime22makeModuleCtorFunctionEv" title='clang::CodeGen::CGCUDARuntime::makeModuleCtorFunction' data-ref="_ZN5clang7CodeGen13CGCUDARuntime22makeModuleCtorFunctionEv">makeModuleCtorFunction</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>  <i class="doc">/// Returns a module cleanup function or nullptr if it's not needed.</i></td></tr>
+<tr><th id="64">64</th><td><i class="doc">  /// Must be called after ModuleCtorFunction</i></td></tr>
+<tr><th id="65">65</th><td>  <b>virtual</b> <span class="namespace">llvm::</span><a class="type" href="../../../llvm/include/llvm/IR/Function.h.html#llvm::Function" title='llvm::Function' data-ref="llvm::Function">Function</a> *<dfn class="virtual decl" id="_ZN5clang7CodeGen13CGCUDARuntime22makeModuleDtorFunctionEv" title='clang::CodeGen::CGCUDARuntime::makeModuleDtorFunction' data-ref="_ZN5clang7CodeGen13CGCUDARuntime22makeModuleDtorFunctionEv">makeModuleDtorFunction</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="66">66</th><td>};</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><i class="doc">/// Creates an instance of a CUDA runtime class.</i></td></tr>
+<tr><th id="69">69</th><td><a class="type" href="#clang::CodeGen::CGCUDARuntime" title='clang::CodeGen::CGCUDARuntime' data-ref="clang::CodeGen::CGCUDARuntime">CGCUDARuntime</a> *<a class="decl" href="CGCUDANV.cpp.html#_ZN5clang7CodeGen19CreateNVCUDARuntimeERNS0_13CodeGenModuleE" title='clang::CodeGen::CreateNVCUDARuntime' data-ref="_ZN5clang7CodeGen19CreateNVCUDARuntimeERNS0_13CodeGenModuleE" id="_ZN5clang7CodeGen19CreateNVCUDARuntimeERNS0_13CodeGenModuleE">CreateNVCUDARuntime</a>(<a class="type" href="CodeGenModule.h.html#clang::CodeGen::CodeGenModule" title='clang::CodeGen::CodeGenModule' data-ref="clang::CodeGen::CodeGenModule">CodeGenModule</a> &amp;<dfn class="local col0 decl" id="10CGM" title='CGM' data-type='clang::CodeGen::CodeGenModule &amp;' data-ref="10CGM">CGM</dfn>);</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>}</td></tr>
+<tr><th id="72">72</th><td>}</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><u>#<span data-ppcond="15">endif</span></u></td></tr>
+<tr><th id="75">75</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='CGCUDANV.cpp.html'>llvm/clang/lib/CodeGen/CGCUDANV.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,14 @@
+<def f='llvm/clang/include/clang/Driver/Tool.h' l='107' ll='109' type='llvm::sys::WindowsEncodingMethod clang::driver::Tool::getResponseFileEncoding() const'/>
+<doc f='llvm/clang/include/clang/Driver/Tool.h' l='95'>/// Returns which encoding the response file should use. This is only
+  /// relevant on Windows platforms where there are different encodings being
+  /// accepted for different tools. On UNIX, UTF8 is universal.
+  ///
+  /// Windows use cases: - GCC and Binutils on mingw only accept ANSI response
+  /// files encoded with the system current code page.
+  /// - MSVC&apos;s CL.exe and LINK.exe accept UTF16 on Windows.
+  /// - Clang accepts both UTF8 and UTF16.
+  ///
+  /// FIXME: When GNU tools learn how to parse UTF16 on Windows, we should
+  /// always use UTF16 for Windows, which is the Windows official encoding for
+  /// international characters.</doc>
+<use f='llvm/clang/lib/Driver/Job.cpp' l='359' u='c' c='_ZNK5clang6driver7Command7ExecuteEN4llvm8ArrayRefINS2_8OptionalINS2_9StringRefEEEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb'/>

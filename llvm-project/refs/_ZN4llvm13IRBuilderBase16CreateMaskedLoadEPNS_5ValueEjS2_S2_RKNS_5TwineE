@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/IR/IRBuilder.h' l='593' type='llvm::CallInst * llvm::IRBuilderBase::CreateMaskedLoad(llvm::Value * Ptr, unsigned int Align, llvm::Value * Mask, llvm::Value * PassThru = nullptr, const llvm::Twine &amp; Name = &quot;&quot;)'/>
+<doc f='llvm/llvm/include/llvm/IR/IRBuilder.h' l='592'>/// Create a call to Masked Load intrinsic</doc>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='9623' u='c' c='_ZL17EmitX86MaskedLoadRN5clang7CodeGen15CodeGenFunctionEN4llvm8ArrayRefIPNS3_5ValueEEEj'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='1309' u='c' c='_ZL17UpgradeMaskedLoadRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_S6_b'/>
+<def f='llvm/llvm/lib/IR/IRBuilder.cpp' l='486' ll='499' type='llvm::CallInst * llvm::IRBuilderBase::CreateMaskedLoad(llvm::Value * Ptr, unsigned int Align, llvm::Value * Mask, llvm::Value * PassThru = nullptr, const llvm::Twine &amp; Name = &quot;&quot;)'/>
+<doc f='llvm/llvm/lib/IR/IRBuilder.cpp' l='478'>/// Create a call to a Masked Load intrinsic.
+/// \p Ptr      - base pointer for the load
+/// \p Align    - alignment of the source location
+/// \p Mask     - vector of booleans which indicates what vector lanes should
+///               be accessed in memory
+/// \p PassThru - pass-through value that is used to fill the masked-off lanes
+///               of the result
+/// \p Name     - name of the result variable</doc>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1324' u='c' c='_ZL21simplifyX86MaskedLoadRN4llvm13IntrinsicInstERNS_12InstCombinerE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/MemorySanitizer.cpp' l='2932' u='c' c='_ZN12_GLOBAL__N_122MemorySanitizerVisitor16handleMaskedLoadERN4llvm13IntrinsicInstE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='2125' u='c' c='_ZN4llvm19InnerLoopVectorizer24vectorizeInterleaveGroupEPNS_11InstructionEPNS_11SmallVectorIPNS_5ValueELj2EEE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='2337' u='c' c='_ZN4llvm19InnerLoopVectorizer26vectorizeMemoryInstructionEPNS_11InstructionEPNS_11SmallVectorIPNS_5ValueELj2EEE'/>

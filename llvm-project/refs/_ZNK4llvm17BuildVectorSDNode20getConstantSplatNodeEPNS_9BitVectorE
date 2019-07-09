@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='1953' type='llvm::ConstantSDNode * llvm::BuildVectorSDNode::getConstantSplatNode(llvm::BitVector * UndefElements = nullptr) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='1947'>/// Returns the splatted constant or null if this is not a constant
+  /// splat.
+  ///
+  /// If passed a non-null UndefElements bitvector, it will resize it to match
+  /// the vector width and set the bits where elements are undef.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='8895' u='c' c='_ZN4llvm19isConstOrConstSplatENS_7SDValueEbb'/>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='9603' ll='9606' type='llvm::ConstantSDNode * llvm::BuildVectorSDNode::getConstantSplatNode(llvm::BitVector * UndefElements = nullptr) const'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2385' u='c' c='_ZNK4llvm14TargetLowering14isConstTrueValEPKNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2424' u='c' c='_ZNK4llvm14TargetLowering15isConstFalseValEPKNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='7232' u='c' c='_ZNK4llvm21AArch64TargetLowering17LowerBUILD_VECTORENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='35947' u='c' c='_ZL13combineSelectPN4llvm6SDNodeERNS_12SelectionDAGERNS_14TargetLowering15DAGCombinerInfoERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='37143' u='c' c='_ZL16combineShiftLeftPN4llvm6SDNodeERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='38633' u='c' c='_ZL25foldVectorXorShiftIntoCmpPN4llvm6SDNodeERNS_12SelectionDAGERKNS_12X86SubtargetE'/>

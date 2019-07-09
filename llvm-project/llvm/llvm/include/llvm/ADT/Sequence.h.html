@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Sequence.h source code [llvm/llvm/include/llvm/ADT/Sequence.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::detail::value_sequence_iterator "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/ADT/Sequence.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>ADT</a>/<a href='Sequence.h.html'>Sequence.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- Sequence.h - Utility for producing sequences of values ---*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>/// \file</i></td></tr>
+<tr><th id="9">9</th><td><i>/// This routine provides some synthesis utilities to produce sequences of</i></td></tr>
+<tr><th id="10">10</th><td><i>/// values. The names are intentionally kept very short as they tend to occur</i></td></tr>
+<tr><th id="11">11</th><td><i>/// in common and widely used contexts.</i></td></tr>
+<tr><th id="12">12</th><td><i>///</i></td></tr>
+<tr><th id="13">13</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><u>#<span data-ppcond="15">ifndef</span> <span class="macro" data-ref="_M/LLVM_ADT_SEQUENCE_H">LLVM_ADT_SEQUENCE_H</span></u></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/LLVM_ADT_SEQUENCE_H" data-ref="_M/LLVM_ADT_SEQUENCE_H">LLVM_ADT_SEQUENCE_H</dfn></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="iterator.h.html">"llvm/ADT/iterator.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="iterator_range.h.html">"llvm/ADT/iterator_range.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../../include/c++/7/algorithm.html">&lt;algorithm&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../../../include/c++/7/iterator.html">&lt;iterator&gt;</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../../../include/c++/7/utility.html">&lt;utility&gt;</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><b>namespace</b> <span class="namespace">detail</span> {</td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><b>template</b> &lt;<b>typename</b> ValueT&gt;</td></tr>
+<tr><th id="29">29</th><td><b>class</b> <dfn class="type def" id="llvm::detail::value_sequence_iterator" title='llvm::detail::value_sequence_iterator' data-ref="llvm::detail::value_sequence_iterator">value_sequence_iterator</dfn></td></tr>
+<tr><th id="30">30</th><td>    : <b>public</b> <a class="type" href="iterator.h.html#llvm::iterator_facade_base" title='llvm::iterator_facade_base' data-ref="llvm::iterator_facade_base">iterator_facade_base</a>&lt;<a class="type" href="#llvm::detail::value_sequence_iterator" title='llvm::detail::value_sequence_iterator' data-ref="llvm::detail::value_sequence_iterator">value_sequence_iterator</a>&lt;ValueT&gt;,</td></tr>
+<tr><th id="31">31</th><td>                                  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_iterator_base_types.h.html#std::random_access_iterator_tag" title='std::random_access_iterator_tag' data-ref="std::random_access_iterator_tag">random_access_iterator_tag</a>,</td></tr>
+<tr><th id="32">32</th><td>                                  <em>const</em> ValueT&gt; {</td></tr>
+<tr><th id="33">33</th><td>  <b>using</b> <dfn class="typedef" id="llvm::detail::value_sequence_iterator::BaseT" title='llvm::detail::value_sequence_iterator::BaseT' data-type='typename value_sequence_iterator&lt;ValueT&gt;::iterator_facade_base' data-ref="llvm::detail::value_sequence_iterator::BaseT">BaseT</dfn> = <b>typename</b> value_sequence_iterator::iterator_facade_base;</td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td>  ValueT <dfn class="decl" id="llvm::detail::value_sequence_iterator::Value" title='llvm::detail::value_sequence_iterator::Value' data-ref="llvm::detail::value_sequence_iterator::Value">Value</dfn>;</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><b>public</b>:</td></tr>
+<tr><th id="38">38</th><td>  <b>using</b> <dfn class="typedef" id="llvm::detail::value_sequence_iterator::difference_type" title='llvm::detail::value_sequence_iterator::difference_type' data-type='typename BaseT::difference_type' data-ref="llvm::detail::value_sequence_iterator::difference_type">difference_type</dfn> = <b>typename</b> <a class="typedef" href="#llvm::detail::value_sequence_iterator::BaseT" title='llvm::detail::value_sequence_iterator::BaseT' data-type='typename value_sequence_iterator&lt;ValueT&gt;::iterator_facade_base' data-ref="llvm::detail::value_sequence_iterator::BaseT">BaseT</a>::difference_type;</td></tr>
+<tr><th id="39">39</th><td>  <b>using</b> <dfn class="typedef" id="llvm::detail::value_sequence_iterator::reference" title='llvm::detail::value_sequence_iterator::reference' data-type='typename BaseT::reference' data-ref="llvm::detail::value_sequence_iterator::reference">reference</dfn> = <b>typename</b> <a class="typedef" href="#llvm::detail::value_sequence_iterator::BaseT" title='llvm::detail::value_sequence_iterator::BaseT' data-type='typename value_sequence_iterator&lt;ValueT&gt;::iterator_facade_base' data-ref="llvm::detail::value_sequence_iterator::BaseT">BaseT</a>::reference;</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td>  <dfn class="decl" id="_ZN4llvm6detail23value_sequence_iteratorC1Ev" title='llvm::detail::value_sequence_iterator::value_sequence_iterator&lt;ValueT&gt;' data-ref="_ZN4llvm6detail23value_sequence_iteratorC1Ev">value_sequence_iterator</dfn>() = <b>default</b>;</td></tr>
+<tr><th id="42">42</th><td>  <dfn class="decl" id="_ZN4llvm6detail23value_sequence_iteratorC1ERKNS0_23value_sequence_iteratorIT_EE" title='llvm::detail::value_sequence_iterator::value_sequence_iterator&lt;ValueT&gt;' data-ref="_ZN4llvm6detail23value_sequence_iteratorC1ERKNS0_23value_sequence_iteratorIT_EE">value_sequence_iterator</dfn>(<em>const</em> value_sequence_iterator &amp;) = <b>default</b>;</td></tr>
+<tr><th id="43">43</th><td>  <dfn class="decl def" id="_ZN4llvm6detail23value_sequence_iteratorC1EONS0_23value_sequence_iteratorIT_EE" title='llvm::detail::value_sequence_iterator::value_sequence_iterator&lt;ValueT&gt;' data-ref="_ZN4llvm6detail23value_sequence_iteratorC1EONS0_23value_sequence_iteratorIT_EE">value_sequence_iterator</dfn>(value_sequence_iterator &amp;&amp;<dfn class="local col1 decl" id="1Arg" title='Arg' data-type='value_sequence_iterator&lt;ValueT&gt; &amp;&amp;' data-ref="1Arg">Arg</dfn>)</td></tr>
+<tr><th id="44">44</th><td>      : <a class="member" href="#llvm::detail::value_sequence_iterator::Value" title='llvm::detail::value_sequence_iterator::Value' data-ref="llvm::detail::value_sequence_iterator::Value">Value</a>(<span class="namespace">std::</span>move(<a class="local col1 ref" href="#1Arg" title='Arg' data-ref="1Arg">Arg</a>.Value)) {}</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td>  <b>template</b> &lt;<b>typename</b> U, <b>typename</b> Enabler = <b>decltype</b>(ValueT(<span class="namespace">std::</span>declval&lt;U&gt;()))&gt;</td></tr>
+<tr><th id="47">47</th><td>  <dfn class="decl def" id="_ZN4llvm6detail23value_sequence_iteratorC1EOT_" title='llvm::detail::value_sequence_iterator::value_sequence_iterator&lt;ValueT&gt;' data-ref="_ZN4llvm6detail23value_sequence_iteratorC1EOT_">value_sequence_iterator</dfn>(U &amp;&amp;<dfn class="local col2 decl" id="2Value" title='Value' data-type='U &amp;&amp;' data-ref="2Value">Value</dfn>) : <a class="member" href="#llvm::detail::value_sequence_iterator::Value" title='llvm::detail::value_sequence_iterator::Value' data-ref="llvm::detail::value_sequence_iterator::Value">Value</a>(<span class="namespace">std::</span>forward&lt;U&gt;(<a class="local col2 ref" href="#2Value" title='Value' data-ref="2Value">Value</a>)) {}</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>  value_sequence_iterator &amp;<dfn class="decl def" id="_ZN4llvm6detail23value_sequence_iteratorpLENNS0_23value_sequence_iteratorIT_EE20iterator_facade_base15difference_typeE" title='llvm::detail::value_sequence_iterator::operator+=' data-ref="_ZN4llvm6detail23value_sequence_iteratorpLENNS0_23value_sequence_iteratorIT_EE20iterator_facade_base15difference_typeE"><b>operator</b>+=</dfn>(<a class="typedef" href="#llvm::detail::value_sequence_iterator::difference_type" title='llvm::detail::value_sequence_iterator::difference_type' data-type='typename BaseT::difference_type' data-ref="llvm::detail::value_sequence_iterator::difference_type">difference_type</a> <dfn class="local col3 decl" id="3N" title='N' data-type='difference_type' data-ref="3N">N</dfn>) {</td></tr>
+<tr><th id="50">50</th><td>    <a class="member" href="#llvm::detail::value_sequence_iterator::Value" title='llvm::detail::value_sequence_iterator::Value' data-ref="llvm::detail::value_sequence_iterator::Value">Value</a> += <a class="local col3 ref" href="#3N" title='N' data-ref="3N">N</a>;</td></tr>
+<tr><th id="51">51</th><td>    <b>return</b> *<b>this</b>;</td></tr>
+<tr><th id="52">52</th><td>  }</td></tr>
+<tr><th id="53">53</th><td>  value_sequence_iterator &amp;<dfn class="decl def" id="_ZN4llvm6detail23value_sequence_iteratormIENNS0_23value_sequence_iteratorIT_EE20iterator_facade_base15difference_typeE" title='llvm::detail::value_sequence_iterator::operator-=' data-ref="_ZN4llvm6detail23value_sequence_iteratormIENNS0_23value_sequence_iteratorIT_EE20iterator_facade_base15difference_typeE"><b>operator</b>-=</dfn>(<a class="typedef" href="#llvm::detail::value_sequence_iterator::difference_type" title='llvm::detail::value_sequence_iterator::difference_type' data-type='typename BaseT::difference_type' data-ref="llvm::detail::value_sequence_iterator::difference_type">difference_type</a> <dfn class="local col4 decl" id="4N" title='N' data-type='difference_type' data-ref="4N">N</dfn>) {</td></tr>
+<tr><th id="54">54</th><td>    <a class="member" href="#llvm::detail::value_sequence_iterator::Value" title='llvm::detail::value_sequence_iterator::Value' data-ref="llvm::detail::value_sequence_iterator::Value">Value</a> -= <a class="local col4 ref" href="#4N" title='N' data-ref="4N">N</a>;</td></tr>
+<tr><th id="55">55</th><td>    <b>return</b> *<b>this</b>;</td></tr>
+<tr><th id="56">56</th><td>  }</td></tr>
+<tr><th id="57">57</th><td>  <b>using</b> <a class="typedef" href="#llvm::detail::value_sequence_iterator::BaseT" title='llvm::detail::value_sequence_iterator::BaseT' data-type='typename value_sequence_iterator&lt;ValueT&gt;::iterator_facade_base' data-ref="llvm::detail::value_sequence_iterator::BaseT">BaseT</a>::<b>operator</b>-;</td></tr>
+<tr><th id="58">58</th><td>  <a class="typedef" href="#llvm::detail::value_sequence_iterator::difference_type" title='llvm::detail::value_sequence_iterator::difference_type' data-type='typename BaseT::difference_type' data-ref="llvm::detail::value_sequence_iterator::difference_type">difference_type</a> <dfn class="decl def" id="_ZNK4llvm6detail23value_sequence_iteratormiERKNS0_23value_sequence_iteratorIT_EE" title='llvm::detail::value_sequence_iterator::operator-' data-ref="_ZNK4llvm6detail23value_sequence_iteratormiERKNS0_23value_sequence_iteratorIT_EE"><b>operator</b>-</dfn>(<em>const</em> value_sequence_iterator &amp;<dfn class="local col5 decl" id="5RHS" title='RHS' data-type='const value_sequence_iterator&lt;ValueT&gt; &amp;' data-ref="5RHS">RHS</dfn>) <em>const</em> {</td></tr>
+<tr><th id="59">59</th><td>    <b>return</b> <a class="member" href="#llvm::detail::value_sequence_iterator::Value" title='llvm::detail::value_sequence_iterator::Value' data-ref="llvm::detail::value_sequence_iterator::Value">Value</a> - <a class="local col5 ref" href="#5RHS" title='RHS' data-ref="5RHS">RHS</a>.Value;</td></tr>
+<tr><th id="60">60</th><td>  }</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm6detail23value_sequence_iteratoreqERKNS0_23value_sequence_iteratorIT_EE" title='llvm::detail::value_sequence_iterator::operator==' data-ref="_ZNK4llvm6detail23value_sequence_iteratoreqERKNS0_23value_sequence_iteratorIT_EE"><b>operator</b>==</dfn>(<em>const</em> value_sequence_iterator &amp;<dfn class="local col6 decl" id="6RHS" title='RHS' data-type='const value_sequence_iterator&lt;ValueT&gt; &amp;' data-ref="6RHS">RHS</dfn>) <em>const</em> {</td></tr>
+<tr><th id="63">63</th><td>    <b>return</b> <a class="member" href="#llvm::detail::value_sequence_iterator::Value" title='llvm::detail::value_sequence_iterator::Value' data-ref="llvm::detail::value_sequence_iterator::Value">Value</a> == <a class="local col6 ref" href="#6RHS" title='RHS' data-ref="6RHS">RHS</a>.Value;</td></tr>
+<tr><th id="64">64</th><td>  }</td></tr>
+<tr><th id="65">65</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm6detail23value_sequence_iteratorltERKNS0_23value_sequence_iteratorIT_EE" title='llvm::detail::value_sequence_iterator::operator&lt;' data-ref="_ZNK4llvm6detail23value_sequence_iteratorltERKNS0_23value_sequence_iteratorIT_EE"><b>operator</b>&lt;</dfn>(<em>const</em> value_sequence_iterator &amp;<dfn class="local col7 decl" id="7RHS" title='RHS' data-type='const value_sequence_iterator&lt;ValueT&gt; &amp;' data-ref="7RHS">RHS</dfn>) <em>const</em> {</td></tr>
+<tr><th id="66">66</th><td>    <b>return</b> <a class="member" href="#llvm::detail::value_sequence_iterator::Value" title='llvm::detail::value_sequence_iterator::Value' data-ref="llvm::detail::value_sequence_iterator::Value">Value</a> &lt; <a class="local col7 ref" href="#7RHS" title='RHS' data-ref="7RHS">RHS</a>.Value;</td></tr>
+<tr><th id="67">67</th><td>  }</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td>  <a class="typedef" href="#llvm::detail::value_sequence_iterator::reference" title='llvm::detail::value_sequence_iterator::reference' data-type='typename BaseT::reference' data-ref="llvm::detail::value_sequence_iterator::reference">reference</a> <dfn class="decl def" id="_ZNK4llvm6detail23value_sequence_iteratordeEv" title='llvm::detail::value_sequence_iterator::operator*' data-ref="_ZNK4llvm6detail23value_sequence_iteratordeEv"><b>operator</b>*</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::detail::value_sequence_iterator::Value" title='llvm::detail::value_sequence_iterator::Value' data-ref="llvm::detail::value_sequence_iterator::Value">Value</a>; }</td></tr>
+<tr><th id="70">70</th><td>};</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td>} <i>// end namespace detail</i></td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><b>template</b> &lt;<b>typename</b> ValueT&gt;</td></tr>
+<tr><th id="75">75</th><td><a class="type" href="iterator_range.h.html#llvm::iterator_range" title='llvm::iterator_range' data-ref="llvm::iterator_range">iterator_range</a>&lt;<span class="namespace">detail::</span><a class="type" href="#llvm::detail::value_sequence_iterator" title='llvm::detail::value_sequence_iterator' data-ref="llvm::detail::value_sequence_iterator">value_sequence_iterator</a>&lt;ValueT&gt;&gt; <dfn class="decl def" id="_ZN4llvm3seqET_S0_" title='llvm::seq' data-ref="_ZN4llvm3seqET_S0_">seq</dfn>(ValueT <dfn class="local col8 decl" id="8Begin" title='Begin' data-type='ValueT' data-ref="8Begin">Begin</dfn>,</td></tr>
+<tr><th id="76">76</th><td>                                                            ValueT <dfn class="local col9 decl" id="9End" title='End' data-type='ValueT' data-ref="9End">End</dfn>) {</td></tr>
+<tr><th id="77">77</th><td>  <b>return</b> make_range(<span class="namespace">detail::</span><a class="type" href="#llvm::detail::value_sequence_iterator" title='llvm::detail::value_sequence_iterator' data-ref="llvm::detail::value_sequence_iterator">value_sequence_iterator</a>&lt;ValueT&gt;(<a class="local col8 ref" href="#8Begin" title='Begin' data-ref="8Begin">Begin</a>),</td></tr>
+<tr><th id="78">78</th><td>                    <span class="namespace">detail::</span><a class="type" href="#llvm::detail::value_sequence_iterator" title='llvm::detail::value_sequence_iterator' data-ref="llvm::detail::value_sequence_iterator">value_sequence_iterator</a>&lt;ValueT&gt;(<a class="local col9 ref" href="#9End" title='End' data-ref="9End">End</a>));</td></tr>
+<tr><th id="79">79</th><td>}</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><u>#<span data-ppcond="15">endif</span> // LLVM_ADT_SEQUENCE_H</u></td></tr>
+<tr><th id="84">84</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../lib/Analysis/LazyCallGraph.cpp.html'>llvm/llvm/lib/Analysis/LazyCallGraph.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,34 @@
+<def f='llvm/llvm/lib/CodeGen/SafeStackColoring.h' l='37' ll='138'/>
+<size>512</size>
+<doc f='llvm/llvm/lib/CodeGen/SafeStackColoring.h' l='29'>/// Compute live ranges of allocas.
+/// Live ranges are represented as sets of &quot;interesting&quot; instructions, which are
+/// defined as instructions that may start or end an alloca&apos;s lifetime. These
+/// are:
+/// * lifetime.start and lifetime.end intrinsics
+/// * first instruction of any basic block
+/// Interesting instructions are numbered in the depth-first walk of the CFG,
+/// and in the program order inside each basic block.</doc>
+<mbr r='llvm::safestack::StackColoring::F' o='0' t='llvm::Function &amp;'/>
+<mbr r='llvm::safestack::StackColoring::BlockLiveness' o='64' t='LivenessMap'/>
+<mbr r='llvm::safestack::StackColoring::NumInst' o='320' t='int'/>
+<mbr r='llvm::safestack::StackColoring::InstructionNumbering' o='384' t='DenseMap&lt;llvm::Instruction *, unsigned int&gt;'/>
+<mbr r='llvm::safestack::StackColoring::BlockInstRange' o='640' t='DenseMap&lt;const llvm::BasicBlock *, std::pair&lt;unsigned int, unsigned int&gt; &gt;'/>
+<mbr r='llvm::safestack::StackColoring::Allocas' o='896' t='ArrayRef&lt;llvm::AllocaInst *&gt;'/>
+<mbr r='llvm::safestack::StackColoring::NumAllocas' o='1024' t='unsigned int'/>
+<mbr r='llvm::safestack::StackColoring::AllocaNumbering' o='1088' t='DenseMap&lt;llvm::AllocaInst *, unsigned int&gt;'/>
+<mbr r='llvm::safestack::StackColoring::LiveRanges' o='1344' t='SmallVector&lt;llvm::safestack::StackColoring::LiveRange, 8&gt;'/>
+<mbr r='llvm::safestack::StackColoring::InterestingAllocas' o='3008' t='llvm::BitVector'/>
+<mbr r='llvm::safestack::StackColoring::Markers' o='3200' t='SmallVector&lt;llvm::Instruction *, 8&gt;'/>
+<mbr r='llvm::safestack::StackColoring::BBMarkers' o='3840' t='DenseMap&lt;llvm::BasicBlock *, SmallVector&lt;std::pair&lt;unsigned int, Marker&gt;, 4&gt; &gt;'/>
+<fun r='_ZN4llvm9safestack13StackColoring11dumpAllocasEv'/>
+<fun r='_ZN4llvm9safestack13StackColoring17dumpBlockLivenessEv'/>
+<fun r='_ZN4llvm9safestack13StackColoring14dumpLiveRangesEv'/>
+<fun r='_ZN4llvm9safestack13StackColoring10readMarkerEPNS_11InstructionEPb'/>
+<fun r='_ZN4llvm9safestack13StackColoring14collectMarkersEv'/>
+<fun r='_ZN4llvm9safestack13StackColoring22calculateLocalLivenessEv'/>
+<fun r='_ZN4llvm9safestack13StackColoring22calculateLiveIntervalsEv'/>
+<fun r='_ZN4llvm9safestack13StackColoringC1ERNS_8FunctionENS_8ArrayRefIPNS_10AllocaInstEEE'/>
+<fun r='_ZN4llvm9safestack13StackColoring3runEv'/>
+<fun r='_ZN4llvm9safestack13StackColoring16removeAllMarkersEv'/>
+<fun r='_ZN4llvm9safestack13StackColoring12getLiveRangeEPNS_10AllocaInstE'/>
+<fun r='_ZN4llvm9safestack13StackColoring16getFullLiveRangeEv'/>

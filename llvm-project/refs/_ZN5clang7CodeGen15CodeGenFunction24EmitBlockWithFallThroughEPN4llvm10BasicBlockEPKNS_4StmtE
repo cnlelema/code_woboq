@@ -1,0 +1,8 @@
+<dec f='llvm/clang/lib/CodeGen/CodeGenFunction.h' l='1847' type='void clang::CodeGen::CodeGenFunction::EmitBlockWithFallThrough(llvm::BasicBlock * BB, const clang::Stmt * S)'/>
+<use f='llvm/clang/lib/CodeGen/CGStmt.cpp' l='795' u='c' c='_ZN5clang7CodeGen15CodeGenFunction10EmitDoStmtERKNS_6DoStmtEN4llvm8ArrayRefIPKNS_4AttrEEE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmt.cpp' l='1376' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitDefaultStmtERKNS_11DefaultStmtE'/>
+<def f='llvm/clang/lib/CodeGen/CodeGenFunction.cpp' l='1077' ll='1093' type='void clang::CodeGen::CodeGenFunction::EmitBlockWithFallThrough(llvm::BasicBlock * BB, const clang::Stmt * S)'/>
+<doc f='llvm/clang/lib/CodeGen/CodeGenFunction.cpp' l='1073'>/// When instrumenting to collect profile data, the counts for some blocks
+/// such as switch cases need to not include the fall-through counts, so
+/// emit a branch around the instrumentation code. When not instrumenting,
+/// this just calls EmitBlock().</doc>

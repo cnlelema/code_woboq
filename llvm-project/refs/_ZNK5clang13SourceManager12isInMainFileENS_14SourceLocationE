@@ -1,0 +1,28 @@
+<dec f='llvm/clang/include/clang/Basic/SourceManager.h' l='1416' type='bool clang::SourceManager::isInMainFile(clang::SourceLocation Loc) const'/>
+<doc f='llvm/clang/include/clang/Basic/SourceManager.h' l='1409'>/// Returns whether the PresumedLoc for a given SourceLocation is
+  /// in the main file.
+  ///
+  /// This computes the &quot;presumed&quot; location for a SourceLocation, then checks
+  /// whether it came from a file other than the main file. This is different
+  /// from isWrittenInMainFile() because it takes line marker directives into
+  /// account.</doc>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='248' u='c' c='_ZNK5clang12ast_matchers8internal36matcher_isExpansionInMainFileMatcher7matchesERKT_PNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE'/>
+<use f='llvm/clang/lib/Analysis/AnalysisDeclContext.cpp' l='469' u='c' c='_ZL13printLocationRN4llvm11raw_ostreamERKN5clang13SourceManagerENS2_14SourceLocationE'/>
+<def f='llvm/clang/lib/Basic/SourceManager.cpp' l='1491' ll='1512' type='bool clang::SourceManager::isInMainFile(clang::SourceLocation Loc) const'/>
+<doc f='llvm/clang/lib/Basic/SourceManager.cpp' l='1484'>/// Returns whether the PresumedLoc for a given SourceLocation is
+/// in the main file.
+///
+/// This computes the &quot;presumed&quot; location for a SourceLocation, then checks
+/// whether it came from a file other than the main file. This is different
+/// from isWrittenInMainFile() because it takes line marker directives into
+/// account.</doc>
+<use f='llvm/clang/lib/CodeGen/CodeGenPGO.cpp' l='790' u='c' c='_ZN5clang7CodeGen10CodeGenPGO20assignRegionCountersENS_10GlobalDeclEPN4llvm8FunctionE'/>
+<use f='llvm/clang/lib/Lex/PPDirectives.cpp' l='592' u='c' c='_ZN5clang12Preprocessor20getModuleForLocationENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Lex/PPDirectives.cpp' l='637' u='c' c='_ZN5clang12Preprocessor38getModuleHeaderToIncludeForDiagnosticsENS_14SourceLocationEPNS_6ModuleES1_'/>
+<use f='llvm/clang/lib/Lex/PPDirectives.cpp' l='689' u='c' c='_ZN5clang12Preprocessor10LookupFileENS_14SourceLocationEN4llvm9StringRefEbPKNS_15DirectoryLookupEPKNS_9FileEntryERS6_PNS2_15SmallVectorImplIcEESD_PNS_3223316'/>
+<use f='llvm/clang/lib/Lex/Pragma.cpp' l='860' u='c' c='_ZN5clang12Preprocessor19HandlePragmaHdrstopERNS_5TokenE'/>
+<use f='llvm/clang/lib/Sema/AnalysisBasedWarnings.cpp' l='116' u='c' c='_ZL16CheckUnreachableRN5clang4SemaERNS_19AnalysisDeclContextE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='1578' u='c' c='_ZL13isMainFileLocRKN5clang4SemaENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='9478' u='c' c='_ZN5clang4Sema19ActOnUsingDirectiveEPNS_5ScopeENS_14SourceLocationES3_RNS_12CXXScopeSpecES3_PNS_14IdentifierInfoERKNS_20ParsedAttributesViewE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='174' u='c' c='_ZL41diagnoseUseOfInternalDeclInInlineFunctionRN5clang4SemaEPKNS_9NamedDeclENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Tooling/ASTDiff/ASTDiff.cpp' l='178' u='c' c='_ZN5clang4diffL14isNodeExcludedERKNS_13SourceManagerEPT_'/>

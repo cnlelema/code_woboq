@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ARCMigrate.cpp source code [llvm/clang/tools/libclang/ARCMigrate.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/clang/tools/libclang/ARCMigrate.cpp'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>llvm</a>/<a href='../..'>clang</a>/<a href='..'>tools</a>/<a href='./'>libclang</a>/<a href='ARCMigrate.cpp.html'>ARCMigrate.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- ARCMigrate.cpp - Clang-C ARC Migration Library ---------------------===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file implements the main API hooks in the Clang-C ARC Migration library.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../../include/clang-c/Index.h.html">"clang-c/Index.h"</a></u></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="CXString.h.html">"CXString.h"</a></u></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="../../include/clang/ARCMigrate/ARCMT.h.html">"clang/ARCMigrate/ARCMT.h"</a></u></td></tr>
+<tr><th id="16">16</th><td><u>#include "clang/Config/config.h"</u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../include/clang/Frontend/TextDiagnosticBuffer.h.html">"clang/Frontend/TextDiagnosticBuffer.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../llvm/include/llvm/Support/FileSystem.h.html">"llvm/Support/FileSystem.h"</a></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><b>using</b> <b>namespace</b> <span class="namespace">clang</span>;</td></tr>
+<tr><th id="21">21</th><td><b>using</b> <b>namespace</b> <span class="namespace">arcmt</span>;</td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>namespace</b> {</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><b>struct</b> <dfn class="tu type def" id="(anonymousnamespace)::Remap" title='(anonymous namespace)::Remap' data-ref="(anonymousnamespace)::Remap">Remap</dfn> {</td></tr>
+<tr><th id="26">26</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../include/c++/7/bits/stl_pair.h.html#std::pair" title='std::pair' data-ref="std::pair">pair</a>&lt;<span class="namespace">std::</span><a class="typedef" href="../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a>, <span class="namespace">std::</span><a class="typedef" href="../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a>&gt; &gt; <dfn class="tu decl" id="(anonymousnamespace)::Remap::Vec" title='(anonymous namespace)::Remap::Vec' data-type='std::vector&lt;std::pair&lt;std::string, std::string&gt; &gt;' data-ref="(anonymousnamespace)::Remap::Vec">Vec</dfn>;</td></tr>
+<tr><th id="27">27</th><td>};</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td>} <i>// anonymous namespace.</i></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="32">32</th><td><i>// libClang public APIs.</i></td></tr>
+<tr><th id="33">33</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><a class="typedef" href="../../include/clang-c/Index.h.html#CXRemapping" title='CXRemapping' data-type='void *' data-ref="CXRemapping">CXRemapping</a> <dfn class="decl def" id="clang_getRemappings" title='clang_getRemappings' data-ref="clang_getRemappings">clang_getRemappings</dfn>(<em>const</em> <em>char</em> *<dfn class="local col9 decl" id="49migrate_dir_path" title='migrate_dir_path' data-type='const char *' data-ref="49migrate_dir_path">migrate_dir_path</dfn>) {</td></tr>
+<tr><th id="36">36</th><td><u>#<span data-ppcond="36">if</span> !<span class="macro" title="0" data-ref="_M/CLANG_ENABLE_ARCMT">CLANG_ENABLE_ARCMT</span></u></td></tr>
+<tr><th id="37">37</th><td>  <span class="namespace">llvm::</span><a class="ref" href="../../../llvm/include/llvm/Support/raw_ostream.h.html#_ZN4llvm4errsEv" title='llvm::errs' data-ref="_ZN4llvm4errsEv">errs</a>() <a class="ref" href="../../../llvm/include/llvm/Support/raw_ostream.h.html#_ZN4llvm11raw_ostreamlsEPKc" title='llvm::raw_ostream::operator&lt;&lt;' data-ref="_ZN4llvm11raw_ostreamlsEPKc">&lt;&lt;</a> <q>"error: feature not enabled in this build\n"</q>;</td></tr>
+<tr><th id="38">38</th><td>  <b>return</b> <b>nullptr</b>;</td></tr>
+<tr><th id="39">39</th><td><u>#<span data-ppcond="36">else</span></u></td></tr>
+<tr><th id="40">40</th><td>  <em>bool</em> Logging = ::getenv(<q>"LIBCLANG_LOGGING"</q>);</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td>  <b>if</b> (!migrate_dir_path) {</td></tr>
+<tr><th id="43">43</th><td>    <b>if</b> (Logging)</td></tr>
+<tr><th id="44">44</th><td>      llvm::errs() &lt;&lt; <q>"clang_getRemappings was called with NULL parameter\n"</q>;</td></tr>
+<tr><th id="45">45</th><td>    <b>return</b> <b>nullptr</b>;</td></tr>
+<tr><th id="46">46</th><td>  }</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>  <b>if</b> (!llvm::sys::fs::exists(migrate_dir_path)) {</td></tr>
+<tr><th id="49">49</th><td>    <b>if</b> (Logging) {</td></tr>
+<tr><th id="50">50</th><td>      llvm::errs() &lt;&lt; <q>"Error by clang_getRemappings(\""</q> &lt;&lt; migrate_dir_path</td></tr>
+<tr><th id="51">51</th><td>                   &lt;&lt; <q>"\")\n"</q>;</td></tr>
+<tr><th id="52">52</th><td>      llvm::errs() &lt;&lt; <q>"\""</q> &lt;&lt; migrate_dir_path &lt;&lt; <q>"\" does not exist\n"</q>;</td></tr>
+<tr><th id="53">53</th><td>    }</td></tr>
+<tr><th id="54">54</th><td>    <b>return</b> <b>nullptr</b>;</td></tr>
+<tr><th id="55">55</th><td>  }</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>  TextDiagnosticBuffer diagBuffer;</td></tr>
+<tr><th id="58">58</th><td>  std::unique_ptr&lt;Remap&gt; remap(<b>new</b> Remap());</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>  <em>bool</em> err = arcmt::getFileRemappings(remap-&gt;Vec, migrate_dir_path,&amp;diagBuffer);</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>  <b>if</b> (err) {</td></tr>
+<tr><th id="63">63</th><td>    <b>if</b> (Logging) {</td></tr>
+<tr><th id="64">64</th><td>      llvm::errs() &lt;&lt; <q>"Error by clang_getRemappings(\""</q> &lt;&lt; migrate_dir_path</td></tr>
+<tr><th id="65">65</th><td>                   &lt;&lt; <q>"\")\n"</q>;</td></tr>
+<tr><th id="66">66</th><td>      <b>for</b> (TextDiagnosticBuffer::const_iterator</td></tr>
+<tr><th id="67">67</th><td>             I = diagBuffer.err_begin(), E = diagBuffer.err_end(); I != E; ++I)</td></tr>
+<tr><th id="68">68</th><td>        llvm::errs() &lt;&lt; I-&gt;second &lt;&lt; <kbd>'\n'</kbd>;</td></tr>
+<tr><th id="69">69</th><td>    }</td></tr>
+<tr><th id="70">70</th><td>    <b>return</b> <b>nullptr</b>;</td></tr>
+<tr><th id="71">71</th><td>  }</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>  <b>return</b> remap.release();</td></tr>
+<tr><th id="74">74</th><td><u>#<span data-ppcond="36">endif</span></u></td></tr>
+<tr><th id="75">75</th><td>}</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td><a class="typedef" href="../../include/clang-c/Index.h.html#CXRemapping" title='CXRemapping' data-type='void *' data-ref="CXRemapping">CXRemapping</a> <dfn class="decl def" id="clang_getRemappingsFromFileList" title='clang_getRemappingsFromFileList' data-ref="clang_getRemappingsFromFileList">clang_getRemappingsFromFileList</dfn>(<em>const</em> <em>char</em> **<dfn class="local col0 decl" id="50filePaths" title='filePaths' data-type='const char **' data-ref="50filePaths">filePaths</dfn>,</td></tr>
+<tr><th id="78">78</th><td>                                            <em>unsigned</em> <dfn class="local col1 decl" id="51numFiles" title='numFiles' data-type='unsigned int' data-ref="51numFiles">numFiles</dfn>) {</td></tr>
+<tr><th id="79">79</th><td><u>#<span data-ppcond="79">if</span> !<span class="macro" title="0" data-ref="_M/CLANG_ENABLE_ARCMT">CLANG_ENABLE_ARCMT</span></u></td></tr>
+<tr><th id="80">80</th><td>  <span class="namespace">llvm::</span><a class="ref" href="../../../llvm/include/llvm/Support/raw_ostream.h.html#_ZN4llvm4errsEv" title='llvm::errs' data-ref="_ZN4llvm4errsEv">errs</a>() <a class="ref" href="../../../llvm/include/llvm/Support/raw_ostream.h.html#_ZN4llvm11raw_ostreamlsEPKc" title='llvm::raw_ostream::operator&lt;&lt;' data-ref="_ZN4llvm11raw_ostreamlsEPKc">&lt;&lt;</a> <q>"error: feature not enabled in this build\n"</q>;</td></tr>
+<tr><th id="81">81</th><td>  <b>return</b> <b>nullptr</b>;</td></tr>
+<tr><th id="82">82</th><td><u>#<span data-ppcond="79">else</span></u></td></tr>
+<tr><th id="83">83</th><td>  <em>bool</em> Logging = ::getenv(<q>"LIBCLANG_LOGGING"</q>);</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td>  std::unique_ptr&lt;Remap&gt; remap(<b>new</b> Remap());</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td>  <b>if</b> (numFiles == <var>0</var>) {</td></tr>
+<tr><th id="88">88</th><td>    <b>if</b> (Logging)</td></tr>
+<tr><th id="89">89</th><td>      llvm::errs() &lt;&lt; <q>"clang_getRemappingsFromFileList was called with "</q></td></tr>
+<tr><th id="90">90</th><td>                      <q>"numFiles=0\n"</q>;</td></tr>
+<tr><th id="91">91</th><td>    <b>return</b> remap.release();</td></tr>
+<tr><th id="92">92</th><td>  }</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td>  <b>if</b> (!filePaths) {</td></tr>
+<tr><th id="95">95</th><td>    <b>if</b> (Logging)</td></tr>
+<tr><th id="96">96</th><td>      llvm::errs() &lt;&lt; <q>"clang_getRemappingsFromFileList was called with "</q></td></tr>
+<tr><th id="97">97</th><td>                      <q>"NULL filePaths\n"</q>;</td></tr>
+<tr><th id="98">98</th><td>    <b>return</b> <b>nullptr</b>;</td></tr>
+<tr><th id="99">99</th><td>  }</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td>  TextDiagnosticBuffer diagBuffer;</td></tr>
+<tr><th id="102">102</th><td>  SmallVector&lt;StringRef, <var>32</var>&gt; Files(filePaths, filePaths + numFiles);</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td>  <em>bool</em> err = arcmt::getFileRemappingsFromFileList(remap-&gt;Vec, Files,</td></tr>
+<tr><th id="105">105</th><td>                                                  &amp;diagBuffer);</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>  <b>if</b> (err) {</td></tr>
+<tr><th id="108">108</th><td>    <b>if</b> (Logging) {</td></tr>
+<tr><th id="109">109</th><td>      llvm::errs() &lt;&lt; <q>"Error by clang_getRemappingsFromFileList\n"</q>;</td></tr>
+<tr><th id="110">110</th><td>      <b>for</b> (TextDiagnosticBuffer::const_iterator</td></tr>
+<tr><th id="111">111</th><td>             I = diagBuffer.err_begin(), E = diagBuffer.err_end(); I != E; ++I)</td></tr>
+<tr><th id="112">112</th><td>        llvm::errs() &lt;&lt; I-&gt;second &lt;&lt; <kbd>'\n'</kbd>;</td></tr>
+<tr><th id="113">113</th><td>    }</td></tr>
+<tr><th id="114">114</th><td>    <b>return</b> remap.release();</td></tr>
+<tr><th id="115">115</th><td>  }</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>  <b>return</b> remap.release();</td></tr>
+<tr><th id="118">118</th><td><u>#<span data-ppcond="79">endif</span></u></td></tr>
+<tr><th id="119">119</th><td>}</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td><em>unsigned</em> <dfn class="decl def" id="clang_remap_getNumFiles" title='clang_remap_getNumFiles' data-ref="clang_remap_getNumFiles">clang_remap_getNumFiles</dfn>(<a class="typedef" href="../../include/clang-c/Index.h.html#CXRemapping" title='CXRemapping' data-type='void *' data-ref="CXRemapping">CXRemapping</a> <dfn class="local col2 decl" id="52map" title='map' data-type='CXRemapping' data-ref="52map">map</dfn>) {</td></tr>
+<tr><th id="122">122</th><td>  <b>return</b> <b>static_cast</b>&lt;<a class="tu type" href="#(anonymousnamespace)::Remap" title='(anonymous namespace)::Remap' data-ref="(anonymousnamespace)::Remap">Remap</a> *&gt;(<a class="local col2 ref" href="#52map" title='map' data-ref="52map">map</a>)-&gt;<a class="tu ref" href="#(anonymousnamespace)::Remap::Vec" title='(anonymous namespace)::Remap::Vec' data-use='m' data-ref="(anonymousnamespace)::Remap::Vec">Vec</a>.<a class="ref" href="../../../../include/c++/7/bits/stl_vector.h.html#_ZNKSt6vector4sizeEv" title='std::vector::size' data-ref="_ZNKSt6vector4sizeEv">size</a>();</td></tr>
+<tr><th id="123">123</th><td>  </td></tr>
+<tr><th id="124">124</th><td>}</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td><em>void</em> <dfn class="decl def" id="clang_remap_getFilenames" title='clang_remap_getFilenames' data-ref="clang_remap_getFilenames">clang_remap_getFilenames</dfn>(<a class="typedef" href="../../include/clang-c/Index.h.html#CXRemapping" title='CXRemapping' data-type='void *' data-ref="CXRemapping">CXRemapping</a> <dfn class="local col3 decl" id="53map" title='map' data-type='CXRemapping' data-ref="53map">map</dfn>, <em>unsigned</em> <dfn class="local col4 decl" id="54index" title='index' data-type='unsigned int' data-ref="54index">index</dfn>,</td></tr>
+<tr><th id="127">127</th><td>                              <a class="typedef" href="../../include/clang-c/CXString.h.html#CXString" title='CXString' data-type='struct CXString' data-ref="CXString">CXString</a> *<dfn class="local col5 decl" id="55original" title='original' data-type='CXString *' data-ref="55original">original</dfn>, <a class="typedef" href="../../include/clang-c/CXString.h.html#CXString" title='CXString' data-type='struct CXString' data-ref="CXString">CXString</a> *<dfn class="local col6 decl" id="56transformed" title='transformed' data-type='CXString *' data-ref="56transformed">transformed</dfn>) {</td></tr>
+<tr><th id="128">128</th><td>  <b>if</b> (<a class="local col5 ref" href="#55original" title='original' data-ref="55original">original</a>)</td></tr>
+<tr><th id="129">129</th><td>    *<a class="local col5 ref" href="#55original" title='original' data-ref="55original">original</a> <a class="ref" href="../../include/clang-c/CXString.h.html#38" title='(anonymous struct)::operator=' data-ref="_ZN8CXStringaSEOS_">=</a> <span class="namespace">cxstring::</span><a class="ref" href="CXString.h.html#_ZN5clang8cxstring9createDupEN4llvm9StringRefE" title='clang::cxstring::createDup' data-ref="_ZN5clang8cxstring9createDupEN4llvm9StringRefE">createDup</a>(</td></tr>
+<tr><th id="130">130</th><td>                    <a class="ref fake" href="../../../llvm/include/llvm/ADT/StringRef.h.html#_ZN4llvm9StringRefC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"></a><b>static_cast</b>&lt;<a class="tu type" href="#(anonymousnamespace)::Remap" title='(anonymous namespace)::Remap' data-ref="(anonymousnamespace)::Remap">Remap</a> *&gt;(<a class="local col3 ref" href="#53map" title='map' data-ref="53map">map</a>)-&gt;<a class="tu ref" href="#(anonymousnamespace)::Remap::Vec" title='(anonymous namespace)::Remap::Vec' data-use='m' data-ref="(anonymousnamespace)::Remap::Vec">Vec</a><a class="ref" href="../../../../include/c++/7/bits/stl_vector.h.html#_ZNSt6vectorixEm" title='std::vector::operator[]' data-ref="_ZNSt6vectorixEm">[<a class="local col4 ref" href="#54index" title='index' data-ref="54index">index</a>]</a>.<a class="ref" href="../../../../include/c++/7/bits/stl_pair.h.html#std::pair::first" title='std::pair&lt;std::__cxx11::basic_string&lt;char&gt;, std::__cxx11::basic_string&lt;char&gt; &gt;::first' data-ref="std::pair::first">first</a>);</td></tr>
+<tr><th id="131">131</th><td>  <b>if</b> (<a class="local col6 ref" href="#56transformed" title='transformed' data-ref="56transformed">transformed</a>)</td></tr>
+<tr><th id="132">132</th><td>    *<a class="local col6 ref" href="#56transformed" title='transformed' data-ref="56transformed">transformed</a> <a class="ref" href="../../include/clang-c/CXString.h.html#38" title='(anonymous struct)::operator=' data-ref="_ZN8CXStringaSEOS_">=</a> <span class="namespace">cxstring::</span><a class="ref" href="CXString.h.html#_ZN5clang8cxstring9createDupEN4llvm9StringRefE" title='clang::cxstring::createDup' data-ref="_ZN5clang8cxstring9createDupEN4llvm9StringRefE">createDup</a>(</td></tr>
+<tr><th id="133">133</th><td>                    <a class="ref fake" href="../../../llvm/include/llvm/ADT/StringRef.h.html#_ZN4llvm9StringRefC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"></a><b>static_cast</b>&lt;<a class="tu type" href="#(anonymousnamespace)::Remap" title='(anonymous namespace)::Remap' data-ref="(anonymousnamespace)::Remap">Remap</a> *&gt;(<a class="local col3 ref" href="#53map" title='map' data-ref="53map">map</a>)-&gt;<a class="tu ref" href="#(anonymousnamespace)::Remap::Vec" title='(anonymous namespace)::Remap::Vec' data-use='m' data-ref="(anonymousnamespace)::Remap::Vec">Vec</a><a class="ref" href="../../../../include/c++/7/bits/stl_vector.h.html#_ZNSt6vectorixEm" title='std::vector::operator[]' data-ref="_ZNSt6vectorixEm">[<a class="local col4 ref" href="#54index" title='index' data-ref="54index">index</a>]</a>.<a class="ref" href="../../../../include/c++/7/bits/stl_pair.h.html#std::pair::second" title='std::pair&lt;std::__cxx11::basic_string&lt;char&gt;, std::__cxx11::basic_string&lt;char&gt; &gt;::second' data-ref="std::pair::second">second</a>);</td></tr>
+<tr><th id="134">134</th><td>}</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><em>void</em> <dfn class="decl def" id="clang_remap_dispose" title='clang_remap_dispose' data-ref="clang_remap_dispose">clang_remap_dispose</dfn>(<a class="typedef" href="../../include/clang-c/Index.h.html#CXRemapping" title='CXRemapping' data-type='void *' data-ref="CXRemapping">CXRemapping</a> <dfn class="local col7 decl" id="57map" title='map' data-type='CXRemapping' data-ref="57map">map</dfn>) {</td></tr>
+<tr><th id="137">137</th><td>  <b>delete</b> <b>static_cast</b>&lt;<a class="tu type" href="#(anonymousnamespace)::Remap" title='(anonymous namespace)::Remap' data-ref="(anonymousnamespace)::Remap">Remap</a> *&gt;(<a class="local col7 ref" href="#57map" title='map' data-ref="57map">map</a>);</td></tr>
+<tr><th id="138">138</th><td>}</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

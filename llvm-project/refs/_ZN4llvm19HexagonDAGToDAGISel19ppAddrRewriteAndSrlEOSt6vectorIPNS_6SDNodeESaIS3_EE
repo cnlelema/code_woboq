@@ -1,0 +1,14 @@
+<def f='llvm/llvm/lib/Target/Hexagon/HexagonISelDAGToDAG.cpp' l='1089' ll='1150' type='void llvm::HexagonDAGToDAGISel::ppAddrRewriteAndSrl(std::vector&lt;SDNode *&gt; &amp;&amp; Nodes)'/>
+<doc f='llvm/llvm/lib/Target/Hexagon/HexagonISelDAGToDAG.cpp' l='1076'>// Transform: (load ch (add x (and (srl y c) Mask)))
+//        to: (load ch (add x (shl (srl y d) d-c)))
+// where
+// Mask = 00..0 111..1 0.0
+//          |     |     +-- d-c 0s, and d-c is 0, 1 or 2.
+//          |     +-------- 1s
+//          +-------------- at most c 0s
+// Motivating example:
+// DAG combiner optimizes (add x (shl (srl y 5) 2))
+//                     to (add x (and (srl y 3) 1FFFFFFC))
+// which results in a constant-extended and(##...,lsr). This transformation
+// undoes this simplification for cases where the shl can be folded into
+// an addressing mode.</doc>

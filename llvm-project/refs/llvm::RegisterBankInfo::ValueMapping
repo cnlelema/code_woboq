@@ -1,0 +1,68 @@
+<def f='llvm/llvm/include/llvm/CodeGen/GlobalISel/RegisterBankInfo.h' l='142' ll='182'/>
+<size>16</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/RegisterBankInfo.h' l='87'>/// Helper struct that represents how a value is mapped through
+  /// different register banks.
+  ///
+  /// \note: So far we do not have any users of the complex mappings
+  /// (mappings with more than one partial mapping), but when we do,
+  /// we would have needed to duplicate partial mappings.
+  /// The alternative could be to use an array of pointers of partial
+  /// mapping (i.e., PartialMapping **BreakDown) and duplicate the
+  /// pointers instead.
+  ///
+  /// E.g.,
+  /// Let say we have a 32-bit add and a &lt;2 x 32-bit&gt; vadd. We
+  /// can expand the
+  /// &lt;2 x 32-bit&gt; add into 2 x 32-bit add.
+  ///
+  /// Currently the TableGen-like file would look like:
+  /// \code
+  /// PartialMapping[] = {
+  /// /*32-bit add*/    {0, 32, GPR}, // Scalar entry repeated for first vec elt.
+  /// /*2x32-bit add*/  {0, 32, GPR}, {32, 32, GPR},
+  /// /*&lt;2x32-bit&gt; vadd {0, 64, VPR}
+  /// }; // PartialMapping duplicated.
+  ///
+  /// ValueMapping[] {
+  ///   /*plain 32-bit add*/ {&amp;PartialMapping[0], 1},
+  ///   /*expanded vadd on 2xadd*/ {&amp;PartialMapping[1], 2},
+  ///   /*plain &lt;2x32-bit&gt; vadd*/ {&amp;PartialMapping[3], 1}
+  /// };
+  /// \endcode
+  ///
+  /// With the array of pointer, we would have:
+  /// \code
+  /// PartialMapping[] = {
+  /// /*32-bit add lower */ {0, 32, GPR},
+  /// /*32-bit add upper */ {32, 32, GPR},
+  /// /*&lt;2x32-bit&gt; vadd {0, 64, VPR}
+  /// }; // No more duplication.
+  ///
+  /// BreakDowns[] = {
+  /// /*AddBreakDown*/ &amp;PartialMapping[0],
+  /// /*2xAddBreakDown*/ &amp;PartialMapping[0], &amp;PartialMapping[1],
+  /// /*VAddBreakDown*/ &amp;PartialMapping[2]
+  /// }; // Addresses of PartialMapping duplicated (smaller).
+  ///
+  /// ValueMapping[] {
+  ///   /*plain 32-bit add*/ {&amp;BreakDowns[0], 1},
+  ///   /*expanded vadd on 2xadd*/ {&amp;BreakDowns[1], 2},
+  ///   /*plain &lt;2x32-bit&gt; vadd*/ {&amp;BreakDowns[3], 1}
+  /// };
+  /// \endcode
+  ///
+  /// Given that a PartialMapping is actually small, the code size
+  /// impact is actually a degradation. Moreover the compile time will
+  /// be hit by the additional indirection.
+  /// If PartialMapping gets bigger we may reconsider.</doc>
+<mbr r='llvm::RegisterBankInfo::ValueMapping::BreakDown' o='0' t='const llvm::RegisterBankInfo::PartialMapping *'/>
+<mbr r='llvm::RegisterBankInfo::ValueMapping::NumBreakDowns' o='64' t='unsigned int'/>
+<fun r='_ZN4llvm16RegisterBankInfo12ValueMappingC1Ev'/>
+<fun r='_ZN4llvm16RegisterBankInfo12ValueMappingC1EPKNS0_14PartialMappingEj'/>
+<fun r='_ZNK4llvm16RegisterBankInfo12ValueMapping5beginEv'/>
+<fun r='_ZNK4llvm16RegisterBankInfo12ValueMapping3endEv'/>
+<fun r='_ZNK4llvm16RegisterBankInfo12ValueMapping15partsAllUniformEv'/>
+<fun r='_ZNK4llvm16RegisterBankInfo12ValueMapping7isValidEv'/>
+<fun r='_ZNK4llvm16RegisterBankInfo12ValueMapping6verifyEj'/>
+<fun r='_ZNK4llvm16RegisterBankInfo12ValueMapping4dumpEv'/>
+<fun r='_ZNK4llvm16RegisterBankInfo12ValueMapping5printERNS_11raw_ostreamE'/>

@@ -1,0 +1,57 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<def f='llvm/clang/include/clang/AST/ExprCXX.h' l='2380' ll='2518'/>
+<size>80</size>
+<doc f='llvm/clang/include/clang/AST/ExprCXX.h' l='2356'>/// Represents a C++ pseudo-destructor (C++ [expr.pseudo]).
+///
+/// A pseudo-destructor is an expression that looks like a member access to a
+/// destructor of a scalar type, except that scalar types don&apos;t have
+/// destructors. For example:
+///
+/// \code
+/// typedef int T;
+/// void f(int *p) {
+///   p-&gt;T::~T();
+/// }
+/// \endcode
+///
+/// Pseudo-destructors typically occur when instantiating templates such as:
+///
+/// \code
+/// template&lt;typename T&gt;
+/// void destroy(T* ptr) {
+///   ptr-&gt;T::~T();
+/// }
+/// \endcode
+///
+/// for scalar types. A pseudo-destructor expression has no run-time semantics
+/// beyond evaluating the base expression.</doc>
+<mbr r='clang::CXXPseudoDestructorExpr::Base' o='128' t='clang::Stmt *'/>
+<mbr r='clang::CXXPseudoDestructorExpr::IsArrow' o='192' t='bool'/>
+<mbr r='clang::CXXPseudoDestructorExpr::OperatorLoc' o='224' t='clang::SourceLocation'/>
+<mbr r='clang::CXXPseudoDestructorExpr::QualifierLoc' o='256' t='clang::NestedNameSpecifierLoc'/>
+<mbr r='clang::CXXPseudoDestructorExpr::ScopeType' o='384' t='clang::TypeSourceInfo *'/>
+<mbr r='clang::CXXPseudoDestructorExpr::ColonColonLoc' o='448' t='clang::SourceLocation'/>
+<mbr r='clang::CXXPseudoDestructorExpr::TildeLoc' o='480' t='clang::SourceLocation'/>
+<mbr r='clang::CXXPseudoDestructorExpr::DestroyedType' o='512' t='clang::PseudoDestructorTypeStorage'/>
+<fun r='_ZN5clang23CXXPseudoDestructorExprC1ERKNS_10ASTContextEPNS_4ExprEbNS_14SourceLocationENS_22NestedNameSpecifierLocEPNS_14TypeSourceInfoES6_S6_NS_27Pseu1963875'/>
+<fun r='_ZN5clang23CXXPseudoDestructorExprC1ENS_4Stmt10EmptyShellE'/>
+<fun r='_ZNK5clang23CXXPseudoDestructorExpr7getBaseEv'/>
+<fun r='_ZNK5clang23CXXPseudoDestructorExpr12hasQualifierEv'/>
+<fun r='_ZNK5clang23CXXPseudoDestructorExpr15getQualifierLocEv'/>
+<fun r='_ZNK5clang23CXXPseudoDestructorExpr12getQualifierEv'/>
+<fun r='_ZNK5clang23CXXPseudoDestructorExpr7isArrowEv'/>
+<fun r='_ZNK5clang23CXXPseudoDestructorExpr14getOperatorLocEv'/>
+<fun r='_ZNK5clang23CXXPseudoDestructorExpr16getScopeTypeInfoEv'/>
+<fun r='_ZNK5clang23CXXPseudoDestructorExpr16getColonColonLocEv'/>
+<fun r='_ZNK5clang23CXXPseudoDestructorExpr11getTildeLocEv'/>
+<fun r='_ZNK5clang23CXXPseudoDestructorExpr20getDestroyedTypeInfoEv'/>
+<fun r='_ZNK5clang23CXXPseudoDestructorExpr26getDestroyedTypeIdentifierEv'/>
+<fun r='_ZNK5clang23CXXPseudoDestructorExpr16getDestroyedTypeEv'/>
+<fun r='_ZNK5clang23CXXPseudoDestructorExpr19getDestroyedTypeLocEv'/>
+<fun r='_ZN5clang23CXXPseudoDestructorExpr16setDestroyedTypeEPNS_14IdentifierInfoENS_14SourceLocationE'/>
+<fun r='_ZN5clang23CXXPseudoDestructorExpr16setDestroyedTypeEPNS_14TypeSourceInfoE'/>
+<fun r='_ZNK5clang23CXXPseudoDestructorExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang23CXXPseudoDestructorExpr9getEndLocEv'/>
+<fun r='_ZN5clang23CXXPseudoDestructorExpr7classofEPKNS_4StmtE'/>
+<fun r='_ZN5clang23CXXPseudoDestructorExpr8childrenEv'/>
+<fun r='_ZNK5clang23CXXPseudoDestructorExpr8childrenEv'/>

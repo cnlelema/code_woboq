@@ -1,0 +1,19 @@
+<def f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='1116' ll='1133'/>
+<size>16</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='1107'>/// Wrapper class for IR location info (IR ordering and DebugLoc) to be passed
+/// into SDNode creation functions.
+/// When an SDNode is created from the DAGBuilder, the DebugLoc is extracted
+/// from the original Instruction, and IROrder is the ordinal position of
+/// the instruction.
+/// When an SDNode is created after the DAG is being built, both DebugLoc and
+/// the IROrder are propagated from the original SDNode.
+/// So SDLoc class provides two constructors besides the default one, one to
+/// be used by the DAGBuilder, the other to be used by others.</doc>
+<mbr r='llvm::SDLoc::DL' o='0' t='llvm::DebugLoc'/>
+<mbr r='llvm::SDLoc::IROrder' o='64' t='int'/>
+<fun r='_ZN4llvm5SDLocC1Ev'/>
+<fun r='_ZN4llvm5SDLocC1EPKNS_6SDNodeE'/>
+<fun r='_ZN4llvm5SDLocC1ENS_7SDValueE'/>
+<fun r='_ZN4llvm5SDLocC1EPKNS_11InstructionEi'/>
+<fun r='_ZNK4llvm5SDLoc10getIROrderEv'/>
+<fun r='_ZNK4llvm5SDLoc11getDebugLocEv'/>

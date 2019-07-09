@@ -1,0 +1,24 @@
+<def f='llvm/llvm/include/llvm/Analysis/MemorySSA.h' l='994' ll='1058'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/MemorySSA.h' l='1062' c='llvm::DoNothingMemorySSAWalker'/>
+<size>16</size>
+<doc f='llvm/llvm/include/llvm/Analysis/MemorySSA.h' l='983'>/// This is the generic walker interface for walkers of MemorySSA.
+/// Walkers are used to be able to further disambiguate the def-use chains
+/// MemorySSA gives you, or otherwise produce better info than MemorySSA gives
+/// you.
+/// In particular, while the def-use chains provide basic information, and are
+/// guaranteed to give, for example, the nearest may-aliasing MemoryDef for a
+/// MemoryUse as AliasAnalysis considers it, a user mant want better or other
+/// information. In particular, they may want to use SCEV info to further
+/// disambiguate memory accesses, or they may want the nearest dominating
+/// may-aliasing MemoryDef for a call or a store. This API enables a
+/// standardized interface to getting and using that info.</doc>
+<fun r='_ZN4llvm15MemorySSAWalkerC1EPNS_9MemorySSAE'/>
+<fun r='_ZN4llvm15MemorySSAWalkerD1Ev'/>
+<fun r='_ZN4llvm15MemorySSAWalker25getClobberingMemoryAccessEPKNS_11InstructionE'/>
+<fun r='_ZN4llvm15MemorySSAWalker25getClobberingMemoryAccessEPNS_12MemoryAccessE'/>
+<fun r='_ZN4llvm15MemorySSAWalker25getClobberingMemoryAccessEPNS_12MemoryAccessERKNS_14MemoryLocationE'/>
+<fun r='_ZN4llvm15MemorySSAWalker14invalidateInfoEPNS_12MemoryAccessE'/>
+<mbr r='llvm::MemorySSAWalker::MSSA' o='64' t='llvm::MemorySSA *'/>
+<ovr f='llvm/llvm/lib/Analysis/MemorySSA.cpp' l='1006' c='llvm::MemorySSA::CachingWalker'/>
+<ovr f='llvm/llvm/lib/Analysis/MemorySSA.cpp' l='1042' c='llvm::MemorySSA::SkipSelfWalker'/>
+<fun r='_ZN4llvm15MemorySSAWalkerC1EPNS_9MemorySSAE'/>

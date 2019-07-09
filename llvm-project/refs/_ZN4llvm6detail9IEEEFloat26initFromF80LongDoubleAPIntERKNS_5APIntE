@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/include/llvm/ADT/APFloat.h' l='532' type='void llvm::detail::IEEEFloat::initFromF80LongDoubleAPInt(const llvm::APInt &amp; api)'/>
+<def f='llvm/llvm/lib/Support/APFloat.cpp' l='3040' ll='3072' type='void llvm::detail::IEEEFloat::initFromF80LongDoubleAPInt(const llvm::APInt &amp; api)'/>
+<use f='llvm/llvm/lib/Support/APFloat.cpp' l='3241' u='c' c='_ZN4llvm6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE'/>
+<doc f='llvm/llvm/lib/Support/APFloat.cpp' l='3033'>/// Integer bit is explicit in this format.  Intel hardware (387 and later)
+/// does not support these bit patterns:
+///  exponent = all 1&apos;s, integer bit 0, significand 0 (&quot;pseudoinfinity&quot;)
+///  exponent = all 1&apos;s, integer bit 0, significand nonzero (&quot;pseudoNaN&quot;)
+///  exponent!=0 nor all 1&apos;s, integer bit 0 (&quot;unnormal&quot;)
+///  exponent = 0, integer bit 1 (&quot;pseudodenormal&quot;)
+/// At the moment, the first three are treated as NaNs, the last one as Normal.</doc>

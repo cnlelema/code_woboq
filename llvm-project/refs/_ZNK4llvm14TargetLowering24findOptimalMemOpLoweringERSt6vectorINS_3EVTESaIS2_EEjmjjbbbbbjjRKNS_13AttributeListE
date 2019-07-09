@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='3054' type='bool llvm::TargetLowering::findOptimalMemOpLowering(std::vector&lt;EVT&gt; &amp; MemOps, unsigned int Limit, uint64_t Size, unsigned int DstAlign, unsigned int SrcAlign, bool IsMemset, bool ZeroMemset, bool MemcpyStrSrc, bool AllowOverlap, bool MustPreserveCheriCaps, unsigned int DstAS, unsigned int SrcAS, const llvm::AttributeList &amp; FuncAttributes) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='3050'>/// Determines the optimal series of memory ops to replace the memset / memcpy.
+  /// Return true if the number of memory ops is below the threshold (Limit).
+  /// It returns the types of the sequence of memory ops to perform
+  /// memset / memcpy by reference.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='5871' u='c' c='_ZL23getMemcpyLoadsAndStoresRN4llvm12SelectionDAGERKNS_5SDLocENS_7SDValueES5_S5_mjbbbNS_18MachinePointerInfoES6_NS_9StringRefENS_10CodeGenOpt5LevelE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='6085' u='c' c='_ZL24getMemmoveLoadsAndStoresRN4llvm12SelectionDAGERKNS_5SDLocENS_7SDValueES5_S5_mjbbbNS_18MachinePointerInfoES6_NS_9StringRefENS_10CodeGenOpt5LevelE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='6214' u='c' c='_ZL15getMemsetStoresRN4llvm12SelectionDAGERKNS_5SDLocENS_7SDValueES5_S5_mjbNS_18MachinePointerInfoE'/>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='160' ll='283' type='bool llvm::TargetLowering::findOptimalMemOpLowering(std::vector&lt;EVT&gt; &amp; MemOps, unsigned int Limit, uint64_t Size, unsigned int DstAlign, unsigned int SrcAlign, bool IsMemset, bool ZeroMemset, bool MemcpyStrSrc, bool AllowOverlap, bool MustPreserveCheriCapabilities, unsigned int DstAS, unsigned int SrcAS, const llvm::AttributeList &amp; FuncAttributes) const'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMTargetTransformInfo.cpp' l='432' u='c' c='_ZN4llvm10ARMTTIImpl13getMemcpyCostEPKNS_11InstructionE'/>

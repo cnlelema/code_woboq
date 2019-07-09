@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PhiValues.h source code [llvm/llvm/include/llvm/Analysis/PhiValues.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::PhiValues,llvm::PhiValuesAnalysis,llvm::PhiValuesPrinterPass,llvm::PhiValuesWrapperPass "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/Analysis/PhiValues.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>Analysis</a>/<a href='PhiValues.h.html'>PhiValues.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- PhiValues.h - Phi Value Analysis -------------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file defines the PhiValues class, and associated passes, which can be</i></td></tr>
+<tr><th id="10">10</th><td><i>// used to find the underlying values of the phis in a function, i.e. the</i></td></tr>
+<tr><th id="11">11</th><td><i>// non-phi values that can be found by traversing the phi graph.</i></td></tr>
+<tr><th id="12">12</th><td><i>//</i></td></tr>
+<tr><th id="13">13</th><td><i>// This information is computed lazily and cached. If new phis are added to the</i></td></tr>
+<tr><th id="14">14</th><td><i>// function they are handled correctly, but if an existing phi has its operands</i></td></tr>
+<tr><th id="15">15</th><td><i>// modified PhiValues has to be notified by calling invalidateValue.</i></td></tr>
+<tr><th id="16">16</th><td><i>//</i></td></tr>
+<tr><th id="17">17</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#<span data-ppcond="19">ifndef</span> <span class="macro" data-ref="_M/LLVM_ANALYSIS_PHIVALUES_H">LLVM_ANALYSIS_PHIVALUES_H</span></u></td></tr>
+<tr><th id="20">20</th><td><u>#define <dfn class="macro" id="_M/LLVM_ANALYSIS_PHIVALUES_H" data-ref="_M/LLVM_ANALYSIS_PHIVALUES_H">LLVM_ANALYSIS_PHIVALUES_H</dfn></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../ADT/DenseMap.h.html">"llvm/ADT/DenseMap.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../ADT/DenseSet.h.html">"llvm/ADT/DenseSet.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../ADT/SmallPtrSet.h.html">"llvm/ADT/SmallPtrSet.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../ADT/SmallVector.h.html">"llvm/ADT/SmallVector.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../IR/PassManager.h.html">"llvm/IR/PassManager.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../IR/ValueHandle.h.html">"llvm/IR/ValueHandle.h"</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../Pass.h.html">"llvm/Pass.h"</a></u></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><b>class</b> <a class="type" href="../IR/Use.h.html#llvm::Use" title='llvm::Use' data-ref="llvm::Use" id="llvm::Use">Use</a>;</td></tr>
+<tr><th id="33">33</th><td><b>class</b> <a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value" id="llvm::Value">Value</a>;</td></tr>
+<tr><th id="34">34</th><td><b>class</b> <a class="type" href="../IR/Instructions.h.html#llvm::PHINode" title='llvm::PHINode' data-ref="llvm::PHINode" id="llvm::PHINode">PHINode</a>;</td></tr>
+<tr><th id="35">35</th><td><b>class</b> <a class="type" href="../IR/Function.h.html#llvm::Function" title='llvm::Function' data-ref="llvm::Function" id="llvm::Function">Function</a>;</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><i class="doc">/// Class for calculating and caching the underlying values of phis in a</i></td></tr>
+<tr><th id="38">38</th><td><i class="doc">/// function.</i></td></tr>
+<tr><th id="39">39</th><td><i class="doc">///</i></td></tr>
+<tr><th id="40">40</th><td><i class="doc">/// Initially the PhiValues is empty, and gets incrementally populated whenever</i></td></tr>
+<tr><th id="41">41</th><td><i class="doc">/// it is queried.</i></td></tr>
+<tr><th id="42">42</th><td><b>class</b> <dfn class="type def" id="llvm::PhiValues" title='llvm::PhiValues' data-ref="llvm::PhiValues">PhiValues</dfn> {</td></tr>
+<tr><th id="43">43</th><td><b>public</b>:</td></tr>
+<tr><th id="44">44</th><td>  <b>using</b> <dfn class="typedef" id="llvm::PhiValues::ValueSet" title='llvm::PhiValues::ValueSet' data-type='SmallPtrSet&lt;llvm::Value *, 4&gt;' data-ref="llvm::PhiValues::ValueSet">ValueSet</dfn> = <a class="type" href="../ADT/SmallPtrSet.h.html#llvm::SmallPtrSet" title='llvm::SmallPtrSet' data-ref="llvm::SmallPtrSet">SmallPtrSet</a>&lt;<a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value">Value</a> *, <var>4</var>&gt;;</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td>  <i class="doc">/// Construct an empty PhiValues.</i></td></tr>
+<tr><th id="47">47</th><td>  <dfn class="decl def" id="_ZN4llvm9PhiValuesC1ERKNS_8FunctionE" title='llvm::PhiValues::PhiValues' data-ref="_ZN4llvm9PhiValuesC1ERKNS_8FunctionE">PhiValues</dfn>(<em>const</em> <a class="type" href="../IR/Function.h.html#llvm::Function" title='llvm::Function' data-ref="llvm::Function">Function</a> &amp;<dfn class="local col7 decl" id="567F" title='F' data-type='const llvm::Function &amp;' data-ref="567F">F</dfn>) : <a class="member" href="#llvm::PhiValues::F" title='llvm::PhiValues::F' data-ref="llvm::PhiValues::F">F</a>(<a class="local col7 ref" href="#567F" title='F' data-ref="567F">F</a>) {}</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>  <i class="doc">/// Get the underlying values of a phi.</i></td></tr>
+<tr><th id="50">50</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="51">51</th><td><i class="doc">  /// This returns the cached value if PN has previously been processed,</i></td></tr>
+<tr><th id="52">52</th><td><i class="doc">  /// otherwise it processes it first.</i></td></tr>
+<tr><th id="53">53</th><td>  <em>const</em> <a class="typedef" href="#llvm::PhiValues::ValueSet" title='llvm::PhiValues::ValueSet' data-type='SmallPtrSet&lt;llvm::Value *, 4&gt;' data-ref="llvm::PhiValues::ValueSet">ValueSet</a> &amp;<dfn class="decl" id="_ZN4llvm9PhiValues15getValuesForPhiEPKNS_7PHINodeE" title='llvm::PhiValues::getValuesForPhi' data-ref="_ZN4llvm9PhiValues15getValuesForPhiEPKNS_7PHINodeE">getValuesForPhi</dfn>(<em>const</em> <a class="type" href="../IR/Instructions.h.html#llvm::PHINode" title='llvm::PHINode' data-ref="llvm::PHINode">PHINode</a> *<dfn class="local col8 decl" id="568PN" title='PN' data-type='const llvm::PHINode *' data-ref="568PN">PN</dfn>);</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>  <i class="doc">/// Notify PhiValues that the cached information using V is no longer valid</i></td></tr>
+<tr><th id="56">56</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="57">57</th><td><i class="doc">  /// Whenever a phi has its operands modified the cached values for that phi</i></td></tr>
+<tr><th id="58">58</th><td><i class="doc">  /// (and the phis that use that phi) become invalid. A user of PhiValues has</i></td></tr>
+<tr><th id="59">59</th><td><i class="doc">  /// to notify it of this by calling invalidateValue on either the operand or</i></td></tr>
+<tr><th id="60">60</th><td><i class="doc">  /// the phi, which will then clear the relevant cached information.</i></td></tr>
+<tr><th id="61">61</th><td>  <em>void</em> <dfn class="decl" id="_ZN4llvm9PhiValues15invalidateValueEPKNS_5ValueE" title='llvm::PhiValues::invalidateValue' data-ref="_ZN4llvm9PhiValues15invalidateValueEPKNS_5ValueE">invalidateValue</dfn>(<em>const</em> <a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value">Value</a> *<dfn class="local col9 decl" id="569V" title='V' data-type='const llvm::Value *' data-ref="569V">V</dfn>);</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>  <i class="doc">/// Free the memory used by this class.</i></td></tr>
+<tr><th id="64">64</th><td>  <em>void</em> <dfn class="decl" id="_ZN4llvm9PhiValues13releaseMemoryEv" title='llvm::PhiValues::releaseMemory' data-ref="_ZN4llvm9PhiValues13releaseMemoryEv">releaseMemory</dfn>();</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>  <i class="doc">/// Print out the values currently in the cache.</i></td></tr>
+<tr><th id="67">67</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm9PhiValues5printERNS_11raw_ostreamE" title='llvm::PhiValues::print' data-ref="_ZNK4llvm9PhiValues5printERNS_11raw_ostreamE">print</dfn>(<a class="type" href="../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col0 decl" id="570OS" title='OS' data-type='llvm::raw_ostream &amp;' data-ref="570OS">OS</dfn>) <em>const</em>;</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td>  <i class="doc">/// Handle invalidation events in the new pass manager.</i></td></tr>
+<tr><th id="70">70</th><td>  <em>bool</em> <dfn class="decl" id="_ZN4llvm9PhiValues10invalidateERNS_8FunctionERKNS_17PreservedAnalysesERNS_15AnalysisManagerIS1_JEE11InvalidatorE" title='llvm::PhiValues::invalidate' data-ref="_ZN4llvm9PhiValues10invalidateERNS_8FunctionERKNS_17PreservedAnalysesERNS_15AnalysisManagerIS1_JEE11InvalidatorE">invalidate</dfn>(<a class="type" href="../IR/Function.h.html#llvm::Function" title='llvm::Function' data-ref="llvm::Function">Function</a> &amp;, <em>const</em> <a class="type" href="../IR/PassManager.h.html#llvm::PreservedAnalyses" title='llvm::PreservedAnalyses' data-ref="llvm::PreservedAnalyses">PreservedAnalyses</a> &amp;,</td></tr>
+<tr><th id="71">71</th><td>                  <a class="typedef" href="../IR/PassManager.h.html#llvm::FunctionAnalysisManager" title='llvm::FunctionAnalysisManager' data-type='AnalysisManager&lt;llvm::Function&gt;' data-ref="llvm::FunctionAnalysisManager">FunctionAnalysisManager</a>::<a class="type" href="../IR/PassManager.h.html#llvm::AnalysisManager::Invalidator" title='llvm::AnalysisManager::Invalidator' data-ref="llvm::AnalysisManager::Invalidator">Invalidator</a> &amp;);</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><b>private</b>:</td></tr>
+<tr><th id="74">74</th><td>  <b>using</b> <dfn class="typedef" id="llvm::PhiValues::PhiSet" title='llvm::PhiValues::PhiSet' data-type='SmallPtrSet&lt;const llvm::PHINode *, 4&gt;' data-ref="llvm::PhiValues::PhiSet">PhiSet</dfn> = <a class="type" href="../ADT/SmallPtrSet.h.html#llvm::SmallPtrSet" title='llvm::SmallPtrSet' data-ref="llvm::SmallPtrSet">SmallPtrSet</a>&lt;<em>const</em> <a class="type" href="../IR/Instructions.h.html#llvm::PHINode" title='llvm::PHINode' data-ref="llvm::PHINode">PHINode</a> *, <var>4</var>&gt;;</td></tr>
+<tr><th id="75">75</th><td>  <b>using</b> <dfn class="typedef" id="llvm::PhiValues::ConstValueSet" title='llvm::PhiValues::ConstValueSet' data-type='SmallPtrSet&lt;const llvm::Value *, 4&gt;' data-ref="llvm::PhiValues::ConstValueSet">ConstValueSet</dfn> = <a class="type" href="../ADT/SmallPtrSet.h.html#llvm::SmallPtrSet" title='llvm::SmallPtrSet' data-ref="llvm::SmallPtrSet">SmallPtrSet</a>&lt;<em>const</em> <a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value">Value</a> *, <var>4</var>&gt;;</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td>  <i class="doc">/// The next depth number to be used by processPhi.</i></td></tr>
+<tr><th id="78">78</th><td>  <em>unsigned</em> <em>int</em> <dfn class="decl" id="llvm::PhiValues::NextDepthNumber" title='llvm::PhiValues::NextDepthNumber' data-ref="llvm::PhiValues::NextDepthNumber">NextDepthNumber</dfn> = <var>1</var>;</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>  <i class="doc">/// Depth numbers of phis. Phis with the same depth number are part of the</i></td></tr>
+<tr><th id="81">81</th><td><i class="doc">  /// same strongly connected component.</i></td></tr>
+<tr><th id="82">82</th><td>  <a class="type" href="../ADT/DenseMap.h.html#llvm::DenseMap" title='llvm::DenseMap' data-ref="llvm::DenseMap">DenseMap</a>&lt;<em>const</em> <a class="type" href="../IR/Instructions.h.html#llvm::PHINode" title='llvm::PHINode' data-ref="llvm::PHINode">PHINode</a> *, <em>unsigned</em> <em>int</em>&gt; <dfn class="decl" id="llvm::PhiValues::DepthMap" title='llvm::PhiValues::DepthMap' data-ref="llvm::PhiValues::DepthMap">DepthMap</dfn>;</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>  <i class="doc">/// Non-phi values reachable from each component.</i></td></tr>
+<tr><th id="85">85</th><td>  <a class="type" href="../ADT/DenseMap.h.html#llvm::DenseMap" title='llvm::DenseMap' data-ref="llvm::DenseMap">DenseMap</a>&lt;<em>unsigned</em> <em>int</em>, <a class="typedef" href="#llvm::PhiValues::ValueSet" title='llvm::PhiValues::ValueSet' data-type='SmallPtrSet&lt;llvm::Value *, 4&gt;' data-ref="llvm::PhiValues::ValueSet">ValueSet</a>&gt; <dfn class="decl" id="llvm::PhiValues::NonPhiReachableMap" title='llvm::PhiValues::NonPhiReachableMap' data-ref="llvm::PhiValues::NonPhiReachableMap">NonPhiReachableMap</dfn>;</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td>  <i class="doc">/// All values reachable from each component.</i></td></tr>
+<tr><th id="88">88</th><td>  <a class="type" href="../ADT/DenseMap.h.html#llvm::DenseMap" title='llvm::DenseMap' data-ref="llvm::DenseMap">DenseMap</a>&lt;<em>unsigned</em> <em>int</em>, <a class="typedef" href="#llvm::PhiValues::ConstValueSet" title='llvm::PhiValues::ConstValueSet' data-type='SmallPtrSet&lt;const llvm::Value *, 4&gt;' data-ref="llvm::PhiValues::ConstValueSet">ConstValueSet</a>&gt; <dfn class="decl" id="llvm::PhiValues::ReachableMap" title='llvm::PhiValues::ReachableMap' data-ref="llvm::PhiValues::ReachableMap">ReachableMap</dfn>;</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>  <i class="doc">/// A CallbackVH to notify PhiValues when a value is deleted or replaced, so</i></td></tr>
+<tr><th id="91">91</th><td><i class="doc">  /// that the cached information for that value can be cleared to avoid</i></td></tr>
+<tr><th id="92">92</th><td><i class="doc">  /// dangling pointers to invalid values.</i></td></tr>
+<tr><th id="93">93</th><td>  <b>class</b> <dfn class="type def" id="llvm::PhiValues::PhiValuesCallbackVH" title='llvm::PhiValues::PhiValuesCallbackVH' data-ref="llvm::PhiValues::PhiValuesCallbackVH">PhiValuesCallbackVH</dfn> final : <b>public</b> <a class="type" href="../IR/ValueHandle.h.html#llvm::CallbackVH" title='llvm::CallbackVH' data-ref="llvm::CallbackVH">CallbackVH</a> {</td></tr>
+<tr><th id="94">94</th><td>    <a class="type" href="#llvm::PhiValues" title='llvm::PhiValues' data-ref="llvm::PhiValues">PhiValues</a> *<dfn class="decl" id="llvm::PhiValues::PhiValuesCallbackVH::PV" title='llvm::PhiValues::PhiValuesCallbackVH::PV' data-ref="llvm::PhiValues::PhiValuesCallbackVH::PV">PV</dfn>;</td></tr>
+<tr><th id="95">95</th><td>    <em>void</em> <dfn class="virtual decl" id="_ZN4llvm9PhiValues19PhiValuesCallbackVH7deletedEv" title='llvm::PhiValues::PhiValuesCallbackVH::deleted' data-ref="_ZN4llvm9PhiValues19PhiValuesCallbackVH7deletedEv">deleted</dfn>() override;</td></tr>
+<tr><th id="96">96</th><td>    <em>void</em> <dfn class="virtual decl" id="_ZN4llvm9PhiValues19PhiValuesCallbackVH19allUsesReplacedWithEPNS_5ValueE" title='llvm::PhiValues::PhiValuesCallbackVH::allUsesReplacedWith' data-ref="_ZN4llvm9PhiValues19PhiValuesCallbackVH19allUsesReplacedWithEPNS_5ValueE">allUsesReplacedWith</dfn>(<a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value">Value</a> *<dfn class="local col1 decl" id="571New" title='New' data-type='llvm::Value *' data-ref="571New">New</dfn>) override;</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td>  <b>public</b>:</td></tr>
+<tr><th id="99">99</th><td>    <dfn class="decl def" id="_ZN4llvm9PhiValues19PhiValuesCallbackVHC1EPNS_5ValueEPS0_" title='llvm::PhiValues::PhiValuesCallbackVH::PhiValuesCallbackVH' data-ref="_ZN4llvm9PhiValues19PhiValuesCallbackVHC1EPNS_5ValueEPS0_">PhiValuesCallbackVH</dfn>(<a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value">Value</a> *<dfn class="local col2 decl" id="572V" title='V' data-type='llvm::Value *' data-ref="572V">V</dfn>, <a class="type" href="#llvm::PhiValues" title='llvm::PhiValues' data-ref="llvm::PhiValues">PhiValues</a> *<dfn class="local col3 decl" id="573PV" title='PV' data-type='llvm::PhiValues *' data-ref="573PV">PV</dfn> = <b>nullptr</b>)</td></tr>
+<tr><th id="100">100</th><td>        : <a class="type" href="../IR/ValueHandle.h.html#llvm::CallbackVH" title='llvm::CallbackVH' data-ref="llvm::CallbackVH">CallbackVH</a><a class="ref" href="../IR/ValueHandle.h.html#_ZN4llvm10CallbackVHC1EPNS_5ValueE" title='llvm::CallbackVH::CallbackVH' data-ref="_ZN4llvm10CallbackVHC1EPNS_5ValueE">(</a><a class="local col2 ref" href="#572V" title='V' data-ref="572V">V</a>), <a class="member" href="#llvm::PhiValues::PhiValuesCallbackVH::PV" title='llvm::PhiValues::PhiValuesCallbackVH::PV' data-ref="llvm::PhiValues::PhiValuesCallbackVH::PV">PV</a>(<a class="local col3 ref" href="#573PV" title='PV' data-ref="573PV">PV</a>) {}</td></tr>
+<tr><th id="101">101</th><td>  };</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>  <i class="doc">/// A set of callbacks to the values that processPhi has seen.</i></td></tr>
+<tr><th id="104">104</th><td>  <a class="type" href="../ADT/DenseSet.h.html#llvm::DenseSet" title='llvm::DenseSet' data-ref="llvm::DenseSet">DenseSet</a>&lt;<a class="type" href="#llvm::PhiValues::PhiValuesCallbackVH" title='llvm::PhiValues::PhiValuesCallbackVH' data-ref="llvm::PhiValues::PhiValuesCallbackVH">PhiValuesCallbackVH</a>, <a class="type" href="../ADT/DenseMapInfo.h.html#llvm::DenseMapInfo" title='llvm::DenseMapInfo' data-ref="llvm::DenseMapInfo">DenseMapInfo</a>&lt;<a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value">Value</a> *&gt;&gt; <dfn class="decl" id="llvm::PhiValues::TrackedValues" title='llvm::PhiValues::TrackedValues' data-ref="llvm::PhiValues::TrackedValues">TrackedValues</dfn>;</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td>  <i class="doc">/// The function that the PhiValues is for.</i></td></tr>
+<tr><th id="107">107</th><td>  <em>const</em> <a class="type" href="../IR/Function.h.html#llvm::Function" title='llvm::Function' data-ref="llvm::Function">Function</a> &amp;<dfn class="decl" id="llvm::PhiValues::F" title='llvm::PhiValues::F' data-ref="llvm::PhiValues::F">F</dfn>;</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td>  <i class="doc">/// Process a phi so that its entries in the depth and reachable maps are</i></td></tr>
+<tr><th id="110">110</th><td><i class="doc">  /// fully populated.</i></td></tr>
+<tr><th id="111">111</th><td>  <em>void</em> <dfn class="decl" id="_ZN4llvm9PhiValues10processPhiEPKNS_7PHINodeERNS_11SmallVectorIS3_Lj8EEE" title='llvm::PhiValues::processPhi' data-ref="_ZN4llvm9PhiValues10processPhiEPKNS_7PHINodeERNS_11SmallVectorIS3_Lj8EEE">processPhi</dfn>(<em>const</em> <a class="type" href="../IR/Instructions.h.html#llvm::PHINode" title='llvm::PHINode' data-ref="llvm::PHINode">PHINode</a> *<dfn class="local col4 decl" id="574PN" title='PN' data-type='const llvm::PHINode *' data-ref="574PN">PN</dfn>, <a class="type" href="../ADT/SmallVector.h.html#llvm::SmallVector" title='llvm::SmallVector' data-ref="llvm::SmallVector">SmallVector</a>&lt;<em>const</em> <a class="type" href="../IR/Instructions.h.html#llvm::PHINode" title='llvm::PHINode' data-ref="llvm::PHINode">PHINode</a> *, <var>8</var>&gt; &amp;<dfn class="local col5 decl" id="575Stack" title='Stack' data-type='SmallVector&lt;const llvm::PHINode *, 8&gt; &amp;' data-ref="575Stack">Stack</dfn>);</td></tr>
+<tr><th id="112">112</th><td>};</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td><i class="doc">/// The analysis pass which yields a PhiValues</i></td></tr>
+<tr><th id="115">115</th><td><i class="doc">///</i></td></tr>
+<tr><th id="116">116</th><td><i class="doc">/// The analysis does nothing by itself, and just returns an empty PhiValues</i></td></tr>
+<tr><th id="117">117</th><td><i class="doc">/// which will get filled in as it's used.</i></td></tr>
+<tr><th id="118">118</th><td><b>class</b> <dfn class="type def" id="llvm::PhiValuesAnalysis" title='llvm::PhiValuesAnalysis' data-ref="llvm::PhiValuesAnalysis">PhiValuesAnalysis</dfn> : <b>public</b> <a class="type" href="../IR/PassManager.h.html#llvm::AnalysisInfoMixin" title='llvm::AnalysisInfoMixin' data-ref="llvm::AnalysisInfoMixin">AnalysisInfoMixin</a>&lt;<a class="type" href="#llvm::PhiValuesAnalysis" title='llvm::PhiValuesAnalysis' data-ref="llvm::PhiValuesAnalysis">PhiValuesAnalysis</a>&gt; {</td></tr>
+<tr><th id="119">119</th><td>  <b>friend</b> <a class="type" href="../IR/PassManager.h.html#llvm::AnalysisInfoMixin" title='llvm::AnalysisInfoMixin' data-ref="llvm::AnalysisInfoMixin">AnalysisInfoMixin</a>&lt;<a class="type" href="#llvm::PhiValuesAnalysis" title='llvm::PhiValuesAnalysis' data-ref="llvm::PhiValuesAnalysis">PhiValuesAnalysis</a>&gt;;</td></tr>
+<tr><th id="120">120</th><td>  <em>static</em> <a class="type" href="../IR/PassManager.h.html#llvm::AnalysisKey" title='llvm::AnalysisKey' data-ref="llvm::AnalysisKey">AnalysisKey</a> <dfn class="decl" id="llvm::PhiValuesAnalysis::Key" title='llvm::PhiValuesAnalysis::Key' data-ref="llvm::PhiValuesAnalysis::Key">Key</dfn>;</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td><b>public</b>:</td></tr>
+<tr><th id="123">123</th><td>  <b>using</b> <dfn class="typedef" id="llvm::PhiValuesAnalysis::Result" title='llvm::PhiValuesAnalysis::Result' data-type='llvm::PhiValues' data-ref="llvm::PhiValuesAnalysis::Result">Result</dfn> = <a class="type" href="#llvm::PhiValues" title='llvm::PhiValues' data-ref="llvm::PhiValues">PhiValues</a>;</td></tr>
+<tr><th id="124">124</th><td>  <a class="type" href="#llvm::PhiValues" title='llvm::PhiValues' data-ref="llvm::PhiValues">PhiValues</a> <dfn class="decl" id="_ZN4llvm17PhiValuesAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE" title='llvm::PhiValuesAnalysis::run' data-ref="_ZN4llvm17PhiValuesAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE">run</dfn>(<a class="type" href="../IR/Function.h.html#llvm::Function" title='llvm::Function' data-ref="llvm::Function">Function</a> &amp;<dfn class="local col6 decl" id="576F" title='F' data-type='llvm::Function &amp;' data-ref="576F">F</dfn>, <a class="typedef" href="../IR/PassManager.h.html#llvm::FunctionAnalysisManager" title='llvm::FunctionAnalysisManager' data-type='AnalysisManager&lt;llvm::Function&gt;' data-ref="llvm::FunctionAnalysisManager">FunctionAnalysisManager</a> &amp;);</td></tr>
+<tr><th id="125">125</th><td>};</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td><i class="doc">/// A pass for printing the PhiValues for a function.</i></td></tr>
+<tr><th id="128">128</th><td><i class="doc">///</i></td></tr>
+<tr><th id="129">129</th><td><i class="doc">/// This pass doesn't print whatever information the PhiValues happens to hold,</i></td></tr>
+<tr><th id="130">130</th><td><i class="doc">/// but instead first uses the PhiValues to analyze all the phis in the function</i></td></tr>
+<tr><th id="131">131</th><td><i class="doc">/// so the complete information is printed.</i></td></tr>
+<tr><th id="132">132</th><td><b>class</b> <dfn class="type def" id="llvm::PhiValuesPrinterPass" title='llvm::PhiValuesPrinterPass' data-ref="llvm::PhiValuesPrinterPass">PhiValuesPrinterPass</dfn> : <b>public</b> <a class="type" href="../IR/PassManager.h.html#llvm::PassInfoMixin" title='llvm::PassInfoMixin' data-ref="llvm::PassInfoMixin">PassInfoMixin</a>&lt;<a class="type" href="#llvm::PhiValuesPrinterPass" title='llvm::PhiValuesPrinterPass' data-ref="llvm::PhiValuesPrinterPass">PhiValuesPrinterPass</a>&gt; {</td></tr>
+<tr><th id="133">133</th><td>  <a class="type" href="../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="decl" id="llvm::PhiValuesPrinterPass::OS" title='llvm::PhiValuesPrinterPass::OS' data-ref="llvm::PhiValuesPrinterPass::OS">OS</dfn>;</td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td><b>public</b>:</td></tr>
+<tr><th id="136">136</th><td>  <b>explicit</b> <dfn class="decl def" id="_ZN4llvm20PhiValuesPrinterPassC1ERNS_11raw_ostreamE" title='llvm::PhiValuesPrinterPass::PhiValuesPrinterPass' data-ref="_ZN4llvm20PhiValuesPrinterPassC1ERNS_11raw_ostreamE">PhiValuesPrinterPass</dfn>(<a class="type" href="../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col7 decl" id="577OS" title='OS' data-type='llvm::raw_ostream &amp;' data-ref="577OS">OS</dfn>) : <a class="member" href="#llvm::PhiValuesPrinterPass::OS" title='llvm::PhiValuesPrinterPass::OS' data-ref="llvm::PhiValuesPrinterPass::OS">OS</a>(<a class="local col7 ref" href="#577OS" title='OS' data-ref="577OS">OS</a>) {}</td></tr>
+<tr><th id="137">137</th><td>  <a class="type" href="../IR/PassManager.h.html#llvm::PreservedAnalyses" title='llvm::PreservedAnalyses' data-ref="llvm::PreservedAnalyses">PreservedAnalyses</a> <dfn class="decl" id="_ZN4llvm20PhiValuesPrinterPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE" title='llvm::PhiValuesPrinterPass::run' data-ref="_ZN4llvm20PhiValuesPrinterPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE">run</dfn>(<a class="type" href="../IR/Function.h.html#llvm::Function" title='llvm::Function' data-ref="llvm::Function">Function</a> &amp;<dfn class="local col8 decl" id="578F" title='F' data-type='llvm::Function &amp;' data-ref="578F">F</dfn>, <a class="typedef" href="../IR/PassManager.h.html#llvm::FunctionAnalysisManager" title='llvm::FunctionAnalysisManager' data-type='AnalysisManager&lt;llvm::Function&gt;' data-ref="llvm::FunctionAnalysisManager">FunctionAnalysisManager</a> &amp;<dfn class="local col9 decl" id="579AM" title='AM' data-type='FunctionAnalysisManager &amp;' data-ref="579AM">AM</dfn>);</td></tr>
+<tr><th id="138">138</th><td>};</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td><i class="doc">/// Wrapper pass for the legacy pass manager</i></td></tr>
+<tr><th id="141">141</th><td><b>class</b> <dfn class="type def" id="llvm::PhiValuesWrapperPass" title='llvm::PhiValuesWrapperPass' data-ref="llvm::PhiValuesWrapperPass">PhiValuesWrapperPass</dfn> : <b>public</b> <a class="type" href="../Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> {</td></tr>
+<tr><th id="142">142</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="#llvm::PhiValues" title='llvm::PhiValues' data-ref="llvm::PhiValues">PhiValues</a>&gt; <dfn class="decl" id="llvm::PhiValuesWrapperPass::Result" title='llvm::PhiValuesWrapperPass::Result' data-ref="llvm::PhiValuesWrapperPass::Result">Result</dfn>;</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><b>public</b>:</td></tr>
+<tr><th id="145">145</th><td>  <em>static</em> <em>char</em> <dfn class="decl" id="llvm::PhiValuesWrapperPass::ID" title='llvm::PhiValuesWrapperPass::ID' data-ref="llvm::PhiValuesWrapperPass::ID">ID</dfn>;</td></tr>
+<tr><th id="146">146</th><td>  <dfn class="decl" id="_ZN4llvm20PhiValuesWrapperPassC1Ev" title='llvm::PhiValuesWrapperPass::PhiValuesWrapperPass' data-ref="_ZN4llvm20PhiValuesWrapperPassC1Ev">PhiValuesWrapperPass</dfn>();</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td>  <a class="type" href="#llvm::PhiValues" title='llvm::PhiValues' data-ref="llvm::PhiValues">PhiValues</a> &amp;<dfn class="decl def" id="_ZN4llvm20PhiValuesWrapperPass9getResultEv" title='llvm::PhiValuesWrapperPass::getResult' data-ref="_ZN4llvm20PhiValuesWrapperPass9getResultEv">getResult</dfn>() { <b>return</b> <a class="ref" href="../../../../../include/c++/7/bits/unique_ptr.h.html#_ZNKSt10unique_ptrdeEv" title='std::unique_ptr::operator*' data-ref="_ZNKSt10unique_ptrdeEv">*</a><a class="member" href="#llvm::PhiValuesWrapperPass::Result" title='llvm::PhiValuesWrapperPass::Result' data-ref="llvm::PhiValuesWrapperPass::Result">Result</a>; }</td></tr>
+<tr><th id="149">149</th><td>  <em>const</em> <a class="type" href="#llvm::PhiValues" title='llvm::PhiValues' data-ref="llvm::PhiValues">PhiValues</a> &amp;<dfn class="decl def" id="_ZNK4llvm20PhiValuesWrapperPass9getResultEv" title='llvm::PhiValuesWrapperPass::getResult' data-ref="_ZNK4llvm20PhiValuesWrapperPass9getResultEv">getResult</dfn>() <em>const</em> { <b>return</b> <a class="ref" href="../../../../../include/c++/7/bits/unique_ptr.h.html#_ZNKSt10unique_ptrdeEv" title='std::unique_ptr::operator*' data-ref="_ZNKSt10unique_ptrdeEv">*</a><a class="member" href="#llvm::PhiValuesWrapperPass::Result" title='llvm::PhiValuesWrapperPass::Result' data-ref="llvm::PhiValuesWrapperPass::Result">Result</a>; }</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td>  <em>bool</em> <dfn class="virtual decl" id="_ZN4llvm20PhiValuesWrapperPass13runOnFunctionERNS_8FunctionE" title='llvm::PhiValuesWrapperPass::runOnFunction' data-ref="_ZN4llvm20PhiValuesWrapperPass13runOnFunctionERNS_8FunctionE">runOnFunction</dfn>(<a class="type" href="../IR/Function.h.html#llvm::Function" title='llvm::Function' data-ref="llvm::Function">Function</a> &amp;<dfn class="local col0 decl" id="580F" title='F' data-type='llvm::Function &amp;' data-ref="580F">F</dfn>) override;</td></tr>
+<tr><th id="152">152</th><td>  <em>void</em> <dfn class="virtual decl" id="_ZN4llvm20PhiValuesWrapperPass13releaseMemoryEv" title='llvm::PhiValuesWrapperPass::releaseMemory' data-ref="_ZN4llvm20PhiValuesWrapperPass13releaseMemoryEv">releaseMemory</dfn>() override;</td></tr>
+<tr><th id="153">153</th><td>  <em>void</em> <dfn class="virtual decl" id="_ZNK4llvm20PhiValuesWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE" title='llvm::PhiValuesWrapperPass::getAnalysisUsage' data-ref="_ZNK4llvm20PhiValuesWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE">getAnalysisUsage</dfn>(<a class="type" href="../PassAnalysisSupport.h.html#llvm::AnalysisUsage" title='llvm::AnalysisUsage' data-ref="llvm::AnalysisUsage">AnalysisUsage</a> &amp;<dfn class="local col1 decl" id="581AU" title='AU' data-type='llvm::AnalysisUsage &amp;' data-ref="581AU">AU</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="154">154</th><td>};</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>} <i>// namespace llvm</i></td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td><u>#<span data-ppcond="19">endif</span></u></td></tr>
+<tr><th id="159">159</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../lib/Analysis/BasicAliasAnalysis.cpp.html'>llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

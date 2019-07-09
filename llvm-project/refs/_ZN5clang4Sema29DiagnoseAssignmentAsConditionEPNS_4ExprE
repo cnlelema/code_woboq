@@ -1,0 +1,8 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='10293' type='void clang::Sema::DiagnoseAssignmentAsCondition(clang::Expr * E)'/>
+<doc f='llvm/clang/include/clang/Sema/Sema.h' l='10291'>/// DiagnoseAssignmentAsCondition - Given that an expression is
+  /// being used as a boolean condition, warn if it&apos;s an assignment.</doc>
+<def f='llvm/clang/lib/Sema/SemaExpr.cpp' l='16965' ll='17019' type='void clang::Sema::DiagnoseAssignmentAsCondition(clang::Expr * E)'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='16999' u='c' c='_ZN5clang4Sema29DiagnoseAssignmentAsConditionEPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='17052' u='c' c='_ZN5clang4Sema21CheckBooleanConditionENS_14SourceLocationEPNS_4ExprEb'/>
+<doc f='llvm/clang/lib/Sema/SemaExpr.cpp' l='16963'>// Diagnose the s/=/==/ and s/\|=/!=/ typos. Note that adding parentheses
+// will prevent this condition from triggering, which is what we want.</doc>

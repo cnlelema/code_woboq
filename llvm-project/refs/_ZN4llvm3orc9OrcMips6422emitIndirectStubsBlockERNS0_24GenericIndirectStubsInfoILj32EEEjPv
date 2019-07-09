@@ -1,0 +1,8 @@
+<dec f='llvm/llvm/include/llvm/ExecutionEngine/Orc/OrcABISupport.h' l='309' type='static llvm::Error llvm::orc::OrcMips64::emitIndirectStubsBlock(IndirectStubsInfo &amp; StubsInfo, unsigned int MinStubs, void * InitialPtrVal)'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/OrcABISupport.h' l='303'>/// @brief Emit at least MinStubs worth of indirect call stubs, rounded out to
+  ///        the nearest page size.
+  ///
+  ///   E.g. Asking for 4 stubs on Mips64, where stubs are 8-bytes, with 4k
+  /// pages will return a block of 512 stubs (4096 / 8 = 512). Asking for 513
+  /// will return a block of 1024 (2-pages worth).</doc>
+<def f='llvm/llvm/lib/ExecutionEngine/Orc/OrcABISupport.cpp' l='899' ll='981' type='static llvm::Error llvm::orc::OrcMips64::emitIndirectStubsBlock(IndirectStubsInfo &amp; StubsInfo, unsigned int MinStubs, void * InitialPtrVal)'/>

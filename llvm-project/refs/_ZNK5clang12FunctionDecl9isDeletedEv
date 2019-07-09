@@ -1,0 +1,41 @@
+<def f='llvm/clang/include/clang/AST/Decl.h' l='2155' ll='2157' type='bool clang::FunctionDecl::isDeleted() const'/>
+<doc f='llvm/clang/include/clang/AST/Decl.h' l='2136'>/// Whether this function has been deleted.
+  ///
+  /// A function that is &quot;deleted&quot; (via the C++0x &quot;= delete&quot; syntax)
+  /// acts like a normal function, except that it cannot actually be
+  /// called or have its address taken. Deleted functions are
+  /// typically used in C++ overload resolution to attract arguments
+  /// whose type or lvalue/rvalue-ness would permit the use of a
+  /// different overload that would behave incorrectly. For example,
+  /// one might use deleted functions to ban implicit conversion from
+  /// a floating-point number to an Integer type:
+  ///
+  /// @code
+  /// struct Integer {
+  ///   Integer(long); // construct from a long
+  ///   Integer(double) = delete; // no construction from float or double
+  ///   Integer(long double) = delete; // no construction from long double
+  /// };
+  /// @endcode
+  // If a function is deleted, its first declaration must be.</doc>
+<use f='llvm/clang/lib/AST/JSONNodeDumper.cpp' l='581' u='c' c='_ZN5clang14JSONNodeDumper17VisitFunctionDeclEPKNS_12FunctionDeclE'/>
+<use f='llvm/clang/lib/AST/ODRHash.cpp' l='565' u='c' c='_ZN5clang7ODRHash15AddFunctionDeclEPKNS_12FunctionDeclEb'/>
+<use f='llvm/clang/lib/AST/TextNodeDumper.cpp' l='1282' u='c' c='_ZN5clang14TextNodeDumper17VisitFunctionDeclEPKNS_12FunctionDeclE'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='4086' u='c' c='_ZNK5clang12ast_matchers8internal24matcher_isDeletedMatcher7matchesERKNS_12FunctionDeclEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE'/>
+<use f='llvm/clang/lib/Sema/CodeCompleteConsumer.cpp' l='697' u='c' c='_ZN5clang20CodeCompletionResult32computeCursorKindAndAvailabilityEb'/>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='1224' u='c' c='_ZN5clang4Sema25ActOnEndOfTranslationUnitEv'/>
+<use f='llvm/clang/lib/Sema/SemaCodeComplete.cpp' l='5057' u='c' c='_ZL26mergeCandidatesWithResultsRN5clang4SemaERN4llvm15SmallVectorImplINS_20CodeCompleteConsumer17OverloadCandidateEEERNS_20OverloadCandidateSetENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='10276' u='c' c='_ZN5clang4Sema24CheckFunctionDeclarationEPNS_5ScopeEPNS_12FunctionDeclERNS_12LookupResultEb'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='12890' u='c' c='_ZL31ShouldWarnAboutMissingPrototypePKN5clang12FunctionDeclERS2_'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='13403' u='c' c='_ZN5clang4Sema23ActOnFinishFunctionBodyEPNS_4DeclEPNS_4StmtEb'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='12835' u='c' c='_ZN5clang4Sema19isImplicitlyDeletedEPNS_12FunctionDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='14696' u='c' c='_ZN5clang4Sema14SetDeclDeletedEPNS_4DeclENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='60' u='c' c='_ZN5clang4Sema10CanUseDeclEPNS_9NamedDeclEb'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='100' u='c' c='_ZN5clang4Sema19NoteDeletedFunctionEPNS_12FunctionDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='254' u='c' c='_ZN5clang4Sema17DiagnoseUseOfDeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_14SourceLocationEEEPKNS_17ObjCInterfaceDeclEbbPS7_'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='2901' u='c' c='_ZN5clang4Sema24FindDeallocationFunctionENS_14SourceLocationEPNS_13CXXRecordDeclENS_15DeclarationNameERPNS_12FunctionDeclEb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='9492' u='c' c='_ZN5clang20OverloadCandidateSet18BestViableFunctionERNS_4SemaENS_14SourceLocationERPNS_17OverloadCandidateE'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='10434' u='c' c='_ZL21NoteFunctionCandidateRN5clang4SemaEPNS_17OverloadCandidateEjb'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='8600' u='c' c='_ZN5clang4Sema25CheckMemberSpecializationEPNS_9NamedDeclERNS_12LookupResultE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateInstantiateDecl.cpp' l='3936' u='c' c='_ZN5clang24TemplateDeclInstantiator25InitFunctionInstantiationEPNS_12FunctionDeclES2_'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='7750' u='c' c='_ZL28getCursorAvailabilityForDeclPKN5clang4DeclE'/>

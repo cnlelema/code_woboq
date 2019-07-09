@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='202' type='void llvm::MergeBasicBlockIntoOnlyPred(llvm::BasicBlock * BB, llvm::DomTreeUpdater * DTU = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='199'>/// BB is a block with one predecessor and its predecessor is known to have one
+/// successor (BB!). Eliminate the edge between them, moving the instructions in
+/// the predecessor into BB. This deletes the predecessor block.</doc>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='997' u='c' c='_ZN4llvm17JumpThreadingPass12ProcessBlockEPNS_10BasicBlockE'/>
+<def f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='679' ll='756' type='void llvm::MergeBasicBlockIntoOnlyPred(llvm::BasicBlock * DestBB, llvm::DomTreeUpdater * DTU = nullptr)'/>
+<doc f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='675'>/// MergeBasicBlockIntoOnlyPred - DestBB is a block with one predecessor and its
+/// predecessor is known to have one successor (DestBB!). Eliminate the edge
+/// between them, moving the instructions in the predecessor into DestBB and
+/// deleting the predecessor block.</doc>
+<use f='llvm/llvm/unittests/Transforms/Utils/LocalTest.cpp' l='221' u='c' c='_ZN38Local_MergeBasicBlockIntoOnlyPred_Test8TestBodyEv'/>

@@ -1,0 +1,38 @@
+<dec f='llvm/llvm/include/llvm/Support/FileSystem.h' l='809' type='std::error_code llvm::sys::fs::createUniqueFile(const llvm::Twine &amp; Model, int &amp; ResultFD, SmallVectorImpl&lt;char&gt; &amp; ResultPath, unsigned int Mode = all_read | all_write)'/>
+<doc f='llvm/llvm/include/llvm/Support/FileSystem.h' l='788'>/// Create a uniquely named file.
+///
+/// Generates a unique path suitable for a temporary file and then opens it as a
+/// file. The name is based on \a Model with &apos;%&apos; replaced by a random char in
+/// [0-9a-f]. If \a Model is not an absolute path, the temporary file will be
+/// created in the current directory.
+///
+/// Example: clang-%%-%%-%%-%%-%%.s =&gt; clang-a0-b1-c2-d3-e4.s
+///
+/// This is an atomic operation. Either the file is created and opened, or the
+/// file system is left untouched.
+///
+/// The intended use is for files that are to be kept, possibly after
+/// renaming them. For example, when running &apos;clang -c foo.o&apos;, the file can
+/// be first created as foo-abc123.o and then renamed.
+///
+/// @param Model Name to base unique path off of.
+/// @param ResultFD Set to the opened file&apos;s file descriptor.
+/// @param ResultPath Set to the opened file&apos;s absolute path.
+/// @returns errc::success if Result{FD,Path} have been successfully set,
+///          otherwise a platform-specific error_code.</doc>
+<use f='llvm/clang/lib/Frontend/ASTUnit.cpp' l='2298' u='c' c='_ZN5clang7ASTUnit4SaveEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='758' u='c' c='_ZN5clang16CompilerInstance16createOutputFileEN4llvm9StringRefERSt10error_codebbS2_S2_bbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='765' u='c' c='_ZN5clang16CompilerInstance16createOutputFileEN4llvm9StringRefERSt10error_codebbS2_S2_bbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_'/>
+<use f='llvm/clang/lib/Rewrite/Rewriter.cpp' l='414' u='c' c='_ZN12_GLOBAL__N_119AtomicallyMovedFileC1ERN5clang17DiagnosticsEngineEN4llvm9StringRefERb'/>
+<use f='llvm/clang/lib/Serialization/GlobalModuleIndex.cpp' l='888' u='c' c='_ZN5clang17GlobalModuleIndex10writeIndexERNS_11FileManagerERKNS_18PCHContainerReaderEN4llvm9StringRefE'/>
+<use f='llvm/clang/tools/libclang/CIndexer.cpp' l='164' u='c' c='_ZN5clang26LibclangInvocationReporterC1ERNS_8CIndexerENS0_13OperationKindEjN4llvm8ArrayRefIPKcEENS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc7350521'/>
+<use f='llvm/llvm/lib/LTO/ThinLTOCodeGenerator.cpp' l='376' u='c' c='_ZN12_GLOBAL__N_116ModuleCacheEntry5writeERKN4llvm12MemoryBufferE'/>
+<use f='llvm/llvm/lib/Support/LockFileManager.cpp' l='177' u='c' c='_ZN4llvm15LockFileManagerC1ENS_9StringRefE'/>
+<def f='llvm/llvm/lib/Support/Path.cpp' l='767' ll='771' type='std::error_code llvm::sys::fs::createUniqueFile(const llvm::Twine &amp; Model, int &amp; ResultFd, SmallVectorImpl&lt;char&gt; &amp; ResultPath, unsigned int Mode = all_read | all_write)'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='784' u='c' c='_ZN4llvm3sys2fs16createUniqueFileERKNS_5TwineERNS_15SmallVectorImplIcEEj'/>
+<use f='llvm/llvm/tools/bugpoint/ExecutionDriver.cpp' l='307' u='c' c='_ZNK4llvm9BugDriver14executeProgramERKNS_6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_RKS9_PNS_19AbstractInterpreterE'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1003' u='c' c='_ZN12_GLOBAL__N_126FileSystemTest_Remove_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1005' u='c' c='_ZN12_GLOBAL__N_126FileSystemTest_Remove_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1007' u='c' c='_ZN12_GLOBAL__N_126FileSystemTest_Remove_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1009' u='c' c='_ZN12_GLOBAL__N_126FileSystemTest_Remove_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1524' u='c' c='_ZN12_GLOBAL__N_128FileSystemTest_is_local_Test8TestBodyEv'/>

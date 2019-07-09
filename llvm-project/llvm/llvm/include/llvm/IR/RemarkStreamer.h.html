@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>RemarkStreamer.h source code [llvm/llvm/include/llvm/IR/RemarkStreamer.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::RemarkStreamer "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/IR/RemarkStreamer.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>IR</a>/<a href='RemarkStreamer.h.html'>RemarkStreamer.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- llvm/IR/RemarkStreamer.h - Remark Streamer ---------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file declares the main interface for outputting remarks.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#<span data-ppcond="13">ifndef</span> <span class="macro" data-ref="_M/LLVM_IR_REMARKSTREAMER_H">LLVM_IR_REMARKSTREAMER_H</span></u></td></tr>
+<tr><th id="14">14</th><td><u>#define <dfn class="macro" id="_M/LLVM_IR_REMARKSTREAMER_H" data-ref="_M/LLVM_IR_REMARKSTREAMER_H">LLVM_IR_REMARKSTREAMER_H</dfn></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="DiagnosticInfo.h.html">"llvm/IR/DiagnosticInfo.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../Remarks/RemarkSerializer.h.html">"llvm/Remarks/RemarkSerializer.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../Support/Error.h.html">"llvm/Support/Error.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../Support/Regex.h.html">"llvm/Support/Regex.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../Support/raw_ostream.h.html">"llvm/Support/raw_ostream.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../../../include/c++/7/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../../../include/c++/7/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="25">25</th><td><i class="doc">/// Streamer for remarks.</i></td></tr>
+<tr><th id="26">26</th><td><b>class</b> <dfn class="type def" id="llvm::RemarkStreamer" title='llvm::RemarkStreamer' data-ref="llvm::RemarkStreamer">RemarkStreamer</dfn> {</td></tr>
+<tr><th id="27">27</th><td>  <i class="doc">/// The filename that the remark diagnostics are emitted to.</i></td></tr>
+<tr><th id="28">28</th><td>  <em>const</em> <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="decl" id="llvm::RemarkStreamer::Filename" title='llvm::RemarkStreamer::Filename' data-ref="llvm::RemarkStreamer::Filename">Filename</dfn>;</td></tr>
+<tr><th id="29">29</th><td>  <i class="doc">/// The regex used to filter remarks based on the passes that emit them.</i></td></tr>
+<tr><th id="30">30</th><td>  <a class="type" href="../../../../clang/include/clang/Basic/LLVM.h.html#llvm::Optional" title='llvm::Optional' data-ref="llvm::Optional">Optional</a>&lt;<a class="type" href="../Support/Regex.h.html#llvm::Regex" title='llvm::Regex' data-ref="llvm::Regex">Regex</a>&gt; <dfn class="decl" id="llvm::RemarkStreamer::PassFilter" title='llvm::RemarkStreamer::PassFilter' data-ref="llvm::RemarkStreamer::PassFilter">PassFilter</dfn>;</td></tr>
+<tr><th id="31">31</th><td>  <i class="doc">/// The object used to serialize the remarks to a specific format.</i></td></tr>
+<tr><th id="32">32</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<span class="namespace">remarks::</span><a class="type" href="../Remarks/RemarkSerializer.h.html#llvm::remarks::Serializer" title='llvm::remarks::Serializer' data-ref="llvm::remarks::Serializer">Serializer</a>&gt; <dfn class="decl" id="llvm::RemarkStreamer::Serializer" title='llvm::RemarkStreamer::Serializer' data-ref="llvm::RemarkStreamer::Serializer">Serializer</dfn>;</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td>  <i class="doc">/// Temporary buffer for converting diagnostics into remark objects. This is</i></td></tr>
+<tr><th id="35">35</th><td><i class="doc">  /// used for the remark arguments that are converted from a vector of</i></td></tr>
+<tr><th id="36">36</th><td><i class="doc">  /// diagnostic arguments to a vector of remark arguments.</i></td></tr>
+<tr><th id="37">37</th><td>  <a class="type" href="../../../../clang/include/clang/Basic/LLVM.h.html#llvm::SmallVector" title='llvm::SmallVector' data-ref="llvm::SmallVector">SmallVector</a>&lt;<span class="namespace">remarks::</span><a class="type" href="../Remarks/Remark.h.html#llvm::remarks::Argument" title='llvm::remarks::Argument' data-ref="llvm::remarks::Argument">Argument</a>, <var>8</var>&gt; <dfn class="decl" id="llvm::RemarkStreamer::TmpArgs" title='llvm::RemarkStreamer::TmpArgs' data-ref="llvm::RemarkStreamer::TmpArgs">TmpArgs</dfn>;</td></tr>
+<tr><th id="38">38</th><td>  <i class="doc">/// Convert diagnostics into remark objects. The result uses<span class="command"> \p</span> <span class="arg">TmpArgs</span> as a</i></td></tr>
+<tr><th id="39">39</th><td><i class="doc">  /// temporary buffer for the remark arguments, and relies on all the strings</i></td></tr>
+<tr><th id="40">40</th><td><i class="doc">  /// to be kept in memory until the next call to `toRemark`.</i></td></tr>
+<tr><th id="41">41</th><td><i class="doc">  /// The lifetime of the members of the result is bound to the lifetime of both</i></td></tr>
+<tr><th id="42">42</th><td><i class="doc">  /// the remark streamer and the LLVM diagnostics.</i></td></tr>
+<tr><th id="43">43</th><td>  <span class="namespace">remarks::</span><a class="type" href="../Remarks/Remark.h.html#llvm::remarks::Remark" title='llvm::remarks::Remark' data-ref="llvm::remarks::Remark">Remark</a> <dfn class="decl" id="_ZN4llvm14RemarkStreamer8toRemarkERKNS_30DiagnosticInfoOptimizationBaseE" title='llvm::RemarkStreamer::toRemark' data-ref="_ZN4llvm14RemarkStreamer8toRemarkERKNS_30DiagnosticInfoOptimizationBaseE">toRemark</dfn>(<em>const</em> <a class="type" href="DiagnosticInfo.h.html#llvm::DiagnosticInfoOptimizationBase" title='llvm::DiagnosticInfoOptimizationBase' data-ref="llvm::DiagnosticInfoOptimizationBase">DiagnosticInfoOptimizationBase</a> &amp;<dfn class="local col0 decl" id="1240Diag" title='Diag' data-type='const llvm::DiagnosticInfoOptimizationBase &amp;' data-ref="1240Diag">Diag</dfn>);</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><b>public</b>:</td></tr>
+<tr><th id="46">46</th><td>  <dfn class="decl" id="_ZN4llvm14RemarkStreamerC1ENS_9StringRefESt10unique_ptrINS_7remarks10SerializerESt14default_deleteIS4_EE" title='llvm::RemarkStreamer::RemarkStreamer' data-ref="_ZN4llvm14RemarkStreamerC1ENS_9StringRefESt10unique_ptrINS_7remarks10SerializerESt14default_deleteIS4_EE">RemarkStreamer</dfn>(<a class="type" href="../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col1 decl" id="1241Filename" title='Filename' data-type='llvm::StringRef' data-ref="1241Filename">Filename</dfn>,</td></tr>
+<tr><th id="47">47</th><td>                 <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<span class="namespace">remarks::</span><a class="type" href="../Remarks/RemarkSerializer.h.html#llvm::remarks::Serializer" title='llvm::remarks::Serializer' data-ref="llvm::remarks::Serializer">Serializer</a>&gt; <dfn class="local col2 decl" id="1242Serializer" title='Serializer' data-type='std::unique_ptr&lt;remarks::Serializer&gt;' data-ref="1242Serializer">Serializer</dfn>);</td></tr>
+<tr><th id="48">48</th><td>  <i class="doc">/// Return the filename that the remark diagnostics are emitted to.</i></td></tr>
+<tr><th id="49">49</th><td>  <a class="type" href="../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="decl def" id="_ZNK4llvm14RemarkStreamer11getFilenameEv" title='llvm::RemarkStreamer::getFilename' data-ref="_ZNK4llvm14RemarkStreamer11getFilenameEv">getFilename</dfn>() <em>const</em> { <b>return</b> <a class="ref fake" href="../ADT/StringRef.h.html#_ZN4llvm9StringRefC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"></a><a class="member" href="#llvm::RemarkStreamer::Filename" title='llvm::RemarkStreamer::Filename' data-ref="llvm::RemarkStreamer::Filename">Filename</a>; }</td></tr>
+<tr><th id="50">50</th><td>  <i class="doc">/// Return stream that the remark diagnostics are emitted to.</i></td></tr>
+<tr><th id="51">51</th><td>  <a class="type" href="../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="decl def" id="_ZN4llvm14RemarkStreamer9getStreamEv" title='llvm::RemarkStreamer::getStream' data-ref="_ZN4llvm14RemarkStreamer9getStreamEv">getStream</dfn>() { <b>return</b> <a class="member" href="#llvm::RemarkStreamer::Serializer" title='llvm::RemarkStreamer::Serializer' data-ref="llvm::RemarkStreamer::Serializer">Serializer</a><a class="ref" href="../../../../../include/c++/7/bits/unique_ptr.h.html#_ZNKSt10unique_ptrptEv" title='std::unique_ptr::operator-&gt;' data-ref="_ZNKSt10unique_ptrptEv">-&gt;</a><a class="ref" href="../Remarks/RemarkSerializer.h.html#llvm::remarks::Serializer::OS" title='llvm::remarks::Serializer::OS' data-ref="llvm::remarks::Serializer::OS">OS</a>; }</td></tr>
+<tr><th id="52">52</th><td>  <i class="doc">/// Return the serializer used for this stream.</i></td></tr>
+<tr><th id="53">53</th><td>  <span class="namespace">remarks::</span><a class="type" href="../Remarks/RemarkSerializer.h.html#llvm::remarks::Serializer" title='llvm::remarks::Serializer' data-ref="llvm::remarks::Serializer">Serializer</a> &amp;<dfn class="decl def" id="_ZN4llvm14RemarkStreamer13getSerializerEv" title='llvm::RemarkStreamer::getSerializer' data-ref="_ZN4llvm14RemarkStreamer13getSerializerEv">getSerializer</dfn>() { <b>return</b> <a class="ref" href="../../../../../include/c++/7/bits/unique_ptr.h.html#_ZNKSt10unique_ptrdeEv" title='std::unique_ptr::operator*' data-ref="_ZNKSt10unique_ptrdeEv">*</a><a class="member" href="#llvm::RemarkStreamer::Serializer" title='llvm::RemarkStreamer::Serializer' data-ref="llvm::RemarkStreamer::Serializer">Serializer</a>; }</td></tr>
+<tr><th id="54">54</th><td>  <i class="doc">/// Set a pass filter based on a regex<span class="command"> \p</span> <span class="arg">Filter.</span></i></td></tr>
+<tr><th id="55">55</th><td><i class="doc">  /// Returns an error if the regex is invalid.</i></td></tr>
+<tr><th id="56">56</th><td>  <a class="type" href="../Support/Error.h.html#llvm::Error" title='llvm::Error' data-ref="llvm::Error">Error</a> <dfn class="decl" id="_ZN4llvm14RemarkStreamer9setFilterENS_9StringRefE" title='llvm::RemarkStreamer::setFilter' data-ref="_ZN4llvm14RemarkStreamer9setFilterENS_9StringRefE">setFilter</dfn>(<a class="type" href="../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col3 decl" id="1243Filter" title='Filter' data-type='llvm::StringRef' data-ref="1243Filter">Filter</dfn>);</td></tr>
+<tr><th id="57">57</th><td>  <i class="doc">/// Emit a diagnostic through the streamer.</i></td></tr>
+<tr><th id="58">58</th><td>  <em>void</em> <dfn class="decl" id="_ZN4llvm14RemarkStreamer4emitERKNS_30DiagnosticInfoOptimizationBaseE" title='llvm::RemarkStreamer::emit' data-ref="_ZN4llvm14RemarkStreamer4emitERKNS_30DiagnosticInfoOptimizationBaseE">emit</dfn>(<em>const</em> <a class="type" href="DiagnosticInfo.h.html#llvm::DiagnosticInfoOptimizationBase" title='llvm::DiagnosticInfoOptimizationBase' data-ref="llvm::DiagnosticInfoOptimizationBase">DiagnosticInfoOptimizationBase</a> &amp;<dfn class="local col4 decl" id="1244Diag" title='Diag' data-type='const llvm::DiagnosticInfoOptimizationBase &amp;' data-ref="1244Diag">Diag</dfn>);</td></tr>
+<tr><th id="59">59</th><td>};</td></tr>
+<tr><th id="60">60</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><u>#<span data-ppcond="13">endif</span> // LLVM_IR_REMARKSTREAMER_H</u></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../clang/lib/CodeGen/CodeGenAction.cpp.html'>llvm/clang/lib/CodeGen/CodeGenAction.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

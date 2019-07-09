@@ -1,0 +1,87 @@
+<inh f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='204' c='llvm::MCStreamer'/>
+<def f='llvm/llvm/include/llvm/MC/MCObjectStreamer.h' l='35' ll='201'/>
+<size>1456</size>
+<doc f='llvm/llvm/include/llvm/MC/MCObjectStreamer.h' l='28'>/// Streaming object file generation interface.
+///
+/// This class provides an implementation of the MCStreamer interface which is
+/// suitable for use with the assembler backend. Specific object file formats
+/// are expected to subclass this interface to implement directives specific
+/// to that file format or custom semantics expected by the object writer
+/// implementation.</doc>
+<mbr r='llvm::MCObjectStreamer::Assembler' o='10432' t='std::unique_ptr&lt;MCAssembler&gt;'/>
+<mbr r='llvm::MCObjectStreamer::CurInsertionPoint' o='10496' t='MCSection::iterator'/>
+<mbr r='llvm::MCObjectStreamer::EmitEHFrame' o='10560' t='bool'/>
+<mbr r='llvm::MCObjectStreamer::EmitDebugFrame' o='10568' t='bool'/>
+<mbr r='llvm::MCObjectStreamer::PendingLabels' o='10624' t='SmallVector&lt;llvm::MCSymbol *, 2&gt;'/>
+<mbr r='llvm::MCObjectStreamer::PendingFixups' o='10880' t='SmallVector&lt;llvm::MCObjectStreamer::PendingMCFixup, 2&gt;'/>
+<fun r='_ZN4llvm16MCObjectStreamer14EmitInstToDataERKNS_6MCInstERKNS_15MCSubtargetInfoE'/>
+<fun r='_ZN4llvm16MCObjectStreamer20EmitCFIStartProcImplERNS_16MCDwarfFrameInfoE'/>
+<fun r='_ZN4llvm16MCObjectStreamer18EmitCFIEndProcImplERNS_16MCDwarfFrameInfoE'/>
+<fun r='_ZN4llvm16MCObjectStreamer12EmitCFILabelEv'/>
+<fun r='_ZN4llvm16MCObjectStreamer19EmitInstructionImplERKNS_6MCInstERKNS_15MCSubtargetInfoE'/>
+<fun r='_ZN4llvm16MCObjectStreamer20resolvePendingFixupsEv'/>
+<fun r='_ZN4llvm16MCObjectStreamerC1ERNS_9MCContextESt10unique_ptrINS_12MCAsmBackendESt14default_deleteIS4_EES3_INS_14MCObjectWriterES5_IS8_EES3_INS_13MCCodeEmitterES5_ISB_EE'/>
+<fun r='_ZN4llvm16MCObjectStreamerD1Ev'/>
+<fun r='_ZN4llvm16MCObjectStreamer5resetEv'/>
+<fun r='_ZNK4llvm16MCObjectStreamer29isIntegratedAssemblerRequiredEv'/>
+<fun r='_ZN4llvm16MCObjectStreamer10EmitFramesEPNS_12MCAsmBackendE'/>
+<fun r='_ZN4llvm16MCObjectStreamer15EmitCFISectionsEbb'/>
+<fun r='_ZNK4llvm16MCObjectStreamer18getCurrentFragmentEv'/>
+<fun r='_ZN4llvm16MCObjectStreamer6insertEPNS_10MCFragmentE'/>
+<fun r='_ZN4llvm16MCObjectStreamer23getOrCreateDataFragmentEPKNS_15MCSubtargetInfoE'/>
+<fun r='_ZN4llvm16MCObjectStreamer26getOrCreatePaddingFragmentEv'/>
+<fun r='_ZN4llvm16MCObjectStreamer17changeSectionImplEPNS_9MCSectionEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm16MCObjectStreamer18flushPendingLabelsEPNS_10MCFragmentEm'/>
+<fun r='_ZN4llvm16MCObjectStreamer15visitUsedSymbolERKNS_8MCSymbolE'/>
+<fun r='_ZN4llvm16MCObjectStreamer18flushPendingLabelsEv'/>
+<fun r='_ZN4llvm16MCObjectStreamer12getAssemblerEv'/>
+<fun r='_ZN4llvm16MCObjectStreamer15getAssemblerPtrEv'/>
+<fun r='_ZN4llvm16MCObjectStreamer9EmitLabelEPNS_8MCSymbolENS_5SMLocE'/>
+<fun r='_ZN4llvm16MCObjectStreamer9EmitLabelEPNS_8MCSymbolENS_5SMLocEPNS_10MCFragmentE'/>
+<fun r='_ZN4llvm16MCObjectStreamer14EmitAssignmentEPNS_8MCSymbolEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm16MCObjectStreamer13EmitValueImplEPKNS_6MCExprEjNS_5SMLocE'/>
+<fun r='_ZN4llvm16MCObjectStreamer16EmitULEB128ValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm16MCObjectStreamer16EmitSLEB128ValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm16MCObjectStreamer17EmitWeakReferenceEPNS_8MCSymbolEPKS1_'/>
+<fun r='_ZN4llvm16MCObjectStreamer13ChangeSectionEPNS_9MCSectionEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm16MCObjectStreamer15EmitInstructionERKNS_6MCInstERKNS_15MCSubtargetInfoE'/>
+<fun r='_ZN4llvm16MCObjectStreamer18EmitInstToFragmentERKNS_6MCInstERKNS_15MCSubtargetInfoE'/>
+<fun r='_ZN4llvm16MCObjectStreamer19EmitBundleAlignModeEj'/>
+<fun r='_ZN4llvm16MCObjectStreamer14EmitBundleLockEb'/>
+<fun r='_ZN4llvm16MCObjectStreamer16EmitBundleUnlockEv'/>
+<fun r='_ZN4llvm16MCObjectStreamer9EmitBytesENS_9StringRefE'/>
+<fun r='_ZN4llvm16MCObjectStreamer20EmitValueToAlignmentEjljj'/>
+<fun r='_ZN4llvm16MCObjectStreamer17EmitCodeAlignmentEjj'/>
+<fun r='_ZN4llvm16MCObjectStreamer17emitValueToOffsetEPKNS_6MCExprEhNS_5SMLocE'/>
+<fun r='_ZN4llvm16MCObjectStreamer30EmitCodePaddingBasicBlockStartERKNS_20MCCodePaddingContextE'/>
+<fun r='_ZN4llvm16MCObjectStreamer28EmitCodePaddingBasicBlockEndERKNS_20MCCodePaddingContextE'/>
+<fun r='_ZN4llvm16MCObjectStreamer21EmitDwarfLocDirectiveEjjjjjjNS_9StringRefE'/>
+<fun r='_ZN4llvm16MCObjectStreamer24EmitDwarfAdvanceLineAddrElPKNS_8MCSymbolES3_j'/>
+<fun r='_ZN4llvm16MCObjectStreamer25EmitDwarfAdvanceFrameAddrEPKNS_8MCSymbolES3_'/>
+<fun r='_ZN4llvm16MCObjectStreamer18EmitCVLocDirectiveEjjjjbbNS_9StringRefENS_5SMLocE'/>
+<fun r='_ZN4llvm16MCObjectStreamer24EmitCVLinetableDirectiveEjPKNS_8MCSymbolES3_'/>
+<fun r='_ZN4llvm16MCObjectStreamer30EmitCVInlineLinetableDirectiveEjjjPKNS_8MCSymbolES3_'/>
+<fun r='_ZN4llvm16MCObjectStreamer23EmitCVDefRangeDirectiveENS_8ArrayRefISt4pairIPKNS_8MCSymbolES5_EEENS_9StringRefE'/>
+<fun r='_ZN4llvm16MCObjectStreamer26EmitCVStringTableDirectiveEv'/>
+<fun r='_ZN4llvm16MCObjectStreamer28EmitCVFileChecksumsDirectiveEv'/>
+<fun r='_ZN4llvm16MCObjectStreamer33EmitCVFileChecksumOffsetDirectiveEj'/>
+<fun r='_ZN4llvm16MCObjectStreamer17EmitDTPRel32ValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm16MCObjectStreamer17EmitDTPRel64ValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm16MCObjectStreamer16EmitTPRel32ValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm16MCObjectStreamer16EmitTPRel64ValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm16MCObjectStreamer16EmitGPRel32ValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm16MCObjectStreamer16EmitGPRel64ValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm16MCObjectStreamer18EmitRelocDirectiveERKNS_6MCExprENS_9StringRefEPS2_NS_5SMLocERKNS_15MCSubtargetInfoE'/>
+<fun r='_ZN4llvm16MCObjectStreamer8emitFillERKNS_6MCExprEmNS_5SMLocE'/>
+<fun r='_ZN4llvm16MCObjectStreamer8emitFillERKNS_6MCExprEllNS_5SMLocE'/>
+<fun r='_ZN4llvm16MCObjectStreamer17EmitFileDirectiveENS_9StringRefE'/>
+<fun r='_ZN4llvm16MCObjectStreamer11EmitAddrsigEv'/>
+<fun r='_ZN4llvm16MCObjectStreamer14EmitAddrsigSymEPKNS_8MCSymbolE'/>
+<fun r='_ZN4llvm16MCObjectStreamer10FinishImplEv'/>
+<fun r='_ZN4llvm16MCObjectStreamer22emitAbsoluteSymbolDiffEPKNS_8MCSymbolES3_j'/>
+<fun r='_ZN4llvm16MCObjectStreamer31emitAbsoluteSymbolDiffAsULEB128EPKNS_8MCSymbolES3_'/>
+<fun r='_ZNK4llvm16MCObjectStreamer19mayHaveInstructionsERNS_9MCSectionE'/>
+<ovr f='llvm/llvm/include/llvm/MC/MCELFStreamer.h' l='23' c='llvm::MCELFStreamer'/>
+<ovr f='llvm/llvm/lib/MC/MCMachOStreamer.cpp' l='44' c='(anonymousnamespace)::MCMachOStreamer'/>
+<ovr f='llvm/llvm/include/llvm/MC/MCWasmStreamer.h' l='27' c='llvm::MCWasmStreamer'/>
+<ovr f='llvm/llvm/include/llvm/MC/MCWinCOFFStreamer.h' l='27' c='llvm::MCWinCOFFStreamer'/>

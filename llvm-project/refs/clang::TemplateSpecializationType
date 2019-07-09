@@ -1,0 +1,45 @@
+<inh f='llvm/clang/include/clang/AST/Type.h' l='1428' c='clang::Type'/>
+<inh f='llvm/llvm/include/llvm/ADT/FoldingSet.h' l='135' c='llvm::FoldingSetBase::Node'/>
+<def f='llvm/clang/include/clang/AST/Type.h' l='4925' ll='5029'/>
+<size>40</size>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='4905'>/// Represents a type template specialization; the template
+/// must be a class template, a type alias template, or a template
+/// template parameter.  A template which cannot be resolved to one of
+/// these, e.g. because it is written with a dependent scope
+/// specifier, is instead represented as a
+/// @c DependentTemplateSpecializationType.
+///
+/// A non-dependent template specialization type is always &quot;sugar&quot;,
+/// typically for a \c RecordType.  For example, a class template
+/// specialization type of \c vector&lt;int&gt; will refer to a tag type for
+/// the instantiation \c std::vector&lt;int, std::allocator&lt;int&gt;&gt;
+///
+/// Template specializations are dependent if either the template or
+/// any of the template arguments are dependent, in which case the
+/// type may also be canonical.
+///
+/// Instances of this type are allocated with a trailing array of
+/// TemplateArguments, followed by a QualType representing the
+/// non-canonical aliased type when the template is a type alias
+/// template.</doc>
+<mbr r='clang::TemplateSpecializationType::Template' o='256' t='clang::TemplateName'/>
+<fun r='_ZN5clang26TemplateSpecializationTypeC1ENS_12TemplateNameEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_8QualTypeES6_'/>
+<fun r='_ZN5clang26TemplateSpecializationType29anyDependentTemplateArgumentsEN4llvm8ArrayRefINS_19TemplateArgumentLocEEERb'/>
+<fun r='_ZN5clang26TemplateSpecializationType29anyDependentTemplateArgumentsERKNS_24TemplateArgumentListInfoERb'/>
+<fun r='_ZNK5clang26TemplateSpecializationType22isCurrentInstantiationEv'/>
+<fun r='_ZNK5clang26TemplateSpecializationType11isTypeAliasEv'/>
+<fun r='_ZNK5clang26TemplateSpecializationType14getAliasedTypeEv'/>
+<fun r='_ZNK5clang26TemplateSpecializationType5beginEv'/>
+<fun r='_ZNK5clang26TemplateSpecializationType3endEv'/>
+<fun r='_ZNK5clang26TemplateSpecializationType15getTemplateNameEv'/>
+<fun r='_ZNK5clang26TemplateSpecializationType7getArgsEv'/>
+<fun r='_ZNK5clang26TemplateSpecializationType10getNumArgsEv'/>
+<fun r='_ZNK5clang26TemplateSpecializationType6getArgEj'/>
+<fun r='_ZNK5clang26TemplateSpecializationType18template_argumentsEv'/>
+<fun r='_ZNK5clang26TemplateSpecializationType9isSugaredEv'/>
+<fun r='_ZNK5clang26TemplateSpecializationType7desugarEv'/>
+<fun r='_ZN5clang26TemplateSpecializationType7ProfileERN4llvm16FoldingSetNodeIDERKNS_10ASTContextE'/>
+<fun r='_ZN5clang26TemplateSpecializationType7ProfileERN4llvm16FoldingSetNodeIDENS_12TemplateNameENS1_8ArrayRefINS_16TemplateArgumentEEERKNS_10ASTContextE'/>
+<fun r='_ZN5clang26TemplateSpecializationType7classofEPKNS_4TypeE'/>
+<fun r='_ZNK5clang26TemplateSpecializationType3endEv'/>
+<fun r='_ZNK5clang26TemplateSpecializationType6getArgEj'/>

@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/IR/Use.h' l='132' type='static llvm::Use * llvm::Use::initTags(llvm::Use * Start, llvm::Use * Stop)'/>
+<doc f='llvm/llvm/include/llvm/IR/Use.h' l='128'>/// Initializes the waymarking tags on an array of Uses.
+  ///
+  /// This sets up the array of Uses such that getUser() can find the User from
+  /// any of those Uses.</doc>
+<def f='llvm/llvm/lib/IR/Use.cpp' l='56' ll='84' type='static llvm::Use * llvm::Use::initTags(llvm::Use *const Start, llvm::Use * Stop)'/>
+<doc f='llvm/llvm/lib/IR/Use.cpp' l='51'>// Sets up the waymarking algorithm&apos;s tags for a series of Uses. See the
+// algorithm details here:
+//
+//   http://www.llvm.org/docs/ProgrammersManual.html#the-waymarking-algorithm
+//</doc>
+<use f='llvm/llvm/lib/IR/User.cpp' l='55' u='c' c='_ZN4llvm4User16allocHungoffUsesEjb'/>
+<use f='llvm/llvm/lib/IR/User.cpp' l='131' u='c' c='_ZN4llvm4User24allocateFixedOperandUserEmjj'/>
+<use f='llvm/llvm/unittests/IR/WaymarkTest.cpp' l='46' u='c' c='_ZN4llvm12_GLOBAL__N_123WaymarkTest_TwoBit_Test8TestBodyEv'/>

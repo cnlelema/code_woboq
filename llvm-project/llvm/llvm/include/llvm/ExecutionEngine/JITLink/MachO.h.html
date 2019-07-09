@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MachO.h source code [llvm/llvm/include/llvm/ExecutionEngine/JITLink/MachO.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/ExecutionEngine/JITLink/MachO.h'; var root_path = '../../../../../..'; var data_path = '../../../../../../../data';</script>
+<script src='../../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>llvm</a>/<a href='../../../..'>llvm</a>/<a href='../../..'>include</a>/<a href='../..'>llvm</a>/<a href='..'>ExecutionEngine</a>/<a href='./'>JITLink</a>/<a href='MachO.h.html'>MachO.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===------- MachO.h - Generic JIT link function for MachO ------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// Generic jit-link functions for MachO.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#<span data-ppcond="13">ifndef</span> <span class="macro" data-ref="_M/LLVM_EXECUTIONENGINE_JITLINK_MACHO_H">LLVM_EXECUTIONENGINE_JITLINK_MACHO_H</span></u></td></tr>
+<tr><th id="14">14</th><td><u>#define <dfn class="macro" id="_M/LLVM_EXECUTIONENGINE_JITLINK_MACHO_H" data-ref="_M/LLVM_EXECUTIONENGINE_JITLINK_MACHO_H">LLVM_EXECUTIONENGINE_JITLINK_MACHO_H</dfn></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="JITLink.h.html">"llvm/ExecutionEngine/JITLink/JITLink.h"</a></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="19">19</th><td><b>namespace</b> <span class="namespace">jitlink</span> {</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><i class="doc">/// jit-link the given ObjBuffer, which must be a MachO object file.</i></td></tr>
+<tr><th id="22">22</th><td><i class="doc">///</i></td></tr>
+<tr><th id="23">23</th><td><i class="doc">/// Uses conservative defaults for GOT and stub handling based on the target</i></td></tr>
+<tr><th id="24">24</th><td><i class="doc">/// platform.</i></td></tr>
+<tr><th id="25">25</th><td><em>void</em> <dfn class="decl" id="_ZN4llvm7jitlink13jitLink_MachOESt10unique_ptrINS0_14JITLinkContextESt14default_deleteIS2_EE" title='llvm::jitlink::jitLink_MachO' data-ref="_ZN4llvm7jitlink13jitLink_MachOESt10unique_ptrINS0_14JITLinkContextESt14default_deleteIS2_EE">jitLink_MachO</dfn>(<span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/7/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="JITLink.h.html#llvm::jitlink::JITLinkContext" title='llvm::jitlink::JITLinkContext' data-ref="llvm::jitlink::JITLinkContext">JITLinkContext</a>&gt; <dfn class="local col1 decl" id="1Ctx" title='Ctx' data-type='std::unique_ptr&lt;JITLinkContext&gt;' data-ref="1Ctx">Ctx</dfn>);</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td>} <i>// end namespace jitlink</i></td></tr>
+<tr><th id="28">28</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><u>#<span data-ppcond="13">endif</span> // LLVM_EXECUTIONENGINE_JITLINK_MACHO_H</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../lib/ExecutionEngine/JITLink/JITLink.cpp.html'>llvm/llvm/lib/ExecutionEngine/JITLink/JITLink.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

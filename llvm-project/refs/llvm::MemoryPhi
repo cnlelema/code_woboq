@@ -1,0 +1,87 @@
+<inh f='llvm/llvm/include/llvm/Analysis/MemorySSA.h' l='137' c='llvm::MemoryAccess'/>
+<def f='llvm/llvm/include/llvm/Analysis/MemorySSA.h' l='481' ll='662'/>
+<size>80</size>
+<doc f='llvm/llvm/include/llvm/Analysis/MemorySSA.h' l='449'>/// Represents phi nodes for memory accesses.
+///
+/// These have the same semantic as regular phi nodes, with the exception that
+/// only one phi will ever exist in a given basic block.
+/// Guaranteeing one phi per block means guaranteeing there is only ever one
+/// valid reaching MemoryDef/MemoryPHI along each path to the phi node.
+/// This is ensured by not allowing disambiguation of the RHS of a MemoryDef or
+/// a MemoryPhi&apos;s operands.
+/// That is, given
+/// if (a) {
+///   store %a
+///   store %b
+/// }
+/// it *must* be transformed into
+/// if (a) {
+///    1 = MemoryDef(liveOnEntry)
+///    store %a
+///    2 = MemoryDef(1)
+///    store %b
+/// }
+/// and *not*
+/// if (a) {
+///    1 = MemoryDef(liveOnEntry)
+///    store %a
+///    2 = MemoryDef(liveOnEntry)
+///    store %b
+/// }
+/// even if the two stores do not conflict. Otherwise, both 1 and 2 reach the
+/// end of the branch, and if there are not two phi nodes, one will be
+/// disconnected completely from the SSA graph below that point.
+/// Because MemoryUse&apos;s do not generate new definitions, they do not have this
+/// issue.</doc>
+<fun r='_ZN4llvm9MemoryPhinwEm'/>
+<fun r='_ZNK4llvm9MemoryPhi10getOperandEj'/>
+<fun r='_ZN4llvm9MemoryPhi10setOperandEjPNS_12MemoryAccessE'/>
+<fun r='_ZN4llvm9MemoryPhi8op_beginEv'/>
+<fun r='_ZNK4llvm9MemoryPhi8op_beginEv'/>
+<fun r='_ZN4llvm9MemoryPhi6op_endEv'/>
+<fun r='_ZNK4llvm9MemoryPhi6op_endEv'/>
+<fun r='_ZN4llvm9MemoryPhi2OpEv'/>
+<fun r='_ZNK4llvm9MemoryPhi2OpEv'/>
+<fun r='_ZNK4llvm9MemoryPhi14getNumOperandsEv'/>
+<fun r='_ZN4llvm9MemoryPhiC1ERNS_11LLVMContextEPNS_10BasicBlockEjj'/>
+<fun r='_ZN4llvm9MemoryPhi11block_beginEv'/>
+<fun r='_ZNK4llvm9MemoryPhi11block_beginEv'/>
+<fun r='_ZN4llvm9MemoryPhi9block_endEv'/>
+<fun r='_ZNK4llvm9MemoryPhi9block_endEv'/>
+<fun r='_ZN4llvm9MemoryPhi6blocksEv'/>
+<fun r='_ZNK4llvm9MemoryPhi6blocksEv'/>
+<fun r='_ZN4llvm9MemoryPhi15incoming_valuesEv'/>
+<fun r='_ZNK4llvm9MemoryPhi15incoming_valuesEv'/>
+<fun r='_ZNK4llvm9MemoryPhi20getNumIncomingValuesEv'/>
+<fun r='_ZNK4llvm9MemoryPhi16getIncomingValueEj'/>
+<fun r='_ZN4llvm9MemoryPhi16setIncomingValueEjPNS_12MemoryAccessE'/>
+<fun r='_ZN4llvm9MemoryPhi29getOperandNumForIncomingValueEj'/>
+<fun r='_ZN4llvm9MemoryPhi29getIncomingValueNumForOperandEj'/>
+<fun r='_ZNK4llvm9MemoryPhi16getIncomingBlockEj'/>
+<fun r='_ZNK4llvm9MemoryPhi16getIncomingBlockERKNS_3UseE'/>
+<fun r='_ZNK4llvm9MemoryPhi16getIncomingBlockENS_5Value18user_iterator_implIKNS_4UserEEE'/>
+<fun r='_ZN4llvm9MemoryPhi16setIncomingBlockEjPNS_10BasicBlockE'/>
+<fun r='_ZN4llvm9MemoryPhi11addIncomingEPNS_12MemoryAccessEPNS_10BasicBlockE'/>
+<fun r='_ZNK4llvm9MemoryPhi18getBasicBlockIndexEPKNS_10BasicBlockE'/>
+<fun r='_ZNK4llvm9MemoryPhi24getIncomingValueForBlockEPKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm9MemoryPhi23unorderedDeleteIncomingEj'/>
+<fun r='_ZN4llvm9MemoryPhi25unorderedDeleteIncomingIfEOT_'/>
+<fun r='_ZN4llvm9MemoryPhi28unorderedDeleteIncomingBlockEPKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm9MemoryPhi28unorderedDeleteIncomingValueEPKNS_12MemoryAccessE'/>
+<fun r='_ZN4llvm9MemoryPhi7classofEPKNS_5ValueE'/>
+<fun r='_ZNK4llvm9MemoryPhi5printERNS_11raw_ostreamE'/>
+<fun r='_ZNK4llvm9MemoryPhi5getIDEv'/>
+<fun r='_ZN4llvm9MemoryPhi16allocHungoffUsesEj'/>
+<mbr r='llvm::MemoryPhi::ID' o='576' t='const unsigned int'/>
+<mbr r='llvm::MemoryPhi::ReservedSpace' o='608' t='unsigned int'/>
+<fun r='_ZN4llvm9MemoryPhi12growOperandsEv'/>
+<fun r='_ZN4llvm9MemoryPhi8deleteMeEPNS_11DerivedUserE'/>
+<fun r='_ZN4llvm9MemoryPhi8op_beginEv'/>
+<fun r='_ZNK4llvm9MemoryPhi8op_beginEv'/>
+<fun r='_ZN4llvm9MemoryPhi6op_endEv'/>
+<fun r='_ZNK4llvm9MemoryPhi6op_endEv'/>
+<fun r='_ZNK4llvm9MemoryPhi10getOperandEj'/>
+<fun r='_ZN4llvm9MemoryPhi10setOperandEjPNS_12MemoryAccessE'/>
+<fun r='_ZNK4llvm9MemoryPhi14getNumOperandsEv'/>
+<fun r='_ZN4llvm9MemoryPhi2OpEv'/>
+<fun r='_ZNK4llvm9MemoryPhi2OpEv'/>

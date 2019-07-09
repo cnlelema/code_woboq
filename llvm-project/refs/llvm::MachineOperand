@@ -1,0 +1,145 @@
+<def f='llvm/llvm/include/llvm/CodeGen/MachineOperand.h' l='48' ll='926'/>
+<size>32</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineOperand.h' l='41'>/// MachineOperand class - Representation of each machine instruction operand.
+///
+/// This class isn&apos;t a POD type because it has a private constructor, but its
+/// destructor must be trivial. Functions like MachineInstr::addOperand(),
+/// MachineRegisterInfo::moveOperands(), and MF::DeleteMachineInstr() depend on
+/// not having to call the MachineOperand destructor.
+///</doc>
+<mbr r='llvm::MachineOperand::OpKind' o='0' t='unsigned int'/>
+<mbr r='llvm::MachineOperand::SubReg_TargetFlags' o='8' t='unsigned int'/>
+<mbr r='llvm::MachineOperand::TiedTo' o='20' t='unsigned int'/>
+<mbr r='llvm::MachineOperand::IsDef' o='24' t='unsigned int'/>
+<mbr r='llvm::MachineOperand::IsImp' o='25' t='unsigned int'/>
+<mbr r='llvm::MachineOperand::IsDeadOrKill' o='26' t='unsigned int'/>
+<mbr r='llvm::MachineOperand::IsRenamable' o='27' t='unsigned int'/>
+<mbr r='llvm::MachineOperand::IsUndef' o='28' t='unsigned int'/>
+<mbr r='llvm::MachineOperand::IsInternalRead' o='29' t='unsigned int'/>
+<mbr r='llvm::MachineOperand::IsEarlyClobber' o='30' t='unsigned int'/>
+<mbr r='llvm::MachineOperand::IsDebug' o='31' t='unsigned int'/>
+<mbr r='llvm::MachineOperand::SmallContents' o='32' t='union (anonymous union at /root/cheri/llvm-project/llvm/include/llvm/CodeGen/MachineOperand.h:153:3)'/>
+<mbr r='llvm::MachineOperand::ParentMI' o='64' t='llvm::MachineInstr *'/>
+<mbr r='llvm::MachineOperand::Contents' o='128' t='union (anonymous union at /root/cheri/llvm-project/llvm/include/llvm/CodeGen/MachineOperand.h:163:3)'/>
+<fun r='_ZN4llvm14MachineOperandC1ENS0_18MachineOperandTypeE'/>
+<fun r='_ZNK4llvm14MachineOperand7getTypeEv'/>
+<fun r='_ZNK4llvm14MachineOperand14getTargetFlagsEv'/>
+<fun r='_ZN4llvm14MachineOperand14setTargetFlagsEj'/>
+<fun r='_ZN4llvm14MachineOperand13addTargetFlagEj'/>
+<fun r='_ZN4llvm14MachineOperand9getParentEv'/>
+<fun r='_ZNK4llvm14MachineOperand9getParentEv'/>
+<fun r='_ZN4llvm14MachineOperand11clearParentEv'/>
+<fun r='_ZN4llvm14MachineOperand14printSubRegIdxERNS_11raw_ostreamEmPKNS_18TargetRegisterInfoE'/>
+<fun r='_ZN4llvm14MachineOperand16printTargetFlagsERNS_11raw_ostreamERKS0_'/>
+<fun r='_ZN4llvm14MachineOperand11printSymbolERNS_11raw_ostreamERNS_8MCSymbolE'/>
+<fun r='_ZN4llvm14MachineOperand25printStackObjectReferenceERNS_11raw_ostreamEjbNS_9StringRefE'/>
+<fun r='_ZN4llvm14MachineOperand18printOperandOffsetERNS_11raw_ostreamEl'/>
+<fun r='_ZN4llvm14MachineOperand17printIRSlotNumberERNS_11raw_ostreamEi'/>
+<fun r='_ZNK4llvm14MachineOperand5printERNS_11raw_ostreamEPKNS_18TargetRegisterInfoEPKNS_19TargetIntrinsicInfoE'/>
+<fun r='_ZNK4llvm14MachineOperand5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerENS_3LLTEbbbjPKNS_18TargetRegisterInfoEPKNS_19TargetIntrinsicInfoE'/>
+<fun r='_ZNK4llvm14MachineOperand5printERNS_11raw_ostreamENS_3LLTEPKNS_18TargetRegisterInfoEPKNS_19TargetIntrinsicInfoE'/>
+<fun r='_ZNK4llvm14MachineOperand4dumpEv'/>
+<fun r='_ZNK4llvm14MachineOperand5isRegEv'/>
+<fun r='_ZNK4llvm14MachineOperand5isImmEv'/>
+<fun r='_ZNK4llvm14MachineOperand6isCImmEv'/>
+<fun r='_ZNK4llvm14MachineOperand7isFPImmEv'/>
+<fun r='_ZNK4llvm14MachineOperand5isMBBEv'/>
+<fun r='_ZNK4llvm14MachineOperand4isFIEv'/>
+<fun r='_ZNK4llvm14MachineOperand5isCPIEv'/>
+<fun r='_ZNK4llvm14MachineOperand13isTargetIndexEv'/>
+<fun r='_ZNK4llvm14MachineOperand5isJTIEv'/>
+<fun r='_ZNK4llvm14MachineOperand8isGlobalEv'/>
+<fun r='_ZNK4llvm14MachineOperand8isSymbolEv'/>
+<fun r='_ZNK4llvm14MachineOperand14isBlockAddressEv'/>
+<fun r='_ZNK4llvm14MachineOperand9isRegMaskEv'/>
+<fun r='_ZNK4llvm14MachineOperand12isRegLiveOutEv'/>
+<fun r='_ZNK4llvm14MachineOperand10isMetadataEv'/>
+<fun r='_ZNK4llvm14MachineOperand10isMCSymbolEv'/>
+<fun r='_ZNK4llvm14MachineOperand10isCFIIndexEv'/>
+<fun r='_ZNK4llvm14MachineOperand13isIntrinsicIDEv'/>
+<fun r='_ZNK4llvm14MachineOperand11isPredicateEv'/>
+<fun r='_ZNK4llvm14MachineOperand6getRegEv'/>
+<fun r='_ZNK4llvm14MachineOperand9getSubRegEv'/>
+<fun r='_ZNK4llvm14MachineOperand5isUseEv'/>
+<fun r='_ZNK4llvm14MachineOperand5isDefEv'/>
+<fun r='_ZNK4llvm14MachineOperand10isImplicitEv'/>
+<fun r='_ZNK4llvm14MachineOperand6isDeadEv'/>
+<fun r='_ZNK4llvm14MachineOperand6isKillEv'/>
+<fun r='_ZNK4llvm14MachineOperand7isUndefEv'/>
+<fun r='_ZNK4llvm14MachineOperand11isRenamableEv'/>
+<fun r='_ZNK4llvm14MachineOperand14isInternalReadEv'/>
+<fun r='_ZNK4llvm14MachineOperand14isEarlyClobberEv'/>
+<fun r='_ZNK4llvm14MachineOperand6isTiedEv'/>
+<fun r='_ZNK4llvm14MachineOperand7isDebugEv'/>
+<fun r='_ZNK4llvm14MachineOperand8readsRegEv'/>
+<fun r='_ZN4llvm14MachineOperand6setRegEj'/>
+<fun r='_ZN4llvm14MachineOperand9setSubRegEj'/>
+<fun r='_ZN4llvm14MachineOperand12substVirtRegEjjRKNS_18TargetRegisterInfoE'/>
+<fun r='_ZN4llvm14MachineOperand12substPhysRegEjRKNS_18TargetRegisterInfoE'/>
+<fun r='_ZN4llvm14MachineOperand8setIsUseEb'/>
+<fun r='_ZN4llvm14MachineOperand8setIsDefEb'/>
+<fun r='_ZN4llvm14MachineOperand11setImplicitEb'/>
+<fun r='_ZN4llvm14MachineOperand9setIsKillEb'/>
+<fun r='_ZN4llvm14MachineOperand9setIsDeadEb'/>
+<fun r='_ZN4llvm14MachineOperand10setIsUndefEb'/>
+<fun r='_ZN4llvm14MachineOperand14setIsRenamableEb'/>
+<fun r='_ZN4llvm14MachineOperand17setIsInternalReadEb'/>
+<fun r='_ZN4llvm14MachineOperand17setIsEarlyClobberEb'/>
+<fun r='_ZN4llvm14MachineOperand10setIsDebugEb'/>
+<fun r='_ZNK4llvm14MachineOperand6getImmEv'/>
+<fun r='_ZNK4llvm14MachineOperand7getCImmEv'/>
+<fun r='_ZNK4llvm14MachineOperand8getFPImmEv'/>
+<fun r='_ZNK4llvm14MachineOperand6getMBBEv'/>
+<fun r='_ZNK4llvm14MachineOperand8getIndexEv'/>
+<fun r='_ZNK4llvm14MachineOperand9getGlobalEv'/>
+<fun r='_ZNK4llvm14MachineOperand15getBlockAddressEv'/>
+<fun r='_ZNK4llvm14MachineOperand11getMCSymbolEv'/>
+<fun r='_ZNK4llvm14MachineOperand11getCFIIndexEv'/>
+<fun r='_ZNK4llvm14MachineOperand14getIntrinsicIDEv'/>
+<fun r='_ZNK4llvm14MachineOperand12getPredicateEv'/>
+<fun r='_ZNK4llvm14MachineOperand9getOffsetEv'/>
+<fun r='_ZNK4llvm14MachineOperand13getSymbolNameEv'/>
+<fun r='_ZN4llvm14MachineOperand15clobbersPhysRegEPKjj'/>
+<fun r='_ZNK4llvm14MachineOperand15clobbersPhysRegEj'/>
+<fun r='_ZNK4llvm14MachineOperand10getRegMaskEv'/>
+<fun r='_ZN4llvm14MachineOperand14getRegMaskSizeEj'/>
+<fun r='_ZNK4llvm14MachineOperand13getRegLiveOutEv'/>
+<fun r='_ZNK4llvm14MachineOperand11getMetadataEv'/>
+<fun r='_ZN4llvm14MachineOperand6setImmEl'/>
+<fun r='_ZN4llvm14MachineOperand7setCImmEPKNS_11ConstantIntE'/>
+<fun r='_ZN4llvm14MachineOperand8setFPImmEPKNS_10ConstantFPE'/>
+<fun r='_ZN4llvm14MachineOperand9setOffsetEl'/>
+<fun r='_ZN4llvm14MachineOperand8setIndexEi'/>
+<fun r='_ZN4llvm14MachineOperand11setMetadataEPKNS_6MDNodeE'/>
+<fun r='_ZN4llvm14MachineOperand6setMBBEPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm14MachineOperand10setRegMaskEPKj'/>
+<fun r='_ZNK4llvm14MachineOperand13isIdenticalToERKS0_'/>
+<fun r='_ZN4llvm14MachineOperand17ChangeToImmediateEl'/>
+<fun r='_ZN4llvm14MachineOperand19ChangeToFPImmediateEPKNS_10ConstantFPE'/>
+<fun r='_ZN4llvm14MachineOperand10ChangeToESEPKch'/>
+<fun r='_ZN4llvm14MachineOperand10ChangeToGAEPKNS_11GlobalValueElh'/>
+<fun r='_ZN4llvm14MachineOperand16ChangeToMCSymbolEPNS_8MCSymbolE'/>
+<fun r='_ZN4llvm14MachineOperand18ChangeToFrameIndexEi'/>
+<fun r='_ZN4llvm14MachineOperand19ChangeToTargetIndexEjlh'/>
+<fun r='_ZN4llvm14MachineOperand16ChangeToRegisterEjbbbbbb'/>
+<fun r='_ZN4llvm14MachineOperand9CreateImmEl'/>
+<fun r='_ZN4llvm14MachineOperand10CreateCImmEPKNS_11ConstantIntE'/>
+<fun r='_ZN4llvm14MachineOperand11CreateFPImmEPKNS_10ConstantFPE'/>
+<fun r='_ZN4llvm14MachineOperand9CreateRegEjbbbbbbjbbb'/>
+<fun r='_ZN4llvm14MachineOperand9CreateMBBEPNS_17MachineBasicBlockEh'/>
+<fun r='_ZN4llvm14MachineOperand8CreateFIEi'/>
+<fun r='_ZN4llvm14MachineOperand9CreateCPIEjih'/>
+<fun r='_ZN4llvm14MachineOperand17CreateTargetIndexEjlh'/>
+<fun r='_ZN4llvm14MachineOperand9CreateJTIEjh'/>
+<fun r='_ZN4llvm14MachineOperand8CreateGAEPKNS_11GlobalValueElh'/>
+<fun r='_ZN4llvm14MachineOperand8CreateESEPKch'/>
+<fun r='_ZN4llvm14MachineOperand8CreateBAEPKNS_12BlockAddressElh'/>
+<fun r='_ZN4llvm14MachineOperand13CreateRegMaskEPKj'/>
+<fun r='_ZN4llvm14MachineOperand16CreateRegLiveOutEPKj'/>
+<fun r='_ZN4llvm14MachineOperand14CreateMetadataEPKNS_6MDNodeE'/>
+<fun r='_ZN4llvm14MachineOperand14CreateMCSymbolEPNS_8MCSymbolEh'/>
+<fun r='_ZN4llvm14MachineOperand14CreateCFIIndexEj'/>
+<fun r='_ZN4llvm14MachineOperand17CreateIntrinsicIDENS_9Intrinsic2IDE'/>
+<fun r='_ZN4llvm14MachineOperand15CreatePredicateEj'/>
+<fun r='_ZN4llvm14MachineOperand17removeRegFromUsesEv'/>
+<fun r='_ZNK4llvm14MachineOperand14isOnRegUseListEv'/>

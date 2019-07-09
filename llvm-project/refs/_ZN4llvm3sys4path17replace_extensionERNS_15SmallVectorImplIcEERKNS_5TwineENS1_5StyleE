@@ -1,0 +1,54 @@
+<dec f='llvm/llvm/include/llvm/Support/Path.h' l='146' type='void llvm::sys::path::replace_extension(SmallVectorImpl&lt;char&gt; &amp; path, const llvm::Twine &amp; extension, llvm::sys::path::Style style = Style::native)'/>
+<doc f='llvm/llvm/include/llvm/Support/Path.h' l='134'>/// Replace the file extension of \a path with \a extension.
+///
+/// @code
+///   ./filename.cpp =&gt; ./filename.extension
+///   ./filename     =&gt; ./filename.extension
+///   ./             =&gt; ./.extension
+/// @endcode
+///
+/// @param path A path that has its extension replaced with \a extension.
+/// @param extension The extension to be added. It may be empty. It may also
+///                  optionally start with a &apos;.&apos;, if it does not, one will be
+///                  prepended.</doc>
+<use f='llvm/clang/lib/Driver/Driver.cpp' l='1422' u='c' c='_ZN5clang6driver6Driver30generateCompilationDiagnosticsERNS0_11CompilationERKNS0_7CommandEN4llvm9StringRefEPNS1_27CompilationDiagnosticReportE'/>
+<use f='llvm/clang/lib/Driver/Driver.cpp' l='1436' u='c' c='_ZN5clang6driver6Driver30generateCompilationDiagnosticsERNS0_11CompilationERKNS0_7CommandEN4llvm9StringRefEPNS1_27CompilationDiagnosticReportE'/>
+<use f='llvm/clang/lib/Driver/Driver.cpp' l='4281' u='c' c='_ZL20MakeCLOutputFilenameRKN4llvm3opt7ArgListENS_9StringRefES4_N5clang6driver5types2IDE'/>
+<use f='llvm/clang/lib/Driver/Driver.cpp' l='4608' u='c' c='_ZNK5clang6driver6Driver12GetClPchPathERNS0_11CompilationEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Clang.cpp' l='892' u='c' c='_ZL22addPGOAndCoverageFlagsRKN5clang6driver9ToolChainERNS0_11CompilationERKNS0_6DriverERKNS0_9InputInfoERKN4llvm3opt7ArgListERNSC_11SmallVectorIPKcLj16EEE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Clang.cpp' l='906' u='c' c='_ZL22addPGOAndCoverageFlagsRKN5clang6driver9ToolChainERNS0_11CompilationERKNS0_6DriverERKNS0_9InputInfoERKN4llvm3opt7ArgListERNSC_11SmallVectorIPKcLj16EEE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Clang.cpp' l='1106' u='c' c='_ZNK5clang6driver5tools5Clang23AddPreprocessingOptionsERNS0_11CompilationERKNS0_9JobActionERKNS0_6DriverERKN4llvm3opt7ArgListERNSB_11SmallVectorIPKcLj14656862'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Clang.cpp' l='2858' u='c' c='_ZL20RenderModulesOptionsRN5clang6driver11CompilationERKNS0_6DriverERKN4llvm3opt7ArgListERKNS0_9InputInfoESD_RNS6_11SmallVectorIPKcLj16EEERb'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Clang.cpp' l='2911' u='c' c='_ZL20RenderModulesOptionsRN5clang6driver11CompilationERKNS0_6DriverERKN4llvm3opt7ArgListERKNS0_9InputInfoESD_RNS6_11SmallVectorIPKcLj16EEERb'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Clang.cpp' l='5169' u='c' c='_ZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKc'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Clang.cpp' l='5177' u='c' c='_ZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKc'/>
+<use f='llvm/clang/lib/Driver/ToolChains/CommonArgs.cpp' l='795' u='c' c='_ZN5clang6driver5tools14SplitDebugNameERKN4llvm3opt7ArgListERKNS0_9InputInfoES9_'/>
+<use f='llvm/clang/lib/Driver/ToolChains/CommonArgs.cpp' l='802' u='c' c='_ZN5clang6driver5tools14SplitDebugNameERKN4llvm3opt7ArgListERKNS0_9InputInfoES9_'/>
+<use f='llvm/clang/lib/Driver/ToolChains/CommonArgs.cpp' l='1270' u='c' c='_ZN5clang6driver5tools21AddOpenMPLinkerScriptERKNS0_9ToolChainERNS0_11CompilationERKNS0_9InputInfoERKN4llvm11SmallVectorIS7_Lj4EEERKNSA_3opt7ArgListER14746874'/>
+<use f='llvm/clang/lib/Driver/ToolChains/CommonArgs.cpp' l='1273' u='c' c='_ZN5clang6driver5tools21AddOpenMPLinkerScriptERKNS0_9ToolChainERNS0_11CompilationERKNS0_9InputInfoERKN4llvm11SmallVectorIS7_Lj4EEERKNSA_3opt7ArgListER14746874'/>
+<use f='llvm/clang/lib/Driver/ToolChains/CommonArgs.cpp' l='1406' u='c' c='_ZN5clang6driver5tools18AddHIPLinkerScriptERKNS0_9ToolChainERNS0_11CompilationERKNS0_9InputInfoERKN4llvm11SmallVectorIS7_Lj4EEERKNSA_3opt7ArgListERNSB5886249'/>
+<use f='llvm/clang/lib/Driver/ToolChains/CommonArgs.cpp' l='1409' u='c' c='_ZN5clang6driver5tools18AddHIPLinkerScriptERKNS0_9ToolChainERNS0_11CompilationERKNS0_9InputInfoERKN4llvm11SmallVectorIS7_Lj4EEERKNSA_3opt7ArgListERNSB5886249'/>
+<use f='llvm/clang/lib/Driver/ToolChains/CommonArgs.cpp' l='1503' u='c' c='_ZN5clang6driver5tools16getStatsFileNameERKN4llvm3opt7ArgListERKNS0_9InputInfoES9_RKNS0_6DriverE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/CrossWindows.cpp' l='159' u='c' c='_ZNK5clang6driver5tools12CrossWindows6Linker12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKc'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Cuda.cpp' l='599' u='c' c='_ZNK5clang6driver10toolchains13CudaToolChain16getInputFilenameERKNS0_9InputInfoE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/MSVC.cpp' l='372' u='c' c='_ZNK5clang6driver5tools12visualstudio6Linker12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKc'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='715' u='c' c='_ZN5clang16CompilerInstance16createOutputFileEN4llvm9StringRefERSt10error_codebbS2_S2_bbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_'/>
+<use f='llvm/clang/lib/Frontend/Rewrite/FrontendActions.cpp' l='77' u='c' c='_ZN12_GLOBAL__N_125FixItActionSuffixInserter15RewriteFilenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERi'/>
+<use f='llvm/clang/lib/Lex/ModuleMap.cpp' l='894' u='c' c='_ZL18inferFrameworkLinkPN5clang6ModuleEPKNS_14DirectoryEntryERNS_11FileManagerE'/>
+<use f='llvm/clang/tools/driver/cc1_main.cpp' l='264' u='c' c='_Z8cc1_mainN4llvm8ArrayRefIPKcEES2_Pv'/>
+<use f='llvm/lld/COFF/Driver.cpp' l='431' u='c' c='_ZN3lld4coff12LinkerDriver14doFindLibMinGWEN4llvm9StringRefE'/>
+<use f='llvm/lld/COFF/Driver.cpp' l='688' u='c' c='_ZN3lld4coffL13getImplibPathEv'/>
+<use f='llvm/lld/COFF/Driver.cpp' l='706' u='c' c='_ZN3lld4coffL13getImportNameEb'/>
+<use f='llvm/lld/COFF/Driver.cpp' l='710' u='c' c='_ZN3lld4coffL13getImportNameEb'/>
+<use f='llvm/lld/COFF/Driver.cpp' l='1643' u='c' c='_ZN3lld4coff12LinkerDriver4linkEN4llvm8ArrayRefIPKcEE'/>
+<use f='llvm/lld/wasm/Driver.cpp' l='236' u='c' c='_ZN12_GLOBAL__N_112LinkerDriver7addFileEN4llvm9StringRefE'/>
+<def f='llvm/llvm/lib/Support/Path.cpp' l='480' ll='497' type='void llvm::sys::path::replace_extension(SmallVectorImpl&lt;char&gt; &amp; path, const llvm::Twine &amp; extension, llvm::sys::path::Style style = Style::native)'/>
+<use f='llvm/llvm/lib/ToolDrivers/llvm-dlltool/DlltoolDriver.cpp' l='80' u='c' c='_ZL13getImplibPathN4llvm9StringRefE'/>
+<use f='llvm/llvm/lib/ToolDrivers/llvm-lib/LibDriver.cpp' l='66' u='c' c='_ZL13getOutputPathPN4llvm3opt12InputArgListERKNS_16NewArchiveMemberE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/GCOVProfiling.cpp' l='544' u='c' c='_ZN12_GLOBAL__N_112GCOVProfiler10mangleNameEPKN4llvm13DICompileUnitENS0_12GCovFileTypeE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/GCOVProfiling.cpp' l='550' u='c' c='_ZN12_GLOBAL__N_112GCOVProfiler10mangleNameEPKN4llvm13DICompileUnitENS0_12GCovFileTypeE'/>
+<use f='llvm/llvm/tools/llvm-cov/gcov.cpp' l='36' u='c' c='_ZL14reportCoverageN4llvm9StringRefES0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bRKNS_4GCOV7OptionsE'/>
+<use f='llvm/llvm/tools/llvm-cvtres/llvm-cvtres.cpp' l='146' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-pdbutil/llvm-pdbutil.cpp' l='1338' u='c' c='_ZL9mergePdbsv'/>
+<use f='llvm/llvm/tools/llvm-pdbutil/llvm-pdbutil.cpp' l='1511' u='c' c='main'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='190' u='c' c='_ZN12_GLOBAL__N_117Support_Path_Test8TestBodyEv'/>

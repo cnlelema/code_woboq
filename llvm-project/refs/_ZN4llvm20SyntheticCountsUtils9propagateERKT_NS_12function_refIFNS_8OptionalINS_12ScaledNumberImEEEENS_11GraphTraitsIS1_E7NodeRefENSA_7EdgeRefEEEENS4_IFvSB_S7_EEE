@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/Analysis/SyntheticCountsUtils.h' l='43' type='static void llvm::SyntheticCountsUtils::propagate(const CallGraphType &amp; CG, GetProfCountTy GetProfCount, AddCountTy AddCount)'/>
+<def f='llvm/llvm/lib/Analysis/SyntheticCountsUtils.cpp' l='86' ll='101' type='static void llvm::SyntheticCountsUtils::propagate(const CallGraphType &amp; CG, GetProfCountTy GetProfCount, AddCountTy AddCount)'/>
+<doc f='llvm/llvm/lib/Analysis/SyntheticCountsUtils.cpp' l='78'>/// Propgate synthetic entry counts on a callgraph \p CG.
+///
+/// This performs a reverse post-order traversal of the callgraph SCC. For each
+/// SCC, it first propagates the entry counts to the nodes within the SCC
+/// through call edges and updates them in one shot. Then the entry counts are
+/// propagated to nodes outside the SCC. This requires \p GraphTraits
+/// to have a specialization for \p CallGraphType.</doc>
+<use f='llvm/llvm/lib/LTO/SummaryBasedOptimizations.cpp' l='82' u='c' c='_ZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/SyntheticCountsPropagation.cpp' l='130' u='c' c='_ZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE'/>

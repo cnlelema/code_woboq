@@ -1,0 +1,28 @@
+<def f='llvm/clang/include/clang/Tooling/Refactoring/Transformer.h' l='112' ll='124'/>
+<size>184</size>
+<doc f='llvm/clang/include/clang/Tooling/Refactoring/Transformer.h' l='89'>/// Description of a source-code transformation.
+//
+// A *rewrite rule* describes a transformation of source code. A simple rule
+// contains each of the following components:
+//
+// * Matcher: the pattern term, expressed as clang matchers (with Transformer
+//   extensions).
+//
+// * Edits: a set of Edits to the source code, described with ASTEdits.
+//
+// * Explanation: explanation of the rewrite.  This will be displayed to the
+//   user, where possible; for example, in clang-tidy diagnostics.
+//
+// However, rules can also consist of (sub)rules, where the first that matches
+// is applied and the rest are ignored.  So, the above components are gathered
+// as a `Case` and a rule is a list of cases.
+//
+// Rule cases have an additional, implicit, component: the parameters. These are
+// portions of the pattern which are left unspecified, yet bound in the pattern
+// so that we can reference them in the edits.
+//
+// The \c Transformer class can be used to apply the rewrite rule and obtain the
+// corresponding replacements.</doc>
+<mbr r='clang::tooling::RewriteRule::Cases' o='0' t='SmallVector&lt;clang::tooling::RewriteRule::Case, 1&gt;'/>
+<smbr r='clang::tooling::RewriteRule::RootID' t='const llvm::StringLiteral'/>
+<smbr r='clang::tooling::RewriteRule::RootID' t='const llvm::StringLiteral'/>

@@ -1,0 +1,17 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetFrameLowering.h' l='202' ll='207' type='bool llvm::TargetFrameLowering::restoreCalleeSavedRegisters(llvm::MachineBasicBlock &amp; MBB, MachineBasicBlock::iterator MI, std::vector&lt;CalleeSavedInfo&gt; &amp; CSI, const llvm::TargetRegisterInfo * TRI) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetFrameLowering.h' l='196'>/// restoreCalleeSavedRegisters - Issues instruction(s) to restore all callee
+  /// saved registers and returns true if it isn&apos;t possible / profitable to do
+  /// so by issuing a series of load instructions via loadRegToStackSlot().
+  /// If it returns true, and any of the registers in CSI is not restored,
+  /// it sets the corresponding Restored flag in CSI to false.
+  /// Returns false otherwise.</doc>
+<use f='llvm/llvm/lib/CodeGen/PrologEpilogInserter.cpp' l='563' u='c' c='_ZL17insertCSRRestoresRN4llvm17MachineBasicBlockERSt6vectorINS_15CalleeSavedInfoESaIS3_EE'/>
+<ovr f='llvm/llvm/lib/Target/AArch64/AArch64FrameLowering.cpp' l='1924' c='_ZNK4llvm20AArch64FrameLowering27restoreCalleeSavedRegistersERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERSt6vecto8002273'/>
+<ovr f='llvm/llvm/lib/Target/ARM/ARMFrameLowering.cpp' l='1448' c='_ZNK4llvm16ARMFrameLowering27restoreCalleeSavedRegistersERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERSt6vectorINS10678761'/>
+<ovr f='llvm/llvm/lib/Target/Hexagon/HexagonFrameLowering.h' l='51' c='_ZNK4llvm20HexagonFrameLowering27restoreCalleeSavedRegistersERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERSt6vecto12527863'/>
+<ovr f='llvm/llvm/lib/Target/MSP430/MSP430FrameLowering.cpp' l='206' c='_ZNK4llvm19MSP430FrameLowering27restoreCalleeSavedRegistersERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERSt6vector11685398'/>
+<ovr f='llvm/llvm/lib/Target/Mips/Mips16FrameLowering.cpp' l='140' c='_ZNK4llvm19Mips16FrameLowering27restoreCalleeSavedRegistersERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERSt6vector10923181'/>
+<ovr f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='2309' c='_ZNK4llvm16PPCFrameLowering27restoreCalleeSavedRegistersERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERSt6vectorINS16606522'/>
+<ovr f='llvm/llvm/lib/Target/SystemZ/SystemZFrameLowering.cpp' l='225' c='_ZNK4llvm20SystemZFrameLowering27restoreCalleeSavedRegistersERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERSt6vecto12648385'/>
+<ovr f='llvm/llvm/lib/Target/X86/X86FrameLowering.cpp' l='2142' c='_ZNK4llvm16X86FrameLowering27restoreCalleeSavedRegistersERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERSt6vectorINS2899932'/>
+<ovr f='llvm/llvm/lib/Target/XCore/XCoreFrameLowering.cpp' l='452' c='_ZNK4llvm18XCoreFrameLowering27restoreCalleeSavedRegistersERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERSt6vectorI6751630'/>

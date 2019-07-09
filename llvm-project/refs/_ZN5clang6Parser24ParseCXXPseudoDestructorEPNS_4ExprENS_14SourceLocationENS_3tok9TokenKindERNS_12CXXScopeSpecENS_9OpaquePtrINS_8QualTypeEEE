@@ -1,0 +1,19 @@
+<dec f='llvm/clang/include/clang/Parse/Parser.h' l='1795' type='ExprResult clang::Parser::ParseCXXPseudoDestructor(clang::Expr * Base, clang::SourceLocation OpLoc, tok::TokenKind OpKind, clang::CXXScopeSpec &amp; SS, ParsedType ObjectType)'/>
+<doc f='llvm/clang/include/clang/Parse/Parser.h' l='1793'>//===--------------------------------------------------------------------===//
+  // C++ 5.2.4: C++ Pseudo-Destructor Expressions</doc>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='1796' u='c' c='_ZN5clang6Parser28ParsePostfixExpressionSuffixENS_12ActionResultIPNS_4ExprELb1EEE'/>
+<def f='llvm/clang/lib/Parse/ParseExprCXX.cpp' l='1616' ll='1684' type='ExprResult clang::Parser::ParseCXXPseudoDestructor(clang::Expr * Base, clang::SourceLocation OpLoc, tok::TokenKind OpKind, clang::CXXScopeSpec &amp; SS, ParsedType ObjectType)'/>
+<doc f='llvm/clang/lib/Parse/ParseExprCXX.cpp' l='1602'>/// Parse a C++ pseudo-destructor expression after the base,
+/// . or -&gt; operator, and nested-name-specifier have already been
+/// parsed.
+///
+///       postfix-expression: [C++ 5.2]
+///         postfix-expression . pseudo-destructor-name
+///         postfix-expression -&gt; pseudo-destructor-name
+///
+///       pseudo-destructor-name:
+///         ::[opt] nested-name-specifier[opt] type-name :: ~type-name
+///         ::[opt] nested-name-specifier template simple-template-id ::
+///                 ~type-name
+///         ::[opt] nested-name-specifier[opt] ~type-name
+///</doc>

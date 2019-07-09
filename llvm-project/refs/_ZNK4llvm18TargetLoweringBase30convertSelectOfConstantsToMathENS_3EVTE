@@ -1,0 +1,9 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='1873' ll='1875' type='bool llvm::TargetLoweringBase::convertSelectOfConstantsToMath(llvm::EVT VT) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='1870'>/// Return true if a select of constants (select Cond, C1, C2) should be
+  /// transformed into simple math ops with the condition value. For example:
+  /// select Cond, C1, C1-1 --&gt; add (zext Cond), C1-1</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='7969' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner21foldSelectOfConstantsEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='8577' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner22foldVSelectOfConstantsEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='9477' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner16visitSIGN_EXTENDEPN4llvm6SDNodeE'/>
+<ovr f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.h' l='817' c='_ZNK4llvm17PPCTargetLowering30convertSelectOfConstantsToMathENS_3EVTE'/>
+<ovr f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='4829' c='_ZNK4llvm17X86TargetLowering30convertSelectOfConstantsToMathENS_3EVTE'/>

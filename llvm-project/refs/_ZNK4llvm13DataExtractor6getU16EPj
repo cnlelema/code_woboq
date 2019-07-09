@@ -1,0 +1,65 @@
+<dec f='llvm/llvm/include/llvm/Support/DataExtractor.h' l='235' type='uint16_t llvm::DataExtractor::getU16(uint32_t * offset_ptr) const'/>
+<doc f='llvm/llvm/include/llvm/Support/DataExtractor.h' l='219'>//------------------------------------------------------------------
+  /// Extract a uint16_t value from \a *offset_ptr.
+  ///
+  /// Extract a single uint16_t from the binary data at the offset
+  /// pointed to by \a offset_ptr, and update the offset on success.
+  ///
+  /// @param[in,out] offset_ptr
+  ///     A pointer to an offset within the data that will be advanced
+  ///     by the appropriate number of bytes if the value is extracted
+  ///     correctly. If the offset is out of bounds or there are not
+  ///     enough bytes to extract this value, the offset will be left
+  ///     unmodified.
+  ///
+  /// @return
+  ///     The extracted uint16_t value.
+  //------------------------------------------------------------------</doc>
+<use f='llvm/lld/lib/ReaderWriter/MachO/MachONormalizedFileToAtoms.cpp' l='889' u='c' c='_ZN3lld6mach_o12_GLOBAL__N_1L12readCompUnitERKNS0_10normalized14NormalizedFileERKNS2_7SectionES8_S8_N4llvm9StringRefE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAcceleratorTable.cpp' l='53' u='c' c='_ZN4llvm21AppleAcceleratorTable7extractEv'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAcceleratorTable.cpp' l='54' u='c' c='_ZN4llvm21AppleAcceleratorTable7extractEv'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAcceleratorTable.cpp' l='73' u='c' c='_ZN4llvm21AppleAcceleratorTable7extractEv'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAcceleratorTable.cpp' l='74' u='c' c='_ZN4llvm21AppleAcceleratorTable7extractEv'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAcceleratorTable.cpp' l='387' u='c' c='_ZN4llvm15DWARFDebugNames6Header7extractERKNS_18DWARFDataExtractorEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAcceleratorTable.cpp' l='388' u='c' c='_ZN4llvm15DWARFDebugNames6Header7extractERKNS_18DWARFDataExtractorEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugAddr.cpp' l='72' u='c' c='_ZN4llvm19DWARFDebugAddrTable7extractENS_18DWARFDataExtractorEPjthSt8functionIFvNS_5ErrorEEE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugArangeSet.cpp' l='53' u='c' c='_ZN4llvm19DWARFDebugArangeSet7extractENS_13DataExtractorEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugFrame.cpp' l='85' u='c' c='_ZN4llvm5dwarf10CFIProgram5parseENS_13DataExtractorEPjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='293' u='c' c='_ZN4llvm14DWARFDebugLine8Prologue5parseERKNS_18DWARFDataExtractorEPjRKNS_12DWARFContextEPKNS_9DWARFUnitE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='737' u='c' c='_ZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPjRKNS_12DWARFContextEPKNS_9DWARFUnitESt8functionIFvNS_5ErrorEEEPNS_11raw_ostreamE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLoc.cpp' l='117' u='c' c='_ZN4llvm13DWARFDebugLoc20parseOneLocationListENS_18DWARFDataExtractorEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLoc.cpp' l='187' u='c' c='_ZN4llvm18DWARFDebugLoclists20parseOneLocationListENS_13DataExtractorEPjj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugPubTable.cpp' l='32' u='c' c='_ZN4llvm18DWARFDebugPubTableC1ERKNS_11DWARFObjectERKNS_12DWARFSectionEbb'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFExpression.cpp' l='143' u='c' c='_ZN4llvm15DWARFExpression9Operation7extractENS_13DataExtractorEthj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFExpression.cpp' l='162' u='c' c='_ZN4llvm15DWARFExpression9Operation7extractENS_13DataExtractorEthj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFExpression.cpp' l='172' u='c' c='_ZN4llvm15DWARFExpression9Operation7extractENS_13DataExtractorEthj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFFormValue.cpp' l='128' u='c' c='_ZN4llvm14DWARFFormValue9skipValueENS_5dwarf4FormENS_13DataExtractorEPjNS1_10FormParamsE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFFormValue.cpp' l='269' u='c' c='_ZN4llvm14DWARFFormValue12extractValueERKNS_18DWARFDataExtractorEPjNS_5dwarf10FormParamsEPKNS_12DWARFContextEPKNS_9DWARFUnitE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFFormValue.cpp' l='287' u='c' c='_ZN4llvm14DWARFFormValue12extractValueERKNS_18DWARFDataExtractorEPjNS_5dwarf10FormParamsEPKNS_12DWARFContextEPKNS_9DWARFUnitE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFListTable.cpp' l='47' u='c' c='_ZN4llvm20DWARFListTableHeader7extractENS_18DWARFDataExtractorEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFUnit.cpp' l='252' u='c' c='_ZN4llvm15DWARFUnitHeader7extractERNS_12DWARFContextERKNS_18DWARFDataExtractorEPjNS_16DWARFSectionKindEPKNS_14DWARFUnitIndexEPKNS8_5EntryE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFUnit.cpp' l='791' u='c' c='_ZL36parseDWARF64StringOffsetsTableHeaderRN4llvm18DWARFDataExtractorEj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFUnit.cpp' l='792' u='c' c='_ZL36parseDWARF64StringOffsetsTableHeaderRN4llvm18DWARFDataExtractorEj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFUnit.cpp' l='809' u='c' c='_ZL36parseDWARF32StringOffsetsTableHeaderRN4llvm18DWARFDataExtractorEj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFUnit.cpp' l='810' u='c' c='_ZL36parseDWARF32StringOffsetsTableHeaderRN4llvm18DWARFDataExtractorEj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFVerifier.cpp' l='120' u='c' c='_ZN4llvm13DWARFVerifier16verifyUnitHeaderENS_18DWARFDataExtractorEPjjRhRb'/>
+<def f='llvm/llvm/lib/Support/DataExtractor.cpp' l='60' ll='62' type='uint16_t llvm::DataExtractor::getU16(uint32_t * offset_ptr) const'/>
+<use f='llvm/llvm/lib/Support/DataExtractor.cpp' l='103' u='c' c='_ZNK4llvm13DataExtractor11getUnsignedEPjj'/>
+<use f='llvm/llvm/lib/Support/DataExtractor.cpp' l='118' u='c' c='_ZNK4llvm13DataExtractor9getSignedEPjj'/>
+<use f='llvm/llvm/lib/XRay/FileHeaderReader.cpp' l='29' u='c' c='_ZN4llvm4xray22readBinaryFormatHeaderERNS_13DataExtractorERj'/>
+<use f='llvm/llvm/lib/XRay/FileHeaderReader.cpp' l='36' u='c' c='_ZN4llvm4xray22readBinaryFormatHeaderERNS_13DataExtractorERj'/>
+<use f='llvm/llvm/lib/XRay/RecordInitializer.cpp' l='65' u='c' c='_ZN4llvm4xray17RecordInitializer5visitERNS0_14NewCPUIDRecordE'/>
+<use f='llvm/llvm/lib/XRay/RecordInitializer.cpp' l='130' u='c' c='_ZN4llvm4xray17RecordInitializer5visitERNS0_17CustomEventRecordE'/>
+<use f='llvm/llvm/lib/XRay/RecordInitializer.cpp' l='262' u='c' c='_ZN4llvm4xray17RecordInitializer5visitERNS0_16TypedEventRecordE'/>
+<use f='llvm/llvm/lib/XRay/Trace.cpp' l='72' u='c' c='_ZN12_GLOBAL__N_118loadNaiveFormatLogEN4llvm9StringRefEbRNS0_4xray14XRayFileHeaderERSt6vectorINS2_10XRayRecordESaIS6_EE'/>
+<use f='llvm/llvm/lib/XRay/Trace.cpp' l='428' u='c' c='_ZN4llvm4xray9loadTraceERKNS_13DataExtractorEb'/>
+<use f='llvm/llvm/lib/XRay/Trace.cpp' l='429' u='c' c='_ZN4llvm4xray9loadTraceERKNS_13DataExtractorEb'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfStreamer.cpp' l='424' u='c' c='_ZN4llvm8dsymutil13DwarfStreamer20emitLocationsForUnitERKNS0_11CompileUnitERNS_12DWARFContextESt8functionIFvNS_9StringRefERNS_15SmallVectorImplIhEEEE'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfStreamer.cpp' l='598' u='c' c='_ZN4llvm8dsymutil13DwarfStreamer18translateLineTableENS_13DataExtractorEj'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='149' u='c' c='_ZL16getCUIdentifiersN4llvm9StringRefES0_S0_S0_'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='265' u='c' c='_ZL11addAllTypesRN4llvm10MCStreamerERNS_9MapVectorIm14UnitIndexEntryNS_8DenseMapImjNS_12DenseMapInfoImEENS_6detail12DenseMapPairImjEEEESt6vectorISt4pa7778038'/>
+<use f='llvm/llvm/tools/obj2yaml/dwarf2yaml.cpp' l='88' u='c' c='_Z14dumpPubSectionRN4llvm12DWARFContextERNS_9DWARFYAML10PubSectionENS_12DWARFSectionE'/>
+<use f='llvm/llvm/tools/obj2yaml/dwarf2yaml.cpp' l='254' u='c' c='_Z14dumpDebugLinesRN4llvm12DWARFContextERNS_9DWARFYAML4DataE'/>
+<use f='llvm/llvm/tools/obj2yaml/dwarf2yaml.cpp' l='333' u='c' c='_Z14dumpDebugLinesRN4llvm12DWARFContextERNS_9DWARFYAML4DataE'/>
+<use f='llvm/llvm/unittests/Support/DataExtractorTest.cpp' l='32' u='c' c='_ZN12_GLOBAL__N_138DataExtractorTest_UnsignedNumbers_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/DataExtractorTest.cpp' l='54' u='c' c='_ZN12_GLOBAL__N_138DataExtractorTest_UnsignedNumbers_Test8TestBodyEv'/>

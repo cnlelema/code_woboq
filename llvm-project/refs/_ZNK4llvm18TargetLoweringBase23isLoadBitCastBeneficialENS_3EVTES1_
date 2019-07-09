@@ -1,0 +1,12 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='430' ll='446' type='bool llvm::TargetLoweringBase::isLoadBitCastBeneficial(llvm::EVT LoadVT, llvm::EVT BitcastVT) const'/>
+<use f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='452' u='c' c='_ZNK4llvm18TargetLoweringBase24isStoreBitCastBeneficialENS_3EVTES1_'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='424'>/// Return true if the following transform is beneficial:
+  /// fold (conv (load x)) -&gt; (load (conv*)x)
+  /// On architectures that don&apos;t natively support some vector loads
+  /// efficiently, casting the load to a smaller vector of larger types and
+  /// loading is more efficient, however, this can be undone by optimizations in
+  /// dag combiner.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='10848' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner12visitBITCASTEPN4llvm6SDNodeE'/>
+<ovr f='llvm/llvm/lib/Target/AMDGPU/AMDGPUISelLowering.cpp' l='722' c='_ZNK4llvm20AMDGPUTargetLowering23isLoadBitCastBeneficialENS_3EVTES1_'/>
+<ovr f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='4906' c='_ZNK4llvm17X86TargetLowering23isLoadBitCastBeneficialENS_3EVTES1_'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='4915' u='c' c='_ZNK4llvm17X86TargetLowering23isLoadBitCastBeneficialENS_3EVTES1_'/>

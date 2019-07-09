@@ -1,0 +1,14 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='4937' type='CXToken * clang_getToken(CXTranslationUnit TU, CXSourceLocation Location)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='4926'>/**
+ * Get the raw lexical token starting with the given location.
+ *
+ * \param TU the translation unit whose text is being tokenized.
+ *
+ * \param Location the source location with which the token starts.
+ *
+ * \returns The token starting with the given location or NULL if no such token
+ * exist. The returned pointer must be freed with clang_disposeTokens before the
+ * translation unit is destroyed.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='2424' u='c' c='print_token_range'/>
+<def f='llvm/clang/tools/libclang/CIndex.cpp' l='6739' ll='6773' type='CXToken * clang_getToken(CXTranslationUnit TU, CXSourceLocation Location)'/>

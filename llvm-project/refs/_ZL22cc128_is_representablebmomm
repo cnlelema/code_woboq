@@ -1,0 +1,18 @@
+<def f='llvm/llvm/lib/Target/Mips/cheri-compressed-cap/cheri_compressed_cap.h' l='885' ll='911' type='bool cc128_is_representable(bool sealed, uint64_t base, unsigned __int128 length, uint64_t offset, uint64_t new_offset)'/>
+<doc f='llvm/llvm/lib/Target/Mips/cheri-compressed-cap/cheri_compressed_cap.h' l='868'>/*
+ * Check to see if a memory region is representable by a compressed
+ * capability. It is representable if:
+ *
+ *   representable = (inRange &amp;&amp; inLimits) || (E &gt;= 44)
+ *
+ * where:
+ *
+ *   E = compression exponent (see _cc128_compute_e() above)
+ *
+ *   inRange = -s &lt; i &lt; s  where i is the increment (or offset)
+ *   (In other words, all the bits of i&lt;63, E+20&gt; are the same.)
+ *
+ *   inLimits = (i &lt; 0) ? (Imid &gt;= (R - Amid)) &amp;&amp; (R != Amid) : (R - Amid - 1)
+ *   where Imid = i&lt;E+19, E&gt;, Amid = a&lt;E+19, E&gt;, R = B - 2^12 and a =
+ *   base + offset.
+ */</doc>

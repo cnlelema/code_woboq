@@ -1,0 +1,8 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='1636' ll='1638' type='bool llvm::TargetLoweringBase::isFreeAddrSpaceCast(unsigned int SrcAS, unsigned int DestAS) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='1633'>/// Returns true if a cast from SrcAS to DestAS is &quot;cheap&quot;, such that e.g. we
+  /// are happy to sink it into basic blocks. A cast may be free, but not
+  /// necessarily a no-op. e.g. a free truncate from a 64-bit to 32-bit pointer.</doc>
+<use f='llvm/llvm/include/llvm/CodeGen/BasicTTIImpl.h' l='421' u='c' c='_ZN4llvm16BasicTTIImplBase16getOperationCostEjPNS_4TypeES2_'/>
+<use f='llvm/llvm/include/llvm/CodeGen/BasicTTIImpl.h' l='675' u='c' c='_ZN4llvm16BasicTTIImplBase16getCastInstrCostEjPNS_4TypeES2_PKNS_11InstructionE'/>
+<use f='llvm/llvm/lib/CodeGen/CodeGenPrepare.cpp' l='1143' u='c' c='_ZL26OptimizeNoopCopyExpressionPN4llvm8CastInstERKNS_14TargetLoweringERKNS_10DataLayoutE'/>
+<ovr f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='1263' c='_ZNK4llvm16SITargetLowering19isFreeAddrSpaceCastEjj'/>

@@ -1,0 +1,72 @@
+<def f='llvm/llvm/include/llvm/ADT/APInt.h' l='1645' ll='1649' type='unsigned int llvm::APInt::countTrailingOnes() const'/>
+<doc f='llvm/llvm/include/llvm/ADT/APInt.h' l='1637'>/// Count the number of trailing one bits.
+  ///
+  /// This function is an APInt version of the countTrailingOnes
+  /// functions in MathExtras.h. It counts the number of ones from the least
+  /// significant bit to the first zero bit.
+  ///
+  /// \returns BitWidth if the value is all ones, otherwise returns the number
+  /// of ones from the least significant bit to the first zero bit.</doc>
+<use f='llvm/llvm/include/llvm/Support/KnownBits.h' l='147' u='c' c='_ZNK4llvm9KnownBits21countMinTrailingZerosEv'/>
+<use f='llvm/llvm/include/llvm/Support/KnownBits.h' l='152' u='c' c='_ZNK4llvm9KnownBits20countMinTrailingOnesEv'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='493' u='c' c='_ZL19computeKnownBitsMulPKN4llvm5ValueES2_bRNS_9KnownBitsES4_jRKN12_GLOBAL__N_15QueryE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='494' u='c' c='_ZL19computeKnownBitsMulPKN4llvm5ValueES2_bRNS_9KnownBitsES4_jRKN12_GLOBAL__N_15QueryE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='4555' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner12visitANDLikeEN4llvm7SDValueES2_PNS1_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='4598' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner16isAndLoadExtLoadEPN4llvm14ConstantSDNodeEPNS1_10LoadSDNodeENS1_3EVTERS6_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='4755' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner17SearchForAndLoadsEPN4llvm6SDNodeERNS1_15SmallVectorImplIPNS1_10LoadSDNodeEEERNS1_15SmallPtrSetImplIS3_EEPNS1_14ConstantSDNodeERS3_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='5914' u='c' c='_ZL14matchRotateSubN4llvm7SDValueES0_jRNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='5935' u='c' c='_ZL14matchRotateSubN4llvm7SDValueES0_jRNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='10057' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner15ReduceLoadWidthEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='10061' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner15ReduceLoadWidthEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='10109' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner15ReduceLoadWidthEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='181' u='c' c='_ZN4llvm3ISD20isBuildVectorAllOnesEPKNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='184' u='c' c='_ZN4llvm3ISD20isBuildVectorAllOnesEPKNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='2403' u='c' c='_ZN4llvm12SelectionDAG20getSplatSourceVectorENS_7SDValueERi'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='8885' u='c' c='_ZN4llvm12isBitwiseNotENS_7SDValueEb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2752' u='c' c='_ZNK4llvm14TargetLowering13SimplifySetCCENS_3EVTENS_7SDValueES2_NS_3ISD8CondCodeEbRNS0_15DAGCombinerInfoERKNS_5SDLocE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='3238' u='c' c='_ZNK4llvm14TargetLowering13SimplifySetCCENS_3EVTENS_7SDValueES2_NS_3ISD8CondCodeEbRNS0_15DAGCombinerInfoERKNS_5SDLocE'/>
+<use f='llvm/llvm/lib/IR/ConstantRange.cpp' l='700' u='c' c='_ZNK4llvm13ConstantRange8truncateEj'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonConstPropagation.cpp' l='1715' u='c' c='_ZN12_GLOBAL__N_121MachineConstEvaluator12evaluateCTBiERKN4llvm5APIntEbbRS2_'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonGenExtract.cpp' l='179' u='c' c='_ZN12_GLOBAL__N_117HexagonGenExtract7convertEPN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelDAGToDAG.cpp' l='434' u='c' c='_ZNK12_GLOBAL__N_115X86DAGToDAGISel19isUnneededShiftMaskEPN4llvm6SDNodeEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelDAGToDAG.cpp' l='438' u='c' c='_ZNK12_GLOBAL__N_115X86DAGToDAGISel19isUnneededShiftMaskEPN4llvm6SDNodeEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='11228' u='c' c='_ZL33lowerVectorShuffleAsByteShiftMaskRKN4llvm5SDLocENS_3MVTENS_7SDValueES4_NS_8ArrayRefIiEERKNS_5APIntERKNS_12X86SubtargetERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='37238' u='c' c='_ZL24combineShiftRightLogicalPN4llvm6SDNodeERNS_12SelectionDAGERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='37775' u='c' c='_ZL21combineAndMaskToShiftPN4llvm6SDNodeERNS_12SelectionDAGERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCompares.cpp' l='4291' u='c' c='_ZL22getDemandedBitsLHSMaskRN4llvm8ICmpInstEj'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/AlignmentFromAssumptions.cpp' l='244' u='c' c='_ZN4llvm28AlignmentFromAssumptionsPass20extractAlignmentInfoEPNS_8CallInstERPNS_5ValueERPKNS_4SCEVES9_'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='50' u='c' c='_ZN12_GLOBAL__N_133APIntTest_i128_NegativeCount_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='110' u='c' c='_ZN12_GLOBAL__N_133APIntTest_i128_PositiveCount_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='118' u='c' c='_ZN12_GLOBAL__N_133APIntTest_i128_PositiveCount_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='127' u='c' c='_ZN12_GLOBAL__N_133APIntTest_i128_PositiveCount_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='137' u='c' c='_ZN12_GLOBAL__N_133APIntTest_i128_PositiveCount_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='147' u='c' c='_ZN12_GLOBAL__N_133APIntTest_i128_PositiveCount_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='158' u='c' c='_ZN12_GLOBAL__N_133APIntTest_i128_PositiveCount_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='169' u='c' c='_ZN12_GLOBAL__N_133APIntTest_i128_PositiveCount_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='179' u='c' c='_ZN12_GLOBAL__N_133APIntTest_i128_PositiveCount_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='192' u='c' c='_ZN12_GLOBAL__N_119APIntTest_i256_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='203' u='c' c='_ZN12_GLOBAL__N_119APIntTest_i256_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='212' u='c' c='_ZN12_GLOBAL__N_119APIntTest_i256_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='1877' u='c' c='_ZN12_GLOBAL__N_128APIntTest_getLowBitsSet_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='1887' u='c' c='_ZN12_GLOBAL__N_125APIntTest_getBitsSet_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='1895' u='c' c='_ZN12_GLOBAL__N_125APIntTest_getBitsSet_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='1905' u='c' c='_ZN12_GLOBAL__N_129APIntTest_getHighBitsSet_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='1915' u='c' c='_ZN12_GLOBAL__N_129APIntTest_getBitsSetFrom_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='1926' u='c' c='_ZN12_GLOBAL__N_125APIntTest_setLowBits_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='1935' u='c' c='_ZN12_GLOBAL__N_125APIntTest_setLowBits_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='1944' u='c' c='_ZN12_GLOBAL__N_125APIntTest_setLowBits_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='1953' u='c' c='_ZN12_GLOBAL__N_125APIntTest_setLowBits_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='1962' u='c' c='_ZN12_GLOBAL__N_125APIntTest_setLowBits_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='1971' u='c' c='_ZN12_GLOBAL__N_125APIntTest_setLowBits_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='1982' u='c' c='_ZN12_GLOBAL__N_126APIntTest_setHighBits_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='1991' u='c' c='_ZN12_GLOBAL__N_126APIntTest_setHighBits_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='2000' u='c' c='_ZN12_GLOBAL__N_126APIntTest_setHighBits_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='2009' u='c' c='_ZN12_GLOBAL__N_126APIntTest_setHighBits_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='2018' u='c' c='_ZN12_GLOBAL__N_126APIntTest_setHighBits_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='2027' u='c' c='_ZN12_GLOBAL__N_126APIntTest_setHighBits_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='2036' u='c' c='_ZN12_GLOBAL__N_126APIntTest_setHighBits_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='2047' u='c' c='_ZN12_GLOBAL__N_126APIntTest_setBitsFrom_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='2058' u='c' c='_ZN12_GLOBAL__N_125APIntTest_setAllBits_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='2067' u='c' c='_ZN12_GLOBAL__N_125APIntTest_setAllBits_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='2076' u='c' c='_ZN12_GLOBAL__N_125APIntTest_setAllBits_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/APIntTest.cpp' l='2085' u='c' c='_ZN12_GLOBAL__N_125APIntTest_setAllBits_Test8TestBodyEv'/>

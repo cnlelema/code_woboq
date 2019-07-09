@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/include/llvm/Analysis/Loads.h' l='45' type='bool llvm::isDereferenceableAndAlignedPointer(const llvm::Value * V, unsigned int Align, const llvm::APInt &amp; Size, const llvm::DataLayout &amp; DL, const llvm::Instruction * CtxI = nullptr, const llvm::DominatorTree * DT = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/Loads.h' l='41'>/// Returns true if V is always dereferenceable for Size byte with alignment
+/// greater or equal than requested. If the context instruction is specified
+/// performs context-sensitive analysis and returns true if the pointer is
+/// dereferenceable at the specified instruction.</doc>
+<def f='llvm/llvm/lib/Analysis/Loads.cpp' l='118' ll='126' type='bool llvm::isDereferenceableAndAlignedPointer(const llvm::Value * V, unsigned int Align, const llvm::APInt &amp; Size, const llvm::DataLayout &amp; DL, const llvm::Instruction * CtxI = nullptr, const llvm::DominatorTree * DT = nullptr)'/>
+<use f='llvm/llvm/lib/CodeGen/MachineOperand.cpp' l='965' u='c' c='_ZNK4llvm18MachinePointerInfo17isDereferenceableEjRNS_11LLVMContextERKNS_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='178' u='c' c='_ZL30isDereferenceableForAllocaSizePKN4llvm5ValueEPKNS_10AllocaInstERKNS_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='180' u='c' c='_ZL20canTransformToMemCmpPN4llvm8CallInstEPNS_5ValueEmRKNS_10DataLayoutE'/>

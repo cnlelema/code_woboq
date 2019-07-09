@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='996' type='void llvm::LoopInfo::erase(llvm::Loop * L)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='990'>// Most of the public interface is provided via LoopInfoBase.
+
+  /// Update LoopInfo after removing the last backedge from a loop. This updates
+  /// the loop forest and parent loops for each block so that \c L is no longer
+  /// referenced, but does not actually delete \c L immediately. The pointer
+  /// will remain valid until this LoopInfo&apos;s memory is released.</doc>
+<def f='llvm/llvm/lib/Analysis/LoopInfo.cpp' l='815' ll='872' type='void llvm::LoopInfo::erase(llvm::Loop * Unloop)'/>
+<use f='llvm/llvm/lib/Transforms/IPO/LoopExtractor.cpp' l='152' u='c' c='_ZN12_GLOBAL__N_113LoopExtractor9runOnLoopEPN4llvm4LoopERNS1_13LPPassManagerE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopFuse.cpp' l='1124' u='c' c='_ZN9LoopFuser13performFusionERK15FusionCandidateS2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopSimplifyCFG.cpp' l='453' u='c' c='_ZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl20deleteDeadLoopBlocksEv'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnroll.cpp' l='789' u='c' c='_ZN4llvm10UnrollLoopEPNS_4LoopENS_17UnrollLoopOptionsEPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterEbPS1_'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnrollAndJam.cpp' l='581' u='c' c='_ZN4llvm16UnrollAndJamLoopEPNS_4LoopEjjjbPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterEPS1_'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUtils.cpp' l='619' u='c' c='_ZN4llvm14deleteDeadLoopEPNS_4LoopEPNS_13DominatorTreeEPNS_15ScalarEvolutionEPNS_8LoopInfoE'/>
+<use f='llvm/llvm/unittests/Transforms/Scalar/LoopPassManagerTest.cpp' l='1402' u='c' c='_ZN12_GLOBAL__N_137LoopPassManagerTest_LoopDeletion_Test8TestBodyEv'/>

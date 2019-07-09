@@ -1,0 +1,8 @@
+<dec f='llvm/llvm/lib/Target/AMDGPU/AMDGPUISelLowering.h' l='54' type='llvm::SDValue llvm::AMDGPUTargetLowering::LowerFROUND32_16(llvm::SDValue Op, llvm::SelectionDAG &amp; DAG) const'/>
+<def f='llvm/llvm/lib/Target/AMDGPU/AMDGPUISelLowering.cpp' l='2202' ll='2229' type='llvm::SDValue llvm::AMDGPUTargetLowering::LowerFROUND32_16(llvm::SDValue Op, llvm::SelectionDAG &amp; DAG) const'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUISelLowering.cpp' l='2292' u='c' c='_ZNK4llvm20AMDGPUTargetLowering11LowerFROUNDENS_7SDValueERNS_12SelectionDAGE'/>
+<doc f='llvm/llvm/lib/Target/AMDGPU/AMDGPUISelLowering.cpp' l='2197'>// XXX - May require not supporting f32 denormals?
+
+// Don&apos;t handle v2f16. The extra instructions to scalarize and repack around the
+// compare and vselect end up producing worse code than scalarizing the whole
+// operation.</doc>

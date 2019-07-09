@@ -1,0 +1,29 @@
+<def f='llvm/clang/include/clang/Sema/Sema.h' l='3166' ll='3213'/>
+<doc f='llvm/clang/include/clang/Sema/Sema.h' l='3138'>/// \name Name lookup
+  ///
+  /// These routines provide name lookup that is used during semantic
+  /// analysis to resolve the various kinds of names (identifiers,
+  /// overloaded operator names, constructor names, etc.) into zero or
+  /// more declarations within a particular scope. The major entry
+  /// points are LookupName, which performs unqualified name lookup,
+  /// and LookupQualifiedName, which performs qualified name lookup.
+  ///
+  /// All name lookup is performed based on some specific criteria,
+  /// which specify what names will be visible to name lookup and how
+  /// far name lookup should work. These criteria are important both
+  /// for capturing language semantics (certain lookups will ignore
+  /// certain names, for example) and for performance, since name
+  /// lookup is often a bottleneck in the compilation of C++. Name
+  /// lookup criteria is specified via the LookupCriteria enumeration.
+  ///
+  /// The results of name lookup can vary based on the kind of name
+  /// lookup performed, the current language, and the translation
+  /// unit. In C, for example, name lookup will either return nothing
+  /// (no entity found) or a single declaration. In C++, name lookup
+  /// can additionally refer to a set of overloaded functions or
+  /// result in an ambiguity. All of the possible results of name
+  /// lookup are captured by the LookupResult class, which provides
+  /// the ability to distinguish among them.
+  //@{
+
+  /// Describes the kind of name lookup to perform.</doc>

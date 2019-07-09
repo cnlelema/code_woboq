@@ -1,0 +1,13 @@
+<dec f='llvm/clang/include/clang/Basic/SourceManager.h' l='1509' type='void clang::SourceManager::AddLineNote(clang::SourceLocation Loc, unsigned int LineNo, int FilenameID, bool IsFileEntry, bool IsFileExit, SrcMgr::CharacteristicKind FileKind)'/>
+<doc f='llvm/clang/include/clang/Basic/SourceManager.h' l='1505'>/// Add a line note to the line table for the FileID and offset
+  /// specified by Loc.
+  ///
+  /// If FilenameID is -1, it is considered to be unspecified.</doc>
+<def f='llvm/clang/lib/Basic/SourceManager.cpp' l='276' ll='302' type='void clang::SourceManager::AddLineNote(clang::SourceLocation Loc, unsigned int LineNo, int FilenameID, bool IsFileEntry, bool IsFileExit, SrcMgr::CharacteristicKind FileKind)'/>
+<doc f='llvm/clang/lib/Basic/SourceManager.cpp' l='273'>/// AddLineNote - Add a line note to the line table for the FileID and offset
+/// specified by Loc.  If FilenameID is -1, it is considered to be
+/// unspecified.</doc>
+<use f='llvm/clang/lib/Frontend/FrontendAction.cpp' l='278' u='c' c='_ZL20ReadOriginalFileNameRN5clang16CompilerInstanceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb'/>
+<use f='llvm/clang/lib/Lex/PPDirectives.cpp' l='1180' u='c' c='_ZN5clang12Preprocessor19HandleLineDirectiveEv'/>
+<use f='llvm/clang/lib/Lex/PPDirectives.cpp' l='1323' u='c' c='_ZN5clang12Preprocessor20HandleDigitDirectiveERNS_5TokenE'/>
+<use f='llvm/clang/lib/Lex/Pragma.cpp' l='468' u='c' c='_ZN5clang12Preprocessor24HandlePragmaSystemHeaderERNS_5TokenE'/>

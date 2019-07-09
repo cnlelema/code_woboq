@@ -1,0 +1,20 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='2517' ll='2519' type='bool llvm::TargetLoweringBase::isFMAFasterThanFMulAndFAdd(llvm::EVT ) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='2509'>/// Return true if an FMA operation is faster than a pair of fmul and fadd
+  /// instructions. fmuladd intrinsics will be expanded to FMAs when this method
+  /// returns true, otherwise fmuladd is expanded to fmul + fadd.
+  ///
+  /// NOTE: This may be called before legalization on types for which FMAs are
+  /// not legal, but should return true if those types will eventually legalize
+  /// to types that support FMAs. After legalization, it will only be called on
+  /// types that support FMAs (via Legal or Custom actions)</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='11188' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner22visitFADDForFMACombineEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='11399' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner22visitFSUBForFMACombineEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='11697' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner34visitFMULForFMADistributiveCombineEPN4llvm6SDNodeE'/>
+<ovr f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='8832' c='_ZNK4llvm21AArch64TargetLowering26isFMAFasterThanFMulAndFAddENS_3EVTE'/>
+<ovr f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='3632' c='_ZNK4llvm16SITargetLowering26isFMAFasterThanFMulAndFAddENS_3EVTE'/>
+<ovr f='llvm/llvm/lib/Target/ARM/ARMISelLowering.h' l='721' c='_ZNK4llvm17ARMTargetLowering26isFMAFasterThanFMulAndFAddENS_3EVTE'/>
+<ovr f='llvm/llvm/lib/Target/Hexagon/HexagonISelLowering.cpp' l='1831' c='_ZNK4llvm21HexagonTargetLowering26isFMAFasterThanFMulAndFAddENS_3EVTE'/>
+<ovr f='llvm/llvm/lib/Target/NVPTX/NVPTXISelLowering.h' l='541' c='_ZNK4llvm19NVPTXTargetLowering26isFMAFasterThanFMulAndFAddENS_3EVTE'/>
+<ovr f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='14601' c='_ZNK4llvm17PPCTargetLowering26isFMAFasterThanFMulAndFAddENS_3EVTE'/>
+<ovr f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='612' c='_ZNK4llvm21SystemZTargetLowering26isFMAFasterThanFMulAndFAddENS_3EVTE'/>
+<ovr f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='28554' c='_ZNK4llvm17X86TargetLowering26isFMAFasterThanFMulAndFAddENS_3EVTE'/>

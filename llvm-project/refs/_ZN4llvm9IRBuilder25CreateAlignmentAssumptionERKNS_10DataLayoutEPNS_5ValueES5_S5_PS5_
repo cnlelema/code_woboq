@@ -1,0 +1,14 @@
+<def f='llvm/llvm/include/llvm/IR/IRBuilder.h' l='2397' ll='2414' type='llvm::CallInst * llvm::IRBuilder::CreateAlignmentAssumption(const llvm::DataLayout &amp; DL, llvm::Value * PtrValue, llvm::Value * Alignment, llvm::Value * OffsetValue = nullptr, llvm::Value ** TheCheck = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/IR/IRBuilder.h' l='2385'>/// Create an assume intrinsic call that represents an alignment
+  /// assumption on the provided pointer.
+  ///
+  /// An optional offset can be provided, and if it is provided, the offset
+  /// must be subtracted from the provided pointer to get the pointer with the
+  /// specified alignment.
+  ///
+  /// It may be sometimes useful to do some other logic
+  /// based on this alignment check, thus it can be stored into &apos;TheCheck&apos;.
+  ///
+  /// This overload handles the condition where the Alignment is dependent
+  /// on an existing value rather than a static value.</doc>
+<use f='llvm/clang/lib/CodeGen/CodeGenFunction.cpp' l='2081' u='c' c='_ZN5clang7CodeGen15CodeGenFunction23EmitAlignmentAssumptionEPN4llvm5ValueENS_8QualTypeENS_14SourceLocationES6_S4_S4_'/>

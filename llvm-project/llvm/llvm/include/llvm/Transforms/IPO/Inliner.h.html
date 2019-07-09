@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Inliner.h source code [llvm/llvm/include/llvm/Transforms/IPO/Inliner.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::InlinerPass,llvm::LegacyInlinerBase "/>
+<link rel="stylesheet" href="../../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/Transforms/IPO/Inliner.h'; var root_path = '../../../../../..'; var data_path = '../../../../../../../data';</script>
+<script src='../../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>llvm</a>/<a href='../../../..'>llvm</a>/<a href='../../..'>include</a>/<a href='../..'>llvm</a>/<a href='..'>Transforms</a>/<a href='./'>IPO</a>/<a href='Inliner.h.html'>Inliner.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- Inliner.h - Inliner pass and infrastructure --------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLVM_TRANSFORMS_IPO_INLINER_H">LLVM_TRANSFORMS_IPO_INLINER_H</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLVM_TRANSFORMS_IPO_INLINER_H" data-ref="_M/LLVM_TRANSFORMS_IPO_INLINER_H">LLVM_TRANSFORMS_IPO_INLINER_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="../../Analysis/CGSCCPassManager.h.html">"llvm/Analysis/CGSCCPassManager.h"</a></u></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../../Analysis/CallGraphSCCPass.h.html">"llvm/Analysis/CallGraphSCCPass.h"</a></u></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="../../Analysis/InlineCost.h.html">"llvm/Analysis/InlineCost.h"</a></u></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="../../Analysis/LazyCallGraph.h.html">"llvm/Analysis/LazyCallGraph.h"</a></u></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="../../IR/CallSite.h.html">"llvm/IR/CallSite.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../IR/PassManager.h.html">"llvm/IR/PassManager.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../Utils/ImportedFunctionsInliningStatistics.h.html">"llvm/Transforms/Utils/ImportedFunctionsInliningStatistics.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../../../include/c++/7/utility.html">&lt;utility&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>class</b> <a class="type" href="../../Analysis/AssumptionCache.h.html#llvm::AssumptionCacheTracker" title='llvm::AssumptionCacheTracker' data-ref="llvm::AssumptionCacheTracker" id="llvm::AssumptionCacheTracker">AssumptionCacheTracker</a>;</td></tr>
+<tr><th id="24">24</th><td><b>class</b> <a class="type" href="../../Analysis/CallGraph.h.html#llvm::CallGraph" title='llvm::CallGraph' data-ref="llvm::CallGraph" id="llvm::CallGraph">CallGraph</a>;</td></tr>
+<tr><th id="25">25</th><td><b>class</b> <a class="type" href="../../Analysis/ProfileSummaryInfo.h.html#llvm::ProfileSummaryInfo" title='llvm::ProfileSummaryInfo' data-ref="llvm::ProfileSummaryInfo" id="llvm::ProfileSummaryInfo">ProfileSummaryInfo</a>;</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><i class="doc">/// This class contains all of the helper code which is used to perform the</i></td></tr>
+<tr><th id="28">28</th><td><i class="doc">/// inlining operations that do not depend on the policy. It contains the core</i></td></tr>
+<tr><th id="29">29</th><td><i class="doc">/// bottom-up inlining infrastructure that specific inliner passes use.</i></td></tr>
+<tr><th id="30">30</th><td><b>struct</b> <dfn class="type def" id="llvm::LegacyInlinerBase" title='llvm::LegacyInlinerBase' data-ref="llvm::LegacyInlinerBase">LegacyInlinerBase</dfn> : <b>public</b> <a class="type" href="../../Analysis/CallGraphSCCPass.h.html#llvm::CallGraphSCCPass" title='llvm::CallGraphSCCPass' data-ref="llvm::CallGraphSCCPass">CallGraphSCCPass</a> {</td></tr>
+<tr><th id="31">31</th><td>  <b>explicit</b> <dfn class="decl" id="_ZN4llvm17LegacyInlinerBaseC1ERc" title='llvm::LegacyInlinerBase::LegacyInlinerBase' data-ref="_ZN4llvm17LegacyInlinerBaseC1ERc">LegacyInlinerBase</dfn>(<em>char</em> &amp;<dfn class="local col0 decl" id="60ID" title='ID' data-type='char &amp;' data-ref="60ID">ID</dfn>);</td></tr>
+<tr><th id="32">32</th><td>  <b>explicit</b> <dfn class="decl" id="_ZN4llvm17LegacyInlinerBaseC1ERcb" title='llvm::LegacyInlinerBase::LegacyInlinerBase' data-ref="_ZN4llvm17LegacyInlinerBaseC1ERcb">LegacyInlinerBase</dfn>(<em>char</em> &amp;<dfn class="local col1 decl" id="61ID" title='ID' data-type='char &amp;' data-ref="61ID">ID</dfn>, <em>bool</em> <dfn class="local col2 decl" id="62InsertLifetime" title='InsertLifetime' data-type='bool' data-ref="62InsertLifetime">InsertLifetime</dfn>);</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td>  <i class="doc">/// For this class, we declare that we require and preserve the call graph.</i></td></tr>
+<tr><th id="35">35</th><td><i class="doc">  /// If the derived class implements this method, it should always explicitly</i></td></tr>
+<tr><th id="36">36</th><td><i class="doc">  /// call the implementation here.</i></td></tr>
+<tr><th id="37">37</th><td>  <em>void</em> <dfn class="virtual decl" id="_ZNK4llvm17LegacyInlinerBase16getAnalysisUsageERNS_13AnalysisUsageE" title='llvm::LegacyInlinerBase::getAnalysisUsage' data-ref="_ZNK4llvm17LegacyInlinerBase16getAnalysisUsageERNS_13AnalysisUsageE">getAnalysisUsage</dfn>(<a class="type" href="../../PassAnalysisSupport.h.html#llvm::AnalysisUsage" title='llvm::AnalysisUsage' data-ref="llvm::AnalysisUsage">AnalysisUsage</a> &amp;<dfn class="local col3 decl" id="63Info" title='Info' data-type='llvm::AnalysisUsage &amp;' data-ref="63Info">Info</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td>  <em>bool</em> <dfn class="virtual decl" id="_ZN4llvm17LegacyInlinerBase16doInitializationERNS_9CallGraphE" title='llvm::LegacyInlinerBase::doInitialization' data-ref="_ZN4llvm17LegacyInlinerBase16doInitializationERNS_9CallGraphE">doInitialization</dfn>(<a class="type" href="../../Analysis/CallGraph.h.html#llvm::CallGraph" title='llvm::CallGraph' data-ref="llvm::CallGraph">CallGraph</a> &amp;<dfn class="local col4 decl" id="64CG" title='CG' data-type='llvm::CallGraph &amp;' data-ref="64CG">CG</dfn>) override;</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td>  <i class="doc">/// Main run interface method, this implements the interface required by the</i></td></tr>
+<tr><th id="42">42</th><td><i class="doc">  /// Pass class.</i></td></tr>
+<tr><th id="43">43</th><td>  <em>bool</em> <dfn class="virtual decl" id="_ZN4llvm17LegacyInlinerBase8runOnSCCERNS_12CallGraphSCCE" title='llvm::LegacyInlinerBase::runOnSCC' data-ref="_ZN4llvm17LegacyInlinerBase8runOnSCCERNS_12CallGraphSCCE">runOnSCC</dfn>(<a class="type" href="../../Analysis/CallGraphSCCPass.h.html#llvm::CallGraphSCC" title='llvm::CallGraphSCC' data-ref="llvm::CallGraphSCC">CallGraphSCC</a> &amp;<dfn class="local col5 decl" id="65SCC" title='SCC' data-type='llvm::CallGraphSCC &amp;' data-ref="65SCC">SCC</dfn>) override;</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>  <b>using</b> <span class="namespace">llvm::</span><a class="type" href="../../Pass.h.html#llvm::Pass" title='llvm::Pass' data-ref="llvm::Pass">Pass</a>::doFinalization;</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td>  <i class="doc">/// Remove now-dead linkonce functions at the end of processing to avoid</i></td></tr>
+<tr><th id="48">48</th><td><i class="doc">  /// breaking the SCC traversal.</i></td></tr>
+<tr><th id="49">49</th><td>  <em>bool</em> <dfn class="virtual decl" id="_ZN4llvm17LegacyInlinerBase14doFinalizationERNS_9CallGraphE" title='llvm::LegacyInlinerBase::doFinalization' data-ref="_ZN4llvm17LegacyInlinerBase14doFinalizationERNS_9CallGraphE">doFinalization</dfn>(<a class="type" href="../../Analysis/CallGraph.h.html#llvm::CallGraph" title='llvm::CallGraph' data-ref="llvm::CallGraph">CallGraph</a> &amp;<dfn class="local col6 decl" id="66CG" title='CG' data-type='llvm::CallGraph &amp;' data-ref="66CG">CG</dfn>) override;</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td>  <i class="doc">/// This method must be implemented by the subclass to determine the cost of</i></td></tr>
+<tr><th id="52">52</th><td><i class="doc">  /// inlining the specified call site.  If the cost returned is greater than</i></td></tr>
+<tr><th id="53">53</th><td><i class="doc">  /// the current inline threshold, the call site is not inlined.</i></td></tr>
+<tr><th id="54">54</th><td>  <b>virtual</b> <a class="type" href="../../Analysis/InlineCost.h.html#llvm::InlineCost" title='llvm::InlineCost' data-ref="llvm::InlineCost">InlineCost</a> <dfn class="virtual decl" id="_ZN4llvm17LegacyInlinerBase13getInlineCostENS_8CallSiteE" title='llvm::LegacyInlinerBase::getInlineCost' data-ref="_ZN4llvm17LegacyInlinerBase13getInlineCostENS_8CallSiteE">getInlineCost</dfn>(<a class="type" href="../../IR/CallSite.h.html#llvm::CallSite" title='llvm::CallSite' data-ref="llvm::CallSite">CallSite</a> <dfn class="local col7 decl" id="67CS" title='CS' data-type='llvm::CallSite' data-ref="67CS">CS</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>  <i class="doc">/// Remove dead functions.</i></td></tr>
+<tr><th id="57">57</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="58">58</th><td><i class="doc">  /// This also includes a hack in the form of the 'AlwaysInlineOnly' flag</i></td></tr>
+<tr><th id="59">59</th><td><i class="doc">  /// which restricts it to deleting functions with an 'AlwaysInline'</i></td></tr>
+<tr><th id="60">60</th><td><i class="doc">  /// attribute. This is useful for the InlineAlways pass that only wants to</i></td></tr>
+<tr><th id="61">61</th><td><i class="doc">  /// deal with that subset of the functions.</i></td></tr>
+<tr><th id="62">62</th><td>  <em>bool</em> <dfn class="decl" id="_ZN4llvm17LegacyInlinerBase19removeDeadFunctionsERNS_9CallGraphEb" title='llvm::LegacyInlinerBase::removeDeadFunctions' data-ref="_ZN4llvm17LegacyInlinerBase19removeDeadFunctionsERNS_9CallGraphEb">removeDeadFunctions</dfn>(<a class="type" href="../../Analysis/CallGraph.h.html#llvm::CallGraph" title='llvm::CallGraph' data-ref="llvm::CallGraph">CallGraph</a> &amp;<dfn class="local col8 decl" id="68CG" title='CG' data-type='llvm::CallGraph &amp;' data-ref="68CG">CG</dfn>, <em>bool</em> <dfn class="local col9 decl" id="69AlwaysInlineOnly" title='AlwaysInlineOnly' data-type='bool' data-ref="69AlwaysInlineOnly">AlwaysInlineOnly</dfn> = <b>false</b>);</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>  <i class="doc">/// This function performs the main work of the pass.  The default of</i></td></tr>
+<tr><th id="65">65</th><td><i class="doc">  /// Inlinter::runOnSCC() calls skipSCC() before calling this method, but</i></td></tr>
+<tr><th id="66">66</th><td><i class="doc">  /// derived classes which cannot be skipped can override that method and call</i></td></tr>
+<tr><th id="67">67</th><td><i class="doc">  /// this function unconditionally.</i></td></tr>
+<tr><th id="68">68</th><td>  <em>bool</em> <dfn class="decl" id="_ZN4llvm17LegacyInlinerBase11inlineCallsERNS_12CallGraphSCCE" title='llvm::LegacyInlinerBase::inlineCalls' data-ref="_ZN4llvm17LegacyInlinerBase11inlineCallsERNS_12CallGraphSCCE">inlineCalls</dfn>(<a class="type" href="../../Analysis/CallGraphSCCPass.h.html#llvm::CallGraphSCC" title='llvm::CallGraphSCC' data-ref="llvm::CallGraphSCC">CallGraphSCC</a> &amp;<dfn class="local col0 decl" id="70SCC" title='SCC' data-type='llvm::CallGraphSCC &amp;' data-ref="70SCC">SCC</dfn>);</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><b>private</b>:</td></tr>
+<tr><th id="71">71</th><td>  <i>// Insert @llvm.lifetime intrinsics.</i></td></tr>
+<tr><th id="72">72</th><td>  <em>bool</em> <dfn class="decl" id="llvm::LegacyInlinerBase::InsertLifetime" title='llvm::LegacyInlinerBase::InsertLifetime' data-ref="llvm::LegacyInlinerBase::InsertLifetime">InsertLifetime</dfn> = <b>true</b>;</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><b>protected</b>:</td></tr>
+<tr><th id="75">75</th><td>  <a class="type" href="../../Analysis/AssumptionCache.h.html#llvm::AssumptionCacheTracker" title='llvm::AssumptionCacheTracker' data-ref="llvm::AssumptionCacheTracker">AssumptionCacheTracker</a> *<dfn class="decl" id="llvm::LegacyInlinerBase::ACT" title='llvm::LegacyInlinerBase::ACT' data-ref="llvm::LegacyInlinerBase::ACT">ACT</dfn>;</td></tr>
+<tr><th id="76">76</th><td>  <a class="type" href="../../Analysis/ProfileSummaryInfo.h.html#llvm::ProfileSummaryInfo" title='llvm::ProfileSummaryInfo' data-ref="llvm::ProfileSummaryInfo">ProfileSummaryInfo</a> *<dfn class="decl" id="llvm::LegacyInlinerBase::PSI" title='llvm::LegacyInlinerBase::PSI' data-ref="llvm::LegacyInlinerBase::PSI">PSI</dfn>;</td></tr>
+<tr><th id="77">77</th><td>  <a class="type" href="../Utils/ImportedFunctionsInliningStatistics.h.html#llvm::ImportedFunctionsInliningStatistics" title='llvm::ImportedFunctionsInliningStatistics' data-ref="llvm::ImportedFunctionsInliningStatistics">ImportedFunctionsInliningStatistics</a> <dfn class="decl" id="llvm::LegacyInlinerBase::ImportedFunctionsStats" title='llvm::LegacyInlinerBase::ImportedFunctionsStats' data-ref="llvm::LegacyInlinerBase::ImportedFunctionsStats">ImportedFunctionsStats</dfn>;</td></tr>
+<tr><th id="78">78</th><td>};</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><i class="doc">/// The inliner pass for the new pass manager.</i></td></tr>
+<tr><th id="81">81</th><td><i class="doc">///</i></td></tr>
+<tr><th id="82">82</th><td><i class="doc">/// This pass wires together the inlining utilities and the inline cost</i></td></tr>
+<tr><th id="83">83</th><td><i class="doc">/// analysis into a CGSCC pass. It considers every call in every function in</i></td></tr>
+<tr><th id="84">84</th><td><i class="doc">/// the SCC and tries to inline if profitable. It can be tuned with a number of</i></td></tr>
+<tr><th id="85">85</th><td><i class="doc">/// parameters to control what cost model is used and what tradeoffs are made</i></td></tr>
+<tr><th id="86">86</th><td><i class="doc">/// when making the decision.</i></td></tr>
+<tr><th id="87">87</th><td><i class="doc">///</i></td></tr>
+<tr><th id="88">88</th><td><i class="doc">/// It should be noted that the legacy inliners do considerably more than this</i></td></tr>
+<tr><th id="89">89</th><td><i class="doc">/// inliner pass does. They provide logic for manually merging allocas, and</i></td></tr>
+<tr><th id="90">90</th><td><i class="doc">/// doing considerable DCE including the DCE of dead functions. This pass makes</i></td></tr>
+<tr><th id="91">91</th><td><i class="doc">/// every attempt to be simpler. DCE of functions requires complex reasoning</i></td></tr>
+<tr><th id="92">92</th><td><i class="doc">/// about comdat groups, etc. Instead, it is expected that other more focused</i></td></tr>
+<tr><th id="93">93</th><td><i class="doc">/// passes be composed to achieve the same end result.</i></td></tr>
+<tr><th id="94">94</th><td><b>class</b> <dfn class="type def" id="llvm::InlinerPass" title='llvm::InlinerPass' data-ref="llvm::InlinerPass">InlinerPass</dfn> : <b>public</b> <a class="type" href="../../IR/PassManager.h.html#llvm::PassInfoMixin" title='llvm::PassInfoMixin' data-ref="llvm::PassInfoMixin">PassInfoMixin</a>&lt;<a class="type" href="#llvm::InlinerPass" title='llvm::InlinerPass' data-ref="llvm::InlinerPass">InlinerPass</a>&gt; {</td></tr>
+<tr><th id="95">95</th><td><b>public</b>:</td></tr>
+<tr><th id="96">96</th><td>  <dfn class="decl def" id="_ZN4llvm11InlinerPassC1ENS_12InlineParamsE" title='llvm::InlinerPass::InlinerPass' data-ref="_ZN4llvm11InlinerPassC1ENS_12InlineParamsE">InlinerPass</dfn>(<a class="type" href="../../Analysis/InlineCost.h.html#llvm::InlineParams" title='llvm::InlineParams' data-ref="llvm::InlineParams">InlineParams</a> <dfn class="local col1 decl" id="71Params" title='Params' data-type='llvm::InlineParams' data-ref="71Params">Params</dfn> = <a class="ref" href="../../Analysis/InlineCost.h.html#_ZN4llvm15getInlineParamsEv" title='llvm::getInlineParams' data-ref="_ZN4llvm15getInlineParamsEv">getInlineParams</a>())</td></tr>
+<tr><th id="97">97</th><td>      : <a class="member" href="#llvm::InlinerPass::Params" title='llvm::InlinerPass::Params' data-ref="llvm::InlinerPass::Params">Params</a><a class="ref" href="../../Analysis/InlineCost.h.html#153" title='llvm::InlineParams::InlineParams' data-ref="_ZN4llvm12InlineParamsC1EOS0_">(</a><span class="namespace">std::</span><a class="ref" href="../../../../../../include/c++/7/bits/move.h.html#_ZSt4moveOT_" title='std::move' data-ref="_ZSt4moveOT_">move</a>(<span class='refarg'><a class="local col1 ref" href="#71Params" title='Params' data-ref="71Params">Params</a></span>)) {}</td></tr>
+<tr><th id="98">98</th><td>  <dfn class="decl" id="_ZN4llvm11InlinerPassD1Ev" title='llvm::InlinerPass::~InlinerPass' data-ref="_ZN4llvm11InlinerPassD1Ev">~InlinerPass</dfn>();</td></tr>
+<tr><th id="99">99</th><td>  <dfn class="decl def" id="_ZN4llvm11InlinerPassC1EOS0_" title='llvm::InlinerPass::InlinerPass' data-ref="_ZN4llvm11InlinerPassC1EOS0_">InlinerPass</dfn>(<a class="type" href="#llvm::InlinerPass" title='llvm::InlinerPass' data-ref="llvm::InlinerPass">InlinerPass</a> &amp;&amp;<dfn class="local col2 decl" id="72Arg" title='Arg' data-type='llvm::InlinerPass &amp;&amp;' data-ref="72Arg">Arg</dfn>)</td></tr>
+<tr><th id="100">100</th><td>      : <a class="member" href="#llvm::InlinerPass::Params" title='llvm::InlinerPass::Params' data-ref="llvm::InlinerPass::Params">Params</a><a class="ref" href="../../Analysis/InlineCost.h.html#153" title='llvm::InlineParams::InlineParams' data-ref="_ZN4llvm12InlineParamsC1EOS0_">(</a><span class="namespace">std::</span><a class="ref" href="../../../../../../include/c++/7/bits/move.h.html#_ZSt4moveOT_" title='std::move' data-ref="_ZSt4moveOT_">move</a>(<span class='refarg'><a class="local col2 ref" href="#72Arg" title='Arg' data-ref="72Arg">Arg</a>.<a class="member" href="#llvm::InlinerPass::Params" title='llvm::InlinerPass::Params' data-ref="llvm::InlinerPass::Params">Params</a></span>)),</td></tr>
+<tr><th id="101">101</th><td>        <a class="member" href="#llvm::InlinerPass::ImportedFunctionsStats" title='llvm::InlinerPass::ImportedFunctionsStats' data-ref="llvm::InlinerPass::ImportedFunctionsStats">ImportedFunctionsStats</a><a class="ref" href="../../../../../../include/c++/7/bits/unique_ptr.h.html#_ZNSt10unique_ptrC1EOSt10unique_ptrIT_T0_E" title='std::unique_ptr::unique_ptr&lt;_Tp, _Dp&gt;' data-ref="_ZNSt10unique_ptrC1EOSt10unique_ptrIT_T0_E">(</a><span class="namespace">std::</span><a class="ref" href="../../../../../../include/c++/7/bits/move.h.html#_ZSt4moveOT_" title='std::move' data-ref="_ZSt4moveOT_">move</a>(<span class='refarg'><a class="local col2 ref" href="#72Arg" title='Arg' data-ref="72Arg">Arg</a>.<a class="member" href="#llvm::InlinerPass::ImportedFunctionsStats" title='llvm::InlinerPass::ImportedFunctionsStats' data-ref="llvm::InlinerPass::ImportedFunctionsStats">ImportedFunctionsStats</a></span>)) {}</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>  <a class="type" href="../../IR/PassManager.h.html#llvm::PreservedAnalyses" title='llvm::PreservedAnalyses' data-ref="llvm::PreservedAnalyses">PreservedAnalyses</a> <dfn class="decl" id="_ZN4llvm11InlinerPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS2_JRS1_EEES5_RNS_17CGSCCUpdateResultE" title='llvm::InlinerPass::run' data-ref="_ZN4llvm11InlinerPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS2_JRS1_EEES5_RNS_17CGSCCUpdateResultE">run</dfn>(<a class="type" href="../../Analysis/LazyCallGraph.h.html#llvm::LazyCallGraph" title='llvm::LazyCallGraph' data-ref="llvm::LazyCallGraph">LazyCallGraph</a>::<a class="type" href="../../Analysis/LazyCallGraph.h.html#llvm::LazyCallGraph::SCC" title='llvm::LazyCallGraph::SCC' data-ref="llvm::LazyCallGraph::SCC">SCC</a> &amp;<dfn class="local col3 decl" id="73C" title='C' data-type='LazyCallGraph::SCC &amp;' data-ref="73C">C</dfn>, <a class="typedef" href="../../Analysis/CGSCCPassManager.h.html#llvm::CGSCCAnalysisManager" title='llvm::CGSCCAnalysisManager' data-type='AnalysisManager&lt;LazyCallGraph::SCC, llvm::LazyCallGraph &amp;&gt;' data-ref="llvm::CGSCCAnalysisManager">CGSCCAnalysisManager</a> &amp;<dfn class="local col4 decl" id="74AM" title='AM' data-type='CGSCCAnalysisManager &amp;' data-ref="74AM">AM</dfn>,</td></tr>
+<tr><th id="104">104</th><td>                        <a class="type" href="../../Analysis/LazyCallGraph.h.html#llvm::LazyCallGraph" title='llvm::LazyCallGraph' data-ref="llvm::LazyCallGraph">LazyCallGraph</a> &amp;<dfn class="local col5 decl" id="75CG" title='CG' data-type='llvm::LazyCallGraph &amp;' data-ref="75CG">CG</dfn>, <a class="type" href="../../Analysis/CGSCCPassManager.h.html#llvm::CGSCCUpdateResult" title='llvm::CGSCCUpdateResult' data-ref="llvm::CGSCCUpdateResult">CGSCCUpdateResult</a> &amp;<dfn class="local col6 decl" id="76UR" title='UR' data-type='llvm::CGSCCUpdateResult &amp;' data-ref="76UR">UR</dfn>);</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td><b>private</b>:</td></tr>
+<tr><th id="107">107</th><td>  <a class="type" href="../../Analysis/InlineCost.h.html#llvm::InlineParams" title='llvm::InlineParams' data-ref="llvm::InlineParams">InlineParams</a> <dfn class="decl" id="llvm::InlinerPass::Params" title='llvm::InlinerPass::Params' data-ref="llvm::InlinerPass::Params">Params</dfn>;</td></tr>
+<tr><th id="108">108</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/7/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="../Utils/ImportedFunctionsInliningStatistics.h.html#llvm::ImportedFunctionsInliningStatistics" title='llvm::ImportedFunctionsInliningStatistics' data-ref="llvm::ImportedFunctionsInliningStatistics">ImportedFunctionsInliningStatistics</a>&gt; <dfn class="decl" id="llvm::InlinerPass::ImportedFunctionsStats" title='llvm::InlinerPass::ImportedFunctionsStats' data-ref="llvm::InlinerPass::ImportedFunctionsStats">ImportedFunctionsStats</dfn>;</td></tr>
+<tr><th id="109">109</th><td>};</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><u>#<span data-ppcond="9">endif</span> // LLVM_TRANSFORMS_IPO_INLINER_H</u></td></tr>
+<tr><th id="114">114</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../lib/Passes/PassBuilder.cpp.html'>llvm/llvm/lib/Passes/PassBuilder.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

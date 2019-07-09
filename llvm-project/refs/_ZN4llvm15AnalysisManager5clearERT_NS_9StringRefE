@@ -1,0 +1,12 @@
+<def f='llvm/llvm/include/llvm/IR/PassManager.h' l='746' ll='759' type='void llvm::AnalysisManager::clear(IRUnitT &amp; IR, llvm::StringRef Name)'/>
+<use f='llvm/llvm/include/llvm/Transforms/Scalar/LoopPassManager.h' l='167' u='c' c='_ZN4llvm10LPMUpdater17markLoopAsDeletedERNS_4LoopENS_9StringRefE'/>
+<doc f='llvm/llvm/include/llvm/IR/PassManager.h' l='741'>/// Clear any cached analysis results for a single unit of IR.
+  ///
+  /// This doesn&apos;t invalidate, but instead simply deletes, the relevant results.
+  /// It is useful when the IR is being removed and we want to clear out all the
+  /// memory pinned for it.</doc>
+<use f='llvm/llvm/lib/Analysis/CGSCCPassManager.cpp' l='258' u='c' c='_ZN4llvm33FunctionAnalysisManagerCGSCCProxy6Result10invalidateERNS_13LazyCallGraph3SCCERKNS_17PreservedAnalysesERNS_15AnalysisManagerIS3_JRS2_EE11InvalidatorE'/>
+<use f='llvm/llvm/lib/Analysis/LoopAnalysisManager.cpp' l='65' u='c' c='_ZN4llvm25InnerAnalysisManagerProxyINS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEENS_8FunctionEJEE6Result10invalidateERS6_RKNS_115878726'/>
+<use f='llvm/llvm/lib/Transforms/IPO/Inliner.cpp' l='1211' u='c' c='_ZN4llvm11InlinerPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS2_JRS1_EEES5_RNS_17CGSCCUpdateResultE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/Inliner.cpp' l='1212' u='c' c='_ZN4llvm11InlinerPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS2_JRS1_EEES5_RNS_17CGSCCUpdateResultE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnrollPass.cpp' l='1444' u='c' c='_ZN4llvm14LoopUnrollPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE'/>

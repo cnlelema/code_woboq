@@ -1,0 +1,34 @@
+<def f='llvm/llvm/include/llvm/CodeGen/LiveVariables.h' l='78' ll='112'/>
+<size>56</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/LiveVariables.h' l='52'>/// VarInfo - This represents the regions where a virtual register is live in
+  /// the program.  We represent this with three different pieces of
+  /// information: the set of blocks in which the instruction is live
+  /// throughout, the set of blocks in which the instruction is actually used,
+  /// and the set of non-phi instructions that are the last users of the value.
+  ///
+  /// In the common case where a value is defined and killed in the same block,
+  /// There is one killing instruction, and AliveBlocks is empty.
+  ///
+  /// Otherwise, the value is live out of the block.  If the value is live
+  /// throughout any blocks, these blocks are listed in AliveBlocks.  Blocks
+  /// where the liveness range ends are not included in AliveBlocks, instead
+  /// being captured by the Kills set.  In these blocks, the value is live into
+  /// the block (unless the value is defined and killed in the same block) and
+  /// lives until the specified instruction.  Note that there cannot ever be a
+  /// value whose Kills set contains two instructions from the same basic block.
+  ///
+  /// PHI nodes complicate things a bit.  If a PHI node is the last user of a
+  /// value in one of its predecessor blocks, it is not listed in the kills set,
+  /// but does include the predecessor block in the AliveBlocks set (unless that
+  /// block also defines the value).  This leads to the (perfectly sensical)
+  /// situation where a value is defined in a block, and the last use is a phi
+  /// node in the successor.  In this case, AliveBlocks is empty (the value is
+  /// not live across any  blocks) and Kills is empty (phi nodes are not
+  /// included). This is sensical because the value must be live to the end of
+  /// the block, but is not live in any successor blocks.</doc>
+<mbr r='llvm::LiveVariables::VarInfo::AliveBlocks' o='0' t='SparseBitVector&lt;&gt;'/>
+<mbr r='llvm::LiveVariables::VarInfo::Kills' o='256' t='std::vector&lt;MachineInstr *&gt;'/>
+<fun r='_ZN4llvm13LiveVariables7VarInfo10removeKillERNS_12MachineInstrE'/>
+<fun r='_ZNK4llvm13LiveVariables7VarInfo8findKillEPKNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm13LiveVariables7VarInfo8isLiveInERKNS_17MachineBasicBlockEjRNS_19MachineRegisterInfoE'/>
+<fun r='_ZNK4llvm13LiveVariables7VarInfo4dumpEv'/>

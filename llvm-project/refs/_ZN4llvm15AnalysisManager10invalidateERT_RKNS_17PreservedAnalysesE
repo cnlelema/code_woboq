@@ -1,0 +1,26 @@
+<def f='llvm/llvm/include/llvm/IR/PassManager.h' l='858' ll='918' type='void llvm::AnalysisManager::invalidate(IRUnitT &amp; IR, const llvm::PreservedAnalyses &amp; PA)'/>
+<use f='llvm/llvm/include/llvm/IR/PassManager.h' l='1314' u='c' c='_ZN4llvm27ModuleToFunctionPassAdaptor3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE'/>
+<use f='llvm/llvm/include/llvm/Analysis/CGSCCPassManager.h' l='493' u='c' c='_ZN4llvm26CGSCCToFunctionPassAdaptor3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS2_JRS1_EEES5_RNS_17CGSCCUpdateResultE'/>
+<use f='llvm/llvm/include/llvm/Analysis/CGSCCPassManager.h' l='699' u='c' c='_ZN4llvm21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS2_JRS1_EEES5_RNS_17CGSCCUpdateResultE'/>
+<use f='llvm/llvm/include/llvm/Analysis/CGSCCPassManager.h' l='836' u='c' c='_ZN4llvm33ModuleToPostOrderCGSCCPassAdaptor3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE'/>
+<use f='llvm/llvm/include/llvm/Analysis/CGSCCPassManager.h' l='880' u='c' c='_ZN4llvm33ModuleToPostOrderCGSCCPassAdaptor3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE'/>
+<use f='llvm/llvm/include/llvm/Transforms/Scalar/LoopPassManager.h' l='368' u='c' c='_ZN4llvm25FunctionToLoopPassAdaptor3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE'/>
+<doc f='llvm/llvm/include/llvm/IR/PassManager.h' l='854'>/// Invalidate cached analyses for an IR unit.
+  ///
+  /// Walk through all of the analyses pertaining to this unit of IR and
+  /// invalidate them, unless they are preserved by the PreservedAnalyses set.</doc>
+<use f='llvm/llvm/lib/Analysis/CGSCCPassManager.cpp' l='100' u='c' c='_ZN4llvm11PassManager3runERT_RT0_DpT1_'/>
+<use f='llvm/llvm/lib/Analysis/CGSCCPassManager.cpp' l='189' u='c' c='_ZN4llvm25InnerAnalysisManagerProxyINS_15AnalysisManagerINS_13LazyCallGraph3SCCEJRS2_EEENS_6ModuleEJEE6Result10invalidateERS6_RKNS_17PreservedAnalyses7690279'/>
+<use f='llvm/llvm/lib/Analysis/CGSCCPassManager.cpp' l='196' u='c' c='_ZN4llvm25InnerAnalysisManagerProxyINS_15AnalysisManagerINS_13LazyCallGraph3SCCEJRS2_EEENS_6ModuleEJEE6Result10invalidateERS6_RKNS_17PreservedAnalyses7690279'/>
+<use f='llvm/llvm/lib/Analysis/CGSCCPassManager.cpp' l='293' u='c' c='_ZN4llvm33FunctionAnalysisManagerCGSCCProxy6Result10invalidateERNS_13LazyCallGraph3SCCERKNS_17PreservedAnalysesERNS_15AnalysisManagerIS3_JRS2_EE11InvalidatorE'/>
+<use f='llvm/llvm/lib/Analysis/CGSCCPassManager.cpp' l='300' u='c' c='_ZN4llvm33FunctionAnalysisManagerCGSCCProxy6Result10invalidateERNS_13LazyCallGraph3SCCERKNS_17PreservedAnalysesERNS_15AnalysisManagerIS3_JRS2_EE11InvalidatorE'/>
+<use f='llvm/llvm/lib/Analysis/CGSCCPassManager.cpp' l='350' u='c' c='_ZL28updateNewSCCFunctionAnalysesRN4llvm13LazyCallGraph3SCCERS0_RNS_15AnalysisManagerIS1_JS3_EEE'/>
+<use f='llvm/llvm/lib/Analysis/CGSCCPassManager.cpp' l='402' u='c' c='_ZL22incorporateNewSCCRangeRKT_RN4llvm13LazyCallGraphERNS3_4NodeEPNS3_3SCCERNS2_15AnalysisManagerIS7_JS4_EEERNS2_17CGSCCUpdateResultE'/>
+<use f='llvm/llvm/lib/Analysis/CGSCCPassManager.cpp' l='421' u='c' c='_ZL22incorporateNewSCCRangeRKT_RN4llvm13LazyCallGraphERNS3_4NodeEPNS3_3SCCERNS2_15AnalysisManagerIS7_JS4_EEERNS2_17CGSCCUpdateResultE'/>
+<use f='llvm/llvm/lib/Analysis/CGSCCPassManager.cpp' l='647' u='c' c='_ZN4llvm41updateCGAndAnalysisManagerForFunctionPassERNS_13LazyCallGraphERNS0_3SCCERNS0_4NodeERNS_15AnalysisManagerIS2_JS1_EEERNS_17CGSCCUpdateResultE'/>
+<use f='llvm/llvm/lib/Analysis/CGSCCPassManager.cpp' l='668' u='c' c='_ZN4llvm41updateCGAndAnalysisManagerForFunctionPassERNS_13LazyCallGraphERNS0_3SCCERNS0_4NodeERNS_15AnalysisManagerIS2_JS1_EEERNS_17CGSCCUpdateResultE'/>
+<use f='llvm/llvm/lib/Analysis/LoopAnalysisManager.cpp' l='116' u='c' c='_ZN4llvm25InnerAnalysisManagerProxyINS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEENS_8FunctionEJEE6Result10invalidateERS6_RKNS_115878726'/>
+<use f='llvm/llvm/lib/Analysis/LoopAnalysisManager.cpp' l='123' u='c' c='_ZN4llvm25InnerAnalysisManagerProxyINS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEENS_8FunctionEJEE6Result10invalidateERS6_RKNS_115878726'/>
+<use f='llvm/llvm/lib/IR/PassManager.cpp' l='78' u='c' c='_ZN4llvm25InnerAnalysisManagerProxy6Result10invalidateERT0_RKNS_17PreservedAnalysesERNS_15AnalysisManagerIS2_JDpT1_EE11InvalidatorE'/>
+<use f='llvm/llvm/lib/IR/PassManager.cpp' l='85' u='c' c='_ZN4llvm25InnerAnalysisManagerProxy6Result10invalidateERT0_RKNS_17PreservedAnalysesERNS_15AnalysisManagerIS2_JDpT1_EE11InvalidatorE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopPassManager.cpp' l='67' u='c' c='_ZN4llvm11PassManager3runERT_RT0_DpT1_'/>

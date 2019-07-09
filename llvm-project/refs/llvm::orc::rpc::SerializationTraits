@@ -1,0 +1,65 @@
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCSerialization.h' l='328' ll='423'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCSerialization.h' l='479' ll='507'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCSerialization.h' l='510' ll='517'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCSerialization.h' l='520' ll='527'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCSerialization.h' l='530' ll='545'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCSerialization.h' l='548' ll='576'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCSerialization.h' l='579' ll='611'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCSerialization.h' l='613' ll='649'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCSerialization.h' l='651' ll='697'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCSerialization.h' l='478'>/// SerializationTraits for Expected&lt;T1&gt; from an Expected&lt;T2&gt;.</doc>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCSerialization.h' l='509'>/// SerializationTraits for Expected&lt;T1&gt; from a T2.</doc>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCSerialization.h' l='519'>/// SerializationTraits for Expected&lt;T1&gt; from an Error.</doc>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCSerialization.h' l='529'>/// SerializationTraits default specialization for std::pair.</doc>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCSerialization.h' l='547'>/// SerializationTraits default specialization for std::tuple.</doc>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCSerialization.h' l='578'>/// SerializationTraits default specialization for std::vector.</doc>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_NS_5ErrorES4_vE17registerErrorTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_T1_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_NS_5ErrorES4_vE9serializeERS3_OS4_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_NS_5ErrorES4_vE11deserializeERS3_RS4_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_NS_5ErrorES4_vE22serializeAsStringErrorERS3_RKNS_13ErrorInfoBaseE'/>
+<smbr r='llvm::orc::rpc::SerializationTraits{type-parameter-0-0,llvm::Error,llvm::Error,void}::SerializersMutex' t='std::recursive_mutex'/>
+<smbr r='llvm::orc::rpc::SerializationTraits{type-parameter-0-0,llvm::Error,llvm::Error,void}::DeserializersMutex' t='std::recursive_mutex'/>
+<smbr r='llvm::orc::rpc::SerializationTraits{type-parameter-0-0,llvm::Error,llvm::Error,void}::Serializers' t='std::map&lt;const void *, WrappedErrorSerializer&gt;'/>
+<smbr r='llvm::orc::rpc::SerializationTraits{type-parameter-0-0,llvm::Error,llvm::Error,void}::Deserializers' t='std::map&lt;std::string, WrappedErrorDeserializer&gt;'/>
+<smbr r='llvm::orc::rpc::SerializationTraits{type-parameter-0-0,llvm::Error,llvm::Error,void}::SerializersMutex' t='std::recursive_mutex'/>
+<smbr r='llvm::orc::rpc::SerializationTraits{type-parameter-0-0,llvm::Error,llvm::Error,void}::DeserializersMutex' t='std::recursive_mutex'/>
+<smbr r='llvm::orc::rpc::SerializationTraits{type-parameter-0-0,llvm::Error,llvm::Error,void}::Serializers' t='std::map&lt;const void *, typename SerializationTraits&lt;ChannelT, Error&gt;::WrappedErrorSerializer&gt;'/>
+<smbr r='llvm::orc::rpc::SerializationTraits{type-parameter-0-0,llvm::Error,llvm::Error,void}::Deserializers' t='std::map&lt;std::string, typename SerializationTraits&lt;ChannelT, Error&gt;::WrappedErrorDeserializer&gt;'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_NS_8ExpectedIT0_EENS4_IT1_EEvE9serializeERS3_OS8_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_NS_8ExpectedIT0_EENS4_IT1_EEvE11deserializeERS3_RS8_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_NS_8ExpectedIT0_EET1_vE9serializeERS3_OS7_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_NS_8ExpectedIT0_EENS_5ErrorEvE9serializeERS3_OS7_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_St4pairIT0_T1_ES4_IT2_T3_EvE9serializeERS3_RKSA_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_St4pairIT0_T1_ES4_IT2_T3_EvE11deserializeERS3_RSA_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_St5tupleIJDpT0_EES7_vE9serializeERS3_RKS7_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_St5tupleIJDpT0_EES7_vE11deserializeERS3_RS7_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_St5tupleIJDpT0_EES7_vE20serializeTupleHelperERS3_RKS7_NS_14index_sequenceIJXspT_EEEE'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_St5tupleIJDpT0_EES7_vE22deserializeTupleHelperERS3_RS7_NS_14index_sequenceIJXspT_EEEE'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_St6vectorIT0_SaIS5_EES7_vE9serializeERS3_RKS7_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_St6vectorIT0_SaIS5_EES7_vE11deserializeERS3_RS7_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_St3setIT0_St4lessIS5_ESaIS5_EES4_IT1_S6_ISA_ESaISA_EEvE9serializeERS3_RKSD_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_St3setIT0_St4lessIS5_ESaIS5_EES4_IT1_S6_ISA_ESaISA_EEvE11deserializeERS3_RSD_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_St3mapIT0_T1_St4lessIS5_ESaISt4pairIKS5_S6_EEES4_IT2_T3_S7_ISE_ESaIS9_IKSE_SF_EEEvE9serializeERS3_RKSK_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_St3mapIT0_T1_St4lessIS5_ESaISt4pairIKS5_S6_EEES4_IT2_T3_S7_ISE_ESaIS9_IKSE_SF_EEEvE11deserializeERS3_RSK_'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RawByteChannel.h' l='87' ll='109'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RawByteChannel.h' l='111' ll='131'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RawByteChannel.h' l='133' ll='144'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RawByteChannel.h' l='146' ll='157'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RawByteChannel.h' l='159' ll='178'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/OrcRemoteTargetRPCAPI.h' l='84' ll='101'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/OrcRemoteTargetRPCAPI.h' l='108' ll='135'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_T0_S4_NSt9enable_ifIXaasr3std10is_base_ofINS1_14RawByteChannelES3_EE5valueoooooooooooooooosr3std7is_sameIS4_hE11692506'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_T0_S4_NSt9enable_ifIXaasr3std10is_base_ofINS1_14RawByteChannelES3_EE5valueoooooooooooooooosr3std7is_sameIS4_hE9338978'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_bbNSt9enable_ifIXsr3std10is_base_ofINS1_14RawByteChannelES3_EE5valueEvE4typeEE9serializeERS3_b'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_bbNSt9enable_ifIXsr3std10is_base_ofINS1_14RawByteChannelES3_EE5valueEvE4typeEE11deserializeERS3_Rb'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefENSt9enable_ifIXsr3std10is_base_ofINS1_14RawB280149'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_NSt9enable_ifIXaasr3std10is_base_ofINS1_14RawByteChanne6692209'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NSt9enable_ifIXsr3std10is_base_ofINS1_14RawByteChannelE15654103'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NSt9enable_ifIXsr3std10is_base_ofINS1_14RawByteChannelE8950240'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_NS_14JITSymbolFlagsES4_vE9serializeERS3_RKS4_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_NS_14JITSymbolFlagsES4_vE11deserializeERS3_RS4_'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_NS0_6remote18DirectBufferWriterES5_NSt9enable_ifIXsr3std10is_base_ofINS1_14RawByteChannelES3_EE5valueEvE4typeE6827744'/>
+<fun r='_ZN4llvm3orc3rpc19SerializationTraitsIT_NS0_6remote18DirectBufferWriterES5_NSt9enable_ifIXsr3std10is_base_ofINS1_14RawByteChannelES3_EE5valueEvE4typeE10853050'/>
+<def f='llvm/llvm/unittests/ExecutionEngine/Orc/RPCUtilsTest.cpp' l='31' ll='41'/>
+<def f='llvm/llvm/unittests/ExecutionEngine/Orc/RPCUtilsTest.cpp' l='101' ll='111'/>
+<size>1</size>

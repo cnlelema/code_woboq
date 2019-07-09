@@ -1,0 +1,440 @@
+<def f='llvm/llvm/include/llvm/ADT/PointerIntPair.h' l='193' ll='215'/>
+<def f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='28' ll='33'/>
+<def f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='36' ll='56'/>
+<def f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='59' ll='67'/>
+<def f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='70' ll='78'/>
+<def f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='81' ll='89'/>
+<def f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='92' ll='103'/>
+<def f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='106' ll='118'/>
+<def f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='121' ll='126'/>
+<def f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='129' ll='137'/>
+<def f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='140' ll='154'/>
+<def f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='157' ll='169'/>
+<def f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='172' ll='206'/>
+<def f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='209' ll='234'/>
+<def f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='237' ll='262'/>
+<def f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='264' ll='269'/>
+<def f='llvm/llvm/include/llvm/ADT/PointerUnion.h' l='296' ll='315'/>
+<def f='llvm/clang/include/clang/AST/APValue.h' l='606' ll='612'/>
+<def f='llvm/clang/include/clang/Basic/SourceLocation.h' l='447' ll='464'/>
+<def f='llvm/clang/include/clang/Basic/IdentifierTable.h' l='924' ll='939'/>
+<def f='llvm/clang/include/clang/AST/DeclarationName.h' l='844' ll='862'/>
+<def f='llvm/clang/include/clang/AST/CharUnits.h' l='214' ll='238'/>
+<def f='llvm/clang/include/clang/AST/Redeclarable.h' l='381' ll='408'/>
+<inh f='llvm/clang/include/clang/AST/ASTTypeTraits.h' l='109' c='clang::ast_type_traits::ASTNodeKind::DenseMapInfo'/>
+<def f='llvm/clang/include/clang/AST/ASTTypeTraits.h' l='530' ll='532'/>
+<inh f='llvm/clang/include/clang/AST/ASTTypeTraits.h' l='348' c='clang::ast_type_traits::DynTypedNode::DenseMapInfo'/>
+<def f='llvm/clang/include/clang/AST/ASTTypeTraits.h' l='534' ll='536'/>
+<def f='llvm/llvm/include/llvm/ADT/CachedHashString.h' l='50' ll='67'/>
+<def f='llvm/llvm/include/llvm/ADT/CachedHashString.h' l='153' ll='180'/>
+<def f='llvm/clang/include/clang/Serialization/ASTBitCodes.h' l='2138' ll='2156'/>
+<size>1</size>
+<doc f='llvm/llvm/include/llvm/ADT/PointerIntPair.h' l='192'>// Provide specialization of DenseMapInfo for PointerIntPair.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/PointerUnion.h' l='295'>// Teach DenseMap how to use PointerUnions as keys.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='35'>// Provide DenseMapInfo for all pointers.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='58'>// Provide DenseMapInfo for chars.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='69'>// Provide DenseMapInfo for unsigned shorts.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='80'>// Provide DenseMapInfo for unsigned ints.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='91'>// Provide DenseMapInfo for unsigned longs.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='105'>// Provide DenseMapInfo for unsigned long longs.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='120'>// Provide DenseMapInfo for shorts.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='128'>// Provide DenseMapInfo for ints.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='139'>// Provide DenseMapInfo for longs.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='156'>// Provide DenseMapInfo for long longs.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='171'>// Provide DenseMapInfo for all pairs whose members have info.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='208'>// Provide DenseMapInfo for StringRefs.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/DenseMapInfo.h' l='236'>// Provide DenseMapInfo for ArrayRefs.</doc>
+<doc f='llvm/clang/include/clang/AST/DeclarationName.h' l='842'>/// Define DenseMapInfo so that DeclarationNames can be used as keys
+/// in DenseMap and DenseSets.</doc>
+<doc f='llvm/clang/include/clang/Basic/SourceLocation.h' l='445'>/// Define DenseMapInfo so that FileID&apos;s can be used as keys in DenseMap and
+  /// DenseSets.</doc>
+<doc f='llvm/clang/include/clang/Basic/IdentifierTable.h' l='922'>/// Define DenseMapInfo so that Selectors can be used as keys in DenseMap and
+/// DenseSets.</doc>
+<fun r='_ZN4llvm12DenseMapInfoINS_14PointerIntPairIT_XT0_ET1_NS_21PointerLikeTypeTraitsIS2_EENS_18PointerIntPairInfoIS2_XT0_ES5_EEEEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14PointerIntPairIT_XT0_ET1_NS_21PointerLikeTypeTraitsIS2_EENS_18PointerIntPairInfoIS2_XT0_ES5_EEEEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14PointerIntPairIT_XT0_ET1_NS_21PointerLikeTypeTraitsIS2_EENS_18PointerIntPairInfoIS2_XT0_ES5_EEEEE12getHashValueES8_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14PointerIntPairIT_XT0_ET1_NS_21PointerLikeTypeTraitsIS2_EENS_18PointerIntPairInfoIS2_XT0_ES5_EEEEE7isEqualERKS8_SB_'/>
+<fun r='_ZN4llvm12DenseMapInfoIPT_E11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIPT_E15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIPT_E12getHashValueEPKS1_'/>
+<fun r='_ZN4llvm12DenseMapInfoIPT_E7isEqualEPKS1_S5_'/>
+<fun r='_ZN4llvm12DenseMapInfoIcE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIcE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIcE12getHashValueERKc'/>
+<fun r='_ZN4llvm12DenseMapInfoIcE7isEqualERKcS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoItE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoItE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoItE12getHashValueERKt'/>
+<fun r='_ZN4llvm12DenseMapInfoItE7isEqualERKtS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoIjE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIjE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIjE12getHashValueERKj'/>
+<fun r='_ZN4llvm12DenseMapInfoIjE7isEqualERKjS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoImE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoImE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoImE12getHashValueERKm'/>
+<fun r='_ZN4llvm12DenseMapInfoImE7isEqualERKmS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoIyE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIyE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIyE12getHashValueERKy'/>
+<fun r='_ZN4llvm12DenseMapInfoIyE7isEqualERKyS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoIsE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIsE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIsE12getHashValueERKs'/>
+<fun r='_ZN4llvm12DenseMapInfoIsE7isEqualERKsS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoIiE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIiE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIiE12getHashValueERKi'/>
+<fun r='_ZN4llvm12DenseMapInfoIiE7isEqualERKiS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoIlE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIlE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIlE12getHashValueERKl'/>
+<fun r='_ZN4llvm12DenseMapInfoIlE7isEqualERKlS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoIxE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIxE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIxE12getHashValueERKx'/>
+<fun r='_ZN4llvm12DenseMapInfoIxE7isEqualERKxS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoISt4pairIT_T0_EE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoISt4pairIT_T0_EE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoISt4pairIT_T0_EE12getHashValueERKS4_'/>
+<fun r='_ZN4llvm12DenseMapInfoISt4pairIT_T0_EE7isEqualERKS4_S7_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_9StringRefEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_9StringRefEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_9StringRefEE12getHashValueES1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8ArrayRefIT_EEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8ArrayRefIT_EEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8ArrayRefIT_EEE12getHashValueES3_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8ArrayRefIT_EEE7isEqualES3_S3_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_9hash_codeEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_9hash_codeEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_9hash_codeEE12getHashValueES1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_9hash_codeEE7isEqualES1_S1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12PointerUnionIJDpT_EEEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12PointerUnionIJDpT_EEEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12PointerUnionIJDpT_EEEE12getHashValueERKS4_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12PointerUnionIJDpT_EEEE7isEqualERKS4_S7_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang7APValue10LValueBaseEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang7APValue10LValueBaseEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang7APValue10LValueBaseEE12getHashValueERKS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang7APValue10LValueBaseEE7isEqualERKS3_S6_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang6FileIDEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang6FileIDEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang6FileIDEE12getHashValueES2_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang6FileIDEE7isEqualES2_S2_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang8SelectorEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang8SelectorEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang8SelectorEE12getHashValueES2_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang8SelectorEE7isEqualES2_S2_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang15DeclarationNameEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang15DeclarationNameEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang15DeclarationNameEE12getHashValueES2_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang15DeclarationNameEE7isEqualES2_S2_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang9CharUnitsEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang9CharUnitsEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang9CharUnitsEE12getHashValueERKS2_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang9CharUnitsEE7isEqualERKS2_S5_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang16CanonicalDeclPtrIT_EEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang16CanonicalDeclPtrIT_EEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang16CanonicalDeclPtrIT_EEE12getHashValueERKS4_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang16CanonicalDeclPtrIT_EEE7isEqualERKS4_S7_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEE12getHashValueERKS1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEE7isEqualERKS1_S4_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_16CachedHashStringEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_16CachedHashStringEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_16CachedHashStringEE12getHashValueERKS1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_16CachedHashStringEE7isEqualERKS1_S4_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang13serialization18DeclarationNameKeyEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang13serialization18DeclarationNameKeyEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang13serialization18DeclarationNameKeyEE12getHashValueERKS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang13serialization18DeclarationNameKeyEE7isEqualERKS3_S6_'/>
+<def f='llvm/clang/include/clang/AST/TypeOrdering.h' l='39' ll='55'/>
+<def f='llvm/clang/include/clang/AST/TypeOrdering.h' l='57' ll='75'/>
+<def f='llvm/clang/include/clang/Sema/Sema.h' l='11297' ll='11318'/>
+<size>1</size>
+<doc f='llvm/clang/include/clang/Sema/Sema.h' l='11295'>// Hash a FunctionDeclAndLoc by looking at both its FunctionDecl and its
+// SourceLocation.</doc>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang8QualTypeEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang8QualTypeEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang8QualTypeEE12getHashValueES2_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang8QualTypeEE7isEqualES2_S2_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang7CanQualINS1_4TypeEEEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang7CanQualINS1_4TypeEEEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang7CanQualINS1_4TypeEEEE12getHashValueES4_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang7CanQualINS1_4TypeEEEE7isEqualES4_S4_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang4Sema18FunctionDeclAndLocEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang4Sema18FunctionDeclAndLocEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang4Sema18FunctionDeclAndLocEE12getHashValueERKS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang4Sema18FunctionDeclAndLocEE7isEqualERKS3_S6_'/>
+<def f='llvm/llvm/include/llvm/IR/Attributes.h' l='307' ll='326'/>
+<def f='llvm/llvm/include/llvm/IR/Attributes.h' l='676' ll='697'/>
+<def f='llvm/llvm/include/llvm/IR/Metadata.h' l='680' ll='701'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/SymbolStringPool.h' l='174' ll='193'/>
+<def f='llvm/llvm/include/llvm/Object/ObjectFile.h' l='565' ll='582'/>
+<size>1</size>
+<doc f='llvm/llvm/include/llvm/IR/Attributes.h' l='304'>//===----------------------------------------------------------------------===//
+/// \class
+/// Provide DenseMapInfo for AttributeSet.</doc>
+<doc f='llvm/llvm/include/llvm/IR/Attributes.h' l='673'>//===----------------------------------------------------------------------===//
+/// \class
+/// Provide DenseMapInfo for AttributeList.</doc>
+<doc f='llvm/llvm/include/llvm/IR/Metadata.h' l='679'>// Specialize DenseMapInfo for AAMDNodes.</doc>
+<fun r='_ZN4llvm12DenseMapInfoINS_12AttributeSetEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12AttributeSetEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12AttributeSetEE12getHashValueES1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12AttributeSetEE7isEqualES1_S1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_13AttributeListEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_13AttributeListEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_13AttributeListEE12getHashValueES1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_13AttributeListEE7isEqualES1_S1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_9AAMDNodesEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_9AAMDNodesEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_9AAMDNodesEE12getHashValueERKS1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_9AAMDNodesEE7isEqualERKS1_S4_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_3orc15SymbolStringPtrEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_3orc15SymbolStringPtrEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_3orc15SymbolStringPtrEE12getHashValueERKS2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_3orc15SymbolStringPtrEE7isEqualERKS2_S5_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_6object10SectionRefEE7isEqualERKS2_S5_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_6object10SectionRefEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_6object10SectionRefEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_6object10SectionRefEE12getHashValueERKS2_'/>
+<def f='llvm/clang/include/clang/AST/BaseSubobject.h' l='57' ll='81'/>
+<def f='llvm/clang/include/clang/AST/GlobalDecl.h' l='151' ll='169'/>
+<size>1</size>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang13BaseSubobjectEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang13BaseSubobjectEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang13BaseSubobjectEE12getHashValueERKS2_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang13BaseSubobjectEE7isEqualERKS2_S5_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang10GlobalDeclEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang10GlobalDeclEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang10GlobalDeclEE12getHashValueES2_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang10GlobalDeclEE7isEqualES2_S2_'/>
+<def f='llvm/clang/include/clang/Analysis/ProgramPoint.h' l='754' ll='777'/>
+<size>1</size>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang12ProgramPointEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang12ProgramPointEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang12ProgramPointEE12getHashValueERKS2_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang12ProgramPointEE7isEqualERKS2_S5_'/>
+<def f='llvm/clang/include/clang/Analysis/RetainSummaryManager.h' l='247' ll='269'/>
+<size>1</size>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang4ento14ObjCSummaryKeyEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang4ento14ObjCSummaryKeyEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang4ento14ObjCSummaryKeyEE12getHashValueERKS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang4ento14ObjCSummaryKeyEE7isEqualERKS3_S6_'/>
+<def f='llvm/llvm/include/llvm/IR/ModuleSummaryIndex.h' l='230' ll='250'/>
+<def f='llvm/llvm/include/llvm/IR/ModuleSummaryIndex.h' l='667' ll='679'/>
+<def f='llvm/llvm/include/llvm/IR/ModuleSummaryIndex.h' l='681' ll='699'/>
+<def f='llvm/llvm/include/llvm/IR/CallSite.h' l='880' ll='902'/>
+<def f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='287' ll='309'/>
+<def f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='519' ll='540'/>
+<def f='llvm/llvm/include/llvm/Analysis/MemoryLocation.h' l='272' ll='285'/>
+<def f='llvm/llvm/include/llvm/Analysis/MemoryLocation.h' l='287' ll='304'/>
+<def f='llvm/llvm/include/llvm/IR/Dominators.h' l='102' ll='124'/>
+<def f='llvm/llvm/include/llvm/IR/ValueMap.h' l='302' ll='329'/>
+<def f='llvm/llvm/include/llvm/Analysis/ScalarEvolution.h' l='447' ll='465'/>
+<def f='llvm/llvm/include/llvm/ADT/PointerEmbeddedInt.h' l='102' ll='115'/>
+<def f='llvm/llvm/include/llvm/ADT/PointerSumType.h' l='265' ll='290'/>
+<size>1</size>
+<doc f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='286'>// Specialize DenseMapInfo to allow AssertingVH to participate in DenseMap.</doc>
+<doc f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='518'>// Specialize DenseMapInfo to allow PoisoningVH to participate in DenseMap.</doc>
+<doc f='llvm/llvm/include/llvm/Analysis/MemoryLocation.h' l='271'>// Specialize DenseMapInfo.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/PointerEmbeddedInt.h' l='100'>// Teach DenseMap how to use PointerEmbeddedInt objects as keys if the Int type
+// itself can be a key.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/PointerSumType.h' l='264'>// Teach DenseMap how to use PointerSumTypes as keys.</doc>
+<fun r='_ZN4llvm12DenseMapInfoINS_9ValueInfoEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_9ValueInfoEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_9ValueInfoEE12isSpecialKeyES1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_9ValueInfoEE7isEqualES1_S1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_9ValueInfoEE12getHashValueES1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_15FunctionSummary7VFuncIdEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_15FunctionSummary7VFuncIdEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_15FunctionSummary7VFuncIdEE7isEqualES2_S2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_15FunctionSummary7VFuncIdEE12getHashValueES2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_15FunctionSummary10ConstVCallEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_15FunctionSummary10ConstVCallEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_15FunctionSummary10ConstVCallEE7isEqualES2_S2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_15FunctionSummary10ConstVCallEE12getHashValueES2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8CallSiteEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8CallSiteEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8CallSiteEE12getHashValueERKS1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8CallSiteEE7isEqualERKS1_S4_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_11AssertingVHIT_EEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_11AssertingVHIT_EEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_11AssertingVHIT_EEE12getHashValueERKS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_11AssertingVHIT_EEE7isEqualERKS3_S6_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_11PoisoningVHIT_EEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_11PoisoningVHIT_EEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_11PoisoningVHIT_EEE12getHashValueERKS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_11PoisoningVHIT_EEE7isEqualERKS3_S6_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12LocationSizeEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12LocationSizeEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12LocationSizeEE12getHashValueERKS1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12LocationSizeEE7isEqualERKS1_S4_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14MemoryLocationEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14MemoryLocationEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14MemoryLocationEE12getHashValueERKS1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14MemoryLocationEE7isEqualERKS1_S4_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14BasicBlockEdgeEE12getHashValueEPKS1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14BasicBlockEdgeEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14BasicBlockEdgeEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14BasicBlockEdgeEE12getHashValueERKS1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14BasicBlockEdgeEE7isEqualERKS1_S4_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_18ValueMapCallbackVHIT_T0_T1_EEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_18ValueMapCallbackVHIT_T0_T1_EEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_18ValueMapCallbackVHIT_T0_T1_EEE12getHashValueERKS5_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_18ValueMapCallbackVHIT_T0_T1_EEE12getHashValueERKS2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_18ValueMapCallbackVHIT_T0_T1_EEE7isEqualERKS5_S8_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_18ValueMapCallbackVHIT_T0_T1_EEE7isEqualERKS2_RKS5_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14ExitLimitQueryEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14ExitLimitQueryEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14ExitLimitQueryEE12getHashValueES1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14ExitLimitQueryEE7isEqualES1_S1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_18PointerEmbeddedIntIT_XT0_EEEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_18PointerEmbeddedIntIT_XT0_EEEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_18PointerEmbeddedIntIT_XT0_EEEE12getHashValueERKS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_18PointerEmbeddedIntIT_XT0_EEEE7isEqualERKS3_S6_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14PointerSumTypeIT_JDpT0_EEEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14PointerSumTypeIT_JDpT0_EEEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14PointerSumTypeIT_JDpT0_EEEE12getHashValueERKS5_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14PointerSumTypeIT_JDpT0_EEEE7isEqualERKS5_S8_'/>
+<def f='llvm/clang/lib/CodeGen/CodeGenTBAA.h' l='219' ll='253'/>
+<def f='llvm/llvm/include/llvm/IR/DebugInfoMetadata.h' l='2575' ll='2588'/>
+<size>1</size>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang7CodeGen14TBAAAccessInfoEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang7CodeGen14TBAAAccessInfoEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang7CodeGen14TBAAAccessInfoEE12getHashValueERKS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN5clang7CodeGen14TBAAAccessInfoEE7isEqualERKS3_S6_'/>
+<smbr r='llvm::DenseMapInfo{llvm::DIExpression::FragmentInfo}::MaxVal' t='const uint64_t'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12DIExpression12FragmentInfoEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12DIExpression12FragmentInfoEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12DIExpression12FragmentInfoEE12getHashValueERKS2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12DIExpression12FragmentInfoEE7isEqualERKS2_S5_'/>
+<def f='llvm/llvm/include/llvm/Support/LowLevelTypeImpl.h' l='280' ll='298'/>
+<def f='llvm/llvm/include/llvm/CodeGen/MachineOperand.h' l='928' ll='948'/>
+<ovr f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1634' c='llvm::MachineInstrExpressionTrait'/>
+<size>1</size>
+<fun r='_ZN4llvm12DenseMapInfoINS_3LLTEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_3LLTEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_3LLTEE12getHashValueERKS1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_3LLTEE7isEqualERKS1_S4_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14MachineOperandEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14MachineOperandEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14MachineOperandEE12getHashValueERKS1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_14MachineOperandEE7isEqualERKS1_S4_'/>
+<def f='llvm/llvm/include/llvm/ProfileData/Coverage/CoverageMapping.h' l='787' ll='814'/>
+<size>1</size>
+<doc f='llvm/llvm/include/llvm/ProfileData/Coverage/CoverageMapping.h' l='786'>/// Provide DenseMapInfo for CounterExpression</doc>
+<fun r='_ZN4llvm12DenseMapInfoINS_8coverage17CounterExpressionEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8coverage17CounterExpressionEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8coverage17CounterExpressionEE12getHashValueERKS2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8coverage17CounterExpressionEE7isEqualERKS2_S5_'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/AliasSetTracker.h' l='343' c='llvm::AliasSetTracker::ASTCallbackVHDenseMapInfo'/>
+<def f='llvm/clang/tools/libclang/CXCursor.cpp' l='1364' ll='1381'/>
+<size>1</size>
+<fun r='_ZN4llvm12DenseMapInfoI8CXCursorE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoI8CXCursorE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoI8CXCursorE12getHashValueERKS1_'/>
+<fun r='_ZN4llvm12DenseMapInfoI8CXCursorE7isEqualERKS1_S4_'/>
+<def f='llvm/llvm/include/llvm/DebugInfo/CodeView/TypeIndex.h' l='281' ll='295'/>
+<inh f='llvm/lld/COFF/Chunks.h' l='547' c='lld::coff::ChunkAndOffset::DenseMapInfo'/>
+<def f='llvm/lld/COFF/Chunks.h' l='682' ll='684'/>
+<size>1</size>
+<fun r='_ZN4llvm12DenseMapInfoINS_8codeview9TypeIndexEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8codeview9TypeIndexEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8codeview9TypeIndexEE12getHashValueERKS2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8codeview9TypeIndexEE7isEqualERKS2_S5_'/>
+<def f='llvm/llvm/include/llvm/DebugInfo/CodeView/TypeHashing.h' l='175' ll='193'/>
+<def f='llvm/llvm/include/llvm/DebugInfo/CodeView/TypeHashing.h' l='195' ll='211'/>
+<size>1</size>
+<smbr r='llvm::DenseMapInfo{llvm::codeview::LocallyHashedType}::Empty' t='codeview::LocallyHashedType'/>
+<smbr r='llvm::DenseMapInfo{llvm::codeview::LocallyHashedType}::Tombstone' t='codeview::LocallyHashedType'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEE12getHashValueES2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEE7isEqualES2_S2_'/>
+<smbr r='llvm::DenseMapInfo{llvm::codeview::GloballyHashedType}::Empty' t='codeview::GloballyHashedType'/>
+<smbr r='llvm::DenseMapInfo{llvm::codeview::GloballyHashedType}::Tombstone' t='codeview::GloballyHashedType'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8codeview18GloballyHashedTypeEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8codeview18GloballyHashedTypeEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8codeview18GloballyHashedTypeEE12getHashValueES2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8codeview18GloballyHashedTypeEE7isEqualES2_S2_'/>
+<def f='llvm/lld/ELF/Arch/Cheri.h' l='360' ll='375'/>
+<size>1</size>
+<fun r='_ZN4llvm12DenseMapInfoIN3lld3elf21CheriCapRelocLocationEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN3lld3elf21CheriCapRelocLocationEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoIN3lld3elf21CheriCapRelocLocationEE12getHashValueERKS3_'/>
+<fun r='_ZN4llvm12DenseMapInfoIN3lld3elf21CheriCapRelocLocationEE7isEqualERKS3_S6_'/>
+<def f='llvm/llvm/include/llvm/Object/WasmTraits.h' l='24' ll='47'/>
+<def f='llvm/llvm/include/llvm/Object/WasmTraits.h' l='50' ll='64'/>
+<size>1</size>
+<doc f='llvm/llvm/include/llvm/Object/WasmTraits.h' l='23'>// Traits for using WasmSignature in a DenseMap.</doc>
+<doc f='llvm/llvm/include/llvm/Object/WasmTraits.h' l='49'>// Traits for using WasmGlobalType in a DenseMap</doc>
+<fun r='_ZN4llvm12DenseMapInfoINS_4wasm13WasmSignatureEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_4wasm13WasmSignatureEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_4wasm13WasmSignatureEE12getHashValueERKS2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_4wasm13WasmSignatureEE7isEqualERKS2_S5_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_4wasm14WasmGlobalTypeEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_4wasm14WasmGlobalTypeEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_4wasm14WasmGlobalTypeEE12getHashValueERKS2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_4wasm14WasmGlobalTypeEE7isEqualERKS2_S5_'/>
+<def f='llvm/llvm/lib/Analysis/AliasAnalysisSummary.h' l='245' ll='262'/>
+<size>1</size>
+<fun r='_ZN4llvm12DenseMapInfoINS_5cflaa17InstantiatedValueEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_5cflaa17InstantiatedValueEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_5cflaa17InstantiatedValueEE12getHashValueERKS2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_5cflaa17InstantiatedValueEE7isEqualERKS2_S5_'/>
+<def f='llvm/llvm/include/llvm/BinaryFormat/Minidump.h' l='185' ll='199'/>
+<size>1</size>
+<fun r='_ZN4llvm12DenseMapInfoINS_8minidump10StreamTypeEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8minidump10StreamTypeEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8minidump10StreamTypeEE12getHashValueES2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8minidump10StreamTypeEE7isEqualES2_S2_'/>
+<def f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='213' ll='234'/>
+<def f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='1700' ll='1725'/>
+<size>1</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='1699'>/// Provide DenseMapInfo for TargetInstrInfo::RegSubRegPair.</doc>
+<fun r='_ZN4llvm12DenseMapInfoINS_7SDValueEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_7SDValueEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_7SDValueEE12getHashValueERKS1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_7SDValueEE7isEqualERKS1_S4_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_15TargetInstrInfo13RegSubRegPairEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_15TargetInstrInfo13RegSubRegPairEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_15TargetInstrInfo13RegSubRegPairEE12getHashValueERKS2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_15TargetInstrInfo13RegSubRegPairEE7isEqualERKS2_S5_'/>
+<def f='llvm/llvm/include/llvm/Transforms/Utils/BypassSlowDivision.h' l='38' ll='57'/>
+<size>1</size>
+<fun r='_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEE7isEqualERKS1_S4_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEE12getHashValueERKS1_'/>
+<def f='llvm/llvm/include/llvm/TextAPI/MachO/InterfaceFile.h' l='126' ll='143'/>
+<size>1</size>
+<fun r='_ZN4llvm12DenseMapInfoINS_13SymbolsMapKeyEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_13SymbolsMapKeyEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_13SymbolsMapKeyEE12getHashValueERKS1_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_13SymbolsMapKeyEE7isEqualERKS1_S4_'/>
+<def f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='141' ll='154'/>
+<size>1</size>
+<fun r='_ZN4llvm12DenseMapInfoINS_3GVN10ExpressionEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_3GVN10ExpressionEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_3GVN10ExpressionEE12getHashValueERKS2_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_3GVN10ExpressionEE7isEqualERKS2_S5_'/>
+<def f='llvm/llvm/lib/Transforms/Scalar/NewGVN.cpp' l='441' ll='482'/>
+<size>1</size>
+<def f='llvm/llvm/tools/dsymutil/BinaryHolder.h' l='140' ll='161'/>
+<size>1</size>
+<fun r='_ZN4llvm12DenseMapInfoINS_8dsymutil12BinaryHolder12ArchiveEntry5KeyTyEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8dsymutil12BinaryHolder12ArchiveEntry5KeyTyEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8dsymutil12BinaryHolder12ArchiveEntry5KeyTyEE12getHashValueERKS4_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_8dsymutil12BinaryHolder12ArchiveEntry5KeyTyEE7isEqualERKS4_S7_'/>
+<ovr f='llvm/llvm/tools/dsymutil/DeclContext.h' l='149' c='llvm::dsymutil::DeclMapInfo'/>
+<def f='llvm/llvm/include/llvm/ADT/ImmutableList.h' l='224' ll='242'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_13ImmutableListIT_EEE11getEmptyKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_13ImmutableListIT_EEE15getTombstoneKeyEv'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_13ImmutableListIT_EEE12getHashValueES3_'/>
+<fun r='_ZN4llvm12DenseMapInfoINS_13ImmutableListIT_EEE7isEqualES3_S3_'/>
+<def f='llvm/llvm/unittests/Support/ReverseIterationTest.cpp' l='62' ll='80'/>
+<size>1</size>

@@ -1,0 +1,39 @@
+<def f='llvm/llvm/include/llvm/Transforms/IPO/Attributor.h' l='151' ll='279'/>
+<size>592</size>
+<doc f='llvm/llvm/include/llvm/Transforms/IPO/Attributor.h' l='122'>///}
+
+/// The fixpoint analysis framework that orchestrates the attribute deduction.
+///
+/// The Attributor provides a general abstract analysis framework (guided
+/// fixpoint iteration) as well as helper functions for the deduction of
+/// (LLVM-IR) attributes. However, also other code properties can be deduced,
+/// propagated, and ultimately manifested through the Attributor framework. This
+/// is particularly useful if these properties interact with attributes and a
+/// co-scheduled deduction allows to improve the solution. Even if not, thus if
+/// attributes/properties are completely isolated, they should use the
+/// Attributor framework to reduce the number of fixpoint iteration frameworks
+/// in the code base. Note that the Attributor design makes sure that isolated
+/// attributes are not impacted, in any way, by others derived at the same time
+/// if there is no cross-reasoning performed.
+///
+/// The public facing interface of the Attributor is kept simple and basically
+/// allows abstract attributes to one thing, query abstract attributes
+/// in-flight. There are two reasons to do this:
+///    a) The optimistic state of one abstract attribute can justify an
+///       optimistic state of another, allowing to framework to end up with an
+///       optimistic (=best possible) fixpoint instead of one based solely on
+///       information in the IR.
+///    b) This avoids reimplementing various kinds of lookups, e.g., to check
+///       for existing IR attributes, in favor of a single lookups interface
+///       provided by an abstract attribute subclass.
+///
+/// NOTE: The mechanics of adding a new &quot;concrete&quot; abstract attribute are
+///       described in the file comment.</doc>
+<fun r='_ZN4llvm10AttributorD1Ev'/>
+<fun r='_ZN4llvm10Attributor3runEv'/>
+<fun r='_ZN4llvm10Attributor8getAAForERNS_17AbstractAttributeERKNS_5ValueEi'/>
+<fun r='_ZN4llvm10Attributor10registerAAERT_i'/>
+<fun r='_ZN4llvm10Attributor33identifyDefaultAbstractAttributesERNS_8FunctionERNS_16InformationCacheEPNS_8DenseSetIjNS_12DenseMapInfoIjEEEE'/>
+<mbr r='llvm::Attributor::AllAbstractAttributes' o='0' t='AAVector'/>
+<mbr r='llvm::Attributor::AAMap' o='4224' t='DenseMap&lt;std::pair&lt;const Value *, int&gt;, KindToAbstractAttributeMap&gt;'/>
+<mbr r='llvm::Attributor::QueryMap' o='4480' t='QueryMapTy'/>

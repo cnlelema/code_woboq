@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='527' type='llvm::PHINode * llvm::Loop::getCanonicalInductionVariable() const'/>
+<doc f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='520'>/// Check to see if the loop has a canonical induction variable: an integer
+  /// recurrence that starts at 0 and increments by one each time through the
+  /// loop. If so, return the phi node that corresponds to it.
+  ///
+  /// The IndVarSimplify pass transforms loops to have a canonical induction
+  /// variable.
+  ///</doc>
+<def f='llvm/llvm/lib/Analysis/LoopInfo.cpp' l='146' ll='167' type='llvm::PHINode * llvm::Loop::getCanonicalInductionVariable() const'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1494' u='c' c='_ZN4llvm12SCEVExpander15visitAddRecExprEPKNS_14SCEVAddRecExprE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopInterchange.cpp' l='296' u='c' c='_ZL20getInductionVariablePN4llvm4LoopEPNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorizationLegality.cpp' l='333' u='c' c='_ZN4llvmL13isUniformLoopEPNS_4LoopES1_'/>
+<use f='llvm/llvm/unittests/Analysis/ScalarEvolutionTest.cpp' l='1475' u='c' c='_ZN4llvm12_GLOBAL__N_153ScalarEvolutionsTest_SCEVExpandInsertCanonicalIV_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/ScalarEvolutionTest.cpp' l='1483' u='c' c='_ZN4llvm12_GLOBAL__N_153ScalarEvolutionsTest_SCEVExpandInsertCanonicalIV_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/ScalarEvolutionTest.cpp' l='1520' u='c' c='_ZN4llvm12_GLOBAL__N_153ScalarEvolutionsTest_SCEVExpandInsertCanonicalIV_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/ScalarEvolutionTest.cpp' l='1601' u='c' c='_ZN4llvm12_GLOBAL__N_153ScalarEvolutionsTest_SCEVExpandInsertCanonicalIV_Test8TestBodyEv'/>

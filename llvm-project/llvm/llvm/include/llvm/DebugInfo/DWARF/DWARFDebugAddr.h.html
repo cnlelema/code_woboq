@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>DWARFDebugAddr.h source code [llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFDebugAddr.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::DWARFDebugAddrTable "/>
+<link rel="stylesheet" href="../../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFDebugAddr.h'; var root_path = '../../../../../..'; var data_path = '../../../../../../../data';</script>
+<script src='../../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>llvm</a>/<a href='../../../..'>llvm</a>/<a href='../../..'>include</a>/<a href='../..'>llvm</a>/<a href='..'>DebugInfo</a>/<a href='./'>DWARF</a>/<a href='DWARFDebugAddr.h.html'>DWARFDebugAddr.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- DWARFDebugAddr.h -------------------------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLVM_DEBUGINFO_DWARFDEBUGADDR_H">LLVM_DEBUGINFO_DWARFDEBUGADDR_H</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLVM_DEBUGINFO_DWARFDEBUGADDR_H" data-ref="_M/LLVM_DEBUGINFO_DWARFDEBUGADDR_H">LLVM_DEBUGINFO_DWARFDEBUGADDR_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="../../BinaryFormat/Dwarf.h.html">"llvm/BinaryFormat/Dwarf.h"</a></u></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../DIContext.h.html">"llvm/DebugInfo/DIContext.h"</a></u></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="DWARFDataExtractor.h.html">"llvm/DebugInfo/DWARF/DWARFDataExtractor.h"</a></u></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="../../Support/Errc.h.html">"llvm/Support/Errc.h"</a></u></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="../../Support/Error.h.html">"llvm/Support/Error.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../../../../../include/c++/7/cstdint.html">&lt;cstdint&gt;</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../../../../include/c++/7/map.html">&lt;map&gt;</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../../../include/c++/7/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>class</b> <a class="type" href="../../Support/Error.h.html#llvm::Error" title='llvm::Error' data-ref="llvm::Error" id="llvm::Error">Error</a>;</td></tr>
+<tr><th id="24">24</th><td><b>class</b> <a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream" id="llvm::raw_ostream">raw_ostream</a>;</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><i class="doc">/// A class representing an address table as specified in DWARF v5.</i></td></tr>
+<tr><th id="27">27</th><td><i class="doc">/// The table consists of a header followed by an array of address values from</i></td></tr>
+<tr><th id="28">28</th><td><i class="doc">/// .debug_addr section.</i></td></tr>
+<tr><th id="29">29</th><td><b>class</b> <dfn class="type def" id="llvm::DWARFDebugAddrTable" title='llvm::DWARFDebugAddrTable' data-ref="llvm::DWARFDebugAddrTable">DWARFDebugAddrTable</dfn> {</td></tr>
+<tr><th id="30">30</th><td><b>public</b>:</td></tr>
+<tr><th id="31">31</th><td>  <b>struct</b> <dfn class="type def" id="llvm::DWARFDebugAddrTable::Header" title='llvm::DWARFDebugAddrTable::Header' data-ref="llvm::DWARFDebugAddrTable::Header">Header</dfn> {</td></tr>
+<tr><th id="32">32</th><td>    <i class="doc">/// The total length of the entries for this table, not including the length</i></td></tr>
+<tr><th id="33">33</th><td><i class="doc">    /// field itself.</i></td></tr>
+<tr><th id="34">34</th><td>    <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="decl" id="llvm::DWARFDebugAddrTable::Header::Length" title='llvm::DWARFDebugAddrTable::Header::Length' data-ref="llvm::DWARFDebugAddrTable::Header::Length">Length</dfn> = <var>0</var>;</td></tr>
+<tr><th id="35">35</th><td>    <i class="doc">/// The DWARF version number.</i></td></tr>
+<tr><th id="36">36</th><td>    <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint16_t" title='uint16_t' data-type='__uint16_t' data-ref="uint16_t">uint16_t</a> <dfn class="decl" id="llvm::DWARFDebugAddrTable::Header::Version" title='llvm::DWARFDebugAddrTable::Header::Version' data-ref="llvm::DWARFDebugAddrTable::Header::Version">Version</dfn> = <var>5</var>;</td></tr>
+<tr><th id="37">37</th><td>    <i class="doc">/// The size in bytes of an address on the target architecture. For</i></td></tr>
+<tr><th id="38">38</th><td><i class="doc">    /// segmented addressing, this is the size of the offset portion of the</i></td></tr>
+<tr><th id="39">39</th><td><i class="doc">    /// address.</i></td></tr>
+<tr><th id="40">40</th><td>    <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="decl" id="llvm::DWARFDebugAddrTable::Header::AddrSize" title='llvm::DWARFDebugAddrTable::Header::AddrSize' data-ref="llvm::DWARFDebugAddrTable::Header::AddrSize">AddrSize</dfn>;</td></tr>
+<tr><th id="41">41</th><td>    <i class="doc">/// The size in bytes of a segment selector on the target architecture.</i></td></tr>
+<tr><th id="42">42</th><td><i class="doc">    /// If the target system uses a flat address space, this value is 0.</i></td></tr>
+<tr><th id="43">43</th><td>    <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="decl" id="llvm::DWARFDebugAddrTable::Header::SegSize" title='llvm::DWARFDebugAddrTable::Header::SegSize' data-ref="llvm::DWARFDebugAddrTable::Header::SegSize">SegSize</dfn> = <var>0</var>;</td></tr>
+<tr><th id="44">44</th><td>  };</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><b>private</b>:</td></tr>
+<tr><th id="47">47</th><td>  <span class="namespace">dwarf::</span><a class="type" href="../../BinaryFormat/Dwarf.h.html#llvm::dwarf::DwarfFormat" title='llvm::dwarf::DwarfFormat' data-ref="llvm::dwarf::DwarfFormat">DwarfFormat</a> <dfn class="decl" id="llvm::DWARFDebugAddrTable::Format" title='llvm::DWARFDebugAddrTable::Format' data-ref="llvm::DWARFDebugAddrTable::Format">Format</dfn>;</td></tr>
+<tr><th id="48">48</th><td>  <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="decl" id="llvm::DWARFDebugAddrTable::HeaderOffset" title='llvm::DWARFDebugAddrTable::HeaderOffset' data-ref="llvm::DWARFDebugAddrTable::HeaderOffset">HeaderOffset</dfn>;</td></tr>
+<tr><th id="49">49</th><td>  <a class="type" href="#llvm::DWARFDebugAddrTable::Header" title='llvm::DWARFDebugAddrTable::Header' data-ref="llvm::DWARFDebugAddrTable::Header">Header</a> <dfn class="decl" id="llvm::DWARFDebugAddrTable::HeaderData" title='llvm::DWARFDebugAddrTable::HeaderData' data-ref="llvm::DWARFDebugAddrTable::HeaderData">HeaderData</dfn>;</td></tr>
+<tr><th id="50">50</th><td>  <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="decl" id="llvm::DWARFDebugAddrTable::DataSize" title='llvm::DWARFDebugAddrTable::DataSize' data-ref="llvm::DWARFDebugAddrTable::DataSize">DataSize</dfn> = <var>0</var>;</td></tr>
+<tr><th id="51">51</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a>&gt; <dfn class="decl" id="llvm::DWARFDebugAddrTable::Addrs" title='llvm::DWARFDebugAddrTable::Addrs' data-ref="llvm::DWARFDebugAddrTable::Addrs">Addrs</dfn>;</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><b>public</b>:</td></tr>
+<tr><th id="54">54</th><td>  <em>void</em> <dfn class="decl" id="_ZN4llvm19DWARFDebugAddrTable5clearEv" title='llvm::DWARFDebugAddrTable::clear' data-ref="_ZN4llvm19DWARFDebugAddrTable5clearEv">clear</dfn>();</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>  <i class="doc">/// Extract an entire table, including all addresses.</i></td></tr>
+<tr><th id="57">57</th><td>  <a class="type" href="../../Support/Error.h.html#llvm::Error" title='llvm::Error' data-ref="llvm::Error">Error</a> <dfn class="decl" id="_ZN4llvm19DWARFDebugAddrTable7extractENS_18DWARFDataExtractorEPjthSt8functionIFvNS_5ErrorEEE" title='llvm::DWARFDebugAddrTable::extract' data-ref="_ZN4llvm19DWARFDebugAddrTable7extractENS_18DWARFDataExtractorEPjthSt8functionIFvNS_5ErrorEEE">extract</dfn>(<a class="type" href="DWARFDataExtractor.h.html#llvm::DWARFDataExtractor" title='llvm::DWARFDataExtractor' data-ref="llvm::DWARFDataExtractor">DWARFDataExtractor</a> <dfn class="local col1 decl" id="1Data" title='Data' data-type='llvm::DWARFDataExtractor' data-ref="1Data">Data</dfn>, <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col2 decl" id="2OffsetPtr" title='OffsetPtr' data-type='uint32_t *' data-ref="2OffsetPtr">OffsetPtr</dfn>,</td></tr>
+<tr><th id="58">58</th><td>                <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint16_t" title='uint16_t' data-type='__uint16_t' data-ref="uint16_t">uint16_t</a> <dfn class="local col3 decl" id="3Version" title='Version' data-type='uint16_t' data-ref="3Version">Version</dfn>, <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col4 decl" id="4AddrSize" title='AddrSize' data-type='uint8_t' data-ref="4AddrSize">AddrSize</dfn>,</td></tr>
+<tr><th id="59">59</th><td>                <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/7/bits/std_function.h.html#std::function" title='std::function' data-ref="std::function">function</a>&lt;<em>void</em>(<a class="type" href="../../Support/Error.h.html#llvm::Error" title='llvm::Error' data-ref="llvm::Error">Error</a>)&gt; <dfn class="local col5 decl" id="5WarnCallback" title='WarnCallback' data-type='std::function&lt;void (Error)&gt;' data-ref="5WarnCallback">WarnCallback</dfn>);</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>  <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="decl def" id="_ZNK4llvm19DWARFDebugAddrTable15getHeaderOffsetEv" title='llvm::DWARFDebugAddrTable::getHeaderOffset' data-ref="_ZNK4llvm19DWARFDebugAddrTable15getHeaderOffsetEv">getHeaderOffset</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::DWARFDebugAddrTable::HeaderOffset" title='llvm::DWARFDebugAddrTable::HeaderOffset' data-ref="llvm::DWARFDebugAddrTable::HeaderOffset">HeaderOffset</a>; }</td></tr>
+<tr><th id="62">62</th><td>  <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="decl def" id="_ZNK4llvm19DWARFDebugAddrTable11getAddrSizeEv" title='llvm::DWARFDebugAddrTable::getAddrSize' data-ref="_ZNK4llvm19DWARFDebugAddrTable11getAddrSizeEv">getAddrSize</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::DWARFDebugAddrTable::HeaderData" title='llvm::DWARFDebugAddrTable::HeaderData' data-ref="llvm::DWARFDebugAddrTable::HeaderData">HeaderData</a>.<a class="ref" href="#llvm::DWARFDebugAddrTable::Header::AddrSize" title='llvm::DWARFDebugAddrTable::Header::AddrSize' data-ref="llvm::DWARFDebugAddrTable::Header::AddrSize">AddrSize</a>; }</td></tr>
+<tr><th id="63">63</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm19DWARFDebugAddrTable4dumpERNS_11raw_ostreamENS_13DIDumpOptionsE" title='llvm::DWARFDebugAddrTable::dump' data-ref="_ZNK4llvm19DWARFDebugAddrTable4dumpERNS_11raw_ostreamENS_13DIDumpOptionsE">dump</dfn>(<a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col6 decl" id="6OS" title='OS' data-type='llvm::raw_ostream &amp;' data-ref="6OS">OS</dfn>, <a class="type" href="../DIContext.h.html#llvm::DIDumpOptions" title='llvm::DIDumpOptions' data-ref="llvm::DIDumpOptions">DIDumpOptions</a> <dfn class="local col7 decl" id="7DumpOpts" title='DumpOpts' data-type='llvm::DIDumpOptions' data-ref="7DumpOpts">DumpOpts</dfn> = <a class="ref" href="../DIContext.h.html#157" title='llvm::DIDumpOptions::DIDumpOptions' data-ref="_ZN4llvm13DIDumpOptionsC1Ev">{</a>}) <em>const</em>;</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>  <i class="doc">/// Return the address based on a given index.</i></td></tr>
+<tr><th id="66">66</th><td>  <a class="type" href="../../Support/Error.h.html#llvm::Expected" title='llvm::Expected' data-ref="llvm::Expected">Expected</a>&lt;<a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a>&gt; <dfn class="decl" id="_ZNK4llvm19DWARFDebugAddrTable12getAddrEntryEj" title='llvm::DWARFDebugAddrTable::getAddrEntry' data-ref="_ZNK4llvm19DWARFDebugAddrTable12getAddrEntryEj">getAddrEntry</dfn>(<a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col8 decl" id="8Index" title='Index' data-type='uint32_t' data-ref="8Index">Index</dfn>) <em>const</em>;</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>  <i class="doc">/// Return the size of the table header including the length</i></td></tr>
+<tr><th id="69">69</th><td><i class="doc">  /// but not including the addresses.</i></td></tr>
+<tr><th id="70">70</th><td>  <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="decl def" id="_ZNK4llvm19DWARFDebugAddrTable13getHeaderSizeEv" title='llvm::DWARFDebugAddrTable::getHeaderSize' data-ref="_ZNK4llvm19DWARFDebugAddrTable13getHeaderSizeEv">getHeaderSize</dfn>() <em>const</em> {</td></tr>
+<tr><th id="71">71</th><td>    <b>switch</b> (<a class="member" href="#llvm::DWARFDebugAddrTable::Format" title='llvm::DWARFDebugAddrTable::Format' data-ref="llvm::DWARFDebugAddrTable::Format">Format</a>) {</td></tr>
+<tr><th id="72">72</th><td>    <b>case</b> <span class="namespace">dwarf::</span><a class="type" href="../../BinaryFormat/Dwarf.h.html#llvm::dwarf::DwarfFormat" title='llvm::dwarf::DwarfFormat' data-ref="llvm::dwarf::DwarfFormat">DwarfFormat</a>::<a class="enum" href="../../BinaryFormat/Dwarf.h.html#llvm::dwarf::DwarfFormat::DWARF32" title='llvm::dwarf::DwarfFormat::DWARF32' data-ref="llvm::dwarf::DwarfFormat::DWARF32">DWARF32</a>:</td></tr>
+<tr><th id="73">73</th><td>      <b>return</b> <var>8</var>; <i>// 4 + 2 + 1 + 1</i></td></tr>
+<tr><th id="74">74</th><td>    <b>case</b> <span class="namespace">dwarf::</span><a class="type" href="../../BinaryFormat/Dwarf.h.html#llvm::dwarf::DwarfFormat" title='llvm::dwarf::DwarfFormat' data-ref="llvm::dwarf::DwarfFormat">DwarfFormat</a>::<a class="enum" href="../../BinaryFormat/Dwarf.h.html#llvm::dwarf::DwarfFormat::DWARF64" title='llvm::dwarf::DwarfFormat::DWARF64' data-ref="llvm::dwarf::DwarfFormat::DWARF64">DWARF64</a>:</td></tr>
+<tr><th id="75">75</th><td>      <b>return</b> <var>16</var>; <i>// 12 + 2 + 1 + 1</i></td></tr>
+<tr><th id="76">76</th><td>    }</td></tr>
+<tr><th id="77">77</th><td>    <a class="macro" href="../../Support/ErrorHandling.h.html#135" title="::llvm::llvm_unreachable_internal(&quot;Invalid DWARF format (expected DWARF32 or DWARF64)&quot;, &quot;/root/cheri/llvm-project/llvm/include/llvm/DebugInfo/DWARF/DWARFDebugAddr.h&quot;, 77)" data-ref="_M/llvm_unreachable">llvm_unreachable</a>(<q>"Invalid DWARF format (expected DWARF32 or DWARF64)"</q>);</td></tr>
+<tr><th id="78">78</th><td>  }</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>  <i class="doc">/// Returns the length of this table, including the length field, or 0 if the</i></td></tr>
+<tr><th id="81">81</th><td><i class="doc">  /// length has not been determined (e.g. because the table has not yet been</i></td></tr>
+<tr><th id="82">82</th><td><i class="doc">  /// parsed, or there was a problem in parsing).</i></td></tr>
+<tr><th id="83">83</th><td>  <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="decl" id="_ZNK4llvm19DWARFDebugAddrTable9getLengthEv" title='llvm::DWARFDebugAddrTable::getLength' data-ref="_ZNK4llvm19DWARFDebugAddrTable9getLengthEv">getLength</dfn>() <em>const</em>;</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td>  <i class="doc">/// Verify that the given length is valid for this table.</i></td></tr>
+<tr><th id="86">86</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm19DWARFDebugAddrTable14hasValidLengthEv" title='llvm::DWARFDebugAddrTable::hasValidLength' data-ref="_ZNK4llvm19DWARFDebugAddrTable14hasValidLengthEv">hasValidLength</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#_ZNK4llvm19DWARFDebugAddrTable9getLengthEv" title='llvm::DWARFDebugAddrTable::getLength' data-ref="_ZNK4llvm19DWARFDebugAddrTable9getLengthEv">getLength</a>() != <var>0</var>; }</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>  <i class="doc">/// Invalidate Length field to stop further processing.</i></td></tr>
+<tr><th id="89">89</th><td>  <em>void</em> <dfn class="decl def" id="_ZN4llvm19DWARFDebugAddrTable16invalidateLengthEv" title='llvm::DWARFDebugAddrTable::invalidateLength' data-ref="_ZN4llvm19DWARFDebugAddrTable16invalidateLengthEv">invalidateLength</dfn>() { <a class="member" href="#llvm::DWARFDebugAddrTable::HeaderData" title='llvm::DWARFDebugAddrTable::HeaderData' data-ref="llvm::DWARFDebugAddrTable::HeaderData">HeaderData</a>.<a class="ref" href="#llvm::DWARFDebugAddrTable::Header::Length" title='llvm::DWARFDebugAddrTable::Header::Length' data-ref="llvm::DWARFDebugAddrTable::Header::Length">Length</a> = <var>0</var>; }</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td>  <i class="doc">/// Returns the length of the array of addresses.</i></td></tr>
+<tr><th id="92">92</th><td>  <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="decl" id="_ZNK4llvm19DWARFDebugAddrTable11getDataSizeEv" title='llvm::DWARFDebugAddrTable::getDataSize' data-ref="_ZNK4llvm19DWARFDebugAddrTable11getDataSizeEv">getDataSize</dfn>() <em>const</em>;</td></tr>
+<tr><th id="93">93</th><td>};</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><u>#<span data-ppcond="9">endif</span> // LLVM_DEBUGINFO_DWARFDEBUGADDR_H</u></td></tr>
+<tr><th id="98">98</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../lib/DebugInfo/DWARF/DWARFContext.cpp.html'>llvm/llvm/lib/DebugInfo/DWARF/DWARFContext.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

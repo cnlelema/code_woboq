@@ -1,0 +1,102 @@
+<def f='llvm/llvm/include/llvm/Support/PointerLikeTypeTraits.h' l='55' ll='60'/>
+<def f='llvm/llvm/include/llvm/Support/PointerLikeTypeTraits.h' l='62' ll='74'/>
+<def f='llvm/llvm/include/llvm/Support/PointerLikeTypeTraits.h' l='77' ll='87'/>
+<def f='llvm/llvm/include/llvm/Support/PointerLikeTypeTraits.h' l='90' ll='100'/>
+<def f='llvm/llvm/include/llvm/Support/PointerLikeTypeTraits.h' l='103' ll='112'/>
+<def f='llvm/llvm/include/llvm/Support/PointerLikeTypeTraits.h' l='143' ll='145'/>
+<def f='llvm/llvm/include/llvm/ADT/PointerIntPair.h' l='218' ll='238'/>
+<def f='llvm/llvm/include/llvm/ADT/PointerUnion.h' l='269' ll='283'/>
+<def f='llvm/clang/include/clang/AST/APValue.h' l='59' ll='69'/>
+<def f='llvm/clang/include/clang/Basic/SourceLocation.h' l='467' ll='478'/>
+<def f='llvm/clang/include/clang/AST/TemplateName.h' l='547' ll='559'/>
+<def f='llvm/clang/include/clang/AST/Type.h' l='75' ll='84'/>
+<def f='llvm/clang/include/clang/AST/Type.h' l='86' ll='95'/>
+<def f='llvm/clang/include/clang/AST/Type.h' l='1265' ll='1277'/>
+<def f='llvm/clang/include/clang/Basic/IdentifierTable.h' l='941' ll='952'/>
+<def f='llvm/clang/include/clang/Basic/IdentifierTable.h' l='956' ll='967'/>
+<def f='llvm/clang/include/clang/Basic/IdentifierTable.h' l='969' ll='980'/>
+<def f='llvm/clang/include/clang/AST/ExternalASTSource.h' l='493' ll='505'/>
+<def f='llvm/clang/include/clang/AST/DeclGroup.h' l='140' ll='151'/>
+<def f='llvm/clang/include/clang/AST/CanonicalType.h' l='376' ll='388'/>
+<def f='llvm/clang/include/clang/AST/DeclCXX.h' l='104' ll='116'/>
+<def f='llvm/clang/include/clang/Sema/Ownership.h' l='117' ll='129'/>
+<size>1</size>
+<doc f='llvm/llvm/include/llvm/Support/PointerLikeTypeTraits.h' l='54'>// Provide PointerLikeTypeTraits for non-cvr pointers.</doc>
+<doc f='llvm/llvm/include/llvm/Support/PointerLikeTypeTraits.h' l='76'>// Provide PointerLikeTypeTraits for const things.</doc>
+<doc f='llvm/llvm/include/llvm/Support/PointerLikeTypeTraits.h' l='89'>// Provide PointerLikeTypeTraits for const pointers.</doc>
+<doc f='llvm/llvm/include/llvm/Support/PointerLikeTypeTraits.h' l='102'>// Provide PointerLikeTypeTraits for uintptr_t.</doc>
+<doc f='llvm/llvm/include/llvm/Support/PointerLikeTypeTraits.h' l='136'>/// Provide a default specialization for function pointers that assumes 4-byte
+/// alignment.
+///
+/// We assume here that functions used with this are always at least 4-byte
+/// aligned. This means that, for example, thumb functions won&apos;t work or systems
+/// with weird unaligned function pointers won&apos;t work. But all practical systems
+/// we support satisfy this requirement.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/PointerIntPair.h' l='217'>// Teach SmallPtrSet that PointerIntPair is &quot;basically a pointer&quot;.</doc>
+<doc f='llvm/llvm/include/llvm/ADT/PointerUnion.h' l='267'>// Teach SmallPtrSet that PointerUnion is &quot;basically a pointer&quot;, that has
+// # low bits available = min(PT1bits,PT2bits)-1.</doc>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='1264'>// Teach SmallPtrSet that QualType is &quot;basically a pointer&quot;.</doc>
+<doc f='llvm/clang/include/clang/Basic/SourceLocation.h' l='466'>// Teach SmallPtrSet how to handle SourceLocation.</doc>
+<doc f='llvm/clang/include/clang/AST/TemplateName.h' l='546'>/// The clang::TemplateName class is effectively a pointer.</doc>
+<doc f='llvm/clang/include/clang/Basic/IdentifierTable.h' l='954'>// Provide PointerLikeTypeTraits for IdentifierInfo pointers, which
+// are not guaranteed to be 8-byte aligned.</doc>
+<doc f='llvm/clang/include/clang/AST/CanonicalType.h' l='375'>// Teach SmallPtrSet that CanQual&lt;T&gt; is &quot;basically a pointer&quot;.</doc>
+<doc f='llvm/clang/include/clang/AST/DeclCXX.h' l='103'>// Provide PointerLikeTypeTraits for non-cvr pointers.</doc>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIPT_E16getAsVoidPointerES2_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIPT_E18getFromVoidPointerEPv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIPvE16getAsVoidPointerES1_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIPvE18getFromVoidPointerES1_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIKT_E16getAsVoidPointerES1_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIKT_E18getFromVoidPointerEPKv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIPKT_E16getAsVoidPointerES3_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIPKT_E18getFromVoidPointerEPKv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsImE16getAsVoidPointerEm'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsImE18getFromVoidPointerEPv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsINS_14PointerIntPairIT_XT0_ET1_T2_NS_18PointerIntPairInfoIS2_XT0_ES4_EEEEE16getAsVoidPointerERKNS1_IS2_XT0_ES3_NS0_IS2_5631094'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsINS_14PointerIntPairIT_XT0_ET1_T2_NS_18PointerIntPairInfoIS2_XT0_ES4_EEEEE18getFromVoidPointerEPv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsINS_14PointerIntPairIT_XT0_ET1_T2_NS_18PointerIntPairInfoIS2_XT0_ES4_EEEEE18getFromVoidPointerEPKv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsINS_12PointerUnionIJDpT_EEEE16getAsVoidPointerERKS4_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsINS_12PointerUnionIJDpT_EEEE18getFromVoidPointerEPv'/>
+<smbr r='llvm::PointerLikeTypeTraits{PointerUnion{type-parameter-0-0...}}::NumLowBitsAvailable' t='const int'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang14TypeInfoLValueEE16getAsVoidPointerES2_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang14TypeInfoLValueEE18getFromVoidPointerEPv'/>
+<smbr r='llvm::PointerLikeTypeTraits{clang::TypeInfoLValue}::NumLowBitsAvailable' t='const int'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang14SourceLocationEE16getAsVoidPointerES2_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang14SourceLocationEE18getFromVoidPointerEPv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang12TemplateNameEE16getAsVoidPointerES2_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang12TemplateNameEE18getFromVoidPointerEPv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIPN5clang4TypeEE16getAsVoidPointerES3_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIPN5clang4TypeEE18getFromVoidPointerEPv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIPN5clang8ExtQualsEE16getAsVoidPointerES3_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIPN5clang8ExtQualsEE18getFromVoidPointerEPv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang8QualTypeEE16getAsVoidPointerES2_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang8QualTypeEE18getFromVoidPointerEPv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang8SelectorEE16getAsVoidPointerES2_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang8SelectorEE18getFromVoidPointerEPKv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIPN5clang14IdentifierInfoEE16getAsVoidPointerES3_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIPN5clang14IdentifierInfoEE18getFromVoidPointerEPv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIPKN5clang14IdentifierInfoEE16getAsVoidPointerES4_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIPKN5clang14IdentifierInfoEE18getFromVoidPointerEPKv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang25LazyGenerationalUpdatePtrIT_T0_XT1_EEEE16getAsVoidPointerES5_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang25LazyGenerationalUpdatePtrIT_T0_XT1_EEEE18getFromVoidPointerEPv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang12DeclGroupRefEE16getAsVoidPointerES2_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang12DeclGroupRefEE18getFromVoidPointerEPv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang7CanQualIT_EEE16getAsVoidPointerES4_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang7CanQualIT_EEE18getFromVoidPointerEPv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang15AnyFunctionDeclEE16getAsVoidPointerES2_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang15AnyFunctionDeclEE18getFromVoidPointerEPv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang9OpaquePtrIT_EEE16getAsVoidPointerES4_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang9OpaquePtrIT_EEE18getFromVoidPointerEPv'/>
+<def f='llvm/llvm/include/llvm/ADT/PointerEmbeddedInt.h' l='81' ll='98'/>
+<doc f='llvm/llvm/include/llvm/ADT/PointerEmbeddedInt.h' l='79'>// Provide pointer like traits to support use with pointer unions and sum
+// types.</doc>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsINS_18PointerEmbeddedIntIT_XT0_EEEE16getAsVoidPointerERKS3_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsINS_18PointerEmbeddedIntIT_XT0_EEEE18getFromVoidPointerEPv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsINS_18PointerEmbeddedIntIT_XT0_EEEE18getFromVoidPointerEPKv'/>
+<def f='llvm/clang/include/clang/CodeGen/ConstantInitFuture.h' l='32' ll='39'/>
+<def f='llvm/clang/include/clang/CodeGen/ConstantInitFuture.h' l='93' ll='104'/>
+<size>1</size>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIPN5clang7CodeGen23ConstantInitBuilderBaseEE16getAsVoidPointerES4_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIPN5clang7CodeGen23ConstantInitBuilderBaseEE18getFromVoidPointerEPv'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang7CodeGen18ConstantInitFutureEE16getAsVoidPointerES3_'/>
+<fun r='_ZN4llvm21PointerLikeTypeTraitsIN5clang7CodeGen18ConstantInitFutureEE18getFromVoidPointerEPv'/>

@@ -1,0 +1,28 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='6642' type='int clang_indexSourceFile(CXIndexAction , CXClientData client_data, IndexerCallbacks * index_callbacks, unsigned int index_callbacks_size, unsigned int index_options, const char * source_filename, const char *const * command_line_args, int num_command_line_args, struct CXUnsavedFile * unsaved_files, unsigned int num_unsaved_files, CXTranslationUnit * out_TU, unsigned int TU_options)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='6617'>/**
+ * Index the given source file and the translation unit corresponding
+ * to that file via callbacks implemented through #IndexerCallbacks.
+ *
+ * \param client_data pointer data supplied by the client, which will
+ * be passed to the invoked callbacks.
+ *
+ * \param index_callbacks Pointer to indexing callbacks that the client
+ * implements.
+ *
+ * \param index_callbacks_size Size of #IndexerCallbacks structure that gets
+ * passed in index_callbacks.
+ *
+ * \param index_options A bitmask of options that affects how indexing is
+ * performed. This should be a bitwise OR of the CXIndexOpt_XXX flags.
+ *
+ * \param[out] out_TU pointer to store a \c CXTranslationUnit that can be
+ * reused after indexing is finished. Set to \c NULL if you do not require it.
+ *
+ * \returns 0 on success or if there were errors from which the compiler could
+ * recover.  If there is a failure from which there is no recovery, returns
+ * a non-zero \c CXErrorCode.
+ *
+ * The rest of the parameters are the same as #clang_parseTranslationUnit.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='3827' u='c' c='index_compile_args'/>
+<def f='llvm/clang/tools/libclang/Indexing.cpp' l='839' ll='858' type='int clang_indexSourceFile(CXIndexAction idxAction, CXClientData client_data, IndexerCallbacks * index_callbacks, unsigned int index_callbacks_size, unsigned int index_options, const char * source_filename, const char *const * command_line_args, int num_command_line_args, struct CXUnsavedFile * unsaved_files, unsigned int num_unsaved_files, CXTranslationUnit * out_TU, unsigned int TU_options)'/>

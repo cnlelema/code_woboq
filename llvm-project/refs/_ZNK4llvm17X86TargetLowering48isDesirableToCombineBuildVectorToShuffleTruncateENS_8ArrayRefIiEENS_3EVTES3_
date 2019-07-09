@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/lib/Target/X86/X86ISelLowering.h' l='781' type='bool llvm::X86TargetLowering::isDesirableToCombineBuildVectorToShuffleTruncate(ArrayRef&lt;int&gt; ShuffleMask, llvm::EVT SrcVT, llvm::EVT TruncVT) const'/>
+<doc f='llvm/llvm/lib/Target/X86/X86ISelLowering.h' l='771'>// Return true if it is profitable to combine a BUILD_VECTOR with a
+    // stride-pattern to a shuffle and a truncate.
+    // Example of such a combine:
+    // v4i32 build_vector((extract_elt V, 1),
+    //                    (extract_elt V, 3),
+    //                    (extract_elt V, 5),
+    //                    (extract_elt V, 7))
+    //  --&gt;
+    // v4i32 truncate (bitcast (shuffle&lt;1,u,3,u,4,u,5,u,6,u,7,u&gt; V, u) to
+    // v4i64)</doc>
+<inh f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='3290' c='_ZNK4llvm14TargetLowering48isDesirableToCombineBuildVectorToShuffleTruncateENS_8ArrayRefIiEENS_3EVTES3_'/>
+<def f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='43756' ll='43775' type='bool llvm::X86TargetLowering::isDesirableToCombineBuildVectorToShuffleTruncate(ArrayRef&lt;int&gt; ShuffleMask, llvm::EVT SrcVT, llvm::EVT TruncVT) const'/>

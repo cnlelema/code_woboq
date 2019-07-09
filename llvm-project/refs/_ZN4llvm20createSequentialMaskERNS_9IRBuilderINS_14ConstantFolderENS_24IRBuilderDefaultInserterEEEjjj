@@ -1,0 +1,20 @@
+<dec f='llvm/llvm/include/llvm/Analysis/VectorUtils.h' l='220' type='llvm::Constant * llvm::createSequentialMask(IRBuilder&lt;&gt; &amp; Builder, unsigned int Start, unsigned int NumInts, unsigned int NumUndefs)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/VectorUtils.h' l='209'>/// Create a sequential shuffle mask.
+///
+/// This function creates shuffle mask whose elements are sequential and begin
+/// at \p Start.  The mask contains \p NumInts integers and is padded with \p
+/// NumUndefs undef values. The mask is of the form:
+///
+///   &lt;Start, Start + 1, ... Start + NumInts - 1, undef_1, ... undef_NumUndefs&gt;
+///
+/// For example, the mask for Start = 0, NumInsts = 4, and NumUndefs = 4 is:
+///
+///   &lt;0, 1, 2, 3, undef, undef, undef, undef&gt;</doc>
+<def f='llvm/llvm/lib/Analysis/VectorUtils.cpp' l='682' ll='693' type='llvm::Constant * llvm::createSequentialMask(IRBuilder&lt;&gt; &amp; Builder, unsigned int Start, unsigned int NumInts, unsigned int NumUndefs)'/>
+<use f='llvm/llvm/lib/Analysis/VectorUtils.cpp' l='713' u='c' c='_ZL21concatenateTwoVectorsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_'/>
+<use f='llvm/llvm/lib/Analysis/VectorUtils.cpp' l='717' u='c' c='_ZL21concatenateTwoVectorsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='8666' u='c' c='_ZNK4llvm21AArch64TargetLowering21lowerInterleavedStoreEPNS_9StoreInstEPNS_17ShuffleVectorInstEj'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='8682' u='c' c='_ZNK4llvm21AArch64TargetLowering21lowerInterleavedStoreEPNS_9StoreInstEPNS_17ShuffleVectorInstEj'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='15185' u='c' c='_ZNK4llvm17ARMTargetLowering21lowerInterleavedStoreEPNS_9StoreInstEPNS_17ShuffleVectorInstEj'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='15202' u='c' c='_ZNK4llvm17ARMTargetLowering21lowerInterleavedStoreEPNS_9StoreInstEPNS_17ShuffleVectorInstEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86InterleavedAccess.cpp' l='189' u='c' c='_ZN12_GLOBAL__N_125X86InterleavedAccessGroup9decomposeEPN4llvm11InstructionEjPNS1_10VectorTypeERNS1_15SmallVectorImplIS3_EE'/>

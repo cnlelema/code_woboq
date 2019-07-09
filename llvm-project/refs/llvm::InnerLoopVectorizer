@@ -1,0 +1,131 @@
+<def f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='366' ll='736'/>
+<ovr f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='738' c='llvm::InnerLoopUnroller'/>
+<size>584</size>
+<doc f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='352'>/// InnerLoopVectorizer vectorizes loops which contain only one basic
+/// block to a specified vectorization factor (VF).
+/// This class performs the widening of scalars into vectors, or multiple
+/// scalars. This class also implements the following features:
+/// * It inserts an epilogue loop for handling loops that don&apos;t have iteration
+///   counts that are known to be a multiple of the vectorization factor.
+/// * It handles the code generation for reduction variables.
+/// * Scalarization (implementation using scalars) of un-vectorizable
+///   instructions.
+/// InnerLoopVectorizer does not perform any vectorization-legality
+/// checks, and relies on the caller to check for the different legality
+/// aspects. The InnerLoopVectorizer relies on the
+/// LoopVectorizationLegality class to provide information about the induction
+/// and reduction variables that were found to a given vectorization factor.</doc>
+<fun r='_ZN4llvm19InnerLoopVectorizerC1EPNS_4LoopERNS_25PredicatedScalarEvolutionEPNS_8LoopInfoEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoEPKNS_19TargetTran6344599'/>
+<fun r='_ZN4llvm19InnerLoopVectorizerD1Ev'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer28createVectorizedLoopSkeletonEv'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer16widenInstructionERNS_11InstructionE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer17fixVectorizedLoopEv'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer20areSafetyChecksAddedEv'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer19widenPHIInstructionEPNS_11InstructionEjj'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer20scalarizeInstructionEPNS_11InstructionERKNS_11VPIterationEb'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer21widenIntOrFpInductionEPNS_7PHINodeEPNS_9TruncInstE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer22getOrCreateVectorValueEPNS_5ValueEj'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer22getOrCreateScalarValueEPNS_5ValueERKNS_11VPIterationE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer25packScalarIntoVectorValueEPNS_5ValueERKNS_11VPIterationE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer24vectorizeInterleaveGroupEPNS_11InstructionEPNS_11SmallVectorIPNS_5ValueELj2EEE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer26vectorizeMemoryInstructionEPNS_11InstructionEPNS_11SmallVectorIPNS_5ValueELj2EEE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer19setDebugLocFromInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPKNS_5ValueE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer19fixNonInductionPHIsEv'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer12fixupIVUsersEPNS_7PHINodeERKNS_19InductionDescriptorEPNS_5ValueES7_PNS_10BasicBlockE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer23createInductionVariableEPNS_4LoopEPNS_5ValueES4_S4_PNS_11InstructionE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer21fixCrossIterationPHIsEv'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer23fixFirstOrderRecurrenceEPNS_7PHINodeE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer12fixReductionEPNS_7PHINodeE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer12fixLCSSAPHIsEv'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer18sinkScalarOperandsEPNS_11InstructionE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer26truncateToMinimalBitwidthsEv'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer14updateAnalysisEv'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer18getBroadcastInstrsEPNS_5ValueE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer13getStepVectorEPNS_5ValueEiS2_NS_11Instruction9BinaryOpsE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer16buildScalarStepsEPNS_5ValueES2_PNS_11InstructionERKNS_19InductionDescriptorE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer31createVectorIntOrFpInductionPHIERKNS_19InductionDescriptorEPNS_5ValueEPNS_11InstructionE'/>
+<fun r='_ZNK4llvm19InnerLoopVectorizer26shouldScalarizeInstructionEPNS_11InstructionE'/>
+<fun r='_ZNK4llvm19InnerLoopVectorizer20needsScalarInductionEPNS_11InstructionE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer37recordVectorLoopValueForInductionCastERKNS_19InductionDescriptorEPKNS_11InstructionEPNS_5ValueEjj'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer13reverseVectorEPNS_5ValueE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer20getOrCreateTripCountEPNS_4LoopE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer26getOrCreateVectorTripCountEPNS_4LoopE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer22createBitOrPointerCastEPNS_5ValueEPNS_10VectorTypeERKNS_10DataLayoutE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer30emitMinimumIterationCountCheckEPNS_4LoopEPNS_10BasicBlockE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer14emitSCEVChecksEPNS_4LoopEPNS_10BasicBlockE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer20emitMemRuntimeChecksEPNS_4LoopEPNS_10BasicBlockE'/>
+<fun r='_ZNK4llvm19InnerLoopVectorizer20emitTransformedIndexERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueEPNS_15ScalarEvoluti9902210'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer14addNewMetadataEPNS_11InstructionEPKS1_'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer11addMetadataEPNS_11InstructionES2_'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer11addMetadataENS_8ArrayRefIPNS_5ValueEEEPNS_11InstructionE'/>
+<mbr r='llvm::InnerLoopVectorizer::OrigLoop' o='64' t='llvm::Loop *'/>
+<mbr r='llvm::InnerLoopVectorizer::PSE' o='128' t='llvm::PredicatedScalarEvolution &amp;'/>
+<mbr r='llvm::InnerLoopVectorizer::LI' o='192' t='llvm::LoopInfo *'/>
+<mbr r='llvm::InnerLoopVectorizer::DT' o='256' t='llvm::DominatorTree *'/>
+<mbr r='llvm::InnerLoopVectorizer::AA' o='320' t='AliasAnalysis *'/>
+<mbr r='llvm::InnerLoopVectorizer::TLI' o='384' t='const llvm::TargetLibraryInfo *'/>
+<mbr r='llvm::InnerLoopVectorizer::TTI' o='448' t='const llvm::TargetTransformInfo *'/>
+<mbr r='llvm::InnerLoopVectorizer::AC' o='512' t='llvm::AssumptionCache *'/>
+<mbr r='llvm::InnerLoopVectorizer::ORE' o='576' t='llvm::OptimizationRemarkEmitter *'/>
+<mbr r='llvm::InnerLoopVectorizer::LVer' o='640' t='std::unique_ptr&lt;LoopVersioning&gt;'/>
+<mbr r='llvm::InnerLoopVectorizer::VF' o='704' t='unsigned int'/>
+<mbr r='llvm::InnerLoopVectorizer::UF' o='736' t='unsigned int'/>
+<mbr r='llvm::InnerLoopVectorizer::Builder' o='768' t='IRBuilder&lt;&gt;'/>
+<mbr r='llvm::InnerLoopVectorizer::LoopVectorPreHeader' o='1344' t='llvm::BasicBlock *'/>
+<mbr r='llvm::InnerLoopVectorizer::LoopScalarPreHeader' o='1408' t='llvm::BasicBlock *'/>
+<mbr r='llvm::InnerLoopVectorizer::LoopMiddleBlock' o='1472' t='llvm::BasicBlock *'/>
+<mbr r='llvm::InnerLoopVectorizer::LoopExitBlock' o='1536' t='llvm::BasicBlock *'/>
+<mbr r='llvm::InnerLoopVectorizer::LoopVectorBody' o='1600' t='llvm::BasicBlock *'/>
+<mbr r='llvm::InnerLoopVectorizer::LoopScalarBody' o='1664' t='llvm::BasicBlock *'/>
+<mbr r='llvm::InnerLoopVectorizer::LoopBypassBlocks' o='1728' t='SmallVector&lt;llvm::BasicBlock *, 4&gt;'/>
+<mbr r='llvm::InnerLoopVectorizer::Induction' o='2112' t='llvm::PHINode *'/>
+<mbr r='llvm::InnerLoopVectorizer::OldInduction' o='2176' t='llvm::PHINode *'/>
+<mbr r='llvm::InnerLoopVectorizer::VectorLoopValueMap' o='2240' t='llvm::VectorizerValueMap'/>
+<mbr r='llvm::InnerLoopVectorizer::PredicatedInstructions' o='3072' t='SmallVector&lt;llvm::Instruction *, 4&gt;'/>
+<mbr r='llvm::InnerLoopVectorizer::TripCount' o='3456' t='llvm::Value *'/>
+<mbr r='llvm::InnerLoopVectorizer::VectorTripCount' o='3520' t='llvm::Value *'/>
+<mbr r='llvm::InnerLoopVectorizer::Legal' o='3584' t='llvm::LoopVectorizationLegality *'/>
+<mbr r='llvm::InnerLoopVectorizer::Cost' o='3648' t='llvm::LoopVectorizationCostModel *'/>
+<mbr r='llvm::InnerLoopVectorizer::AddedSafetyChecks' o='3712' t='bool'/>
+<mbr r='llvm::InnerLoopVectorizer::IVEndValues' o='3776' t='DenseMap&lt;llvm::PHINode *, llvm::Value *&gt;'/>
+<mbr r='llvm::InnerLoopVectorizer::OrigPHIsToFix' o='4032' t='SmallVector&lt;llvm::PHINode *, 8&gt;'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer19setDebugLocFromInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPKNS_5ValueE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer14addNewMetadataEPNS_11InstructionEPKS1_'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer11addMetadataEPNS_11InstructionES2_'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer11addMetadataENS_8ArrayRefIPNS_5ValueEEEPNS_11InstructionE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer18getBroadcastInstrsEPNS_5ValueE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer31createVectorIntOrFpInductionPHIERKNS_19InductionDescriptorEPNS_5ValueEPNS_11InstructionE'/>
+<fun r='_ZNK4llvm19InnerLoopVectorizer26shouldScalarizeInstructionEPNS_11InstructionE'/>
+<fun r='_ZNK4llvm19InnerLoopVectorizer20needsScalarInductionEPNS_11InstructionE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer37recordVectorLoopValueForInductionCastERKNS_19InductionDescriptorEPKNS_11InstructionEPNS_5ValueEjj'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer21widenIntOrFpInductionEPNS_7PHINodeEPNS_9TruncInstE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer13getStepVectorEPNS_5ValueEiS2_NS_11Instruction9BinaryOpsE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer16buildScalarStepsEPNS_5ValueES2_PNS_11InstructionERKNS_19InductionDescriptorE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer22getOrCreateVectorValueEPNS_5ValueEj'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer22getOrCreateScalarValueEPNS_5ValueERKNS_11VPIterationE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer25packScalarIntoVectorValueEPNS_5ValueERKNS_11VPIterationE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer13reverseVectorEPNS_5ValueE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer24vectorizeInterleaveGroupEPNS_11InstructionEPNS_11SmallVectorIPNS_5ValueELj2EEE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer26vectorizeMemoryInstructionEPNS_11InstructionEPNS_11SmallVectorIPNS_5ValueELj2EEE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer20scalarizeInstructionEPNS_11InstructionERKNS_11VPIterationEb'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer23createInductionVariableEPNS_4LoopEPNS_5ValueES4_S4_PNS_11InstructionE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer20getOrCreateTripCountEPNS_4LoopE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer26getOrCreateVectorTripCountEPNS_4LoopE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer22createBitOrPointerCastEPNS_5ValueEPNS_10VectorTypeERKNS_10DataLayoutE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer30emitMinimumIterationCountCheckEPNS_4LoopEPNS_10BasicBlockE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer14emitSCEVChecksEPNS_4LoopEPNS_10BasicBlockE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer20emitMemRuntimeChecksEPNS_4LoopEPNS_10BasicBlockE'/>
+<fun r='_ZNK4llvm19InnerLoopVectorizer20emitTransformedIndexERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueEPNS_15ScalarEvoluti9902210'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer28createVectorizedLoopSkeletonEv'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer12fixupIVUsersEPNS_7PHINodeERKNS_19InductionDescriptorEPNS_5ValueES7_PNS_10BasicBlockE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer26truncateToMinimalBitwidthsEv'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer17fixVectorizedLoopEv'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer21fixCrossIterationPHIsEv'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer23fixFirstOrderRecurrenceEPNS_7PHINodeE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer12fixReductionEPNS_7PHINodeE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer12fixLCSSAPHIsEv'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer18sinkScalarOperandsEPNS_11InstructionE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer19fixNonInductionPHIsEv'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer19widenPHIInstructionEPNS_11InstructionEjj'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer16widenInstructionERNS_11InstructionE'/>
+<fun r='_ZN4llvm19InnerLoopVectorizer14updateAnalysisEv'/>

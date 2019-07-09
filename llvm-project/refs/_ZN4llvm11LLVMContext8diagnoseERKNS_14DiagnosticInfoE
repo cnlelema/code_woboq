@@ -1,0 +1,76 @@
+<dec f='llvm/llvm/include/llvm/IR/LLVMContext.h' l='277' type='void llvm::LLVMContext::diagnose(const llvm::DiagnosticInfo &amp; DI)'/>
+<doc f='llvm/llvm/include/llvm/IR/LLVMContext.h' l='267'>/// Report a message to the currently installed diagnostic handler.
+  ///
+  /// This function returns, in particular in the case of error reporting
+  /// (DI.Severity == \a DS_Error), so the caller should leave the compilation
+  /// process in a self-consistent state, even though the generated code
+  /// need not be correct.
+  ///
+  /// The diagnostic message will be implicitly prefixed with a severity keyword
+  /// according to \p DI.getSeverity(), i.e., &quot;error: &quot; for \a DS_Error,
+  /// &quot;warning: &quot; for \a DS_Warning, and &quot;note: &quot; for \a DS_Note.</doc>
+<use f='llvm/llvm/lib/Analysis/OptimizationRemarkEmitter.cpp' l='83' u='c' c='_ZN4llvm25OptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE'/>
+<use f='llvm/llvm/lib/CodeGen/MIRParser/MIRParser.cpp' l='173' u='c' c='_ZN4llvm13MIRParserImpl5errorERKNS_5TwineE'/>
+<use f='llvm/llvm/lib/CodeGen/MIRParser/MIRParser.cpp' l='179' u='c' c='_ZN4llvm13MIRParserImpl5errorENS_5SMLocERKNS_5TwineE'/>
+<use f='llvm/llvm/lib/CodeGen/MIRParser/MIRParser.cpp' l='206' u='c' c='_ZN4llvm13MIRParserImpl16reportDiagnosticERKNS_12SMDiagnosticE'/>
+<use f='llvm/llvm/lib/CodeGen/MIRParser/MIRParser.cpp' l='889' u='c' c='_ZN4llvm15createMIRParserESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS1_EERNS_11LLVMContextE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineOptimizationRemarkEmitter.cpp' l='61' u='c' c='_ZN4llvm32MachineOptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE'/>
+<use f='llvm/llvm/lib/CodeGen/PrologEpilogInserter.cpp' l='276' u='c' c='_ZN12_GLOBAL__N_13PEI20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/ResetMachineFunctionPass.cpp' l='71' u='c' c='_ZN12_GLOBAL__N_120ResetMachineFunction20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='16024' u='c' c='_ZL36convertUnalignedStoreOfLoadToMemmovePN4llvm6SDNodeERNS_12SelectionDAGEbRKNS_14TargetLoweringE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='5836' u='c' c='_ZL29diagnoseInefficientCheriMemOpRN4llvm12SelectionDAGERKNS_18DiagnosticLocationERKNS_5TwineENS_10CodeGenOpt5LevelENS_9StringRefEjmm'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGISel.cpp' l='503' u='c' c='_ZN4llvm16SelectionDAGISel20runOnMachineFunctionERNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='5299' u='c' c='_ZNK4llvm14TargetLowering19expandUnalignedLoadEPNS_10LoadSDNodeERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='5489' u='c' c='_ZNK4llvm14TargetLowering20expandUnalignedStoreEPNS_11StoreSDNodeERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='3883' u='c' c='_ZN4llvm16UpgradeDebugInfoERNS_6ModuleE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='3890' u='c' c='_ZN4llvm16UpgradeDebugInfoERNS_6ModuleE'/>
+<use f='llvm/llvm/lib/IR/LLVMContext.cpp' l='196' u='c' c='_ZN4llvm11LLVMContext9emitErrorERKNS_5TwineE'/>
+<use f='llvm/llvm/lib/IR/LLVMContext.cpp' l='201' u='c' c='_ZN4llvm11LLVMContext9emitErrorEPKNS_11InstructionERKNS_5TwineE'/>
+<def f='llvm/llvm/lib/IR/LLVMContext.cpp' l='234' ll='255' type='void llvm::LLVMContext::diagnose(const llvm::DiagnosticInfo &amp; DI)'/>
+<use f='llvm/llvm/lib/IR/LLVMContext.cpp' l='258' u='c' c='_ZN4llvm11LLVMContext9emitErrorEjRKNS_5TwineE'/>
+<use f='llvm/llvm/lib/IR/LegacyPassManager.cpp' l='235' u='c' c='_ZN4llvm13PMDataManager27emitInstrCountChangedRemarkEPNS_4PassERNS_6ModuleEljRNS_9StringMapISt4pairIjjENS_15MallocAllocatorEEEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/LegacyPassManager.cpp' l='271' u='c' c='_ZN4llvm13PMDataManager27emitInstrCountChangedRemarkEPNS_4PassERNS_6ModuleEljRNS_9StringMapISt4pairIjjENS_15MallocAllocatorEEEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/LTO/LTOCodeGenerator.cpp' l='704' u='c' c='_ZN4llvm16LTOCodeGenerator9emitErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/lib/LTO/LTOCodeGenerator.cpp' l='711' u='c' c='_ZN4llvm16LTOCodeGenerator11emitWarningERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/lib/LTO/ThinLTOCodeGenerator.cpp' l='171' u='c' c='_ZN12_GLOBAL__N_1L18verifyLoadedModuleERN4llvm6ModuleE'/>
+<use f='llvm/llvm/lib/Linker/IRMover.cpp' l='447' u='c' c='_ZN12_GLOBAL__N_18IRLinker11emitWarningERKN4llvm5TwineE'/>
+<use f='llvm/llvm/lib/Linker/LinkModules.cpp' l='60' u='c' c='_ZN12_GLOBAL__N_112ModuleLinker9emitErrorERKN4llvm5TwineE'/>
+<use f='llvm/llvm/lib/Linker/LinkModules.cpp' l='558' u='c' c='_ZN12_GLOBAL__N_112ModuleLinker3runEv'/>
+<use f='llvm/llvm/include/llvm/ProfileData/SampleProfReader.h' l='311' u='c' c='_ZNK4llvm10sampleprof19SampleProfileReader11reportErrorElNS_5TwineE'/>
+<use f='llvm/llvm/lib/ProfileData/SampleProfReader.cpp' l='918' u='c' c='_ZN4llvm10sampleprof34SampleProfileReaderItaniumRemapper4readEv'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64RegisterInfo.cpp' l='227' u='c' c='_ZNK4llvm19AArch64RegisterInfo27emitReservedArgRegCallErrorERKNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUAsmPrinter.cpp' l='827' u='c' c='_ZN4llvm16AMDGPUAsmPrinter16getSIProgramInfoERNS_13SIProgramInfoERKNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUAsmPrinter.cpp' l='851' u='c' c='_ZN4llvm16AMDGPUAsmPrinter16getSIProgramInfoERNS_13SIProgramInfoERKNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUAsmPrinter.cpp' l='891' u='c' c='_ZN4llvm16AMDGPUAsmPrinter16getSIProgramInfoERNS_13SIProgramInfoERKNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUAsmPrinter.cpp' l='908' u='c' c='_ZN4llvm16AMDGPUAsmPrinter16getSIProgramInfoERNS_13SIProgramInfoERKNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUAsmPrinter.cpp' l='915' u='c' c='_ZN4llvm16AMDGPUAsmPrinter16getSIProgramInfoERNS_13SIProgramInfoERKNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUISelLowering.cpp' l='1140' u='c' c='_ZNK4llvm20AMDGPUTargetLowering18lowerUnhandledCallERNS_14TargetLowering16CallLoweringInfoERNS_15SmallVectorImplINS_7SDValueEEENS_9StringRefE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUISelLowering.cpp' l='1161' u='c' c='_ZNK4llvm20AMDGPUTargetLowering23LowerDYNAMIC_STACKALLOCENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUISelLowering.cpp' l='1246' u='c' c='_ZNK4llvm20AMDGPUTargetLowering18LowerGlobalAddressEPNS_21AMDGPUMachineFunctionENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUISelLowering.cpp' l='1263' u='c' c='_ZNK4llvm20AMDGPUTargetLowering18LowerGlobalAddressEPNS_21AMDGPUMachineFunctionENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='1928' u='c' c='_ZNK4llvm16SITargetLowering20LowerFormalArgumentsENS_7SDValueEjbRKNS_15SmallVectorImplINS_3ISD8InputArgEEERKNS_5SDLocERNS_12SelectionDAGERNS2_IS1_EE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='4275' u='c' c='_ZNK4llvm16SITargetLowering14lowerDEBUGTRAPENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='4389' u='c' c='_ZNK4llvm16SITargetLowering18lowerADDRSPACECASTENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='4680' u='c' c='_ZL24emitNonHSAIntrinsicErrorRN4llvm12SelectionDAGERKNS_5SDLocENS_3EVTE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='4689' u='c' c='_ZL25emitRemovedIntrinsicErrorRN4llvm12SelectionDAGERKNS_5SDLocENS_3EVTE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIInstrInfo.cpp' l='501' u='c' c='_ZL17reportIllegalCopyPKN4llvm11SIInstrInfoERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocEjjb'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIMemoryLegalizer.cpp' l='448' u='c' c='_ZNK12_GLOBAL__N_113SIMemOpAccess17reportUnsupportedERKN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEPKc'/>
+<use f='llvm/llvm/lib/Target/BPF/BPFISelLowering.cpp' l='41' u='c' c='_ZL4failRKN4llvm5SDLocERNS_12SelectionDAGERKNS_5TwineE'/>
+<use f='llvm/llvm/lib/Target/BPF/BPFISelLowering.cpp' l='53' u='c' c='_ZL4failRKN4llvm5SDLocERNS_12SelectionDAGEPKcNS_7SDValueE'/>
+<use f='llvm/llvm/lib/Target/BPF/BPFRegisterInfo.cpp' l='52' u='c' c='_ZL8WarnSizeiRN4llvm15MachineFunctionERNS_8DebugLocE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsSEISelLowering.cpp' l='1602' u='c' c='_ZNK4llvm20MipsSETargetLowering23lowerINTRINSIC_WO_CHAINENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyISelLowering.cpp' l='612' u='c' c='_ZL4failRKN4llvm5SDLocERNS_12SelectionDAGEPKc'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='94' u='c' c='_ZL16errorUnsupportedRN4llvm12SelectionDAGERKNS_5SDLocEPKc'/>
+<use f='llvm/llvm/lib/Target/X86/X86InsertPrefetch.cpp' l='165' u='c' c='_ZN12_GLOBAL__N_117X86InsertPrefetch16doInitializationERN4llvm6ModuleE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/SampleProfile.cpp' l='1418' u='c' c='_ZN12_GLOBAL__N_119SampleProfileLoader14getFunctionLocERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/SampleProfile.cpp' l='1525' u='c' c='_ZN12_GLOBAL__N_119SampleProfileLoader15emitAnnotationsERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/SampleProfile.cpp' l='1538' u='c' c='_ZN12_GLOBAL__N_119SampleProfileLoader15emitAnnotationsERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/SampleProfile.cpp' l='1563' u='c' c='_ZN12_GLOBAL__N_119SampleProfileLoader16doInitializationERN4llvm6ModuleE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/SampleProfile.cpp' l='1578' u='c' c='_ZN12_GLOBAL__N_119SampleProfileLoader16doInitializationERN4llvm6ModuleE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/PGOInstrumentation.cpp' l='1208' u='c' c='_ZN12_GLOBAL__N_110PGOUseFunc12readCountersEPN4llvm22IndexedInstrProfReaderERb'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/PGOInstrumentation.cpp' l='1233' u='c' c='_ZN12_GLOBAL__N_110PGOUseFunc12readCountersEPN4llvm22IndexedInstrProfReaderERb'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/PGOInstrumentation.cpp' l='1498' u='c' c='_ZN12_GLOBAL__N_110PGOUseFunc18annotateValueSitesEj'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/PGOInstrumentation.cpp' l='1606' u='c' c='_ZL20annotateAllFunctionsRN4llvm6ModuleENS_9StringRefES2_NS_12function_refIFPNS_21BranchProbabilityInfoERNS_8FunctionEEEENS3_IFPNS_18BlockFrequencyInfoES7_EEEb'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/PGOInstrumentation.cpp' l='1615' u='c' c='_ZL20annotateAllFunctionsRN4llvm6ModuleENS_9StringRefES2_NS_12function_refIFPNS_21BranchProbabilityInfoERNS_8FunctionEEEENS3_IFPNS_18BlockFrequencyInfoES7_EEEb'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/PGOInstrumentation.cpp' l='1624' u='c' c='_ZL20annotateAllFunctionsRN4llvm6ModuleENS_9StringRefES2_NS_12function_refIFPNS_21BranchProbabilityInfoERNS_8FunctionEEEENS3_IFPNS_18BlockFrequencyInfoES7_EEEb'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopDistribute.cpp' l='885' u='c' c='_ZN12_GLOBAL__N_121LoopDistributeForLoop4failEN4llvm9StringRefES2_'/>

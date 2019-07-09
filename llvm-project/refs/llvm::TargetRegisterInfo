@@ -1,0 +1,114 @@
+<inh f='llvm/llvm/include/llvm/MC/MCRegisterInfo.h' l='130' c='llvm::MCRegisterInfo'/>
+<def f='llvm/llvm/include/llvm/CodeGen/TargetRegisterInfo.h' l='219' ll='1008'/>
+<size>296</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetRegisterInfo.h' l='213'>/// TargetRegisterInfo base class - We assume that the target defines a static
+/// array of TargetRegisterDesc objects that represent all of the machine
+/// registers that the target has.  As such, we simply have to track a pointer
+/// to this array so that we can turn register number into a register
+/// descriptor.
+///</doc>
+<mbr r='llvm::TargetRegisterInfo::InfoDesc' o='1856' t='const llvm::TargetRegisterInfoDesc *'/>
+<mbr r='llvm::TargetRegisterInfo::SubRegIndexNames' o='1920' t='const char *const *'/>
+<mbr r='llvm::TargetRegisterInfo::SubRegIndexLaneMasks' o='1984' t='const llvm::LaneBitmask *'/>
+<mbr r='llvm::TargetRegisterInfo::RegClassBegin' o='2048' t='regclass_iterator'/>
+<mbr r='llvm::TargetRegisterInfo::RegClassEnd' o='2112' t='regclass_iterator'/>
+<mbr r='llvm::TargetRegisterInfo::CoveringLanes' o='2176' t='llvm::LaneBitmask'/>
+<mbr r='llvm::TargetRegisterInfo::RCInfos' o='2240' t='const llvm::TargetRegisterInfo::RegClassInfo *const'/>
+<mbr r='llvm::TargetRegisterInfo::HwMode' o='2304' t='unsigned int'/>
+<fun r='_ZN4llvm18TargetRegisterInfoC1EPKNS_22TargetRegisterInfoDescEPKPKNS_19TargetRegisterClassES8_PKPKcPKNS_11LaneBitmaskESD_PKNS0_12RegClassInfoEj'/>
+<fun r='_ZN4llvm18TargetRegisterInfoD1Ev'/>
+<fun r='_ZN4llvm18TargetRegisterInfo11isStackSlotEj'/>
+<fun r='_ZN4llvm18TargetRegisterInfo15stackSlot2IndexEj'/>
+<fun r='_ZN4llvm18TargetRegisterInfo15index2StackSlotEi'/>
+<fun r='_ZN4llvm18TargetRegisterInfo18isPhysicalRegisterEj'/>
+<fun r='_ZN4llvm18TargetRegisterInfo17isVirtualRegisterEj'/>
+<fun r='_ZN4llvm18TargetRegisterInfo13virtReg2IndexEj'/>
+<fun r='_ZN4llvm18TargetRegisterInfo13index2VirtRegEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo16getRegSizeInBitsERKNS_19TargetRegisterClassE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo12getSpillSizeERKNS_19TargetRegisterClassE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo17getSpillAlignmentERKNS_19TargetRegisterClassE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3MVTE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo21legalclasstypes_beginERKNS_19TargetRegisterClassE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo19legalclasstypes_endERKNS_19TargetRegisterClassE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegClassEjNS_3MVTE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo19getAllocatableClassEPKNS_19TargetRegisterClassE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo17getAllocatableSetERKNS_15MachineFunctionEPKNS_19TargetRegisterClassE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo13getCostPerUseEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo20isInAllocatableClassEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo18getSubRegIndexNameEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo22getSubRegIndexLaneMaskEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo16getCoveringLanesEv'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo11regsOverlapEjj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo10hasRegUnitEjj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo16lookThruCopyLikeEjPKNS_19MachineRegisterInfoE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo18getCalleeSavedRegsEPKNS_15MachineFunctionE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo20getCallPreservedMaskERKNS_15MachineFunctionEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo18getNoPreservedMaskEv'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo18regmaskSubsetEqualEPKjS2_'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo11getRegMasksEv'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo15getRegMaskNamesEv'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo15getReservedRegsERKNS_15MachineFunctionE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo16isAsmClobberableERKNS_15MachineFunctionEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo17isConstantPhysRegEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo19isDivergentRegClassEPKNS_19TargetRegisterClassE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo24isCallerPreservedPhysRegEjRKNS_15MachineFunctionE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo25adjustStackMapLiveOutMaskEPj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo19getMatchingSuperRegEjjPKNS_19TargetRegisterClassE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo24getMatchingSuperRegClassEPKNS_19TargetRegisterClassES3_j'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo20shouldRewriteCopySrcEPKNS_19TargetRegisterClassEjS3_j'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE'/>
+<fun r='_ZN4llvm18TargetRegisterInfo7dumpRegEjjPKS0_'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo24composeSubRegIndicesImplEjj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo30composeSubRegIndexLaneMaskImplEjNS_11LaneBitmaskE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo37reverseComposeSubRegIndexLaneMaskImplEjNS_11LaneBitmaskE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo22getCommonSuperRegClassEPKNS_19TargetRegisterClassEjS3_jRjS4_'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo15getRegClassInfoERKNS_19TargetRegisterClassE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo14regclass_beginEv'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo12regclass_endEv'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo10regclassesEv'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo16getNumRegClassesEv'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo11getRegClassEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo15getRegClassNameEPKNS_19TargetRegisterClassE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo17getCommonSubClassEPKNS_19TargetRegisterClassES3_NS_3MVT15SimpleValueTypeE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo18getPointerRegClassERKNS_15MachineFunctionEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo20getCrossCopyRegClassEPKNS_19TargetRegisterClassE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo25getLargestLegalSuperClassEPKNS_19TargetRegisterClassERKNS_15MachineFunctionE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo19getRegPressureLimitEPKNS_19TargetRegisterClassERNS_15MachineFunctionE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo22getRegPressureSetScoreERKNS_15MachineFunctionEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo17getRegClassWeightEPKNS_19TargetRegisterClassE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo16getRegSizeInBitsEjRKNS_19MachineRegisterInfoE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo16getRegUnitWeightEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo21getNumRegPressureSetsEv'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo21getRegPressureSetNameEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo22getRegPressureSetLimitERKNS_15MachineFunctionEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo23getRegClassPressureSetsEPKNS_19TargetRegisterClassE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo22getRegUnitPressureSetsEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo21getRegAllocationHintsEjNS_8ArrayRefItEERNS_15SmallVectorImplItEERKNS_15MachineFunctionEPKNS_10VirtRegMapEPKNS_13LiveRegMatrixE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo18updateRegAllocHintEjjRNS_15MachineFunctionE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo22reverseLocalAssignmentEv'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo18getCSRFirstUseCostEv'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo26requiresRegisterScavengingERKNS_15MachineFunctionE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo23useFPForScavengingIndexERKNS_15MachineFunctionE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo28requiresFrameIndexScavengingERKNS_15MachineFunctionE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo39requiresFrameIndexReplacementScavengingERKNS_15MachineFunctionE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo28requiresVirtualBaseRegistersERKNS_15MachineFunctionE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo20hasReservedSpillSlotERKNS_15MachineFunctionEjRi'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo26trackLivenessAfterRegAllocERKNS_15MachineFunctionE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo15canRealignStackERKNS_15MachineFunctionE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo21needsStackRealignmentERKNS_15MachineFunctionE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo24getFrameIndexInstrOffsetEPKNS_12MachineInstrEi'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo17needsFrameBaseRegEPNS_12MachineInstrEl'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo28materializeFrameBaseRegisterEPNS_17MachineBasicBlockEjil'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo17resolveFrameIndexERNS_12MachineInstrEjl'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo18isFrameOffsetLegalEPKNS_12MachineInstrEjl'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo21saveScavengerRegisterERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERS5_PKNS_19TargetRegisterClassEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo19eliminateFrameIndexENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEijPNS_12RegScavengerE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo13getRegAsmNameEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjS5_jS5_RNS_13LiveIntervalsE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo16getFrameRegisterERKNS_15MachineFunctionE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorEj'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo23checkAllSuperRegsMarkedERKNS_9BitVectorENS_8ArrayRefItEE'/>
+<fun r='_ZNK4llvm18TargetRegisterInfo32getConstrainedRegClassForOperandERKNS_14MachineOperandERKNS_19MachineRegisterInfoE'/>

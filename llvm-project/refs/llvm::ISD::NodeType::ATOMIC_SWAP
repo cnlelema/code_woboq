@@ -1,0 +1,36 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/ISDOpcodes.h' l='843' type='248'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/ISDOpcodes.h' l='837'>/// Val, OUTCHAIN = ATOMIC_SWAP(INCHAIN, ptr, amt)
+    /// Val, OUTCHAIN = ATOMIC_LOAD_[OpName](INCHAIN, ptr, amt)
+    /// For double-word atomic operations:
+    /// ValLo, ValHi, OUTCHAIN = ATOMIC_SWAP(INCHAIN, ptr, amtLo, amtHi)
+    /// ValLo, ValHi, OUTCHAIN = ATOMIC_LOAD_[OpName](INCHAIN, ptr, amtLo, amtHi)
+    /// These correspond to the atomicrmw instruction.</doc>
+<use f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='1387' u='r' c='_ZN4llvm9MemSDNode7classofEPKNS_6SDNodeE'/>
+<use f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='1444' u='r' c='_ZN4llvm12AtomicSDNode7classofEPKNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeDAG.cpp' l='2775' u='r' c='_ZN12_GLOBAL__N_120SelectionDAGLegalize10ExpandNodeEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeDAG.cpp' l='3789' c='_ZN12_GLOBAL__N_120SelectionDAGLegalize20ConvertNodeToLibcallEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeDAG.cpp' l='4537' c='_ZN12_GLOBAL__N_120SelectionDAGLegalize11PromoteNodeEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeDAG.cpp' l='4547' u='r' c='_ZN12_GLOBAL__N_120SelectionDAGLegalize11PromoteNodeEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeFloatTypes.cpp' l='106' c='_ZN4llvm16DAGTypeLegalizer17SoftenFloatResultEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeFloatTypes.cpp' l='2067' c='_ZN4llvm16DAGTypeLegalizer18PromoteFloatResultEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeFloatTypes.cpp' l='2312' u='r' c='_ZN4llvm16DAGTypeLegalizer24BitcastToInt_ATOMIC_SWAPEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='172' c='_ZN4llvm16DAGTypeLegalizer20PromoteIntegerResultEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1670' c='_ZN4llvm16DAGTypeLegalizer19ExpandIntegerResultEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3956' u='r' c='_ZN4llvm16DAGTypeLegalizer24ExpandIntOp_ATOMIC_STOREEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='603' c='_ZL15AddNodeIDCustomRN4llvm16FoldingSetNodeIDEPKNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='6710' u='r' c='_ZN4llvm12SelectionDAG9getAtomicEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_PNS_17MachineMemOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='4592' u='r' c='_ZN4llvm19SelectionDAGBuilder14visitAtomicRMWERKNS_13AtomicRMWInstE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGDumper.cpp' l='86' c='_ZNK4llvm6SDNode16getOperationNameEPKNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetLoweringBase.cpp' l='424' c='_ZN4llvm5RTLIB7getSYNCEjNS_3MVTE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetLoweringBase.cpp' l='587' u='r' c='_ZN4llvm18TargetLoweringBase11initActionsEv'/>
+<use f='llvm/llvm/lib/CodeGen/TargetLoweringBase.cpp' l='588' u='r' c='_ZN4llvm18TargetLoweringBase11initActionsEv'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='717' u='r' c='_ZN4llvm16SITargetLoweringC1ERKNS_13TargetMachineERKNS_12GCNSubtargetE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='9342' c='_ZNK4llvm16SITargetLowering17PerformDAGCombineEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='1005' u='r' c='_ZN4llvm17ARMTargetLoweringC1ERKNS_13TargetMachineERKNS_12ARMSubtargetE'/>
+<use f='llvm/llvm/lib/Target/Mips/Mips16ISelLowering.cpp' l='132' u='r' c='_ZN4llvm20Mips16TargetLoweringC1ERKNS_17MipsTargetMachineERKNS_13MipsSubtargetE'/>
+<use f='llvm/llvm/lib/Target/Sparc/SparcISelLowering.cpp' l='1589' u='r' c='_ZN4llvm19SparcTargetLoweringC1ERKNS_13TargetMachineERKNS_14SparcSubtargetE'/>
+<use f='llvm/llvm/lib/Target/Sparc/SparcISelLowering.cpp' l='1599' u='r' c='_ZN4llvm19SparcTargetLoweringC1ERKNS_13TargetMachineERKNS_14SparcSubtargetE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='215' u='r' c='_ZN4llvm21SystemZTargetLoweringC1ERKNS_13TargetMachineERKNS_16SystemZSubtargetE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='4907' c='_ZNK4llvm21SystemZTargetLowering14LowerOperationENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='26571' u='r' c='_ZL17LowerATOMIC_STOREN4llvm7SDValueERNS_12SelectionDAGERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='27835' c='_ZNK4llvm17X86TargetLowering18ReplaceNodeResultsEPNS_6SDNodeERNS_15SmallVectorImplINS_7SDValueEEERNS_12SelectionDAGE'/>

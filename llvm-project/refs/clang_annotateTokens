@@ -1,0 +1,33 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='5014' type='void clang_annotateTokens(CXTranslationUnit TU, CXToken * Tokens, unsigned int NumTokens, CXCursor * Cursors)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='4984'>/**
+ * Annotate the given set of tokens by providing cursors for each token
+ * that can be mapped to a specific entity within the abstract syntax tree.
+ *
+ * This token-annotation routine is equivalent to invoking
+ * clang_getCursor() for the source locations of each of the
+ * tokens. The cursors provided are filtered, so that only those
+ * cursors that have a direct correspondence to the token are
+ * accepted. For example, given a function call \c f(x),
+ * clang_getCursor() would provide the following cursors:
+ *
+ *   * when the cursor is over the &apos;f&apos;, a DeclRefExpr cursor referring to &apos;f&apos;.
+ *   * when the cursor is over the &apos;(&apos; or the &apos;)&apos;, a CallExpr referring to &apos;f&apos;.
+ *   * when the cursor is over the &apos;x&apos;, a DeclRefExpr cursor referring to &apos;x&apos;.
+ *
+ * Only the first and last of these cursors will occur within the
+ * annotate, since the tokens &quot;f&quot; and &quot;x&apos; directly refer to a function
+ * and a variable, respectively, but the parentheses are just a small
+ * part of the full syntax of the function call expression, which is
+ * not provided as an annotation.
+ *
+ * \param TU the translation unit that owns the given tokens.
+ *
+ * \param Tokens the set of tokens to annotate.
+ *
+ * \param NumTokens the number of tokens in \p Tokens.
+ *
+ * \param Cursors an array of \p NumTokens cursors, whose contents will be
+ * replaced with the cursors corresponding to each token.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='4179' u='c' c='perform_token_annotation'/>
+<def f='llvm/clang/tools/libclang/CIndex.cpp' l='7614' ll='7651' type='void clang_annotateTokens(CXTranslationUnit TU, CXToken * Tokens, unsigned int NumTokens, CXCursor * Cursors)'/>

@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/include/llvm/Analysis/TargetTransformInfo.h' l='195' type='int llvm::TargetTransformInfo::getGEPCost(llvm::Type * PointeeType, const llvm::Value * Ptr, ArrayRef&lt;const llvm::Value *&gt; Operands) const'/>
+<doc f='llvm/llvm/include/llvm/Analysis/TargetTransformInfo.h' l='190'>/// Estimate the cost of a GEP operation when lowered.
+  ///
+  /// The contract for this function is the same as \c getOperationCost except
+  /// that it supports an interface that provides extra information specific to
+  /// the GEP operation.</doc>
+<def f='llvm/llvm/lib/Analysis/TargetTransformInfo.cpp' l='82' ll='85' type='int llvm::TargetTransformInfo::getGEPCost(llvm::Type * PointeeType, const llvm::Value * Ptr, ArrayRef&lt;const llvm::Value *&gt; Operands) const'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/NaryReassociate.cpp' l='302' u='c' c='_ZL13isGEPFoldablePN4llvm17GetElementPtrInstEPKNS_19TargetTransformInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/StraightLineStrengthReduce.cpp' l='277' u='c' c='_ZL13isGEPFoldablePN4llvm17GetElementPtrInstEPKNS_19TargetTransformInfoE'/>

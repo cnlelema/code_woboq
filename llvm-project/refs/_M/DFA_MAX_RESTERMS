@@ -1,0 +1,25 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/DFAPacketizer.h' l='68'/>
+<use f='llvm/llvm/lib/CodeGen/DFAPacketizer.cpp' l='65' u='c'/>
+<use f='llvm/llvm/lib/CodeGen/DFAPacketizer.cpp' l='79' u='c'/>
+<use f='llvm/llvm/lib/CodeGen/DFAPacketizer.cpp' l='83' u='c'/>
+<use f='llvm/llvm/lib/CodeGen/DFAPacketizer.cpp' l='117' u='c'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/DFAPacketizer.h' l='48'>// --------------------------------------------------------------------
+// Definitions shared between DFAPacketizer.cpp and DFAPacketizerEmitter.cpp
+
+// DFA_MAX_RESTERMS * DFA_MAX_RESOURCES must fit within sizeof DFAInput.
+// This is verified in DFAPacketizer.cpp:DFAPacketizer::DFAPacketizer.
+//
+// e.g. terms x resource bit combinations that fit in uint32_t:
+//      4 terms x 8  bits = 32 bits
+//      3 terms x 10 bits = 30 bits
+//      2 terms x 16 bits = 32 bits
+//
+// e.g. terms x resource bit combinations that fit in uint64_t:
+//      8 terms x 8  bits = 64 bits
+//      7 terms x 9  bits = 63 bits
+//      6 terms x 10 bits = 60 bits
+//      5 terms x 12 bits = 60 bits
+//      4 terms x 16 bits = 64 bits &lt;--- current
+//      3 terms x 21 bits = 63 bits
+//      2 terms x 32 bits = 64 bits
+//</doc>

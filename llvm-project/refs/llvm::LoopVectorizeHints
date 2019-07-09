@@ -1,0 +1,40 @@
+<def f='llvm/llvm/include/llvm/Transforms/Vectorize/LoopVectorizationLegality.h' l='57' ll='155'/>
+<size>88</size>
+<doc f='llvm/llvm/include/llvm/Transforms/Vectorize/LoopVectorizationLegality.h' l='48'>/// Utility class for getting and setting loop vectorizer hints in the form
+/// of loop metadata.
+/// This class keeps a number of loop annotations locally (as member variables)
+/// and can, upon request, write them back as metadata on the loop. It will
+/// initially scan the loop for existing metadata, and will update the local
+/// values based on information in the loop.
+/// We cannot write all values to metadata, as the mere presence of some info,
+/// for example &apos;force&apos;, means a decision has been made. So, we need to be
+/// careful NOT to add them if the user hasn&apos;t specifically asked so.</doc>
+<mbr r='llvm::LoopVectorizeHints::Width' o='0' t='llvm::LoopVectorizeHints::Hint'/>
+<mbr r='llvm::LoopVectorizeHints::Interleave' o='128' t='llvm::LoopVectorizeHints::Hint'/>
+<mbr r='llvm::LoopVectorizeHints::Force' o='256' t='llvm::LoopVectorizeHints::Hint'/>
+<mbr r='llvm::LoopVectorizeHints::IsVectorized' o='384' t='llvm::LoopVectorizeHints::Hint'/>
+<fun r='_ZN4llvm18LoopVectorizeHints6PrefixEv'/>
+<mbr r='llvm::LoopVectorizeHints::PotentiallyUnsafe' o='512' t='bool'/>
+<fun r='_ZN4llvm18LoopVectorizeHintsC1EPKNS_4LoopEbRNS_25OptimizationRemarkEmitterE'/>
+<fun r='_ZN4llvm18LoopVectorizeHints20setAlreadyVectorizedEv'/>
+<fun r='_ZNK4llvm18LoopVectorizeHints18allowVectorizationEPNS_8FunctionEPNS_4LoopEb'/>
+<fun r='_ZNK4llvm18LoopVectorizeHints19emitRemarkWithHintsEv'/>
+<fun r='_ZNK4llvm18LoopVectorizeHints8getWidthEv'/>
+<fun r='_ZNK4llvm18LoopVectorizeHints13getInterleaveEv'/>
+<fun r='_ZNK4llvm18LoopVectorizeHints15getIsVectorizedEv'/>
+<fun r='_ZNK4llvm18LoopVectorizeHints8getForceEv'/>
+<fun r='_ZNK4llvm18LoopVectorizeHints25vectorizeAnalysisPassNameEv'/>
+<fun r='_ZNK4llvm18LoopVectorizeHints15allowReorderingEv'/>
+<fun r='_ZNK4llvm18LoopVectorizeHints19isPotentiallyUnsafeEv'/>
+<fun r='_ZN4llvm18LoopVectorizeHints20setPotentiallyUnsafeEv'/>
+<fun r='_ZN4llvm18LoopVectorizeHints20getHintsFromMetadataEv'/>
+<fun r='_ZN4llvm18LoopVectorizeHints7setHintENS_9StringRefEPNS_8MetadataE'/>
+<mbr r='llvm::LoopVectorizeHints::TheLoop' o='576' t='const llvm::Loop *'/>
+<mbr r='llvm::LoopVectorizeHints::ORE' o='640' t='llvm::OptimizationRemarkEmitter &amp;'/>
+<fun r='_ZN4llvm18LoopVectorizeHintsC1EPKNS_4LoopEbRNS_25OptimizationRemarkEmitterE'/>
+<fun r='_ZN4llvm18LoopVectorizeHints20setAlreadyVectorizedEv'/>
+<fun r='_ZNK4llvm18LoopVectorizeHints18allowVectorizationEPNS_8FunctionEPNS_4LoopEb'/>
+<fun r='_ZNK4llvm18LoopVectorizeHints19emitRemarkWithHintsEv'/>
+<fun r='_ZNK4llvm18LoopVectorizeHints25vectorizeAnalysisPassNameEv'/>
+<fun r='_ZN4llvm18LoopVectorizeHints20getHintsFromMetadataEv'/>
+<fun r='_ZN4llvm18LoopVectorizeHints7setHintENS_9StringRefEPNS_8MetadataE'/>

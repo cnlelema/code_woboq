@@ -1,0 +1,65 @@
+<dec f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='489' type='bool llvm::Loop::isLoopInvariant(const llvm::Value * V) const'/>
+<doc f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='488'>/// Return true if the specified value is loop invariant.</doc>
+<use f='llvm/llvm/lib/Analysis/IVDescriptors.cpp' l='936' u='c' c='_ZL23getCastsForInductionPHIRN4llvm25PredicatedScalarEvolutionEPKNS_11SCEVUnknownEPKNS_14SCEVAddRecExprERNS_15SmallVectorImplIPNS_11InstructionEEE'/>
+<use f='llvm/llvm/lib/Analysis/IVDescriptors.cpp' l='938' u='c' c='_ZL23getCastsForInductionPHIRN4llvm25PredicatedScalarEvolutionEPKNS_11SCEVUnknownEPKNS_14SCEVAddRecExprERNS_15SmallVectorImplIPNS_11InstructionEEE'/>
+<def f='llvm/llvm/lib/Analysis/LoopInfo.cpp' l='61' ll='65' type='bool llvm::Loop::isLoopInvariant(const llvm::Value * V) const'/>
+<use f='llvm/llvm/lib/Analysis/LoopInfo.cpp' l='68' u='c' c='_ZNK4llvm4Loop24hasLoopInvariantOperandsEPKNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Analysis/LoopInfo.cpp' l='82' u='c' c='_ZNK4llvm4Loop17makeLoopInvariantEPNS_11InstructionERbS2_PNS_16MemorySSAUpdaterE'/>
+<doc f='llvm/llvm/lib/Analysis/LoopInfo.cpp' l='57'>//===----------------------------------------------------------------------===//
+// Loop implementation
+//</doc>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='4970' u='c' c='_ZN4llvm15ScalarEvolution24createSimpleAffineAddRecEPNS_7PHINodeEPNS_5ValueES4_'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='4972' u='c' c='_ZN4llvm15ScalarEvolution24createSimpleAffineAddRecEPNS_7PHINodeEPNS_5ValueES4_'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='220' u='c' c='_ZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEb'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='220' u='c' c='_ZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEb'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='552' u='c' c='_ZN4llvm12SCEVExpander14expandAddToGEPEPKPKNS_4SCEVES5_PNS_11PointerTypeEPNS_4TypeEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='552' u='c' c='_ZN4llvm12SCEVExpander14expandAddToGEPEPKPKNS_4SCEVES5_PNS_11PointerTypeEPNS_4TypeEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='572' u='c' c='_ZN4llvm12SCEVExpander14expandAddToGEPEPKPKNS_4SCEVES5_PNS_11PointerTypeEPNS_4TypeEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='575' u='c' c='_ZN4llvm12SCEVExpander14expandAddToGEPEPKPKNS_4SCEVES5_PNS_11PointerTypeEPNS_4TypeEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='3862' u='c' c='_ZL28isSameUnderlyingObjectInLoopPKN4llvm7PHINodeEPKNS_8LoopInfoE'/>
+<use f='llvm/llvm/lib/Analysis/VectorUtils.cpp' l='243' u='c' c='_ZN4llvm20getStrideFromPointerEPNS_5ValueEPNS_15ScalarEvolutionEPNS_4LoopE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64FalkorHWPFFix.cpp' l='160' u='c' c='_ZN12_GLOBAL__N_125FalkorMarkStridedAccesses9runOnLoopERN4llvm4LoopE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64TargetTransformInfo.cpp' l='722' u='c' c='_ZL29getFalkorUnrollingPreferencesPN4llvm4LoopERNS_15ScalarEvolutionERNS_19TargetTransformInfo20UnrollingPreferencesE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUTargetTransformInfo.cpp' l='177' u='c' c='_ZN4llvm13AMDGPUTTIImpl23getUnrollingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERNS_19TargetTransformInfo20UnrollingPreferencesE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonLoopIdiomRecognition.cpp' l='912' u='c' c='_ZN12_GLOBAL__N_127PolynomialMultiplyRecognize10scanSelectEPN4llvm10SelectInstEPNS1_10BasicBlockES5_PNS1_5ValueERNS0_12ParsedValuesEb'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCLoopPreIncPrep.cpp' l='283' u='c' c='_ZN12_GLOBAL__N_117PPCLoopPreIncPrep9runOnLoopEPN4llvm4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='1771' u='c' c='_ZN4llvm12InstCombiner22visitGetElementPtrInstERNS_17GetElementPtrInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='1771' u='c' c='_ZN4llvm12InstCombiner22visitGetElementPtrInstERNS_17GetElementPtrInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='755' u='c' c='_ZN12_GLOBAL__N_114IndVarSimplify35rewriteFirstIterationLoopExitValuesEPN4llvm4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='1044' u='c' c='_ZN12_GLOBAL__N_17WidenIV16createExtendInstEPN4llvm5ValueEPNS1_4TypeEbPNS1_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='2009' u='c' c='_ZL20getLoopPhiForCounterPN4llvm5ValueEPNS_4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='2019' u='c' c='_ZL20getLoopPhiForCounterPN4llvm5ValueEPNS_4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='2057' u='c' c='_ZL9needsLFTRPN4llvm4LoopEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='2058' u='c' c='_ZL9needsLFTRPN4llvm4LoopEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='431' u='c' c='_ZN12_GLOBAL__N_123LoopInvariantCodeMotion9runOnLoopEPN4llvm4LoopEPNS1_9AAResultsEPNS1_8LoopInfoEPNS1_13DominatorTreeEPNS1_17TargetLibraryInfoEPNS1_1914145461'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='858' u='c' c='_ZN4llvm11hoistRegionEPNS_15DomTreeNodeBaseINS_10BasicBlockEEEPNS_9AAResultsEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_17TargetLibraryInfoEPNS_4LoopEPNS_18226459'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='1113' u='c' c='_ZN4llvm18canSinkOrHoistInstERNS_11InstructionEPNS_9AAResultsEPNS_13DominatorTreeEPNS_4LoopEPNS_15AliasSetTrackerEPNS_16MemorySSAUpdaterEbPNS_21SinkAn4645702'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='1695' u='c' c='_ZL30isSafeToExecuteUnconditionallyRN4llvm11InstructionEPKNS_13DominatorTreeEPKNS_4LoopEPKNS_14LoopSafetyInfoEPNS_25OptimizationRemarkEmitterEPKS0_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopDataPrefetch.cpp' l='269' u='c' c='_ZN12_GLOBAL__N_116LoopDataPrefetch9runOnLoopEPN4llvm4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopIdiomRecognize.cpp' l='464' u='c' c='_ZN12_GLOBAL__N_118LoopIdiomRecognize12isLegalStoreEPN4llvm9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopIdiomRecognize.cpp' l='781' u='c' c='_ZN12_GLOBAL__N_118LoopIdiomRecognize17processLoopMemSetEPN4llvm10MemSetInstEPKNS1_4SCEVE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopInterchange.cpp' l='645' u='c' c='_ZN12_GLOBAL__N_123LoopInterchangeLegality25isLoopStructureUnderstoodEPN4llvm7PHINodeE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopPredication.cpp' l='497' u='c' c='_ZN12_GLOBAL__N_115LoopPredication12findInsertPtEPN4llvm11InstructionENS1_8ArrayRefIPNS1_5ValueEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SeparateConstOffsetFromGEP.cpp' l='824' u='c' c='_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP22lowerToSingleIndexGEPsEPN4llvm17GetElementPtrInstEl'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SeparateConstOffsetFromGEP.cpp' l='1245' u='c' c='_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SimpleLoopUnswitch.cpp' l='105' u='c' c='_ZL40collectHomogenousInstGraphLoopInvariantsRN4llvm4LoopERNS_11InstructionERNS_8LoopInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SimpleLoopUnswitch.cpp' l='122' u='c' c='_ZL40collectHomogenousInstGraphLoopInvariantsRN4llvm4LoopERNS_11InstructionERNS_8LoopInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SimpleLoopUnswitch.cpp' l='169' u='c' c='_ZL28areLoopExitPHIsLoopInvariantRN4llvm4LoopERNS_10BasicBlockES3_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SimpleLoopUnswitch.cpp' l='367' u='c' c='_ZL21unswitchTrivialBranchRN4llvm4LoopERNS_10BranchInstERNS_13DominatorTreeERNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SimpleLoopUnswitch.cpp' l='584' u='c' c='_ZL21unswitchTrivialSwitchRN4llvm4LoopERNS_10SwitchInstERNS_13DominatorTreeERNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SimpleLoopUnswitch.cpp' l='2530' u='c' c='_ZL21unswitchBestConditionRN4llvm4LoopERNS_13DominatorTreeERNS_8LoopInfoERNS_15AssumptionCacheERNS_19TargetTransformInfoENS_12function_refIFvbNS_8Arra2024261'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SimpleLoopUnswitch.cpp' l='2538' u='c' c='_ZL21unswitchBestConditionRN4llvm4LoopERNS_13DominatorTreeERNS_8LoopInfoERNS_15AssumptionCacheERNS_19TargetTransformInfoENS_12function_refIFvbNS_8Arra2024261'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SimpleLoopUnswitch.cpp' l='2548' u='c' c='_ZL21unswitchBestConditionRN4llvm4LoopERNS_13DominatorTreeERNS_8LoopInfoERNS_15AssumptionCacheERNS_19TargetTransformInfoENS_12function_refIFvbNS_8Arra2024261'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnrollPeel.cpp' l='121' u='c' c='_ZL31calculateIterationsToInvariancePN4llvm7PHINodeEPNS_4LoopEPNS_10BasicBlockERNS_13SmallDenseMapIS1_jLj4ENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_jEEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyIndVar.cpp' l='527' u='c' c='_ZN12_GLOBAL__N_114SimplifyIndvar14eliminateTruncEPN4llvm9TruncInstE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyIndVar.cpp' l='528' u='c' c='_ZN12_GLOBAL__N_114SimplifyIndvar14eliminateTruncEPN4llvm9TruncInstE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyIndVar.cpp' l='559' u='c' c='_ZN12_GLOBAL__N_114SimplifyIndvar14eliminateTruncEPN4llvm9TruncInstE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorizationLegality.cpp' l='358' u='c' c='_ZN4llvmL13isUniformLoopEPNS_4LoopES1_'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorizationLegality.cpp' l='359' u='c' c='_ZN4llvmL13isUniformLoopEPNS_4LoopES1_'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorizationLegality.cpp' l='484' u='c' c='_ZN4llvm25LoopVectorizationLegality21canVectorizeOuterLoopEv'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='1529' u='c' c='_ZN4llvm19InnerLoopVectorizer18getBroadcastInstrsEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='1935' u='c' c='_ZN4llvm19InnerLoopVectorizer22getOrCreateScalarValueEPNS_5ValueERKNS_11VPIterationE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='3416' u='c' c='_ZN4llvm19InnerLoopVectorizer23fixFirstOrderRecurrenceEPNS_7PHINodeE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='3935' u='c' c='_ZN4llvm19InnerLoopVectorizer16widenInstructionERNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='3943' u='c' c='_ZN4llvm19InnerLoopVectorizer16widenInstructionERNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='4223' u='c' c='_ZN4llvm26LoopVectorizationCostModel18collectLoopScalarsEj'/>

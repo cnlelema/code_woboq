@@ -1,0 +1,19 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/MachineBasicBlock.h' l='732' type='bool llvm::MachineBasicBlock::CorrectExtraCFGEdges(llvm::MachineBasicBlock * DestA, llvm::MachineBasicBlock * DestB, bool IsCond)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineBasicBlock.h' l='726'>/// Various pieces of code can cause excess edges in the CFG to be inserted.
+  /// If we have proven that MBB can only branch to DestA and DestB, remove any
+  /// other MBB successors from the CFG. DestA and DestB can be null. Besides
+  /// DestA and DestB, retain other edges leading to LandingPads (currently
+  /// there can be only one; we don&apos;t check or require that here). Note it is
+  /// possible that DestA and/or DestB are LandingPads.</doc>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='198' u='c' c='_ZN4llvm12BranchFolder16OptimizeFunctionERNS_15MachineFunctionEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoEPNS_17MachineModuleInfoEPNS_15MachineLoopInfoEb'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='1445' u='c' c='_ZN4llvm12BranchFolder13OptimizeBlockEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='1620' u='c' c='_ZN4llvm12BranchFolder13OptimizeBlockEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='1710' u='c' c='_ZN4llvm12BranchFolder13OptimizeBlockEPNS_17MachineBasicBlockE'/>
+<def f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='1227' ll='1280' type='bool llvm::MachineBasicBlock::CorrectExtraCFGEdges(llvm::MachineBasicBlock * DestA, llvm::MachineBasicBlock * DestB, bool IsCond)'/>
+<doc f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='1220'>/// Various pieces of code can cause excess edges in the CFG to be inserted.  If
+/// we have proven that MBB can only branch to DestA and DestB, remove any other
+/// MBB successors from the CFG.  DestA and DestB can be null.
+///
+/// Besides DestA and DestB, retain other edges leading to LandingPads
+/// (currently there can be only one; we don&apos;t check or require that here).
+/// Note it is possible that DestA and/or DestB are LandingPads.</doc>

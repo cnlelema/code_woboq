@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Scalar/Float2Int.h' l='37' type='void llvm::Float2IntPass::walkBackwards(const SmallPtrSetImpl&lt;llvm::Instruction *&gt; &amp; Roots)'/>
+<def f='llvm/llvm/lib/Transforms/Scalar/Float2Int.cpp' l='175' ll='225' type='void llvm::Float2IntPass::walkBackwards(const SmallPtrSetImpl&lt;llvm::Instruction *&gt; &amp; Roots)'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/Float2Int.cpp' l='504' u='c' c='_ZN4llvm13Float2IntPass7runImplERNS_8FunctionE'/>
+<doc f='llvm/llvm/lib/Transforms/Scalar/Float2Int.cpp' l='161'>// The most obvious way to structure the search is a depth-first, eager
+// search from each root. However, that require direct recursion and so
+// can only handle small instruction sequences. Instead, we split the search
+// up into two phases:
+//   - walkBackwards:  A breadth-first walk of the use-def graph starting from
+//                     the roots. Populate &quot;SeenInsts&quot; with interesting
+//                     instructions and poison values if they&apos;re obvious and
+//                     cheap to compute. Calculate the equivalance set structure
+//                     while we&apos;re here too.
+//   - walkForwards:  Iterate over SeenInsts in reverse order, so we visit
+//                     defs before their uses. Calculate the real range info.
+
+// Breadth-first walk of the use-def graph; determine the set of nodes
+// we care about and eagerly determine if some of them are poisonous.</doc>

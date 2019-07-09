@@ -1,0 +1,101 @@
+<inh f='llvm/llvm/include/llvm/DebugInfo/DIContext.h' l='190' c='llvm::DIContext'/>
+<def f='llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFContext.h' l='58' ll='377'/>
+<size>392</size>
+<doc f='llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFContext.h' l='55'>/// DWARFContext
+/// This data structure is the top level entity that deals with dwarf debug
+/// information parsing. The actual data is supplied through DWARFObj.</doc>
+<mbr r='llvm::DWARFContext::NormalUnits' o='128' t='llvm::DWARFUnitVector'/>
+<mbr r='llvm::DWARFContext::CUIndex' o='640' t='std::unique_ptr&lt;DWARFUnitIndex&gt;'/>
+<mbr r='llvm::DWARFContext::GdbIndex' o='704' t='std::unique_ptr&lt;DWARFGdbIndex&gt;'/>
+<mbr r='llvm::DWARFContext::TUIndex' o='768' t='std::unique_ptr&lt;DWARFUnitIndex&gt;'/>
+<mbr r='llvm::DWARFContext::Abbrev' o='832' t='std::unique_ptr&lt;DWARFDebugAbbrev&gt;'/>
+<mbr r='llvm::DWARFContext::Loc' o='896' t='std::unique_ptr&lt;DWARFDebugLoc&gt;'/>
+<mbr r='llvm::DWARFContext::Aranges' o='960' t='std::unique_ptr&lt;DWARFDebugAranges&gt;'/>
+<mbr r='llvm::DWARFContext::Line' o='1024' t='std::unique_ptr&lt;DWARFDebugLine&gt;'/>
+<mbr r='llvm::DWARFContext::DebugFrame' o='1088' t='std::unique_ptr&lt;DWARFDebugFrame&gt;'/>
+<mbr r='llvm::DWARFContext::EHFrame' o='1152' t='std::unique_ptr&lt;DWARFDebugFrame&gt;'/>
+<mbr r='llvm::DWARFContext::Macro' o='1216' t='std::unique_ptr&lt;DWARFDebugMacro&gt;'/>
+<mbr r='llvm::DWARFContext::Names' o='1280' t='std::unique_ptr&lt;DWARFDebugNames&gt;'/>
+<mbr r='llvm::DWARFContext::AppleNames' o='1344' t='std::unique_ptr&lt;AppleAcceleratorTable&gt;'/>
+<mbr r='llvm::DWARFContext::AppleTypes' o='1408' t='std::unique_ptr&lt;AppleAcceleratorTable&gt;'/>
+<mbr r='llvm::DWARFContext::AppleNamespaces' o='1472' t='std::unique_ptr&lt;AppleAcceleratorTable&gt;'/>
+<mbr r='llvm::DWARFContext::AppleObjC' o='1536' t='std::unique_ptr&lt;AppleAcceleratorTable&gt;'/>
+<mbr r='llvm::DWARFContext::DWOUnits' o='1600' t='llvm::DWARFUnitVector'/>
+<mbr r='llvm::DWARFContext::AbbrevDWO' o='2112' t='std::unique_ptr&lt;DWARFDebugAbbrev&gt;'/>
+<mbr r='llvm::DWARFContext::LocDWO' o='2176' t='std::unique_ptr&lt;DWARFDebugLoclists&gt;'/>
+<mbr r='llvm::DWARFContext::MaxVersion' o='2240' t='unsigned int'/>
+<mbr r='llvm::DWARFContext::DWOFiles' o='2304' t='StringMap&lt;std::weak_ptr&lt;DWOFile&gt; &gt;'/>
+<mbr r='llvm::DWARFContext::DWP' o='2560' t='std::weak_ptr&lt;DWOFile&gt;'/>
+<mbr r='llvm::DWARFContext::CheckedForDWP' o='2688' t='bool'/>
+<mbr r='llvm::DWARFContext::DWPName' o='2752' t='std::string'/>
+<mbr r='llvm::DWARFContext::RegInfo' o='3008' t='std::unique_ptr&lt;MCRegisterInfo&gt;'/>
+<fun r='_ZN4llvm12DWARFContext16parseNormalUnitsEv'/>
+<fun r='_ZN4llvm12DWARFContext13parseDWOUnitsEb'/>
+<mbr r='llvm::DWARFContext::DObj' o='3072' t='std::unique_ptr&lt;const DWARFObject&gt;'/>
+<fun r='_ZN4llvm12DWARFContextC1ESt10unique_ptrIKNS_11DWARFObjectESt14default_deleteIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN4llvm12DWARFContextD1Ev'/>
+<fun r='_ZN4llvm12DWARFContextC1ERS0_'/>
+<fun r='_ZN4llvm12DWARFContextaSERS0_'/>
+<fun r='_ZNK4llvm12DWARFContext11getDWARFObjEv'/>
+<fun r='_ZN4llvm12DWARFContext7classofEPKNS_9DIContextE'/>
+<fun r='_ZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayINS_8OptionalImEELm28EE'/>
+<fun r='_ZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsE'/>
+<fun r='_ZN4llvm12DWARFContext6verifyERNS_11raw_ostreamENS_13DIDumpOptionsE'/>
+<fun r='_ZN4llvm12DWARFContext18info_section_unitsEv'/>
+<fun r='_ZN4llvm12DWARFContext19types_section_unitsEv'/>
+<fun r='_ZN4llvm12DWARFContext13compile_unitsEv'/>
+<fun r='_ZN4llvm12DWARFContext10type_unitsEv'/>
+<fun r='_ZN4llvm12DWARFContext12normal_unitsEv'/>
+<fun r='_ZN4llvm12DWARFContext22dwo_info_section_unitsEv'/>
+<fun r='_ZN4llvm12DWARFContext23dwo_types_section_unitsEv'/>
+<fun r='_ZN4llvm12DWARFContext17dwo_compile_unitsEv'/>
+<fun r='_ZN4llvm12DWARFContext14dwo_type_unitsEv'/>
+<fun r='_ZN4llvm12DWARFContext9dwo_unitsEv'/>
+<fun r='_ZN4llvm12DWARFContext18getNumCompileUnitsEv'/>
+<fun r='_ZN4llvm12DWARFContext15getNumTypeUnitsEv'/>
+<fun r='_ZN4llvm12DWARFContext21getNumDWOCompileUnitsEv'/>
+<fun r='_ZN4llvm12DWARFContext18getNumDWOTypeUnitsEv'/>
+<fun r='_ZN4llvm12DWARFContext14getUnitAtIndexEj'/>
+<fun r='_ZN4llvm12DWARFContext17getDWOUnitAtIndexEj'/>
+<fun r='_ZN4llvm12DWARFContext24getDWOCompileUnitForHashEm'/>
+<fun r='_ZN4llvm12DWARFContext23getCompileUnitForOffsetEj'/>
+<fun r='_ZN4llvm12DWARFContext15getDIEForOffsetEj'/>
+<fun r='_ZN4llvm12DWARFContext13getMaxVersionEv'/>
+<fun r='_ZN4llvm12DWARFContext16getMaxDWOVersionEv'/>
+<fun r='_ZN4llvm12DWARFContext22setMaxVersionIfGreaterEj'/>
+<fun r='_ZN4llvm12DWARFContext10getCUIndexEv'/>
+<fun r='_ZN4llvm12DWARFContext11getGdbIndexEv'/>
+<fun r='_ZN4llvm12DWARFContext10getTUIndexEv'/>
+<fun r='_ZN4llvm12DWARFContext14getDebugAbbrevEv'/>
+<fun r='_ZN4llvm12DWARFContext11getDebugLocEv'/>
+<fun r='_ZN4llvm12DWARFContext17getDebugAbbrevDWOEv'/>
+<fun r='_ZN4llvm12DWARFContext14getDebugLocDWOEv'/>
+<fun r='_ZN4llvm12DWARFContext15getDebugArangesEv'/>
+<fun r='_ZN4llvm12DWARFContext13getDebugFrameEv'/>
+<fun r='_ZN4llvm12DWARFContext10getEHFrameEv'/>
+<fun r='_ZN4llvm12DWARFContext13getDebugMacroEv'/>
+<fun r='_ZN4llvm12DWARFContext13getDebugNamesEv'/>
+<fun r='_ZN4llvm12DWARFContext13getAppleNamesEv'/>
+<fun r='_ZN4llvm12DWARFContext13getAppleTypesEv'/>
+<fun r='_ZN4llvm12DWARFContext18getAppleNamespacesEv'/>
+<fun r='_ZN4llvm12DWARFContext12getAppleObjCEv'/>
+<fun r='_ZN4llvm12DWARFContext19getLineTableForUnitEPNS_9DWARFUnitE'/>
+<fun r='_ZN4llvm12DWARFContext19getLineTableForUnitEPNS_9DWARFUnitESt8functionIFvNS_5ErrorEEE'/>
+<fun r='_ZNK4llvm12DWARFContext18getStringExtractorEv'/>
+<fun r='_ZNK4llvm12DWARFContext22getLineStringExtractorEv'/>
+<fun r='_ZN4llvm12DWARFContext17getDIEsForAddressEm'/>
+<fun r='_ZN4llvm12DWARFContext21getLineInfoForAddressENS_6object16SectionedAddressENS_19DILineInfoSpecifierE'/>
+<fun r='_ZN4llvm12DWARFContext26getLineInfoForAddressRangeENS_6object16SectionedAddressEmNS_19DILineInfoSpecifierE'/>
+<fun r='_ZN4llvm12DWARFContext25getInliningInfoForAddressENS_6object16SectionedAddressENS_19DILineInfoSpecifierE'/>
+<fun r='_ZNK4llvm12DWARFContext14isLittleEndianEv'/>
+<fun r='_ZN4llvm12DWARFContext18isSupportedVersionEj'/>
+<fun r='_ZN4llvm12DWARFContext13getDWOContextENS_9StringRefE'/>
+<fun r='_ZNK4llvm12DWARFContext15getRegisterInfoEv'/>
+<fun r='_ZN4llvm12DWARFContext19defaultErrorHandlerENS_5ErrorE'/>
+<fun r='_ZN4llvm12DWARFContext6createERKNS_6object10ObjectFileEPKNS_16LoadedObjectInfoENS_12function_refIFNS_11ErrorPolicyENS_5ErrorEEEENSt7__cxx1112basic_str5814638'/>
+<fun r='_ZN4llvm12DWARFContext6createERKNS_9StringMapISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS3_EENS_15MallocAllocatorEEEhb'/>
+<fun r='_ZN4llvm12DWARFContext16loadRegisterInfoERKNS_6object10ObjectFileE'/>
+<fun r='_ZN4llvm12DWARFContext13getCUAddrSizeEv'/>
+<fun r='_ZN4llvm12DWARFContext11dumpWarningENS_5ErrorE'/>
+<fun r='_ZNK4llvm12DWARFContext7getArchEv'/>
+<fun r='_ZN4llvm12DWARFContext24getCompileUnitForAddressEm'/>

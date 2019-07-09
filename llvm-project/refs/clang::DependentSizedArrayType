@@ -1,0 +1,29 @@
+<inh f='llvm/clang/include/clang/AST/Type.h' l='2858' c='clang::ArrayType'/>
+<def f='llvm/clang/include/clang/AST/Type.h' l='3072' ll='3119'/>
+<size>64</size>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='3059'>/// Represents an array type in C++ whose size is a value-dependent expression.
+///
+/// For example:
+/// \code
+/// template&lt;typename T, int Size&gt;
+/// class array {
+///   T data[Size];
+/// };
+/// \endcode
+///
+/// For these types, we won&apos;t actually know what the array bound is
+/// until template instantiation occurs, at which point this will
+/// become either a ConstantArrayType or a VariableArrayType.</doc>
+<mbr r='clang::DependentSizedArrayType::Context' o='320' t='const clang::ASTContext &amp;'/>
+<mbr r='clang::DependentSizedArrayType::SizeExpr' o='384' t='clang::Stmt *'/>
+<mbr r='clang::DependentSizedArrayType::Brackets' o='448' t='clang::SourceRange'/>
+<fun r='_ZN5clang23DependentSizedArrayTypeC1ERKNS_10ASTContextENS_8QualTypeES4_PNS_4ExprENS_9ArrayType17ArraySizeModifierEjNS_11SourceRangeE'/>
+<fun r='_ZNK5clang23DependentSizedArrayType11getSizeExprEv'/>
+<fun r='_ZNK5clang23DependentSizedArrayType16getBracketsRangeEv'/>
+<fun r='_ZNK5clang23DependentSizedArrayType14getLBracketLocEv'/>
+<fun r='_ZNK5clang23DependentSizedArrayType14getRBracketLocEv'/>
+<fun r='_ZNK5clang23DependentSizedArrayType9isSugaredEv'/>
+<fun r='_ZNK5clang23DependentSizedArrayType7desugarEv'/>
+<fun r='_ZN5clang23DependentSizedArrayType7classofEPKNS_4TypeE'/>
+<fun r='_ZN5clang23DependentSizedArrayType7ProfileERN4llvm16FoldingSetNodeIDE'/>
+<fun r='_ZN5clang23DependentSizedArrayType7ProfileERN4llvm16FoldingSetNodeIDERKNS_10ASTContextENS_8QualTypeENS_9ArrayType17ArraySizeModifierEjPNS_4ExprE'/>

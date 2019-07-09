@@ -1,0 +1,42 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='1180' type='CXTranslationUnit clang_createTranslationUnitFromSourceFile(CXIndex CIdx, const char * source_filename, int num_clang_command_line_args, const char *const * clang_command_line_args, unsigned int num_unsaved_files, struct CXUnsavedFile * unsaved_files)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='1140'>/**
+ * Return the CXTranslationUnit for a given source file and the provided
+ * command line arguments one would pass to the compiler.
+ *
+ * Note: The &apos;source_filename&apos; argument is optional.  If the caller provides a
+ * NULL pointer, the name of the source file is expected to reside in the
+ * specified command line arguments.
+ *
+ * Note: When encountered in &apos;clang_command_line_args&apos;, the following options
+ * are ignored:
+ *
+ *   &apos;-c&apos;
+ *   &apos;-emit-ast&apos;
+ *   &apos;-fsyntax-only&apos;
+ *   &apos;-o \&lt;output file&gt;&apos;  (both &apos;-o&apos; and &apos;\&lt;output file&gt;&apos; are ignored)
+ *
+ * \param CIdx The index object with which the translation unit will be
+ * associated.
+ *
+ * \param source_filename The name of the source file to load, or NULL if the
+ * source file is included in \p clang_command_line_args.
+ *
+ * \param num_clang_command_line_args The number of command-line arguments in
+ * \p clang_command_line_args.
+ *
+ * \param clang_command_line_args The command-line arguments that would be
+ * passed to the \c clang executable if it were being invoked out-of-process.
+ * These command-line options will be parsed and will affect how the translation
+ * unit is parsed. Note that the following options are ignored: &apos;-c&apos;,
+ * &apos;-emit-ast&apos;, &apos;-fsyntax-only&apos; (which is the default), and &apos;-o \&lt;output file&gt;&apos;.
+ *
+ * \param num_unsaved_files the number of unsaved file entries in \p
+ * unsaved_files.
+ *
+ * \param unsaved_files the files that have not yet been saved to disk
+ * but may be required for code completion, including the contents of
+ * those files.  The contents and name of these files (as specified by
+ * CXUnsavedFile) are copied when necessary, so the client only needs to
+ * guarantee their validity until the call to this function returns.
+ */</doc>
+<def f='llvm/clang/tools/libclang/CIndex.cpp' l='3371' ll='3383' type='CXTranslationUnit clang_createTranslationUnitFromSourceFile(CXIndex CIdx, const char * source_filename, int num_command_line_args, const char *const * command_line_args, unsigned int num_unsaved_files, struct CXUnsavedFile * unsaved_files)'/>

@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='559' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildExtOrTrunc(unsigned int ExtOpc, const llvm::DstOp &amp; Res, const llvm::SrcOp &amp; Op)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='550'>/// Build and insert \p Res = \p ExtOpc, \p Res = G_TRUNC \p
+  /// Op, or \p Res = COPY \p Op depending on the differing sizes of \p Res and
+  /// \p Op.
+  ///  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Res must be a generic virtual register with scalar or vector type.
+  /// \pre \p Op must be a generic virtual register with scalar or vector type.
+  ///
+  /// \return The newly created instruction.</doc>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='414' ll='436' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildExtOrTrunc(unsigned int ExtOpc, const llvm::DstOp &amp; Res, const llvm::SrcOp &amp; Op)'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='440' u='c' c='_ZN4llvm16MachineIRBuilder16buildSExtOrTruncERKNS_5DstOpERKNS_5SrcOpE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='445' u='c' c='_ZN4llvm16MachineIRBuilder16buildZExtOrTruncERKNS_5DstOpERKNS_5SrcOpE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='450' u='c' c='_ZN4llvm16MachineIRBuilder18buildAnyExtOrTruncERKNS_5DstOpERKNS_5SrcOpE'/>

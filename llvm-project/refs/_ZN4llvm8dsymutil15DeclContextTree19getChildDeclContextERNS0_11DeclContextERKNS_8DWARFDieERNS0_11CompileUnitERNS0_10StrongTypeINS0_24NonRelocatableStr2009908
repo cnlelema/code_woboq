@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/tools/dsymutil/DeclContext.h' l='133' type='PointerIntPair&lt;llvm::dsymutil::DeclContext *, 1&gt; llvm::dsymutil::DeclContextTree::getChildDeclContext(llvm::dsymutil::DeclContext &amp; Context, const llvm::DWARFDie &amp; DIE, llvm::dsymutil::CompileUnit &amp; Unit, UniquingStringPool &amp; StringPool, bool InClangModule)'/>
+<doc f='llvm/llvm/tools/dsymutil/DeclContext.h' l='121'>/// Get the child of \a Context described by \a DIE in \a Unit. The
+  /// required strings will be interned in \a StringPool.
+  /// \returns The child DeclContext along with one bit that is set if
+  /// this context is invalid.
+  ///
+  /// An invalid context means it shouldn&apos;t be considered for uniquing, but its
+  /// not returning null, because some children of that context might be
+  /// uniquing candidates.
+  ///
+  /// FIXME: The invalid bit along the return value is to emulate some
+  /// dsymutil-classic functionality.</doc>
+<def f='llvm/llvm/tools/dsymutil/DeclContext.cpp' l='44' ll='208' type='PointerIntPair&lt;llvm::dsymutil::DeclContext *, 1&gt; llvm::dsymutil::DeclContextTree::getChildDeclContext(llvm::dsymutil::DeclContext &amp; Context, const llvm::DWARFDie &amp; DIE, llvm::dsymutil::CompileUnit &amp; U, UniquingStringPool &amp; StringPool, bool InClangModule)'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfLinker.cpp' l='321' u='c' c='_ZN4llvm8dsymutilL18analyzeContextInfoERKNS_8DWARFDieEjRNS0_11CompileUnitEPNS0_11DeclContextERNS0_10StrongTypeINS0_24NonRelocatableStringpoolENS0_9Uni16014448'/>

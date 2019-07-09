@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.h' l='168' type='llvm::MachineBasicBlock * llvm::SelectionDAGBuilder::peelDominantCaseCluster(const llvm::SwitchInst &amp; SI, SwitchCG::CaseClusterVector &amp; Clusters, llvm::BranchProbability &amp; PeeledCaseProb)'/>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='10415' ll='10465' type='llvm::MachineBasicBlock * llvm::SelectionDAGBuilder::peelDominantCaseCluster(const llvm::SwitchInst &amp; SI, CaseClusterVector &amp; Clusters, llvm::BranchProbability &amp; PeeledCaseProb)'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='10491' u='c' c='_ZN4llvm19SelectionDAGBuilder11visitSwitchERKNS_10SwitchInstE'/>
+<doc f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='10409'>// Try to peel the top probability case if it exceeds the threshold.
+// Return current MachineBasicBlock for the switch statement if the peeling
+// does not occur.
+// If the peeling is performed, return the newly created MachineBasicBlock
+// for the peeled switch statement. Also update Clusters to remove the peeled
+// case. PeeledCaseProb is the BranchProbability for the peeled case.</doc>
+<doc f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.h' l='166'>/// Peel the top probability case if it exceeds the threshold</doc>

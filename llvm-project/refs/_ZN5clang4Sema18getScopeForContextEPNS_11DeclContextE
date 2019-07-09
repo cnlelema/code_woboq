@@ -1,0 +1,15 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='1397' type='clang::Scope * clang::Sema::getScopeForContext(clang::DeclContext * Ctx)'/>
+<def f='llvm/clang/lib/Sema/Sema.cpp' l='1683' ll='1699' type='clang::Scope * clang::Sema::getScopeForContext(clang::DeclContext * Ctx)'/>
+<doc f='llvm/clang/lib/Sema/Sema.cpp' l='1672'>/// Determines the active Scope associated with the given declaration
+/// context.
+///
+/// This routine maps a declaration context to the active Scope object that
+/// represents that declaration context in the parser. It is typically used
+/// from &quot;scope-less&quot; code (e.g., template instantiation, lazy creation of
+/// declarations) that injects a name for name-lookup purposes and, therefore,
+/// must update the Scope.
+///
+/// \returns The scope corresponding to the given declaraion context, or NULL
+/// if no such scope is open.</doc>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='1435' u='c' c='_ZL24handleIBOutletCollectionRN5clang4SemaEPNS_4DeclERKNS_10ParsedAttrE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='4947' u='c' c='_ZL24TryTypoCorrectionForCallRN5clang4SemaEPNS_4ExprEPNS_12FunctionDeclEN4llvm8ArrayRefIS3_EE'/>

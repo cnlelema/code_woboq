@@ -1,0 +1,20 @@
+<dec f='llvm/llvm/include/llvm/IR/IntrinsicInst.h' l='92' type='llvm::Value * llvm::DbgVariableIntrinsic::getVariableLocation(bool AllowNullOp = true) const'/>
+<use f='llvm/llvm/include/llvm/IR/IntrinsicInst.h' l='140' u='c' c='_ZNK4llvm14DbgDeclareInst10getAddressEv'/>
+<use f='llvm/llvm/include/llvm/IR/IntrinsicInst.h' l='156' u='c' c='_ZNK4llvm16DbgAddrIntrinsic10getAddressEv'/>
+<use f='llvm/llvm/include/llvm/IR/IntrinsicInst.h' l='172' u='c' c='_ZNK4llvm12DbgValueInst8getValueEv'/>
+<doc f='llvm/llvm/include/llvm/IR/IntrinsicInst.h' l='89'>/// Get the location corresponding to the variable referenced by the debug
+    /// info intrinsic.  Depending on the intrinsic, this could be the
+    /// variable&apos;s value or its address.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='1209' u='c' c='_ZN4llvm19SelectionDAGBuilder24resolveDanglingDebugInfoEPKNS_5ValueENS_7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='1263' u='c' c='_ZN4llvm19SelectionDAGBuilder25salvageUnresolvedDbgValueERNS0_17DanglingDebugInfoE'/>
+<def f='llvm/llvm/lib/IR/IntrinsicInst.cpp' l='39' ll='51' type='llvm::Value * llvm::DbgVariableIntrinsic::getVariableLocation(bool AllowNullOp = true) const'/>
+<doc f='llvm/llvm/lib/IR/IntrinsicInst.cpp' l='34'>//===----------------------------------------------------------------------===//
+/// DbgVariableIntrinsic - This is the common base class for debug info
+/// intrinsics for variables.
+///</doc>
+<use f='llvm/llvm/lib/Transforms/Scalar/ADCE.cpp' l='518' u='c' c='_ZN12_GLOBAL__N_129AggressiveDeadCodeElimination22removeDeadInstructionsEv'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1286' u='c' c='_ZL25valueCoversEntireFragmentPN4llvm4TypeEPNS_20DbgVariableIntrinsicE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1474' u='c' c='_ZN4llvm24insertDebugValuesForPHIsEPNS_10BasicBlockERNS_15SmallVectorImplIPNS_7PHINodeEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1806' u='c' c='_ZL17rewriteDebugUsersRN4llvm11InstructionERNS_5ValueES1_RNS_13DominatorTreeENS_12function_refIFNS_8OptionalIPNS_12DIExpressionEEERNS_20DbgVariableIntrinsicEEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopRotationUtils.cpp' l='313' u='c' c='_ZN12_GLOBAL__N_110LoopRotate10rotateLoopEPN4llvm4LoopEb'/>
+<use f='llvm/llvm/unittests/Transforms/Utils/LocalTest.cpp' l='760' u='c' c='_ZN32Local_ReplaceAllDbgUsesWith_Test8TestBodyEv'/>

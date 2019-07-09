@@ -1,0 +1,35 @@
+<inh f='llvm/clang/include/clang/Analysis/Analyses/ThreadSafetyTIL.h' l='277' c='clang::threadSafety::til::SExpr'/>
+<def f='llvm/clang/include/clang/Analysis/Analyses/ThreadSafetyTIL.h' l='355' ll='431'/>
+<size>48</size>
+<doc f='llvm/clang/include/clang/Analysis/Analyses/ThreadSafetyTIL.h' l='341'>// Nodes which declare variables
+
+/// A named variable, e.g. &quot;x&quot;.
+///
+/// There are two distinct places in which a Variable can appear in the AST.
+/// A variable declaration introduces a new variable, and can occur in 3 places:
+///   Let-expressions:           (Let (x = t) u)
+///   Functions:                 (Function (x : t) u)
+///   Self-applicable functions  (SFunction (x) t)
+///
+/// If a variable occurs in any other location, it is a reference to an existing
+/// variable declaration -- e.g. &apos;x&apos; in (x * y + z). To save space, we don&apos;t
+/// allocate a separate AST node for variable references; a reference is just a
+/// pointer to the original declaration.</doc>
+<fun r='_ZN5clang12threadSafety3til8VariableC1EN4llvm9StringRefEPNS1_5SExprE'/>
+<fun r='_ZN5clang12threadSafety3til8VariableC1EPNS1_5SExprEPKNS_9ValueDeclE'/>
+<fun r='_ZN5clang12threadSafety3til8VariableC1ERKS2_PNS1_5SExprE'/>
+<fun r='_ZN5clang12threadSafety3til8Variable7classofEPKNS1_5SExprE'/>
+<fun r='_ZNK5clang12threadSafety3til8Variable4kindEv'/>
+<fun r='_ZNK5clang12threadSafety3til8Variable4nameEv'/>
+<fun r='_ZNK5clang12threadSafety3til8Variable9clangDeclEv'/>
+<fun r='_ZN5clang12threadSafety3til8Variable10definitionEv'/>
+<fun r='_ZNK5clang12threadSafety3til8Variable10definitionEv'/>
+<fun r='_ZN5clang12threadSafety3til8Variable7setNameEN4llvm9StringRefE'/>
+<fun r='_ZN5clang12threadSafety3til8Variable7setKindENS2_12VariableKindE'/>
+<fun r='_ZN5clang12threadSafety3til8Variable13setDefinitionEPNS1_5SExprE'/>
+<fun r='_ZN5clang12threadSafety3til8Variable12setClangDeclEPKNS_9ValueDeclE'/>
+<fun r='_ZN5clang12threadSafety3til8Variable8traverseERT_NS3_5R_CtxE'/>
+<fun r='_ZNK5clang12threadSafety3til8Variable7compareEPKS2_RT_'/>
+<mbr r='clang::threadSafety::til::Variable::Name' o='128' t='llvm::StringRef'/>
+<mbr r='clang::threadSafety::til::Variable::Definition' o='256' t='clang::threadSafety::til::SExpr *'/>
+<mbr r='clang::threadSafety::til::Variable::Cvdecl' o='320' t='const clang::ValueDecl *'/>

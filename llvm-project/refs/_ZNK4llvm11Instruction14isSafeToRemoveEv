@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/include/llvm/IR/Instruction.h' l='585' type='bool llvm::Instruction::isSafeToRemove() const'/>
+<doc f='llvm/llvm/include/llvm/IR/Instruction.h' l='579'>/// Return true if the instruction can be removed if the result is unused.
+  ///
+  /// When constant folding some instructions cannot be removed even if their
+  /// results are unused. Specifically terminator instructions and calls that
+  /// may have side effects cannot be removed without semantically changing the
+  /// generated program.</doc>
+<def f='llvm/llvm/lib/IR/Instruction.cpp' l='606' ll='609' type='bool llvm::Instruction::isSafeToRemove() const'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SCCP.cpp' l='1773' u='c' c='_ZL24tryToReplaceWithConstantRN12_GLOBAL__N_110SCCPSolverEPN4llvm5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SCCP.cpp' l='2069' u='c' c='_ZN4llvm9runIPSCCPERNS_6ModuleERKNS_10DataLayoutEPKNS_17TargetLibraryInfoENS_12function_refIFNS_20AnalysisResultsForFnERNS_8FunctionEEEE'/>

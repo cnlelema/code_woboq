@@ -1,0 +1,23 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='400' type='llvm::MachineInstr * llvm::TargetInstrInfo::commuteInstruction(llvm::MachineInstr &amp; MI, bool NewMI = false, unsigned int OpIdx1 = CommuteAnyOperandIndex, unsigned int OpIdx2 = CommuteAnyOperandIndex) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='383'>/// This method commutes the operands of the given machine instruction MI.
+  ///
+  /// The operands to be commuted are specified by their indices OpIdx1 and
+  /// OpIdx2. OpIdx1 and OpIdx2 arguments may be set to a special value
+  /// &apos;CommuteAnyOperandIndex&apos;, which means that the method is free to choose
+  /// any arbitrarily chosen commutable operand. If both arguments are set to
+  /// &apos;CommuteAnyOperandIndex&apos; then the method looks for 2 different commutable
+  /// operands; then commutes them if such operands could be found.
+  ///
+  /// If NewMI is false, MI is modified in place and returned; otherwise, a
+  /// new machine instruction is created and returned.
+  ///
+  /// Do not call this method for a non-commutable instruction or
+  /// for non-commuable operands.
+  /// Even though the instruction is commutable, the method may still
+  /// fail to commute the operands, null pointer is returned in such cases.</doc>
+<use f='llvm/llvm/lib/CodeGen/MachineCSE.cpp' l='532' u='c' c='_ZN12_GLOBAL__N_110MachineCSE15ProcessBlockCSEEPN4llvm17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineCSE.cpp' l='541' u='c' c='_ZN12_GLOBAL__N_110MachineCSE15ProcessBlockCSEEPN4llvm17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/PeepholeOptimizer.cpp' l='1585' u='c' c='_ZN12_GLOBAL__N_117PeepholeOptimizer18optimizeRecurrenceERN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterCoalescer.cpp' l='835' u='c' c='_ZN12_GLOBAL__N_117RegisterCoalescer24removeCopyByCommutingDefERKN4llvm13CoalescerPairEPNS1_12MachineInstrE'/>
+<def f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='232' ll='245' type='llvm::MachineInstr * llvm::TargetInstrInfo::commuteInstruction(llvm::MachineInstr &amp; MI, bool NewMI = false, unsigned int OpIdx1 = CommuteAnyOperandIndex, unsigned int OpIdx2 = CommuteAnyOperandIndex) const'/>
+<use f='llvm/llvm/lib/CodeGen/TwoAddressInstructionPass.cpp' l='688' u='c' c='_ZN12_GLOBAL__N_125TwoAddressInstructionPass18commuteInstructionEPN4llvm12MachineInstrEjjjj'/>

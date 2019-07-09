@@ -1,0 +1,14 @@
+<def f='llvm/clang/include/clang/AST/ASTConsumer.h' l='140' type='bool clang::ASTConsumer::shouldSkipFunctionBody(clang::Decl * D)'/>
+<doc f='llvm/clang/include/clang/AST/ASTConsumer.h' l='134'>/// This callback is called for each function if the Parser was
+  /// initialized with \c SkipFunctionBodies set to \c true.
+  ///
+  /// \return \c true if the function&apos;s body should be skipped. The function
+  /// body may be parsed anyway if it is needed (for instance, if it contains
+  /// the code completion point or is constexpr).</doc>
+<ovr f='llvm/clang/lib/Frontend/MultiplexConsumer.cpp' l='348' c='_ZN5clang17MultiplexConsumer22shouldSkipFunctionBodyEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Frontend/MultiplexConsumer.cpp' l='351' u='c' c='_ZN5clang17MultiplexConsumer22shouldSkipFunctionBodyEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='13273' u='c' c='_ZN5clang4Sema19canSkipFunctionBodyEPNS_4DeclE'/>
+<ovr f='llvm/clang/tools/libclang/Indexing.cpp' l='304' c='_ZN12_GLOBAL__N_116IndexingConsumer22shouldSkipFunctionBodyEPN5clang4DeclE'/>
+<ovr f='llvm/clang/unittests/CodeGen/CodeGenExternalTest.cpp' l='158' c='_ZN12_GLOBAL__N_113MyASTConsumer22shouldSkipFunctionBodyEPN5clang4DeclE'/>
+<use f='llvm/clang/unittests/CodeGen/CodeGenExternalTest.cpp' l='159' u='c' c='_ZN12_GLOBAL__N_113MyASTConsumer22shouldSkipFunctionBodyEPN5clang4DeclE'/>
+<ovr f='llvm/clang/unittests/Tooling/ToolingTest.cpp' l='242' c='_ZN5clang7tooling16SkipBodyConsumer22shouldSkipFunctionBodyEPNS_4DeclE'/>

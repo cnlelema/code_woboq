@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/Analysis/CFG.h' l='33' type='void llvm::FindFunctionBackedges(const llvm::Function &amp; F, SmallVectorImpl&lt;std::pair&lt;const BasicBlock *, const BasicBlock *&gt; &gt; &amp; Result)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/CFG.h' l='28'>/// Analyze the specified function to find all of the loop backedges in the
+/// function and return them.  This is a relatively cheap (compared to
+/// computing dominators and loop info) analysis.
+///
+/// The output is added to Result, as pairs of &lt;from,to&gt; edge info.</doc>
+<def f='llvm/llvm/lib/Analysis/CFG.cpp' l='27' ll='66' type='void llvm::FindFunctionBackedges(const llvm::Function &amp; F, SmallVectorImpl&lt;std::pair&lt;const BasicBlock *, const BasicBlock *&gt; &gt; &amp; Result)'/>
+<doc f='llvm/llvm/lib/Analysis/CFG.cpp' l='22'>/// FindFunctionBackedges - Analyze the specified function to find all of the
+/// loop backedges in the function and return them.  This is a relatively cheap
+/// (compared to computing dominators and loop info) analysis.
+///
+/// The output is added to Result, as pairs of &lt;from,to&gt; edge info.</doc>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='545' u='c' c='_ZN4llvm17JumpThreadingPass15FindLoopHeadersERNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SimplifyCFGPass.cpp' l='153' u='c' c='_ZL22iterativelySimplifyCFGRN4llvm8FunctionERKNS_19TargetTransformInfoERKNS_18SimplifyCFGOptionsE'/>

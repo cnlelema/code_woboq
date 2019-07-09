@@ -1,0 +1,21 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='3661' type='void llvm::TargetLowering::LowerOperationWrapper(llvm::SDNode * N, SmallVectorImpl&lt;llvm::SDValue&gt; &amp; Results, llvm::SelectionDAG &amp; DAG) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='3648'>/// This callback is invoked by the type legalizer to legalize nodes with an
+  /// illegal operand type but legal result types.  It replaces the
+  /// LowerOperation callback in the type Legalizer.  The reason we can not do
+  /// away with LowerOperation entirely is that LegalizeDAG isn&apos;t yet ready to
+  /// use this callback.
+  ///
+  /// TODO: Consider merging with ReplaceNodeResults.
+  ///
+  /// The target places new result values for the node in Results (their number
+  /// and types must exactly match those of the original return values of
+  /// the node), or leaves Results empty, which indicates that the node is not
+  /// to be custom lowered after all.
+  /// The default implementation calls LowerOperation.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.cpp' l='912' u='c' c='_ZN4llvm16DAGTypeLegalizer15CustomLowerNodeEPNS_6SDNodeENS_3EVTEb'/>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='9335' ll='9340' type='void llvm::TargetLowering::LowerOperationWrapper(llvm::SDNode * N, SmallVectorImpl&lt;llvm::SDValue&gt; &amp; Results, llvm::SelectionDAG &amp; DAG) const'/>
+<ovr f='llvm/llvm/lib/Target/Hexagon/HexagonISelLowering.cpp' l='2803' c='_ZNK4llvm21HexagonTargetLowering21LowerOperationWrapperEPNS_6SDNodeERNS_15SmallVectorImplINS_7SDValueEEERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonISelLowering.cpp' l='2812' u='c' c='_ZNK4llvm21HexagonTargetLowering21LowerOperationWrapperEPNS_6SDNodeERNS_15SmallVectorImplINS_7SDValueEEERNS_12SelectionDAGE'/>
+<ovr f='llvm/llvm/lib/Target/Mips/MipsISelLowering.cpp' l='1419' c='_ZNK4llvm18MipsTargetLowering21LowerOperationWrapperEPNS_6SDNodeERNS_15SmallVectorImplINS_7SDValueEEERNS_12SelectionDAGE'/>
+<ovr f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='4994' c='_ZNK4llvm21SystemZTargetLowering21LowerOperationWrapperEPNS_6SDNodeERNS_15SmallVectorImplINS_7SDValueEEERNS_12SelectionDAGE'/>
+<ovr f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='27110' c='_ZNK4llvm17X86TargetLowering21LowerOperationWrapperEPNS_6SDNodeERNS_15SmallVectorImplINS_7SDValueEEERNS_12SelectionDAGE'/>

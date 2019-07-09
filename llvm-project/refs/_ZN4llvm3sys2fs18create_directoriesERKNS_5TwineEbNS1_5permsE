@@ -1,0 +1,39 @@
+<dec f='llvm/llvm/include/llvm/Support/FileSystem.h' l='325' type='std::error_code llvm::sys::fs::create_directories(const llvm::Twine &amp; path, bool IgnoreExisting = true, llvm::sys::fs::perms Perms = owner_all | group_all)'/>
+<doc f='llvm/llvm/include/llvm/Support/FileSystem.h' l='319'>/// Create all the non-existent directories in path.
+///
+/// @param path Directories to create.
+/// @returns errc::success if is_directory(path), otherwise a platform
+///          specific error_code. If IgnoreExisting is false, also returns
+///          error if the directory already existed.</doc>
+<use f='llvm/clang/lib/Driver/Driver.cpp' l='4339' u='c' c='_ZNK5clang6driver6Driver18GetNamedOutputPathERNS0_11CompilationERKNS0_9JobActionEPKcN4llvm9StringRefEbbSA_'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='763' u='c' c='_ZN5clang16CompilerInstance16createOutputFileEN4llvm9StringRefERSt10error_codebbS2_S2_bbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='1242' u='c' c='_ZL20compileAndLoadModuleRN5clang16CompilerInstanceENS_14SourceLocationES2_PNS_6ModuleEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='2050' u='c' c='_ZN5clang16CompilerInstance21loadGlobalModuleIndexENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Frontend/ModuleDependencyCollector.cpp' l='221' u='c' c='_ZN5clang25ModuleDependencyCollector10copyToRootEN4llvm9StringRefES2_'/>
+<use f='llvm/clang/unittests/libclang/LibclangTest.cpp' l='389' u='c' c='_ZN17LibclangParseTest9WriteFileERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_'/>
+<use f='llvm/llvm/lib/LTO/Caching.cpp' l='32' u='c' c='_ZN4llvm3lto10localCacheENS_9StringRefESt8functionIFvjSt10unique_ptrINS_12MemoryBufferESt14default_deleteIS4_EEEE'/>
+<use f='llvm/llvm/lib/LTO/LTO.cpp' l='1160' u='c' c='_ZN4llvm3lto20getThinLTOOutputFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_'/>
+<use f='llvm/llvm/lib/LTO/LTOBackend.cpp' l='319' u='c' c='_ZN12_GLOBAL__N_17codegenERN4llvm3lto6ConfigEPNS0_13TargetMachineESt8functionIFSt10unique_ptrINS1_18NativeObjectStreamESt14default_deleteIS8_EEjEEjRNS0_6ModuleE'/>
+<use f='llvm/llvm/lib/LTO/ThinLTOCodeGenerator.cpp' l='863' u='c' c='_ZN4llvm20ThinLTOCodeGenerator3runEv'/>
+<def f='llvm/llvm/lib/Support/Path.cpp' l='915' ll='937' type='std::error_code llvm::sys::fs::create_directories(const llvm::Twine &amp; Path, bool IgnoreExisting = true, llvm::sys::fs::perms Perms = owner_all | group_all)'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='933' u='c' c='_ZN4llvm3sys2fs18create_directoriesERKNS_5TwineEbNS1_5permsE'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfLinker.cpp' l='2507' u='c' c='_ZN4llvm8dsymutilL19copySwiftInterfacesERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_9StringRef740291'/>
+<use f='llvm/llvm/tools/dsymutil/dsymutil.cpp' l='246' u='c' c='_ZL15createBundleDirN4llvm9StringRefE'/>
+<use f='llvm/llvm/tools/lli/lli.cpp' l='254' u='c' c='_ZN14LLIObjectCache20notifyObjectCompiledEPKN4llvm6ModuleENS0_15MemoryBufferRefE'/>
+<use f='llvm/llvm/tools/llvm-cov/CodeCoverage.cpp' l='859' u='c' c='_ZN12_GLOBAL__N_116CodeCoverageTool6doShowEiPPKcN4llvm12function_refIFiiS3_EEE'/>
+<use f='llvm/llvm/tools/llvm-cov/SourceCoverageView.cpp' l='63' u='c' c='_ZNK4llvm15CoveragePrinter18createOutputStreamENS_9StringRefES1_b'/>
+<use f='llvm/llvm/tools/llvm-lto/llvm-lto.cpp' l='454' u='c' c='_ZL20getThinLTOOutputFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_'/>
+<use f='llvm/llvm/tools/llvm-objcopy/ELF/ELFObjcopy.cpp' l='218' u='c' c='_ZN4llvm7objcopy3elfL16linkToBuildIdDirERKNS0_10CopyConfigENS_9StringRefES5_NS_8ArrayRefIhEE'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='508' u='c' c='_ZN12_GLOBAL__N_128FileSystemTest_RealPath_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='573' u='c' c='_ZN12_GLOBAL__N_138FileSystemTest_RealPathNoReadPerm_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='831' u='c' c='_ZN12_GLOBAL__N_138FileSystemTest_DirectoryIteration_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='833' u='c' c='_ZN12_GLOBAL__N_138FileSystemTest_DirectoryIteration_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='834' u='c' c='_ZN12_GLOBAL__N_138FileSystemTest_DirectoryIteration_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='837' u='c' c='_ZN12_GLOBAL__N_138FileSystemTest_DirectoryIteration_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='839' u='c' c='_ZN12_GLOBAL__N_138FileSystemTest_DirectoryIteration_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='895' u='c' c='_ZN12_GLOBAL__N_138FileSystemTest_DirectoryIteration_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='911' u='c' c='_ZN12_GLOBAL__N_151FileSystemTest_BrokenSymlinkDirectoryIteration_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='915' u='c' c='_ZN12_GLOBAL__N_151FileSystemTest_BrokenSymlinkDirectoryIteration_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='923' u='c' c='_ZN12_GLOBAL__N_151FileSystemTest_BrokenSymlinkDirectoryIteration_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1001' u='c' c='_ZN12_GLOBAL__N_126FileSystemTest_Remove_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1002' u='c' c='_ZN12_GLOBAL__N_126FileSystemTest_Remove_Test8TestBodyEv'/>

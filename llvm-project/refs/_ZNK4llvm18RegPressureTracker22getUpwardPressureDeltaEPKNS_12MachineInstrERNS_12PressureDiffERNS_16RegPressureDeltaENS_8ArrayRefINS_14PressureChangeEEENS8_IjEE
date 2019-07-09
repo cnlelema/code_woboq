@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/RegisterPressure.h' l='481' type='void llvm::RegPressureTracker::getUpwardPressureDelta(const llvm::MachineInstr * MI, llvm::PressureDiff &amp; PDiff, llvm::RegPressureDelta &amp; Delta, ArrayRef&lt;llvm::PressureChange&gt; CriticalPSets, ArrayRef&lt;unsigned int&gt; MaxPressureLimit) const'/>
+<use f='llvm/llvm/lib/CodeGen/MachineScheduler.cpp' l='2970' u='c' c='_ZN4llvm16GenericScheduler13initCandidateERNS_20GenericSchedulerBase14SchedCandidateEPNS_5SUnitEbRKNS_18RegPressureTrackerERS6_'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterPressure.cpp' l='1106' u='c' c='_ZN4llvm18RegPressureTracker25getMaxUpwardPressureDeltaEPKNS_12MachineInstrEPNS_12PressureDiffERNS_16RegPressureDeltaENS_8ArrayRefINS_14PressureChangeEEENS8_IjEE'/>
+<def f='llvm/llvm/lib/CodeGen/RegisterPressure.cpp' l='1144' ll='1201' type='void llvm::RegPressureTracker::getUpwardPressureDelta(const llvm::MachineInstr * MI, llvm::PressureDiff &amp; PDiff, llvm::RegPressureDelta &amp; Delta, ArrayRef&lt;llvm::PressureChange&gt; CriticalPSets, ArrayRef&lt;unsigned int&gt; MaxPressureLimit) const'/>
+<doc f='llvm/llvm/lib/CodeGen/RegisterPressure.cpp' l='1134'>/// This is the fast version of querying register pressure that does not
+/// directly depend on current liveness.
+///
+/// @param Delta captures information needed for heuristics.
+///
+/// @param CriticalPSets Are the pressure sets that are known to exceed some
+/// limit within the region, not necessarily at the current position.
+///
+/// @param MaxPressureLimit Is the max pressure within the region, not
+/// necessarily at the current position.</doc>

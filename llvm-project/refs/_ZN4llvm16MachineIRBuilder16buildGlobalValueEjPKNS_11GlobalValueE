@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='371' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildGlobalValue(unsigned int Res, const llvm::GlobalValue * GV)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='361'>/// Build and insert \p Res = G_GLOBAL_VALUE \p GV
+  ///
+  /// G_GLOBAL_VALUE materializes the address of the specified global
+  /// into \p Res.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Res must be a generic virtual register with pointer type
+  ///      in the same address space as \p GV.
+  ///
+  /// \return a MachineInstrBuilder for the newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='1745' u='c' c='_ZN4llvm12IRTranslator9translateERKNS_8ConstantEj'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='170' ll='180' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildGlobalValue(unsigned int Res, const llvm::GlobalValue * GV)'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsCallLowering.cpp' l='536' u='c' c='_ZNK4llvm16MipsCallLowering9lowerCallERNS_16MachineIRBuilderEjRKNS_14MachineOperandERKNS_12CallLowering7ArgInfoENS_8ArrayRefIS7_EE'/>

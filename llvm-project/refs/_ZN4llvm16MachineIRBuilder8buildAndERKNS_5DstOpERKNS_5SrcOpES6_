@@ -1,0 +1,22 @@
+<def f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='1225' ll='1228' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildAnd(const llvm::DstOp &amp; Dst, const llvm::SrcOp &amp; Src0, const llvm::SrcOp &amp; Src1)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='1214'>/// Build and insert \p Res = G_AND \p Op0, \p Op1
+  ///
+  /// G_AND sets \p Res to the bitwise and of integer parameters \p Op0 and \p
+  /// Op1.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Res, \p Op0 and \p Op1 must be generic virtual registers
+  ///      with the same (scalar or vector) type).
+  ///
+  /// \return a MachineInstrBuilder for the newly created instruction.</doc>
+<use f='llvm/llvm/include/llvm/CodeGen/GlobalISel/LegalizationArtifactCombiner.h' l='89' u='c' c='_ZN4llvm28LegalizationArtifactCombiner14tryCombineZExtERNS_12MachineInstrERNS_15SmallVectorImplIPS1_EE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='3033' u='c' c='_ZN4llvm15LegalizerHelper19lowerU64ToF32BitOpsERNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='3036' u='c' c='_ZN4llvm15LegalizerHelper19lowerU64ToF32BitOpsERNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='3047' u='c' c='_ZN4llvm15LegalizerHelper19lowerU64ToF32BitOpsERNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULegalizerInfo.cpp' l='930' u='c' c='_ZNK4llvm19AMDGPULegalizerInfo13legalizeFceilERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULegalizerInfo.cpp' l='978' u='c' c='_ZNK4llvm19AMDGPULegalizerInfo22legalizeIntrinsicTruncERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULegalizerInfo.cpp' l='989' u='c' c='_ZNK4llvm19AMDGPULegalizerInfo22legalizeIntrinsicTruncERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/LegalizerHelperTest.cpp' l='566' u='c' c='_ZN12_GLOBAL__N_133GISelMITest_FewerElementsAnd_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/LegalizerHelperTest.cpp' l='620' u='c' c='_ZN12_GLOBAL__N_132GISelMITest_MoreElementsAnd_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/LegalizerHelperTest.cpp' l='700' u='c' c='_ZN12_GLOBAL__N_133GISelMITest_FewerElementsPhi_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/PatternMatchTest.cpp' l='224' u='c' c='_ZN12_GLOBAL__N_136PatternMatchInstr_MatchBinaryOp_Test8TestBodyEv'/>

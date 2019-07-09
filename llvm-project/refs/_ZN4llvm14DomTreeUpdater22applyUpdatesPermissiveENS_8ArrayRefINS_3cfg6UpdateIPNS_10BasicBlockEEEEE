@@ -1,0 +1,59 @@
+<dec f='llvm/llvm/include/llvm/Analysis/DomTreeUpdater.h' l='144' type='void llvm::DomTreeUpdater::applyUpdatesPermissive(ArrayRef&lt;DominatorTree::UpdateType&gt; Updates)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/DomTreeUpdater.h' l='123'>/// Submit updates to all available trees. It will also
+  /// 1. discard duplicated updates,
+  /// 2. remove invalid updates. (Invalid updates means deletion of an edge that
+  /// still exists or insertion of an edge that does not exist.)
+  /// The Eager Strategy flushes updates immediately while the Lazy Strategy
+  /// queues the updates.
+  ///
+  /// Note: The &quot;existence&quot; of an edge in a CFG refers to the CFG which DTU is
+  /// in sync with + all updates before that single update.
+  ///
+  /// CAUTION!
+  /// 1. It is required for the state of the LLVM IR to be updated
+  /// *before* submitting the updates because the internal update routine will
+  /// analyze the current state of the CFG to determine whether an update
+  /// is valid.
+  /// 2. It is illegal to submit any update that has already been submitted,
+  /// i.e., you are supposed not to insert an existent edge or delete a
+  /// nonexistent edge.
+  /// 3. It is only legal to submit updates to an edge in the order CFG changes
+  /// are made. The order you submit updates on different edges is not
+  /// restricted.</doc>
+<def f='llvm/llvm/lib/Analysis/DomTreeUpdater.cpp' l='249' ll='301' type='void llvm::DomTreeUpdater::applyUpdatesPermissive(ArrayRef&lt;DominatorTree::UpdateType&gt; Updates)'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/CallSiteSplitting.cpp' l='372' u='c' c='_ZL13splitCallSiteN4llvm8CallSiteERKNS_15SmallVectorImplISt4pairIPNS_10BasicBlockENS_11SmallVectorIS2_IPNS_8ICmpInstEjELj2EEEEEERNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/CorrelatedValuePropagation.cpp' l='382' u='c' c='_ZL13processSwitchPN4llvm10SwitchInstEPNS_13LazyValueInfoEPNS_13DominatorTreeE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='1094' u='c' c='_ZN4llvm17JumpThreadingPass12ProcessBlockEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='1164' u='c' c='_ZN4llvm17JumpThreadingPass12ProcessBlockEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='1254' u='c' c='_ZN4llvm17JumpThreadingPass23ProcessImpliedConditionEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='1680' u='c' c='_ZN4llvm17JumpThreadingPass22ProcessThreadableEdgesEPNS_5ValueEPNS_10BasicBlockENS_13jumpthreading18ConstantPreferenceEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='2022' u='c' c='_ZN4llvm17JumpThreadingPass10ThreadEdgeEPNS_10BasicBlockERKNS_15SmallVectorImplIS2_EES2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='2118' u='c' c='_ZN4llvm17JumpThreadingPass15SplitBlockPredsEPNS_10BasicBlockENS_8ArrayRefIS2_EEPKc'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='2391' u='c' c='_ZN4llvm17JumpThreadingPass32DuplicateCondBranchOnPHIIntoPredEPNS_10BasicBlockERKNS_15SmallVectorImplIS2_EE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='2427' u='c' c='_ZN4llvm17JumpThreadingPass17UnfoldSelectInstrEPNS_10BasicBlockES2_PNS_10SelectInstEPNS_7PHINodeEj'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='2605' u='c' c='_ZN4llvm17JumpThreadingPass25TryToUnfoldSelectInCurrBBEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp' l='108' u='c' c='_ZN4llvm16DeleteDeadBlocksENS_8ArrayRefIPNS_10BasicBlockEEEPNS_14DomTreeUpdaterEb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp' l='275' u='c' c='_ZN4llvm25MergeBlockIntoPredecessorEPNS_10BasicBlockEPNS_14DomTreeUpdaterEPNS_8LoopInfoEPNS_16MemorySSAUpdaterEPNS_23MemoryDependenceResultsE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='135' u='c' c='_ZN4llvm22ConstantFoldTerminatorEPNS_10BasicBlockEbPKNS_17TargetLibraryInfoEPNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='211' u='c' c='_ZN4llvm22ConstantFoldTerminatorEPNS_10BasicBlockEbPKNS_17TargetLibraryInfoEPNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='260' u='c' c='_ZN4llvm22ConstantFoldTerminatorEPNS_10BasicBlockEbPKNS_17TargetLibraryInfoEPNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='338' u='c' c='_ZN4llvm22ConstantFoldTerminatorEPNS_10BasicBlockEbPKNS_17TargetLibraryInfoEPNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='672' u='c' c='_ZN4llvm28RemovePredecessorAndSimplifyEPNS_10BasicBlockES1_PNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='741' u='c' c='_ZN4llvm27MergeBasicBlockIntoOnlyPredEPNS_10BasicBlockEPNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1083' u='c' c='_ZN4llvm39TryToSimplifyUncondBranchFromEmptyBlockEPNS_10BasicBlockEPNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1958' u='c' c='_ZN4llvm19changeToUnreachableEPNS_11InstructionEbbPNS_14DomTreeUpdaterEPNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1986' u='c' c='_ZL12changeToCallPN4llvm10InvokeInstEPNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='2133' u='c' c='_ZL15markAliveBlocksRN4llvm8FunctionERNS_15SmallPtrSetImplIPNS_10BasicBlockEEEPNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='2223' u='c' c='_ZN4llvm16removeUnwindEdgeEPNS_10BasicBlockEPNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='2288' u='c' c='_ZN4llvm23removeUnreachableBlocksERNS_8FunctionEPNS_13LazyValueInfoEPNS_14DomTreeUpdaterEPNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/unittests/Analysis/DomTreeUpdaterTest.cpp' l='74' u='c' c='_ZN46DomTreeUpdater_EagerUpdateBasicOperations_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/DomTreeUpdaterTest.cpp' l='105' u='c' c='_ZN46DomTreeUpdater_EagerUpdateBasicOperations_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/DomTreeUpdaterTest.cpp' l='110' u='c' c='_ZN46DomTreeUpdater_EagerUpdateBasicOperations_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/DomTreeUpdaterTest.cpp' l='255' u='c' c='_ZN47DomTreeUpdater_LazyUpdateDTBasicOperations_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/DomTreeUpdaterTest.cpp' l='278' u='c' c='_ZN47DomTreeUpdater_LazyUpdateDTBasicOperations_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/DomTreeUpdaterTest.cpp' l='425' u='c' c='_ZN46DomTreeUpdater_LazyUpdateDTInheritedPreds_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/DomTreeUpdaterTest.cpp' l='510' u='c' c='_ZN45DomTreeUpdater_LazyUpdateBasicOperations_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/DomTreeUpdaterTest.cpp' l='694' u='c' c='_ZN38DomTreeUpdater_LazyUpdateStepTest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/DomTreeUpdaterTest.cpp' l='764' u='c' c='_ZN47DomTreeUpdater_LazyUpdateDeduplicationTest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/DomTreeUpdaterTest.cpp' l='774' u='c' c='_ZN47DomTreeUpdater_LazyUpdateDeduplicationTest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/DomTreeUpdaterTest.cpp' l='782' u='c' c='_ZN47DomTreeUpdater_LazyUpdateDeduplicationTest_Test8TestBodyEv'/>

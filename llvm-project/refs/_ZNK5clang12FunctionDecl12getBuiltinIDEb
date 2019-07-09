@@ -1,0 +1,49 @@
+<dec f='llvm/clang/include/clang/AST/Decl.h' l='2278' type='unsigned int clang::FunctionDecl::getBuiltinID(bool ConsiderWrapperFunctions = false) const'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='7743' u='c' c='_ZNK5clang10ASTContext22canBuiltinBeRedeclaredEPKNS_12FunctionDeclE'/>
+<def f='llvm/clang/lib/AST/Decl.cpp' l='3080' ll='3136' type='unsigned int clang::FunctionDecl::getBuiltinID(bool ConsiderWrapperFunctions = false) const'/>
+<use f='llvm/clang/lib/AST/Decl.cpp' l='3764' u='c' c='_ZNK5clang12FunctionDecl21getMemoryFunctionKindEv'/>
+<doc f='llvm/clang/lib/AST/Decl.cpp' l='3067'>/// Returns a value indicating whether this function corresponds to a builtin
+/// function.
+///
+/// The function corresponds to a built-in function if it is declared at
+/// translation scope or within an extern &quot;C&quot; block and its name matches with
+/// the name of a builtin. The returned value will be 0 for functions that do
+/// not correspond to a builtin, a value of type \c Builtin::ID if in the
+/// target-independent range \c [1,Builtin::First), or a target-specific builtin
+/// value.
+///
+/// \param ConsiderWrapperFunctions If true, we should consider wrapper
+/// functions as their wrapped builtins. This shouldn&apos;t be done in general, but
+/// it&apos;s useful in Sema to diagnose calls to wrappers based on their semantics.</doc>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='1389' u='c' c='_ZNK5clang8CallExpr16getBuiltinCalleeEv'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='3224' u='c' c='_ZNK5clang8CallExpr20isBuiltinAssumeFalseERKNS_10ASTContextE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='3225' u='c' c='_ZNK5clang8CallExpr20isBuiltinAssumeFalseERKNS_10ASTContextE'/>
+<use f='llvm/clang/lib/Analysis/CFG.cpp' l='2524' u='c' c='_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE'/>
+<use f='llvm/clang/lib/Analysis/CFG.cpp' l='2525' u='c' c='_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE'/>
+<use f='llvm/clang/lib/CodeGen/CGClass.cpp' l='1174' u='c' c='_ZN12_GLOBAL__N_120AssignmentMemcpyizer18getMemcpyableFieldEPN5clang4StmtE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='5356' u='c' c='_ZL16EmitDirectCalleeRN5clang7CodeGen15CodeGenFunctionEPKNS_12FunctionDeclE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmt.cpp' l='1745' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitSwitchStmtERKNS_10SwitchStmtE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenFunction.cpp' l='1566' u='c' c='_ZN5clang7CodeGen15CodeGenFunction20EmitBranchOnBoolExprEPKNS_4ExprEPN4llvm10BasicBlockES7_m'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenFunction.cpp' l='2238' u='c' c='_ZN5clang7CodeGen15CodeGenFunction19checkTargetFeaturesEPKNS_8CallExprEPKNS_12FunctionDeclE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='2663' u='c' c='_ZN12_GLOBAL__N_127FunctionIsDirectlyRecursive13VisitCallExprEPKN5clang8CallExprE'/>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='771' u='c' c='_ZN5clang4Sema19getUndefinedButUsedERN4llvm15SmallVectorImplISt4pairIPNS_9NamedDeclENS_14SourceLocationEEEE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='365' u='c' c='_ZL30SemaBuiltinCallWithStaticChainRN5clang4SemaEPNS_8CallExprE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='416' u='c' c='_ZN5clang4Sema35checkFortifiedBuiltinMemoryFunctionEPNS_12FunctionDeclEPNS_8CallExprE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='857' u='c' c='_ZL18checkOpenCLPipeArgRN5clang4SemaEPNS_8CallExprE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='4367' u='c' c='_ZN5clang4Sema9checkCallEPNS_9NamedDeclEPKNS_17FunctionProtoTypeEPKNS_4ExprEN4llvm8ArrayRefIS8_EEbNS_14SourceLocationENS_11SourceRangeENS0_16VariadicCallTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='5053' u='c' c='_ZN5clang4Sema27SemaBuiltinAtomicOverloadedENS_12ActionResultIPNS_4ExprELb1EEE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='5149' u='c' c='_ZN5clang4Sema27SemaBuiltinAtomicOverloadedENS_12ActionResultIPNS_4ExprELb1EEE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='5406' u='c' c='_ZN5clang4Sema32SemaBuiltinNontemporalOverloadedENS_12ActionResultIPNS_4ExprELb1EEE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='6102' u='c' c='_ZN5clang4Sema22SemaBuiltinOSLogFormatEPNS_8CallExprE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='8876' u='c' c='_ZL28getAbsoluteValueFunctionKindPKN5clang12FunctionDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='8897' u='c' c='_ZL28getAbsoluteValueFunctionKindPKN5clang12FunctionDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='8962' u='c' c='_ZL15emitReplacementRN5clang4SemaENS_14SourceLocationENS_11SourceRangeEjNS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='3164' u='c' c='_ZN5clang4Sema17MergeFunctionDeclEPNS_12FunctionDeclERPNS_9NamedDeclEPNS_5ScopeEb'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='10395' u='c' c='_ZN5clang4Sema24CheckFunctionDeclarationEPNS_5ScopeEPNS_12FunctionDeclERNS_12LookupResultEb'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='13129' u='c' c='_ZN5clang4Sema23ActOnStartOfFunctionDefEPNS_5ScopeEPNS_4DeclEPNS0_12SkipBodyInfoE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='13790' u='c' c='_ZN5clang4Sema26AddKnownFunctionAttributesEPNS_12FunctionDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='4990' u='c' c='_ZN5clang4Sema23ConvertArgumentsForCallEPNS_8CallExprEPNS_4ExprEPNS_12FunctionDeclEPKNS_17FunctionProtoTypeEN4llvm8ArrayRefIS4_EENS_14SourceLocationEb'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='5682' u='c' c='_ZN5clang4Sema13BuildCallExprEPNS_5ScopeEPNS_4ExprENS_14SourceLocationEN4llvm15MutableArrayRefIS4_EES5_S4_b'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='5758' u='c' c='_ZN5clang4Sema21BuildResolvedCallExprEPNS_4ExprEPNS_9NamedDeclENS_14SourceLocationEN4llvm8ArrayRefIS2_EES5_S2_bNS_8CallExpr11ADLCallKindE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='17714' u='c' c='_ZN5clang4Sema20CheckPlaceholderExprEPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaExprObjC.cpp' l='3475' u='c' c='_ZN12_GLOBAL__N_114ARCCastChecker19checkCallToFunctionEPN5clang12FunctionDeclE'/>

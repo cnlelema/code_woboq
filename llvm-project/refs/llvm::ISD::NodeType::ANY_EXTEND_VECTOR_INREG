@@ -1,0 +1,39 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/ISDOpcodes.h' l='523' type='167'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/ISDOpcodes.h' l='514'>/// ANY_EXTEND_VECTOR_INREG(Vector) - This operator represents an
+    /// in-register any-extension of the low lanes of an integer vector. The
+    /// result type must have fewer elements than the operand type, and those
+    /// elements must be larger integer types such that the total size of the
+    /// operand type is less than or equal to the size of the result type. Each
+    /// of the low operand elements is any-extended into the corresponding,
+    /// wider result elements with the high bits becoming undef.
+    /// NOTE: The type legalizer prefers to make the operand and result size
+    /// the same to allow expansion to shuffle vector during op legalization.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='10253' u='r' c='_ZN12_GLOBAL__N_111DAGCombiner22visitSIGN_EXTEND_INREGEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='18451' u='r' c='_ZL28combineShuffleToVectorExtendPN4llvm19ShuffleVectorSDNodeERNS_12SelectionDAGERKNS_14TargetLoweringEb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='18453' u='r' c='_ZL28combineShuffleToVectorExtendPN4llvm19ShuffleVectorSDNodeERNS_12SelectionDAGERKNS_14TargetLoweringEb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='18477' u='r' c='_ZL24combineTruncationShufflePN4llvm19ShuffleVectorSDNodeERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='106' c='_ZN4llvm16DAGTypeLegalizer20PromoteIntegerResultEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='4118' c='_ZN4llvm16DAGTypeLegalizer33PromoteIntRes_EXTEND_VECTOR_INREGEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='418' c='_ZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='763' c='_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='975' u='r' c='_ZN12_GLOBAL__N_115VectorLegalizer30ExpandSIGN_EXTEND_VECTOR_INREGEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='67' c='_ZN4llvm16DAGTypeLegalizer21ScalarizeVectorResultEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='422' c='_ZN4llvm16DAGTypeLegalizer26ScalarizeVecRes_VecInregOpEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='853' c='_ZN4llvm16DAGTypeLegalizer17SplitVectorResultEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1978' c='_ZN4llvm16DAGTypeLegalizer18SplitVectorOperandEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2761' c='_ZN4llvm16DAGTypeLegalizer17WidenVectorResultEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='3204' u='r' c='_ZN4llvm16DAGTypeLegalizer19WidenVecRes_ConvertEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='3314' c='_ZN4llvm16DAGTypeLegalizer31WidenVecRes_EXTEND_VECTOR_INREGEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='3328' c='_ZN4llvm16DAGTypeLegalizer31WidenVecRes_EXTEND_VECTOR_INREGEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='4181' u='r' c='_ZN4llvm16DAGTypeLegalizer17WidenVecOp_EXTENDEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='4632' c='_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueENS_11SDNodeFlagsE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGDumper.cpp' l='317' c='_ZNK4llvm6SDNode16getOperationNameEPKNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetLoweringBase.cpp' l='661' u='r' c='_ZN4llvm18TargetLoweringBase11initActionsEv'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonISelLoweringHVX.cpp' l='1427' u='r' c='_ZNK4llvm21HexagonTargetLowering14LowerHvxExtendENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonISelLoweringHVX.cpp' l='1571' c='_ZNK4llvm21HexagonTargetLowering17LowerHvxOperationENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='5256' u='r' c='_ZNK4llvm21SystemZTargetLowering14combineExtractERKNS_5SDLocENS_3EVTES4_NS_7SDValueEjRNS_14TargetLowering15DAGCombinerInfoEb'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='1884' u='r' c='_ZN4llvm17X86TargetLoweringC1ERKNS_16X86TargetMachineERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='6848' c='_ZL18getFauxShuffleMaskN4llvm7SDValueERNS_15SmallVectorImplIiEERNS1_IS0_EERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='6858' u='r' c='_ZL18getFauxShuffleMaskN4llvm7SDValueERNS_15SmallVectorImplIiEERNS1_IS0_EERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='43365' u='r' c='_ZL23combineExtractSubvectorPN4llvm6SDNodeERNS_12SelectionDAGERNS_14TargetLowering15DAGCombinerInfoERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='43537' c='_ZNK4llvm17X86TargetLowering17PerformDAGCombineEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>

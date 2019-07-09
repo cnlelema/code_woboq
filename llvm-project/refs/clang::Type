@@ -1,0 +1,454 @@
+<inh f='llvm/clang/include/clang/AST/Type.h' l='1286' c='clang::ExtQualsTypeCommonBase'/>
+<def f='llvm/clang/include/clang/AST/Type.h' l='1428' ll='2398'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='2427' c='clang::BuiltinType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='2513' c='clang::ComplexType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='2543' c='clang::ParenType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='2573' c='clang::PointerType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='2626' c='clang::AdjustedType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='2680' c='clang::BlockPointerType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='2714' c='clang::ReferenceType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='2802' c='clang::MemberPointerType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='2858' c='clang::ArrayType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='3132' c='clang::DependentAddressSpaceType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='3174' c='clang::DependentSizedExtVectorType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='3214' c='clang::VectorType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='3291' c='clang::DependentVectorType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='3401' c='clang::FunctionType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='4168' c='clang::UnresolvedUsingType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='4198' c='clang::TypedefType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='4224' c='clang::MacroQualifiedType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='4258' c='clang::TypeOfExprType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='4301' c='clang::TypeOfType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='4328' c='clang::DecltypeType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='4371' c='clang::UnaryTransformType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='4429' c='clang::TagType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='4507' c='clang::AttributedType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='4604' c='clang::TemplateTypeParmType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='4685' c='clang::SubstTemplateTypeParmType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='4741' c='clang::SubstTemplateTypeParmPackType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='4791' c='clang::DeducedType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='4925' c='clang::TemplateSpecializationType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='5062' c='clang::InjectedClassNameType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='5162' c='clang::TypeWithKeyword'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='5439' c='clang::PackExpansionType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='5548' c='clang::ObjCTypeParamType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='5622' c='clang::ObjCObjectType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='5878' c='clang::ObjCObjectPointerType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='6052' c='clang::AtomicType'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='6086' c='clang::PipeType'/>
+<size>24</size>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='1402'>/// The base class of the type hierarchy.
+///
+/// A central concept with types is that each type always has a canonical
+/// type.  A canonical type is the type with any typedef names stripped out
+/// of it or the types it references.  For example, consider:
+///
+///  typedef int  foo;
+///  typedef foo* bar;
+///    &apos;int *&apos;    &apos;foo *&apos;    &apos;bar&apos;
+///
+/// There will be a Type object created for &apos;int&apos;.  Since int is canonical, its
+/// CanonicalType pointer points to itself.  There is also a Type for &apos;foo&apos; (a
+/// TypedefType).  Its CanonicalType pointer points to the &apos;int&apos; Type.  Next
+/// there is a PointerType that represents &apos;int*&apos;, which, like &apos;int&apos;, is
+/// canonical.  Finally, there is a PointerType type for &apos;foo*&apos; whose canonical
+/// type is &apos;int*&apos;, and there is a TypedefType for &apos;bar&apos;, whose canonical type
+/// is also &apos;int*&apos;.
+///
+/// Non-canonical types are useful for emitting diagnostics, without losing
+/// information about typedefs being used.  Canonical types are useful for type
+/// comparisons (they allow by-pointer equality tests) and useful for reasoning
+/// about whether something has a particular form (e.g. is a function type),
+/// because they implicitly, recursively, strip all typedefs out of a type.
+///
+/// Types, once created, are immutable.
+///</doc>
+<fun r='_ZNK5clang4Type10setFromASTEb'/>
+<fun r='_ZN5clang4TypeC1ENS0_9TypeClassENS_8QualTypeEbbbb'/>
+<fun r='_ZN5clang4Type5this_Ev'/>
+<fun r='_ZN5clang4Type12setDependentEb'/>
+<fun r='_ZN5clang4Type25setInstantiationDependentEb'/>
+<fun r='_ZN5clang4Type19setVariablyModifiedEb'/>
+<fun r='_ZN5clang4Type34setContainsUnexpandedParameterPackEb'/>
+<fun r='_ZN5clang4TypeC1ERKS0_'/>
+<fun r='_ZN5clang4TypeC1EOS0_'/>
+<fun r='_ZN5clang4TypeaSERKS0_'/>
+<fun r='_ZN5clang4TypeaSEOS0_'/>
+<fun r='_ZNK5clang4Type12getTypeClassEv'/>
+<fun r='_ZNK5clang4Type9isFromASTEv'/>
+<fun r='_ZNK5clang4Type31containsUnexpandedParameterPackEv'/>
+<fun r='_ZNK5clang4Type22isCanonicalUnqualifiedEv'/>
+<fun r='_ZNK5clang4Type44getLocallyUnqualifiedSingleStepDesugaredTypeEv'/>
+<fun r='_ZNK5clang4Type16isIncompleteTypeEPPNS_9NamedDeclE'/>
+<fun r='_ZNK5clang4Type24isIncompleteOrObjectTypeEv'/>
+<fun r='_ZNK5clang4Type12isObjectTypeEv'/>
+<fun r='_ZNK5clang4Type13isLiteralTypeERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang4Type20isStandardLayoutTypeEv'/>
+<fun r='_ZNK5clang4Type13isBuiltinTypeEv'/>
+<fun r='_ZNK5clang4Type21isSpecificBuiltinTypeEj'/>
+<fun r='_ZNK5clang4Type17isPlaceholderTypeEv'/>
+<fun r='_ZNK5clang4Type20getAsPlaceholderTypeEv'/>
+<fun r='_ZNK5clang4Type25isSpecificPlaceholderTypeEj'/>
+<fun r='_ZNK5clang4Type28isNonOverloadPlaceholderTypeEv'/>
+<fun r='_ZNK5clang4Type13isIntegerTypeEv'/>
+<fun r='_ZNK5clang4Type14isEnumeralTypeEv'/>
+<fun r='_ZNK5clang4Type20isScopedEnumeralTypeEv'/>
+<fun r='_ZNK5clang4Type13isBooleanTypeEv'/>
+<fun r='_ZNK5clang4Type10isCharTypeEv'/>
+<fun r='_ZNK5clang4Type14isWideCharTypeEv'/>
+<fun r='_ZNK5clang4Type11isChar8TypeEv'/>
+<fun r='_ZNK5clang4Type12isChar16TypeEv'/>
+<fun r='_ZNK5clang4Type12isChar32TypeEv'/>
+<fun r='_ZNK5clang4Type18isAnyCharacterTypeEv'/>
+<fun r='_ZNK5clang4Type14isIntegralTypeERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang4Type27isIntegralOrEnumerationTypeEv'/>
+<fun r='_ZNK5clang4Type35isIntegralOrUnscopedEnumerationTypeEv'/>
+<fun r='_ZNK5clang4Type18isRealFloatingTypeEv'/>
+<fun r='_ZNK5clang4Type13isComplexTypeEv'/>
+<fun r='_ZNK5clang4Type16isAnyComplexTypeEv'/>
+<fun r='_ZNK5clang4Type14isFloatingTypeEv'/>
+<fun r='_ZNK5clang4Type10isHalfTypeEv'/>
+<fun r='_ZNK5clang4Type13isFloat16TypeEv'/>
+<fun r='_ZNK5clang4Type14isFloat128TypeEv'/>
+<fun r='_ZNK5clang4Type10isRealTypeEv'/>
+<fun r='_ZNK5clang4Type16isArithmeticTypeEv'/>
+<fun r='_ZNK5clang4Type10isVoidTypeEv'/>
+<fun r='_ZNK5clang4Type12isScalarTypeEv'/>
+<fun r='_ZNK5clang4Type15isAggregateTypeEv'/>
+<fun r='_ZNK5clang4Type17isFundamentalTypeEv'/>
+<fun r='_ZNK5clang4Type14isCompoundTypeEv'/>
+<fun r='_ZNK5clang4Type14isFunctionTypeEv'/>
+<fun r='_ZNK5clang4Type21isFunctionNoProtoTypeEv'/>
+<fun r='_ZNK5clang4Type19isFunctionProtoTypeEv'/>
+<fun r='_ZNK5clang4Type13isPointerTypeEv'/>
+<fun r='_ZNK5clang4Type21isCHERICapabilityTypeERKNS_10ASTContextEb'/>
+<fun r='_ZNK5clang4Type12isIntCapTypeEv'/>
+<fun r='_ZNK5clang4Type16isAnyPointerTypeEv'/>
+<fun r='_ZNK5clang4Type18isBlockPointerTypeEv'/>
+<fun r='_ZNK5clang4Type17isVoidPointerTypeEv'/>
+<fun r='_ZNK5clang4Type15isReferenceTypeEv'/>
+<fun r='_ZNK5clang4Type21isLValueReferenceTypeEv'/>
+<fun r='_ZNK5clang4Type21isRValueReferenceTypeEv'/>
+<fun r='_ZNK5clang4Type21isFunctionPointerTypeEv'/>
+<fun r='_ZNK5clang4Type23isFunctionReferenceTypeEv'/>
+<fun r='_ZNK5clang4Type19isMemberPointerTypeEv'/>
+<fun r='_ZNK5clang4Type27isMemberFunctionPointerTypeEv'/>
+<fun r='_ZNK5clang4Type23isMemberDataPointerTypeEv'/>
+<fun r='_ZNK5clang4Type11isArrayTypeEv'/>
+<fun r='_ZNK5clang4Type19isConstantArrayTypeEv'/>
+<fun r='_ZNK5clang4Type21isIncompleteArrayTypeEv'/>
+<fun r='_ZNK5clang4Type19isVariableArrayTypeEv'/>
+<fun r='_ZNK5clang4Type25isDependentSizedArrayTypeEv'/>
+<fun r='_ZNK5clang4Type12isRecordTypeEv'/>
+<fun r='_ZNK5clang4Type11isClassTypeEv'/>
+<fun r='_ZNK5clang4Type15isStructureTypeEv'/>
+<fun r='_ZNK5clang4Type23isObjCBoxableRecordTypeEv'/>
+<fun r='_ZNK5clang4Type15isInterfaceTypeEv'/>
+<fun r='_ZNK5clang4Type22isStructureOrClassTypeEv'/>
+<fun r='_ZNK5clang4Type11isUnionTypeEv'/>
+<fun r='_ZNK5clang4Type20isComplexIntegerTypeEv'/>
+<fun r='_ZNK5clang4Type12isVectorTypeEv'/>
+<fun r='_ZNK5clang4Type15isExtVectorTypeEv'/>
+<fun r='_ZNK5clang4Type27isDependentAddressSpaceTypeEv'/>
+<fun r='_ZNK5clang4Type23isObjCObjectPointerTypeEv'/>
+<fun r='_ZNK5clang4Type20isObjCRetainableTypeEv'/>
+<fun r='_ZNK5clang4Type18isObjCLifetimeTypeEv'/>
+<fun r='_ZNK5clang4Type26isObjCIndirectLifetimeTypeEv'/>
+<fun r='_ZNK5clang4Type18isObjCNSObjectTypeEv'/>
+<fun r='_ZNK5clang4Type26isObjCIndependentClassTypeEv'/>
+<fun r='_ZNK5clang4Type16isObjCObjectTypeEv'/>
+<fun r='_ZNK5clang4Type28isObjCQualifiedInterfaceTypeEv'/>
+<fun r='_ZNK5clang4Type21isObjCQualifiedIdTypeEv'/>
+<fun r='_ZNK5clang4Type24isObjCQualifiedClassTypeEv'/>
+<fun r='_ZNK5clang4Type27isObjCObjectOrInterfaceTypeEv'/>
+<fun r='_ZNK5clang4Type12isObjCIdTypeEv'/>
+<fun r='_ZNK5clang4Type14isDecltypeTypeEv'/>
+<fun r='_ZNK5clang4Type31isObjCInertUnsafeUnretainedTypeEv'/>
+<fun r='_ZNK5clang4Type26isObjCIdOrObjectKindOfTypeERKNS_10ASTContextERPKNS_14ObjCObjectTypeE'/>
+<fun r='_ZNK5clang4Type15isObjCClassTypeEv'/>
+<fun r='_ZNK5clang4Type28isObjCClassOrClassKindOfTypeEv'/>
+<fun r='_ZNK5clang4Type32isBlockCompatibleObjCPointerTypeERNS_10ASTContextE'/>
+<fun r='_ZNK5clang4Type13isObjCSelTypeEv'/>
+<fun r='_ZNK5clang4Type17isObjCBuiltinTypeEv'/>
+<fun r='_ZNK5clang4Type22isObjCARCBridgableTypeEv'/>
+<fun r='_ZNK5clang4Type19isCARCBridgableTypeEv'/>
+<fun r='_ZNK5clang4Type25isCXXStructureOrClassTypeEv'/>
+<fun r='_ZNK5clang4Type22isTemplateTypeParmTypeEv'/>
+<fun r='_ZNK5clang4Type13isNullPtrTypeEv'/>
+<fun r='_ZNK5clang4Type11isAlignValTEv'/>
+<fun r='_ZNK5clang4Type13isStdByteTypeEv'/>
+<fun r='_ZNK5clang4Type12isAtomicTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage1dROTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage1dArrayROTypeEv'/>
+<fun r='_ZNK5clang4Type24isOCLImage1dBufferROTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage2dROTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage2dArrayROTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage2dDepthROTypeEv'/>
+<fun r='_ZNK5clang4Type28isOCLImage2dArrayDepthROTypeEv'/>
+<fun r='_ZNK5clang4Type22isOCLImage2dMSAAROTypeEv'/>
+<fun r='_ZNK5clang4Type27isOCLImage2dArrayMSAAROTypeEv'/>
+<fun r='_ZNK5clang4Type27isOCLImage2dMSAADepthROTypeEv'/>
+<fun r='_ZNK5clang4Type32isOCLImage2dArrayMSAADepthROTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage3dROTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage1dWOTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage1dArrayWOTypeEv'/>
+<fun r='_ZNK5clang4Type24isOCLImage1dBufferWOTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage2dWOTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage2dArrayWOTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage2dDepthWOTypeEv'/>
+<fun r='_ZNK5clang4Type28isOCLImage2dArrayDepthWOTypeEv'/>
+<fun r='_ZNK5clang4Type22isOCLImage2dMSAAWOTypeEv'/>
+<fun r='_ZNK5clang4Type27isOCLImage2dArrayMSAAWOTypeEv'/>
+<fun r='_ZNK5clang4Type27isOCLImage2dMSAADepthWOTypeEv'/>
+<fun r='_ZNK5clang4Type32isOCLImage2dArrayMSAADepthWOTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage3dWOTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage1dRWTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage1dArrayRWTypeEv'/>
+<fun r='_ZNK5clang4Type24isOCLImage1dBufferRWTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage2dRWTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage2dArrayRWTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage2dDepthRWTypeEv'/>
+<fun r='_ZNK5clang4Type28isOCLImage2dArrayDepthRWTypeEv'/>
+<fun r='_ZNK5clang4Type22isOCLImage2dMSAARWTypeEv'/>
+<fun r='_ZNK5clang4Type27isOCLImage2dArrayMSAARWTypeEv'/>
+<fun r='_ZNK5clang4Type27isOCLImage2dMSAADepthRWTypeEv'/>
+<fun r='_ZNK5clang4Type32isOCLImage2dArrayMSAADepthRWTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage3dRWTypeEv'/>
+<fun r='_ZNK5clang4Type11isImageTypeEv'/>
+<fun r='_ZNK5clang4Type10isSamplerTEv'/>
+<fun r='_ZNK5clang4Type8isEventTEv'/>
+<fun r='_ZNK5clang4Type11isClkEventTEv'/>
+<fun r='_ZNK5clang4Type8isQueueTEv'/>
+<fun r='_ZNK5clang4Type12isReserveIDTEv'/>
+<fun r='_ZNK5clang4Type35isOCLIntelSubgroupAVCMcePayloadTypeEv'/>
+<fun r='_ZNK5clang4Type35isOCLIntelSubgroupAVCImePayloadTypeEv'/>
+<fun r='_ZNK5clang4Type35isOCLIntelSubgroupAVCRefPayloadTypeEv'/>
+<fun r='_ZNK5clang4Type35isOCLIntelSubgroupAVCSicPayloadTypeEv'/>
+<fun r='_ZNK5clang4Type34isOCLIntelSubgroupAVCMceResultTypeEv'/>
+<fun r='_ZNK5clang4Type34isOCLIntelSubgroupAVCImeResultTypeEv'/>
+<fun r='_ZNK5clang4Type34isOCLIntelSubgroupAVCRefResultTypeEv'/>
+<fun r='_ZNK5clang4Type34isOCLIntelSubgroupAVCSicResultTypeEv'/>
+<fun r='_ZNK5clang4Type52isOCLIntelSubgroupAVCImeResultSingleRefStreamoutTypeEv'/>
+<fun r='_ZNK5clang4Type50isOCLIntelSubgroupAVCImeResultDualRefStreamoutTypeEv'/>
+<fun r='_ZNK5clang4Type45isOCLIntelSubgroupAVCImeSingleRefStreaminTypeEv'/>
+<fun r='_ZNK5clang4Type43isOCLIntelSubgroupAVCImeDualRefStreaminTypeEv'/>
+<fun r='_ZNK5clang4Type25isOCLIntelSubgroupAVCTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLExtOpaqueTypeEv'/>
+<fun r='_ZNK5clang4Type10isPipeTypeEv'/>
+<fun r='_ZNK5clang4Type20isOpenCLSpecificTypeEv'/>
+<fun r='_ZNK5clang4Type33isObjCARCImplicitlyUnretainedTypeEv'/>
+<fun r='_ZNK5clang4Type26getObjCARCImplicitLifetimeEv'/>
+<fun r='_ZNK5clang4Type17getScalarTypeKindEv'/>
+<fun r='_ZNK5clang4Type15isDependentTypeEv'/>
+<fun r='_ZNK5clang4Type28isInstantiationDependentTypeEv'/>
+<fun r='_ZNK5clang4Type15isUndeducedTypeEv'/>
+<fun r='_ZNK5clang4Type22isVariablyModifiedTypeEv'/>
+<fun r='_ZNK5clang4Type15hasSizedVLATypeEv'/>
+<fun r='_ZNK5clang4Type21hasUnnamedOrLocalTypeEv'/>
+<fun r='_ZNK5clang4Type18isOverloadableTypeEv'/>
+<fun r='_ZNK5clang4Type25isElaboratedTypeSpecifierEv'/>
+<fun r='_ZNK5clang4Type21canDecayToPointerTypeEv'/>
+<fun r='_ZNK5clang4Type24hasPointerRepresentationEv'/>
+<fun r='_ZNK5clang4Type28hasObjCPointerRepresentationEv'/>
+<fun r='_ZNK5clang4Type24hasIntegerRepresentationEv'/>
+<fun r='_ZNK5clang4Type30hasSignedIntegerRepresentationEv'/>
+<fun r='_ZNK5clang4Type32hasUnsignedIntegerRepresentationEv'/>
+<fun r='_ZNK5clang4Type25hasFloatingRepresentationEv'/>
+<fun r='_ZNK5clang4Type18getAsStructureTypeEv'/>
+<fun r='_ZNK5clang4Type14getAsUnionTypeEv'/>
+<fun r='_ZNK5clang4Type23getAsComplexIntegerTypeEv'/>
+<fun r='_ZNK5clang4Type22getAsObjCInterfaceTypeEv'/>
+<fun r='_ZNK5clang4Type29getAsObjCInterfacePointerTypeEv'/>
+<fun r='_ZNK5clang4Type24getAsObjCQualifiedIdTypeEv'/>
+<fun r='_ZNK5clang4Type27getAsObjCQualifiedClassTypeEv'/>
+<fun r='_ZNK5clang4Type31getAsObjCQualifiedInterfaceTypeEv'/>
+<fun r='_ZNK5clang4Type18getAsCXXRecordDeclEv'/>
+<fun r='_ZNK5clang4Type15getAsRecordDeclEv'/>
+<fun r='_ZNK5clang4Type12getAsTagDeclEv'/>
+<fun r='_ZNK5clang4Type23getPointeeCXXRecordDeclEv'/>
+<fun r='_ZNK5clang4Type23getContainedDeducedTypeEv'/>
+<fun r='_ZNK5clang4Type20getContainedAutoTypeEv'/>
+<fun r='_ZNK5clang4Type28hasAutoForTrailingReturnTypeEv'/>
+<fun r='_ZNK5clang4Type5getAsEv'/>
+<fun r='_ZNK5clang4Type13getAsAdjustedEv'/>
+<fun r='_ZNK5clang4Type20getAsArrayTypeUnsafeEv'/>
+<fun r='_ZNK5clang4Type6castAsEv'/>
+<fun r='_ZNK5clang4Type21castAsArrayTypeUnsafeEv'/>
+<fun r='_ZNK5clang4Type7hasAttrENS_4attr4KindE'/>
+<fun r='_ZNK5clang4Type24getBaseElementTypeUnsafeEv'/>
+<fun r='_ZNK5clang4Type29getArrayElementTypeNoTypeQualEv'/>
+<fun r='_ZNK5clang4Type28getPointeeOrArrayElementTypeEv'/>
+<fun r='_ZNK5clang4Type14getPointeeTypeEv'/>
+<fun r='_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv'/>
+<fun r='_ZNK5clang4Type23isPromotableIntegerTypeEv'/>
+<fun r='_ZNK5clang4Type19isSignedIntegerTypeEv'/>
+<fun r='_ZNK5clang4Type21isUnsignedIntegerTypeEv'/>
+<fun r='_ZNK5clang4Type32isSignedIntegerOrEnumerationTypeEv'/>
+<fun r='_ZNK5clang4Type34isUnsignedIntegerOrEnumerationTypeEv'/>
+<fun r='_ZNK5clang4Type16isFixedPointTypeEv'/>
+<fun r='_ZNK5clang4Type25isFixedPointOrIntegerTypeEv'/>
+<fun r='_ZNK5clang4Type25isSaturatedFixedPointTypeEv'/>
+<fun r='_ZNK5clang4Type27isUnsaturatedFixedPointTypeEv'/>
+<fun r='_ZNK5clang4Type22isSignedFixedPointTypeEv'/>
+<fun r='_ZNK5clang4Type24isUnsignedFixedPointTypeEv'/>
+<fun r='_ZNK5clang4Type18isConstantSizeTypeEv'/>
+<fun r='_ZNK5clang4Type15isSpecifierTypeEv'/>
+<fun r='_ZNK5clang4Type10getLinkageEv'/>
+<fun r='_ZNK5clang4Type13getVisibilityEv'/>
+<fun r='_ZNK5clang4Type20isVisibilityExplicitEv'/>
+<fun r='_ZNK5clang4Type23getLinkageAndVisibilityEv'/>
+<fun r='_ZNK5clang4Type14isLinkageValidEv'/>
+<fun r='_ZNK5clang4Type14getNullabilityERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang4Type18canHaveNullabilityEb'/>
+<fun r='_ZNK5clang4Type20getObjCSubstitutionsEPKNS_11DeclContextE'/>
+<fun r='_ZNK5clang4Type21acceptsObjCTypeParamsEv'/>
+<fun r='_ZNK5clang4Type16getTypeClassNameEv'/>
+<fun r='_ZNK5clang4Type24getCanonicalTypeInternalEv'/>
+<fun r='_ZNK5clang4Type27getCanonicalTypeUnqualifiedEv'/>
+<fun r='_ZNK5clang4Type4dumpEv'/>
+<fun r='_ZNK5clang4Type4dumpERN4llvm11raw_ostreamE'/>
+<fun r='_ZNK5clang4Type5getAsEv'/>
+<fun r='_ZNK5clang4Type5getAsEv'/>
+<fun r='_ZNK5clang4Type5getAsEv'/>
+<fun r='_ZNK5clang4Type5getAsEv'/>
+<fun r='_ZNK5clang4Type6castAsEv'/>
+<fun r='_ZNK5clang4Type5getAsEv'/>
+<fun r='_ZNK5clang4Type6castAsEv'/>
+<fun r='_ZNK5clang4Type5getAsEv'/>
+<fun r='_ZNK5clang4Type6castAsEv'/>
+<fun r='_ZNK5clang4Type5getAsEv'/>
+<fun r='_ZNK5clang4Type6castAsEv'/>
+<fun r='_ZNK5clang4Type5getAsEv'/>
+<fun r='_ZNK5clang4Type6castAsEv'/>
+<fun r='_ZNK5clang4Type5getAsEv'/>
+<fun r='_ZNK5clang4Type6castAsEv'/>
+<fun r='_ZNK5clang4Type17isFundamentalTypeEv'/>
+<fun r='_ZNK5clang4Type14isCompoundTypeEv'/>
+<fun r='_ZNK5clang4Type14isFunctionTypeEv'/>
+<fun r='_ZNK5clang4Type13isPointerTypeEv'/>
+<fun r='_ZNK5clang4Type16isAnyPointerTypeEv'/>
+<fun r='_ZNK5clang4Type18isBlockPointerTypeEv'/>
+<fun r='_ZNK5clang4Type15isReferenceTypeEv'/>
+<fun r='_ZNK5clang4Type21isLValueReferenceTypeEv'/>
+<fun r='_ZNK5clang4Type21isRValueReferenceTypeEv'/>
+<fun r='_ZNK5clang4Type21isFunctionPointerTypeEv'/>
+<fun r='_ZNK5clang4Type23isFunctionReferenceTypeEv'/>
+<fun r='_ZNK5clang4Type19isMemberPointerTypeEv'/>
+<fun r='_ZNK5clang4Type27isMemberFunctionPointerTypeEv'/>
+<fun r='_ZNK5clang4Type23isMemberDataPointerTypeEv'/>
+<fun r='_ZNK5clang4Type11isArrayTypeEv'/>
+<fun r='_ZNK5clang4Type19isConstantArrayTypeEv'/>
+<fun r='_ZNK5clang4Type21isIncompleteArrayTypeEv'/>
+<fun r='_ZNK5clang4Type19isVariableArrayTypeEv'/>
+<fun r='_ZNK5clang4Type25isDependentSizedArrayTypeEv'/>
+<fun r='_ZNK5clang4Type13isBuiltinTypeEv'/>
+<fun r='_ZNK5clang4Type12isRecordTypeEv'/>
+<fun r='_ZNK5clang4Type14isEnumeralTypeEv'/>
+<fun r='_ZNK5clang4Type16isAnyComplexTypeEv'/>
+<fun r='_ZNK5clang4Type12isVectorTypeEv'/>
+<fun r='_ZNK5clang4Type15isExtVectorTypeEv'/>
+<fun r='_ZNK5clang4Type27isDependentAddressSpaceTypeEv'/>
+<fun r='_ZNK5clang4Type23isObjCObjectPointerTypeEv'/>
+<fun r='_ZNK5clang4Type16isObjCObjectTypeEv'/>
+<fun r='_ZNK5clang4Type27isObjCObjectOrInterfaceTypeEv'/>
+<fun r='_ZNK5clang4Type12isAtomicTypeEv'/>
+<fun r='_ZNK5clang4Type21isObjCQualifiedIdTypeEv'/>
+<fun r='_ZNK5clang4Type24isObjCQualifiedClassTypeEv'/>
+<fun r='_ZNK5clang4Type12isObjCIdTypeEv'/>
+<fun r='_ZNK5clang4Type15isObjCClassTypeEv'/>
+<fun r='_ZNK5clang4Type13isObjCSelTypeEv'/>
+<fun r='_ZNK5clang4Type17isObjCBuiltinTypeEv'/>
+<fun r='_ZNK5clang4Type14isDecltypeTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage1dROTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage1dArrayROTypeEv'/>
+<fun r='_ZNK5clang4Type24isOCLImage1dBufferROTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage2dROTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage2dArrayROTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage2dDepthROTypeEv'/>
+<fun r='_ZNK5clang4Type28isOCLImage2dArrayDepthROTypeEv'/>
+<fun r='_ZNK5clang4Type22isOCLImage2dMSAAROTypeEv'/>
+<fun r='_ZNK5clang4Type27isOCLImage2dArrayMSAAROTypeEv'/>
+<fun r='_ZNK5clang4Type27isOCLImage2dMSAADepthROTypeEv'/>
+<fun r='_ZNK5clang4Type32isOCLImage2dArrayMSAADepthROTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage3dROTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage1dWOTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage1dArrayWOTypeEv'/>
+<fun r='_ZNK5clang4Type24isOCLImage1dBufferWOTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage2dWOTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage2dArrayWOTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage2dDepthWOTypeEv'/>
+<fun r='_ZNK5clang4Type28isOCLImage2dArrayDepthWOTypeEv'/>
+<fun r='_ZNK5clang4Type22isOCLImage2dMSAAWOTypeEv'/>
+<fun r='_ZNK5clang4Type27isOCLImage2dArrayMSAAWOTypeEv'/>
+<fun r='_ZNK5clang4Type27isOCLImage2dMSAADepthWOTypeEv'/>
+<fun r='_ZNK5clang4Type32isOCLImage2dArrayMSAADepthWOTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage3dWOTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage1dRWTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage1dArrayRWTypeEv'/>
+<fun r='_ZNK5clang4Type24isOCLImage1dBufferRWTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage2dRWTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage2dArrayRWTypeEv'/>
+<fun r='_ZNK5clang4Type23isOCLImage2dDepthRWTypeEv'/>
+<fun r='_ZNK5clang4Type28isOCLImage2dArrayDepthRWTypeEv'/>
+<fun r='_ZNK5clang4Type22isOCLImage2dMSAARWTypeEv'/>
+<fun r='_ZNK5clang4Type27isOCLImage2dArrayMSAARWTypeEv'/>
+<fun r='_ZNK5clang4Type27isOCLImage2dMSAADepthRWTypeEv'/>
+<fun r='_ZNK5clang4Type32isOCLImage2dArrayMSAADepthRWTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLImage3dRWTypeEv'/>
+<fun r='_ZNK5clang4Type10isSamplerTEv'/>
+<fun r='_ZNK5clang4Type8isEventTEv'/>
+<fun r='_ZNK5clang4Type11isClkEventTEv'/>
+<fun r='_ZNK5clang4Type8isQueueTEv'/>
+<fun r='_ZNK5clang4Type12isReserveIDTEv'/>
+<fun r='_ZNK5clang4Type11isImageTypeEv'/>
+<fun r='_ZNK5clang4Type10isPipeTypeEv'/>
+<fun r='_ZNK5clang4Type35isOCLIntelSubgroupAVCMcePayloadTypeEv'/>
+<fun r='_ZNK5clang4Type35isOCLIntelSubgroupAVCImePayloadTypeEv'/>
+<fun r='_ZNK5clang4Type35isOCLIntelSubgroupAVCRefPayloadTypeEv'/>
+<fun r='_ZNK5clang4Type35isOCLIntelSubgroupAVCSicPayloadTypeEv'/>
+<fun r='_ZNK5clang4Type34isOCLIntelSubgroupAVCMceResultTypeEv'/>
+<fun r='_ZNK5clang4Type34isOCLIntelSubgroupAVCImeResultTypeEv'/>
+<fun r='_ZNK5clang4Type34isOCLIntelSubgroupAVCRefResultTypeEv'/>
+<fun r='_ZNK5clang4Type34isOCLIntelSubgroupAVCSicResultTypeEv'/>
+<fun r='_ZNK5clang4Type52isOCLIntelSubgroupAVCImeResultSingleRefStreamoutTypeEv'/>
+<fun r='_ZNK5clang4Type50isOCLIntelSubgroupAVCImeResultDualRefStreamoutTypeEv'/>
+<fun r='_ZNK5clang4Type45isOCLIntelSubgroupAVCImeSingleRefStreaminTypeEv'/>
+<fun r='_ZNK5clang4Type43isOCLIntelSubgroupAVCImeDualRefStreaminTypeEv'/>
+<fun r='_ZNK5clang4Type25isOCLIntelSubgroupAVCTypeEv'/>
+<fun r='_ZNK5clang4Type18isOCLExtOpaqueTypeEv'/>
+<fun r='_ZNK5clang4Type20isOpenCLSpecificTypeEv'/>
+<fun r='_ZNK5clang4Type22isTemplateTypeParmTypeEv'/>
+<fun r='_ZNK5clang4Type21isSpecificBuiltinTypeEj'/>
+<fun r='_ZNK5clang4Type17isPlaceholderTypeEv'/>
+<fun r='_ZNK5clang4Type20getAsPlaceholderTypeEv'/>
+<fun r='_ZNK5clang4Type25isSpecificPlaceholderTypeEj'/>
+<fun r='_ZNK5clang4Type28isNonOverloadPlaceholderTypeEv'/>
+<fun r='_ZNK5clang4Type10isVoidTypeEv'/>
+<fun r='_ZNK5clang4Type10isHalfTypeEv'/>
+<fun r='_ZNK5clang4Type13isFloat16TypeEv'/>
+<fun r='_ZNK5clang4Type14isFloat128TypeEv'/>
+<fun r='_ZNK5clang4Type13isNullPtrTypeEv'/>
+<fun r='_ZNK5clang4Type13isIntegerTypeEv'/>
+<fun r='_ZNK5clang4Type16isFixedPointTypeEv'/>
+<fun r='_ZNK5clang4Type25isFixedPointOrIntegerTypeEv'/>
+<fun r='_ZNK5clang4Type25isSaturatedFixedPointTypeEv'/>
+<fun r='_ZNK5clang4Type27isUnsaturatedFixedPointTypeEv'/>
+<fun r='_ZNK5clang4Type22isSignedFixedPointTypeEv'/>
+<fun r='_ZNK5clang4Type24isUnsignedFixedPointTypeEv'/>
+<fun r='_ZNK5clang4Type12isScalarTypeEv'/>
+<fun r='_ZNK5clang4Type27isIntegralOrEnumerationTypeEv'/>
+<fun r='_ZNK5clang4Type13isBooleanTypeEv'/>
+<fun r='_ZNK5clang4Type15isUndeducedTypeEv'/>
+<fun r='_ZNK5clang4Type18isOverloadableTypeEv'/>
+<fun r='_ZNK5clang4Type21canDecayToPointerTypeEv'/>
+<fun r='_ZNK5clang4Type24hasPointerRepresentationEv'/>
+<fun r='_ZNK5clang4Type28hasObjCPointerRepresentationEv'/>
+<fun r='_ZNK5clang4Type24getBaseElementTypeUnsafeEv'/>
+<fun r='_ZNK5clang4Type28getPointeeOrArrayElementTypeEv'/>
+<fun r='_ZNK5clang4Type5getAsEv'/>
+<fun r='_ZNK5clang4Type13getAsAdjustedEv'/>
+<fun r='_ZNK5clang4Type20getAsArrayTypeUnsafeEv'/>
+<fun r='_ZNK5clang4Type6castAsEv'/>
+<fun r='_ZNK5clang4Type21castAsArrayTypeUnsafeEv'/>
+<fun r='_ZNK5clang4Type27getCanonicalTypeUnqualifiedEv'/>
+<ovr f='llvm/clang/include/clang/AST/LocInfoType.h' l='28' c='clang::LocInfoType'/>

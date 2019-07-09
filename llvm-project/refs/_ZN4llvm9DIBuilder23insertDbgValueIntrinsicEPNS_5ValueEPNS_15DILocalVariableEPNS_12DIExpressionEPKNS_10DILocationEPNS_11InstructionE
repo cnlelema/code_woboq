@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/IR/DIBuilder.h' l='846' type='llvm::Instruction * llvm::DIBuilder::insertDbgValueIntrinsic(llvm::Value * Val, llvm::DILocalVariable * VarInfo, llvm::DIExpression * Expr, const llvm::DILocation * DL, llvm::Instruction * InsertBefore)'/>
+<doc f='llvm/llvm/include/llvm/IR/DIBuilder.h' l='840'>/// Insert a new llvm.dbg.value intrinsic call.
+    /// \param Val          llvm::Value of the variable
+    /// \param VarInfo      Variable&apos;s debug info descriptor.
+    /// \param Expr         A complex location expression.
+    /// \param DL           Debug info location.
+    /// \param InsertBefore Location for the new intrinsic.</doc>
+<def f='llvm/llvm/lib/IR/DIBuilder.cpp' l='877' ll='885' type='llvm::Instruction * llvm::DIBuilder::insertDbgValueIntrinsic(llvm::Value * V, llvm::DILocalVariable * VarInfo, llvm::DIExpression * Expr, const llvm::DILocation * DL, llvm::Instruction * InsertBefore)'/>
+<use f='llvm/llvm/lib/IR/DebugInfo.cpp' l='1351' u='c' c='LLVMDIBuilderInsertDbgValueBefore'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1328' u='c' c='_ZN4llvm31ConvertDebugDeclareToDebugValueEPNS_20DbgVariableIntrinsicEPNS_9StoreInstERNS_9DIBuilderE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1333' u='c' c='_ZN4llvm31ConvertDebugDeclareToDebugValueEPNS_20DbgVariableIntrinsicEPNS_9StoreInstERNS_9DIBuilderE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1362' u='c' c='_ZN4llvm31ConvertDebugDeclareToDebugValueEPNS_20DbgVariableIntrinsicEPNS_8LoadInstERNS_9DIBuilderE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1396' u='c' c='_ZN4llvm31ConvertDebugDeclareToDebugValueEPNS_20DbgVariableIntrinsicEPNS_7PHINodeERNS_9DIBuilderE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1454' u='c' c='_ZN4llvm15LowerDbgDeclareERNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1606' u='c' c='_ZL27replaceOneDbgValueForAllocaPN4llvm12DbgValueInstEPNS_5ValueERNS_9DIBuilderEi'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUtils.cpp' l='592' u='c' c='_ZN4llvm14deleteDeadLoopEPNS_4LoopEPNS_13DominatorTreeEPNS_15ScalarEvolutionEPNS_8LoopInfoE'/>
+<use f='llvm/llvm/tools/opt/Debugify.cpp' l='141' u='c' c='_ZN12_GLOBAL__N_121applyDebugifyMetadataERN4llvm6ModuleENS0_14iterator_rangeINS0_14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_8FunctionELb1EL243265'/>

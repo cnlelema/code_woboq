@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/tools/dsymutil/DwarfLinker.h' l='229' type='void llvm::dsymutil::DwarfLinker::keepDIEAndDependencies(llvm::dsymutil::DwarfLinker::RelocationManager &amp; RelocMgr, RangesTy &amp; Ranges, const UnitListTy &amp; Units, const llvm::DWARFDie &amp; DIE, CompileUnit::DIEInfo &amp; MyInfo, const llvm::dsymutil::DebugMapObject &amp; DMO, llvm::dsymutil::CompileUnit &amp; CU, bool UseODR)'/>
+<def f='llvm/llvm/tools/dsymutil/DwarfLinker.cpp' l='761' ll='841' type='void llvm::dsymutil::DwarfLinker::keepDIEAndDependencies(llvm::dsymutil::DwarfLinker::RelocationManager &amp; RelocMgr, RangesTy &amp; Ranges, const UnitListTy &amp; Units, const llvm::DWARFDie &amp; Die, CompileUnit::DIEInfo &amp; MyInfo, const llvm::dsymutil::DebugMapObject &amp; DMO, llvm::dsymutil::CompileUnit &amp; CU, bool UseODR)'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfLinker.cpp' l='948' u='c' c='_ZN4llvm8dsymutil11DwarfLinker17lookForDIEsToKeepERNS1_17RelocationManagerERSt3mapImNS0_19DebugMapObjectRangeESt4lessImESaISt4pairIKmS5_EEERKSt6vector764363'/>
+<doc f='llvm/llvm/tools/dsymutil/DwarfLinker.cpp' l='753'>/// Mark the passed DIE as well as all the ones it depends on
+/// as kept.
+///
+/// This function is called by lookForDIEsToKeep on DIEs that are
+/// newly discovered to be needed in the link. It recursively calls
+/// back to lookForDIEsToKeep while adding TF_DependencyWalk to the
+/// TraversalFlags to inform it that it&apos;s not doing the primary DIE
+/// tree walk.</doc>
+<doc f='llvm/llvm/tools/dsymutil/DwarfLinker.h' l='228'>/// Mark the passed DIE as well as all the ones it depends on as kept.</doc>

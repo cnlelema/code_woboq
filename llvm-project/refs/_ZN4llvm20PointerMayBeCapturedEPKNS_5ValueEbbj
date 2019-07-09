@@ -1,0 +1,33 @@
+<dec f='llvm/llvm/include/llvm/Analysis/CaptureTracking.h' l='41' type='bool llvm::PointerMayBeCaptured(const llvm::Value * V, bool ReturnCaptures, bool StoreCaptures, unsigned int MaxUsesToExplore = DefaultMaxUsesToExplore)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/CaptureTracking.h' l='32'>/// PointerMayBeCaptured - Return true if this pointer value may be captured
+  /// by the enclosing function (which is required to exist).  This routine can
+  /// be expensive, so consider caching the results.  The boolean ReturnCaptures
+  /// specifies whether returning the value (or part of it) from the function
+  /// counts as capturing it or not.  The boolean StoreCaptures specified
+  /// whether storing the value (or part of it) into memory anywhere
+  /// automatically counts as capturing it or not.
+  /// MaxUsesToExplore specifies how many uses should the analysis explore for
+  /// one value before giving up due too &quot;too many uses&quot;.</doc>
+<use f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='138' u='c' c='_ZL24isNonEscapingLocalObjectPKN4llvm5ValueEPNS_13SmallDenseMapIS2_bLj8ENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_bEEEE'/>
+<use f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='152' u='c' c='_ZL24isNonEscapingLocalObjectPKN4llvm5ValueEPNS_13SmallDenseMapIS2_bLj8ENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_bEEEE'/>
+<def f='llvm/llvm/lib/Analysis/CaptureTracking.cpp' l='159' ll='174' type='bool llvm::PointerMayBeCaptured(const llvm::Value * V, bool ReturnCaptures, bool StoreCaptures, unsigned int MaxUsesToExplore = DefaultMaxUsesToExplore)'/>
+<use f='llvm/llvm/lib/Analysis/CaptureTracking.cpp' l='196' u='c' c='_ZN4llvm26PointerMayBeCapturedBeforeEPKNS_5ValueEbbPKNS_11InstructionEPKNS_13DominatorTreeEbPNS_17OrderedBasicBlockEj'/>
+<doc f='llvm/llvm/lib/Analysis/CaptureTracking.cpp' l='152'>/// PointerMayBeCaptured - Return true if this pointer value may be captured
+/// by the enclosing function (which is required to exist).  This routine can
+/// be expensive, so consider caching the results.  The boolean ReturnCaptures
+/// specifies whether returning the value (or part of it) from the function
+/// counts as capturing it or not.  The boolean StoreCaptures specified whether
+/// storing the value (or part of it) into memory anywhere automatically
+/// counts as capturing it or not.</doc>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='2334' u='c' c='_ZL18computePointerICmpRKN4llvm10DataLayoutEPKNS_17TargetLibraryInfoEPKNS_13DominatorTreeENS_7CmpInst9PredicateEPNS_15AssumptionCacheEPKNS_11Instructi10406885'/>
+<use f='llvm/llvm/lib/CodeGen/StackProtector.cpp' l='267' u='c' c='_ZN4llvm14StackProtector22RequiresStackProtectorEv'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUPromoteAlloca.cpp' l='572' u='c' c='_ZNK12_GLOBAL__N_119AMDGPUPromoteAlloca23collectUsesWithPtrTypesEPN4llvm5ValueES3_RSt6vectorIS3_SaIS3_EE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/FunctionAttrs.cpp' l='900' u='c' c='_ZL20isFunctionMallocLikePN4llvm8FunctionERKNS_14SmallSetVectorIS1_Lj8EEE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/ThreadSanitizer.cpp' l='399' u='c' c='_ZN12_GLOBAL__N_115ThreadSanitizer30chooseInstructionsToInstrumentERN4llvm15SmallVectorImplIPNS1_11InstructionEEES6_RKNS1_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/DeadStoreElimination.cpp' l='766' u='c' c='_ZL14handleEndBlockRN4llvm10BasicBlockEPNS_9AAResultsEPNS_23MemoryDependenceResultsEPKNS_17TargetLibraryInfoERNS_8DenseMapIPNS_11InstructionESt3mapIll11858614'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/DeadStoreElimination.cpp' l='1168' u='c' c='_ZL19eliminateDeadStoresRN4llvm10BasicBlockEPNS_9AAResultsEPNS_23MemoryDependenceResultsEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='1832' u='c' c='_ZN12_GLOBAL__N_118isKnownNonEscapingEPN4llvm5ValueEPKNS0_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='2058' u='c' c='_ZN4llvm28promoteLoopAccessesToScalarsERKNS_14SmallSetVectorIPNS_5ValueELj8EEERNS_15SmallVectorImplIPNS_10BasicBlockEEERNS6_IPNS_11InstructionEEERNS6_2137798'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='157' u='c' c='_ZL19isLocallyOpenedFilePN4llvm5ValueEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/unittests/Analysis/CaptureTrackingTest.cpp' l='60' u='c' c='_ZN37CaptureTracking_MaxUsesToExplore_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/CaptureTrackingTest.cpp' l='61' u='c' c='_ZN37CaptureTracking_MaxUsesToExplore_Test8TestBodyEv'/>

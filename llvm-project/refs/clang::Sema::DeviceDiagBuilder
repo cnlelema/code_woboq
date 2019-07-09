@@ -1,0 +1,29 @@
+<def f='llvm/clang/include/clang/Sema/Sema.h' l='10416' ll='10473'/>
+<size>80</size>
+<doc f='llvm/clang/include/clang/Sema/Sema.h' l='10401'>/// Diagnostic builder for CUDA/OpenMP devices errors which may or may not be
+  /// deferred.
+  ///
+  /// In CUDA, there exist constructs (e.g. variable-length arrays, try/catch)
+  /// which are not allowed to appear inside __device__ functions and are
+  /// allowed to appear in __host__ __device__ functions only if the host+device
+  /// function is never codegen&apos;ed.
+  ///
+  /// To handle this, we use the notion of &quot;deferred diagnostics&quot;, where we
+  /// attach a diagnostic to a FunctionDecl that&apos;s emitted iff it&apos;s codegen&apos;ed.
+  ///
+  /// This class lets you emit either a regular diagnostic, a deferred
+  /// diagnostic, or no diagnostic at all, according to an argument you pass to
+  /// its constructor, thus simplifying the process of creating these &quot;maybe
+  /// deferred&quot; diagnostics.</doc>
+<fun r='_ZN5clang4Sema17DeviceDiagBuilderC1ENS1_4KindENS_14SourceLocationEjPNS_12FunctionDeclERS0_'/>
+<fun r='_ZN5clang4Sema17DeviceDiagBuilderC1EOS1_'/>
+<fun r='_ZN5clang4Sema17DeviceDiagBuilderC1ERKS1_'/>
+<fun r='_ZN5clang4Sema17DeviceDiagBuilderD1Ev'/>
+<fun r='_ZNK5clang4Sema17DeviceDiagBuildercvbEv'/>
+<mbr r='clang::Sema::DeviceDiagBuilder::S' o='0' t='clang::Sema &amp;'/>
+<mbr r='clang::Sema::DeviceDiagBuilder::Loc' o='64' t='clang::SourceLocation'/>
+<mbr r='clang::Sema::DeviceDiagBuilder::DiagID' o='96' t='unsigned int'/>
+<mbr r='clang::Sema::DeviceDiagBuilder::Fn' o='128' t='clang::FunctionDecl *'/>
+<mbr r='clang::Sema::DeviceDiagBuilder::ShowCallStack' o='192' t='bool'/>
+<mbr r='clang::Sema::DeviceDiagBuilder::ImmediateDiag' o='256' t='llvm::Optional&lt;SemaDiagnosticBuilder&gt;'/>
+<mbr r='clang::Sema::DeviceDiagBuilder::PartialDiagId' o='576' t='llvm::Optional&lt;unsigned int&gt;'/>

@@ -1,0 +1,42 @@
+<dec f='llvm/llvm/include/llvm/ExecutionEngine/Orc/Core.h' l='857' type='void llvm::orc::ExecutionSession::lookup(const JITDylibSearchList &amp; SearchOrder, SymbolNameSet Symbols, llvm::orc::SymbolState RequiredState, SymbolsResolvedCallback NotifyComplete, RegisterDependenciesFunction RegisterDependencies)'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/Core.h' l='838'>/// Search the given JITDylib list for the given symbols.
+  ///
+  /// SearchOrder lists the JITDylibs to search. For each dylib, the associated
+  /// boolean indicates whether the search should match against non-exported
+  /// (hidden visibility) symbols in that dylib (true means match against
+  /// non-exported symbols, false means do not match).
+  ///
+  /// The NotifyComplete callback will be called once all requested symbols
+  /// reach the required state.
+  ///
+  /// If all symbols are found, the RegisterDependencies function will be called
+  /// while the session lock is held. This gives clients a chance to register
+  /// dependencies for on the queried symbols for any symbols they are
+  /// materializing (if a MaterializationResponsibility instance is present,
+  /// this can be implemented by calling
+  /// MaterializationResponsibility::addDependencies). If there are no
+  /// dependenant symbols for this query (e.g. it is being made by a top level
+  /// client to get an address to call) then the value NoDependenciesToRegister
+  /// can be used.</doc>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/Core.cpp' l='644' u='c' c='_ZN4llvm3orc28ReExportsMaterializationUnit11materializeENS0_29MaterializationResponsibilityE'/>
+<def f='llvm/llvm/lib/ExecutionEngine/Orc/Core.cpp' l='1701' ll='1790' type='void llvm::orc::ExecutionSession::lookup(const JITDylibSearchList &amp; SearchOrder, SymbolNameSet Symbols, llvm::orc::SymbolState RequiredState, SymbolsResolvedCallback NotifyComplete, RegisterDependenciesFunction RegisterDependencies)'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/Core.cpp' l='1826' u='c' c='_ZN4llvm3orc16ExecutionSession6lookupERKSt6vectorISt4pairIPNS0_8JITDylibEbESaIS6_EERKNS_8DenseSetINS0_15SymbolStringPtrENS_12DenseMapInfoISC_EEEENS0_113733777'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/ObjectLinkingLayer.cpp' l='72' u='c' c='_ZN4llvm3orc32ObjectLinkingLayerJITLinkContext6lookupERKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS3_EEEESt8functionIFvNS_8ExpectedINS_8DenseMapIS310188862'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/RTDyldObjectLinkingLayer.cpp' l='52' u='c' c='_ZN12_GLOBAL__N_127JITDylibSearchOrderResolver6lookupERKSt3setIN4llvm9StringRefESt4lessIS3_ESaIS3_EESt8functionIFvNS2_8ExpectedISt3mapIS3_NS2_18JITEva5607671'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='46' u='c' c='_ZN12_GLOBAL__N_147CoreAPIsStandardTest_BasicSuccessfulLookup_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='87' u='c' c='_ZN12_GLOBAL__N_137CoreAPIsStandardTest_EmptyLookup_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='133' u='c' c='_ZN12_GLOBAL__N_143CoreAPIsStandardTest_RemoveSymbolsTest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='372' u='c' c='_ZN12_GLOBAL__N_155CoreAPIsStandardTest_TestTrivialCircularDependency_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='429' u='c' c='_ZN12_GLOBAL__N_161CoreAPIsStandardTest_TestCircularDependenceInOneJITDylib_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='432' u='c' c='_ZN12_GLOBAL__N_161CoreAPIsStandardTest_TestCircularDependenceInOneJITDylib_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='447' u='c' c='_ZN12_GLOBAL__N_161CoreAPIsStandardTest_TestCircularDependenceInOneJITDylib_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='450' u='c' c='_ZN12_GLOBAL__N_161CoreAPIsStandardTest_TestCircularDependenceInOneJITDylib_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='466' u='c' c='_ZN12_GLOBAL__N_161CoreAPIsStandardTest_TestCircularDependenceInOneJITDylib_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='469' u='c' c='_ZN12_GLOBAL__N_161CoreAPIsStandardTest_TestCircularDependenceInOneJITDylib_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='586' u='c' c='_ZN12_GLOBAL__N_153CoreAPIsStandardTest_AddAndMaterializeLazySymbol_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='628' u='c' c='_ZN12_GLOBAL__N_160CoreAPIsStandardTest_TestBasicWeakSymbolMaterialization_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='727' u='c' c='_ZN12_GLOBAL__N_143CoreAPIsStandardTest_FailEmissionEarly_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='893' u='c' c='_ZN12_GLOBAL__N_151CoreAPIsStandardTest_TestMaterializeWeakSymbol_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/RTDyldObjectLinkingLayerTest.cpp' l='66' u='c' c='_ZN12_GLOBAL__N_1L25testSetProcessAllSectionsESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS2_EEb'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/RTDyldObjectLinkingLayerTest.cpp' l='162' u='c' c='_ZN12_GLOBAL__N_157RTDyldObjectLinkingLayerTest_TestOverrideObjectFlags_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/RTDyldObjectLinkingLayerTest.cpp' l='227' u='c' c='_ZN12_GLOBAL__N_171RTDyldObjectLinkingLayerTest_TestAutoClaimResponsibilityForSymbols_Test8TestBodyEv'/>

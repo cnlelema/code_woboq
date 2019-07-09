@@ -1,0 +1,33 @@
+<def f='llvm/llvm/lib/Transforms/Vectorize/VPlan.h' l='1147' ll='1254'/>
+<size>528</size>
+<doc f='llvm/llvm/lib/Transforms/Vectorize/VPlan.h' l='1142'>/// VPlan models a candidate for vectorization, encoding various decisions take
+/// to produce efficient output IR, including which branches, basic-blocks and
+/// output IR instructions to generate, and their cost. VPlan holds a
+/// Hierarchical-CFG of VPBasicBlocks and VPRegionBlocks rooted at an Entry
+/// VPBlock.</doc>
+<mbr r='llvm::VPlan::Entry' o='0' t='llvm::VPBlockBase *'/>
+<mbr r='llvm::VPlan::VFs' o='64' t='SmallSet&lt;unsigned int, 2&gt;'/>
+<mbr r='llvm::VPlan::Name' o='640' t='std::string'/>
+<mbr r='llvm::VPlan::VPExternalDefs' o='896' t='SmallPtrSet&lt;llvm::VPValue *, 16&gt;'/>
+<mbr r='llvm::VPlan::BackedgeTakenCount' o='2240' t='llvm::VPValue *'/>
+<mbr r='llvm::VPlan::Value2VPValue' o='2304' t='Value2VPValueTy'/>
+<mbr r='llvm::VPlan::VPLInfo' o='2560' t='VPLoopInfo'/>
+<mbr r='llvm::VPlan::VPCBVs' o='3840' t='SmallVector&lt;llvm::VPValue *, 4&gt;'/>
+<fun r='_ZN4llvm5VPlanC1EPNS_11VPBlockBaseE'/>
+<fun r='_ZN4llvm5VPlanD1Ev'/>
+<fun r='_ZN4llvm5VPlan7executeEPNS_16VPTransformStateE'/>
+<fun r='_ZN4llvm5VPlan8getEntryEv'/>
+<fun r='_ZNK4llvm5VPlan8getEntryEv'/>
+<fun r='_ZN4llvm5VPlan8setEntryEPNS_11VPBlockBaseE'/>
+<fun r='_ZN4llvm5VPlan29getOrCreateBackedgeTakenCountEv'/>
+<fun r='_ZN4llvm5VPlan5addVFEj'/>
+<fun r='_ZN4llvm5VPlan5hasVFEj'/>
+<fun r='_ZNK4llvm5VPlan7getNameEv'/>
+<fun r='_ZN4llvm5VPlan7setNameERKNS_5TwineE'/>
+<fun r='_ZN4llvm5VPlan14addExternalDefEPNS_7VPValueE'/>
+<fun r='_ZN4llvm5VPlan6addCBVEPNS_7VPValueE'/>
+<fun r='_ZN4llvm5VPlan10addVPValueEPNS_5ValueE'/>
+<fun r='_ZN4llvm5VPlan10getVPValueEPNS_5ValueE'/>
+<fun r='_ZN4llvm5VPlan13getVPLoopInfoEv'/>
+<fun r='_ZNK4llvm5VPlan13getVPLoopInfoEv'/>
+<fun r='_ZN4llvm5VPlan19updateDominatorTreeEPNS_13DominatorTreeEPNS_10BasicBlockES4_'/>

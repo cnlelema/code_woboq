@@ -1,0 +1,71 @@
+<def f='llvm/llvm/utils/TableGen/CodeGenRegisters.h' l='517' ll='776'/>
+<size>960</size>
+<doc f='llvm/llvm/utils/TableGen/CodeGenRegisters.h' l='515'>// CodeGenRegBank - Represent a target&apos;s registers and the relations between
+  // them.</doc>
+<mbr r='llvm::CodeGenRegBank::Sets' o='0' t='llvm::SetTheory'/>
+<mbr r='llvm::CodeGenRegBank::CGH' o='896' t='const llvm::CodeGenHwModes &amp;'/>
+<mbr r='llvm::CodeGenRegBank::SubRegIndices' o='960' t='std::deque&lt;CodeGenSubRegIndex&gt;'/>
+<mbr r='llvm::CodeGenRegBank::Def2SubRegIdx' o='1600' t='DenseMap&lt;llvm::Record *, llvm::CodeGenSubRegIndex *&gt;'/>
+<fun r='_ZN4llvm14CodeGenRegBank17createSubRegIndexENS_9StringRefES1_'/>
+<mbr r='llvm::CodeGenRegBank::ConcatIdx' o='1856' t='ConcatIdxMap'/>
+<mbr r='llvm::CodeGenRegBank::Registers' o='2240' t='std::deque&lt;CodeGenRegister&gt;'/>
+<mbr r='llvm::CodeGenRegBank::RegistersByName' o='2880' t='StringMap&lt;llvm::CodeGenRegister *&gt;'/>
+<mbr r='llvm::CodeGenRegBank::Def2Reg' o='3136' t='DenseMap&lt;llvm::Record *, llvm::CodeGenRegister *&gt;'/>
+<mbr r='llvm::CodeGenRegBank::NumNativeRegUnits' o='3392' t='unsigned int'/>
+<mbr r='llvm::CodeGenRegBank::TopoSigs' o='3456' t='std::map&lt;TopoSigId, unsigned int&gt;'/>
+<mbr r='llvm::CodeGenRegBank::RegUnits' o='3840' t='SmallVector&lt;llvm::RegUnit, 8&gt;'/>
+<mbr r='llvm::CodeGenRegBank::RegClasses' o='6016' t='std::list&lt;CodeGenRegisterClass&gt;'/>
+<mbr r='llvm::CodeGenRegBank::Def2RC' o='6208' t='DenseMap&lt;llvm::Record *, llvm::CodeGenRegisterClass *&gt;'/>
+<mbr r='llvm::CodeGenRegBank::Key2RC' o='6464' t='RCKeyMap'/>
+<mbr r='llvm::CodeGenRegBank::RegUnitSets' o='6848' t='std::vector&lt;RegUnitSet&gt;'/>
+<mbr r='llvm::CodeGenRegBank::RegClassUnitSets' o='7040' t='std::vector&lt;std::vector&lt;unsigned int&gt; &gt;'/>
+<mbr r='llvm::CodeGenRegBank::RegUnitSetOrder' o='7232' t='std::vector&lt;unsigned int&gt;'/>
+<mbr r='llvm::CodeGenRegBank::SynthDefs' o='7424' t='std::vector&lt;std::unique_ptr&lt;Record&gt; &gt;'/>
+<fun r='_ZN4llvm14CodeGenRegBank9addToMapsEPNS_20CodeGenRegisterClassE'/>
+<fun r='_ZN4llvm14CodeGenRegBank19getOrCreateSubClassEPKNS_20CodeGenRegisterClassEPKSt6vectorIPKNS_15CodeGenRegisterESaIS7_EENS_9StringRefE'/>
+<fun r='_ZN4llvm14CodeGenRegBank30computeInferredRegisterClassesEv'/>
+<fun r='_ZN4llvm14CodeGenRegBank19inferCommonSubClassEPNS_20CodeGenRegisterClassE'/>
+<fun r='_ZN4llvm14CodeGenRegBank23inferSubClassWithSubRegEPNS_20CodeGenRegisterClassE'/>
+<fun r='_ZN4llvm14CodeGenRegBank26inferMatchingSuperRegClassEPNS_20CodeGenRegisterClassE'/>
+<fun r='_ZN4llvm14CodeGenRegBank26inferMatchingSuperRegClassEPNS_20CodeGenRegisterClassESt14_List_iteratorIS1_E'/>
+<fun r='_ZN4llvm14CodeGenRegBank13pruneUnitSetsEv'/>
+<fun r='_ZN4llvm14CodeGenRegBank21computeRegUnitWeightsEv'/>
+<fun r='_ZN4llvm14CodeGenRegBank18computeRegUnitSetsEv'/>
+<fun r='_ZN4llvm14CodeGenRegBank17computeCompositesEv'/>
+<fun r='_ZN4llvm14CodeGenRegBank22computeSubRegLaneMasksEv'/>
+<fun r='_ZN4llvm14CodeGenRegBank23computeRegUnitLaneMasksEv'/>
+<fun r='_ZN4llvm14CodeGenRegBankC1ERNS_12RecordKeeperERKNS_14CodeGenHwModesE'/>
+<fun r='_ZN4llvm14CodeGenRegBank7getSetsEv'/>
+<fun r='_ZNK4llvm14CodeGenRegBank10getHwModesEv'/>
+<fun r='_ZNK4llvm14CodeGenRegBank16getSubRegIndicesEv'/>
+<fun r='_ZN4llvm14CodeGenRegBank12getSubRegIdxEPNS_6RecordE'/>
+<fun r='_ZN4llvm14CodeGenRegBank23getCompositeSubRegIndexEPNS_18CodeGenSubRegIndexES2_'/>
+<fun r='_ZN4llvm14CodeGenRegBank20getConcatSubRegIndexERKNS_11SmallVectorIPNS_18CodeGenSubRegIndexELj8EEE'/>
+<fun r='_ZN4llvm14CodeGenRegBank12getRegistersEv'/>
+<fun r='_ZN4llvm14CodeGenRegBank18getRegistersByNameEv'/>
+<fun r='_ZN4llvm14CodeGenRegBank6getRegEPNS_6RecordE'/>
+<fun r='_ZNK4llvm14CodeGenRegBank11getRegIndexEPKNS_15CodeGenRegisterE'/>
+<fun r='_ZNK4llvm14CodeGenRegBank14getNumTopoSigsEv'/>
+<fun r='_ZN4llvm14CodeGenRegBank10getTopoSigERKNS_11SmallVectorIjLj16EEE'/>
+<fun r='_ZN4llvm14CodeGenRegBank10newRegUnitEPNS_15CodeGenRegisterES2_'/>
+<fun r='_ZN4llvm14CodeGenRegBank10newRegUnitEj'/>
+<fun r='_ZN4llvm14CodeGenRegBank12isNativeUnitEj'/>
+<fun r='_ZNK4llvm14CodeGenRegBank20getNumNativeRegUnitsEv'/>
+<fun r='_ZN4llvm14CodeGenRegBank10getRegUnitEj'/>
+<fun r='_ZNK4llvm14CodeGenRegBank10getRegUnitEj'/>
+<fun r='_ZN4llvm14CodeGenRegBank13getRegClassesEv'/>
+<fun r='_ZNK4llvm14CodeGenRegBank13getRegClassesEv'/>
+<fun r='_ZN4llvm14CodeGenRegBank11getRegClassEPNS_6RecordE'/>
+<fun r='_ZN4llvm14CodeGenRegBank22getRegClassForRegisterEPNS_6RecordE'/>
+<fun r='_ZNK4llvm14CodeGenRegBank19getRegUnitSetWeightERKSt6vectorIjSaIjEE'/>
+<fun r='_ZNK4llvm14CodeGenRegBank13getRegSetIDAtEj'/>
+<fun r='_ZNK4llvm14CodeGenRegBank11getRegSetAtEj'/>
+<fun r='_ZN4llvm14CodeGenRegBank21increaseRegUnitWeightEjj'/>
+<fun r='_ZNK4llvm14CodeGenRegBank21getNumRegPressureSetsEv'/>
+<fun r='_ZNK4llvm14CodeGenRegBank17getRegPressureSetEj'/>
+<fun r='_ZNK4llvm14CodeGenRegBank30getNumRegClassPressureSetListsEv'/>
+<fun r='_ZNK4llvm14CodeGenRegBank19getRCPressureSetIDsEj'/>
+<fun r='_ZN4llvm14CodeGenRegBank18computeDerivedInfoEv'/>
+<fun r='_ZN4llvm14CodeGenRegBank23computeCoveredRegistersENS_8ArrayRefIPNS_6RecordEEE'/>
+<mbr r='llvm::CodeGenRegBank::CoveringLanes' o='7616' t='llvm::LaneBitmask'/>
+<fun r='_ZNK4llvm14CodeGenRegBank16printRegUnitNameEj'/>

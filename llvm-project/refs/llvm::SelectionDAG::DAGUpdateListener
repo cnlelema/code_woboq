@@ -1,0 +1,25 @@
+<def f='llvm/llvm/include/llvm/CodeGen/SelectionDAG.h' l='279' ll='303'/>
+<ovr f='llvm/llvm/include/llvm/CodeGen/SelectionDAG.h' l='305' c='llvm::SelectionDAG::DAGNodeDeletedListener'/>
+<size>24</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/SelectionDAG.h' l='273'>/// Clients of various APIs that cause global effects on
+  /// the DAG can optionally implement this interface.  This allows the clients
+  /// to handle the various sorts of updates that happen.
+  ///
+  /// A DAGUpdateListener automatically registers itself with DAG when it is
+  /// constructed, and removes itself when destroyed in RAII fashion.</doc>
+<mbr r='llvm::SelectionDAG::DAGUpdateListener::Next' o='64' t='llvm::SelectionDAG::DAGUpdateListener *const'/>
+<mbr r='llvm::SelectionDAG::DAGUpdateListener::DAG' o='128' t='llvm::SelectionDAG &amp;'/>
+<fun r='_ZN4llvm12SelectionDAG17DAGUpdateListenerC1ERS0_'/>
+<fun r='_ZN4llvm12SelectionDAG17DAGUpdateListenerD1Ev'/>
+<fun r='_ZN4llvm12SelectionDAG17DAGUpdateListener11NodeDeletedEPNS_6SDNodeES3_'/>
+<fun r='_ZN4llvm12SelectionDAG17DAGUpdateListener11NodeUpdatedEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG17DAGUpdateListener12NodeInsertedEPNS_6SDNodeE'/>
+<ovr f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='695' c='(anonymousnamespace)::WorklistRemover'/>
+<ovr f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='707' c='(anonymousnamespace)::WorklistInserter'/>
+<ovr f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.cpp' l='592' c='(anonymousnamespace)::NodeUpdateListener'/>
+<ovr f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='8306' c='(anonymousnamespace)::RAUWUpdateListener'/>
+<fun r='_ZN4llvm12SelectionDAG17DAGUpdateListener11NodeDeletedEPNS_6SDNodeES3_'/>
+<fun r='_ZN4llvm12SelectionDAG17DAGUpdateListener11NodeUpdatedEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm12SelectionDAG17DAGUpdateListener12NodeInsertedEPNS_6SDNodeE'/>
+<ovr f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGISel.cpp' l='996' c='(anonymousnamespace)::ISelUpdater'/>
+<ovr f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGISel.cpp' l='2713' c='(anonymousnamespace)::MatchStateUpdater'/>

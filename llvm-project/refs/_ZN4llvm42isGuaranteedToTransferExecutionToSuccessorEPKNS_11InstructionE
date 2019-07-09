@@ -1,0 +1,27 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='493' type='bool llvm::isGuaranteedToTransferExecutionToSuccessor(const llvm::Instruction * I)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='480'>/// Return true if this function can prove that the instruction I will
+  /// always transfer execution to one of its successors (including the next
+  /// instruction that follows within a basic block). E.g. this is not
+  /// guaranteed for function calls that could loop infinitely.
+  ///
+  /// In other words, this function returns false for instructions that may
+  /// transfer execution or fail to transfer execution in a way that is not
+  /// captured in the CFG nor in the sequence of instructions within a basic
+  /// block.
+  ///
+  /// Undefined behavior is assumed not to happen, so e.g. division is
+  /// guaranteed to transfer execution to the following instruction even
+  /// though division by zero might cause undefined behavior.</doc>
+<use f='llvm/llvm/lib/Analysis/InstructionPrecedenceTracking.cpp' l='139' u='c' c='_ZNK4llvm27ImplicitControlFlowTracking20isSpecialInstructionEPKNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='6090' u='c' c='_ZN4llvm15ScalarEvolution17getLoopPropertiesEPKNS_4LoopE'/>
+<def f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4389' ll='4449' type='bool llvm::isGuaranteedToTransferExecutionToSuccessor(const llvm::Instruction * I)'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4455' u='c' c='_ZN4llvm42isGuaranteedToTransferExecutionToSuccessorEPKNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4470' u='c' c='_ZN4llvm38isGuaranteedToExecuteForEveryIterationEPKNS_11InstructionEPKNS_4LoopE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4564' u='c' c='_ZN4llvm28programUndefinedIfFullPoisonEPKNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/FunctionAttrs.cpp' l='651' u='c' c='_ZL29addArgumentAttrsFromCallsitesRN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='574' u='c' c='_ZN4llvm12InstCombiner32simplifyDivRemOfSelectWithZeroOpERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVNHoist.cpp' l='1091' u='c' c='_ZN4llvm8GVNHoist16hoistExpressionsERNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='448' u='c' c='_ZL19ReplaceFoldableUsesPN4llvm11InstructionEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='1415' u='c' c='_ZN4llvm17JumpThreadingPass30SimplifyPartiallyRedundantLoadEPNS_8LoadInstE'/>
+<use f='llvm/llvm/unittests/Analysis/ValueTrackingTest.cpp' l='505' u='c' c='_ZN59ValueTracking_GuaranteedToTransferExecutionToSuccessor_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/ValueTrackingTest.cpp' l='505' u='c' c='_ZN59ValueTracking_GuaranteedToTransferExecutionToSuccessor_Test8TestBodyEv'/>

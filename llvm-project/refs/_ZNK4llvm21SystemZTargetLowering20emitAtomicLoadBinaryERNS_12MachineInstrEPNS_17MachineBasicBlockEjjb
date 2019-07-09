@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.h' l='625' type='llvm::MachineBasicBlock * llvm::SystemZTargetLowering::emitAtomicLoadBinary(llvm::MachineInstr &amp; MI, llvm::MachineBasicBlock * BB, unsigned int BinOpcode, unsigned int BitSize, bool Invert = false) const'/>
+<def f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='6531' ll='6642' type='llvm::MachineBasicBlock * llvm::SystemZTargetLowering::emitAtomicLoadBinary(llvm::MachineInstr &amp; MI, llvm::MachineBasicBlock * MBB, unsigned int BinOpcode, unsigned int BitSize, bool Invert = false) const'/>
+<doc f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='6524'>// Implement EmitInstrWithCustomInserter for pseudo ATOMIC_LOAD{,W}_*
+// or ATOMIC_SWAP{,W} instruction MI.  BinOpcode is the instruction that
+// performs the binary operation elided by &quot;*&quot;, or 0 for ATOMIC_SWAP{,W}.
+// BitSize is the width of the field in bits, or 0 if this is a partword
+// ATOMIC_LOADW_* or ATOMIC_SWAPW instruction, in which case the bitsize
+// is one of the operands.  Invert says whether the field should be
+// inverted after performing BinOpcode (e.g. for NAND).</doc>

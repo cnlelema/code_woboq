@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/Utils.h' l='72' type='unsigned int llvm::constrainOperandRegClass(const llvm::MachineFunction &amp; MF, const llvm::TargetRegisterInfo &amp; TRI, llvm::MachineRegisterInfo &amp; MRI, const llvm::TargetInstrInfo &amp; TII, const llvm::RegisterBankInfo &amp; RBI, llvm::MachineInstr &amp; InsertPt, const llvm::MCInstrDesc &amp; II, const llvm::MachineOperand &amp; RegMO, unsigned int OpIdx)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/Utils.h' l='63'>/// Try to constrain Reg so that it is usable by argument OpIdx of the
+/// provided MCInstrDesc \p II. If this fails, create a new virtual
+/// register in the correct class and insert a COPY before \p InsertPt
+/// if it is a use or after if it is a definition.
+/// This is equivalent to constrainOperandRegClass(..., RegClass, ...)
+/// with RegClass obtained from the MCInstrDesc. The debug location of \p
+/// InsertPt is used for the new copy.
+///
+/// \return The virtual register constrained to the right register class.</doc>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/Utils.cpp' l='71' ll='111' type='unsigned int llvm::constrainOperandRegClass(const llvm::MachineFunction &amp; MF, const llvm::TargetRegisterInfo &amp; TRI, llvm::MachineRegisterInfo &amp; MRI, const llvm::TargetInstrInfo &amp; TII, const llvm::RegisterBankInfo &amp; RBI, llvm::MachineInstr &amp; InsertPt, const llvm::MCInstrDesc &amp; II, const llvm::MachineOperand &amp; RegMO, unsigned int OpIdx)'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/Utils.cpp' l='146' u='c' c='_ZN4llvm32constrainSelectedInstRegOperandsERNS_12MachineInstrERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoE'/>

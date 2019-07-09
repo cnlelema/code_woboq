@@ -1,0 +1,14 @@
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='1160' u='r' c='_ZNK4llvm26LoopVectorizationCostModel22requiresScalarEpilogueEv'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='1164' u='r' c='_ZNK4llvm26LoopVectorizationCostModel23isScalarEpilogueAllowedEv'/>
+<dec f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='1279' type='bool'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='4421' u='r' c='_ZN4llvm26LoopVectorizationCostModel29interleavedAccessCanBeWidenedEPNS_11InstructionEj'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='4706' u='w' c='_ZN4llvm26LoopVectorizationCostModel12computeMaxVFEb'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='5602' u='r' c='_ZN4llvm26LoopVectorizationCostModel22getInterleaveGroupCostEPNS_11InstructionEj'/>
+<offset>1088</offset>
+<doc f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='1272'>/// Records whether it is allowed to have the original scalar loop execute at
+  /// least once. This may be needed as a fallback loop in case runtime 
+  /// aliasing/dependence checks fail, or to handle the tail/remainder
+  /// iterations when the trip count is unknown or doesn&apos;t divide by the VF,
+  /// or as a peel-loop to handle gaps in interleave-groups.
+  /// Under optsize and when the trip count is very small we don&apos;t allow any
+  /// iterations to execute in the scalar loop.</doc>

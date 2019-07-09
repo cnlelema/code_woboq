@@ -1,0 +1,18 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='787' ll='792' type='void llvm::TargetInstrInfo::insertSelect(llvm::MachineBasicBlock &amp; MBB, MachineBasicBlock::iterator I, const llvm::DebugLoc &amp; DL, unsigned int DstReg, ArrayRef&lt;llvm::MachineOperand&gt; Cond, unsigned int TrueReg, unsigned int FalseReg) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='772'>/// Insert a select instruction into MBB before I that will copy TrueReg to
+  /// DstReg when Cond is true, and FalseReg to DstReg when Cond is false.
+  ///
+  /// This function can only be called after canInsertSelect() returned true.
+  /// The condition in Cond comes from AnalyzeBranch, and it can be assumed
+  /// that the same flags or registers required by Cond are available at the
+  /// insertion point.
+  ///
+  /// @param MBB      Block where select instruction should be inserted.
+  /// @param I        Insertion point.
+  /// @param DL       Source location for debugging.
+  /// @param DstReg   Virtual register to be defined by select instruction.
+  /// @param Cond     Condition as computed by AnalyzeBranch.
+  /// @param TrueReg  Virtual register to copy when Cond is true.
+  /// @param FalseReg Virtual register to copy when Cons is false.</doc>
+<use f='llvm/llvm/lib/CodeGen/EarlyIfConversion.cpp' l='471' u='c' c='_ZN12_GLOBAL__N_19SSAIfConv16replacePHIInstrsEv'/>
+<use f='llvm/llvm/lib/CodeGen/EarlyIfConversion.cpp' l='499' u='c' c='_ZN12_GLOBAL__N_19SSAIfConv18rewritePHIOperandsEv'/>

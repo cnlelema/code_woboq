@@ -1,0 +1,28 @@
+<def f='llvm/llvm/include/llvm/Support/LockFileManager.h' l='27' ll='94'/>
+<size>528</size>
+<doc f='llvm/llvm/include/llvm/Support/LockFileManager.h' l='19'>/// Class that manages the creation of a lock file to aid
+/// implicit coordination between different processes.
+///
+/// The implicit coordination works by creating a &quot;.lock&quot; file alongside
+/// the file that we&apos;re coordinating for, using the atomicity of the file
+/// system to ensure that only a single process can create that &quot;.lock&quot; file.
+/// When the lock file is removed, the owning process has finished the
+/// operation.</doc>
+<mbr r='llvm::LockFileManager::FileName' o='0' t='SmallString&lt;128&gt;'/>
+<mbr r='llvm::LockFileManager::LockFileName' o='1152' t='SmallString&lt;128&gt;'/>
+<mbr r='llvm::LockFileManager::UniqueLockFileName' o='2304' t='SmallString&lt;128&gt;'/>
+<mbr r='llvm::LockFileManager::Owner' o='3456' t='Optional&lt;std::pair&lt;std::string, int&gt; &gt;'/>
+<mbr r='llvm::LockFileManager::ErrorCode' o='3840' t='std::error_code'/>
+<mbr r='llvm::LockFileManager::ErrorDiagMsg' o='3968' t='std::string'/>
+<fun r='_ZN4llvm15LockFileManagerC1ERKS0_'/>
+<fun r='_ZN4llvm15LockFileManageraSERKS0_'/>
+<fun r='_ZN4llvm15LockFileManager12readLockFileENS_9StringRefE'/>
+<fun r='_ZN4llvm15LockFileManager21processStillExecutingENS_9StringRefEi'/>
+<fun r='_ZN4llvm15LockFileManagerC1ENS_9StringRefE'/>
+<fun r='_ZN4llvm15LockFileManagerD1Ev'/>
+<fun r='_ZNK4llvm15LockFileManager8getStateEv'/>
+<fun r='_ZNK4llvm15LockFileManagercvNS0_13LockFileStateEEv'/>
+<fun r='_ZN4llvm15LockFileManager13waitForUnlockEv'/>
+<fun r='_ZN4llvm15LockFileManager20unsafeRemoveLockFileEv'/>
+<fun r='_ZNK4llvm15LockFileManager15getErrorMessageEv'/>
+<fun r='_ZN4llvm15LockFileManager8setErrorERKSt10error_codeNS_9StringRefE'/>

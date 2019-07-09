@@ -1,0 +1,22 @@
+<def f='llvm/llvm/include/llvm/CodeGen/RegisterPressure.h' l='237' ll='251'/>
+<size>12</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/RegisterPressure.h' l='223'>/// Store the effects of a change in pressure on things that MI scheduler cares
+/// about.
+///
+/// Excess records the value of the largest difference in register units beyond
+/// the target&apos;s pressure limits across the affected pressure sets, where
+/// largest is defined as the absolute value of the difference. Negative
+/// ExcessUnits indicates a reduction in pressure that had already exceeded the
+/// target&apos;s limits.
+///
+/// CriticalMax records the largest increase in the tracker&apos;s max pressure that
+/// exceeds the critical limit for some pressure set determined by the client.
+///
+/// CurrentMax records the largest increase in the tracker&apos;s max pressure that
+/// exceeds the current limit for some pressure set determined by the client.</doc>
+<mbr r='llvm::RegPressureDelta::Excess' o='0' t='llvm::PressureChange'/>
+<mbr r='llvm::RegPressureDelta::CriticalMax' o='32' t='llvm::PressureChange'/>
+<mbr r='llvm::RegPressureDelta::CurrentMax' o='64' t='llvm::PressureChange'/>
+<fun r='_ZN4llvm16RegPressureDeltaC1Ev'/>
+<fun r='_ZNK4llvm16RegPressureDeltaeqERKS0_'/>
+<fun r='_ZNK4llvm16RegPressureDeltaneERKS0_'/>

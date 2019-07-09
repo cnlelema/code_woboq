@@ -1,0 +1,15 @@
+<dec f='llvm/clang/include/clang/AST/Expr.h' l='2556' type='static clang::CallExpr * clang::CallExpr::Create(const clang::ASTContext &amp; Ctx, clang::Expr * Fn, ArrayRef&lt;clang::Expr *&gt; Args, clang::QualType Ty, clang::ExprValueKind VK, clang::SourceLocation RParenLoc, unsigned int MinNumArgs = 0, clang::CallExpr::ADLCallKind UsesADL = NotADL)'/>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='2544'>/// Create a call expression. Fn is the callee expression, Args is the
+  /// argument array, Ty is the type of the call expression (which is *not*
+  /// the return type in general), VK is the value kind of the call expression
+  /// (lvalue, rvalue, ...), and RParenLoc is the location of the right
+  /// parenthese in the call expression. MinNumArgs specifies the minimum
+  /// number of arguments. The actual number of arguments will be the greater
+  /// of Args.size() and MinNumArgs. This is used in a few places to allocate
+  /// enough storage for the default arguments. UsesADL specifies whether the
+  /// callee was found through argument-dependent lookup.
+  ///
+  /// Note that you can use CreateTemporary if you need a temporary call
+  /// expression on the stack.</doc>
+<def f='llvm/clang/lib/AST/Expr.cpp' l='1283' ll='1294' type='static clang::CallExpr * clang::CallExpr::Create(const clang::ASTContext &amp; Ctx, clang::Expr * Fn, ArrayRef&lt;clang::Expr *&gt; Args, clang::QualType Ty, clang::ExprValueKind VK, clang::SourceLocation RParenLoc, unsigned int MinNumArgs = 0, clang::CallExpr::ADLCallKind UsesADL = NotADL)'/>
+<use f='llvm/clang/lib/Sema/TreeTransform.h' l='3202' u='c' c='_ZN5clang13TreeTransform24RebuildShuffleVectorExprENS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES1_'/>

@@ -1,0 +1,24 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='421' type='bool llvm::TargetInstrInfo::findCommutedOpIndices(llvm::MachineInstr &amp; MI, unsigned int &amp; SrcOpIdx1, unsigned int &amp; SrcOpIdx2) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='404'>/// Returns true iff the routine could find two commutable operands in the
+  /// given machine instruction.
+  /// The &apos;SrcOpIdx1&apos; and &apos;SrcOpIdx2&apos; are INPUT and OUTPUT arguments.
+  /// If any of the INPUT values is set to the special value
+  /// &apos;CommuteAnyOperandIndex&apos; then the method arbitrarily picks a commutable
+  /// operand, then returns its index in the corresponding argument.
+  /// If both of INPUT values are set to &apos;CommuteAnyOperandIndex&apos; then method
+  /// looks for 2 commutable operands.
+  /// If INPUT values refer to some operands of MI, then the method simply
+  /// returns true if the corresponding operands are commutable and returns
+  /// false otherwise.
+  ///
+  /// For example, calling this method this way:
+  ///     unsigned Op1 = 1, Op2 = CommuteAnyOperandIndex;
+  ///     findCommutedOpIndices(MI, Op1, Op2);
+  /// can be interpreted as a query asking to find an operand that would be
+  /// commutable with the operand#1.</doc>
+<use f='llvm/llvm/lib/CodeGen/PeepholeOptimizer.cpp' l='1539' u='c' c='_ZN12_GLOBAL__N_117PeepholeOptimizer20findTargetRecurrenceEjRKN4llvm8SmallSetIjLj2ESt4lessIjEEERNS1_11SmallVectorINS_15RecurrenceInstrELj4EEE'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterCoalescer.cpp' l='801' u='c' c='_ZN12_GLOBAL__N_117RegisterCoalescer24removeCopyByCommutingDefERKN4llvm13CoalescerPairEPNS1_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='160' u='c' c='_ZNK4llvm15TargetInstrInfo22commuteInstructionImplERNS_12MachineInstrEbjj'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='239' u='c' c='_ZNK4llvm15TargetInstrInfo18commuteInstructionERNS_12MachineInstrEbjj'/>
+<def f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='278' ll='300' type='bool llvm::TargetInstrInfo::findCommutedOpIndices(llvm::MachineInstr &amp; MI, unsigned int &amp; SrcOpIdx1, unsigned int &amp; SrcOpIdx2) const'/>
+<use f='llvm/llvm/lib/CodeGen/TwoAddressInstructionPass.cpp' l='1221' u='c' c='_ZN12_GLOBAL__N_125TwoAddressInstructionPass21tryInstructionCommuteEPN4llvm12MachineInstrEjjbj'/>

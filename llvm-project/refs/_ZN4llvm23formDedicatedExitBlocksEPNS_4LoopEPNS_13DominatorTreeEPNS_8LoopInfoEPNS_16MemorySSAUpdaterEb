@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/LoopUtils.h' l='61' type='bool llvm::formDedicatedExitBlocks(llvm::Loop * L, llvm::DominatorTree * DT, llvm::LoopInfo * LI, llvm::MemorySSAUpdater * MSSAU, bool PreserveLCSSA)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/LoopUtils.h' l='56'>/// Ensure that all exit blocks of the loop are dedicated exits.
+///
+/// For any loop exit block with non-loop predecessors, we split the loop
+/// predecessors to use a dedicated loop exit block. We update the dominator
+/// tree and loop info if provided, and will preserve LCSSA if requested.</doc>
+<use f='llvm/llvm/lib/Transforms/Scalar/SimpleLoopUnswitch.cpp' l='332' u='c' c='_ZL20hoistLoopToNewParentRN4llvm4LoopERNS_10BasicBlockERNS_13DominatorTreeERNS_8LoopInfoEPNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SimpleLoopUnswitch.cpp' l='2248' u='c' c='_ZL28unswitchNontrivialInvariantsRN4llvm4LoopERNS_11InstructionENS_8ArrayRefIPNS_5ValueEEERNS_15SmallVectorImplIPNS_10BasicBlockEEERNS_13DominatorTree1049984'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopSimplify.cpp' l='324' u='c' c='_ZL18separateNestedLoopPN4llvm4LoopEPNS_10BasicBlockEPNS_13DominatorTreeEPNS_8LoopInfoEPNS_15ScalarEvolutionEbPNS_15AssumptionCacheEPNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopSimplify.cpp' l='547' u='c' c='_ZL15simplifyOneLoopPN4llvm4LoopERNS_15SmallVectorImplIS1_EEPNS_13DominatorTreeEPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_15AssumptionCacheEPNS_16MemorySSAUpdaterEb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnrollRuntime.cpp' l='941' u='c' c='_ZN4llvm26UnrollRuntimeLoopRemainderEPNS_4LoopEjbbbbPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEbPS1_'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnrollRuntime.cpp' l='945' u='c' c='_ZN4llvm26UnrollRuntimeLoopRemainderEPNS_4LoopEjbbbbPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEbPS1_'/>
+<def f='llvm/llvm/lib/Transforms/Utils/LoopUtils.cpp' l='49' ll='115' type='bool llvm::formDedicatedExitBlocks(llvm::Loop * L, llvm::DominatorTree * DT, llvm::LoopInfo * LI, llvm::MemorySSAUpdater * MSSAU, bool PreserveLCSSA)'/>

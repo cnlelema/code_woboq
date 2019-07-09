@@ -1,0 +1,31 @@
+<dec f='llvm/llvm/include/llvm/Analysis/OptimizationRemarkEmitter.h' l='53' type='void llvm::OptimizationRemarkEmitter::OptimizationRemarkEmitter(const llvm::Function * F)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/OptimizationRemarkEmitter.h' l='42'>/// This variant can be used to generate ORE on demand (without the
+  /// analysis pass).
+  ///
+  /// Note that this ctor has a very different cost depending on whether
+  /// F-&gt;getContext().getDiagnosticsHotnessRequested() is on or not.  If it&apos;s off
+  /// the operation is free.
+  ///
+  /// Whereas if DiagnosticsHotnessRequested is on, it is fairly expensive
+  /// operation since BFI and all its required analyses are computed.  This is
+  /// for example useful for CGSCC passes that can&apos;t use function analyses
+  /// passes in the old PM.</doc>
+<def f='llvm/llvm/lib/Analysis/OptimizationRemarkEmitter.cpp' l='24' ll='44' type='void llvm::OptimizationRemarkEmitter::OptimizationRemarkEmitter(const llvm::Function * F)'/>
+<use f='llvm/llvm/lib/CodeGen/InterleavedLoadCombinePass.cpp' l='1254' u='c' c='_ZN12_GLOBAL__N_126InterleavedLoadCombineImpl3runEv'/>
+<use f='llvm/llvm/lib/CodeGen/StackProtector.cpp' l='196' u='c' c='_ZN4llvm14StackProtector22RequiresStackProtectorEv'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUInline.cpp' l='211' u='c' c='_ZN12_GLOBAL__N_113AMDGPUInliner13getInlineCostEN4llvm8CallSiteE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/HotColdSplitting.cpp' l='710' u='c' c='_ZN12_GLOBAL__N_126HotColdSplittingLegacyPass11runOnModuleERN4llvm6ModuleE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/HotColdSplitting.cpp' l='742' u='c' c='_ZN4llvm20HotColdSplittingPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/InlineSimple.cpp' l='65' u='c' c='_ZN12_GLOBAL__N_113SimpleInliner13getInlineCostEN4llvm8CallSiteE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/Inliner.cpp' l='560' u='c' c='_ZL15inlineCallsImplRN4llvm12CallGraphSCCERNS_9CallGraphESt8functionIFRNS_15AssumptionCacheERNS_8FunctionEEEPNS_18ProfileSummaryInfoERNS_17TargetLibra5838044'/>
+<use f='llvm/llvm/lib/Transforms/IPO/Inliner.cpp' l='649' u='c' c='_ZL15inlineCallsImplRN4llvm12CallGraphSCCERNS_9CallGraphESt8functionIFRNS_15AssumptionCacheERNS_8FunctionEEEPNS_18ProfileSummaryInfoERNS_17TargetLibra5838044'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='1270' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl16unswitchFunctionEPN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='1357' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='1394' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='1435' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/PGOInstrumentation.cpp' l='1800' u='c' c='_ZN4llvm15setProfMetadataEPNS_6ModuleEPNS_11InstructionENS_8ArrayRefImEEm'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='218' u='c' c='_ZN12_GLOBAL__N_114LegacyLICMPass9runOnLoopEPN4llvm4LoopERNS1_13LPPassManagerE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopIdiomRecognize.cpp' l='229' u='c' c='_ZN12_GLOBAL__N_128LoopIdiomRecognizeLegacyPass9runOnLoopEPN4llvm4LoopERNS1_13LPPassManagerE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnrollAndJamPass.cpp' l='456' u='c' c='_ZN12_GLOBAL__N_116LoopUnrollAndJam9runOnLoopEPN4llvm4LoopERNS1_13LPPassManagerE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnrollPass.cpp' l='1202' u='c' c='_ZN12_GLOBAL__N_110LoopUnroll9runOnLoopEPN4llvm4LoopERNS1_13LPPassManagerE'/>
+<use f='llvm/llvm/unittests/CodeGen/AArch64SelectionDAGTest.cpp' l='68' u='c' c='_ZN12_GLOBAL__N_123AArch64SelectionDAGTest5SetUpEv'/>

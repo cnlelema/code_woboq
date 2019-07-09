@@ -1,0 +1,10 @@
+<def f='llvm/llvm/include/llvm/DebugInfo/MSF/MSFCommon.h' l='77' ll='81'/>
+<size>32</size>
+<doc f='llvm/llvm/include/llvm/DebugInfo/MSF/MSFCommon.h' l='71'>/// Describes the layout of a stream in an MSF layout.  A &quot;stream&quot; here
+/// is defined as any logical unit of data which may be arranged inside the MSF
+/// file as a sequence of (possibly discontiguous) blocks.  When we want to read
+/// from a particular MSF Stream, we fill out a stream layout structure and the
+/// reader uses it to determine which blocks in the underlying MSF file contain
+/// the data, so that it can be pieced together in the right order.</doc>
+<mbr r='llvm::msf::MSFStreamLayout::Length' o='0' t='uint32_t'/>
+<mbr r='llvm::msf::MSFStreamLayout::Blocks' o='64' t='std::vector&lt;support::ulittle32_t&gt;'/>

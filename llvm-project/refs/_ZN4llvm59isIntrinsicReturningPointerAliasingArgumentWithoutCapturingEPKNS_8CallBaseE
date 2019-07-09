@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='312' type='bool llvm::isIntrinsicReturningPointerAliasingArgumentWithoutCapturing(const llvm::CallBase * Call)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='307'>// {launder,strip}.invariant.group returns pointer that aliases its argument,
+  // and it only captures pointer by returning it.
+  // These intrinsics are not marked as nocapture, because returning is
+  // considered as capture. The arguments are not marked as returned neither,
+  // because it would make it useless.</doc>
+<use f='llvm/llvm/lib/Analysis/CaptureTracking.cpp' l='255' u='c' c='_ZN4llvm20PointerMayBeCapturedEPKNS_5ValueEPNS_14CaptureTrackerEj'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='3816' u='c' c='_ZN4llvm36getArgumentAliasingToReturnedPointerEPKNS_8CallBaseE'/>
+<def f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='3821' ll='3838' type='bool llvm::isIntrinsicReturningPointerAliasingArgumentWithoutCapturing(const llvm::CallBase * Call)'/>

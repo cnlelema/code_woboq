@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>LazyEmittingLayerTest.cpp source code [llvm/llvm/unittests/ExecutionEngine/Orc/LazyEmittingLayerTest.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/unittests/ExecutionEngine/Orc/LazyEmittingLayerTest.cpp'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>unittests</a>/<a href='..'>ExecutionEngine</a>/<a href='./'>Orc</a>/<a href='LazyEmittingLayerTest.cpp.html'>LazyEmittingLayerTest.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- LazyEmittingLayerTest.cpp - Unit tests for the lazy emitting layer -===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#include <a href="../../../include/llvm/ExecutionEngine/Orc/LazyEmittingLayer.h.html">"llvm/ExecutionEngine/Orc/LazyEmittingLayer.h"</a></u></td></tr>
+<tr><th id="10">10</th><td><u>#include <a href="../../../include/llvm/ExecutionEngine/RuntimeDyld.h.html">"llvm/ExecutionEngine/RuntimeDyld.h"</a></u></td></tr>
+<tr><th id="11">11</th><td><u>#include <a href="../../../utils/unittest/googletest/include/gtest/gtest.h.html">"gtest/gtest.h"</a></u></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><b>namespace</b> {</td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><b>struct</b> <dfn class="tu type def" id="(anonymousnamespace)::MockBaseLayer" title='(anonymous namespace)::MockBaseLayer' data-ref="(anonymousnamespace)::MockBaseLayer">MockBaseLayer</dfn> {</td></tr>
+<tr><th id="16">16</th><td>  <b>typedef</b> <em>int</em> <dfn class="tu typedef" id="(anonymousnamespace)::MockBaseLayer::ModuleHandleT" title='(anonymous namespace)::MockBaseLayer::ModuleHandleT' data-type='int' data-ref="(anonymousnamespace)::MockBaseLayer::ModuleHandleT">ModuleHandleT</dfn>;</td></tr>
+<tr><th id="17">17</th><td>  <a class="tu typedef" href="#(anonymousnamespace)::MockBaseLayer::ModuleHandleT" title='(anonymous namespace)::MockBaseLayer::ModuleHandleT' data-type='int' data-ref="(anonymousnamespace)::MockBaseLayer::ModuleHandleT">ModuleHandleT</a> <dfn class="tu decl def" id="_ZN12_GLOBAL__N_113MockBaseLayer9addModuleEmSt10shared_ptrIN4llvm6ModuleEE" title='(anonymous namespace)::MockBaseLayer::addModule' data-type='ModuleHandleT (anonymous namespace)::MockBaseLayer::addModule(llvm::orc::VModuleKey , std::shared_ptr&lt;llvm::Module&gt; )' data-ref="_ZN12_GLOBAL__N_113MockBaseLayer9addModuleEmSt10shared_ptrIN4llvm6ModuleEE">addModule</dfn>(<span class="namespace">llvm::orc::</span><a class="typedef" href="../../../include/llvm/ExecutionEngine/Orc/Core.h.html#llvm::orc::VModuleKey" title='llvm::orc::VModuleKey' data-type='uint64_t' data-ref="llvm::orc::VModuleKey">VModuleKey</a>,</td></tr>
+<tr><th id="18">18</th><td>                          <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/shared_ptr_base.h.html#std::shared_ptr" title='std::shared_ptr' data-ref="std::shared_ptr">shared_ptr</a>&lt;<span class="namespace">llvm::</span><a class="type" href="../../../include/llvm/IR/Module.h.html#llvm::Module" title='llvm::Module' data-ref="llvm::Module">Module</a>&gt;) {</td></tr>
+<tr><th id="19">19</th><td>    <b>return</b> <var>42</var>;</td></tr>
+<tr><th id="20">20</th><td>  }</td></tr>
+<tr><th id="21">21</th><td>};</td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><a class="macro" href="../../../utils/unittest/googletest/include/gtest/gtest.h.html#2187" title="class LazyEmittingLayerTest_Empty_Test : public ::testing::Test { public: LazyEmittingLayerTest_Empty_Test() {} private: virtual void TestBody(); static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); LazyEmittingLayerTest_Empty_Test(LazyEmittingLayerTest_Empty_Test const &amp;); void operator=(LazyEmittingLayerTest_Empty_Test const &amp;);};::testing::TestInfo* const LazyEmittingLayerTest_Empty_Test ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( &quot;LazyEmittingLayerTest&quot;, &quot;Empty&quot;, __null, __null, ::testing::internal::CodeLocation(&quot;/root/cheri/llvm-project/llvm/unittests/ExecutionEngine/Orc/LazyEmittingLayerTest.cpp&quot;, 23), (::testing::internal::GetTestTypeId()), ::testing::Test::SetUpTestCase, ::testing::Test::TearDownTestCase, new ::testing::internal::TestFactoryImpl&lt; LazyEmittingLayerTest_Empty_Test&gt;);void LazyEmittingLayerTest_Empty_Test::TestBody()" data-ref="_M/TEST">TEST</a>(LazyEmittingLayerTest, Empty) {</td></tr>
+<tr><th id="24">24</th><td>  <a class="tu type" href="#(anonymousnamespace)::MockBaseLayer" title='(anonymous namespace)::MockBaseLayer' data-ref="(anonymousnamespace)::MockBaseLayer">MockBaseLayer</a> <a class="tu ref fake" href="#15" title='(anonymous namespace)::MockBaseLayer::MockBaseLayer' data-use='c' data-ref="_ZN12_GLOBAL__N_113MockBaseLayerC1Ev"></a><dfn class="local col1 decl" id="1M" title='M' data-type='(anonymous namespace)::MockBaseLayer' data-ref="1M">M</dfn>;</td></tr>
+<tr><th id="25">25</th><td>  <span class="namespace">llvm::orc::</span><a class="type" href="../../../include/llvm/ExecutionEngine/Orc/LazyEmittingLayer.h.html#llvm::orc::LazyEmittingLayer" title='llvm::orc::LazyEmittingLayer' data-ref="llvm::orc::LazyEmittingLayer">LazyEmittingLayer</a>&lt;<a class="tu type" href="#(anonymousnamespace)::MockBaseLayer" title='(anonymous namespace)::MockBaseLayer' data-ref="(anonymousnamespace)::MockBaseLayer">MockBaseLayer</a>&gt; <dfn class="local col2 decl" id="2L" title='L' data-type='llvm::orc::LazyEmittingLayer&lt;MockBaseLayer&gt;' data-ref="2L">L</dfn><a class="tu ref" href="../../../include/llvm/ExecutionEngine/Orc/LazyEmittingLayer.h.html#_ZN4llvm3orc17LazyEmittingLayerC1ERT_" title='llvm::orc::LazyEmittingLayer::LazyEmittingLayer&lt;BaseLayerT&gt;' data-use='c' data-ref="_ZN4llvm3orc17LazyEmittingLayerC1ERT_">(</a><a class="local col1 ref" href="#1M" title='M' data-ref="1M">M</a>);</td></tr>
+<tr><th id="26">26</th><td>  <a class="ref" href="../../../include/llvm/Support/Error.h.html#_ZN4llvm8cantFailENS_5ErrorEPKc" title='llvm::cantFail' data-ref="_ZN4llvm8cantFailENS_5ErrorEPKc">cantFail</a>(</td></tr>
+<tr><th id="27">27</th><td>      <a class="local col2 ref" href="#2L" title='L' data-ref="2L">L</a>.<a class="tu ref" href="../../../include/llvm/ExecutionEngine/Orc/LazyEmittingLayer.h.html#_ZN4llvm3orc17LazyEmittingLayer9addModuleEmSt10unique_ptrINS_6ModuleESt14default_deleteIS3_EE" title='llvm::orc::LazyEmittingLayer::addModule' data-use='c' data-ref="_ZN4llvm3orc17LazyEmittingLayer9addModuleEmSt10unique_ptrINS_6ModuleESt14default_deleteIS3_EE">addModule</a>(<span class="namespace">llvm::orc::</span><a class="typedef" href="../../../include/llvm/ExecutionEngine/Orc/Core.h.html#llvm::orc::VModuleKey" title='llvm::orc::VModuleKey' data-type='uint64_t' data-ref="llvm::orc::VModuleKey">VModuleKey</a>(), <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<span class="namespace">llvm::</span><a class="type" href="../../../include/llvm/IR/Module.h.html#llvm::Module" title='llvm::Module' data-ref="llvm::Module">Module</a>&gt;<a class="ref" href="../../../../../include/c++/7/bits/unique_ptr.h.html#_ZNSt10unique_ptrC1Ev" title='std::unique_ptr::unique_ptr&lt;_Tp, _Dp&gt;' data-ref="_ZNSt10unique_ptrC1Ev">(</a>)));</td></tr>
+<tr><th id="28">28</th><td>}</td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td>}</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

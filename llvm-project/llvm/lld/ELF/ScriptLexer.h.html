@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ScriptLexer.h source code [llvm/lld/ELF/ScriptLexer.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="lld::elf::ScriptLexer "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/lld/ELF/ScriptLexer.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>llvm</a>/<a href='..'>lld</a>/<a href='./'>ELF</a>/<a href='ScriptLexer.h.html'>ScriptLexer.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- ScriptLexer.h --------------------------------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLD_ELF_SCRIPT_LEXER_H">LLD_ELF_SCRIPT_LEXER_H</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLD_ELF_SCRIPT_LEXER_H" data-ref="_M/LLD_ELF_SCRIPT_LEXER_H">LLD_ELF_SCRIPT_LEXER_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="../include/lld/Common/LLVM.h.html">"lld/Common/LLVM.h"</a></u></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../../llvm/include/llvm/ADT/StringRef.h.html">"llvm/ADT/StringRef.h"</a></u></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="../../llvm/include/llvm/Support/MemoryBuffer.h.html">"llvm/Support/MemoryBuffer.h"</a></u></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="../../../include/c++/7/utility.html">&lt;utility&gt;</a></u></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="../../../include/c++/7/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><b>namespace</b> <span class="namespace">lld</span> {</td></tr>
+<tr><th id="19">19</th><td><b>namespace</b> <span class="namespace">elf</span> {</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><b>class</b> <dfn class="type def" id="lld::elf::ScriptLexer" title='lld::elf::ScriptLexer' data-ref="lld::elf::ScriptLexer">ScriptLexer</dfn> {</td></tr>
+<tr><th id="22">22</th><td><b>public</b>:</td></tr>
+<tr><th id="23">23</th><td>  <b>explicit</b> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexerC1EN4llvm15MemoryBufferRefE" title='lld::elf::ScriptLexer::ScriptLexer' data-ref="_ZN3lld3elf11ScriptLexerC1EN4llvm15MemoryBufferRefE" id="_ZN3lld3elf11ScriptLexerC1EN4llvm15MemoryBufferRefE">ScriptLexer</a>(<a class="type" href="../../llvm/include/llvm/Support/MemoryBuffer.h.html#llvm::MemoryBufferRef" title='llvm::MemoryBufferRef' data-ref="llvm::MemoryBufferRef">MemoryBufferRef</a> <dfn class="local col1 decl" id="1MB" title='MB' data-type='llvm::MemoryBufferRef' data-ref="1MB">MB</dfn>);</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td>  <em>void</em> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer8setErrorERKN4llvm5TwineE" title='lld::elf::ScriptLexer::setError' data-ref="_ZN3lld3elf11ScriptLexer8setErrorERKN4llvm5TwineE" id="_ZN3lld3elf11ScriptLexer8setErrorERKN4llvm5TwineE">setError</a>(<em>const</em> <a class="type" href="../../llvm/include/llvm/ADT/Twine.h.html#llvm::Twine" title='llvm::Twine' data-ref="llvm::Twine">Twine</a> &amp;<dfn class="local col2 decl" id="2Msg" title='Msg' data-type='const llvm::Twine &amp;' data-ref="2Msg">Msg</dfn>);</td></tr>
+<tr><th id="26">26</th><td>  <em>void</em> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer8tokenizeEN4llvm15MemoryBufferRefE" title='lld::elf::ScriptLexer::tokenize' data-ref="_ZN3lld3elf11ScriptLexer8tokenizeEN4llvm15MemoryBufferRefE" id="_ZN3lld3elf11ScriptLexer8tokenizeEN4llvm15MemoryBufferRefE">tokenize</a>(<a class="type" href="../../llvm/include/llvm/Support/MemoryBuffer.h.html#llvm::MemoryBufferRef" title='llvm::MemoryBufferRef' data-ref="llvm::MemoryBufferRef">MemoryBufferRef</a> <dfn class="local col3 decl" id="3MB" title='MB' data-type='llvm::MemoryBufferRef' data-ref="3MB">MB</dfn>);</td></tr>
+<tr><th id="27">27</th><td>  <em>static</em> <a class="type" href="../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer9skipSpaceEN4llvm9StringRefE" title='lld::elf::ScriptLexer::skipSpace' data-ref="_ZN3lld3elf11ScriptLexer9skipSpaceEN4llvm9StringRefE" id="_ZN3lld3elf11ScriptLexer9skipSpaceEN4llvm9StringRefE">skipSpace</a>(<a class="type" href="../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col4 decl" id="4S" title='S' data-type='llvm::StringRef' data-ref="4S">S</dfn>);</td></tr>
+<tr><th id="28">28</th><td>  <em>bool</em> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer5atEOFEv" title='lld::elf::ScriptLexer::atEOF' data-ref="_ZN3lld3elf11ScriptLexer5atEOFEv" id="_ZN3lld3elf11ScriptLexer5atEOFEv">atEOF</a>();</td></tr>
+<tr><th id="29">29</th><td>  <a class="type" href="../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer4nextEv" title='lld::elf::ScriptLexer::next' data-ref="_ZN3lld3elf11ScriptLexer4nextEv" id="_ZN3lld3elf11ScriptLexer4nextEv">next</a>();</td></tr>
+<tr><th id="30">30</th><td>  <a class="type" href="../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer4peekEv" title='lld::elf::ScriptLexer::peek' data-ref="_ZN3lld3elf11ScriptLexer4peekEv" id="_ZN3lld3elf11ScriptLexer4peekEv">peek</a>();</td></tr>
+<tr><th id="31">31</th><td>  <a class="type" href="../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer5peek2Ev" title='lld::elf::ScriptLexer::peek2' data-ref="_ZN3lld3elf11ScriptLexer5peek2Ev" id="_ZN3lld3elf11ScriptLexer5peek2Ev">peek2</a>();</td></tr>
+<tr><th id="32">32</th><td>  <em>void</em> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer4skipEv" title='lld::elf::ScriptLexer::skip' data-ref="_ZN3lld3elf11ScriptLexer4skipEv" id="_ZN3lld3elf11ScriptLexer4skipEv">skip</a>();</td></tr>
+<tr><th id="33">33</th><td>  <em>bool</em> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer7consumeEN4llvm9StringRefE" title='lld::elf::ScriptLexer::consume' data-ref="_ZN3lld3elf11ScriptLexer7consumeEN4llvm9StringRefE" id="_ZN3lld3elf11ScriptLexer7consumeEN4llvm9StringRefE">consume</a>(<a class="type" href="../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col5 decl" id="5Tok" title='Tok' data-type='llvm::StringRef' data-ref="5Tok">Tok</dfn>);</td></tr>
+<tr><th id="34">34</th><td>  <em>void</em> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer6expectEN4llvm9StringRefE" title='lld::elf::ScriptLexer::expect' data-ref="_ZN3lld3elf11ScriptLexer6expectEN4llvm9StringRefE" id="_ZN3lld3elf11ScriptLexer6expectEN4llvm9StringRefE">expect</a>(<a class="type" href="../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col6 decl" id="6Expect" title='Expect' data-type='llvm::StringRef' data-ref="6Expect">Expect</dfn>);</td></tr>
+<tr><th id="35">35</th><td>  <em>bool</em> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer12consumeLabelEN4llvm9StringRefE" title='lld::elf::ScriptLexer::consumeLabel' data-ref="_ZN3lld3elf11ScriptLexer12consumeLabelEN4llvm9StringRefE" id="_ZN3lld3elf11ScriptLexer12consumeLabelEN4llvm9StringRefE">consumeLabel</a>(<a class="type" href="../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col7 decl" id="7Tok" title='Tok' data-type='llvm::StringRef' data-ref="7Tok">Tok</dfn>);</td></tr>
+<tr><th id="36">36</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer18getCurrentLocationEv" title='lld::elf::ScriptLexer::getCurrentLocation' data-ref="_ZN3lld3elf11ScriptLexer18getCurrentLocationEv" id="_ZN3lld3elf11ScriptLexer18getCurrentLocationEv">getCurrentLocation</a>();</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td>  <span class="namespace">std::</span><a class="type" href="../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="type" href="../../llvm/include/llvm/Support/MemoryBuffer.h.html#llvm::MemoryBufferRef" title='llvm::MemoryBufferRef' data-ref="llvm::MemoryBufferRef">MemoryBufferRef</a>&gt; <dfn class="decl" id="lld::elf::ScriptLexer::MBs" title='lld::elf::ScriptLexer::MBs' data-ref="lld::elf::ScriptLexer::MBs">MBs</dfn>;</td></tr>
+<tr><th id="39">39</th><td>  <span class="namespace">std::</span><a class="type" href="../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="type" href="../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a>&gt; <dfn class="decl" id="lld::elf::ScriptLexer::Tokens" title='lld::elf::ScriptLexer::Tokens' data-ref="lld::elf::ScriptLexer::Tokens">Tokens</dfn>;</td></tr>
+<tr><th id="40">40</th><td>  <em>bool</em> <dfn class="decl" id="lld::elf::ScriptLexer::InExpr" title='lld::elf::ScriptLexer::InExpr' data-ref="lld::elf::ScriptLexer::InExpr">InExpr</dfn> = <b>false</b>;</td></tr>
+<tr><th id="41">41</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl" id="lld::elf::ScriptLexer::Pos" title='lld::elf::ScriptLexer::Pos' data-ref="lld::elf::ScriptLexer::Pos">Pos</dfn> = <var>0</var>;</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><b>private</b>:</td></tr>
+<tr><th id="44">44</th><td>  <em>void</em> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer14maybeSplitExprEv" title='lld::elf::ScriptLexer::maybeSplitExpr' data-ref="_ZN3lld3elf11ScriptLexer14maybeSplitExprEv" id="_ZN3lld3elf11ScriptLexer14maybeSplitExprEv">maybeSplitExpr</a>();</td></tr>
+<tr><th id="45">45</th><td>  <a class="type" href="../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer7getLineEv" title='lld::elf::ScriptLexer::getLine' data-ref="_ZN3lld3elf11ScriptLexer7getLineEv" id="_ZN3lld3elf11ScriptLexer7getLineEv">getLine</a>();</td></tr>
+<tr><th id="46">46</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer13getLineNumberEv" title='lld::elf::ScriptLexer::getLineNumber' data-ref="_ZN3lld3elf11ScriptLexer13getLineNumberEv" id="_ZN3lld3elf11ScriptLexer13getLineNumberEv">getLineNumber</a>();</td></tr>
+<tr><th id="47">47</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer15getColumnNumberEv" title='lld::elf::ScriptLexer::getColumnNumber' data-ref="_ZN3lld3elf11ScriptLexer15getColumnNumberEv" id="_ZN3lld3elf11ScriptLexer15getColumnNumberEv">getColumnNumber</a>();</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>  <a class="type" href="../../llvm/include/llvm/Support/MemoryBuffer.h.html#llvm::MemoryBufferRef" title='llvm::MemoryBufferRef' data-ref="llvm::MemoryBufferRef">MemoryBufferRef</a> <a class="decl" href="ScriptLexer.cpp.html#_ZN3lld3elf11ScriptLexer12getCurrentMBEv" title='lld::elf::ScriptLexer::getCurrentMB' data-ref="_ZN3lld3elf11ScriptLexer12getCurrentMBEv" id="_ZN3lld3elf11ScriptLexer12getCurrentMBEv">getCurrentMB</a>();</td></tr>
+<tr><th id="50">50</th><td>};</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>} <i>// namespace elf</i></td></tr>
+<tr><th id="53">53</th><td>} <i>// namespace lld</i></td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><u>#<span data-ppcond="9">endif</span></u></td></tr>
+<tr><th id="56">56</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='ScriptLexer.cpp.html'>llvm/lld/ELF/ScriptLexer.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

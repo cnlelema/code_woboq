@@ -1,0 +1,78 @@
+<def f='llvm/llvm/include/llvm/MC/MCRegisterInfo.h' l='130' ll='475'/>
+<size>224</size>
+<doc f='llvm/llvm/include/llvm/MC/MCRegisterInfo.h' l='118'>/// MCRegisterInfo base class - We assume that the target defines a static
+/// array of MCRegisterDesc objects that represent all of the machine
+/// registers that the target has.  As such, we simply have to track a pointer
+/// to this array so that we can turn register number into a register
+/// descriptor.
+///
+/// Note this class is designed to be a base class of TargetRegisterInfo, which
+/// is the interface used by codegen. However, specific targets *should never*
+/// specialize this class. MCRegisterInfo should only contain getters to access
+/// TableGen generated physical register data. It must not be extended with
+/// virtual methods.
+///</doc>
+<mbr r='llvm::MCRegisterInfo::Desc' o='0' t='const llvm::MCRegisterDesc *'/>
+<mbr r='llvm::MCRegisterInfo::NumRegs' o='64' t='unsigned int'/>
+<mbr r='llvm::MCRegisterInfo::RAReg' o='96' t='unsigned int'/>
+<mbr r='llvm::MCRegisterInfo::PCReg' o='128' t='unsigned int'/>
+<mbr r='llvm::MCRegisterInfo::Classes' o='192' t='const llvm::MCRegisterClass *'/>
+<mbr r='llvm::MCRegisterInfo::NumClasses' o='256' t='unsigned int'/>
+<mbr r='llvm::MCRegisterInfo::NumRegUnits' o='288' t='unsigned int'/>
+<mbr r='llvm::MCRegisterInfo::RegUnitRoots' o='320' t='const MCPhysReg (*)[2]'/>
+<mbr r='llvm::MCRegisterInfo::DiffLists' o='384' t='const MCPhysReg *'/>
+<mbr r='llvm::MCRegisterInfo::RegUnitMaskSequences' o='448' t='const llvm::LaneBitmask *'/>
+<mbr r='llvm::MCRegisterInfo::RegStrings' o='512' t='const char *'/>
+<mbr r='llvm::MCRegisterInfo::RegClassStrings' o='576' t='const char *'/>
+<mbr r='llvm::MCRegisterInfo::SubRegIndices' o='640' t='const uint16_t *'/>
+<mbr r='llvm::MCRegisterInfo::SubRegIdxRanges' o='704' t='const llvm::MCRegisterInfo::SubRegCoveredBits *'/>
+<mbr r='llvm::MCRegisterInfo::NumSubRegIndices' o='768' t='unsigned int'/>
+<mbr r='llvm::MCRegisterInfo::RegEncodingTable' o='832' t='const uint16_t *'/>
+<mbr r='llvm::MCRegisterInfo::L2DwarfRegsSize' o='896' t='unsigned int'/>
+<mbr r='llvm::MCRegisterInfo::EHL2DwarfRegsSize' o='928' t='unsigned int'/>
+<mbr r='llvm::MCRegisterInfo::Dwarf2LRegsSize' o='960' t='unsigned int'/>
+<mbr r='llvm::MCRegisterInfo::EHDwarf2LRegsSize' o='992' t='unsigned int'/>
+<mbr r='llvm::MCRegisterInfo::L2DwarfRegs' o='1024' t='const llvm::MCRegisterInfo::DwarfLLVMRegPair *'/>
+<mbr r='llvm::MCRegisterInfo::EHL2DwarfRegs' o='1088' t='const llvm::MCRegisterInfo::DwarfLLVMRegPair *'/>
+<mbr r='llvm::MCRegisterInfo::Dwarf2LRegs' o='1152' t='const llvm::MCRegisterInfo::DwarfLLVMRegPair *'/>
+<mbr r='llvm::MCRegisterInfo::EHDwarf2LRegs' o='1216' t='const llvm::MCRegisterInfo::DwarfLLVMRegPair *'/>
+<mbr r='llvm::MCRegisterInfo::L2SEHRegs' o='1280' t='DenseMap&lt;unsigned int, int&gt;'/>
+<mbr r='llvm::MCRegisterInfo::L2CVRegs' o='1536' t='DenseMap&lt;unsigned int, int&gt;'/>
+<fun r='_ZN4llvm14MCRegisterInfo18InitMCRegisterInfoEPKNS_14MCRegisterDescEjjjPKNS_15MCRegisterClassEjPA2_KtjPS7_PKNS_11LaneBitmaskEPKcSF_SA_jPKNS0_17SubRegCoveredBitsESA_'/>
+<fun r='_ZN4llvm14MCRegisterInfo22mapLLVMRegsToDwarfRegsEPKNS0_16DwarfLLVMRegPairEjb'/>
+<fun r='_ZN4llvm14MCRegisterInfo22mapDwarfRegsToLLVMRegsEPKNS0_16DwarfLLVMRegPairEjb'/>
+<fun r='_ZN4llvm14MCRegisterInfo18mapLLVMRegToSEHRegEji'/>
+<fun r='_ZN4llvm14MCRegisterInfo17mapLLVMRegToCVRegEji'/>
+<fun r='_ZNK4llvm14MCRegisterInfo13getRARegisterEv'/>
+<fun r='_ZNK4llvm14MCRegisterInfo17getProgramCounterEv'/>
+<fun r='_ZNK4llvm14MCRegisterInfoixEj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo3getEj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo9getSubRegEjj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo19getMatchingSuperRegEjjPKNS_15MCRegisterClassE'/>
+<fun r='_ZNK4llvm14MCRegisterInfo14getSubRegIndexEjj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo16getSubRegIdxSizeEj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo18getSubRegIdxOffsetEj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo7getNameEj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo10getNumRegsEv'/>
+<fun r='_ZNK4llvm14MCRegisterInfo19getNumSubRegIndicesEv'/>
+<fun r='_ZNK4llvm14MCRegisterInfo14getNumRegUnitsEv'/>
+<fun r='_ZNK4llvm14MCRegisterInfo14getDwarfRegNumEjb'/>
+<fun r='_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEjb'/>
+<fun r='_ZNK4llvm14MCRegisterInfo19getLLVMRegNumFromEHEj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo31getDwarfRegNumFromDwarfEHRegNumEj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo12getSEHRegNumEj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo17getCodeViewRegNumEj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo14regclass_beginEv'/>
+<fun r='_ZNK4llvm14MCRegisterInfo12regclass_endEv'/>
+<fun r='_ZNK4llvm14MCRegisterInfo10regclassesEv'/>
+<fun r='_ZNK4llvm14MCRegisterInfo16getNumRegClassesEv'/>
+<fun r='_ZNK4llvm14MCRegisterInfo11getRegClassEj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo15getRegClassNameEPKNS_15MCRegisterClassE'/>
+<fun r='_ZNK4llvm14MCRegisterInfo16getEncodingValueEj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo13isSubRegisterEjj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo15isSuperRegisterEjj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo15isSubRegisterEqEjj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo17isSuperRegisterEqEjj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo22isSuperOrSubRegisterEqEjj'/>
+<fun r='_ZNK4llvm14MCRegisterInfo15isSuperRegisterEjj'/>
+<ovr f='llvm/llvm/include/llvm/CodeGen/TargetRegisterInfo.h' l='219' c='llvm::TargetRegisterInfo'/>

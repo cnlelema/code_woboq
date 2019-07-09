@@ -1,0 +1,12 @@
+<def f='llvm/lld/ELF/Symbols.h' l='47' ll='53'/>
+<size>16</size>
+<doc f='llvm/lld/ELF/Symbols.h' l='41'>// This is a StringRef-like container that doesn&apos;t run strlen().
+//
+// ELF string tables contain a lot of null-terminated strings. Most of them
+// are not necessary for the linker because they are names of local symbols,
+// and the linker doesn&apos;t use local symbol names for name resolution. So, we
+// use this class to represents strings read from string tables.</doc>
+<fun r='_ZN3lld3elf10StringRefZC1EPKc'/>
+<fun r='_ZN3lld3elf10StringRefZC1EN4llvm9StringRefE'/>
+<mbr r='lld::elf::StringRefZ::Data' o='0' t='const char *'/>
+<mbr r='lld::elf::StringRefZ::Size' o='64' t='const uint32_t'/>

@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/CallPromotionUtils.h' l='38' type='llvm::Instruction * llvm::promoteCall(llvm::CallSite CS, llvm::Function * Callee, llvm::CastInst ** RetBitCast = nullptr)'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUFixFunctionBitcasts.cpp' l='39' u='c' c='_ZN12_GLOBAL__N_125AMDGPUFixFunctionBitcasts13visitCallSiteEN4llvm8CallSiteE'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/CallPromotionUtils.h' l='31'>/// Promote the given indirect call site to unconditionally call \p Callee.
+///
+/// This function promotes the given call site, returning the direct call or
+/// invoke instruction. If the function type of the call site doesn&apos;t match that
+/// of the callee, bitcast instructions are inserted where appropriate. If \p
+/// RetBitCast is non-null, it will be used to store the return value bitcast,
+/// if created.</doc>
+<def f='llvm/llvm/lib/Transforms/Utils/CallPromotionUtils.cpp' l='365' ll='438' type='llvm::Instruction * llvm::promoteCall(llvm::CallSite CS, llvm::Function * Callee, llvm::CastInst ** RetBitCast = nullptr)'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CallPromotionUtils.cpp' l='449' u='c' c='_ZN4llvm25promoteCallWithIfThenElseENS_8CallSiteEPNS_8FunctionEPNS_6MDNodeE'/>

@@ -1,0 +1,247 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Config.h source code [llvm/llvm/include/llvm/LTO/Config.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::lto::Config,llvm::lto::LTOLLVMContext,llvm::lto::LTOLLVMDiagnosticHandler "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/LTO/Config.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>LTO</a>/<a href='Config.h.html'>Config.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-Config.h - LLVM Link Time Optimizer Configuration -------------------===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file defines the lto::Config data structure, which allows clients to</i></td></tr>
+<tr><th id="10">10</th><td><i>// configure LTO.</i></td></tr>
+<tr><th id="11">11</th><td><i>//</i></td></tr>
+<tr><th id="12">12</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><u>#<span data-ppcond="14">ifndef</span> <span class="macro" data-ref="_M/LLVM_LTO_CONFIG_H">LLVM_LTO_CONFIG_H</span></u></td></tr>
+<tr><th id="15">15</th><td><u>#define <dfn class="macro" id="_M/LLVM_LTO_CONFIG_H" data-ref="_M/LLVM_LTO_CONFIG_H">LLVM_LTO_CONFIG_H</dfn></u></td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../IR/DiagnosticInfo.h.html">"llvm/IR/DiagnosticInfo.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../Support/CodeGen.h.html">"llvm/Support/CodeGen.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../Target/TargetMachine.h.html">"llvm/Target/TargetMachine.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../Target/TargetOptions.h.html">"llvm/Target/TargetOptions.h"</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../../../include/c++/7/functional.html">&lt;functional&gt;</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><b>class</b> <a class="type" href="../Support/Error.h.html#llvm::Error" title='llvm::Error' data-ref="llvm::Error" id="llvm::Error">Error</a>;</td></tr>
+<tr><th id="27">27</th><td><b>class</b> <a class="type" href="../IR/Module.h.html#llvm::Module" title='llvm::Module' data-ref="llvm::Module" id="llvm::Module">Module</a>;</td></tr>
+<tr><th id="28">28</th><td><b>class</b> <a class="type" href="../IR/ModuleSummaryIndex.h.html#llvm::ModuleSummaryIndex" title='llvm::ModuleSummaryIndex' data-ref="llvm::ModuleSummaryIndex" id="llvm::ModuleSummaryIndex">ModuleSummaryIndex</a>;</td></tr>
+<tr><th id="29">29</th><td><b>class</b> <a class="type" href="../Support/raw_ostream.h.html#llvm::raw_pwrite_stream" title='llvm::raw_pwrite_stream' data-ref="llvm::raw_pwrite_stream" id="llvm::raw_pwrite_stream">raw_pwrite_stream</a>;</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><b>namespace</b> <span class="namespace">lto</span> {</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><i class="doc">/// LTO configuration. A linker can configure LTO by setting fields in this data</i></td></tr>
+<tr><th id="34">34</th><td><i class="doc">/// structure and passing it to the lto::LTO constructor.</i></td></tr>
+<tr><th id="35">35</th><td><b>struct</b> <dfn class="type def" id="llvm::lto::Config" title='llvm::lto::Config' data-ref="llvm::lto::Config">Config</dfn> {</td></tr>
+<tr><th id="36">36</th><td>  <i>// Note: when adding fields here, consider whether they need to be added to</i></td></tr>
+<tr><th id="37">37</th><td><i>  // computeCacheKey in LTO.cpp.</i></td></tr>
+<tr><th id="38">38</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="decl" id="llvm::lto::Config::CPU" title='llvm::lto::Config::CPU' data-ref="llvm::lto::Config::CPU">CPU</dfn>;</td></tr>
+<tr><th id="39">39</th><td>  <a class="type" href="../Target/TargetOptions.h.html#llvm::TargetOptions" title='llvm::TargetOptions' data-ref="llvm::TargetOptions">TargetOptions</a> <dfn class="decl" id="llvm::lto::Config::Options" title='llvm::lto::Config::Options' data-ref="llvm::lto::Config::Options">Options</dfn>;</td></tr>
+<tr><th id="40">40</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a>&gt; <dfn class="decl" id="llvm::lto::Config::MAttrs" title='llvm::lto::Config::MAttrs' data-ref="llvm::lto::Config::MAttrs">MAttrs</dfn>;</td></tr>
+<tr><th id="41">41</th><td>  <a class="type" href="../../../../clang/include/clang/Basic/LLVM.h.html#llvm::Optional" title='llvm::Optional' data-ref="llvm::Optional">Optional</a>&lt;<span class="namespace">Reloc::</span><a class="type" href="../Support/CodeGen.h.html#llvm::Reloc::Model" title='llvm::Reloc::Model' data-ref="llvm::Reloc::Model">Model</a>&gt; <dfn class="decl" id="llvm::lto::Config::RelocModel" title='llvm::lto::Config::RelocModel' data-ref="llvm::lto::Config::RelocModel">RelocModel</dfn> = <a class="ref fake" href="../ADT/Optional.h.html#_ZN4llvm8OptionalC1EOT_" title='llvm::Optional::Optional&lt;T&gt;' data-ref="_ZN4llvm8OptionalC1EOT_"></a><span class="namespace">Reloc::</span><a class="enum" href="../Support/CodeGen.h.html#llvm::Reloc::Model::PIC_" title='llvm::Reloc::Model::PIC_' data-ref="llvm::Reloc::Model::PIC_">PIC_</a>;</td></tr>
+<tr><th id="42">42</th><td>  <a class="type" href="../../../../clang/include/clang/Basic/LLVM.h.html#llvm::Optional" title='llvm::Optional' data-ref="llvm::Optional">Optional</a>&lt;<span class="namespace">CodeModel::</span><a class="type" href="../Support/CodeGen.h.html#llvm::CodeModel::Model" title='llvm::CodeModel::Model' data-ref="llvm::CodeModel::Model">Model</a>&gt; <dfn class="decl" id="llvm::lto::Config::CodeModel" title='llvm::lto::Config::CodeModel' data-ref="llvm::lto::Config::CodeModel">CodeModel</dfn> = <a class="ref fake" href="../ADT/Optional.h.html#_ZN4llvm8OptionalC1ENS_8NoneTypeE" title='llvm::Optional::Optional&lt;T&gt;' data-ref="_ZN4llvm8OptionalC1ENS_8NoneTypeE"></a><a class="ref" href="../ADT/None.h.html#llvm::None" title='llvm::None' data-ref="llvm::None">None</a>;</td></tr>
+<tr><th id="43">43</th><td>  <span class="namespace">CodeGenOpt::</span><a class="type" href="../Support/CodeGen.h.html#llvm::CodeGenOpt::Level" title='llvm::CodeGenOpt::Level' data-ref="llvm::CodeGenOpt::Level">Level</a> <dfn class="decl" id="llvm::lto::Config::CGOptLevel" title='llvm::lto::Config::CGOptLevel' data-ref="llvm::lto::Config::CGOptLevel">CGOptLevel</dfn> = <span class="namespace">CodeGenOpt::</span><a class="enum" href="../Support/CodeGen.h.html#llvm::CodeGenOpt::Level::Default" title='llvm::CodeGenOpt::Level::Default' data-ref="llvm::CodeGenOpt::Level::Default">Default</a>;</td></tr>
+<tr><th id="44">44</th><td>  <a class="type" href="../Target/TargetMachine.h.html#llvm::TargetMachine" title='llvm::TargetMachine' data-ref="llvm::TargetMachine">TargetMachine</a>::<a class="type" href="../Target/TargetMachine.h.html#llvm::TargetMachine::CodeGenFileType" title='llvm::TargetMachine::CodeGenFileType' data-ref="llvm::TargetMachine::CodeGenFileType">CodeGenFileType</a> <dfn class="decl" id="llvm::lto::Config::CGFileType" title='llvm::lto::Config::CGFileType' data-ref="llvm::lto::Config::CGFileType">CGFileType</dfn> = <a class="type" href="../Target/TargetMachine.h.html#llvm::TargetMachine" title='llvm::TargetMachine' data-ref="llvm::TargetMachine">TargetMachine</a>::<a class="enum" href="../Target/TargetMachine.h.html#llvm::TargetMachine::CodeGenFileType::CGFT_ObjectFile" title='llvm::TargetMachine::CodeGenFileType::CGFT_ObjectFile' data-ref="llvm::TargetMachine::CodeGenFileType::CGFT_ObjectFile">CGFT_ObjectFile</a>;</td></tr>
+<tr><th id="45">45</th><td>  <em>unsigned</em> <dfn class="decl" id="llvm::lto::Config::OptLevel" title='llvm::lto::Config::OptLevel' data-ref="llvm::lto::Config::OptLevel">OptLevel</dfn> = <var>2</var>;</td></tr>
+<tr><th id="46">46</th><td>  <em>bool</em> <dfn class="decl" id="llvm::lto::Config::DisableVerify" title='llvm::lto::Config::DisableVerify' data-ref="llvm::lto::Config::DisableVerify">DisableVerify</dfn> = <b>false</b>;</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>  <i class="doc">/// Use the new pass manager</i></td></tr>
+<tr><th id="49">49</th><td>  <em>bool</em> <dfn class="decl" id="llvm::lto::Config::UseNewPM" title='llvm::lto::Config::UseNewPM' data-ref="llvm::lto::Config::UseNewPM">UseNewPM</dfn> = <b>false</b>;</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td>  <i class="doc">/// Flag to indicate that the optimizer should not assume builtins are present</i></td></tr>
+<tr><th id="52">52</th><td><i class="doc">  /// on the target.</i></td></tr>
+<tr><th id="53">53</th><td>  <em>bool</em> <dfn class="decl" id="llvm::lto::Config::Freestanding" title='llvm::lto::Config::Freestanding' data-ref="llvm::lto::Config::Freestanding">Freestanding</dfn> = <b>false</b>;</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>  <i class="doc">/// Disable entirely the optimizer, including importing for ThinLTO</i></td></tr>
+<tr><th id="56">56</th><td>  <em>bool</em> <dfn class="decl" id="llvm::lto::Config::CodeGenOnly" title='llvm::lto::Config::CodeGenOnly' data-ref="llvm::lto::Config::CodeGenOnly">CodeGenOnly</dfn> = <b>false</b>;</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>  <i class="doc">/// Run PGO context sensitive IR instrumentation.</i></td></tr>
+<tr><th id="59">59</th><td>  <em>bool</em> <dfn class="decl" id="llvm::lto::Config::RunCSIRInstr" title='llvm::lto::Config::RunCSIRInstr' data-ref="llvm::lto::Config::RunCSIRInstr">RunCSIRInstr</dfn> = <b>false</b>;</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>  <i class="doc">/// If this field is set, the set of passes run in the middle-end optimizer</i></td></tr>
+<tr><th id="62">62</th><td><i class="doc">  /// will be the one specified by the string. Only works with the new pass</i></td></tr>
+<tr><th id="63">63</th><td><i class="doc">  /// manager as the old one doesn't have this ability.</i></td></tr>
+<tr><th id="64">64</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="decl" id="llvm::lto::Config::OptPipeline" title='llvm::lto::Config::OptPipeline' data-ref="llvm::lto::Config::OptPipeline">OptPipeline</dfn>;</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>  <i>// If this field is set, it has the same effect of specifying an AA pipeline</i></td></tr>
+<tr><th id="67">67</th><td><i>  // identified by the string. Only works with the new pass manager, in</i></td></tr>
+<tr><th id="68">68</th><td><i>  // conjunction OptPipeline.</i></td></tr>
+<tr><th id="69">69</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="decl" id="llvm::lto::Config::AAPipeline" title='llvm::lto::Config::AAPipeline' data-ref="llvm::lto::Config::AAPipeline">AAPipeline</dfn>;</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>  <i class="doc">/// Setting this field will replace target triples in input files with this</i></td></tr>
+<tr><th id="72">72</th><td><i class="doc">  /// triple.</i></td></tr>
+<tr><th id="73">73</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="decl" id="llvm::lto::Config::OverrideTriple" title='llvm::lto::Config::OverrideTriple' data-ref="llvm::lto::Config::OverrideTriple">OverrideTriple</dfn>;</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td>  <i class="doc">/// Setting this field will replace unspecified target triples in input files</i></td></tr>
+<tr><th id="76">76</th><td><i class="doc">  /// with this triple.</i></td></tr>
+<tr><th id="77">77</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="decl" id="llvm::lto::Config::DefaultTriple" title='llvm::lto::Config::DefaultTriple' data-ref="llvm::lto::Config::DefaultTriple">DefaultTriple</dfn>;</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td>  <i class="doc">/// Context Sensitive PGO profile path.</i></td></tr>
+<tr><th id="80">80</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="decl" id="llvm::lto::Config::CSIRProfile" title='llvm::lto::Config::CSIRProfile' data-ref="llvm::lto::Config::CSIRProfile">CSIRProfile</dfn>;</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>  <i class="doc">/// Sample PGO profile path.</i></td></tr>
+<tr><th id="83">83</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="decl" id="llvm::lto::Config::SampleProfile" title='llvm::lto::Config::SampleProfile' data-ref="llvm::lto::Config::SampleProfile">SampleProfile</dfn>;</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td>  <i class="doc">/// Name remapping file for profile data.</i></td></tr>
+<tr><th id="86">86</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="decl" id="llvm::lto::Config::ProfileRemapping" title='llvm::lto::Config::ProfileRemapping' data-ref="llvm::lto::Config::ProfileRemapping">ProfileRemapping</dfn>;</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>  <i class="doc">/// The directory to store .dwo files.</i></td></tr>
+<tr><th id="89">89</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="decl" id="llvm::lto::Config::DwoDir" title='llvm::lto::Config::DwoDir' data-ref="llvm::lto::Config::DwoDir">DwoDir</dfn>;</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td>  <i class="doc">/// The path to write a .dwo file to. This should generally only be used when</i></td></tr>
+<tr><th id="92">92</th><td><i class="doc">  /// running an individual backend directly via thinBackend(), as otherwise</i></td></tr>
+<tr><th id="93">93</th><td><i class="doc">  /// all .dwo files will be written to the same path.</i></td></tr>
+<tr><th id="94">94</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="decl" id="llvm::lto::Config::DwoPath" title='llvm::lto::Config::DwoPath' data-ref="llvm::lto::Config::DwoPath">DwoPath</dfn>;</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td>  <i class="doc">/// Optimization remarks file path.</i></td></tr>
+<tr><th id="97">97</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="decl" id="llvm::lto::Config::RemarksFilename" title='llvm::lto::Config::RemarksFilename' data-ref="llvm::lto::Config::RemarksFilename">RemarksFilename</dfn> = <a class="ref fake" href="../../../../../include/c++/7/bits/basic_string.h.html#_ZNSt7__cxx1112basic_stringC1EPKT_RKT1_" title='std::__cxx11::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt7__cxx1112basic_stringC1EPKT_RKT1_"></a><q>""</q>;</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td>  <i class="doc">/// Optimization remarks pass filter.</i></td></tr>
+<tr><th id="100">100</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="decl" id="llvm::lto::Config::RemarksPasses" title='llvm::lto::Config::RemarksPasses' data-ref="llvm::lto::Config::RemarksPasses">RemarksPasses</dfn> = <a class="ref fake" href="../../../../../include/c++/7/bits/basic_string.h.html#_ZNSt7__cxx1112basic_stringC1EPKT_RKT1_" title='std::__cxx11::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt7__cxx1112basic_stringC1EPKT_RKT1_"></a><q>""</q>;</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>  <i class="doc">/// Whether to emit optimization remarks with hotness informations.</i></td></tr>
+<tr><th id="103">103</th><td>  <em>bool</em> <dfn class="decl" id="llvm::lto::Config::RemarksWithHotness" title='llvm::lto::Config::RemarksWithHotness' data-ref="llvm::lto::Config::RemarksWithHotness">RemarksWithHotness</dfn> = <b>false</b>;</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td>  <i class="doc">/// Whether to emit the pass manager debuggging informations.</i></td></tr>
+<tr><th id="106">106</th><td>  <em>bool</em> <dfn class="decl" id="llvm::lto::Config::DebugPassManager" title='llvm::lto::Config::DebugPassManager' data-ref="llvm::lto::Config::DebugPassManager">DebugPassManager</dfn> = <b>false</b>;</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>  <i class="doc">/// Statistics output file path.</i></td></tr>
+<tr><th id="109">109</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="decl" id="llvm::lto::Config::StatsFile" title='llvm::lto::Config::StatsFile' data-ref="llvm::lto::Config::StatsFile">StatsFile</dfn>;</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>  <em>bool</em> <dfn class="decl" id="llvm::lto::Config::ShouldDiscardValueNames" title='llvm::lto::Config::ShouldDiscardValueNames' data-ref="llvm::lto::Config::ShouldDiscardValueNames">ShouldDiscardValueNames</dfn> = <b>true</b>;</td></tr>
+<tr><th id="112">112</th><td>  <a class="typedef" href="../IR/DiagnosticInfo.h.html#llvm::DiagnosticHandlerFunction" title='llvm::DiagnosticHandlerFunction' data-type='std::function&lt;void (const DiagnosticInfo &amp;)&gt;' data-ref="llvm::DiagnosticHandlerFunction">DiagnosticHandlerFunction</a> <dfn class="decl" id="llvm::lto::Config::DiagHandler" title='llvm::lto::Config::DiagHandler' data-ref="llvm::lto::Config::DiagHandler">DiagHandler</dfn>;</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>  <i class="doc">/// If this field is set, LTO will write input file paths and symbol</i></td></tr>
+<tr><th id="115">115</th><td><i class="doc">  /// resolutions here in llvm-lto2 command line flag format. This can be</i></td></tr>
+<tr><th id="116">116</th><td><i class="doc">  /// used for testing and for running the LTO pipeline outside of the linker</i></td></tr>
+<tr><th id="117">117</th><td><i class="doc">  /// with llvm-lto2.</i></td></tr>
+<tr><th id="118">118</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a>&gt; <dfn class="decl" id="llvm::lto::Config::ResolutionFile" title='llvm::lto::Config::ResolutionFile' data-ref="llvm::lto::Config::ResolutionFile">ResolutionFile</dfn>;</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>  <i class="doc">/// The following callbacks deal with tasks, which normally represent the</i></td></tr>
+<tr><th id="121">121</th><td><i class="doc">  /// entire optimization and code generation pipeline for what will become a</i></td></tr>
+<tr><th id="122">122</th><td><i class="doc">  /// single native object file. Each task has a unique identifier between 0 and</i></td></tr>
+<tr><th id="123">123</th><td><i class="doc">  /// getMaxTasks()-1, which is supplied to the callback via the Task parameter.</i></td></tr>
+<tr><th id="124">124</th><td><i class="doc">  /// A task represents the entire pipeline for ThinLTO and regular</i></td></tr>
+<tr><th id="125">125</th><td><i class="doc">  /// (non-parallel) LTO, but a parallel code generation task will be split into</i></td></tr>
+<tr><th id="126">126</th><td><i class="doc">  /// N tasks before code generation, where N is the parallelism level.</i></td></tr>
+<tr><th id="127">127</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="128">128</th><td><i class="doc">  /// LTO may decide to stop processing a task at any time, for example if the</i></td></tr>
+<tr><th id="129">129</th><td><i class="doc">  /// module is empty or if a module hook (see below) returns false. For this</i></td></tr>
+<tr><th id="130">130</th><td><i class="doc">  /// reason, the client should not expect to receive exactly getMaxTasks()</i></td></tr>
+<tr><th id="131">131</th><td><i class="doc">  /// native object files.</i></td></tr>
+<tr><th id="132">132</th><td><i class="doc"></i></td></tr>
+<tr><th id="133">133</th><td><i class="doc">  /// A module hook may be used by a linker to perform actions during the LTO</i></td></tr>
+<tr><th id="134">134</th><td><i class="doc">  /// pipeline. For example, a linker may use this function to implement</i></td></tr>
+<tr><th id="135">135</th><td><i class="doc">  /// -save-temps. If this function returns false, any further processing for</i></td></tr>
+<tr><th id="136">136</th><td><i class="doc">  /// that task is aborted.</i></td></tr>
+<tr><th id="137">137</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="138">138</th><td><i class="doc">  /// Module hooks must be thread safe with respect to the linker's internal</i></td></tr>
+<tr><th id="139">139</th><td><i class="doc">  /// data structures. A module hook will never be called concurrently from</i></td></tr>
+<tr><th id="140">140</th><td><i class="doc">  /// multiple threads with the same task ID, or the same module.</i></td></tr>
+<tr><th id="141">141</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="142">142</th><td><i class="doc">  /// Note that in out-of-process backend scenarios, none of the hooks will be</i></td></tr>
+<tr><th id="143">143</th><td><i class="doc">  /// called for ThinLTO tasks.</i></td></tr>
+<tr><th id="144">144</th><td>  <b>using</b> <dfn class="typedef" id="llvm::lto::Config::ModuleHookFn" title='llvm::lto::Config::ModuleHookFn' data-type='std::function&lt;bool (unsigned int, const Module &amp;)&gt;' data-ref="llvm::lto::Config::ModuleHookFn">ModuleHookFn</dfn> = <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/std_function.h.html#std::function" title='std::function' data-ref="std::function">function</a>&lt;<em>bool</em>(<em>unsigned</em> <dfn class="local col5 decl" id="5325Task" title='Task' data-type='unsigned int' data-ref="5325Task">Task</dfn>, <em>const</em> <a class="type" href="../IR/Module.h.html#llvm::Module" title='llvm::Module' data-ref="llvm::Module">Module</a> &amp;)&gt;;</td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td>  <i class="doc">/// This module hook is called after linking (regular LTO) or loading</i></td></tr>
+<tr><th id="147">147</th><td><i class="doc">  /// (ThinLTO) the module, before modifying it.</i></td></tr>
+<tr><th id="148">148</th><td>  <a class="typedef" href="#llvm::lto::Config::ModuleHookFn" title='llvm::lto::Config::ModuleHookFn' data-type='std::function&lt;bool (unsigned int, const Module &amp;)&gt;' data-ref="llvm::lto::Config::ModuleHookFn">ModuleHookFn</a> <dfn class="decl" id="llvm::lto::Config::PreOptModuleHook" title='llvm::lto::Config::PreOptModuleHook' data-ref="llvm::lto::Config::PreOptModuleHook">PreOptModuleHook</dfn>;</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td>  <i class="doc">/// This hook is called after promoting any internal functions</i></td></tr>
+<tr><th id="151">151</th><td><i class="doc">  /// (ThinLTO-specific).</i></td></tr>
+<tr><th id="152">152</th><td>  <a class="typedef" href="#llvm::lto::Config::ModuleHookFn" title='llvm::lto::Config::ModuleHookFn' data-type='std::function&lt;bool (unsigned int, const Module &amp;)&gt;' data-ref="llvm::lto::Config::ModuleHookFn">ModuleHookFn</a> <dfn class="decl" id="llvm::lto::Config::PostPromoteModuleHook" title='llvm::lto::Config::PostPromoteModuleHook' data-ref="llvm::lto::Config::PostPromoteModuleHook">PostPromoteModuleHook</dfn>;</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td>  <i class="doc">/// This hook is called after internalizing the module.</i></td></tr>
+<tr><th id="155">155</th><td>  <a class="typedef" href="#llvm::lto::Config::ModuleHookFn" title='llvm::lto::Config::ModuleHookFn' data-type='std::function&lt;bool (unsigned int, const Module &amp;)&gt;' data-ref="llvm::lto::Config::ModuleHookFn">ModuleHookFn</a> <dfn class="decl" id="llvm::lto::Config::PostInternalizeModuleHook" title='llvm::lto::Config::PostInternalizeModuleHook' data-ref="llvm::lto::Config::PostInternalizeModuleHook">PostInternalizeModuleHook</dfn>;</td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td>  <i class="doc">/// This hook is called after importing from other modules (ThinLTO-specific).</i></td></tr>
+<tr><th id="158">158</th><td>  <a class="typedef" href="#llvm::lto::Config::ModuleHookFn" title='llvm::lto::Config::ModuleHookFn' data-type='std::function&lt;bool (unsigned int, const Module &amp;)&gt;' data-ref="llvm::lto::Config::ModuleHookFn">ModuleHookFn</a> <dfn class="decl" id="llvm::lto::Config::PostImportModuleHook" title='llvm::lto::Config::PostImportModuleHook' data-ref="llvm::lto::Config::PostImportModuleHook">PostImportModuleHook</dfn>;</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td>  <i class="doc">/// This module hook is called after optimization is complete.</i></td></tr>
+<tr><th id="161">161</th><td>  <a class="typedef" href="#llvm::lto::Config::ModuleHookFn" title='llvm::lto::Config::ModuleHookFn' data-type='std::function&lt;bool (unsigned int, const Module &amp;)&gt;' data-ref="llvm::lto::Config::ModuleHookFn">ModuleHookFn</a> <dfn class="decl" id="llvm::lto::Config::PostOptModuleHook" title='llvm::lto::Config::PostOptModuleHook' data-ref="llvm::lto::Config::PostOptModuleHook">PostOptModuleHook</dfn>;</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>  <i class="doc">/// This module hook is called before code generation. It is similar to the</i></td></tr>
+<tr><th id="164">164</th><td><i class="doc">  /// PostOptModuleHook, but for parallel code generation it is called after</i></td></tr>
+<tr><th id="165">165</th><td><i class="doc">  /// splitting the module.</i></td></tr>
+<tr><th id="166">166</th><td>  <a class="typedef" href="#llvm::lto::Config::ModuleHookFn" title='llvm::lto::Config::ModuleHookFn' data-type='std::function&lt;bool (unsigned int, const Module &amp;)&gt;' data-ref="llvm::lto::Config::ModuleHookFn">ModuleHookFn</a> <dfn class="decl" id="llvm::lto::Config::PreCodeGenModuleHook" title='llvm::lto::Config::PreCodeGenModuleHook' data-ref="llvm::lto::Config::PreCodeGenModuleHook">PreCodeGenModuleHook</dfn>;</td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td>  <i class="doc">/// A combined index hook is called after all per-module indexes have been</i></td></tr>
+<tr><th id="169">169</th><td><i class="doc">  /// combined (ThinLTO-specific). It can be used to implement -save-temps for</i></td></tr>
+<tr><th id="170">170</th><td><i class="doc">  /// the combined index.</i></td></tr>
+<tr><th id="171">171</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="172">172</th><td><i class="doc">  /// If this function returns false, any further processing for ThinLTO tasks</i></td></tr>
+<tr><th id="173">173</th><td><i class="doc">  /// is aborted.</i></td></tr>
+<tr><th id="174">174</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="175">175</th><td><i class="doc">  /// It is called regardless of whether the backend is in-process, although it</i></td></tr>
+<tr><th id="176">176</th><td><i class="doc">  /// is not called from individual backend processes.</i></td></tr>
+<tr><th id="177">177</th><td>  <b>using</b> <dfn class="typedef" id="llvm::lto::Config::CombinedIndexHookFn" title='llvm::lto::Config::CombinedIndexHookFn' data-type='std::function&lt;bool (const ModuleSummaryIndex &amp;)&gt;' data-ref="llvm::lto::Config::CombinedIndexHookFn">CombinedIndexHookFn</dfn> =</td></tr>
+<tr><th id="178">178</th><td>      <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/std_function.h.html#std::function" title='std::function' data-ref="std::function">function</a>&lt;<em>bool</em>(<em>const</em> <a class="type" href="../IR/ModuleSummaryIndex.h.html#llvm::ModuleSummaryIndex" title='llvm::ModuleSummaryIndex' data-ref="llvm::ModuleSummaryIndex">ModuleSummaryIndex</a> &amp;<dfn class="local col6 decl" id="5326Index" title='Index' data-type='const llvm::ModuleSummaryIndex &amp;' data-ref="5326Index">Index</dfn>)&gt;;</td></tr>
+<tr><th id="179">179</th><td>  <a class="typedef" href="#llvm::lto::Config::CombinedIndexHookFn" title='llvm::lto::Config::CombinedIndexHookFn' data-type='std::function&lt;bool (const ModuleSummaryIndex &amp;)&gt;' data-ref="llvm::lto::Config::CombinedIndexHookFn">CombinedIndexHookFn</a> <dfn class="decl" id="llvm::lto::Config::CombinedIndexHook" title='llvm::lto::Config::CombinedIndexHook' data-ref="llvm::lto::Config::CombinedIndexHook">CombinedIndexHook</dfn>;</td></tr>
+<tr><th id="180">180</th><td></td></tr>
+<tr><th id="181">181</th><td>  <i class="doc">/// This is a convenience function that configures this Config object to write</i></td></tr>
+<tr><th id="182">182</th><td><i class="doc">  /// temporary files named after the given OutputFileName for each of the LTO</i></td></tr>
+<tr><th id="183">183</th><td><i class="doc">  /// phases to disk. A client can use this function to implement -save-temps.</i></td></tr>
+<tr><th id="184">184</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="185">185</th><td><i class="doc">  /// FIXME: Temporary files derived from ThinLTO backends are currently named</i></td></tr>
+<tr><th id="186">186</th><td><i class="doc">  /// after the input file name, rather than the output file name, when</i></td></tr>
+<tr><th id="187">187</th><td><i class="doc">  /// UseInputModulePath is set to true.</i></td></tr>
+<tr><th id="188">188</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="189">189</th><td><i class="doc">  /// Specifically, it (1) sets each of the above module hooks and the combined</i></td></tr>
+<tr><th id="190">190</th><td><i class="doc">  /// index hook to a function that calls the hook function (if any) that was</i></td></tr>
+<tr><th id="191">191</th><td><i class="doc">  /// present in the appropriate field when the addSaveTemps function was</i></td></tr>
+<tr><th id="192">192</th><td><i class="doc">  /// called, and writes the module to a bitcode file with a name prefixed by</i></td></tr>
+<tr><th id="193">193</th><td><i class="doc">  /// the given output file name, and (2) creates a resolution file whose name</i></td></tr>
+<tr><th id="194">194</th><td><i class="doc">  /// is prefixed by the given output file name and sets ResolutionFile to its</i></td></tr>
+<tr><th id="195">195</th><td><i class="doc">  /// file handle.</i></td></tr>
+<tr><th id="196">196</th><td>  <a class="type" href="../Support/Error.h.html#llvm::Error" title='llvm::Error' data-ref="llvm::Error">Error</a> <dfn class="decl" id="_ZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb" title='llvm::lto::Config::addSaveTemps' data-ref="_ZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb">addSaveTemps</dfn>(<span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="local col7 decl" id="5327OutputFileName" title='OutputFileName' data-type='std::string' data-ref="5327OutputFileName">OutputFileName</dfn>,</td></tr>
+<tr><th id="197">197</th><td>                     <em>bool</em> <dfn class="local col8 decl" id="5328UseInputModulePath" title='UseInputModulePath' data-type='bool' data-ref="5328UseInputModulePath">UseInputModulePath</dfn> = <b>false</b>);</td></tr>
+<tr><th id="198">198</th><td>};</td></tr>
+<tr><th id="199">199</th><td></td></tr>
+<tr><th id="200">200</th><td><b>struct</b> <dfn class="type def" id="llvm::lto::LTOLLVMDiagnosticHandler" title='llvm::lto::LTOLLVMDiagnosticHandler' data-ref="llvm::lto::LTOLLVMDiagnosticHandler">LTOLLVMDiagnosticHandler</dfn> : <b>public</b> <a class="type" href="../IR/DiagnosticHandler.h.html#llvm::DiagnosticHandler" title='llvm::DiagnosticHandler' data-ref="llvm::DiagnosticHandler">DiagnosticHandler</a> {</td></tr>
+<tr><th id="201">201</th><td>  <a class="typedef" href="../IR/DiagnosticInfo.h.html#llvm::DiagnosticHandlerFunction" title='llvm::DiagnosticHandlerFunction' data-type='std::function&lt;void (const DiagnosticInfo &amp;)&gt;' data-ref="llvm::DiagnosticHandlerFunction">DiagnosticHandlerFunction</a> *<dfn class="decl" id="llvm::lto::LTOLLVMDiagnosticHandler::Fn" title='llvm::lto::LTOLLVMDiagnosticHandler::Fn' data-ref="llvm::lto::LTOLLVMDiagnosticHandler::Fn">Fn</dfn>;</td></tr>
+<tr><th id="202">202</th><td>  <dfn class="decl def" id="_ZN4llvm3lto24LTOLLVMDiagnosticHandlerC1EPSt8functionIFvRKNS_14DiagnosticInfoEEE" title='llvm::lto::LTOLLVMDiagnosticHandler::LTOLLVMDiagnosticHandler' data-ref="_ZN4llvm3lto24LTOLLVMDiagnosticHandlerC1EPSt8functionIFvRKNS_14DiagnosticInfoEEE">LTOLLVMDiagnosticHandler</dfn>(<a class="typedef" href="../IR/DiagnosticInfo.h.html#llvm::DiagnosticHandlerFunction" title='llvm::DiagnosticHandlerFunction' data-type='std::function&lt;void (const DiagnosticInfo &amp;)&gt;' data-ref="llvm::DiagnosticHandlerFunction">DiagnosticHandlerFunction</a> *<dfn class="local col9 decl" id="5329DiagHandlerFn" title='DiagHandlerFn' data-type='DiagnosticHandlerFunction *' data-ref="5329DiagHandlerFn">DiagHandlerFn</dfn>)</td></tr>
+<tr><th id="203">203</th><td>      : <a class="member" href="#llvm::lto::LTOLLVMDiagnosticHandler::Fn" title='llvm::lto::LTOLLVMDiagnosticHandler::Fn' data-ref="llvm::lto::LTOLLVMDiagnosticHandler::Fn">Fn</a>(<a class="local col9 ref" href="#5329DiagHandlerFn" title='DiagHandlerFn' data-ref="5329DiagHandlerFn">DiagHandlerFn</a>) {}</td></tr>
+<tr><th id="204">204</th><td>  <em>bool</em> <dfn class="virtual decl def" id="_ZN4llvm3lto24LTOLLVMDiagnosticHandler17handleDiagnosticsERKNS_14DiagnosticInfoE" title='llvm::lto::LTOLLVMDiagnosticHandler::handleDiagnostics' data-ref="_ZN4llvm3lto24LTOLLVMDiagnosticHandler17handleDiagnosticsERKNS_14DiagnosticInfoE">handleDiagnostics</dfn>(<em>const</em> <a class="type" href="../IR/DiagnosticInfo.h.html#llvm::DiagnosticInfo" title='llvm::DiagnosticInfo' data-ref="llvm::DiagnosticInfo">DiagnosticInfo</a> &amp;<dfn class="local col0 decl" id="5330DI" title='DI' data-type='const llvm::DiagnosticInfo &amp;' data-ref="5330DI">DI</dfn>) override {</td></tr>
+<tr><th id="205">205</th><td>    (*<a class="member" href="#llvm::lto::LTOLLVMDiagnosticHandler::Fn" title='llvm::lto::LTOLLVMDiagnosticHandler::Fn' data-ref="llvm::lto::LTOLLVMDiagnosticHandler::Fn">Fn</a>)<a class="ref" href="../../../../../include/c++/7/bits/std_function.h.html#_ZNKSt8functionIFT_DpT0_EEclES2_" title='std::function&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;::operator()' data-ref="_ZNKSt8functionIFT_DpT0_EEclES2_">(<a class="local col0 ref" href="#5330DI" title='DI' data-ref="5330DI">DI</a>)</a>;</td></tr>
+<tr><th id="206">206</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="207">207</th><td>  }</td></tr>
+<tr><th id="208">208</th><td>};</td></tr>
+<tr><th id="209">209</th><td><i class="doc">/// A derived class of LLVMContext that initializes itself according to a given</i></td></tr>
+<tr><th id="210">210</th><td><i class="doc">/// Config object. The purpose of this class is to tie ownership of the</i></td></tr>
+<tr><th id="211">211</th><td><i class="doc">/// diagnostic handler to the context, as opposed to the Config object (which</i></td></tr>
+<tr><th id="212">212</th><td><i class="doc">/// may be ephemeral).</i></td></tr>
+<tr><th id="213">213</th><td><i class="doc">// FIXME: This should not be required as diagnostic handler is not callback.</i></td></tr>
+<tr><th id="214">214</th><td><b>struct</b> <dfn class="type def" id="llvm::lto::LTOLLVMContext" title='llvm::lto::LTOLLVMContext' data-ref="llvm::lto::LTOLLVMContext">LTOLLVMContext</dfn> : <a class="type" href="../IR/LLVMContext.h.html#llvm::LLVMContext" title='llvm::LLVMContext' data-ref="llvm::LLVMContext">LLVMContext</a> {</td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td>  <dfn class="decl def" id="_ZN4llvm3lto14LTOLLVMContextC1ERKNS0_6ConfigE" title='llvm::lto::LTOLLVMContext::LTOLLVMContext' data-ref="_ZN4llvm3lto14LTOLLVMContextC1ERKNS0_6ConfigE">LTOLLVMContext</dfn>(<em>const</em> <a class="type" href="#llvm::lto::Config" title='llvm::lto::Config' data-ref="llvm::lto::Config">Config</a> &amp;<dfn class="local col1 decl" id="5331C" title='C' data-type='const llvm::lto::Config &amp;' data-ref="5331C">C</dfn>) : <a class="member" href="#llvm::lto::LTOLLVMContext::DiagHandler" title='llvm::lto::LTOLLVMContext::DiagHandler' data-ref="llvm::lto::LTOLLVMContext::DiagHandler">DiagHandler</a><a class="ref" href="../../../../../include/c++/7/bits/std_function.h.html#_ZNSt8functionIFT_DpT0_EEC1ERKS_IS3_E" title='std::function&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;::function&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;' data-ref="_ZNSt8functionIFT_DpT0_EEC1ERKS_IS3_E">(</a><a class="local col1 ref" href="#5331C" title='C' data-ref="5331C">C</a>.<a class="ref" href="#llvm::lto::Config::DiagHandler" title='llvm::lto::Config::DiagHandler' data-ref="llvm::lto::Config::DiagHandler">DiagHandler</a>) {</td></tr>
+<tr><th id="217">217</th><td>    <a class="member" href="../IR/LLVMContext.h.html#_ZN4llvm11LLVMContext20setDiscardValueNamesEb" title='llvm::LLVMContext::setDiscardValueNames' data-ref="_ZN4llvm11LLVMContext20setDiscardValueNamesEb">setDiscardValueNames</a>(<a class="local col1 ref" href="#5331C" title='C' data-ref="5331C">C</a>.<a class="ref" href="#llvm::lto::Config::ShouldDiscardValueNames" title='llvm::lto::Config::ShouldDiscardValueNames' data-ref="llvm::lto::Config::ShouldDiscardValueNames">ShouldDiscardValueNames</a>);</td></tr>
+<tr><th id="218">218</th><td>    <a class="member" href="../IR/LLVMContext.h.html#_ZN4llvm11LLVMContext26enableDebugTypeODRUniquingEv" title='llvm::LLVMContext::enableDebugTypeODRUniquing' data-ref="_ZN4llvm11LLVMContext26enableDebugTypeODRUniquingEv">enableDebugTypeODRUniquing</a>();</td></tr>
+<tr><th id="219">219</th><td>    <a class="member" href="../IR/LLVMContext.h.html#_ZN4llvm11LLVMContext20setDiagnosticHandlerEOSt10unique_ptrINS_17DiagnosticHandlerESt14default_deleteIS2_EEb" title='llvm::LLVMContext::setDiagnosticHandler' data-ref="_ZN4llvm11LLVMContext20setDiagnosticHandlerEOSt10unique_ptrINS_17DiagnosticHandlerESt14default_deleteIS2_EEb">setDiagnosticHandler</a>(</td></tr>
+<tr><th id="220">220</th><td>        <a class="ref fake" href="../../../../../include/c++/7/bits/unique_ptr.h.html#_ZNSt10unique_ptrC1EOSt10unique_ptrIT_T0_E" title='std::unique_ptr::unique_ptr&lt;_Tp, _Dp&gt;' data-ref="_ZNSt10unique_ptrC1EOSt10unique_ptrIT_T0_E"></a><span class="namespace">llvm::</span><a class="ref" href="../ADT/STLExtras.h.html#_ZN4llvm11make_uniqueEDpOT0_" title='llvm::make_unique' data-ref="_ZN4llvm11make_uniqueEDpOT0_">make_unique</a>&lt;<a class="type" href="#llvm::lto::LTOLLVMDiagnosticHandler" title='llvm::lto::LTOLLVMDiagnosticHandler' data-ref="llvm::lto::LTOLLVMDiagnosticHandler">LTOLLVMDiagnosticHandler</a>&gt;(&amp;<a class="member" href="#llvm::lto::LTOLLVMContext::DiagHandler" title='llvm::lto::LTOLLVMContext::DiagHandler' data-ref="llvm::lto::LTOLLVMContext::DiagHandler">DiagHandler</a>), <b>true</b>);</td></tr>
+<tr><th id="221">221</th><td>  }</td></tr>
+<tr><th id="222">222</th><td>  <a class="typedef" href="../IR/DiagnosticInfo.h.html#llvm::DiagnosticHandlerFunction" title='llvm::DiagnosticHandlerFunction' data-type='std::function&lt;void (const DiagnosticInfo &amp;)&gt;' data-ref="llvm::DiagnosticHandlerFunction">DiagnosticHandlerFunction</a> <dfn class="decl" id="llvm::lto::LTOLLVMContext::DiagHandler" title='llvm::lto::LTOLLVMContext::DiagHandler' data-ref="llvm::lto::LTOLLVMContext::DiagHandler">DiagHandler</dfn>;</td></tr>
+<tr><th id="223">223</th><td>};</td></tr>
+<tr><th id="224">224</th><td></td></tr>
+<tr><th id="225">225</th><td>}</td></tr>
+<tr><th id="226">226</th><td>}</td></tr>
+<tr><th id="227">227</th><td></td></tr>
+<tr><th id="228">228</th><td><u>#<span data-ppcond="14">endif</span></u></td></tr>
+<tr><th id="229">229</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../clang/lib/CodeGen/BackendUtil.cpp.html'>llvm/clang/lib/CodeGen/BackendUtil.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

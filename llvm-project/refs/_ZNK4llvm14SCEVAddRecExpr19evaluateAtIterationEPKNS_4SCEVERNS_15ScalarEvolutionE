@@ -1,0 +1,20 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ScalarEvolutionExpressions.h' l='346' type='const llvm::SCEV * llvm::SCEVAddRecExpr::evaluateAtIteration(const llvm::SCEV * It, llvm::ScalarEvolution &amp; SE) const'/>
+<use f='llvm/llvm/include/llvm/Analysis/ScalarEvolutionExpressions.h' l='845' u='c' c='_ZN4llvm22SCEVLoopAddRecRewriter15visitAddRecExprEPKNS_14SCEVAddRecExprE'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ScalarEvolutionExpressions.h' l='344'>/// Return the value of this chain of recurrences at the specified
+    /// iteration number.</doc>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='1031' u='c' c='_ZNK4llvm14DependenceInfo15isKnownLessThanEPKNS_4SCEVES3_'/>
+<use f='llvm/llvm/lib/Analysis/LoopAccessAnalysis.cpp' l='208' u='c' c='_ZN4llvm22RuntimePointerChecking6insertEPNS_4LoopEPNS_5ValueEbjjRKNS_8DenseMapIPKS3_S4_NS_12DenseMapInfoIS7_EENS_6detail12DenseMapPairIS7_S4_EEEERNS_211645919'/>
+<use f='llvm/llvm/lib/Analysis/LoopUnrollAnalyzer.cpp' l='41' u='c' c='_ZN4llvm20UnrolledInstAnalyzer20simplifyInstWithSCEVEPNS_11InstructionE'/>
+<def f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='1230' ll='1244' type='const llvm::SCEV * llvm::SCEVAddRecExpr::evaluateAtIteration(const llvm::SCEV * It, llvm::ScalarEvolution &amp; SE) const'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='7437' u='c' c='_ZL31EvaluateConstantChrecAtConstantPKN4llvm14SCEVAddRecExprEPNS_11ConstantIntERNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='8290' u='c' c='_ZN4llvm15ScalarEvolution18computeSCEVAtScopeEPKNS_4SCEVEPKNS_4LoopE'/>
+<doc f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='1222'>/// Return the value of this chain of recurrences at the specified iteration
+/// number.  We can evaluate this recurrence by multiplying each element in the
+/// chain by the binomial coefficient corresponding to it.  In other words, we
+/// can evaluate {A,+,B,+,C,+,D} as:
+///
+///   A*BC(It, 0) + B*BC(It, 1) + C*BC(It, 2) + D*BC(It, 3)
+///
+/// where BC(It, k) stands for binomial coefficient.</doc>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1616' u='c' c='_ZN4llvm12SCEVExpander15visitAddRecExprEPKNS_14SCEVAddRecExprE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnrollPeel.cpp' l='209' u='c' c='_ZL24countToEliminateComparesRN4llvm4LoopEjRNS_15ScalarEvolutionE'/>

@@ -1,0 +1,18 @@
+<def f='llvm/llvm/include/llvm/ExecutionEngine/RuntimeDyld.h' l='164' ll='165' type='void llvm::RuntimeDyld::MemoryManager::notifyObjectLoaded(llvm::RuntimeDyld &amp; RTDyld, const object::ObjectFile &amp; Obj)'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/RuntimeDyld.h' l='153'>/// This method is called after an object has been loaded into memory but
+    /// before relocations are applied to the loaded sections.
+    ///
+    /// Memory managers which are preparing code for execution in an external
+    /// address space can use this call to remap the section addresses for the
+    /// newly loaded object.
+    ///
+    /// For clients that do not need access to an ExecutionEngine instance this
+    /// method should be preferred to its cousin
+    /// MCJITMemoryManager::notifyObjectLoaded as this method is compatible with
+    /// ORC JIT stacks.</doc>
+<ovr f='llvm/llvm/lib/ExecutionEngine/Orc/OrcMCJITReplacement.h' l='108' c='_ZN4llvm3orc19OrcMCJITReplacement22MCJITReplacementMemMgr18notifyObjectLoadedERNS_11RuntimeDyldERKNS_6object10ObjectFileE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/OrcMCJITReplacement.h' l='110' u='c' c='_ZN4llvm3orc19OrcMCJITReplacement22MCJITReplacementMemMgr18notifyObjectLoadedERNS_11RuntimeDyldERKNS_6object10ObjectFileE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyld.cpp' l='1319' u='c' c='_ZN4llvm11RuntimeDyld10loadObjectERKNS_6object10ObjectFileE'/>
+<ovr f='llvm/llvm/tools/lli/RemoteJITUtils.h' l='128' c='_ZN4llvm23ForwardingMemoryManager18notifyObjectLoadedERNS_11RuntimeDyldERKNS_6object10ObjectFileE'/>
+<use f='llvm/llvm/tools/lli/RemoteJITUtils.h' l='130' u='c' c='_ZN4llvm23ForwardingMemoryManager18notifyObjectLoadedERNS_11RuntimeDyldERKNS_6object10ObjectFileE'/>
+<ovr f='llvm/llvm/include/llvm/ExecutionEngine/Orc/OrcRemoteTargetClient.h' l='164' c='_ZN4llvm3orc6remote21OrcRemoteTargetClient25RemoteRTDyldMemoryManager18notifyObjectLoadedERNS_11RuntimeDyldERKNS_6object10ObjectFileE'/>

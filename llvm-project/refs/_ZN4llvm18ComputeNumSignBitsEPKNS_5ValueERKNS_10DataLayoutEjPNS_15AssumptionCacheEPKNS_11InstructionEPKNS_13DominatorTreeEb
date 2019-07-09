@@ -1,0 +1,29 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='171' type='unsigned int llvm::ComputeNumSignBits(const llvm::Value * Op, const llvm::DataLayout &amp; DL, unsigned int Depth = 0, llvm::AssumptionCache * AC = nullptr, const llvm::Instruction * CxtI = nullptr, const llvm::DominatorTree * DT = nullptr, bool UseInstrInfo = true)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='164'>/// Return the number of times the sign bit of the register is replicated into
+  /// the other bits. We know that at least 1 bit is always equal to the sign
+  /// bit (itself), but other cases can give us information. For example,
+  /// immediately after an &quot;ashr X, 2&quot;, we know that the top 3 bits are all
+  /// equal to each other, so we return 3. For vectors, return the number of
+  /// sign bits for the vector element with the mininum number of known sign
+  /// bits.</doc>
+<use f='llvm/llvm/lib/Analysis/IVDescriptors.cpp' l='134' u='c' c='_ZL21computeRecurrenceTypePN4llvm11InstructionEPNS_12DemandedBitsEPNS_15AssumptionCacheEPNS_13DominatorTreeE'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='1381' u='c' c='_ZL16SimplifyAShrInstPN4llvm5ValueES1_bRKNS_13SimplifyQueryEj'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='5694' u='c' c='_ZN4llvm15ScalarEvolution11getRangeRefEPKNS_4SCEVENS0_13RangeSignHintE'/>
+<def f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='384' ll='390' type='unsigned int llvm::ComputeNumSignBits(const llvm::Value * V, const llvm::DataLayout &amp; DL, unsigned int Depth = 0, llvm::AssumptionCache * AC = nullptr, const llvm::Instruction * CxtI = nullptr, const llvm::DominatorTree * DT = nullptr, bool UseInstrInfo = true)'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4184' u='c' c='_ZN4llvm27computeOverflowForSignedMulEPKNS_5ValueES2_RKNS_10DataLayoutEPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeEb'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4185' u='c' c='_ZN4llvm27computeOverflowForSignedMulEPKNS_5ValueES2_RKNS_10DataLayoutEPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeEb'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4250' u='c' c='_ZL27computeOverflowForSignedAddPKN4llvm5ValueES2_PKNS_11AddOperatorERKNS_10DataLayoutEPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4251' u='c' c='_ZL27computeOverflowForSignedAddPKN4llvm5ValueES2_PKNS_11AddOperatorERKNS_10DataLayoutEPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4309' u='c' c='_ZN4llvm27computeOverflowForSignedSubEPKNS_5ValueES2_RKNS_10DataLayoutEPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4310' u='c' c='_ZN4llvm27computeOverflowForSignedSubEPKNS_5ValueES2_RKNS_10DataLayoutEPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUCodeGenPrepare.cpp' l='511' u='c' c='_ZNK12_GLOBAL__N_120AMDGPUCodeGenPrepare14expandDivRem24ERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_14BinaryOperatorEPNS1_5ValueESA_bb'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUCodeGenPrepare.cpp' l='515' u='c' c='_ZNK12_GLOBAL__N_120AMDGPUCodeGenPrepare14expandDivRem24ERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_14BinaryOperatorEPNS1_5ValueESA_bb'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='685' u='c' c='_ZNK4llvm12InstCombiner18ComputeNumSignBitsEPKNS_5ValueEjPKNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='4441' u='c' c='_ZL24eliminateDeadSwitchCasesPN4llvm10SwitchInstEPNS_15AssumptionCacheERKNS_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp' l='4880' u='c' c='_ZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEv'/>
+<use f='llvm/llvm/unittests/Analysis/ValueTrackingTest.cpp' l='518' u='c' c='_ZN49ValueTrackingTest_ComputeNumSignBits_PR32045_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/ValueTrackingTest.cpp' l='518' u='c' c='_ZN49ValueTrackingTest_ComputeNumSignBits_PR32045_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/ValueTrackingTest.cpp' l='528' u='c' c='_ZN49ValueTrackingTest_ComputeNumSignBits_Shuffle_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/ValueTrackingTest.cpp' l='528' u='c' c='_ZN49ValueTrackingTest_ComputeNumSignBits_Shuffle_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/ValueTrackingTest.cpp' l='540' u='c' c='_ZN50ValueTrackingTest_ComputeNumSignBits_Shuffle2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/ValueTrackingTest.cpp' l='540' u='c' c='_ZN50ValueTrackingTest_ComputeNumSignBits_Shuffle2_Test8TestBodyEv'/>

@@ -1,0 +1,117 @@
+<def f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='846' ll='1377'/>
+<size>736</size>
+<doc f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='839'>/// LoopVectorizationCostModel - estimates the expected speedups due to
+/// vectorization.
+/// In many cases vectorization is not profitable. This can happen because of
+/// a number of reasons. In this class we mainly attempt to predict the
+/// expected speedup/slowdowns due to the supported instruction set. We use the
+/// TargetTransformInfo to query the different backends for the cost of
+/// different operations.</doc>
+<fun r='_ZN4llvm26LoopVectorizationCostModelC1EPNS_4LoopERNS_25PredicatedScalarEvolutionEPNS_8LoopInfoEPNS_25LoopVectorizationLegalityERKNS_19TargetTransformI4140710'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel12computeMaxVFEb'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel25selectVectorizationFactorEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel29selectUserVectorizationFactorEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel25getSmallestAndWidestTypesEv'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel21selectInterleaveCountEbjj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel28setCostBasedWideningDecisionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel22calculateRegisterUsageENS_8ArrayRefIjEE'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel21collectValuesToIgnoreEv'/>
+<fun r='_ZNK4llvm26LoopVectorizationCostModel19getMinimalBitwidthsEv'/>
+<fun r='_ZNK4llvm26LoopVectorizationCostModel23isProfitableToScalarizeEPNS_11InstructionEj'/>
+<fun r='_ZNK4llvm26LoopVectorizationCostModel27isUniformAfterVectorizationEPNS_11InstructionEj'/>
+<fun r='_ZNK4llvm26LoopVectorizationCostModel26isScalarAfterVectorizationEPNS_11InstructionEj'/>
+<fun r='_ZNK4llvm26LoopVectorizationCostModel28canTruncateToMinimalBitwidthEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel19setWideningDecisionEPNS_11InstructionEjNS0_12InstWideningEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel19setWideningDecisionEPKNS_15InterleaveGroupINS_11InstructionEEEjNS0_12InstWideningEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel19getWideningDecisionEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel15getWideningCostEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel23isOptimizableIVTruncateEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel23collectInstsToScalarizeEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel25collectUniformsAndScalarsEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel18isLegalMaskedStoreEPNS_4TypeEPNS_5ValueE'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel17isLegalMaskedLoadEPNS_4TypeEPNS_5ValueE'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel20isLegalMaskedScatterEPNS_4TypeE'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel19isLegalMaskedGatherEPNS_4TypeE'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel22isLegalGatherOrScatterEPNS_5ValueE'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel23isScalarWithPredicationEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel16isPredicatedInstEPNS_11InstructionE'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel29memoryInstructionCanBeWidenedEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel29interleavedAccessCanBeWidenedEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel19isAccessInterleavedEPNS_11InstructionE'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel25getInterleavedAccessGroupEPNS_11InstructionE'/>
+<fun r='_ZNK4llvm26LoopVectorizationCostModel22requiresScalarEpilogueEv'/>
+<fun r='_ZNK4llvm26LoopVectorizationCostModel23isScalarEpilogueAllowedEv'/>
+<fun r='_ZNK4llvm26LoopVectorizationCostModel17foldTailByMaskingEv'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel21blockNeedsPredicationEPNS_10BasicBlockE'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel22getVectorIntrinsicCostEPNS_8CallInstEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel17getVectorCallCostEPNS_8CallInstEjRb'/>
+<mbr r='llvm::LoopVectorizationCostModel::NumPredStores' o='0' t='unsigned int'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel20computeFeasibleMaxVFEbj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel12expectedCostEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel18getInstructionCostEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel18getInstructionCostEPNS_11InstructionEjRPNS_4TypeE'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel24getMemoryInstructionCostEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel27getMemInstScalarizationCostEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel22getInterleaveGroupCostEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel20getGatherScatterCostEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel23getConsecutiveMemOpCostEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel19getUniformMemOpCostEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel24getScalarizationOverheadEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel24isConsecutiveLoadOrStoreEPNS_11InstructionE'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel25useEmulatedMaskMemRefHackEPNS_11InstructionE'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel20createMissedAnalysisENS_9StringRefE'/>
+<mbr r='llvm::LoopVectorizationCostModel::MinBWs' o='64' t='MapVector&lt;llvm::Instruction *, uint64_t&gt;'/>
+<mbr r='llvm::LoopVectorizationCostModel::PredicatedBBsAfterVectorization' o='512' t='SmallPtrSet&lt;llvm::BasicBlock *, 4&gt;'/>
+<mbr r='llvm::LoopVectorizationCostModel::IsScalarEpilogueAllowed' o='1088' t='bool'/>
+<mbr r='llvm::LoopVectorizationCostModel::FoldTailByMasking' o='1096' t='bool'/>
+<mbr r='llvm::LoopVectorizationCostModel::InstsToScalarize' o='1152' t='DenseMap&lt;unsigned int, ScalarCostsTy&gt;'/>
+<mbr r='llvm::LoopVectorizationCostModel::Uniforms' o='1408' t='DenseMap&lt;unsigned int, SmallPtrSet&lt;llvm::Instruction *, 4&gt; &gt;'/>
+<mbr r='llvm::LoopVectorizationCostModel::Scalars' o='1664' t='DenseMap&lt;unsigned int, SmallPtrSet&lt;llvm::Instruction *, 4&gt; &gt;'/>
+<mbr r='llvm::LoopVectorizationCostModel::ForcedScalars' o='1920' t='DenseMap&lt;unsigned int, SmallPtrSet&lt;llvm::Instruction *, 4&gt; &gt;'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel23computePredInstDiscountEPNS_11InstructionERNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel19collectLoopUniformsEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel18collectLoopScalarsEj'/>
+<mbr r='llvm::LoopVectorizationCostModel::WideningDecisions' o='2176' t='DecisionList'/>
+<mbr r='llvm::LoopVectorizationCostModel::TheLoop' o='2432' t='llvm::Loop *'/>
+<mbr r='llvm::LoopVectorizationCostModel::PSE' o='2496' t='llvm::PredicatedScalarEvolution &amp;'/>
+<mbr r='llvm::LoopVectorizationCostModel::LI' o='2560' t='llvm::LoopInfo *'/>
+<mbr r='llvm::LoopVectorizationCostModel::Legal' o='2624' t='llvm::LoopVectorizationLegality *'/>
+<mbr r='llvm::LoopVectorizationCostModel::TTI' o='2688' t='const llvm::TargetTransformInfo &amp;'/>
+<mbr r='llvm::LoopVectorizationCostModel::TLI' o='2752' t='const llvm::TargetLibraryInfo *'/>
+<mbr r='llvm::LoopVectorizationCostModel::DB' o='2816' t='llvm::DemandedBits *'/>
+<mbr r='llvm::LoopVectorizationCostModel::AC' o='2880' t='llvm::AssumptionCache *'/>
+<mbr r='llvm::LoopVectorizationCostModel::ORE' o='2944' t='llvm::OptimizationRemarkEmitter *'/>
+<mbr r='llvm::LoopVectorizationCostModel::TheFunction' o='3008' t='const llvm::Function *'/>
+<mbr r='llvm::LoopVectorizationCostModel::Hints' o='3072' t='const llvm::LoopVectorizeHints *'/>
+<mbr r='llvm::LoopVectorizationCostModel::InterleaveInfo' o='3136' t='llvm::InterleavedAccessInfo &amp;'/>
+<mbr r='llvm::LoopVectorizationCostModel::ValuesToIgnore' o='3200' t='SmallPtrSet&lt;const llvm::Value *, 16&gt;'/>
+<mbr r='llvm::LoopVectorizationCostModel::VecValuesToIgnore' o='4544' t='SmallPtrSet&lt;const llvm::Value *, 16&gt;'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel17getVectorCallCostEPNS_8CallInstEjRb'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel22getVectorIntrinsicCostEPNS_8CallInstEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel18collectLoopScalarsEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel23isScalarWithPredicationEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel29interleavedAccessCanBeWidenedEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel29memoryInstructionCanBeWidenedEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel19collectLoopUniformsEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel12computeMaxVFEb'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel20computeFeasibleMaxVFEbj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel25selectVectorizationFactorEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel25getSmallestAndWidestTypesEv'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel21selectInterleaveCountEbjj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel22calculateRegisterUsageENS_8ArrayRefIjEE'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel25useEmulatedMaskMemRefHackEPNS_11InstructionE'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel23collectInstsToScalarizeEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel23computePredInstDiscountEPNS_11InstructionERNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel12expectedCostEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel27getMemInstScalarizationCostEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel23getConsecutiveMemOpCostEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel19getUniformMemOpCostEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel20getGatherScatterCostEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel22getInterleaveGroupCostEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel24getMemoryInstructionCostEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel18getInstructionCostEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel24getScalarizationOverheadEPNS_11InstructionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel28setCostBasedWideningDecisionEj'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel18getInstructionCostEPNS_11InstructionEjRPNS_4TypeE'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel24isConsecutiveLoadOrStoreEPNS_11InstructionE'/>
+<fun r='_ZN4llvm26LoopVectorizationCostModel21collectValuesToIgnoreEv'/>

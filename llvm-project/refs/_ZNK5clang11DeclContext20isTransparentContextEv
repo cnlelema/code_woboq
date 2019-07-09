@@ -1,0 +1,36 @@
+<dec f='llvm/clang/include/clang/AST/DeclBase.h' l='1879' type='bool clang::DeclContext::isTransparentContext() const'/>
+<doc f='llvm/clang/include/clang/AST/DeclBase.h' l='1864'>/// isTransparentContext - Determines whether this context is a
+  /// &quot;transparent&quot; context, meaning that the members declared in this
+  /// context are semantically declared in the nearest enclosing
+  /// non-transparent (opaque) context but are lexically declared in
+  /// this context. For example, consider the enumerators of an
+  /// enumeration type:
+  /// @code
+  /// enum E {
+  ///   Val1
+  /// };
+  /// @endcode
+  /// Here, E is a transparent context, so its enumerator (Val1) will
+  /// appear (semantically) that it is in the same context of E.
+  /// Examples of transparent contexts include: enumerations (except for
+  /// C++0x scoped enums), and C++ linkage specifications.</doc>
+<def f='llvm/clang/lib/AST/DeclBase.cpp' l='1113' ll='1120' type='bool clang::DeclContext::isTransparentContext() const'/>
+<use f='llvm/clang/lib/AST/DeclBase.cpp' l='1483' u='c' c='_ZN5clang11DeclContext10removeDeclEPNS_4DeclE'/>
+<use f='llvm/clang/lib/AST/DeclBase.cpp' l='1749' u='c' c='_ZN5clang11DeclContext16getRedeclContextEv'/>
+<use f='llvm/clang/lib/AST/DeclBase.cpp' l='1804' u='c' c='_ZN5clang11DeclContext33makeDeclVisibleInContextWithFlagsEPNS_9NamedDeclEbb'/>
+<use f='llvm/clang/lib/AST/DeclBase.cpp' l='1837' u='c' c='_ZN5clang11DeclContext33makeDeclVisibleInContextWithFlagsEPNS_9NamedDeclEbb'/>
+<use f='llvm/clang/lib/Sema/IdentifierResolver.cpp' l='105' u='c' c='_ZNK5clang18IdentifierResolver13isDeclInScopeEPNS_4DeclEPNS_11DeclContextEPNS_5ScopeEb'/>
+<use f='llvm/clang/lib/Sema/SemaCodeComplete.cpp' l='672' u='c' c='_ZL24getRequiredQualificationRN5clang10ASTContextEPKNS_11DeclContextES4_'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='1372' u='c' c='_ZN5clang4Sema17PushOnScopeChainsEPNS_9NamedDeclEPNS_5ScopeEb'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='1932' u='c' c='_ZN5clang4Sema20getNonFieldDeclScopeEPNS_5ScopeE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='8392' u='c' c='_ZL20getTagInjectionScopePN5clang5ScopeERKNS_11LangOptionsE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='14477' u='c' c='_ZN5clang4Sema23ActOnFriendFunctionDeclEPNS_5ScopeERNS_10DeclaratorEN4llvm15MutableArrayRefIPNS_21TemplateParameterListEEE'/>
+<use f='llvm/clang/lib/Sema/SemaExprMember.cpp' l='570' u='c' c='_ZN5clang4Sema29CheckQualifiedMemberReferenceEPNS_4ExprENS_8QualTypeERKNS_12CXXScopeSpecERKNS_12LookupResultE'/>
+<use f='llvm/clang/lib/Sema/SemaLookup.cpp' l='1253' u='c' c='_ZN5clang4Sema13CppLookupNameERNS_12LookupResultEPNS_5ScopeE'/>
+<use f='llvm/clang/lib/Sema/SemaLookup.cpp' l='1288' u='c' c='_ZN5clang4Sema13CppLookupNameERNS_12LookupResultEPNS_5ScopeE'/>
+<use f='llvm/clang/lib/Sema/SemaLookup.cpp' l='1396' u='c' c='_ZN5clang4Sema13CppLookupNameERNS_12LookupResultEPNS_5ScopeE'/>
+<use f='llvm/clang/lib/Sema/SemaLookup.cpp' l='1416' u='c' c='_ZN5clang4Sema13CppLookupNameERNS_12LookupResultEPNS_5ScopeE'/>
+<use f='llvm/clang/lib/Sema/SemaLookup.cpp' l='1421' u='c' c='_ZN5clang4Sema13CppLookupNameERNS_12LookupResultEPNS_5ScopeE'/>
+<use f='llvm/clang/lib/Sema/SemaLookup.cpp' l='1846' u='c' c='_ZN5clang4Sema10LookupNameERNS_12LookupResultEPNS_5ScopeEb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='11879' u='c' c='_ZL22DiagnoseTwoPhaseLookupRN5clang4SemaENS_14SourceLocationERKNS_12CXXScopeSpecERNS_12LookupResultENS_20OverloadCandidateSet16CandidateSetKindEPNS_249661352'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='1470' u='c' c='_ZN5clang4Sema18CheckClassTemplateEPNS_5ScopeEjNS0_10TagUseKindENS_14SourceLocationERNS_12CXXScopeSpecEPNS_14IdentifierInfoES4_RKNS_20ParsedAttributes4636109'/>

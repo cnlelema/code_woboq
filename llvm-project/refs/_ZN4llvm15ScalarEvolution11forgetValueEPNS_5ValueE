@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ScalarEvolution.h' l='809' type='void llvm::ScalarEvolution::forgetValue(llvm::Value * V)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ScalarEvolution.h' l='806'>/// This method should be called by the client when it has changed a value
+  /// in a way that may effect its value, or which may disconnect it from a
+  /// def-use chain linking it to a loop.</doc>
+<def f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='6826' ll='6851' type='void llvm::ScalarEvolution::forgetValue(llvm::Value * V)'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='607' u='c' c='_ZN12_GLOBAL__N_114IndVarSimplify21rewriteLoopExitValuesEPN4llvm4LoopERNS1_12SCEVExpanderE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopFuse.cpp' l='1049' u='c' c='_ZN9LoopFuser13performFusionERK15FusionCandidateS2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/NaryReassociate.cpp' l='240' u='c' c='_ZN4llvm19NaryReassociatePass14doOneIterationERNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopSimplify.cpp' l='596' u='c' c='_ZL15simplifyOneLoopPN4llvm4LoopERNS_15SmallVectorImplIS1_EEPNS_13DominatorTreeEPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_15AssumptionCacheEPNS_16MemorySSAUpdaterEb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyIndVar.cpp' l='723' u='c' c='_ZN12_GLOBAL__N_114SimplifyIndvar30strengthenOverflowingOperationEPN4llvm14BinaryOperatorEPNS1_5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyIndVar.cpp' l='730' u='c' c='_ZN12_GLOBAL__N_114SimplifyIndvar30strengthenOverflowingOperationEPN4llvm14BinaryOperatorEPNS1_5ValueE'/>
+<use f='llvm/llvm/unittests/Analysis/ScalarEvolutionTest.cpp' l='960' u='c' c='_ZN4llvm12_GLOBAL__N_150ScalarEvolutionsTest_SCEVExitLimitForgetValue_Test8TestBodyEv'/>

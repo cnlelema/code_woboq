@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='4026' type='llvm::SDValue llvm::TargetLowering::IncrementMemoryAddress(llvm::SDValue Addr, llvm::SDValue Mask, const llvm::SDLoc &amp; DL, llvm::EVT DataVT, llvm::SelectionDAG &amp; DAG, bool IsCompressedMemory) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='4019'>/// Increments memory address \p Addr according to the type of the value
+  /// \p DataVT that should be stored. If the data is stored in compressed
+  /// form, the memory address should be incremented according to the number of
+  /// the stored elements. This number is equal to the number of &apos;1&apos;s bits
+  /// in the \p Mask.
+  /// \p DataVT is a vector type. \p Mask is a vector value.
+  /// \p DataVT and \p Mask have the same number of vector elements.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='8379' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner11visitMSTOREEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='8537' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner10visitMLOADEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1589' u='c' c='_ZN4llvm16DAGTypeLegalizer17SplitVecRes_MLOADEPNS_16MaskedLoadSDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2349' u='c' c='_ZN4llvm16DAGTypeLegalizer17SplitVecOp_MSTOREEPNS_17MaskedStoreSDNodeEj'/>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='5627' ll='5657' type='llvm::SDValue llvm::TargetLowering::IncrementMemoryAddress(llvm::SDValue Addr, llvm::SDValue Mask, const llvm::SDLoc &amp; DL, llvm::EVT DataVT, llvm::SelectionDAG &amp; DAG, bool IsCompressedMemory) const'/>

@@ -1,0 +1,26 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetRegisterInfo.h' l='481' ll='485' type='const uint32_t * llvm::TargetRegisterInfo::getCallPreservedMask(const llvm::MachineFunction &amp; MF, CallingConv::ID ) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetRegisterInfo.h' l='463'>/// Return a mask of call-preserved registers for the given calling convention
+  /// on the current function. The mask should include all call-preserved
+  /// aliases. This is used by the register allocator to determine which
+  /// registers can be live across a call.
+  ///
+  /// The mask is an array containing (TRI::getNumRegs()+31)/32 entries.
+  /// A set bit indicates that all bits of the corresponding register are
+  /// preserved across the function call.  The bit mask is expected to be
+  /// sub-register complete, i.e. if A is preserved, so are all its
+  /// sub-registers.
+  ///
+  /// Bits are numbered from the LSB, so the bit for physical register Reg can
+  /// be found as (Mask[Reg / 32] &gt;&gt; Reg % 32) &amp; 1.
+  ///
+  /// A NULL pointer means that no register mask will be used, and call
+  /// instructions should use implicit-def operands to indicate call clobbered
+  /// registers.
+  ///</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/FastISel.cpp' l='1009' u='c' c='_ZN4llvm8FastISel16selectPatchpointEPKNS_8CallInstE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64FastISel.cpp' l='3270' u='c' c='_ZN12_GLOBAL__N_115AArch64FastISel13fastLowerCallERN4llvm8FastISel16CallLoweringInfoE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFastISel.cpp' l='2290' u='c' c='_ZN12_GLOBAL__N_111ARMFastISel14ARMEmitLibcallEPKN4llvm11InstructionENS1_5RTLIB7LibcallE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFastISel.cpp' l='2435' u='c' c='_ZN12_GLOBAL__N_111ARMFastISel10SelectCallEPKN4llvm11InstructionEPKc'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsFastISel.cpp' l='1569' u='c' c='_ZN12_GLOBAL__N_112MipsFastISel13fastLowerCallERN4llvm8FastISel16CallLoweringInfoE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCFastISel.cpp' l='1677' u='c' c='_ZN12_GLOBAL__N_111PPCFastISel13fastLowerCallERN4llvm8FastISel16CallLoweringInfoE'/>
+<use f='llvm/llvm/lib/Target/X86/X86FastISel.cpp' l='3511' u='c' c='_ZN12_GLOBAL__N_111X86FastISel13fastLowerCallERN4llvm8FastISel16CallLoweringInfoE'/>

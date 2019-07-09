@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/Object/MachO.h' l='343' type='std::error_code llvm::object::MachOObjectFile::getLibraryShortNameByIndex(unsigned int Index, llvm::StringRef &amp; ) const'/>
+<doc f='llvm/llvm/include/llvm/Object/MachO.h' l='342'>// MachO specific.</doc>
+<def f='llvm/llvm/lib/Object/MachOObjectFile.cpp' l='2427' ll='2459' type='std::error_code llvm::object::MachOObjectFile::getLibraryShortNameByIndex(unsigned int Index, llvm::StringRef &amp; Res) const'/>
+<doc f='llvm/llvm/lib/Object/MachOObjectFile.cpp' l='2422'>// getLibraryShortNameByIndex() is used to get the short name of the library
+// for an undefined symbol in a linked Mach-O binary that was linked with the
+// normal two-level namespace default (that is MH_TWOLEVEL in the header).
+// It is passed the index (0 - based) of the library as translated from
+// GET_LIBRARY_ORDINAL (1 - based).</doc>
+<use f='llvm/llvm/tools/llvm-nm/llvm-nm.cpp' l='603' u='c' c='_ZL17darwinPrintSymbolRN4llvm6object12SymbolicFileERKN12_GLOBAL__N_18NMSymbolEPcPKcS9_S9_'/>
+<use f='llvm/llvm/tools/llvm-objdump/MachODump.cpp' l='10176' u='c' c='_ZN4llvm21printMachOExportsTrieEPKNS_6object15MachOObjectFileE'/>
+<use f='llvm/llvm/tools/llvm-objdump/MachODump.cpp' l='10221' u='c' c='_ZN4llvmL11ordinalNameEPKNS_6object15MachOObjectFileEi'/>

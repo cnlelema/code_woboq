@@ -1,0 +1,18 @@
+<inh f='llvm/lld/include/lld/Core/File.h' l='41' c='lld::File'/>
+<def f='llvm/lld/include/lld/Core/ArchiveLibraryFile.h' l='26' ll='42'/>
+<size>296</size>
+<doc f='llvm/lld/include/lld/Core/ArchiveLibraryFile.h' l='17'>///
+/// The ArchiveLibraryFile subclass of File is used to represent unix
+/// static library archives.  These libraries provide no atoms to the
+/// initial set of atoms linked.  Instead, when the Resolver will query
+/// ArchiveLibraryFile instances for specific symbols names using the
+/// find() method.  If the archive contains an object file which has a
+/// DefinedAtom whose scope is not translationUnit, then that entire
+/// object file File is returned.
+///</doc>
+<fun r='_ZN3lld18ArchiveLibraryFile7classofEPKNS_4FileE'/>
+<fun r='_ZN3lld18ArchiveLibraryFile4findEN4llvm9StringRefE'/>
+<fun r='_ZN3lld18ArchiveLibraryFile15parseAllMembersERSt6vectorISt10unique_ptrINS_4FileESt14default_deleteIS3_EESaIS6_EE'/>
+<fun r='_ZN3lld18ArchiveLibraryFileC1EN4llvm9StringRefE'/>
+<ovr f='llvm/lld/lib/ReaderWriter/FileArchive.cpp' l='41' c='lld::(anonymousnamespace)::FileArchive'/>
+<ovr f='llvm/lld/lib/ReaderWriter/YAML/ReaderWriterYAML.cpp' l='572' c='llvm::yaml::MappingTraits{constlld::File*}::NormArchiveFile'/>

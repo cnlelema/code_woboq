@@ -1,0 +1,16 @@
+<dec f='llvm/clang/include/clang/AST/DeclCXX.h' l='1937' type='clang::Decl * clang::CXXRecordDecl::getLambdaContextDecl() const'/>
+<doc f='llvm/clang/include/clang/AST/DeclCXX.h' l='1928'>/// Retrieve the declaration that provides additional context for a
+  /// lambda, when the normal declaration context is not specific enough.
+  ///
+  /// Certain contexts (default arguments of in-class function parameters and
+  /// the initializers of data members) have separate name mangling rules for
+  /// lambdas within the Itanium C++ ABI. For these cases, this routine provides
+  /// the declaration in which the lambda occurs, e.g., the function parameter
+  /// or the non-static data member. Otherwise, it returns NULL to imply that
+  /// the declaration context suffices.</doc>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='2617' u='c' c='_ZN5clang15ASTNodeImporter15VisitRecordDeclEPNS_10RecordDeclE'/>
+<def f='llvm/clang/lib/AST/DeclCXX.cpp' l='1448' ll='1452' type='clang::Decl * clang::CXXRecordDecl::getLambdaContextDecl() const'/>
+<use f='llvm/clang/lib/AST/ItaniumMangle.cpp' l='1585' u='c' c='_ZN12_GLOBAL__N_114CXXNameMangler15mangleLocalNameEPKN5clang4DeclEPKN4llvm11SmallVectorINS5_9StringRefELj4EEE'/>
+<use f='llvm/clang/lib/AST/ItaniumMangle.cpp' l='1712' u='c' c='_ZN12_GLOBAL__N_114CXXNameMangler12mangleLambdaEPKN5clang13CXXRecordDeclE'/>
+<use f='llvm/clang/lib/AST/MicrosoftMangle.cpp' l='914' u='c' c='_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler21mangleUnqualifiedNameEPKN5clang9NamedDeclENS1_15DeclarationNameE'/>
+<use f='llvm/clang/lib/Serialization/ASTWriter.cpp' l='6164' u='c' c='_ZN5clang15ASTRecordWriter20AddCXXDefinitionDataEPKNS_13CXXRecordDeclE'/>

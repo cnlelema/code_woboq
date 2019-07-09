@@ -1,0 +1,61 @@
+<def f='llvm/llvm/include/llvm/Analysis/IVDescriptors.h' l='62' ll='257'/>
+<size>176</size>
+<doc f='llvm/llvm/include/llvm/Analysis/IVDescriptors.h' l='50'>/// The RecurrenceDescriptor is used to identify recurrences variables in a
+/// loop. Reduction is a special case of recurrence that has uses of the
+/// recurrence variable outside the loop. The method isReductionPHI identifies
+/// reductions that are basic recurrences.
+///
+/// Basic recurrences are defined as the summation, product, OR, AND, XOR, min,
+/// or max of a set of terms. For example: for(i=0; i&lt;n; i++) { total +=
+/// array[i]; } is a summation of array elements. Basic recurrences are a
+/// special case of chains of recurrences (CR). See ScalarEvolution for CR
+/// references.
+
+/// This struct holds information about recurrence variables.</doc>
+<fun r='_ZN4llvm20RecurrenceDescriptorC1Ev'/>
+<fun r='_ZN4llvm20RecurrenceDescriptorC1EPNS_5ValueEPNS_11InstructionENS0_14RecurrenceKindENS_13FastMathFlagsENS0_20MinMaxRecurrenceKindES4_PNS_4TypeEbRNS_15SmallPtrSetImplIS4_EE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor17isRecurrenceInstrEPNS_11InstructionENS0_14RecurrenceKindERNS0_8InstDescEb'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor17hasMultipleUsesOfEPNS_11InstructionERNS_15SmallPtrSetImplIS2_EEj'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor12areAllUsesInEPNS_11InstructionERNS_15SmallPtrSetImplIS2_EE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor24isMinMaxSelectCmpPatternEPNS_11InstructionERNS0_8InstDescE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor23isConditionalRdxPatternENS0_14RecurrenceKindEPNS_11InstructionE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor21getRecurrenceIdentityENS0_14RecurrenceKindEPNS_4TypeE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor18getRecurrenceBinOpENS0_14RecurrenceKindE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor15AddReductionVarEPNS_7PHINodeENS0_14RecurrenceKindEPNS_4LoopEbRS0_PNS_12DemandedBitsEPNS_15AssumptionCacheEPNS_13DominatorTreeE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor14isReductionPHIEPNS_7PHINodeEPNS_4LoopERS0_PNS_12DemandedBitsEPNS_15AssumptionCacheEPNS_13DominatorTreeE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor22isFirstOrderRecurrenceEPNS_7PHINodeEPNS_4LoopERNS_8DenseMapIPNS_11InstructionES7_NS_12DenseMapInfoIS7_EENS_6detail12De76292'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor17getRecurrenceKindEv'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor23getMinMaxRecurrenceKindEv'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor16getFastMathFlagsEv'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor23getRecurrenceStartValueEv'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor16getLoopExitInstrEv'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor16hasUnsafeAlgebraEv'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor20getUnsafeAlgebraInstEv'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor23isIntegerRecurrenceKindENS0_14RecurrenceKindE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor29isFloatingPointRecurrenceKindENS0_14RecurrenceKindE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor26isArithmeticRecurrenceKindENS0_14RecurrenceKindE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor17getRecurrenceTypeEv'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor12getCastInstsEv'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor8isSignedEv'/>
+<mbr r='llvm::RecurrenceDescriptor::StartValue' o='0' t='TrackingVH&lt;llvm::Value&gt;'/>
+<mbr r='llvm::RecurrenceDescriptor::LoopExitInstr' o='192' t='llvm::Instruction *'/>
+<mbr r='llvm::RecurrenceDescriptor::Kind' o='256' t='llvm::RecurrenceDescriptor::RecurrenceKind'/>
+<mbr r='llvm::RecurrenceDescriptor::FMF' o='288' t='llvm::FastMathFlags'/>
+<mbr r='llvm::RecurrenceDescriptor::MinMaxKind' o='320' t='llvm::RecurrenceDescriptor::MinMaxRecurrenceKind'/>
+<mbr r='llvm::RecurrenceDescriptor::UnsafeAlgebraInst' o='384' t='llvm::Instruction *'/>
+<mbr r='llvm::RecurrenceDescriptor::RecurrenceType' o='448' t='llvm::Type *'/>
+<mbr r='llvm::RecurrenceDescriptor::IsSigned' o='512' t='bool'/>
+<mbr r='llvm::RecurrenceDescriptor::CastInsts' o='576' t='SmallPtrSet&lt;llvm::Instruction *, 8&gt;'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor12areAllUsesInEPNS_11InstructionERNS_15SmallPtrSetImplIS2_EE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor23isIntegerRecurrenceKindENS0_14RecurrenceKindE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor29isFloatingPointRecurrenceKindENS0_14RecurrenceKindE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor26isArithmeticRecurrenceKindENS0_14RecurrenceKindE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor15AddReductionVarEPNS_7PHINodeENS0_14RecurrenceKindEPNS_4LoopEbRS0_PNS_12DemandedBitsEPNS_15AssumptionCacheEPNS_13DominatorTreeE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor24isMinMaxSelectCmpPatternEPNS_11InstructionERNS0_8InstDescE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor23isConditionalRdxPatternENS0_14RecurrenceKindEPNS_11InstructionE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor17isRecurrenceInstrEPNS_11InstructionENS0_14RecurrenceKindERNS0_8InstDescEb'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor17hasMultipleUsesOfEPNS_11InstructionERNS_15SmallPtrSetImplIS2_EEj'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor14isReductionPHIEPNS_7PHINodeEPNS_4LoopERS0_PNS_12DemandedBitsEPNS_15AssumptionCacheEPNS_13DominatorTreeE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor22isFirstOrderRecurrenceEPNS_7PHINodeEPNS_4LoopERNS_8DenseMapIPNS_11InstructionES7_NS_12DenseMapInfoIS7_EENS_6detail12De76292'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor21getRecurrenceIdentityENS0_14RecurrenceKindEPNS_4TypeE'/>
+<fun r='_ZN4llvm20RecurrenceDescriptor18getRecurrenceBinOpENS0_14RecurrenceKindE'/>

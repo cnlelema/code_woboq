@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ScalarEvolutionExpander.h' l='197' type='unsigned int llvm::SCEVExpander::replaceCongruentIVs(llvm::Loop * L, const llvm::DominatorTree * DT, SmallVectorImpl&lt;llvm::WeakTrackingVH&gt; &amp; DeadInsts, const llvm::TargetTransformInfo * TTI = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ScalarEvolutionExpander.h' l='195'>/// replace congruent phis with their most canonical representative. Return
+    /// the number of phis eliminated.</doc>
+<def f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1938' ll='2072' type='unsigned int llvm::SCEVExpander::replaceCongruentIVs(llvm::Loop * L, const llvm::DominatorTree * DT, SmallVectorImpl&lt;llvm::WeakTrackingVH&gt; &amp; DeadInsts, const llvm::TargetTransformInfo * TTI = nullptr)'/>
+<doc f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1932'>/// replaceCongruentIVs - Check for congruent phis in this loop header and
+/// replace them with their most canonical representative. Return the number of
+/// phis eliminated.
+///
+/// This does not depend on any SCEVExpander state but should be used in
+/// the same context that SCEVExpander is used.</doc>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='2622' u='c' c='_ZN12_GLOBAL__N_114IndVarSimplify3runEPN4llvm4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='5705' u='c' c='_ZL18ReduceLoopStrengthPN4llvm4LoopERNS_7IVUsersERNS_15ScalarEvolutionERNS_13DominatorTreeERNS_8LoopInfoERKNS_19TargetTransformInfoE'/>

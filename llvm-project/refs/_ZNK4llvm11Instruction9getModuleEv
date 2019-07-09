@@ -1,0 +1,31 @@
+<dec f='llvm/llvm/include/llvm/IR/Instruction.h' l='74' type='const llvm::Module * llvm::Instruction::getModule() const'/>
+<use f='llvm/llvm/include/llvm/IR/Instruction.h' l='77' u='c' c='_ZN4llvm11Instruction9getModuleEv'/>
+<doc f='llvm/llvm/include/llvm/IR/Instruction.h' l='69'>/// Return the module owning the function this instruction belongs to
+  /// or nullptr it the function does not have a module.
+  ///
+  /// Note: this is undefined behavior if the instruction does not have a
+  /// parent, or the parent basic block does not have a parent function.</doc>
+<use f='llvm/llvm/lib/Analysis/AliasAnalysis.cpp' l='647' u='c' c='_ZN4llvm9AAResults18callCapturesBeforeEPKNS_11InstructionERKNS_14MemoryLocationEPNS_13DominatorTreeEPNS_17OrderedBasicBlockE'/>
+<use f='llvm/llvm/lib/Analysis/DemandedBits.cpp' l='103' u='c' c='_ZN4llvm12DemandedBits24determineLiveOperandBitsEPKNS_11InstructionEPKNS_5ValueEjRKNS_5APIntERS7_RNS_9KnownBitsESC_Rb'/>
+<use f='llvm/llvm/lib/Analysis/MemoryDependenceAnalysis.cpp' l='252' u='c' c='_ZN4llvm23MemoryDependenceResults31getLoadLoadClobberFullWidthSizeEPKNS_5ValueEljPKNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Analysis/MemoryLocation.cpp' l='37' u='c' c='_ZN4llvm14MemoryLocation3getEPKNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Analysis/MemoryLocation.cpp' l='47' u='c' c='_ZN4llvm14MemoryLocation3getEPKNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Analysis/MemoryLocation.cpp' l='66' u='c' c='_ZN4llvm14MemoryLocation3getEPKNS_17AtomicCmpXchgInstE'/>
+<use f='llvm/llvm/lib/Analysis/MemoryLocation.cpp' l='77' u='c' c='_ZN4llvm14MemoryLocation3getEPKNS_13AtomicRMWInstE'/>
+<use f='llvm/llvm/lib/Analysis/MemoryLocation.cpp' l='136' u='c' c='_ZN4llvm14MemoryLocation14getForArgumentEPKNS_8CallBaseEjPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Analysis/StackSafetyAnalysis.cpp' l='131' u='c' c='_ZN12_GLOBAL__N_129getStaticAllocaAllocationSizeEPKN4llvm10AllocaInstE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4086' u='c' c='_ZN4llvm28isSafeToSpeculativelyExecuteEPKNS_5ValueEPKNS_11InstructionEPKNS_13DominatorTreeE'/>
+<use f='llvm/llvm/lib/Analysis/VectorUtils.cpp' l='125' u='c' c='_ZN4llvm22getGEPInductionOperandEPKNS_17GetElementPtrInstE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='251' u='c' c='_ZN4llvm12IRTranslator17getMemOpAlignmentERKNS_11InstructionE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='258' u='c' c='_ZN4llvm12IRTranslator17getMemOpAlignmentERKNS_11InstructionE'/>
+<def f='llvm/llvm/lib/IR/Instruction.cpp' l='55' ll='57' type='const llvm::Module * llvm::Instruction::getModule() const'/>
+<use f='llvm/llvm/lib/IR/IntrinsicInst.cpp' l='101' u='c' c='_ZNK4llvm22InstrProfIncrementInst7getStepEv'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='8041' u='c' c='_ZNK4llvm21AArch64TargetLowering18getTgtMemIntrinsicERNS_18TargetLoweringBase13IntrinsicInfoERKNS_8CallInstERNS_15MachineFunctionEj'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='8268' u='c' c='_ZNK4llvm21AArch64TargetLowering13isExtFreeImplEPKNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/AddressSanitizer.cpp' l='597' u='c' c='_ZNK12_GLOBAL__N_116AddressSanitizer20getAllocaSizeInBytesERKN4llvm10AllocaInstE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/HWAddressSanitizer.cpp' l='717' u='c' c='_ZL20getAllocaSizeInBytesRKN4llvm10AllocaInstE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/DependencyAnalysis.cpp' l='54' u='c' c='_ZN4llvm7objcarc16CanAlterRefCountEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/DependencyAnalysis.cpp' l='88' u='c' c='_ZN4llvm7objcarc6CanUseEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ProvenanceAnalysis.cpp' l='43' u='c' c='_ZN4llvm7objcarc18ProvenanceAnalysis13relatedSelectEPKNS_10SelectInstEPKNS_5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ProvenanceAnalysis.cpp' l='58' u='c' c='_ZN4llvm7objcarc18ProvenanceAnalysis10relatedPHIEPKNS_7PHINodeEPKNS_5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MergeICmps.cpp' l='345' u='c' c='_ZN12_GLOBAL__N_19visitICmpEPKN4llvm8ICmpInstENS0_7CmpInst9PredicateERNS_14BaseIdentifierE'/>

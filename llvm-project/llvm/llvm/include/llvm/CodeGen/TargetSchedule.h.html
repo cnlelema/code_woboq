@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TargetSchedule.h source code [llvm/llvm/include/llvm/CodeGen/TargetSchedule.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::TargetSchedModel "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/CodeGen/TargetSchedule.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>CodeGen</a>/<a href='TargetSchedule.h.html'>TargetSchedule.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- llvm/CodeGen/TargetSchedule.h - Sched Machine Model ------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file defines a wrapper around MCSchedModel that allows the interface to</i></td></tr>
+<tr><th id="10">10</th><td><i>// benefit from information currently only available in TargetInstrInfo.</i></td></tr>
+<tr><th id="11">11</th><td><i>// Ideally, the scheduling interface would be fully defined in the MC layer.</i></td></tr>
+<tr><th id="12">12</th><td><i>//</i></td></tr>
+<tr><th id="13">13</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><u>#<span data-ppcond="15">ifndef</span> <span class="macro" data-ref="_M/LLVM_CODEGEN_TARGETSCHEDULE_H">LLVM_CODEGEN_TARGETSCHEDULE_H</span></u></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/LLVM_CODEGEN_TARGETSCHEDULE_H" data-ref="_M/LLVM_CODEGEN_TARGETSCHEDULE_H">LLVM_CODEGEN_TARGETSCHEDULE_H</dfn></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../ADT/Optional.h.html">"llvm/ADT/Optional.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../ADT/SmallVector.h.html">"llvm/ADT/SmallVector.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="TargetSubtargetInfo.h.html">"llvm/CodeGen/TargetSubtargetInfo.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include "llvm/Config/llvm-config.h"</u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../MC/MCInstrItineraries.h.html">"llvm/MC/MCInstrItineraries.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../MC/MCSchedule.h.html">"llvm/MC/MCSchedule.h"</a></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><b>class</b> <a class="type" href="MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr" id="llvm::MachineInstr">MachineInstr</a>;</td></tr>
+<tr><th id="28">28</th><td><b>class</b> <a class="type" href="TargetInstrInfo.h.html#llvm::TargetInstrInfo" title='llvm::TargetInstrInfo' data-ref="llvm::TargetInstrInfo" id="llvm::TargetInstrInfo">TargetInstrInfo</a>;</td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><i class="doc">/// Provide an instruction scheduling machine model to CodeGen passes.</i></td></tr>
+<tr><th id="31">31</th><td><b>class</b> <dfn class="type def" id="llvm::TargetSchedModel" title='llvm::TargetSchedModel' data-ref="llvm::TargetSchedModel">TargetSchedModel</dfn> {</td></tr>
+<tr><th id="32">32</th><td>  <i>// For efficiency, hold a copy of the statically defined MCSchedModel for this</i></td></tr>
+<tr><th id="33">33</th><td><i>  // processor.</i></td></tr>
+<tr><th id="34">34</th><td>  <a class="type" href="../MC/MCSchedule.h.html#llvm::MCSchedModel" title='llvm::MCSchedModel' data-ref="llvm::MCSchedModel">MCSchedModel</a> <dfn class="decl" id="llvm::TargetSchedModel::SchedModel" title='llvm::TargetSchedModel::SchedModel' data-ref="llvm::TargetSchedModel::SchedModel">SchedModel</dfn>;</td></tr>
+<tr><th id="35">35</th><td>  <a class="type" href="../MC/MCInstrItineraries.h.html#llvm::InstrItineraryData" title='llvm::InstrItineraryData' data-ref="llvm::InstrItineraryData">InstrItineraryData</a> <dfn class="decl" id="llvm::TargetSchedModel::InstrItins" title='llvm::TargetSchedModel::InstrItins' data-ref="llvm::TargetSchedModel::InstrItins">InstrItins</dfn>;</td></tr>
+<tr><th id="36">36</th><td>  <em>const</em> <a class="type" href="TargetSubtargetInfo.h.html#llvm::TargetSubtargetInfo" title='llvm::TargetSubtargetInfo' data-ref="llvm::TargetSubtargetInfo">TargetSubtargetInfo</a> *<dfn class="decl" id="llvm::TargetSchedModel::STI" title='llvm::TargetSchedModel::STI' data-ref="llvm::TargetSchedModel::STI">STI</dfn> = <b>nullptr</b>;</td></tr>
+<tr><th id="37">37</th><td>  <em>const</em> <a class="type" href="TargetInstrInfo.h.html#llvm::TargetInstrInfo" title='llvm::TargetInstrInfo' data-ref="llvm::TargetInstrInfo">TargetInstrInfo</a> *<dfn class="decl" id="llvm::TargetSchedModel::TII" title='llvm::TargetSchedModel::TII' data-ref="llvm::TargetSchedModel::TII">TII</dfn> = <b>nullptr</b>;</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td>  <a class="type" href="../ADT/SmallVector.h.html#llvm::SmallVector" title='llvm::SmallVector' data-ref="llvm::SmallVector">SmallVector</a>&lt;<em>unsigned</em>, <var>16</var>&gt; <dfn class="decl" id="llvm::TargetSchedModel::ResourceFactors" title='llvm::TargetSchedModel::ResourceFactors' data-ref="llvm::TargetSchedModel::ResourceFactors">ResourceFactors</dfn>;</td></tr>
+<tr><th id="40">40</th><td>  <em>unsigned</em> <dfn class="decl" id="llvm::TargetSchedModel::MicroOpFactor" title='llvm::TargetSchedModel::MicroOpFactor' data-ref="llvm::TargetSchedModel::MicroOpFactor">MicroOpFactor</dfn>; <i>// Multiply to normalize microops to resource units.</i></td></tr>
+<tr><th id="41">41</th><td>  <em>unsigned</em> <dfn class="decl" id="llvm::TargetSchedModel::ResourceLCM" title='llvm::TargetSchedModel::ResourceLCM' data-ref="llvm::TargetSchedModel::ResourceLCM">ResourceLCM</dfn>;   <i>// Resource units per cycle. Latency normalization factor.</i></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td>  <em>unsigned</em> <dfn class="decl" id="_ZNK4llvm16TargetSchedModel19computeInstrLatencyERKNS_16MCSchedClassDescE" title='llvm::TargetSchedModel::computeInstrLatency' data-ref="_ZNK4llvm16TargetSchedModel19computeInstrLatencyERKNS_16MCSchedClassDescE">computeInstrLatency</dfn>(<em>const</em> <a class="type" href="../MC/MCSchedule.h.html#llvm::MCSchedClassDesc" title='llvm::MCSchedClassDesc' data-ref="llvm::MCSchedClassDesc">MCSchedClassDesc</a> &amp;<dfn class="local col8 decl" id="88SCDesc" title='SCDesc' data-type='const llvm::MCSchedClassDesc &amp;' data-ref="88SCDesc">SCDesc</dfn>) <em>const</em>;</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><b>public</b>:</td></tr>
+<tr><th id="46">46</th><td>  <dfn class="decl def" id="_ZN4llvm16TargetSchedModelC1Ev" title='llvm::TargetSchedModel::TargetSchedModel' data-ref="_ZN4llvm16TargetSchedModelC1Ev">TargetSchedModel</dfn>() : <a class="member" href="#llvm::TargetSchedModel::SchedModel" title='llvm::TargetSchedModel::SchedModel' data-ref="llvm::TargetSchedModel::SchedModel">SchedModel</a><a class="ref" href="../MC/MCSchedule.h.html#244" title='llvm::MCSchedModel::MCSchedModel' data-ref="_ZN4llvm12MCSchedModelC1ERKS0_">(</a><a class="type" href="../MC/MCSchedule.h.html#llvm::MCSchedModel" title='llvm::MCSchedModel' data-ref="llvm::MCSchedModel">MCSchedModel</a>::<a class="ref" href="../MC/MCSchedule.h.html#_ZN4llvm12MCSchedModel20GetDefaultSchedModelEv" title='llvm::MCSchedModel::GetDefaultSchedModel' data-ref="_ZN4llvm12MCSchedModel20GetDefaultSchedModelEv">GetDefaultSchedModel</a>()) {}</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>  <i class="doc">/// Initialize the machine model for instruction scheduling.</i></td></tr>
+<tr><th id="49">49</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="50">50</th><td><i class="doc">  /// The machine model API keeps a copy of the top-level MCSchedModel table</i></td></tr>
+<tr><th id="51">51</th><td><i class="doc">  /// indices and may query TargetSubtargetInfo and TargetInstrInfo to resolve</i></td></tr>
+<tr><th id="52">52</th><td><i class="doc">  /// dynamic properties.</i></td></tr>
+<tr><th id="53">53</th><td>  <em>void</em> <dfn class="decl" id="_ZN4llvm16TargetSchedModel4initEPKNS_19TargetSubtargetInfoE" title='llvm::TargetSchedModel::init' data-ref="_ZN4llvm16TargetSchedModel4initEPKNS_19TargetSubtargetInfoE">init</dfn>(<em>const</em> <a class="type" href="TargetSubtargetInfo.h.html#llvm::TargetSubtargetInfo" title='llvm::TargetSubtargetInfo' data-ref="llvm::TargetSubtargetInfo">TargetSubtargetInfo</a> *<dfn class="local col9 decl" id="89TSInfo" title='TSInfo' data-type='const llvm::TargetSubtargetInfo *' data-ref="89TSInfo">TSInfo</dfn>);</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>  <i class="doc">/// Return the MCSchedClassDesc for this instruction.</i></td></tr>
+<tr><th id="56">56</th><td>  <em>const</em> <a class="type" href="../MC/MCSchedule.h.html#llvm::MCSchedClassDesc" title='llvm::MCSchedClassDesc' data-ref="llvm::MCSchedClassDesc">MCSchedClassDesc</a> *<dfn class="decl" id="_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE" title='llvm::TargetSchedModel::resolveSchedClass' data-ref="_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE">resolveSchedClass</dfn>(<em>const</em> <a class="type" href="MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col0 decl" id="90MI" title='MI' data-type='const llvm::MachineInstr *' data-ref="90MI">MI</dfn>) <em>const</em>;</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>  <i class="doc">/// TargetSubtargetInfo getter.</i></td></tr>
+<tr><th id="59">59</th><td>  <em>const</em> <a class="type" href="TargetSubtargetInfo.h.html#llvm::TargetSubtargetInfo" title='llvm::TargetSubtargetInfo' data-ref="llvm::TargetSubtargetInfo">TargetSubtargetInfo</a> *<dfn class="decl def" id="_ZNK4llvm16TargetSchedModel16getSubtargetInfoEv" title='llvm::TargetSchedModel::getSubtargetInfo' data-ref="_ZNK4llvm16TargetSchedModel16getSubtargetInfoEv">getSubtargetInfo</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::TargetSchedModel::STI" title='llvm::TargetSchedModel::STI' data-ref="llvm::TargetSchedModel::STI">STI</a>; }</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>  <i class="doc">/// TargetInstrInfo getter.</i></td></tr>
+<tr><th id="62">62</th><td>  <em>const</em> <a class="type" href="TargetInstrInfo.h.html#llvm::TargetInstrInfo" title='llvm::TargetInstrInfo' data-ref="llvm::TargetInstrInfo">TargetInstrInfo</a> *<dfn class="decl def" id="_ZNK4llvm16TargetSchedModel12getInstrInfoEv" title='llvm::TargetSchedModel::getInstrInfo' data-ref="_ZNK4llvm16TargetSchedModel12getInstrInfoEv">getInstrInfo</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::TargetSchedModel::TII" title='llvm::TargetSchedModel::TII' data-ref="llvm::TargetSchedModel::TII">TII</a>; }</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>  <i class="doc">/// Return true if this machine model includes an instruction-level</i></td></tr>
+<tr><th id="65">65</th><td><i class="doc">  /// scheduling model.</i></td></tr>
+<tr><th id="66">66</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="67">67</th><td><i class="doc">  /// This is more detailed than the course grain IssueWidth and default</i></td></tr>
+<tr><th id="68">68</th><td><i class="doc">  /// latency properties, but separate from the per-cycle itinerary data.</i></td></tr>
+<tr><th id="69">69</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK4llvm16TargetSchedModel18hasInstrSchedModelEv" title='llvm::TargetSchedModel::hasInstrSchedModel' data-ref="_ZNK4llvm16TargetSchedModel18hasInstrSchedModelEv">hasInstrSchedModel</dfn>() <em>const</em>;</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>  <em>const</em> <a class="type" href="../MC/MCSchedule.h.html#llvm::MCSchedModel" title='llvm::MCSchedModel' data-ref="llvm::MCSchedModel">MCSchedModel</a> *<dfn class="decl def" id="_ZNK4llvm16TargetSchedModel15getMCSchedModelEv" title='llvm::TargetSchedModel::getMCSchedModel' data-ref="_ZNK4llvm16TargetSchedModel15getMCSchedModelEv">getMCSchedModel</dfn>() <em>const</em> { <b>return</b> &amp;<a class="member" href="#llvm::TargetSchedModel::SchedModel" title='llvm::TargetSchedModel::SchedModel' data-ref="llvm::TargetSchedModel::SchedModel">SchedModel</a>; }</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>  <i class="doc">/// Return true if this machine model includes cycle-to-cycle itinerary</i></td></tr>
+<tr><th id="74">74</th><td><i class="doc">  /// data.</i></td></tr>
+<tr><th id="75">75</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="76">76</th><td><i class="doc">  /// This models scheduling at each stage in the processor pipeline.</i></td></tr>
+<tr><th id="77">77</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK4llvm16TargetSchedModel19hasInstrItinerariesEv" title='llvm::TargetSchedModel::hasInstrItineraries' data-ref="_ZNK4llvm16TargetSchedModel19hasInstrItinerariesEv">hasInstrItineraries</dfn>() <em>const</em>;</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td>  <em>const</em> <a class="type" href="../MC/MCInstrItineraries.h.html#llvm::InstrItineraryData" title='llvm::InstrItineraryData' data-ref="llvm::InstrItineraryData">InstrItineraryData</a> *<dfn class="decl def" id="_ZNK4llvm16TargetSchedModel19getInstrItinerariesEv" title='llvm::TargetSchedModel::getInstrItineraries' data-ref="_ZNK4llvm16TargetSchedModel19getInstrItinerariesEv">getInstrItineraries</dfn>() <em>const</em> {</td></tr>
+<tr><th id="80">80</th><td>    <b>if</b> (<a class="member" href="#_ZNK4llvm16TargetSchedModel19hasInstrItinerariesEv" title='llvm::TargetSchedModel::hasInstrItineraries' data-ref="_ZNK4llvm16TargetSchedModel19hasInstrItinerariesEv">hasInstrItineraries</a>())</td></tr>
+<tr><th id="81">81</th><td>      <b>return</b> &amp;<a class="member" href="#llvm::TargetSchedModel::InstrItins" title='llvm::TargetSchedModel::InstrItins' data-ref="llvm::TargetSchedModel::InstrItins">InstrItins</a>;</td></tr>
+<tr><th id="82">82</th><td>    <b>return</b> <b>nullptr</b>;</td></tr>
+<tr><th id="83">83</th><td>  }</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td>  <i class="doc">/// Return true if this machine model includes an instruction-level</i></td></tr>
+<tr><th id="86">86</th><td><i class="doc">  /// scheduling model or cycle-to-cycle itinerary data.</i></td></tr>
+<tr><th id="87">87</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm16TargetSchedModel31hasInstrSchedModelOrItinerariesEv" title='llvm::TargetSchedModel::hasInstrSchedModelOrItineraries' data-ref="_ZNK4llvm16TargetSchedModel31hasInstrSchedModelOrItinerariesEv">hasInstrSchedModelOrItineraries</dfn>() <em>const</em> {</td></tr>
+<tr><th id="88">88</th><td>    <b>return</b> <a class="member" href="#_ZNK4llvm16TargetSchedModel18hasInstrSchedModelEv" title='llvm::TargetSchedModel::hasInstrSchedModel' data-ref="_ZNK4llvm16TargetSchedModel18hasInstrSchedModelEv">hasInstrSchedModel</a>() || <a class="member" href="#_ZNK4llvm16TargetSchedModel19hasInstrItinerariesEv" title='llvm::TargetSchedModel::hasInstrItineraries' data-ref="_ZNK4llvm16TargetSchedModel19hasInstrItinerariesEv">hasInstrItineraries</a>();</td></tr>
+<tr><th id="89">89</th><td>  }</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td>  <i class="doc">/// Identify the processor corresponding to the current subtarget.</i></td></tr>
+<tr><th id="92">92</th><td>  <em>unsigned</em> <dfn class="decl def" id="_ZNK4llvm16TargetSchedModel14getProcessorIDEv" title='llvm::TargetSchedModel::getProcessorID' data-ref="_ZNK4llvm16TargetSchedModel14getProcessorIDEv">getProcessorID</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::TargetSchedModel::SchedModel" title='llvm::TargetSchedModel::SchedModel' data-ref="llvm::TargetSchedModel::SchedModel">SchedModel</a>.<a class="ref" href="../MC/MCSchedule.h.html#_ZNK4llvm12MCSchedModel14getProcessorIDEv" title='llvm::MCSchedModel::getProcessorID' data-ref="_ZNK4llvm12MCSchedModel14getProcessorIDEv">getProcessorID</a>(); }</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td>  <i class="doc">/// Maximum number of micro-ops that may be scheduled per cycle.</i></td></tr>
+<tr><th id="95">95</th><td>  <em>unsigned</em> <dfn class="decl def" id="_ZNK4llvm16TargetSchedModel13getIssueWidthEv" title='llvm::TargetSchedModel::getIssueWidth' data-ref="_ZNK4llvm16TargetSchedModel13getIssueWidthEv">getIssueWidth</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::TargetSchedModel::SchedModel" title='llvm::TargetSchedModel::SchedModel' data-ref="llvm::TargetSchedModel::SchedModel">SchedModel</a>.<a class="ref" href="../MC/MCSchedule.h.html#llvm::MCSchedModel::IssueWidth" title='llvm::MCSchedModel::IssueWidth' data-ref="llvm::MCSchedModel::IssueWidth">IssueWidth</a>; }</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>  <i class="doc">/// Return true if new group must begin.</i></td></tr>
+<tr><th id="98">98</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK4llvm16TargetSchedModel14mustBeginGroupEPKNS_12MachineInstrEPKNS_16MCSchedClassDescE" title='llvm::TargetSchedModel::mustBeginGroup' data-ref="_ZNK4llvm16TargetSchedModel14mustBeginGroupEPKNS_12MachineInstrEPKNS_16MCSchedClassDescE">mustBeginGroup</dfn>(<em>const</em> <a class="type" href="MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col1 decl" id="91MI" title='MI' data-type='const llvm::MachineInstr *' data-ref="91MI">MI</dfn>,</td></tr>
+<tr><th id="99">99</th><td>                          <em>const</em> <a class="type" href="../MC/MCSchedule.h.html#llvm::MCSchedClassDesc" title='llvm::MCSchedClassDesc' data-ref="llvm::MCSchedClassDesc">MCSchedClassDesc</a> *<dfn class="local col2 decl" id="92SC" title='SC' data-type='const llvm::MCSchedClassDesc *' data-ref="92SC">SC</dfn> = <b>nullptr</b>) <em>const</em>;</td></tr>
+<tr><th id="100">100</th><td>  <i class="doc">/// Return true if current group must end.</i></td></tr>
+<tr><th id="101">101</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK4llvm16TargetSchedModel12mustEndGroupEPKNS_12MachineInstrEPKNS_16MCSchedClassDescE" title='llvm::TargetSchedModel::mustEndGroup' data-ref="_ZNK4llvm16TargetSchedModel12mustEndGroupEPKNS_12MachineInstrEPKNS_16MCSchedClassDescE">mustEndGroup</dfn>(<em>const</em> <a class="type" href="MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col3 decl" id="93MI" title='MI' data-type='const llvm::MachineInstr *' data-ref="93MI">MI</dfn>,</td></tr>
+<tr><th id="102">102</th><td>                          <em>const</em> <a class="type" href="../MC/MCSchedule.h.html#llvm::MCSchedClassDesc" title='llvm::MCSchedClassDesc' data-ref="llvm::MCSchedClassDesc">MCSchedClassDesc</a> *<dfn class="local col4 decl" id="94SC" title='SC' data-type='const llvm::MCSchedClassDesc *' data-ref="94SC">SC</dfn> = <b>nullptr</b>) <em>const</em>;</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td>  <i class="doc">/// Return the number of issue slots required for this MI.</i></td></tr>
+<tr><th id="105">105</th><td>  <em>unsigned</em> <dfn class="decl" id="_ZNK4llvm16TargetSchedModel14getNumMicroOpsEPKNS_12MachineInstrEPKNS_16MCSchedClassDescE" title='llvm::TargetSchedModel::getNumMicroOps' data-ref="_ZNK4llvm16TargetSchedModel14getNumMicroOpsEPKNS_12MachineInstrEPKNS_16MCSchedClassDescE">getNumMicroOps</dfn>(<em>const</em> <a class="type" href="MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col5 decl" id="95MI" title='MI' data-type='const llvm::MachineInstr *' data-ref="95MI">MI</dfn>,</td></tr>
+<tr><th id="106">106</th><td>                          <em>const</em> <a class="type" href="../MC/MCSchedule.h.html#llvm::MCSchedClassDesc" title='llvm::MCSchedClassDesc' data-ref="llvm::MCSchedClassDesc">MCSchedClassDesc</a> *<dfn class="local col6 decl" id="96SC" title='SC' data-type='const llvm::MCSchedClassDesc *' data-ref="96SC">SC</dfn> = <b>nullptr</b>) <em>const</em>;</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>  <i class="doc">/// Get the number of kinds of resources for this target.</i></td></tr>
+<tr><th id="109">109</th><td>  <em>unsigned</em> <dfn class="decl def" id="_ZNK4llvm16TargetSchedModel23getNumProcResourceKindsEv" title='llvm::TargetSchedModel::getNumProcResourceKinds' data-ref="_ZNK4llvm16TargetSchedModel23getNumProcResourceKindsEv">getNumProcResourceKinds</dfn>() <em>const</em> {</td></tr>
+<tr><th id="110">110</th><td>    <b>return</b> <a class="member" href="#llvm::TargetSchedModel::SchedModel" title='llvm::TargetSchedModel::SchedModel' data-ref="llvm::TargetSchedModel::SchedModel">SchedModel</a>.<a class="ref" href="../MC/MCSchedule.h.html#_ZNK4llvm12MCSchedModel23getNumProcResourceKindsEv" title='llvm::MCSchedModel::getNumProcResourceKinds' data-ref="_ZNK4llvm12MCSchedModel23getNumProcResourceKindsEv">getNumProcResourceKinds</a>();</td></tr>
+<tr><th id="111">111</th><td>  }</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td>  <i class="doc">/// Get a processor resource by ID for convenience.</i></td></tr>
+<tr><th id="114">114</th><td>  <em>const</em> <a class="type" href="../MC/MCSchedule.h.html#llvm::MCProcResourceDesc" title='llvm::MCProcResourceDesc' data-ref="llvm::MCProcResourceDesc">MCProcResourceDesc</a> *<dfn class="decl def" id="_ZNK4llvm16TargetSchedModel15getProcResourceEj" title='llvm::TargetSchedModel::getProcResource' data-ref="_ZNK4llvm16TargetSchedModel15getProcResourceEj">getProcResource</dfn>(<em>unsigned</em> <dfn class="local col7 decl" id="97PIdx" title='PIdx' data-type='unsigned int' data-ref="97PIdx">PIdx</dfn>) <em>const</em> {</td></tr>
+<tr><th id="115">115</th><td>    <b>return</b> <a class="member" href="#llvm::TargetSchedModel::SchedModel" title='llvm::TargetSchedModel::SchedModel' data-ref="llvm::TargetSchedModel::SchedModel">SchedModel</a>.<a class="ref" href="../MC/MCSchedule.h.html#_ZNK4llvm12MCSchedModel15getProcResourceEj" title='llvm::MCSchedModel::getProcResource' data-ref="_ZNK4llvm12MCSchedModel15getProcResourceEj">getProcResource</a>(<a class="local col7 ref" href="#97PIdx" title='PIdx' data-ref="97PIdx">PIdx</a>);</td></tr>
+<tr><th id="116">116</th><td>  }</td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td><u>#<span data-ppcond="118">if</span> !defined(<span class="macro" data-ref="_M/NDEBUG">NDEBUG</span>) || defined(<span class="macro" data-ref="_M/LLVM_ENABLE_DUMP">LLVM_ENABLE_DUMP</span>)</u></td></tr>
+<tr><th id="119">119</th><td>  <em>const</em> <em>char</em> *<dfn class="decl def" id="_ZNK4llvm16TargetSchedModel15getResourceNameEj" title='llvm::TargetSchedModel::getResourceName' data-ref="_ZNK4llvm16TargetSchedModel15getResourceNameEj">getResourceName</dfn>(<em>unsigned</em> <dfn class="local col8 decl" id="98PIdx" title='PIdx' data-type='unsigned int' data-ref="98PIdx">PIdx</dfn>) <em>const</em> {</td></tr>
+<tr><th id="120">120</th><td>    <b>if</b> (!<a class="local col8 ref" href="#98PIdx" title='PIdx' data-ref="98PIdx">PIdx</a>)</td></tr>
+<tr><th id="121">121</th><td>      <b>return</b> <q>"MOps"</q>;</td></tr>
+<tr><th id="122">122</th><td>    <b>return</b> <a class="member" href="#llvm::TargetSchedModel::SchedModel" title='llvm::TargetSchedModel::SchedModel' data-ref="llvm::TargetSchedModel::SchedModel">SchedModel</a>.<a class="ref" href="../MC/MCSchedule.h.html#_ZNK4llvm12MCSchedModel15getProcResourceEj" title='llvm::MCSchedModel::getProcResource' data-ref="_ZNK4llvm12MCSchedModel15getProcResourceEj">getProcResource</a>(<a class="local col8 ref" href="#98PIdx" title='PIdx' data-ref="98PIdx">PIdx</a>)-&gt;<a class="ref" href="../MC/MCSchedule.h.html#llvm::MCProcResourceDesc::Name" title='llvm::MCProcResourceDesc::Name' data-ref="llvm::MCProcResourceDesc::Name">Name</a>;</td></tr>
+<tr><th id="123">123</th><td>  }</td></tr>
+<tr><th id="124">124</th><td><u>#<span data-ppcond="118">endif</span></u></td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>  <b>using</b> <dfn class="typedef" id="llvm::TargetSchedModel::ProcResIter" title='llvm::TargetSchedModel::ProcResIter' data-type='const llvm::MCWriteProcResEntry *' data-ref="llvm::TargetSchedModel::ProcResIter">ProcResIter</dfn> = <em>const</em> <a class="type" href="../MC/MCSchedule.h.html#llvm::MCWriteProcResEntry" title='llvm::MCWriteProcResEntry' data-ref="llvm::MCWriteProcResEntry">MCWriteProcResEntry</a> *;</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>  <i>// Get an iterator into the processor resources consumed by this</i></td></tr>
+<tr><th id="129">129</th><td><i>  // scheduling class.</i></td></tr>
+<tr><th id="130">130</th><td>  <a class="typedef" href="#llvm::TargetSchedModel::ProcResIter" title='llvm::TargetSchedModel::ProcResIter' data-type='const llvm::MCWriteProcResEntry *' data-ref="llvm::TargetSchedModel::ProcResIter">ProcResIter</a> <dfn class="decl def" id="_ZNK4llvm16TargetSchedModel20getWriteProcResBeginEPKNS_16MCSchedClassDescE" title='llvm::TargetSchedModel::getWriteProcResBegin' data-ref="_ZNK4llvm16TargetSchedModel20getWriteProcResBeginEPKNS_16MCSchedClassDescE">getWriteProcResBegin</dfn>(<em>const</em> <a class="type" href="../MC/MCSchedule.h.html#llvm::MCSchedClassDesc" title='llvm::MCSchedClassDesc' data-ref="llvm::MCSchedClassDesc">MCSchedClassDesc</a> *<dfn class="local col9 decl" id="99SC" title='SC' data-type='const llvm::MCSchedClassDesc *' data-ref="99SC">SC</dfn>) <em>const</em> {</td></tr>
+<tr><th id="131">131</th><td>    <i>// The subtarget holds a single resource table for all processors.</i></td></tr>
+<tr><th id="132">132</th><td>    <b>return</b> <a class="member" href="#llvm::TargetSchedModel::STI" title='llvm::TargetSchedModel::STI' data-ref="llvm::TargetSchedModel::STI">STI</a>-&gt;<a class="ref" href="../MC/MCSubtargetInfo.h.html#_ZNK4llvm15MCSubtargetInfo20getWriteProcResBeginEPKNS_16MCSchedClassDescE" title='llvm::MCSubtargetInfo::getWriteProcResBegin' data-ref="_ZNK4llvm15MCSubtargetInfo20getWriteProcResBeginEPKNS_16MCSchedClassDescE">getWriteProcResBegin</a>(<a class="local col9 ref" href="#99SC" title='SC' data-ref="99SC">SC</a>);</td></tr>
+<tr><th id="133">133</th><td>  }</td></tr>
+<tr><th id="134">134</th><td>  <a class="typedef" href="#llvm::TargetSchedModel::ProcResIter" title='llvm::TargetSchedModel::ProcResIter' data-type='const llvm::MCWriteProcResEntry *' data-ref="llvm::TargetSchedModel::ProcResIter">ProcResIter</a> <dfn class="decl def" id="_ZNK4llvm16TargetSchedModel18getWriteProcResEndEPKNS_16MCSchedClassDescE" title='llvm::TargetSchedModel::getWriteProcResEnd' data-ref="_ZNK4llvm16TargetSchedModel18getWriteProcResEndEPKNS_16MCSchedClassDescE">getWriteProcResEnd</dfn>(<em>const</em> <a class="type" href="../MC/MCSchedule.h.html#llvm::MCSchedClassDesc" title='llvm::MCSchedClassDesc' data-ref="llvm::MCSchedClassDesc">MCSchedClassDesc</a> *<dfn class="local col0 decl" id="100SC" title='SC' data-type='const llvm::MCSchedClassDesc *' data-ref="100SC">SC</dfn>) <em>const</em> {</td></tr>
+<tr><th id="135">135</th><td>    <b>return</b> <a class="member" href="#llvm::TargetSchedModel::STI" title='llvm::TargetSchedModel::STI' data-ref="llvm::TargetSchedModel::STI">STI</a>-&gt;<a class="ref" href="../MC/MCSubtargetInfo.h.html#_ZNK4llvm15MCSubtargetInfo18getWriteProcResEndEPKNS_16MCSchedClassDescE" title='llvm::MCSubtargetInfo::getWriteProcResEnd' data-ref="_ZNK4llvm15MCSubtargetInfo18getWriteProcResEndEPKNS_16MCSchedClassDescE">getWriteProcResEnd</a>(<a class="local col0 ref" href="#100SC" title='SC' data-ref="100SC">SC</a>);</td></tr>
+<tr><th id="136">136</th><td>  }</td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td>  <i class="doc">/// Multiply the number of units consumed for a resource by this factor</i></td></tr>
+<tr><th id="139">139</th><td><i class="doc">  /// to normalize it relative to other resources.</i></td></tr>
+<tr><th id="140">140</th><td>  <em>unsigned</em> <dfn class="decl def" id="_ZNK4llvm16TargetSchedModel17getResourceFactorEj" title='llvm::TargetSchedModel::getResourceFactor' data-ref="_ZNK4llvm16TargetSchedModel17getResourceFactorEj">getResourceFactor</dfn>(<em>unsigned</em> <dfn class="local col1 decl" id="101ResIdx" title='ResIdx' data-type='unsigned int' data-ref="101ResIdx">ResIdx</dfn>) <em>const</em> {</td></tr>
+<tr><th id="141">141</th><td>    <b>return</b> <a class="member" href="#llvm::TargetSchedModel::ResourceFactors" title='llvm::TargetSchedModel::ResourceFactors' data-ref="llvm::TargetSchedModel::ResourceFactors">ResourceFactors</a><a class="ref" href="../ADT/SmallVector.h.html#_ZNK4llvm25SmallVectorTemplateCommonixEm" title='llvm::SmallVectorTemplateCommon::operator[]' data-ref="_ZNK4llvm25SmallVectorTemplateCommonixEm">[<a class="local col1 ref" href="#101ResIdx" title='ResIdx' data-ref="101ResIdx">ResIdx</a>]</a>;</td></tr>
+<tr><th id="142">142</th><td>  }</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td>  <i class="doc">/// Multiply number of micro-ops by this factor to normalize it</i></td></tr>
+<tr><th id="145">145</th><td><i class="doc">  /// relative to other resources.</i></td></tr>
+<tr><th id="146">146</th><td>  <em>unsigned</em> <dfn class="decl def" id="_ZNK4llvm16TargetSchedModel16getMicroOpFactorEv" title='llvm::TargetSchedModel::getMicroOpFactor' data-ref="_ZNK4llvm16TargetSchedModel16getMicroOpFactorEv">getMicroOpFactor</dfn>() <em>const</em> {</td></tr>
+<tr><th id="147">147</th><td>    <b>return</b> <a class="member" href="#llvm::TargetSchedModel::MicroOpFactor" title='llvm::TargetSchedModel::MicroOpFactor' data-ref="llvm::TargetSchedModel::MicroOpFactor">MicroOpFactor</a>;</td></tr>
+<tr><th id="148">148</th><td>  }</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td>  <i class="doc">/// Multiply cycle count by this factor to normalize it relative to</i></td></tr>
+<tr><th id="151">151</th><td><i class="doc">  /// other resources. This is the number of resource units per cycle.</i></td></tr>
+<tr><th id="152">152</th><td>  <em>unsigned</em> <dfn class="decl def" id="_ZNK4llvm16TargetSchedModel16getLatencyFactorEv" title='llvm::TargetSchedModel::getLatencyFactor' data-ref="_ZNK4llvm16TargetSchedModel16getLatencyFactorEv">getLatencyFactor</dfn>() <em>const</em> {</td></tr>
+<tr><th id="153">153</th><td>    <b>return</b> <a class="member" href="#llvm::TargetSchedModel::ResourceLCM" title='llvm::TargetSchedModel::ResourceLCM' data-ref="llvm::TargetSchedModel::ResourceLCM">ResourceLCM</a>;</td></tr>
+<tr><th id="154">154</th><td>  }</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>  <i class="doc">/// Number of micro-ops that may be buffered for OOO execution.</i></td></tr>
+<tr><th id="157">157</th><td>  <em>unsigned</em> <dfn class="decl def" id="_ZNK4llvm16TargetSchedModel20getMicroOpBufferSizeEv" title='llvm::TargetSchedModel::getMicroOpBufferSize' data-ref="_ZNK4llvm16TargetSchedModel20getMicroOpBufferSizeEv">getMicroOpBufferSize</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::TargetSchedModel::SchedModel" title='llvm::TargetSchedModel::SchedModel' data-ref="llvm::TargetSchedModel::SchedModel">SchedModel</a>.<a class="ref" href="../MC/MCSchedule.h.html#llvm::MCSchedModel::MicroOpBufferSize" title='llvm::MCSchedModel::MicroOpBufferSize' data-ref="llvm::MCSchedModel::MicroOpBufferSize">MicroOpBufferSize</a>; }</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td>  <i class="doc">/// Number of resource units that may be buffered for OOO execution.</i></td></tr>
+<tr><th id="160">160</th><td><i class="doc">  /// <span class="command">\return</span> The buffer size in resource units or -1 for unlimited.</i></td></tr>
+<tr><th id="161">161</th><td>  <em>int</em> <dfn class="decl def" id="_ZNK4llvm16TargetSchedModel21getResourceBufferSizeEj" title='llvm::TargetSchedModel::getResourceBufferSize' data-ref="_ZNK4llvm16TargetSchedModel21getResourceBufferSizeEj">getResourceBufferSize</dfn>(<em>unsigned</em> <dfn class="local col2 decl" id="102PIdx" title='PIdx' data-type='unsigned int' data-ref="102PIdx">PIdx</dfn>) <em>const</em> {</td></tr>
+<tr><th id="162">162</th><td>    <b>return</b> <a class="member" href="#llvm::TargetSchedModel::SchedModel" title='llvm::TargetSchedModel::SchedModel' data-ref="llvm::TargetSchedModel::SchedModel">SchedModel</a>.<a class="ref" href="../MC/MCSchedule.h.html#_ZNK4llvm12MCSchedModel15getProcResourceEj" title='llvm::MCSchedModel::getProcResource' data-ref="_ZNK4llvm12MCSchedModel15getProcResourceEj">getProcResource</a>(<a class="local col2 ref" href="#102PIdx" title='PIdx' data-ref="102PIdx">PIdx</a>)-&gt;<a class="ref" href="../MC/MCSchedule.h.html#llvm::MCProcResourceDesc::BufferSize" title='llvm::MCProcResourceDesc::BufferSize' data-ref="llvm::MCProcResourceDesc::BufferSize">BufferSize</a>;</td></tr>
+<tr><th id="163">163</th><td>  }</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>  <i class="doc">/// Compute operand latency based on the available machine model.</i></td></tr>
+<tr><th id="166">166</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="167">167</th><td><i class="doc">  /// Compute and return the latency of the given data dependent def and use</i></td></tr>
+<tr><th id="168">168</th><td><i class="doc">  /// when the operand indices are already known. UseMI may be NULL for an</i></td></tr>
+<tr><th id="169">169</th><td><i class="doc">  /// unknown user.</i></td></tr>
+<tr><th id="170">170</th><td>  <em>unsigned</em> <dfn class="decl" id="_ZNK4llvm16TargetSchedModel21computeOperandLatencyEPKNS_12MachineInstrEjS3_j" title='llvm::TargetSchedModel::computeOperandLatency' data-ref="_ZNK4llvm16TargetSchedModel21computeOperandLatencyEPKNS_12MachineInstrEjS3_j">computeOperandLatency</dfn>(<em>const</em> <a class="type" href="MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col3 decl" id="103DefMI" title='DefMI' data-type='const llvm::MachineInstr *' data-ref="103DefMI">DefMI</dfn>, <em>unsigned</em> <dfn class="local col4 decl" id="104DefOperIdx" title='DefOperIdx' data-type='unsigned int' data-ref="104DefOperIdx">DefOperIdx</dfn>,</td></tr>
+<tr><th id="171">171</th><td>                                 <em>const</em> <a class="type" href="MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col5 decl" id="105UseMI" title='UseMI' data-type='const llvm::MachineInstr *' data-ref="105UseMI">UseMI</dfn>, <em>unsigned</em> <dfn class="local col6 decl" id="106UseOperIdx" title='UseOperIdx' data-type='unsigned int' data-ref="106UseOperIdx">UseOperIdx</dfn>)</td></tr>
+<tr><th id="172">172</th><td>    <em>const</em>;</td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td>  <i class="doc">/// Compute the instruction latency based on the available machine</i></td></tr>
+<tr><th id="175">175</th><td><i class="doc">  /// model.</i></td></tr>
+<tr><th id="176">176</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="177">177</th><td><i class="doc">  /// Compute and return the expected latency of this instruction independent of</i></td></tr>
+<tr><th id="178">178</th><td><i class="doc">  /// a particular use. computeOperandLatency is the preferred API, but this is</i></td></tr>
+<tr><th id="179">179</th><td><i class="doc">  /// occasionally useful to help estimate instruction cost.</i></td></tr>
+<tr><th id="180">180</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="181">181</th><td><i class="doc">  /// If UseDefaultDefLatency is false and no new machine sched model is</i></td></tr>
+<tr><th id="182">182</th><td><i class="doc">  /// present this method falls back to TII-&gt;getInstrLatency with an empty</i></td></tr>
+<tr><th id="183">183</th><td><i class="doc">  /// instruction itinerary (this is so we preserve the previous behavior of the</i></td></tr>
+<tr><th id="184">184</th><td><i class="doc">  /// if converter after moving it to TargetSchedModel).</i></td></tr>
+<tr><th id="185">185</th><td>  <em>unsigned</em> <dfn class="decl" id="_ZNK4llvm16TargetSchedModel19computeInstrLatencyEPKNS_12MachineInstrEb" title='llvm::TargetSchedModel::computeInstrLatency' data-ref="_ZNK4llvm16TargetSchedModel19computeInstrLatencyEPKNS_12MachineInstrEb">computeInstrLatency</dfn>(<em>const</em> <a class="type" href="MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col7 decl" id="107MI" title='MI' data-type='const llvm::MachineInstr *' data-ref="107MI">MI</dfn>,</td></tr>
+<tr><th id="186">186</th><td>                               <em>bool</em> <dfn class="local col8 decl" id="108UseDefaultDefLatency" title='UseDefaultDefLatency' data-type='bool' data-ref="108UseDefaultDefLatency">UseDefaultDefLatency</dfn> = <b>true</b>) <em>const</em>;</td></tr>
+<tr><th id="187">187</th><td>  <em>unsigned</em> <dfn class="decl" id="_ZNK4llvm16TargetSchedModel19computeInstrLatencyERKNS_6MCInstE" title='llvm::TargetSchedModel::computeInstrLatency' data-ref="_ZNK4llvm16TargetSchedModel19computeInstrLatencyERKNS_6MCInstE">computeInstrLatency</dfn>(<em>const</em> <a class="type" href="../MC/MCInst.h.html#llvm::MCInst" title='llvm::MCInst' data-ref="llvm::MCInst">MCInst</a> &amp;<dfn class="local col9 decl" id="109Inst" title='Inst' data-type='const llvm::MCInst &amp;' data-ref="109Inst">Inst</dfn>) <em>const</em>;</td></tr>
+<tr><th id="188">188</th><td>  <em>unsigned</em> <dfn class="decl" id="_ZNK4llvm16TargetSchedModel19computeInstrLatencyEj" title='llvm::TargetSchedModel::computeInstrLatency' data-ref="_ZNK4llvm16TargetSchedModel19computeInstrLatencyEj">computeInstrLatency</dfn>(<em>unsigned</em> <dfn class="local col0 decl" id="110Opcode" title='Opcode' data-type='unsigned int' data-ref="110Opcode">Opcode</dfn>) <em>const</em>;</td></tr>
+<tr><th id="189">189</th><td></td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td>  <i class="doc">/// Output dependency latency of a pair of defs of the same register.</i></td></tr>
+<tr><th id="192">192</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="193">193</th><td><i class="doc">  /// This is typically one cycle.</i></td></tr>
+<tr><th id="194">194</th><td>  <em>unsigned</em> <dfn class="decl" id="_ZNK4llvm16TargetSchedModel20computeOutputLatencyEPKNS_12MachineInstrEjS3_" title='llvm::TargetSchedModel::computeOutputLatency' data-ref="_ZNK4llvm16TargetSchedModel20computeOutputLatencyEPKNS_12MachineInstrEjS3_">computeOutputLatency</dfn>(<em>const</em> <a class="type" href="MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col1 decl" id="111DefMI" title='DefMI' data-type='const llvm::MachineInstr *' data-ref="111DefMI">DefMI</dfn>, <em>unsigned</em> <dfn class="local col2 decl" id="112DefOperIdx" title='DefOperIdx' data-type='unsigned int' data-ref="112DefOperIdx">DefOperIdx</dfn>,</td></tr>
+<tr><th id="195">195</th><td>                                <em>const</em> <a class="type" href="MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col3 decl" id="113DepMI" title='DepMI' data-type='const llvm::MachineInstr *' data-ref="113DepMI">DepMI</dfn>) <em>const</em>;</td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td>  <i class="doc">/// Compute the reciprocal throughput of the given instruction.</i></td></tr>
+<tr><th id="198">198</th><td>  <em>double</em> <dfn class="decl" id="_ZNK4llvm16TargetSchedModel27computeReciprocalThroughputEPKNS_12MachineInstrE" title='llvm::TargetSchedModel::computeReciprocalThroughput' data-ref="_ZNK4llvm16TargetSchedModel27computeReciprocalThroughputEPKNS_12MachineInstrE">computeReciprocalThroughput</dfn>(<em>const</em> <a class="type" href="MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col4 decl" id="114MI" title='MI' data-type='const llvm::MachineInstr *' data-ref="114MI">MI</dfn>) <em>const</em>;</td></tr>
+<tr><th id="199">199</th><td>  <em>double</em> <dfn class="decl" id="_ZNK4llvm16TargetSchedModel27computeReciprocalThroughputERKNS_6MCInstE" title='llvm::TargetSchedModel::computeReciprocalThroughput' data-ref="_ZNK4llvm16TargetSchedModel27computeReciprocalThroughputERKNS_6MCInstE">computeReciprocalThroughput</dfn>(<em>const</em> <a class="type" href="../MC/MCInst.h.html#llvm::MCInst" title='llvm::MCInst' data-ref="llvm::MCInst">MCInst</a> &amp;<dfn class="local col5 decl" id="115MI" title='MI' data-type='const llvm::MCInst &amp;' data-ref="115MI">MI</dfn>) <em>const</em>;</td></tr>
+<tr><th id="200">200</th><td>  <em>double</em> <dfn class="decl" id="_ZNK4llvm16TargetSchedModel27computeReciprocalThroughputEj" title='llvm::TargetSchedModel::computeReciprocalThroughput' data-ref="_ZNK4llvm16TargetSchedModel27computeReciprocalThroughputEj">computeReciprocalThroughput</dfn>(<em>unsigned</em> <dfn class="local col6 decl" id="116Opcode" title='Opcode' data-type='unsigned int' data-ref="116Opcode">Opcode</dfn>) <em>const</em>;</td></tr>
+<tr><th id="201">201</th><td>};</td></tr>
+<tr><th id="202">202</th><td></td></tr>
+<tr><th id="203">203</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="204">204</th><td></td></tr>
+<tr><th id="205">205</th><td><u>#<span data-ppcond="15">endif</span> // LLVM_CODEGEN_TARGETSCHEDULE_H</u></td></tr>
+<tr><th id="206">206</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../lib/CodeGen/DFAPacketizer.cpp.html'>llvm/llvm/lib/CodeGen/DFAPacketizer.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

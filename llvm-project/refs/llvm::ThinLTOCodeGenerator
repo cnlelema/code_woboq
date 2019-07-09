@@ -1,0 +1,64 @@
+<def f='llvm/llvm/include/llvm/LTO/legacy/ThinLTOCodeGenerator.h' l='53' ll='344'/>
+<size>576</size>
+<doc f='llvm/llvm/include/llvm/LTO/legacy/ThinLTOCodeGenerator.h' l='47'>/// This class define an interface similar to the LTOCodeGenerator, but adapted
+/// for ThinLTO processing.
+/// The ThinLTOCodeGenerator is not intended to be reuse for multiple
+/// compilation: the model is that the client adds modules to the generator and
+/// ask to perform the ThinLTO optimizations / codegen, and finally destroys the
+/// codegenerator.</doc>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator9addModuleENS_9StringRefES1_'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator14preserveSymbolENS_9StringRefE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator20crossReferenceSymbolENS_9StringRefE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator3runEv'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator19getProducedBinariesEv'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator22getProducedBinaryFilesEv'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator11setCacheDirENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator23setCachePruningIntervalEi'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator23setCacheEntryExpirationEj'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator39setMaxCacheSizeRelativeToAvailableSpaceEj'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator20setCacheMaxSizeBytesEm'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator20setCacheMaxSizeFilesEj'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator15setSaveTempsDirENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator28setGeneratedObjectsDirectoryENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator6setCpuENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator7setAttrENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator16setTargetOptionsENS_13TargetOptionsE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator15setFreestandingEb'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator15setCodePICModelENS_8OptionalINS_5Reloc5ModelEEE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator18setCodeGenOptLevelENS_10CodeGenOpt5LevelE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator11setOptLevelEj'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator14disableCodeGenEb'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator14setCodeGenOnlyEb'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator17linkCombinedIndexEv'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator7promoteERNS_6ModuleERNS_18ModuleSummaryIndexERKNS_3lto9InputFileE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator11emitImportsERNS_6ModuleENS_9StringRefERNS_18ModuleSummaryIndexERKNS_3lto9InputFileE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator17crossModuleImportERNS_6ModuleERNS_18ModuleSummaryIndexERKNS_3lto9InputFileE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator32gatherImportedSummariesForModuleERNS_6ModuleERNS_18ModuleSummaryIndexERSt3mapINSt7__cxx1112basic_stringIcSt11char_trai4764768'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator11internalizeERNS_6ModuleERNS_18ModuleSummaryIndexERKNS_3lto9InputFileE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator8optimizeERNS_6ModuleE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator20writeGeneratedObjectEiNS_9StringRefERKNS_12MemoryBufferE'/>
+<mbr r='llvm::ThinLTOCodeGenerator::TMBuilder' o='0' t='llvm::TargetMachineBuilder'/>
+<mbr r='llvm::ThinLTOCodeGenerator::ProducedBinaries' o='2304' t='std::vector&lt;std::unique_ptr&lt;MemoryBuffer&gt; &gt;'/>
+<mbr r='llvm::ThinLTOCodeGenerator::ProducedBinaryFiles' o='2496' t='std::vector&lt;std::string&gt;'/>
+<mbr r='llvm::ThinLTOCodeGenerator::Modules' o='2688' t='std::vector&lt;std::unique_ptr&lt;lto::InputFile&gt; &gt;'/>
+<mbr r='llvm::ThinLTOCodeGenerator::PreservedSymbols' o='2880' t='StringSet&lt;&gt;'/>
+<mbr r='llvm::ThinLTOCodeGenerator::CrossReferencedSymbols' o='3136' t='StringSet&lt;&gt;'/>
+<mbr r='llvm::ThinLTOCodeGenerator::CacheOptions' o='3392' t='llvm::ThinLTOCodeGenerator::CachingOptions'/>
+<mbr r='llvm::ThinLTOCodeGenerator::SaveTempsDir' o='4032' t='std::string'/>
+<mbr r='llvm::ThinLTOCodeGenerator::SavedObjectsDirectoryPath' o='4288' t='std::string'/>
+<mbr r='llvm::ThinLTOCodeGenerator::DisableCodeGen' o='4544' t='bool'/>
+<mbr r='llvm::ThinLTOCodeGenerator::CodeGenOnly' o='4552' t='bool'/>
+<mbr r='llvm::ThinLTOCodeGenerator::Freestanding' o='4560' t='bool'/>
+<mbr r='llvm::ThinLTOCodeGenerator::OptLevel' o='4576' t='unsigned int'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator9addModuleENS_9StringRefES1_'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator14preserveSymbolENS_9StringRefE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator20crossReferenceSymbolENS_9StringRefE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator17linkCombinedIndexEv'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator7promoteERNS_6ModuleERNS_18ModuleSummaryIndexERKNS_3lto9InputFileE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator17crossModuleImportERNS_6ModuleERNS_18ModuleSummaryIndexERKNS_3lto9InputFileE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator32gatherImportedSummariesForModuleERNS_6ModuleERNS_18ModuleSummaryIndexERSt3mapINSt7__cxx1112basic_stringIcSt11char_trai4764768'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator11emitImportsERNS_6ModuleENS_9StringRefERNS_18ModuleSummaryIndexERKNS_3lto9InputFileE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator11internalizeERNS_6ModuleERNS_18ModuleSummaryIndexERKNS_3lto9InputFileE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator8optimizeERNS_6ModuleE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator20writeGeneratedObjectEiNS_9StringRefERKNS_12MemoryBufferE'/>
+<fun r='_ZN4llvm20ThinLTOCodeGenerator3runEv'/>

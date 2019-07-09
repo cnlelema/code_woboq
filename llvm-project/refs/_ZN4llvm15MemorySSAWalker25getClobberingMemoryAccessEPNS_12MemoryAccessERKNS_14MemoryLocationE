@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/Analysis/MemorySSA.h' l='1044' type='llvm::MemoryAccess * llvm::MemorySSAWalker::getClobberingMemoryAccess(llvm::MemoryAccess * , const llvm::MemoryLocation &amp; )'/>
+<doc f='llvm/llvm/include/llvm/Analysis/MemorySSA.h' l='1033'>/// Given a potentially clobbering memory access and a new location,
+  /// calling this will give you the nearest dominating clobbering MemoryAccess
+  /// (by skipping non-aliasing def links).
+  ///
+  /// This version of the function is mainly used to disambiguate phi translated
+  /// pointers, where the value of a pointer may have changed from the initial
+  /// memory access. Note that this expects to be handed either a MemoryUse,
+  /// or an already potentially clobbering access. Unlike the above API, if
+  /// given a MemoryDef that clobbers the pointer as the starting access, it
+  /// will return that MemoryDef, whereas the above would return the clobber
+  /// starting from the use side of  the memory def.</doc>
+<ovr f='llvm/llvm/lib/Analysis/MemorySSA.cpp' l='1029' c='_ZN4llvm9MemorySSA13CachingWalker25getClobberingMemoryAccessEPNS_12MemoryAccessERKNS_14MemoryLocationE'/>
+<ovr f='llvm/llvm/lib/Analysis/MemorySSA.cpp' l='1065' c='_ZN4llvm9MemorySSA14SkipSelfWalker25getClobberingMemoryAccessEPNS_12MemoryAccessERKNS_14MemoryLocationE'/>
+<ovr f='llvm/llvm/lib/Analysis/MemorySSA.cpp' l='2401' c='_ZN4llvm24DoNothingMemorySSAWalker25getClobberingMemoryAccessEPNS_12MemoryAccessERKNS_14MemoryLocationE'/>
+<use f='llvm/llvm/unittests/Analysis/MemorySSATest.cpp' l='672' u='c' c='_ZN39MemorySSATest_TestStoreDoubleQuery_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/MemorySSATest.cpp' l='679' u='c' c='_ZN39MemorySSATest_TestStoreDoubleQuery_Test8TestBodyEv'/>

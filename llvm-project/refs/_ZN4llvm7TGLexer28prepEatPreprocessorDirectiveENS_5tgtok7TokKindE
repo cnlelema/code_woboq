@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/lib/TableGen/TGLexer.h' l='241' type='bool llvm::TGLexer::prepEatPreprocessorDirective(tgtok::TokKind Kind)'/>
+<doc f='llvm/llvm/lib/TableGen/TGLexer.h' l='233'>// Given a preprocessing token kind, adjusts CurPtr to the end
+  // of the preprocessing directive word.  Returns true, unless
+  // an unsupported token kind is passed in.
+  //
+  // We use look-ahead prepIsDirective() and prepEatPreprocessorDirective()
+  // to avoid adjusting CurPtr before we are sure that &apos;#&apos; is followed
+  // by a preprocessing directive.  If it is not, then we fall back to
+  // tgtok::paste interpretation of &apos;#&apos;.</doc>
+<def f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='657' ll='670' type='bool llvm::TGLexer::prepEatPreprocessorDirective(tgtok::TokKind Kind)'/>
+<use f='llvm/llvm/lib/TableGen/TGLexer.cpp' l='676' u='c' c='_ZN4llvm7TGLexer15lexPreprocessorENS_5tgtok7TokKindEb'/>

@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/Support/Path.h' l='261' type='llvm::StringRef llvm::sys::path::root_path(llvm::StringRef path, llvm::sys::path::Style style = Style::native)'/>
+<doc f='llvm/llvm/include/llvm/Support/Path.h' l='255'>/// Get root path.
+///
+/// Equivalent to root_name + root_directory.
+///
+/// @param path Input path.
+/// @result The root path of \a path if it has one, otherwise &quot;&quot;.</doc>
+<use f='llvm/clang/lib/Basic/FileManager.cpp' l='115' u='c' c='_ZN5clang11FileManager12getDirectoryEN4llvm9StringRefEb'/>
+<def f='llvm/llvm/lib/Support/Path.cpp' l='346' ll='370' type='llvm::StringRef llvm::sys::path::root_path(llvm::StringRef path, llvm::sys::path::Style style = Style::native)'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='413' u='c' c='_ZN4llvm3sys4path13relative_pathENS_9StringRefENS1_5StyleE'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='625' u='c' c='_ZN4llvm3sys4path13has_root_pathERKNS_5TwineENS1_5StyleE'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='710' u='c' c='_ZN4llvm3sys4pathL11remove_dotsENS_9StringRefEbNS1_5StyleE'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='1413' u='c' c='_ZN4llvm3vfs27RedirectingFileSystemParser10parseEntryEPNS_4yaml4NodeEPNS0_21RedirectingFileSystemEb'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='167' u='c' c='_ZN12_GLOBAL__N_117Support_Path_Test8TestBodyEv'/>

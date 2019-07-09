@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/lib/Target/X86/X86InstrInfo.h' l='401' type='bool llvm::X86InstrInfo::shouldScheduleLoadsNear(llvm::SDNode * Load1, llvm::SDNode * Load2, int64_t Offset1, int64_t Offset2, unsigned int NumLoads) const'/>
+<doc f='llvm/llvm/lib/Target/X86/X86InstrInfo.h' l='393'>/// shouldScheduleLoadsNear - This is a used by the pre-regalloc scheduler to
+  /// determine (in conjunction with areLoadsFromSameBasePtr) if two loads
+  /// should be scheduled togther. On some targets if two loads are loading from
+  /// addresses in the same cache line, it&apos;s better if they are scheduled
+  /// together. This function takes two integers that represent the load offsets
+  /// from the common base address. It returns true if it decides it&apos;s desirable
+  /// to schedule the two loads together. &quot;NumLoads&quot; is the number of loads that
+  /// have already been scheduled after Load1.</doc>
+<def f='llvm/llvm/lib/Target/X86/X86InstrInfo.cpp' l='5625' ll='5671' type='bool llvm::X86InstrInfo::shouldScheduleLoadsNear(llvm::SDNode * Load1, llvm::SDNode * Load2, int64_t Offset1, int64_t Offset2, unsigned int NumLoads) const'/>

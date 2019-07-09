@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>LEB128.h source code [llvm/llvm/include/llvm/Support/LEB128.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/Support/LEB128.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>Support</a>/<a href='LEB128.h.html'>LEB128.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- llvm/Support/LEB128.h - [SU]LEB128 utility functions -----*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file declares some utility functions for encoding SLEB128 and</i></td></tr>
+<tr><th id="10">10</th><td><i>// ULEB128 values.</i></td></tr>
+<tr><th id="11">11</th><td><i>//</i></td></tr>
+<tr><th id="12">12</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><u>#<span data-ppcond="14">ifndef</span> <span class="macro" data-ref="_M/LLVM_SUPPORT_LEB128_H">LLVM_SUPPORT_LEB128_H</span></u></td></tr>
+<tr><th id="15">15</th><td><u>#define <dfn class="macro" id="_M/LLVM_SUPPORT_LEB128_H" data-ref="_M/LLVM_SUPPORT_LEB128_H">LLVM_SUPPORT_LEB128_H</dfn></u></td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="raw_ostream.h.html">"llvm/Support/raw_ostream.h"</a></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><i class="doc">/// Utility function to encode a SLEB128 value to an output stream. Returns</i></td></tr>
+<tr><th id="22">22</th><td><i class="doc">/// the length in bytes of the encoded value.</i></td></tr>
+<tr><th id="23">23</th><td><b>inline</b> <em>unsigned</em> <dfn class="decl def" id="_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj" title='llvm::encodeSLEB128' data-ref="_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj">encodeSLEB128</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-intn.h.html#int64_t" title='int64_t' data-type='__int64_t' data-ref="int64_t">int64_t</a> <dfn class="local col2 decl" id="162Value" title='Value' data-type='int64_t' data-ref="162Value">Value</dfn>, <a class="type" href="raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col3 decl" id="163OS" title='OS' data-type='llvm::raw_ostream &amp;' data-ref="163OS">OS</dfn>,</td></tr>
+<tr><th id="24">24</th><td>                              <em>unsigned</em> <dfn class="local col4 decl" id="164PadTo" title='PadTo' data-type='unsigned int' data-ref="164PadTo">PadTo</dfn> = <var>0</var>) {</td></tr>
+<tr><th id="25">25</th><td>  <em>bool</em> <dfn class="local col5 decl" id="165More" title='More' data-type='bool' data-ref="165More">More</dfn>;</td></tr>
+<tr><th id="26">26</th><td>  <em>unsigned</em> <dfn class="local col6 decl" id="166Count" title='Count' data-type='unsigned int' data-ref="166Count">Count</dfn> = <var>0</var>;</td></tr>
+<tr><th id="27">27</th><td>  <b>do</b> {</td></tr>
+<tr><th id="28">28</th><td>    <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col7 decl" id="167Byte" title='Byte' data-type='uint8_t' data-ref="167Byte">Byte</dfn> = <a class="local col2 ref" href="#162Value" title='Value' data-ref="162Value">Value</a> &amp; <var>0x7f</var>;</td></tr>
+<tr><th id="29">29</th><td>    <i>// NOTE: this assumes that this signed shift is an arithmetic right shift.</i></td></tr>
+<tr><th id="30">30</th><td>    <a class="local col2 ref" href="#162Value" title='Value' data-ref="162Value">Value</a> &gt;&gt;= <var>7</var>;</td></tr>
+<tr><th id="31">31</th><td>    <a class="local col5 ref" href="#165More" title='More' data-ref="165More">More</a> = !((((<a class="local col2 ref" href="#162Value" title='Value' data-ref="162Value">Value</a> == <var>0</var> ) &amp;&amp; ((<a class="local col7 ref" href="#167Byte" title='Byte' data-ref="167Byte">Byte</a> &amp; <var>0x40</var>) == <var>0</var>)) ||</td></tr>
+<tr><th id="32">32</th><td>              ((<a class="local col2 ref" href="#162Value" title='Value' data-ref="162Value">Value</a> == -<var>1</var>) &amp;&amp; ((<a class="local col7 ref" href="#167Byte" title='Byte' data-ref="167Byte">Byte</a> &amp; <var>0x40</var>) != <var>0</var>))));</td></tr>
+<tr><th id="33">33</th><td>    <a class="local col6 ref" href="#166Count" title='Count' data-ref="166Count">Count</a>++;</td></tr>
+<tr><th id="34">34</th><td>    <b>if</b> (<a class="local col5 ref" href="#165More" title='More' data-ref="165More">More</a> || <a class="local col6 ref" href="#166Count" title='Count' data-ref="166Count">Count</a> &lt; <a class="local col4 ref" href="#164PadTo" title='PadTo' data-ref="164PadTo">PadTo</a>)</td></tr>
+<tr><th id="35">35</th><td>      <a class="local col7 ref" href="#167Byte" title='Byte' data-ref="167Byte">Byte</a> |= <var>0x80</var>; <i>// Mark this byte to show that more bytes will follow.</i></td></tr>
+<tr><th id="36">36</th><td>    <a class="local col3 ref" href="#163OS" title='OS' data-ref="163OS">OS</a> <a class="ref" href="raw_ostream.h.html#_ZN4llvm11raw_ostreamlsEc" title='llvm::raw_ostream::operator&lt;&lt;' data-ref="_ZN4llvm11raw_ostreamlsEc">&lt;&lt;</a> <em>char</em>(<a class="local col7 ref" href="#167Byte" title='Byte' data-ref="167Byte">Byte</a>);</td></tr>
+<tr><th id="37">37</th><td>  } <b>while</b> (<a class="local col5 ref" href="#165More" title='More' data-ref="165More">More</a>);</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td>  <i>// Pad with 0x80 and emit a terminating byte at the end.</i></td></tr>
+<tr><th id="40">40</th><td>  <b>if</b> (<a class="local col6 ref" href="#166Count" title='Count' data-ref="166Count">Count</a> &lt; <a class="local col4 ref" href="#164PadTo" title='PadTo' data-ref="164PadTo">PadTo</a>) {</td></tr>
+<tr><th id="41">41</th><td>    <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col8 decl" id="168PadValue" title='PadValue' data-type='uint8_t' data-ref="168PadValue">PadValue</dfn> = <a class="local col2 ref" href="#162Value" title='Value' data-ref="162Value">Value</a> &lt; <var>0</var> ? <var>0x7f</var> : <var>0x00</var>;</td></tr>
+<tr><th id="42">42</th><td>    <b>for</b> (; <a class="local col6 ref" href="#166Count" title='Count' data-ref="166Count">Count</a> &lt; <a class="local col4 ref" href="#164PadTo" title='PadTo' data-ref="164PadTo">PadTo</a> - <var>1</var>; ++<a class="local col6 ref" href="#166Count" title='Count' data-ref="166Count">Count</a>)</td></tr>
+<tr><th id="43">43</th><td>      <a class="local col3 ref" href="#163OS" title='OS' data-ref="163OS">OS</a> <a class="ref" href="raw_ostream.h.html#_ZN4llvm11raw_ostreamlsEc" title='llvm::raw_ostream::operator&lt;&lt;' data-ref="_ZN4llvm11raw_ostreamlsEc">&lt;&lt;</a> <em>char</em>(<a class="local col8 ref" href="#168PadValue" title='PadValue' data-ref="168PadValue">PadValue</a> | <var>0x80</var>);</td></tr>
+<tr><th id="44">44</th><td>    <a class="local col3 ref" href="#163OS" title='OS' data-ref="163OS">OS</a> <a class="ref" href="raw_ostream.h.html#_ZN4llvm11raw_ostreamlsEc" title='llvm::raw_ostream::operator&lt;&lt;' data-ref="_ZN4llvm11raw_ostreamlsEc">&lt;&lt;</a> <em>char</em>(<a class="local col8 ref" href="#168PadValue" title='PadValue' data-ref="168PadValue">PadValue</a>);</td></tr>
+<tr><th id="45">45</th><td>    <a class="local col6 ref" href="#166Count" title='Count' data-ref="166Count">Count</a>++;</td></tr>
+<tr><th id="46">46</th><td>  }</td></tr>
+<tr><th id="47">47</th><td>  <b>return</b> <a class="local col6 ref" href="#166Count" title='Count' data-ref="166Count">Count</a>;</td></tr>
+<tr><th id="48">48</th><td>}</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><i class="doc">/// Utility function to encode a SLEB128 value to a buffer. Returns</i></td></tr>
+<tr><th id="51">51</th><td><i class="doc">/// the length in bytes of the encoded value.</i></td></tr>
+<tr><th id="52">52</th><td><b>inline</b> <em>unsigned</em> <dfn class="decl def" id="_ZN4llvm13encodeSLEB128ElPhj" title='llvm::encodeSLEB128' data-ref="_ZN4llvm13encodeSLEB128ElPhj">encodeSLEB128</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-intn.h.html#int64_t" title='int64_t' data-type='__int64_t' data-ref="int64_t">int64_t</a> <dfn class="local col9 decl" id="169Value" title='Value' data-type='int64_t' data-ref="169Value">Value</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col0 decl" id="170p" title='p' data-type='uint8_t *' data-ref="170p">p</dfn>, <em>unsigned</em> <dfn class="local col1 decl" id="171PadTo" title='PadTo' data-type='unsigned int' data-ref="171PadTo">PadTo</dfn> = <var>0</var>) {</td></tr>
+<tr><th id="53">53</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col2 decl" id="172orig_p" title='orig_p' data-type='uint8_t *' data-ref="172orig_p">orig_p</dfn> = <a class="local col0 ref" href="#170p" title='p' data-ref="170p">p</a>;</td></tr>
+<tr><th id="54">54</th><td>  <em>unsigned</em> <dfn class="local col3 decl" id="173Count" title='Count' data-type='unsigned int' data-ref="173Count">Count</dfn> = <var>0</var>;</td></tr>
+<tr><th id="55">55</th><td>  <em>bool</em> <dfn class="local col4 decl" id="174More" title='More' data-type='bool' data-ref="174More">More</dfn>;</td></tr>
+<tr><th id="56">56</th><td>  <b>do</b> {</td></tr>
+<tr><th id="57">57</th><td>    <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col5 decl" id="175Byte" title='Byte' data-type='uint8_t' data-ref="175Byte">Byte</dfn> = <a class="local col9 ref" href="#169Value" title='Value' data-ref="169Value">Value</a> &amp; <var>0x7f</var>;</td></tr>
+<tr><th id="58">58</th><td>    <i>// NOTE: this assumes that this signed shift is an arithmetic right shift.</i></td></tr>
+<tr><th id="59">59</th><td>    <a class="local col9 ref" href="#169Value" title='Value' data-ref="169Value">Value</a> &gt;&gt;= <var>7</var>;</td></tr>
+<tr><th id="60">60</th><td>    <a class="local col4 ref" href="#174More" title='More' data-ref="174More">More</a> = !((((<a class="local col9 ref" href="#169Value" title='Value' data-ref="169Value">Value</a> == <var>0</var> ) &amp;&amp; ((<a class="local col5 ref" href="#175Byte" title='Byte' data-ref="175Byte">Byte</a> &amp; <var>0x40</var>) == <var>0</var>)) ||</td></tr>
+<tr><th id="61">61</th><td>              ((<a class="local col9 ref" href="#169Value" title='Value' data-ref="169Value">Value</a> == -<var>1</var>) &amp;&amp; ((<a class="local col5 ref" href="#175Byte" title='Byte' data-ref="175Byte">Byte</a> &amp; <var>0x40</var>) != <var>0</var>))));</td></tr>
+<tr><th id="62">62</th><td>    <a class="local col3 ref" href="#173Count" title='Count' data-ref="173Count">Count</a>++;</td></tr>
+<tr><th id="63">63</th><td>    <b>if</b> (<a class="local col4 ref" href="#174More" title='More' data-ref="174More">More</a> || <a class="local col3 ref" href="#173Count" title='Count' data-ref="173Count">Count</a> &lt; <a class="local col1 ref" href="#171PadTo" title='PadTo' data-ref="171PadTo">PadTo</a>)</td></tr>
+<tr><th id="64">64</th><td>      <a class="local col5 ref" href="#175Byte" title='Byte' data-ref="175Byte">Byte</a> |= <var>0x80</var>; <i>// Mark this byte to show that more bytes will follow.</i></td></tr>
+<tr><th id="65">65</th><td>    *<a class="local col0 ref" href="#170p" title='p' data-ref="170p">p</a>++ = <a class="local col5 ref" href="#175Byte" title='Byte' data-ref="175Byte">Byte</a>;</td></tr>
+<tr><th id="66">66</th><td>  } <b>while</b> (<a class="local col4 ref" href="#174More" title='More' data-ref="174More">More</a>);</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>  <i>// Pad with 0x80 and emit a terminating byte at the end.</i></td></tr>
+<tr><th id="69">69</th><td>  <b>if</b> (<a class="local col3 ref" href="#173Count" title='Count' data-ref="173Count">Count</a> &lt; <a class="local col1 ref" href="#171PadTo" title='PadTo' data-ref="171PadTo">PadTo</a>) {</td></tr>
+<tr><th id="70">70</th><td>    <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col6 decl" id="176PadValue" title='PadValue' data-type='uint8_t' data-ref="176PadValue">PadValue</dfn> = <a class="local col9 ref" href="#169Value" title='Value' data-ref="169Value">Value</a> &lt; <var>0</var> ? <var>0x7f</var> : <var>0x00</var>;</td></tr>
+<tr><th id="71">71</th><td>    <b>for</b> (; <a class="local col3 ref" href="#173Count" title='Count' data-ref="173Count">Count</a> &lt; <a class="local col1 ref" href="#171PadTo" title='PadTo' data-ref="171PadTo">PadTo</a> - <var>1</var>; ++<a class="local col3 ref" href="#173Count" title='Count' data-ref="173Count">Count</a>)</td></tr>
+<tr><th id="72">72</th><td>      *<a class="local col0 ref" href="#170p" title='p' data-ref="170p">p</a>++ = (<a class="local col6 ref" href="#176PadValue" title='PadValue' data-ref="176PadValue">PadValue</a> | <var>0x80</var>);</td></tr>
+<tr><th id="73">73</th><td>    *<a class="local col0 ref" href="#170p" title='p' data-ref="170p">p</a>++ = <a class="local col6 ref" href="#176PadValue" title='PadValue' data-ref="176PadValue">PadValue</a>;</td></tr>
+<tr><th id="74">74</th><td>  }</td></tr>
+<tr><th id="75">75</th><td>  <b>return</b> (<em>unsigned</em>)(<a class="local col0 ref" href="#170p" title='p' data-ref="170p">p</a> - <a class="local col2 ref" href="#172orig_p" title='orig_p' data-ref="172orig_p">orig_p</a>);</td></tr>
+<tr><th id="76">76</th><td>}</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><i class="doc">/// Utility function to encode a ULEB128 value to an output stream. Returns</i></td></tr>
+<tr><th id="79">79</th><td><i class="doc">/// the length in bytes of the encoded value.</i></td></tr>
+<tr><th id="80">80</th><td><b>inline</b> <em>unsigned</em> <dfn class="decl def" id="_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj" title='llvm::encodeULEB128' data-ref="_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj">encodeULEB128</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col7 decl" id="177Value" title='Value' data-type='uint64_t' data-ref="177Value">Value</dfn>, <a class="type" href="raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col8 decl" id="178OS" title='OS' data-type='llvm::raw_ostream &amp;' data-ref="178OS">OS</dfn>,</td></tr>
+<tr><th id="81">81</th><td>                              <em>unsigned</em> <dfn class="local col9 decl" id="179PadTo" title='PadTo' data-type='unsigned int' data-ref="179PadTo">PadTo</dfn> = <var>0</var>) {</td></tr>
+<tr><th id="82">82</th><td>  <em>unsigned</em> <dfn class="local col0 decl" id="180Count" title='Count' data-type='unsigned int' data-ref="180Count">Count</dfn> = <var>0</var>;</td></tr>
+<tr><th id="83">83</th><td>  <b>do</b> {</td></tr>
+<tr><th id="84">84</th><td>    <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col1 decl" id="181Byte" title='Byte' data-type='uint8_t' data-ref="181Byte">Byte</dfn> = <a class="local col7 ref" href="#177Value" title='Value' data-ref="177Value">Value</a> &amp; <var>0x7f</var>;</td></tr>
+<tr><th id="85">85</th><td>    <a class="local col7 ref" href="#177Value" title='Value' data-ref="177Value">Value</a> &gt;&gt;= <var>7</var>;</td></tr>
+<tr><th id="86">86</th><td>    <a class="local col0 ref" href="#180Count" title='Count' data-ref="180Count">Count</a>++;</td></tr>
+<tr><th id="87">87</th><td>    <b>if</b> (<a class="local col7 ref" href="#177Value" title='Value' data-ref="177Value">Value</a> != <var>0</var> || <a class="local col0 ref" href="#180Count" title='Count' data-ref="180Count">Count</a> &lt; <a class="local col9 ref" href="#179PadTo" title='PadTo' data-ref="179PadTo">PadTo</a>)</td></tr>
+<tr><th id="88">88</th><td>      <a class="local col1 ref" href="#181Byte" title='Byte' data-ref="181Byte">Byte</a> |= <var>0x80</var>; <i>// Mark this byte to show that more bytes will follow.</i></td></tr>
+<tr><th id="89">89</th><td>    <a class="local col8 ref" href="#178OS" title='OS' data-ref="178OS">OS</a> <a class="ref" href="raw_ostream.h.html#_ZN4llvm11raw_ostreamlsEc" title='llvm::raw_ostream::operator&lt;&lt;' data-ref="_ZN4llvm11raw_ostreamlsEc">&lt;&lt;</a> <em>char</em>(<a class="local col1 ref" href="#181Byte" title='Byte' data-ref="181Byte">Byte</a>);</td></tr>
+<tr><th id="90">90</th><td>  } <b>while</b> (<a class="local col7 ref" href="#177Value" title='Value' data-ref="177Value">Value</a> != <var>0</var>);</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>  <i>// Pad with 0x80 and emit a null byte at the end.</i></td></tr>
+<tr><th id="93">93</th><td>  <b>if</b> (<a class="local col0 ref" href="#180Count" title='Count' data-ref="180Count">Count</a> &lt; <a class="local col9 ref" href="#179PadTo" title='PadTo' data-ref="179PadTo">PadTo</a>) {</td></tr>
+<tr><th id="94">94</th><td>    <b>for</b> (; <a class="local col0 ref" href="#180Count" title='Count' data-ref="180Count">Count</a> &lt; <a class="local col9 ref" href="#179PadTo" title='PadTo' data-ref="179PadTo">PadTo</a> - <var>1</var>; ++<a class="local col0 ref" href="#180Count" title='Count' data-ref="180Count">Count</a>)</td></tr>
+<tr><th id="95">95</th><td>      <a class="local col8 ref" href="#178OS" title='OS' data-ref="178OS">OS</a> <a class="ref" href="raw_ostream.h.html#_ZN4llvm11raw_ostreamlsEc" title='llvm::raw_ostream::operator&lt;&lt;' data-ref="_ZN4llvm11raw_ostreamlsEc">&lt;&lt;</a> <kbd>'\x80'</kbd>;</td></tr>
+<tr><th id="96">96</th><td>    <a class="local col8 ref" href="#178OS" title='OS' data-ref="178OS">OS</a> <a class="ref" href="raw_ostream.h.html#_ZN4llvm11raw_ostreamlsEc" title='llvm::raw_ostream::operator&lt;&lt;' data-ref="_ZN4llvm11raw_ostreamlsEc">&lt;&lt;</a> <kbd>'\x00'</kbd>;</td></tr>
+<tr><th id="97">97</th><td>    <a class="local col0 ref" href="#180Count" title='Count' data-ref="180Count">Count</a>++;</td></tr>
+<tr><th id="98">98</th><td>  }</td></tr>
+<tr><th id="99">99</th><td>  <b>return</b> <a class="local col0 ref" href="#180Count" title='Count' data-ref="180Count">Count</a>;</td></tr>
+<tr><th id="100">100</th><td>}</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td><i class="doc">/// Utility function to encode a ULEB128 value to a buffer. Returns</i></td></tr>
+<tr><th id="103">103</th><td><i class="doc">/// the length in bytes of the encoded value.</i></td></tr>
+<tr><th id="104">104</th><td><b>inline</b> <em>unsigned</em> <dfn class="decl def" id="_ZN4llvm13encodeULEB128EmPhj" title='llvm::encodeULEB128' data-ref="_ZN4llvm13encodeULEB128EmPhj">encodeULEB128</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col2 decl" id="182Value" title='Value' data-type='uint64_t' data-ref="182Value">Value</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col3 decl" id="183p" title='p' data-type='uint8_t *' data-ref="183p">p</dfn>,</td></tr>
+<tr><th id="105">105</th><td>                              <em>unsigned</em> <dfn class="local col4 decl" id="184PadTo" title='PadTo' data-type='unsigned int' data-ref="184PadTo">PadTo</dfn> = <var>0</var>) {</td></tr>
+<tr><th id="106">106</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col5 decl" id="185orig_p" title='orig_p' data-type='uint8_t *' data-ref="185orig_p">orig_p</dfn> = <a class="local col3 ref" href="#183p" title='p' data-ref="183p">p</a>;</td></tr>
+<tr><th id="107">107</th><td>  <em>unsigned</em> <dfn class="local col6 decl" id="186Count" title='Count' data-type='unsigned int' data-ref="186Count">Count</dfn> = <var>0</var>;</td></tr>
+<tr><th id="108">108</th><td>  <b>do</b> {</td></tr>
+<tr><th id="109">109</th><td>    <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col7 decl" id="187Byte" title='Byte' data-type='uint8_t' data-ref="187Byte">Byte</dfn> = <a class="local col2 ref" href="#182Value" title='Value' data-ref="182Value">Value</a> &amp; <var>0x7f</var>;</td></tr>
+<tr><th id="110">110</th><td>    <a class="local col2 ref" href="#182Value" title='Value' data-ref="182Value">Value</a> &gt;&gt;= <var>7</var>;</td></tr>
+<tr><th id="111">111</th><td>    <a class="local col6 ref" href="#186Count" title='Count' data-ref="186Count">Count</a>++;</td></tr>
+<tr><th id="112">112</th><td>    <b>if</b> (<a class="local col2 ref" href="#182Value" title='Value' data-ref="182Value">Value</a> != <var>0</var> || <a class="local col6 ref" href="#186Count" title='Count' data-ref="186Count">Count</a> &lt; <a class="local col4 ref" href="#184PadTo" title='PadTo' data-ref="184PadTo">PadTo</a>)</td></tr>
+<tr><th id="113">113</th><td>      <a class="local col7 ref" href="#187Byte" title='Byte' data-ref="187Byte">Byte</a> |= <var>0x80</var>; <i>// Mark this byte to show that more bytes will follow.</i></td></tr>
+<tr><th id="114">114</th><td>    *<a class="local col3 ref" href="#183p" title='p' data-ref="183p">p</a>++ = <a class="local col7 ref" href="#187Byte" title='Byte' data-ref="187Byte">Byte</a>;</td></tr>
+<tr><th id="115">115</th><td>  } <b>while</b> (<a class="local col2 ref" href="#182Value" title='Value' data-ref="182Value">Value</a> != <var>0</var>);</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>  <i>// Pad with 0x80 and emit a null byte at the end.</i></td></tr>
+<tr><th id="118">118</th><td>  <b>if</b> (<a class="local col6 ref" href="#186Count" title='Count' data-ref="186Count">Count</a> &lt; <a class="local col4 ref" href="#184PadTo" title='PadTo' data-ref="184PadTo">PadTo</a>) {</td></tr>
+<tr><th id="119">119</th><td>    <b>for</b> (; <a class="local col6 ref" href="#186Count" title='Count' data-ref="186Count">Count</a> &lt; <a class="local col4 ref" href="#184PadTo" title='PadTo' data-ref="184PadTo">PadTo</a> - <var>1</var>; ++<a class="local col6 ref" href="#186Count" title='Count' data-ref="186Count">Count</a>)</td></tr>
+<tr><th id="120">120</th><td>      *<a class="local col3 ref" href="#183p" title='p' data-ref="183p">p</a>++ = <kbd>'\x80'</kbd>;</td></tr>
+<tr><th id="121">121</th><td>    *<a class="local col3 ref" href="#183p" title='p' data-ref="183p">p</a>++ = <kbd>'\x00'</kbd>;</td></tr>
+<tr><th id="122">122</th><td>  }</td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td>  <b>return</b> (<em>unsigned</em>)(<a class="local col3 ref" href="#183p" title='p' data-ref="183p">p</a> - <a class="local col5 ref" href="#185orig_p" title='orig_p' data-ref="185orig_p">orig_p</a>);</td></tr>
+<tr><th id="125">125</th><td>}</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td><i class="doc">/// Utility function to decode a ULEB128 value.</i></td></tr>
+<tr><th id="128">128</th><td><b>inline</b> <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="decl def" id="_ZN4llvm13decodeULEB128EPKhPjS1_PPKc" title='llvm::decodeULEB128' data-ref="_ZN4llvm13decodeULEB128EPKhPjS1_PPKc">decodeULEB128</dfn>(<em>const</em> <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col8 decl" id="188p" title='p' data-type='const uint8_t *' data-ref="188p">p</dfn>, <em>unsigned</em> *<dfn class="local col9 decl" id="189n" title='n' data-type='unsigned int *' data-ref="189n">n</dfn> = <b>nullptr</b>,</td></tr>
+<tr><th id="129">129</th><td>                              <em>const</em> <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col0 decl" id="190end" title='end' data-type='const uint8_t *' data-ref="190end">end</dfn> = <b>nullptr</b>,</td></tr>
+<tr><th id="130">130</th><td>                              <em>const</em> <em>char</em> **<dfn class="local col1 decl" id="191error" title='error' data-type='const char **' data-ref="191error">error</dfn> = <b>nullptr</b>) {</td></tr>
+<tr><th id="131">131</th><td>  <em>const</em> <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col2 decl" id="192orig_p" title='orig_p' data-type='const uint8_t *' data-ref="192orig_p">orig_p</dfn> = <a class="local col8 ref" href="#188p" title='p' data-ref="188p">p</a>;</td></tr>
+<tr><th id="132">132</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col3 decl" id="193Value" title='Value' data-type='uint64_t' data-ref="193Value">Value</dfn> = <var>0</var>;</td></tr>
+<tr><th id="133">133</th><td>  <em>unsigned</em> <dfn class="local col4 decl" id="194Shift" title='Shift' data-type='unsigned int' data-ref="194Shift">Shift</dfn> = <var>0</var>;</td></tr>
+<tr><th id="134">134</th><td>  <b>if</b> (<a class="local col1 ref" href="#191error" title='error' data-ref="191error">error</a>)</td></tr>
+<tr><th id="135">135</th><td>    *<a class="local col1 ref" href="#191error" title='error' data-ref="191error">error</a> = <b>nullptr</b>;</td></tr>
+<tr><th id="136">136</th><td>  <b>do</b> {</td></tr>
+<tr><th id="137">137</th><td>    <b>if</b> (<a class="local col0 ref" href="#190end" title='end' data-ref="190end">end</a> &amp;&amp; <a class="local col8 ref" href="#188p" title='p' data-ref="188p">p</a> == <a class="local col0 ref" href="#190end" title='end' data-ref="190end">end</a>) {</td></tr>
+<tr><th id="138">138</th><td>      <b>if</b> (<a class="local col1 ref" href="#191error" title='error' data-ref="191error">error</a>)</td></tr>
+<tr><th id="139">139</th><td>        *<a class="local col1 ref" href="#191error" title='error' data-ref="191error">error</a> = <q>"malformed uleb128, extends past end"</q>;</td></tr>
+<tr><th id="140">140</th><td>      <b>if</b> (<a class="local col9 ref" href="#189n" title='n' data-ref="189n">n</a>)</td></tr>
+<tr><th id="141">141</th><td>        *<a class="local col9 ref" href="#189n" title='n' data-ref="189n">n</a> = (<em>unsigned</em>)(<a class="local col8 ref" href="#188p" title='p' data-ref="188p">p</a> - <a class="local col2 ref" href="#192orig_p" title='orig_p' data-ref="192orig_p">orig_p</a>);</td></tr>
+<tr><th id="142">142</th><td>      <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="143">143</th><td>    }</td></tr>
+<tr><th id="144">144</th><td>    <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col5 decl" id="195Slice" title='Slice' data-type='uint64_t' data-ref="195Slice">Slice</dfn> = *<a class="local col8 ref" href="#188p" title='p' data-ref="188p">p</a> &amp; <var>0x7f</var>;</td></tr>
+<tr><th id="145">145</th><td>    <b>if</b> (<a class="local col4 ref" href="#194Shift" title='Shift' data-ref="194Shift">Shift</a> &gt;= <var>64</var> || <a class="local col5 ref" href="#195Slice" title='Slice' data-ref="195Slice">Slice</a> &lt;&lt; <a class="local col4 ref" href="#194Shift" title='Shift' data-ref="194Shift">Shift</a> &gt;&gt; <a class="local col4 ref" href="#194Shift" title='Shift' data-ref="194Shift">Shift</a> != <a class="local col5 ref" href="#195Slice" title='Slice' data-ref="195Slice">Slice</a>) {</td></tr>
+<tr><th id="146">146</th><td>      <b>if</b> (<a class="local col1 ref" href="#191error" title='error' data-ref="191error">error</a>)</td></tr>
+<tr><th id="147">147</th><td>        *<a class="local col1 ref" href="#191error" title='error' data-ref="191error">error</a> = <q>"uleb128 too big for uint64"</q>;</td></tr>
+<tr><th id="148">148</th><td>      <b>if</b> (<a class="local col9 ref" href="#189n" title='n' data-ref="189n">n</a>)</td></tr>
+<tr><th id="149">149</th><td>        *<a class="local col9 ref" href="#189n" title='n' data-ref="189n">n</a> = (<em>unsigned</em>)(<a class="local col8 ref" href="#188p" title='p' data-ref="188p">p</a> - <a class="local col2 ref" href="#192orig_p" title='orig_p' data-ref="192orig_p">orig_p</a>);</td></tr>
+<tr><th id="150">150</th><td>      <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="151">151</th><td>    }</td></tr>
+<tr><th id="152">152</th><td>    <a class="local col3 ref" href="#193Value" title='Value' data-ref="193Value">Value</a> += <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a>(*<a class="local col8 ref" href="#188p" title='p' data-ref="188p">p</a> &amp; <var>0x7f</var>) &lt;&lt; <a class="local col4 ref" href="#194Shift" title='Shift' data-ref="194Shift">Shift</a>;</td></tr>
+<tr><th id="153">153</th><td>    <a class="local col4 ref" href="#194Shift" title='Shift' data-ref="194Shift">Shift</a> += <var>7</var>;</td></tr>
+<tr><th id="154">154</th><td>  } <b>while</b> (*<a class="local col8 ref" href="#188p" title='p' data-ref="188p">p</a>++ &gt;= <var>128</var>);</td></tr>
+<tr><th id="155">155</th><td>  <b>if</b> (<a class="local col9 ref" href="#189n" title='n' data-ref="189n">n</a>)</td></tr>
+<tr><th id="156">156</th><td>    *<a class="local col9 ref" href="#189n" title='n' data-ref="189n">n</a> = (<em>unsigned</em>)(<a class="local col8 ref" href="#188p" title='p' data-ref="188p">p</a> - <a class="local col2 ref" href="#192orig_p" title='orig_p' data-ref="192orig_p">orig_p</a>);</td></tr>
+<tr><th id="157">157</th><td>  <b>return</b> <a class="local col3 ref" href="#193Value" title='Value' data-ref="193Value">Value</a>;</td></tr>
+<tr><th id="158">158</th><td>}</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td><i class="doc">/// Utility function to decode a SLEB128 value.</i></td></tr>
+<tr><th id="161">161</th><td><b>inline</b> <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-intn.h.html#int64_t" title='int64_t' data-type='__int64_t' data-ref="int64_t">int64_t</a> <dfn class="decl def" id="_ZN4llvm13decodeSLEB128EPKhPjS1_PPKc" title='llvm::decodeSLEB128' data-ref="_ZN4llvm13decodeSLEB128EPKhPjS1_PPKc">decodeSLEB128</dfn>(<em>const</em> <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col6 decl" id="196p" title='p' data-type='const uint8_t *' data-ref="196p">p</dfn>, <em>unsigned</em> *<dfn class="local col7 decl" id="197n" title='n' data-type='unsigned int *' data-ref="197n">n</dfn> = <b>nullptr</b>,</td></tr>
+<tr><th id="162">162</th><td>                             <em>const</em> <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col8 decl" id="198end" title='end' data-type='const uint8_t *' data-ref="198end">end</dfn> = <b>nullptr</b>,</td></tr>
+<tr><th id="163">163</th><td>                             <em>const</em> <em>char</em> **<dfn class="local col9 decl" id="199error" title='error' data-type='const char **' data-ref="199error">error</dfn> = <b>nullptr</b>) {</td></tr>
+<tr><th id="164">164</th><td>  <em>const</em> <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col0 decl" id="200orig_p" title='orig_p' data-type='const uint8_t *' data-ref="200orig_p">orig_p</dfn> = <a class="local col6 ref" href="#196p" title='p' data-ref="196p">p</a>;</td></tr>
+<tr><th id="165">165</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-intn.h.html#int64_t" title='int64_t' data-type='__int64_t' data-ref="int64_t">int64_t</a> <dfn class="local col1 decl" id="201Value" title='Value' data-type='int64_t' data-ref="201Value">Value</dfn> = <var>0</var>;</td></tr>
+<tr><th id="166">166</th><td>  <em>unsigned</em> <dfn class="local col2 decl" id="202Shift" title='Shift' data-type='unsigned int' data-ref="202Shift">Shift</dfn> = <var>0</var>;</td></tr>
+<tr><th id="167">167</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col3 decl" id="203Byte" title='Byte' data-type='uint8_t' data-ref="203Byte">Byte</dfn>;</td></tr>
+<tr><th id="168">168</th><td>  <b>do</b> {</td></tr>
+<tr><th id="169">169</th><td>    <b>if</b> (<a class="local col8 ref" href="#198end" title='end' data-ref="198end">end</a> &amp;&amp; <a class="local col6 ref" href="#196p" title='p' data-ref="196p">p</a> == <a class="local col8 ref" href="#198end" title='end' data-ref="198end">end</a>) {</td></tr>
+<tr><th id="170">170</th><td>      <b>if</b> (<a class="local col9 ref" href="#199error" title='error' data-ref="199error">error</a>)</td></tr>
+<tr><th id="171">171</th><td>        *<a class="local col9 ref" href="#199error" title='error' data-ref="199error">error</a> = <q>"malformed sleb128, extends past end"</q>;</td></tr>
+<tr><th id="172">172</th><td>      <b>if</b> (<a class="local col7 ref" href="#197n" title='n' data-ref="197n">n</a>)</td></tr>
+<tr><th id="173">173</th><td>        *<a class="local col7 ref" href="#197n" title='n' data-ref="197n">n</a> = (<em>unsigned</em>)(<a class="local col6 ref" href="#196p" title='p' data-ref="196p">p</a> - <a class="local col0 ref" href="#200orig_p" title='orig_p' data-ref="200orig_p">orig_p</a>);</td></tr>
+<tr><th id="174">174</th><td>      <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="175">175</th><td>    }</td></tr>
+<tr><th id="176">176</th><td>    <a class="local col3 ref" href="#203Byte" title='Byte' data-ref="203Byte">Byte</a> = *<a class="local col6 ref" href="#196p" title='p' data-ref="196p">p</a>++;</td></tr>
+<tr><th id="177">177</th><td>    <a class="local col1 ref" href="#201Value" title='Value' data-ref="201Value">Value</a> |= (<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-intn.h.html#int64_t" title='int64_t' data-type='__int64_t' data-ref="int64_t">int64_t</a>(<a class="local col3 ref" href="#203Byte" title='Byte' data-ref="203Byte">Byte</a> &amp; <var>0x7f</var>) &lt;&lt; <a class="local col2 ref" href="#202Shift" title='Shift' data-ref="202Shift">Shift</a>);</td></tr>
+<tr><th id="178">178</th><td>    <a class="local col2 ref" href="#202Shift" title='Shift' data-ref="202Shift">Shift</a> += <var>7</var>;</td></tr>
+<tr><th id="179">179</th><td>  } <b>while</b> (<a class="local col3 ref" href="#203Byte" title='Byte' data-ref="203Byte">Byte</a> &gt;= <var>128</var>);</td></tr>
+<tr><th id="180">180</th><td>  <i>// Sign extend negative numbers.</i></td></tr>
+<tr><th id="181">181</th><td>  <b>if</b> (<a class="local col3 ref" href="#203Byte" title='Byte' data-ref="203Byte">Byte</a> &amp; <var>0x40</var>)</td></tr>
+<tr><th id="182">182</th><td>    <a class="local col1 ref" href="#201Value" title='Value' data-ref="201Value">Value</a> |= (-<var>1ULL</var>) &lt;&lt; <a class="local col2 ref" href="#202Shift" title='Shift' data-ref="202Shift">Shift</a>;</td></tr>
+<tr><th id="183">183</th><td>  <b>if</b> (<a class="local col7 ref" href="#197n" title='n' data-ref="197n">n</a>)</td></tr>
+<tr><th id="184">184</th><td>    *<a class="local col7 ref" href="#197n" title='n' data-ref="197n">n</a> = (<em>unsigned</em>)(<a class="local col6 ref" href="#196p" title='p' data-ref="196p">p</a> - <a class="local col0 ref" href="#200orig_p" title='orig_p' data-ref="200orig_p">orig_p</a>);</td></tr>
+<tr><th id="185">185</th><td>  <b>return</b> <a class="local col1 ref" href="#201Value" title='Value' data-ref="201Value">Value</a>;</td></tr>
+<tr><th id="186">186</th><td>}</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td><i class="doc">/// Utility function to get the size of the ULEB128-encoded value.</i></td></tr>
+<tr><th id="189">189</th><td><b>extern</b> <em>unsigned</em> <dfn class="decl" id="_ZN4llvm14getULEB128SizeEm" title='llvm::getULEB128Size' data-ref="_ZN4llvm14getULEB128SizeEm">getULEB128Size</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col4 decl" id="204Value" title='Value' data-type='uint64_t' data-ref="204Value">Value</dfn>);</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td><i class="doc">/// Utility function to get the size of the SLEB128-encoded value.</i></td></tr>
+<tr><th id="192">192</th><td><b>extern</b> <em>unsigned</em> <dfn class="decl" id="_ZN4llvm14getSLEB128SizeEl" title='llvm::getSLEB128Size' data-ref="_ZN4llvm14getSLEB128SizeEl">getSLEB128Size</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-intn.h.html#int64_t" title='int64_t' data-type='__int64_t' data-ref="int64_t">int64_t</a> <dfn class="local col5 decl" id="205Value" title='Value' data-type='int64_t' data-ref="205Value">Value</dfn>);</td></tr>
+<tr><th id="193">193</th><td></td></tr>
+<tr><th id="194">194</th><td>} <i>// namespace llvm</i></td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td><u>#<span data-ppcond="14">endif</span> // LLVM_SYSTEM_LEB128_H</u></td></tr>
+<tr><th id="197">197</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../lld/COFF/Driver.cpp.html'>llvm/lld/COFF/Driver.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

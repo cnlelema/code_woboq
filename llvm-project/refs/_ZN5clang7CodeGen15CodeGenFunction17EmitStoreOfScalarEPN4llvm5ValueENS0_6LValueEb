@@ -1,0 +1,61 @@
+<dec f='llvm/clang/lib/CodeGen/CodeGenFunction.h' l='3476' type='void clang::CodeGen::CodeGenFunction::EmitStoreOfScalar(llvm::Value * value, clang::CodeGen::LValue lvalue, bool isInit = false)'/>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='426' u='c' c='_ZL17emitAtomicCmpXchgRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_mN4llvm14AtomicOrderingES7_h'/>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='886' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='1632' u='c' c='_ZNK12_GLOBAL__N_110AtomicInfo18emitCopyIntoMemoryEN5clang7CodeGen6RValueE'/>
+<doc f='llvm/clang/lib/CodeGen/CodeGenFunction.h' l='3471'>/// EmitStoreOfScalar - Store a scalar value to an address, taking
+  /// care to appropriately convert from the memory representation to
+  /// the LLVM value representation.  The l-value must be a simple
+  /// l-value.  The isInit flag indicates whether this is an initialization.
+  /// If so, atomic qualifiers are ignored and the store is always non-atomic.</doc>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='157' u='c' c='_ZL20EmitNontemporalStoreRN5clang7CodeGen15CodeGenFunctionEPKNS_8CallExprEj'/>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='2910' u='c' c='_ZN5clang7CodeGen15CodeGenFunction18EmitFunctionEpilogERKNS0_14CGFunctionInfoEbNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='3224' u='c' c='_ZL13emitWritebackRN5clang7CodeGen15CodeGenFunctionERKNS0_11CallArgList9WritebackE'/>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='3606' u='c' c='_ZNK5clang7CodeGen7CallArg8copyIntoERNS0_15CodeGenFunctionENS0_7AddressE'/>
+<use f='llvm/clang/lib/CodeGen/CGDecl.cpp' l='806' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitScalarInitEPKNS_4ExprEPKNS_9ValueDeclENS0_6LValueEb'/>
+<use f='llvm/clang/lib/CodeGen/CGDecl.cpp' l='865' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitScalarInitEPKNS_4ExprEPKNS_9ValueDeclENS0_6LValueEb'/>
+<use f='llvm/clang/lib/CodeGen/CGDecl.cpp' l='870' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitScalarInitEPKNS_4ExprEPKNS_9ValueDeclENS0_6LValueEb'/>
+<use f='llvm/clang/lib/CodeGen/CGDecl.cpp' l='2474' u='c' c='_ZN5clang7CodeGen15CodeGenFunction12EmitParmDeclERKNS_7VarDeclENS1_10ParamValueEj'/>
+<use f='llvm/clang/lib/CodeGen/CGDecl.cpp' l='2506' u='c' c='_ZN5clang7CodeGen15CodeGenFunction12EmitParmDeclERKNS_7VarDeclENS1_10ParamValueEj'/>
+<def f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='2630' ll='2635' type='void clang::CodeGen::CodeGenFunction::EmitStoreOfScalar(llvm::Value * value, clang::CodeGen::LValue lvalue, bool isInit = false)'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='2887' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitStoreThroughLValueENS0_6RValueENS0_6LValueEb'/>
+<use f='llvm/clang/lib/CodeGen/CGExprAgg.cpp' l='1427' u='c' c='_ZN12_GLOBAL__N_114AggExprEmitter30EmitNullInitializationToLValueEN5clang7CodeGen6LValueE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprComplex.cpp' l='945' u='c' c='_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitCompoundAssignLValueEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEERNS1_7CodeGen6RValueE'/>
+<use f='llvm/clang/lib/CodeGen/CGNonTrivialStruct.cpp' l='680' u='c' c='_ZN12_GLOBAL__N_118GenCopyConstructor14visitARCStrongEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE'/>
+<use f='llvm/clang/lib/CodeGen/CGNonTrivialStruct.cpp' l='710' u='c' c='_ZN12_GLOBAL__N_118GenMoveConstructor14visitARCStrongEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE'/>
+<use f='llvm/clang/lib/CodeGen/CGNonTrivialStruct.cpp' l='711' u='c' c='_ZN12_GLOBAL__N_118GenMoveConstructor14visitARCStrongEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE'/>
+<use f='llvm/clang/lib/CodeGen/CGNonTrivialStruct.cpp' l='773' u='c' c='_ZN12_GLOBAL__N_117GenMoveAssignment14visitARCStrongEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE'/>
+<use f='llvm/clang/lib/CodeGen/CGNonTrivialStruct.cpp' l='777' u='c' c='_ZN12_GLOBAL__N_117GenMoveAssignment14visitARCStrongEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE'/>
+<use f='llvm/clang/lib/CodeGen/CGObjC.cpp' l='2329' u='c' c='_ZN5clang7CodeGen15CodeGenFunction18EmitARCStoreStrongENS0_6LValueEPN4llvm5ValueEb'/>
+<use f='llvm/clang/lib/CodeGen/CGObjC.cpp' l='2739' u='c' c='_ZL28tryEmitARCRetainLoadOfScalarRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGObjC.cpp' l='3396' u='c' c='_ZN5clang7CodeGen15CodeGenFunction28EmitARCStoreUnsafeUnretainedEPKNS_14BinaryOperatorEb'/>
+<use f='llvm/clang/lib/CodeGen/CGObjC.cpp' l='3423' u='c' c='_ZN5clang7CodeGen15CodeGenFunction18EmitARCStoreStrongEPKNS_14BinaryOperatorEb'/>
+<use f='llvm/clang/lib/CodeGen/CGObjC.cpp' l='3437' u='c' c='_ZN5clang7CodeGen15CodeGenFunction25EmitARCStoreAutoreleasingEPKNS_14BinaryOperatorE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='169' u='c' c='_ZNK12_GLOBAL__N_130CGOpenMPTaskOutlinedRegionInfo18UntiedTaskActionTy16emitUntiedSwitchERN5clang7CodeGen15CodeGenFunctionE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='1612' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime18emitUpdateLocationERNS0_15CodeGenFunctionENS_14SourceLocationEj'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='3000' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime19emitThreadIDAddressERNS0_15CodeGenFunctionENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='4733' u='c' c='_ZL30emitTaskPrivateMappingFunctionRN5clang7CodeGen13CodeGenModuleENS_14SourceLocationEN4llvm8ArrayRefIPKNS_4ExprEEES9_S9_NS_8QualTypeENS5_ISt4pairINS12537227'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='4915' u='c' c='_ZL19emitTaskDupFunctionRN5clang7CodeGen13CodeGenModuleENS_14SourceLocationERKNS_22OMPExecutableDirectiveENS_8QualTypeEPKNS_10RecordDeclESA_S7_S7_RKNS7758749'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='5139' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime12emitTaskInitERNS0_15CodeGenFunctionENS_14SourceLocationERKNS_22OMPExecutableDirectiveEPN4llvm8FunctionENS_8QualTyp4207165'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='5149' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime12emitTaskInitERNS0_15CodeGenFunctionENS_14SourceLocationERKNS_22OMPExecutableDirectiveEPN4llvm8FunctionENS_8QualTyp4207165'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='5229' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime12emitTaskCallERNS0_15CodeGenFunctionENS_14SourceLocationERKNS_22OMPExecutableDirectiveEPN4llvm8FunctionENS_8QualTyp8058084'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='5235' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime12emitTaskCallERNS0_15CodeGenFunctionENS_14SourceLocationERKNS_22OMPExecutableDirectiveEPN4llvm8FunctionENS_8QualTyp8058084'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='5257' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime12emitTaskCallERNS0_15CodeGenFunctionENS_14SourceLocationERKNS_22OMPExecutableDirectiveEPN4llvm8FunctionENS_8QualTyp8058084'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='5289' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime12emitTaskCallERNS0_15CodeGenFunctionENS_14SourceLocationERKNS_22OMPExecutableDirectiveEPN4llvm8FunctionENS_8QualTyp8058084'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='5405' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime16emitTaskLoopCallERNS0_15CodeGenFunctionENS_14SourceLocationERKNS_16OMPLoopDirectiveEPN4llvm8FunctionENS_8QualTypeE8031297'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='6214' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime21emitTaskReductionInitERNS0_15CodeGenFunctionENS_14SourceLocationEN4llvm8ArrayRefIPKNS_4ExprEEESA_RKNS0_13OMPTaskDataTyE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='6229' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime21emitTaskReductionInitERNS0_15CodeGenFunctionENS_14SourceLocationEN4llvm8ArrayRefIPKNS_4ExprEEESA_RKNS0_13OMPTaskDataTyE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='6234' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime21emitTaskReductionInitERNS0_15CodeGenFunctionENS_14SourceLocationEN4llvm8ArrayRefIPKNS_4ExprEEESA_RKNS0_13OMPTaskDataTyE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='6242' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime21emitTaskReductionInitERNS0_15CodeGenFunctionENS_14SourceLocationEN4llvm8ArrayRefIPKNS_4ExprEEESA_RKNS0_13OMPTaskDataTyE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='6248' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime21emitTaskReductionInitERNS0_15CodeGenFunctionENS_14SourceLocationEN4llvm8ArrayRefIPKNS_4ExprEEESA_RKNS0_13OMPTaskDataTyE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='6252' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime21emitTaskReductionInitERNS0_15CodeGenFunctionENS_14SourceLocationEN4llvm8ArrayRefIPKNS_4ExprEEESA_RKNS0_13OMPTaskDataTyE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='10297' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime16emitDoacrossInitERNS0_15CodeGenFunctionERKNS_16OMPLoopDirectiveEN4llvm8ArrayRefIPNS_4ExprEEE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='10301' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime16emitDoacrossInitERNS0_15CodeGenFunctionERKNS_16OMPLoopDirectiveEN4llvm8ArrayRefIPNS_4ExprEEE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntimeNVPTX.cpp' l='2305' u='c' c='_ZN5clang7CodeGen20CGOpenMPRuntimeNVPTX21emitGenericVarsPrologERNS0_15CodeGenFunctionENS_14SourceLocationEb'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntimeNVPTX.cpp' l='2712' u='c' c='_ZN5clang7CodeGen20CGOpenMPRuntimeNVPTX18emitCriticalRegionERNS0_15CodeGenFunctionEN4llvm9StringRefERKNS0_15RegionCodeGenTyENS_14SourceLocationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntimeNVPTX.cpp' l='2746' u='c' c='_ZN5clang7CodeGen20CGOpenMPRuntimeNVPTX18emitCriticalRegionERNS0_15CodeGenFunctionEN4llvm9StringRefERKNS0_15RegionCodeGenTyENS_14SourceLocationEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntimeNVPTX.cpp' l='3641' u='c' c='_ZL28emitListToGlobalCopyFunctionRN5clang7CodeGen13CodeGenModuleEN4llvm8ArrayRefIPKNS_4ExprEEENS_8QualTypeENS_14SourceLocationEPKNS_10RecordDeclERKNS311449663'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='2090' u='c' c='_ZL36emitDistributeParallelForInnerBoundsRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='2091' u='c' c='_ZL36emitDistributeParallelForInnerBoundsRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='2624' u='c' c='_ZN5clang7CodeGen15CodeGenFunction12EmitSectionsERKNS_22OMPExecutableDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='2626' u='c' c='_ZN5clang7CodeGen15CodeGenFunction12EmitSectionsERKNS_22OMPExecutableDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/ItaniumCXXABI.cpp' l='4229' u='c' c='_ZL14InitCatchParamRN5clang7CodeGen15CodeGenFunctionERKNS_7VarDeclENS0_7AddressENS_14SourceLocationE'/>

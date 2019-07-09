@@ -1,0 +1,34 @@
+<dec f='llvm/clang/include/clang-c/Documentation.h' l='530' type='CXString clang_FullComment_getAsHTML(CXComment Comment)'/>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='711' u='c' c='PrintCursorComments'/>
+<doc f='llvm/clang/include/clang-c/Documentation.h' l='499'>/**
+ * Convert a given full parsed comment to an HTML fragment.
+ *
+ * Specific details of HTML layout are subject to change.  Don&apos;t try to parse
+ * this HTML back into an AST, use other APIs instead.
+ *
+ * Currently the following CSS classes are used:
+ * \li &quot;para-brief&quot; for \paragraph and equivalent commands;
+ * \li &quot;para-returns&quot; for \\returns paragraph and equivalent commands;
+ * \li &quot;word-returns&quot; for the &quot;Returns&quot; word in \\returns paragraph.
+ *
+ * Function argument documentation is rendered as a \&lt;dl\&gt; list with arguments
+ * sorted in function prototype order.  CSS classes used:
+ * \li &quot;param-name-index-NUMBER&quot; for parameter name (\&lt;dt\&gt;);
+ * \li &quot;param-descr-index-NUMBER&quot; for parameter description (\&lt;dd\&gt;);
+ * \li &quot;param-name-index-invalid&quot; and &quot;param-descr-index-invalid&quot; are used if
+ * parameter index is invalid.
+ *
+ * Template parameter documentation is rendered as a \&lt;dl\&gt; list with
+ * parameters sorted in template parameter list order.  CSS classes used:
+ * \li &quot;tparam-name-index-NUMBER&quot; for parameter name (\&lt;dt\&gt;);
+ * \li &quot;tparam-descr-index-NUMBER&quot; for parameter description (\&lt;dd\&gt;);
+ * \li &quot;tparam-name-index-other&quot; and &quot;tparam-descr-index-other&quot; are used for
+ * names inside template template parameters;
+ * \li &quot;tparam-name-index-invalid&quot; and &quot;tparam-descr-index-invalid&quot; are used if
+ * parameter position is invalid.
+ *
+ * \param Comment a \c CXComment_FullComment AST node.
+ *
+ * \returns string containing an HTML fragment.
+ */</doc>
+<def f='llvm/clang/tools/libclang/CXComment.cpp' l='376' ll='389' type='CXString clang_FullComment_getAsHTML(CXComment CXC)'/>

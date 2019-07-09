@@ -1,0 +1,10 @@
+<dec f='llvm/clang/include/clang/AST/DeclBase.h' l='2203' type='void clang::DeclContext::addDeclInternal(clang::Decl * D)'/>
+<doc f='llvm/clang/include/clang/AST/DeclBase.h' l='2195'>/// Add the declaration D into this context, but suppress
+  /// searches for external declarations with the same name.
+  ///
+  /// Although analogous in function to addDecl, this removes an
+  /// important check.  This is only useful if the Decl is being
+  /// added in response to an external search; in all other cases,
+  /// addDecl() is the right function to use.
+  /// See the ASTImporter for use cases.</doc>
+<def f='llvm/clang/lib/AST/DeclBase.cpp' l='1521' ll='1527' type='void clang::DeclContext::addDeclInternal(clang::Decl * D)'/>

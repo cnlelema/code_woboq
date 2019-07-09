@@ -1,0 +1,78 @@
+<def f='llvm/llvm/include/llvm/MC/MCInstrDesc.h' l='164' ll='604'/>
+<size>64</size>
+<doc f='llvm/llvm/include/llvm/MC/MCInstrDesc.h' l='159'>/// Describe properties that are true of each instruction in the target
+/// description file.  This captures information about side effects, register
+/// use and many other things.  There is one instance of this struct for each
+/// target instruction class, and the MachineInstr class points to this struct
+/// directly to describe itself.</doc>
+<mbr r='llvm::MCInstrDesc::Opcode' o='0' t='unsigned short'/>
+<mbr r='llvm::MCInstrDesc::NumOperands' o='16' t='unsigned short'/>
+<mbr r='llvm::MCInstrDesc::NumDefs' o='32' t='unsigned char'/>
+<mbr r='llvm::MCInstrDesc::Size' o='40' t='unsigned char'/>
+<mbr r='llvm::MCInstrDesc::SchedClass' o='48' t='unsigned short'/>
+<mbr r='llvm::MCInstrDesc::Flags' o='64' t='uint64_t'/>
+<mbr r='llvm::MCInstrDesc::TSFlags' o='128' t='uint64_t'/>
+<mbr r='llvm::MCInstrDesc::ImplicitUses' o='192' t='const MCPhysReg *'/>
+<mbr r='llvm::MCInstrDesc::ImplicitDefs' o='256' t='const MCPhysReg *'/>
+<mbr r='llvm::MCInstrDesc::OpInfo' o='320' t='const llvm::MCOperandInfo *'/>
+<mbr r='llvm::MCInstrDesc::DeprecatedFeature' o='384' t='int64_t'/>
+<mbr r='llvm::MCInstrDesc::ComplexDeprecationInfo' o='448' t='bool (*)(llvm::MCInst &amp;, const llvm::MCSubtargetInfo &amp;, std::string &amp;)'/>
+<fun r='_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE'/>
+<fun r='_ZNK4llvm11MCInstrDesc17getDeprecatedInfoERNS_6MCInstERKNS_15MCSubtargetInfoERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZNK4llvm11MCInstrDesc9getOpcodeEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc14getNumOperandsEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc12opInfo_beginEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc10opInfo_endEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc8operandsEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc10getNumDefsEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc8getFlagsEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc10isVariadicEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc14hasOptionalDefEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc8isPseudoEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc8isReturnEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc5isAddEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc6isTrapEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc9isMoveRegEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc6isCallEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc9isBarrierEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc12isTerminatorEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc8isBranchEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc16isIndirectBranchEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc19isConditionalBranchEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc21isUnconditionalBranchEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc20mayAffectControlFlowERKNS_6MCInstERKNS_14MCRegisterInfoE'/>
+<fun r='_ZNK4llvm11MCInstrDesc12isPredicableEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc9isCompareEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc15isMoveImmediateEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc9isBitcastEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc8isSelectEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc15isNotDuplicableEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc12hasDelaySlotEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc13canFoldAsLoadEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc17isRegSequenceLikeEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc19isExtractSubregLikeEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc18isInsertSubregLikeEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc12isConvergentEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc18variadicOpsAreDefsEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc7mayLoadEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc8mayStoreEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc19mayRaiseFPExceptionEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc23hasUnmodeledSideEffectsEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc12isCommutableEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc20isConvertibleTo3AddrEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc23usesCustomInsertionHookEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc15hasPostISelHookEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc18isRematerializableEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc16isAsCheapAsAMoveEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc22hasExtraSrcRegAllocReqEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc22hasExtraDefRegAllocReqEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc15getImplicitUsesEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc18getNumImplicitUsesEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc15getImplicitDefsEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc18getNumImplicitDefsEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegEj'/>
+<fun r='_ZNK4llvm11MCInstrDesc23hasImplicitDefOfPhysRegEjPKNS_14MCRegisterInfoE'/>
+<fun r='_ZNK4llvm11MCInstrDesc13getSchedClassEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc7getSizeEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc23findFirstPredOperandIdxEv'/>
+<fun r='_ZNK4llvm11MCInstrDesc15hasDefOfPhysRegERKNS_6MCInstEjRKNS_14MCRegisterInfoE'/>

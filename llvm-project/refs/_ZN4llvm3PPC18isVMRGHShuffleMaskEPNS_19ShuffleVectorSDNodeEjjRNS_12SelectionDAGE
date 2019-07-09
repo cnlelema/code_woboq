@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.h' l='504' type='bool llvm::PPC::isVMRGHShuffleMask(llvm::ShuffleVectorSDNode * N, unsigned int UnitSize, unsigned int ShuffleKind, llvm::SelectionDAG &amp; DAG)'/>
+<doc f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.h' l='502'>/// isVMRGHShuffleMask - Return true if this is a shuffle mask suitable for
+    /// a VRGH* instruction with the specified unit size (1,2 or 4 bytes).</doc>
+<def f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='1615' ll='1632' type='bool llvm::PPC::isVMRGHShuffleMask(llvm::ShuffleVectorSDNode * N, unsigned int UnitSize, unsigned int ShuffleKind, llvm::SelectionDAG &amp; DAG)'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='8836' u='c' c='_ZNK4llvm17PPCTargetLowering19LowerVECTOR_SHUFFLEENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='8837' u='c' c='_ZNK4llvm17PPCTargetLowering19LowerVECTOR_SHUFFLEENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='8838' u='c' c='_ZNK4llvm17PPCTargetLowering19LowerVECTOR_SHUFFLEENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='8857' u='c' c='_ZNK4llvm17PPCTargetLowering19LowerVECTOR_SHUFFLEENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='8858' u='c' c='_ZNK4llvm17PPCTargetLowering19LowerVECTOR_SHUFFLEENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='8859' u='c' c='_ZNK4llvm17PPCTargetLowering19LowerVECTOR_SHUFFLEENS_7SDValueERNS_12SelectionDAGE'/>
+<doc f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='1609'>/// isVMRGHShuffleMask - Return true if this is a shuffle mask suitable for
+/// a VMRGH* instruction with the specified unit size (1,2 or 4 bytes).
+/// The ShuffleKind distinguishes between big-endian merges with two
+/// different inputs (0), either-endian merges with two identical inputs (1),
+/// and little-endian merges with two different inputs (2).  For the latter,
+/// the input operands are swapped (see PPCInstrAltivec.td).</doc>

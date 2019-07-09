@@ -1,0 +1,6 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Scalar/Reassociate.h' l='125' type='llvm::Instruction * llvm::ReassociatePass::canonicalizeNegConstExpr(llvm::Instruction * I)'/>
+<def f='llvm/llvm/lib/Transforms/Scalar/Reassociate.cpp' l='1938' ll='2017' type='llvm::Instruction * llvm::ReassociatePass::canonicalizeNegConstExpr(llvm::Instruction * I)'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/Reassociate.cpp' l='2040' u='c' c='_ZN4llvm15ReassociatePass12OptimizeInstEPNS_11InstructionE'/>
+<doc f='llvm/llvm/lib/Transforms/Scalar/Reassociate.cpp' l='1935'>// Canonicalize expressions of the following form:
+//  x + (-Constant * y) -&gt; x - (Constant * y)
+//  x - (-Constant * y) -&gt; x + (Constant * y)</doc>

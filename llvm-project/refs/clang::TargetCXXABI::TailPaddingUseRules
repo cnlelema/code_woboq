@@ -1,0 +1,17 @@
+<def f='llvm/clang/include/clang/Basic/TargetCXXABI.h' l='292' ll='306'/>
+<doc f='llvm/clang/include/clang/Basic/TargetCXXABI.h' l='276'>/// When is record layout allowed to allocate objects in the tail
+  /// padding of a base class?
+  ///
+  /// This decision cannot be changed without breaking platform ABI
+  /// compatibility, and yet it is tied to language guarantees which
+  /// the committee has so far seen fit to strengthen no less than
+  /// three separate times:
+  ///   - originally, there were no restrictions at all;
+  ///   - C++98 declared that objects could not be allocated in the
+  ///     tail padding of a POD type;
+  ///   - C++03 extended the definition of POD to include classes
+  ///     containing member pointers; and
+  ///   - C++11 greatly broadened the definition of POD to include
+  ///     all trivial standard-layout classes.
+  /// Each of these changes technically took several existing
+  /// platforms and made them permanently non-conformant.</doc>

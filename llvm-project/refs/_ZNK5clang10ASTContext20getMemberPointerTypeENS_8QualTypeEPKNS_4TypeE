@@ -1,0 +1,22 @@
+<dec f='llvm/clang/include/clang/AST/ASTContext.h' l='1335' type='clang::QualType clang::ASTContext::getMemberPointerType(clang::QualType T, const clang::Type * Cls) const'/>
+<doc f='llvm/clang/include/clang/AST/ASTContext.h' l='1331'>/// Return the uniqued reference to the type for a member pointer to
+  /// the specified type in the specified class.
+  ///
+  /// The class \p Cls is a \c Type because it could be a dependent name.</doc>
+<def f='llvm/clang/lib/AST/ASTContext.cpp' l='3136' ll='3162' type='clang::QualType clang::ASTContext::getMemberPointerType(clang::QualType T, const clang::Type * Cls) const'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='3151' u='c' c='_ZNK5clang10ASTContext20getMemberPointerTypeENS_8QualTypeEPKNS_4TypeE'/>
+<doc f='llvm/clang/lib/AST/ASTContext.cpp' l='3134'>/// getMemberPointerType - Return the uniqued reference to the type for a
+/// member pointer to the specified type, in the specified class.</doc>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='1065' u='c' c='_ZN5clang15ASTNodeImporter22VisitMemberPointerTypeEPKNS_17MemberPointerTypeE'/>
+<use f='llvm/clang/lib/AST/QualTypeNames.cpp' l='391' u='c' c='_ZN5clang8TypeName21getFullyQualifiedTypeENS_8QualTypeERKNS_10ASTContextEb'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='881' u='c' c='_ZN12_GLOBAL__N_122SimpleTransformVisitor22VisitMemberPointerTypeEPKN5clang17MemberPointerTypeE'/>
+<use f='llvm/clang/lib/CodeGen/MicrosoftCXXABI.cpp' l='2745' u='c' c='_ZN12_GLOBAL__N_115MicrosoftCXXABI17EmitMemberPointerERKN5clang7APValueENS1_8QualTypeEPNS1_7CodeGen15CodeGenFunctionE'/>
+<use f='llvm/clang/lib/CodeGen/MicrosoftCXXABI.cpp' l='3784' u='c' c='_ZL18decomposeTypeForEHRN5clang10ASTContextENS_8QualTypeERbS3_S3_'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='6282' u='c' c='_ZN5clang4Sema24FindCompositePointerTypeENS_14SourceLocationERPNS_4ExprES4_b'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='6284' u='c' c='_ZN5clang4Sema24FindCompositePointerTypeENS_14SourceLocationERPNS_4ExprES4_b'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='1664' u='c' c='_ZL20IsStandardConversionRN5clang4SemaEPNS_4ExprENS_8QualTypeEbRNS_26StandardConversionSequenceEbb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='3021' u='c' c='_ZN5clang4Sema25IsMemberPointerConversionEPNS_4ExprENS_8QualTypeES3_bRS3_'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='7594' u='c' c='_ZN12_GLOBAL__N_123BuiltinCandidateTypeSet45AddMemberPointerWithMoreQualifiedTypeVariantsEN5clang8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='2641' u='c' c='_ZN5clang4Sema22BuildMemberPointerTypeENS_8QualTypeES1_NS_14SourceLocationENS_15DeclarationNameE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='6467' u='c' c='_ZN12_GLOBAL__N_121FunctionTypeUnwrapper4wrapERN5clang10ASTContextEPKNS1_4TypeEj'/>
+<use f='llvm/clang/lib/Serialization/ASTReader.cpp' l='6027' u='c' c='_ZN5clang9ASTReader14readTypeRecordEj'/>

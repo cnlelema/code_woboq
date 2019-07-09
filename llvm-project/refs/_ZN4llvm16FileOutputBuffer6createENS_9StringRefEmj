@@ -1,0 +1,27 @@
+<dec f='llvm/llvm/include/llvm/Support/FileOutputBuffer.h' l='47' type='static Expected&lt;std::unique_ptr&lt;FileOutputBuffer&gt; &gt; llvm::FileOutputBuffer::create(llvm::StringRef FilePath, size_t Size, unsigned int Flags = 0)'/>
+<doc f='llvm/llvm/include/llvm/Support/FileOutputBuffer.h' l='37'>/// Factory method to create an OutputBuffer object which manages a read/write
+  /// buffer of the specified size. When committed, the buffer will be written
+  /// to the file at the specified path.
+  ///
+  /// When F_modify is specified and \p FilePath refers to an existing on-disk
+  /// file \p Size may be set to -1, in which case the entire file is used.
+  /// Otherwise, the file shrinks or grows as necessary based on the value of
+  /// \p Size.  It is an error to specify F_modify and Size=-1 if \p FilePath
+  /// does not exist.</doc>
+<use f='llvm/lld/COFF/Writer.cpp' l='1410' u='c' c='_ZN12_GLOBAL__N_16Writer8openFileEN4llvm9StringRefE'/>
+<use f='llvm/lld/Common/Filesystem.cpp' l='98' u='c' c='_ZN3lld13tryCreateFileEN4llvm9StringRefE'/>
+<use f='llvm/lld/ELF/Writer.cpp' l='2733' u='c' c='_ZN12_GLOBAL__N_16Writer8openFileEv'/>
+<use f='llvm/lld/lib/ReaderWriter/MachO/MachONormalizedFileBinaryWriter.cpp' l='1533' u='c' c='_ZN3lld6mach_o10normalized15MachOFileLayout11writeBinaryEN4llvm9StringRefE'/>
+<use f='llvm/lld/wasm/Writer.cpp' l='838' u='c' c='_ZN12_GLOBAL__N_16Writer8openFileEv'/>
+<use f='llvm/llvm/lib/DebugInfo/MSF/MSFBuilder.cpp' l='347' u='c' c='_ZN4llvm3msf10MSFBuilder6commitENS_9StringRefERNS0_9MSFLayoutE'/>
+<def f='llvm/llvm/lib/Support/FileOutputBuffer.cpp' l='164' ll='195' type='static Expected&lt;std::unique_ptr&lt;FileOutputBuffer&gt; &gt; llvm::FileOutputBuffer::create(llvm::StringRef Path, size_t Size, unsigned int Flags = 0)'/>
+<doc f='llvm/llvm/lib/Support/FileOutputBuffer.cpp' l='163'>// Create an instance of FileOutputBuffer.</doc>
+<use f='llvm/llvm/tools/llvm-cvtres/llvm-cvtres.cpp' l='200' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-mt/llvm-mt.cpp' l='151' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-objcopy/Buffer.cpp' l='39' u='c' c='_ZN4llvm7objcopy10FileBuffer8allocateEm'/>
+<use f='llvm/llvm/tools/llvm-objcopy/ELF/ELFObjcopy.cpp' l='291' u='c' c='_ZN4llvm7objcopy3elfL17dumpSectionToFileENS_9StringRefES2_RNS1_6ObjectE'/>
+<use f='llvm/llvm/tools/llvm-pdbutil/llvm-pdbutil.cpp' l='1390' u='c' c='_ZL12exportStreamv'/>
+<use f='llvm/llvm/unittests/Support/FileOutputBufferTest.cpp' l='46' u='c' c='_ZN12_GLOBAL__N_126FileOutputBuffer_Test_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/FileOutputBufferTest.cpp' l='68' u='c' c='_ZN12_GLOBAL__N_126FileOutputBuffer_Test_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/FileOutputBufferTest.cpp' l='85' u='c' c='_ZN12_GLOBAL__N_126FileOutputBuffer_Test_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/FileOutputBufferTest.cpp' l='106' u='c' c='_ZN12_GLOBAL__N_126FileOutputBuffer_Test_Test8TestBodyEv'/>

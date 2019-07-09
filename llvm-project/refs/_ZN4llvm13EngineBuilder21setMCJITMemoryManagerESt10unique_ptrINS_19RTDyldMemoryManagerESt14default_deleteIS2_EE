@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/ExecutionEngine/ExecutionEngine.h' l='566' type='llvm::EngineBuilder &amp; llvm::EngineBuilder::setMCJITMemoryManager(std::unique_ptr&lt;RTDyldMemoryManager&gt; mcjmm)'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/ExecutionEngine.h' l='560'>/// setMCJITMemoryManager - Sets the MCJIT memory manager to use. This allows
+  /// clients to customize their memory allocation policies for the MCJIT. This
+  /// is only appropriate for the MCJIT; setting this and configuring the builder
+  /// to create anything other than MCJIT will cause a runtime error. If create()
+  /// is called and is successful, the created engine takes ownership of the
+  /// memory manager. This option defaults to NULL.</doc>
+<use f='llvm/clang/tools/clang-fuzzer/handle-llvm/handle_llvm.cpp' l='163' u='c' c='_ZL19CreateAndRunJITFuncRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm10CodeGenOpt5LevelE'/>
+<def f='llvm/llvm/lib/ExecutionEngine/ExecutionEngine.cpp' l='490' ll='496' type='llvm::EngineBuilder &amp; llvm::EngineBuilder::setMCJITMemoryManager(std::unique_ptr&lt;RTDyldMemoryManager&gt; mcjmm)'/>
+<use f='llvm/llvm/lib/ExecutionEngine/ExecutionEngineBindings.cpp' l='206' u='c' c='LLVMCreateMCJITCompilerForModule'/>
+<use f='llvm/llvm/tools/lli/lli.cpp' l='438' u='c' c='main'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/MCJIT/MCJITTestBase.h' l='310' u='c' c='_ZN4llvm13MCJITTestBase9createJITESt10unique_ptrINS_6ModuleESt14default_deleteIS2_EE'/>

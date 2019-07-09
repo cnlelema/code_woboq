@@ -1,0 +1,24 @@
+<dec f='llvm/llvm/lib/AsmParser/LLParser.h' l='508' type='bool llvm::LLParser::ParseValID(llvm::ValID &amp; ID, llvm::LLParser::PerFunctionState * PFS = nullptr)'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='909' u='c' c='_ZN4llvm8LLParser19parseIndirectSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SMLocEjjjbNS_11GlobalValue15ThreadLocalModeENSA_11UnnamedAddrE'/>
+<def f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='3040' ll='3627' type='bool llvm::LLParser::ParseValID(llvm::ValID &amp; ID, llvm::LLParser::PerFunctionState * PFS = nullptr)'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='3207' u='c' c='_ZN4llvm8LLParser10ParseValIDERNS_5ValIDEPNS0_16PerFunctionStateE'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='3209' u='c' c='_ZN4llvm8LLParser10ParseValIDERNS_5ValIDEPNS0_16PerFunctionStateE'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='3634' u='c' c='_ZN4llvm8LLParser16ParseGlobalValueEPNS_4TypeERPNS_8ConstantE'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='5224' u='c' c='_ZN4llvm8LLParser18parseConstantValueEPNS_4TypeERPNS_8ConstantE'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='5251' u='c' c='_ZN4llvm8LLParser10ParseValueEPNS_4TypeERPNS_5ValueEPNS0_16PerFunctionStateE'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='6016' u='c' c='_ZN4llvm8LLParser11ParseInvokeERPNS_11InstructionERNS0_16PerFunctionStateE'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='6325' u='c' c='_ZN4llvm8LLParser11ParseCallBrERPNS_11InstructionERNS0_16PerFunctionStateE'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='6744' u='c' c='_ZN4llvm8LLParser9ParseCallERPNS_11InstructionERNS0_16PerFunctionStateENS_8CallInst12TailCallKindE'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='7378' u='c' c='_ZN4llvm8LLParser19ParseUseListOrderBBEv'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='7380' u='c' c='_ZN4llvm8LLParser19ParseUseListOrderBBEv'/>
+<doc f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='3030'>//===----------------------------------------------------------------------===//
+// Constants.
+//===----------------------------------------------------------------------===//
+
+/// ParseValID - Parse an abstract value that doesn&apos;t necessarily have a
+/// type implied.  For example, if we parse &quot;4&quot; we don&apos;t know what integer type
+/// it has.  The value will later be combined with its type and checked for
+/// sanity.  PFS is used to convert function-local operands of metadata (since
+/// metadata operands are not just parsed here but also converted to values).
+/// PFS can be null when we are not parsing metadata values inside a function.</doc>
+<doc f='llvm/llvm/lib/AsmParser/LLParser.h' l='507'>// Constant Parsing.</doc>

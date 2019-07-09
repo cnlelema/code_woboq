@@ -1,0 +1,30 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='3065' c='clang::CastExpr'/>
+<def f='llvm/clang/include/clang/AST/Expr.h' l='3252' ll='3281'/>
+<ovr f='llvm/clang/include/clang/AST/Expr.h' l='3286' c='clang::CStyleCastExpr'/>
+<ovr f='llvm/clang/include/clang/AST/ExprObjC.h' l='1638' c='clang::ObjCBridgedCastExpr'/>
+<ovr f='llvm/clang/include/clang/AST/ExprCXX.h' l='257' c='clang::CXXNamedCastExpr'/>
+<ovr f='llvm/clang/include/clang/AST/ExprCXX.h' l='1592' c='clang::CXXFunctionalCastExpr'/>
+<size>32</size>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='3236'>/// ExplicitCastExpr - An explicit cast written in the source
+/// code.
+///
+/// This class is effectively an abstract class, because it provides
+/// the basic representation of an explicitly-written cast without
+/// specifying which kind of cast (C cast, functional cast, static
+/// cast, etc.) was written; specific derived classes represent the
+/// particular style of cast and its location information.
+///
+/// Unlike implicit casts, explicit cast nodes have two different
+/// types: the type that was written into the source code, and the
+/// actual type of the expression as determined by semantic
+/// analysis. These types may differ slightly. For example, in C++ one
+/// can cast to a reference type, which indicates that the resulting
+/// expression will be an lvalue or xvalue. The reference type, however,
+/// will not be used as the type of the expression.</doc>
+<mbr r='clang::ExplicitCastExpr::TInfo' o='192' t='clang::TypeSourceInfo *'/>
+<fun r='_ZN5clang16ExplicitCastExprC1ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_8CastKindEPNS_4ExprEjPNS_14TypeSourceInfoE'/>
+<fun r='_ZN5clang16ExplicitCastExprC1ENS_4Stmt9StmtClassENS1_10EmptyShellEj'/>
+<fun r='_ZNK5clang16ExplicitCastExpr20getTypeInfoAsWrittenEv'/>
+<fun r='_ZN5clang16ExplicitCastExpr20setTypeInfoAsWrittenEPNS_14TypeSourceInfoE'/>
+<fun r='_ZNK5clang16ExplicitCastExpr16getTypeAsWrittenEv'/>
+<fun r='_ZN5clang16ExplicitCastExpr7classofEPKNS_4StmtE'/>

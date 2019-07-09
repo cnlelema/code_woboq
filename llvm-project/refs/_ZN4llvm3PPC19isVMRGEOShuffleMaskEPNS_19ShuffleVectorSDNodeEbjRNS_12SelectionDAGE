@@ -1,0 +1,22 @@
+<dec f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.h' l='509' type='bool llvm::PPC::isVMRGEOShuffleMask(llvm::ShuffleVectorSDNode * N, bool CheckEven, unsigned int ShuffleKind, llvm::SelectionDAG &amp; DAG)'/>
+<doc f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.h' l='507'>/// isVMRGEOShuffleMask - Return true if this is a shuffle mask suitable for
+    /// a VMRGEW or VMRGOW instruction</doc>
+<def f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='1705' ll='1726' type='bool llvm::PPC::isVMRGEOShuffleMask(llvm::ShuffleVectorSDNode * N, bool CheckEven, unsigned int ShuffleKind, llvm::SelectionDAG &amp; DAG)'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='8841' u='c' c='_ZNK4llvm17PPCTargetLowering19LowerVECTOR_SHUFFLEENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='8842' u='c' c='_ZNK4llvm17PPCTargetLowering19LowerVECTOR_SHUFFLEENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='8862' u='c' c='_ZNK4llvm17PPCTargetLowering19LowerVECTOR_SHUFFLEENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='8863' u='c' c='_ZNK4llvm17PPCTargetLowering19LowerVECTOR_SHUFFLEENS_7SDValueERNS_12SelectionDAGE'/>
+<doc f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='1691'>/**
+ * Determine if the specified shuffle mask is suitable for the vmrgew or
+ * vmrgow instructions.
+ *
+ * \param[in] N The shuffle vector SD Node to analyze
+ * \param[in] CheckEven Check for an even merge (true) or an odd merge (false)
+ * \param[in] ShuffleKind Identify the type of merge:
+ *   - 0 = big-endian merge with two different inputs;
+ *   - 1 = either-endian merge with two identical inputs;
+ *   - 2 = little-endian merge with two different inputs (inputs are swapped for
+ *     little-endian merges).
+ * \param[in] DAG The current SelectionDAG
+ * \return true iff this shuffle mask
+ */</doc>

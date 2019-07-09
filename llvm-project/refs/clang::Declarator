@@ -1,0 +1,115 @@
+<def f='llvm/clang/include/clang/Sema/DeclSpec.h' l='1775' ll='2496'/>
+<size>1</size>
+<doc f='llvm/clang/include/clang/Sema/DeclSpec.h' l='1763'>/// Information about one declarator, including the parsed type
+/// information and the identifier.
+///
+/// When the declarator is fully formed, this is turned into the appropriate
+/// Decl object.
+///
+/// Declarators come in two types: normal declarators and abstract declarators.
+/// Abstract declarators are used when parsing types, and don&apos;t have an
+/// identifier.  Normal declarators do have ID&apos;s.
+///
+/// Instances of this class should be a transient object that lives on the
+/// stack, not objects that are allocated in large quantities on the heap.</doc>
+<mbr r='clang::Declarator::DS' t='const clang::DeclSpec &amp;'/>
+<mbr r='clang::Declarator::SS' t='clang::CXXScopeSpec'/>
+<mbr r='clang::Declarator::Name' t='clang::UnqualifiedId'/>
+<mbr r='clang::Declarator::Range' t='clang::SourceRange'/>
+<mbr r='clang::Declarator::Context' t='clang::DeclaratorContext'/>
+<mbr r='clang::Declarator::BindingGroup' t='clang::DecompositionDeclarator'/>
+<mbr r='clang::Declarator::DeclTypeInfo' t='SmallVector&lt;clang::DeclaratorChunk, 8&gt;'/>
+<mbr r='clang::Declarator::InvalidType' t='unsigned int'/>
+<mbr r='clang::Declarator::GroupingParens' t='unsigned int'/>
+<mbr r='clang::Declarator::FunctionDefinition' t='unsigned int'/>
+<mbr r='clang::Declarator::Redeclaration' t='unsigned int'/>
+<mbr r='clang::Declarator::Extension' t='unsigned int'/>
+<mbr r='clang::Declarator::ObjCIvar' t='unsigned int'/>
+<mbr r='clang::Declarator::ObjCWeakProperty' t='unsigned int'/>
+<mbr r='clang::Declarator::InlineStorageUsed' t='unsigned int'/>
+<mbr r='clang::Declarator::Attrs' t='clang::ParsedAttributes'/>
+<mbr r='clang::Declarator::AsmLabel' t='clang::Expr *'/>
+<mbr r='clang::Declarator::CommaLoc' t='clang::SourceLocation'/>
+<mbr r='clang::Declarator::EllipsisLoc' t='clang::SourceLocation'/>
+<fun r='_ZN5clang10DeclaratorC1ERKNS_8DeclSpecENS_17DeclaratorContextE'/>
+<fun r='_ZN5clang10DeclaratorD1Ev'/>
+<fun r='_ZNK5clang10Declarator11getDeclSpecEv'/>
+<fun r='_ZN5clang10Declarator18getMutableDeclSpecEv'/>
+<fun r='_ZNK5clang10Declarator16getAttributePoolEv'/>
+<fun r='_ZNK5clang10Declarator15getCXXScopeSpecEv'/>
+<fun r='_ZN5clang10Declarator15getCXXScopeSpecEv'/>
+<fun r='_ZN5clang10Declarator7getNameEv'/>
+<fun r='_ZNK5clang10Declarator26getDecompositionDeclaratorEv'/>
+<fun r='_ZNK5clang10Declarator10getContextEv'/>
+<fun r='_ZNK5clang10Declarator18isPrototypeContextEv'/>
+<fun r='_ZNK5clang10Declarator14getSourceRangeEv'/>
+<fun r='_ZNK5clang10Declarator11getBeginLocEv'/>
+<fun r='_ZNK5clang10Declarator9getEndLocEv'/>
+<fun r='_ZN5clang10Declarator14SetSourceRangeENS_11SourceRangeE'/>
+<fun r='_ZN5clang10Declarator13SetRangeBeginENS_14SourceLocationE'/>
+<fun r='_ZN5clang10Declarator11SetRangeEndENS_14SourceLocationE'/>
+<fun r='_ZN5clang10Declarator18ExtendWithDeclSpecERKNS_8DeclSpecE'/>
+<fun r='_ZN5clang10Declarator5clearEv'/>
+<fun r='_ZNK5clang10Declarator17mayOmitIdentifierEv'/>
+<fun r='_ZNK5clang10Declarator17mayHaveIdentifierEv'/>
+<fun r='_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv'/>
+<fun r='_ZNK5clang10Declarator28mayBeFollowedByCXXDirectInitEv'/>
+<fun r='_ZNK5clang10Declarator16isPastIdentifierEv'/>
+<fun r='_ZNK5clang10Declarator7hasNameEv'/>
+<fun r='_ZNK5clang10Declarator25isDecompositionDeclaratorEv'/>
+<fun r='_ZNK5clang10Declarator13getIdentifierEv'/>
+<fun r='_ZNK5clang10Declarator16getIdentifierLocEv'/>
+<fun r='_ZN5clang10Declarator13SetIdentifierEPNS_14IdentifierInfoENS_14SourceLocationE'/>
+<fun r='_ZN5clang10Declarator24setDecompositionBindingsENS_14SourceLocationEN4llvm8ArrayRefINS_23DecompositionDeclarator7BindingEEES1_'/>
+<fun r='_ZN5clang10Declarator11AddTypeInfoERKNS_15DeclaratorChunkEONS_16ParsedAttributesENS_14SourceLocationE'/>
+<fun r='_ZN5clang10Declarator11AddTypeInfoERKNS_15DeclaratorChunkENS_14SourceLocationE'/>
+<fun r='_ZN5clang10Declarator20AddInnermostTypeInfoERKNS_15DeclaratorChunkE'/>
+<fun r='_ZNK5clang10Declarator17getNumTypeObjectsEv'/>
+<fun r='_ZNK5clang10Declarator13getTypeObjectEj'/>
+<fun r='_ZN5clang10Declarator13getTypeObjectEj'/>
+<fun r='_ZNK5clang10Declarator12type_objectsEv'/>
+<fun r='_ZN5clang10Declarator19DropFirstTypeObjectEv'/>
+<fun r='_ZNK5clang10Declarator25getInnermostNonParenChunkEv'/>
+<fun r='_ZNK5clang10Declarator25getOutermostNonParenChunkEv'/>
+<fun r='_ZNK5clang10Declarator21isArrayOfUnknownBoundEv'/>
+<fun r='_ZNK5clang10Declarator20isFunctionDeclaratorERj'/>
+<fun r='_ZNK5clang10Declarator20isFunctionDeclaratorEv'/>
+<fun r='_ZN5clang10Declarator19getFunctionTypeInfoEv'/>
+<fun r='_ZNK5clang10Declarator19getFunctionTypeInfoEv'/>
+<fun r='_ZNK5clang10Declarator23isDeclarationOfFunctionEv'/>
+<fun r='_ZNK5clang10Declarator28isFunctionDeclarationContextEv'/>
+<fun r='_ZNK5clang10Declarator19isExpressionContextEv'/>
+<fun r='_ZNK5clang10Declarator40isFunctionDeclaratorAFunctionDeclarationEv'/>
+<fun r='_ZNK5clang10Declarator21hasTrailingReturnTypeEv'/>
+<fun r='_ZN5clang10Declarator14takeAttributesERNS_16ParsedAttributesENS_14SourceLocationE'/>
+<fun r='_ZNK5clang10Declarator13getAttributesEv'/>
+<fun r='_ZN5clang10Declarator13getAttributesEv'/>
+<fun r='_ZNK5clang10Declarator13hasAttributesEv'/>
+<fun r='_ZN5clang10Declarator23getCXX11AttributeRangesERN4llvm15SmallVectorImplINS_11SourceRangeEEE'/>
+<fun r='_ZN5clang10Declarator11setAsmLabelEPNS_4ExprE'/>
+<fun r='_ZNK5clang10Declarator11getAsmLabelEv'/>
+<fun r='_ZN5clang10Declarator12setExtensionEb'/>
+<fun r='_ZNK5clang10Declarator12getExtensionEv'/>
+<fun r='_ZN5clang10Declarator11setObjCIvarEb'/>
+<fun r='_ZNK5clang10Declarator10isObjCIvarEv'/>
+<fun r='_ZN5clang10Declarator19setObjCWeakPropertyEb'/>
+<fun r='_ZNK5clang10Declarator18isObjCWeakPropertyEv'/>
+<fun r='_ZN5clang10Declarator14setInvalidTypeEb'/>
+<fun r='_ZNK5clang10Declarator13isInvalidTypeEv'/>
+<fun r='_ZN5clang10Declarator17setGroupingParensEb'/>
+<fun r='_ZNK5clang10Declarator17hasGroupingParensEv'/>
+<fun r='_ZNK5clang10Declarator17isFirstDeclaratorEv'/>
+<fun r='_ZNK5clang10Declarator11getCommaLocEv'/>
+<fun r='_ZN5clang10Declarator11setCommaLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang10Declarator11hasEllipsisEv'/>
+<fun r='_ZNK5clang10Declarator14getEllipsisLocEv'/>
+<fun r='_ZN5clang10Declarator14setEllipsisLocENS_14SourceLocationE'/>
+<fun r='_ZN5clang10Declarator25setFunctionDefinitionKindENS_22FunctionDefinitionKindE'/>
+<fun r='_ZNK5clang10Declarator20isFunctionDefinitionEv'/>
+<fun r='_ZNK5clang10Declarator25getFunctionDefinitionKindEv'/>
+<fun r='_ZN5clang10Declarator26isFirstDeclarationOfMemberEv'/>
+<fun r='_ZN5clang10Declarator14isStaticMemberEv'/>
+<fun r='_ZN5clang10Declarator12isCtorOrDtorEv'/>
+<fun r='_ZN5clang10Declarator16setRedeclarationEb'/>
+<fun r='_ZNK5clang10Declarator15isRedeclarationEv'/>
+<ovr f='llvm/clang/include/clang/Parse/RAIIObjectsForParser.h' l='200' c='clang::ParsingDeclarator'/>

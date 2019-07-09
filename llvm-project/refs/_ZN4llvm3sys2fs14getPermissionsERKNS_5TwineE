@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/Support/FileSystem.h' l='670' type='ErrorOr&lt;llvm::sys::fs::perms&gt; llvm::sys::fs::getPermissions(const llvm::Twine &amp; Path)'/>
+<doc f='llvm/llvm/include/llvm/Support/FileSystem.h' l='662'>/// Get file permissions.
+///
+/// @param Path File to get permissions from.
+/// @returns the permissions if they were successfully retrieved, otherwise a
+///          platform-specific error_code.
+/// @note On Windows, if the file does not have the FILE_ATTRIBUTE_READONLY
+///       attribute, all_all will be returned. Otherwise, all_read | all_exe
+///       will be returned.</doc>
+<def f='llvm/llvm/lib/Support/Path.cpp' l='1099' ll='1105' type='ErrorOr&lt;llvm::sys::fs::perms&gt; llvm::sys::fs::getPermissions(const llvm::Twine &amp; Path)'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1572' u='c' c='_ZN12_GLOBAL__N_131FileSystemTest_permissions_Test8TestBodyEv'/>

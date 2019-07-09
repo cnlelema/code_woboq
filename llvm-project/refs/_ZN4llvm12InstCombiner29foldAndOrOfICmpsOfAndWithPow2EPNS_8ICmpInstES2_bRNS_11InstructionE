@@ -1,0 +1,6 @@
+<dec f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='567' type='llvm::Value * llvm::InstCombiner::foldAndOrOfICmpsOfAndWithPow2(llvm::ICmpInst * LHS, llvm::ICmpInst * RHS, bool JoinedByAnd, llvm::Instruction &amp; CxtI)'/>
+<def f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='862' ll='898' type='llvm::Value * llvm::InstCombiner::foldAndOrOfICmpsOfAndWithPow2(llvm::ICmpInst * LHS, llvm::ICmpInst * RHS, bool JoinedByAnd, llvm::Instruction &amp; CxtI)'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='1029' u='c' c='_ZN4llvm12InstCombiner14foldAndOfICmpsEPNS_8ICmpInstES2_RNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='2029' u='c' c='_ZN4llvm12InstCombiner13foldOrOfICmpsEPNS_8ICmpInstES2_RNS_11InstructionE'/>
+<doc f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='860'>// Fold (iszero(A &amp; K1) | iszero(A &amp; K2)) -&gt; (A &amp; (K1 | K2)) != (K1 | K2)
+// Fold (!iszero(A &amp; K1) &amp; !iszero(A &amp; K2)) -&gt; (A &amp; (K1 | K2)) == (K1 | K2)</doc>

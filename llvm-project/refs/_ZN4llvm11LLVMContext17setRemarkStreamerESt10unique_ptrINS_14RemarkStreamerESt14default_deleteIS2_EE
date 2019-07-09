@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/IR/LLVMContext.h' l='261' type='void llvm::LLVMContext::setRemarkStreamer(std::unique_ptr&lt;RemarkStreamer&gt; RemarkStreamer)'/>
+<doc f='llvm/llvm/include/llvm/IR/LLVMContext.h' l='251'>/// Set the diagnostics output used for optimization diagnostics.
+  /// This filename may be embedded in a section for tools to find the
+  /// diagnostics whenever they&apos;re needed.
+  ///
+  /// If a remark streamer is already set, it will be replaced with
+  /// \p RemarkStreamer.
+  ///
+  /// By default, diagnostics are not saved in a file but only emitted via the
+  /// diagnostic handler.  Even if an output file is set, the handler is invoked
+  /// for each diagnostic message.</doc>
+<use f='llvm/clang/lib/CodeGen/CodeGenAction.cpp' l='281' u='c' c='_ZN5clang15BackendConsumer21HandleTranslationUnitERNS_10ASTContextE'/>
+<def f='llvm/llvm/lib/IR/LLVMContext.cpp' l='170' ll='173' type='void llvm::LLVMContext::setRemarkStreamer(std::unique_ptr&lt;RemarkStreamer&gt; RemarkStreamer)'/>
+<use f='llvm/llvm/lib/LTO/LTO.cpp' l='1359' u='c' c='_ZN4llvm3lto24setupOptimizationRemarksERNS_11LLVMContextENS_9StringRefES3_bi'/>
+<use f='llvm/llvm/tools/llc/llc.cpp' l='345' u='c' c='main'/>
+<use f='llvm/llvm/tools/opt/opt.cpp' l='571' u='c' c='main'/>

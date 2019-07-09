@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PreprocessorOptions.h source code [llvm/clang/include/clang/Lex/PreprocessorOptions.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="clang::ObjCXXARCStandardLibraryKind,clang::PreprocessorOptions "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/clang/include/clang/Lex/PreprocessorOptions.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>clang</a>/<a href='../..'>include</a>/<a href='..'>clang</a>/<a href='./'>Lex</a>/<a href='PreprocessorOptions.h.html'>PreprocessorOptions.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- PreprocessorOptions.h ------------------------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLVM_CLANG_LEX_PREPROCESSOROPTIONS_H_">LLVM_CLANG_LEX_PREPROCESSOROPTIONS_H_</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLVM_CLANG_LEX_PREPROCESSOROPTIONS_H_" data-ref="_M/LLVM_CLANG_LEX_PREPROCESSOROPTIONS_H_">LLVM_CLANG_LEX_PREPROCESSOROPTIONS_H_</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="../Basic/LLVM.h.html">"clang/Basic/LLVM.h"</a></u></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../../../../llvm/include/llvm/ADT/StringRef.h.html">"llvm/ADT/StringRef.h"</a></u></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="../../../../llvm/include/llvm/ADT/StringSet.h.html">"llvm/ADT/StringSet.h"</a></u></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="../../../../../include/c++/7/memory.html">&lt;memory&gt;</a></u></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="../../../../../include/c++/7/set.html">&lt;set&gt;</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../../../../include/c++/7/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../../../include/c++/7/utility.html">&lt;utility&gt;</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../../include/c++/7/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>class</b> <a class="type" href="../../../../llvm/include/llvm/Support/MemoryBuffer.h.html#llvm::MemoryBuffer" title='llvm::MemoryBuffer' data-ref="llvm::MemoryBuffer" id="llvm::MemoryBuffer">MemoryBuffer</a>;</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td>} <i>// namespace llvm</i></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><b>namespace</b> <span class="namespace">clang</span> {</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><i class="doc">/// Enumerate the kinds of standard library that</i></td></tr>
+<tr><th id="30">30</th><td><b>enum</b> <dfn class="type def" id="clang::ObjCXXARCStandardLibraryKind" title='clang::ObjCXXARCStandardLibraryKind' data-ref="clang::ObjCXXARCStandardLibraryKind">ObjCXXARCStandardLibraryKind</dfn> {</td></tr>
+<tr><th id="31">31</th><td>  <dfn class="enum" id="clang::ObjCXXARCStandardLibraryKind::ARCXX_nolib" title='clang::ObjCXXARCStandardLibraryKind::ARCXX_nolib' data-ref="clang::ObjCXXARCStandardLibraryKind::ARCXX_nolib">ARCXX_nolib</dfn>,</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td>  <i class="doc">/// libc++</i></td></tr>
+<tr><th id="34">34</th><td>  <dfn class="enum" id="clang::ObjCXXARCStandardLibraryKind::ARCXX_libcxx" title='clang::ObjCXXARCStandardLibraryKind::ARCXX_libcxx' data-ref="clang::ObjCXXARCStandardLibraryKind::ARCXX_libcxx">ARCXX_libcxx</dfn>,</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td>  <i class="doc">/// libstdc++</i></td></tr>
+<tr><th id="37">37</th><td>  <dfn class="enum" id="clang::ObjCXXARCStandardLibraryKind::ARCXX_libstdcxx" title='clang::ObjCXXARCStandardLibraryKind::ARCXX_libstdcxx' data-ref="clang::ObjCXXARCStandardLibraryKind::ARCXX_libstdcxx">ARCXX_libstdcxx</dfn></td></tr>
+<tr><th id="38">38</th><td>};</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><i class="doc">/// PreprocessorOptions - This class is used for passing the various options</i></td></tr>
+<tr><th id="41">41</th><td><i class="doc">/// used in preprocessor initialization to InitializePreprocessor().</i></td></tr>
+<tr><th id="42">42</th><td><b>class</b> <dfn class="type def" id="clang::PreprocessorOptions" title='clang::PreprocessorOptions' data-ref="clang::PreprocessorOptions">PreprocessorOptions</dfn> {</td></tr>
+<tr><th id="43">43</th><td><b>public</b>:</td></tr>
+<tr><th id="44">44</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_pair.h.html#std::pair" title='std::pair' data-ref="std::pair">pair</a>&lt;<span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a>, <em>bool</em><i>/*isUndef*/</i>&gt;&gt; <dfn class="decl" id="clang::PreprocessorOptions::Macros" title='clang::PreprocessorOptions::Macros' data-ref="clang::PreprocessorOptions::Macros">Macros</dfn>;</td></tr>
+<tr><th id="45">45</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a>&gt; <dfn class="decl" id="clang::PreprocessorOptions::Includes" title='clang::PreprocessorOptions::Includes' data-ref="clang::PreprocessorOptions::Includes">Includes</dfn>;</td></tr>
+<tr><th id="46">46</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a>&gt; <dfn class="decl" id="clang::PreprocessorOptions::MacroIncludes" title='clang::PreprocessorOptions::MacroIncludes' data-ref="clang::PreprocessorOptions::MacroIncludes">MacroIncludes</dfn>;</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>  <i class="doc">/// Initialize the preprocessor with the compiler and target specific</i></td></tr>
+<tr><th id="49">49</th><td><i class="doc">  /// predefines.</i></td></tr>
+<tr><th id="50">50</th><td>  <em>bool</em> <dfn class="decl" id="clang::PreprocessorOptions::UsePredefines" title='clang::PreprocessorOptions::UsePredefines' data-ref="clang::PreprocessorOptions::UsePredefines">UsePredefines</dfn> = <b>true</b>;</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>  <i class="doc">/// Whether we should maintain a detailed record of all macro</i></td></tr>
+<tr><th id="53">53</th><td><i class="doc">  /// definitions and expansions.</i></td></tr>
+<tr><th id="54">54</th><td>  <em>bool</em> <dfn class="decl" id="clang::PreprocessorOptions::DetailedRecord" title='clang::PreprocessorOptions::DetailedRecord' data-ref="clang::PreprocessorOptions::DetailedRecord">DetailedRecord</dfn> = <b>false</b>;</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>  <i class="doc">/// When true, we are creating or using a PCH where a #pragma hdrstop is</i></td></tr>
+<tr><th id="57">57</th><td><i class="doc">  /// expected to indicate the beginning or end of the PCH.</i></td></tr>
+<tr><th id="58">58</th><td>  <em>bool</em> <dfn class="decl" id="clang::PreprocessorOptions::PCHWithHdrStop" title='clang::PreprocessorOptions::PCHWithHdrStop' data-ref="clang::PreprocessorOptions::PCHWithHdrStop">PCHWithHdrStop</dfn> = <b>false</b>;</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>  <i class="doc">/// When true, we are creating a PCH or creating the PCH object while</i></td></tr>
+<tr><th id="61">61</th><td><i class="doc">  /// expecting a #pragma hdrstop to separate the two.  Allow for a</i></td></tr>
+<tr><th id="62">62</th><td><i class="doc">  /// missing #pragma hdrstop, which generates a PCH for the whole file,</i></td></tr>
+<tr><th id="63">63</th><td><i class="doc">  /// and creates an empty PCH object.</i></td></tr>
+<tr><th id="64">64</th><td>  <em>bool</em> <dfn class="decl" id="clang::PreprocessorOptions::PCHWithHdrStopCreate" title='clang::PreprocessorOptions::PCHWithHdrStopCreate' data-ref="clang::PreprocessorOptions::PCHWithHdrStopCreate">PCHWithHdrStopCreate</dfn> = <b>false</b>;</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>  <i class="doc">/// If non-empty, the filename used in an #include directive in the primary</i></td></tr>
+<tr><th id="67">67</th><td><i class="doc">  /// source file (or command-line preinclude) that is used to implement</i></td></tr>
+<tr><th id="68">68</th><td><i class="doc">  /// MSVC-style precompiled headers. When creating a PCH, after the #include</i></td></tr>
+<tr><th id="69">69</th><td><i class="doc">  /// of this header, the PCH generation stops. When using a PCH, tokens are</i></td></tr>
+<tr><th id="70">70</th><td><i class="doc">  /// skipped until after an #include of this header is seen.</i></td></tr>
+<tr><th id="71">71</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="decl" id="clang::PreprocessorOptions::PCHThroughHeader" title='clang::PreprocessorOptions::PCHThroughHeader' data-ref="clang::PreprocessorOptions::PCHThroughHeader">PCHThroughHeader</dfn>;</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>  <i class="doc">/// The implicit PCH included at the start of the translation unit, or empty.</i></td></tr>
+<tr><th id="74">74</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="decl" id="clang::PreprocessorOptions::ImplicitPCHInclude" title='clang::PreprocessorOptions::ImplicitPCHInclude' data-ref="clang::PreprocessorOptions::ImplicitPCHInclude">ImplicitPCHInclude</dfn>;</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>  <i class="doc">/// Headers that will be converted to chained PCHs in memory.</i></td></tr>
+<tr><th id="77">77</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a>&gt; <dfn class="decl" id="clang::PreprocessorOptions::ChainedIncludes" title='clang::PreprocessorOptions::ChainedIncludes' data-ref="clang::PreprocessorOptions::ChainedIncludes">ChainedIncludes</dfn>;</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td>  <i class="doc">/// When true, disables most of the normal validation performed on</i></td></tr>
+<tr><th id="80">80</th><td><i class="doc">  /// precompiled headers.</i></td></tr>
+<tr><th id="81">81</th><td>  <em>bool</em> <dfn class="decl" id="clang::PreprocessorOptions::DisablePCHValidation" title='clang::PreprocessorOptions::DisablePCHValidation' data-ref="clang::PreprocessorOptions::DisablePCHValidation">DisablePCHValidation</dfn> = <b>false</b>;</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td>  <i class="doc">/// When true, a PCH with compiler errors will not be rejected.</i></td></tr>
+<tr><th id="84">84</th><td>  <em>bool</em> <dfn class="decl" id="clang::PreprocessorOptions::AllowPCHWithCompilerErrors" title='clang::PreprocessorOptions::AllowPCHWithCompilerErrors' data-ref="clang::PreprocessorOptions::AllowPCHWithCompilerErrors">AllowPCHWithCompilerErrors</dfn> = <b>false</b>;</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td>  <i class="doc">/// Dump declarations that are deserialized from PCH, for testing.</i></td></tr>
+<tr><th id="87">87</th><td>  <em>bool</em> <dfn class="decl" id="clang::PreprocessorOptions::DumpDeserializedPCHDecls" title='clang::PreprocessorOptions::DumpDeserializedPCHDecls' data-ref="clang::PreprocessorOptions::DumpDeserializedPCHDecls">DumpDeserializedPCHDecls</dfn> = <b>false</b>;</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td>  <i class="doc">/// This is a set of names for decls that we do not want to be</i></td></tr>
+<tr><th id="90">90</th><td><i class="doc">  /// deserialized, and we emit an error if they are; for testing purposes.</i></td></tr>
+<tr><th id="91">91</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_set.h.html#std::set" title='std::set' data-ref="std::set">set</a>&lt;<span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a>&gt; <dfn class="decl" id="clang::PreprocessorOptions::DeserializedPCHDeclsToErrorOn" title='clang::PreprocessorOptions::DeserializedPCHDeclsToErrorOn' data-ref="clang::PreprocessorOptions::DeserializedPCHDeclsToErrorOn">DeserializedPCHDeclsToErrorOn</dfn>;</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>  <i class="doc">/// If non-zero, the implicit PCH include is actually a precompiled</i></td></tr>
+<tr><th id="94">94</th><td><i class="doc">  /// preamble that covers this number of bytes in the main source file.</i></td></tr>
+<tr><th id="95">95</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="96">96</th><td><i class="doc">  /// The boolean indicates whether the preamble ends at the start of a new</i></td></tr>
+<tr><th id="97">97</th><td><i class="doc">  /// line.</i></td></tr>
+<tr><th id="98">98</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_pair.h.html#std::pair" title='std::pair' data-ref="std::pair">pair</a>&lt;<em>unsigned</em>, <em>bool</em>&gt; <dfn class="decl" id="clang::PreprocessorOptions::PrecompiledPreambleBytes" title='clang::PreprocessorOptions::PrecompiledPreambleBytes' data-ref="clang::PreprocessorOptions::PrecompiledPreambleBytes">PrecompiledPreambleBytes</dfn>;</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td>  <i class="doc">/// True indicates that a preamble is being generated.</i></td></tr>
+<tr><th id="101">101</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="102">102</th><td><i class="doc">  /// When the lexer is done, one of the things that need to be preserved is the</i></td></tr>
+<tr><th id="103">103</th><td><i class="doc">  /// conditional #if stack, so the ASTWriter/ASTReader can save/restore it when</i></td></tr>
+<tr><th id="104">104</th><td><i class="doc">  /// processing the rest of the file.</i></td></tr>
+<tr><th id="105">105</th><td>  <em>bool</em> <dfn class="decl" id="clang::PreprocessorOptions::GeneratePreamble" title='clang::PreprocessorOptions::GeneratePreamble' data-ref="clang::PreprocessorOptions::GeneratePreamble">GeneratePreamble</dfn> = <b>false</b>;</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>  <i class="doc">/// Whether to write comment locations into the PCH when building it.</i></td></tr>
+<tr><th id="108">108</th><td><i class="doc">  /// Reading the comments from the PCH can be a performance hit even if the</i></td></tr>
+<tr><th id="109">109</th><td><i class="doc">  /// clients don't use them.</i></td></tr>
+<tr><th id="110">110</th><td>  <em>bool</em> <dfn class="decl" id="clang::PreprocessorOptions::WriteCommentListToPCH" title='clang::PreprocessorOptions::WriteCommentListToPCH' data-ref="clang::PreprocessorOptions::WriteCommentListToPCH">WriteCommentListToPCH</dfn> = <b>true</b>;</td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td>  <i class="doc">/// When enabled, preprocessor is in a mode for parsing a single file only.</i></td></tr>
+<tr><th id="113">113</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="114">114</th><td><i class="doc">  /// Disables #includes of other files and if there are unresolved identifiers</i></td></tr>
+<tr><th id="115">115</th><td><i class="doc">  /// in preprocessor directive conditions it causes all blocks to be parsed so</i></td></tr>
+<tr><th id="116">116</th><td><i class="doc">  /// that the client can get the maximum amount of information from the parser.</i></td></tr>
+<tr><th id="117">117</th><td>  <em>bool</em> <dfn class="decl" id="clang::PreprocessorOptions::SingleFileParseMode" title='clang::PreprocessorOptions::SingleFileParseMode' data-ref="clang::PreprocessorOptions::SingleFileParseMode">SingleFileParseMode</dfn> = <b>false</b>;</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>  <i class="doc">/// When enabled, the preprocessor will construct editor placeholder tokens.</i></td></tr>
+<tr><th id="120">120</th><td>  <em>bool</em> <dfn class="decl" id="clang::PreprocessorOptions::LexEditorPlaceholders" title='clang::PreprocessorOptions::LexEditorPlaceholders' data-ref="clang::PreprocessorOptions::LexEditorPlaceholders">LexEditorPlaceholders</dfn> = <b>true</b>;</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td>  <i class="doc">/// True if the SourceManager should report the original file name for</i></td></tr>
+<tr><th id="123">123</th><td><i class="doc">  /// contents of files that were remapped to other files. Defaults to true.</i></td></tr>
+<tr><th id="124">124</th><td>  <em>bool</em> <dfn class="decl" id="clang::PreprocessorOptions::RemappedFilesKeepOriginalName" title='clang::PreprocessorOptions::RemappedFilesKeepOriginalName' data-ref="clang::PreprocessorOptions::RemappedFilesKeepOriginalName">RemappedFilesKeepOriginalName</dfn> = <b>true</b>;</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>  <i class="doc">/// The set of file remappings, which take existing files on</i></td></tr>
+<tr><th id="127">127</th><td><i class="doc">  /// the system (the first part of each pair) and gives them the</i></td></tr>
+<tr><th id="128">128</th><td><i class="doc">  /// contents of other files on the system (the second part of each</i></td></tr>
+<tr><th id="129">129</th><td><i class="doc">  /// pair).</i></td></tr>
+<tr><th id="130">130</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_pair.h.html#std::pair" title='std::pair' data-ref="std::pair">pair</a>&lt;<span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a>, <span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a>&gt;&gt; <dfn class="decl" id="clang::PreprocessorOptions::RemappedFiles" title='clang::PreprocessorOptions::RemappedFiles' data-ref="clang::PreprocessorOptions::RemappedFiles">RemappedFiles</dfn>;</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td>  <i class="doc">/// The set of file-to-buffer remappings, which take existing files</i></td></tr>
+<tr><th id="133">133</th><td><i class="doc">  /// on the system (the first part of each pair) and gives them the contents</i></td></tr>
+<tr><th id="134">134</th><td><i class="doc">  /// of the specified memory buffer (the second part of each pair).</i></td></tr>
+<tr><th id="135">135</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_pair.h.html#std::pair" title='std::pair' data-ref="std::pair">pair</a>&lt;<span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a>, <span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/Support/MemoryBuffer.h.html#llvm::MemoryBuffer" title='llvm::MemoryBuffer' data-ref="llvm::MemoryBuffer">MemoryBuffer</a> *&gt;&gt; <dfn class="decl" id="clang::PreprocessorOptions::RemappedFileBuffers" title='clang::PreprocessorOptions::RemappedFileBuffers' data-ref="clang::PreprocessorOptions::RemappedFileBuffers">RemappedFileBuffers</dfn>;</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td>  <i class="doc">/// Whether the compiler instance should retain (i.e., not free)</i></td></tr>
+<tr><th id="138">138</th><td><i class="doc">  /// the buffers associated with remapped files.</i></td></tr>
+<tr><th id="139">139</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="140">140</th><td><i class="doc">  /// This flag defaults to false; it can be set true only through direct</i></td></tr>
+<tr><th id="141">141</th><td><i class="doc">  /// manipulation of the compiler invocation object, in cases where the</i></td></tr>
+<tr><th id="142">142</th><td><i class="doc">  /// compiler invocation and its buffers will be reused.</i></td></tr>
+<tr><th id="143">143</th><td>  <em>bool</em> <dfn class="decl" id="clang::PreprocessorOptions::RetainRemappedFileBuffers" title='clang::PreprocessorOptions::RetainRemappedFileBuffers' data-ref="clang::PreprocessorOptions::RetainRemappedFileBuffers">RetainRemappedFileBuffers</dfn> = <b>false</b>;</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td>  <i class="doc">/// The Objective-C++ ARC standard library that we should support,</i></td></tr>
+<tr><th id="146">146</th><td><i class="doc">  /// by providing appropriate definitions to retrofit the standard library</i></td></tr>
+<tr><th id="147">147</th><td><i class="doc">  /// with support for lifetime-qualified pointers.</i></td></tr>
+<tr><th id="148">148</th><td>  <a class="type" href="#clang::ObjCXXARCStandardLibraryKind" title='clang::ObjCXXARCStandardLibraryKind' data-ref="clang::ObjCXXARCStandardLibraryKind">ObjCXXARCStandardLibraryKind</a> <dfn class="decl" id="clang::PreprocessorOptions::ObjCXXARCStandardLibrary" title='clang::PreprocessorOptions::ObjCXXARCStandardLibrary' data-ref="clang::PreprocessorOptions::ObjCXXARCStandardLibrary">ObjCXXARCStandardLibrary</dfn> = <a class="enum" href="#clang::ObjCXXARCStandardLibraryKind::ARCXX_nolib" title='clang::ObjCXXARCStandardLibraryKind::ARCXX_nolib' data-ref="clang::ObjCXXARCStandardLibraryKind::ARCXX_nolib">ARCXX_nolib</a>;</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td>  <i class="doc">/// Records the set of modules</i></td></tr>
+<tr><th id="151">151</th><td>  <b>class</b> <dfn class="type def" id="clang::PreprocessorOptions::FailedModulesSet" title='clang::PreprocessorOptions::FailedModulesSet' data-ref="clang::PreprocessorOptions::FailedModulesSet">FailedModulesSet</dfn> {</td></tr>
+<tr><th id="152">152</th><td>    <span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/StringSet.h.html#llvm::StringSet" title='llvm::StringSet' data-ref="llvm::StringSet">StringSet</a>&lt;&gt; <dfn class="decl" id="clang::PreprocessorOptions::FailedModulesSet::Failed" title='clang::PreprocessorOptions::FailedModulesSet::Failed' data-ref="clang::PreprocessorOptions::FailedModulesSet::Failed">Failed</dfn>;</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td>  <b>public</b>:</td></tr>
+<tr><th id="155">155</th><td>    <em>bool</em> <dfn class="decl def" id="_ZN5clang19PreprocessorOptions16FailedModulesSet16hasAlreadyFailedEN4llvm9StringRefE" title='clang::PreprocessorOptions::FailedModulesSet::hasAlreadyFailed' data-ref="_ZN5clang19PreprocessorOptions16FailedModulesSet16hasAlreadyFailedEN4llvm9StringRefE">hasAlreadyFailed</dfn>(<a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col1 decl" id="1module" title='module' data-type='llvm::StringRef' data-ref="1module">module</dfn>) {</td></tr>
+<tr><th id="156">156</th><td>      <b>return</b> <a class="member" href="#clang::PreprocessorOptions::FailedModulesSet::Failed" title='clang::PreprocessorOptions::FailedModulesSet::Failed' data-ref="clang::PreprocessorOptions::FailedModulesSet::Failed">Failed</a>.<a class="ref" href="../../../../llvm/include/llvm/ADT/StringMap.h.html#_ZNK4llvm9StringMap5countENS_9StringRefE" title='llvm::StringMap::count' data-ref="_ZNK4llvm9StringMap5countENS_9StringRefE">count</a>(<a class="ref fake" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#48" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1ERKS0_"></a><a class="local col1 ref" href="#1module" title='module' data-ref="1module">module</a>) &gt; <var>0</var>;</td></tr>
+<tr><th id="157">157</th><td>    }</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td>    <em>void</em> <dfn class="decl def" id="_ZN5clang19PreprocessorOptions16FailedModulesSet9addFailedEN4llvm9StringRefE" title='clang::PreprocessorOptions::FailedModulesSet::addFailed' data-ref="_ZN5clang19PreprocessorOptions16FailedModulesSet9addFailedEN4llvm9StringRefE">addFailed</dfn>(<a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col2 decl" id="2module" title='module' data-type='llvm::StringRef' data-ref="2module">module</dfn>) {</td></tr>
+<tr><th id="160">160</th><td>      <a class="member" href="#clang::PreprocessorOptions::FailedModulesSet::Failed" title='clang::PreprocessorOptions::FailedModulesSet::Failed' data-ref="clang::PreprocessorOptions::FailedModulesSet::Failed">Failed</a>.<a class="ref" href="../../../../llvm/include/llvm/ADT/StringSet.h.html#_ZN4llvm9StringSet6insertENS_9StringRefE" title='llvm::StringSet::insert' data-ref="_ZN4llvm9StringSet6insertENS_9StringRefE">insert</a>(<a class="ref fake" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#48" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1ERKS0_"></a><a class="local col2 ref" href="#2module" title='module' data-ref="2module">module</a>);</td></tr>
+<tr><th id="161">161</th><td>    }</td></tr>
+<tr><th id="162">162</th><td>  };</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>  <i class="doc">/// The set of modules that failed to build.</i></td></tr>
+<tr><th id="165">165</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="166">166</th><td><i class="doc">  /// This pointer will be shared among all of the compiler instances created</i></td></tr>
+<tr><th id="167">167</th><td><i class="doc">  /// to (re)build modules, so that once a module fails to build anywhere,</i></td></tr>
+<tr><th id="168">168</th><td><i class="doc">  /// other instances will see that the module has failed and won't try to</i></td></tr>
+<tr><th id="169">169</th><td><i class="doc">  /// build it again.</i></td></tr>
+<tr><th id="170">170</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/shared_ptr_base.h.html#std::shared_ptr" title='std::shared_ptr' data-ref="std::shared_ptr">shared_ptr</a>&lt;<a class="type" href="#clang::PreprocessorOptions::FailedModulesSet" title='clang::PreprocessorOptions::FailedModulesSet' data-ref="clang::PreprocessorOptions::FailedModulesSet">FailedModulesSet</a>&gt; <dfn class="decl" id="clang::PreprocessorOptions::FailedModules" title='clang::PreprocessorOptions::FailedModules' data-ref="clang::PreprocessorOptions::FailedModules">FailedModules</dfn>;</td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td><b>public</b>:</td></tr>
+<tr><th id="173">173</th><td>  <dfn class="decl def" id="_ZN5clang19PreprocessorOptionsC1Ev" title='clang::PreprocessorOptions::PreprocessorOptions' data-ref="_ZN5clang19PreprocessorOptionsC1Ev">PreprocessorOptions</dfn>() : <a class="member" href="#clang::PreprocessorOptions::PrecompiledPreambleBytes" title='clang::PreprocessorOptions::PrecompiledPreambleBytes' data-ref="clang::PreprocessorOptions::PrecompiledPreambleBytes">PrecompiledPreambleBytes</a><a class="ref" href="../../../../../include/c++/7/bits/stl_pair.h.html#_ZNSt4pairC1EOT_OT0_" title='std::pair::pair&lt;_T1, _T2&gt;' data-ref="_ZNSt4pairC1EOT_OT0_">(</a><var>0</var>, <b>false</b>) {}</td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td>  <em>void</em> <dfn class="decl def" id="_ZN5clang19PreprocessorOptions11addMacroDefEN4llvm9StringRefE" title='clang::PreprocessorOptions::addMacroDef' data-ref="_ZN5clang19PreprocessorOptions11addMacroDefEN4llvm9StringRefE">addMacroDef</dfn>(<a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col3 decl" id="3Name" title='Name' data-type='llvm::StringRef' data-ref="3Name">Name</dfn>) { <a class="member" href="#clang::PreprocessorOptions::Macros" title='clang::PreprocessorOptions::Macros' data-ref="clang::PreprocessorOptions::Macros">Macros</a>.<a class="ref" href="../../../../../include/c++/7/bits/stl_vector.h.html#_ZNSt6vector12emplace_backEDpOT_" title='std::vector::emplace_back' data-ref="_ZNSt6vector12emplace_backEDpOT_">emplace_back</a>(<span class='refarg'><a class="local col3 ref" href="#3Name" title='Name' data-ref="3Name">Name</a></span>, <b>false</b>); }</td></tr>
+<tr><th id="176">176</th><td>  <em>void</em> <dfn class="decl def" id="_ZN5clang19PreprocessorOptions13addMacroUndefEN4llvm9StringRefE" title='clang::PreprocessorOptions::addMacroUndef' data-ref="_ZN5clang19PreprocessorOptions13addMacroUndefEN4llvm9StringRefE">addMacroUndef</dfn>(<a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col4 decl" id="4Name" title='Name' data-type='llvm::StringRef' data-ref="4Name">Name</dfn>) { <a class="member" href="#clang::PreprocessorOptions::Macros" title='clang::PreprocessorOptions::Macros' data-ref="clang::PreprocessorOptions::Macros">Macros</a>.<a class="ref" href="../../../../../include/c++/7/bits/stl_vector.h.html#_ZNSt6vector12emplace_backEDpOT_" title='std::vector::emplace_back' data-ref="_ZNSt6vector12emplace_backEDpOT_">emplace_back</a>(<span class='refarg'><a class="local col4 ref" href="#4Name" title='Name' data-ref="4Name">Name</a></span>, <b>true</b>); }</td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td>  <em>void</em> <dfn class="decl def" id="_ZN5clang19PreprocessorOptions15addRemappedFileEN4llvm9StringRefES2_" title='clang::PreprocessorOptions::addRemappedFile' data-ref="_ZN5clang19PreprocessorOptions15addRemappedFileEN4llvm9StringRefES2_">addRemappedFile</dfn>(<a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col5 decl" id="5From" title='From' data-type='llvm::StringRef' data-ref="5From">From</dfn>, <a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col6 decl" id="6To" title='To' data-type='llvm::StringRef' data-ref="6To">To</dfn>) {</td></tr>
+<tr><th id="179">179</th><td>    <a class="member" href="#clang::PreprocessorOptions::RemappedFiles" title='clang::PreprocessorOptions::RemappedFiles' data-ref="clang::PreprocessorOptions::RemappedFiles">RemappedFiles</a>.<a class="ref" href="../../../../../include/c++/7/bits/stl_vector.h.html#_ZNSt6vector12emplace_backEDpOT_" title='std::vector::emplace_back' data-ref="_ZNSt6vector12emplace_backEDpOT_">emplace_back</a>(<span class='refarg'><a class="local col5 ref" href="#5From" title='From' data-ref="5From">From</a></span>, <span class='refarg'><a class="local col6 ref" href="#6To" title='To' data-ref="6To">To</a></span>);</td></tr>
+<tr><th id="180">180</th><td>  }</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td>  <em>void</em> <dfn class="decl def" id="_ZN5clang19PreprocessorOptions15addRemappedFileEN4llvm9StringRefEPNS1_12MemoryBufferE" title='clang::PreprocessorOptions::addRemappedFile' data-ref="_ZN5clang19PreprocessorOptions15addRemappedFileEN4llvm9StringRefEPNS1_12MemoryBufferE">addRemappedFile</dfn>(<a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col7 decl" id="7From" title='From' data-type='llvm::StringRef' data-ref="7From">From</dfn>, <span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/Support/MemoryBuffer.h.html#llvm::MemoryBuffer" title='llvm::MemoryBuffer' data-ref="llvm::MemoryBuffer">MemoryBuffer</a> *<dfn class="local col8 decl" id="8To" title='To' data-type='llvm::MemoryBuffer *' data-ref="8To">To</dfn>) {</td></tr>
+<tr><th id="183">183</th><td>    <a class="member" href="#clang::PreprocessorOptions::RemappedFileBuffers" title='clang::PreprocessorOptions::RemappedFileBuffers' data-ref="clang::PreprocessorOptions::RemappedFileBuffers">RemappedFileBuffers</a>.<a class="ref" href="../../../../../include/c++/7/bits/stl_vector.h.html#_ZNSt6vector12emplace_backEDpOT_" title='std::vector::emplace_back' data-ref="_ZNSt6vector12emplace_backEDpOT_">emplace_back</a>(<span class='refarg'><a class="local col7 ref" href="#7From" title='From' data-ref="7From">From</a></span>, <span class='refarg'><a class="local col8 ref" href="#8To" title='To' data-ref="8To">To</a></span>);</td></tr>
+<tr><th id="184">184</th><td>  }</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td>  <em>void</em> <dfn class="decl def" id="_ZN5clang19PreprocessorOptions18clearRemappedFilesEv" title='clang::PreprocessorOptions::clearRemappedFiles' data-ref="_ZN5clang19PreprocessorOptions18clearRemappedFilesEv">clearRemappedFiles</dfn>() {</td></tr>
+<tr><th id="187">187</th><td>    <a class="member" href="#clang::PreprocessorOptions::RemappedFiles" title='clang::PreprocessorOptions::RemappedFiles' data-ref="clang::PreprocessorOptions::RemappedFiles">RemappedFiles</a>.<a class="ref" href="../../../../../include/c++/7/bits/stl_vector.h.html#_ZNSt6vector5clearEv" title='std::vector::clear' data-ref="_ZNSt6vector5clearEv">clear</a>();</td></tr>
+<tr><th id="188">188</th><td>    <a class="member" href="#clang::PreprocessorOptions::RemappedFileBuffers" title='clang::PreprocessorOptions::RemappedFileBuffers' data-ref="clang::PreprocessorOptions::RemappedFileBuffers">RemappedFileBuffers</a>.<a class="ref" href="../../../../../include/c++/7/bits/stl_vector.h.html#_ZNSt6vector5clearEv" title='std::vector::clear' data-ref="_ZNSt6vector5clearEv">clear</a>();</td></tr>
+<tr><th id="189">189</th><td>  }</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td>  <i class="doc">/// Reset any options that are not considered when building a</i></td></tr>
+<tr><th id="192">192</th><td><i class="doc">  /// module.</i></td></tr>
+<tr><th id="193">193</th><td>  <em>void</em> <dfn class="decl def" id="_ZN5clang19PreprocessorOptions22resetNonModularOptionsEv" title='clang::PreprocessorOptions::resetNonModularOptions' data-ref="_ZN5clang19PreprocessorOptions22resetNonModularOptionsEv">resetNonModularOptions</dfn>() {</td></tr>
+<tr><th id="194">194</th><td>    <a class="member" href="#clang::PreprocessorOptions::Includes" title='clang::PreprocessorOptions::Includes' data-ref="clang::PreprocessorOptions::Includes">Includes</a>.<a class="ref" href="../../../../../include/c++/7/bits/stl_vector.h.html#_ZNSt6vector5clearEv" title='std::vector::clear' data-ref="_ZNSt6vector5clearEv">clear</a>();</td></tr>
+<tr><th id="195">195</th><td>    <a class="member" href="#clang::PreprocessorOptions::MacroIncludes" title='clang::PreprocessorOptions::MacroIncludes' data-ref="clang::PreprocessorOptions::MacroIncludes">MacroIncludes</a>.<a class="ref" href="../../../../../include/c++/7/bits/stl_vector.h.html#_ZNSt6vector5clearEv" title='std::vector::clear' data-ref="_ZNSt6vector5clearEv">clear</a>();</td></tr>
+<tr><th id="196">196</th><td>    <a class="member" href="#clang::PreprocessorOptions::ChainedIncludes" title='clang::PreprocessorOptions::ChainedIncludes' data-ref="clang::PreprocessorOptions::ChainedIncludes">ChainedIncludes</a>.<a class="ref" href="../../../../../include/c++/7/bits/stl_vector.h.html#_ZNSt6vector5clearEv" title='std::vector::clear' data-ref="_ZNSt6vector5clearEv">clear</a>();</td></tr>
+<tr><th id="197">197</th><td>    <a class="member" href="#clang::PreprocessorOptions::DumpDeserializedPCHDecls" title='clang::PreprocessorOptions::DumpDeserializedPCHDecls' data-ref="clang::PreprocessorOptions::DumpDeserializedPCHDecls">DumpDeserializedPCHDecls</a> = <b>false</b>;</td></tr>
+<tr><th id="198">198</th><td>    <a class="member" href="#clang::PreprocessorOptions::ImplicitPCHInclude" title='clang::PreprocessorOptions::ImplicitPCHInclude' data-ref="clang::PreprocessorOptions::ImplicitPCHInclude">ImplicitPCHInclude</a>.<a class="ref" href="../../../../../include/c++/7/bits/basic_string.h.html#_ZNSt7__cxx1112basic_string5clearEv" title='std::__cxx11::basic_string::clear' data-ref="_ZNSt7__cxx1112basic_string5clearEv">clear</a>();</td></tr>
+<tr><th id="199">199</th><td>    <a class="member" href="#clang::PreprocessorOptions::SingleFileParseMode" title='clang::PreprocessorOptions::SingleFileParseMode' data-ref="clang::PreprocessorOptions::SingleFileParseMode">SingleFileParseMode</a> = <b>false</b>;</td></tr>
+<tr><th id="200">200</th><td>    <a class="member" href="#clang::PreprocessorOptions::LexEditorPlaceholders" title='clang::PreprocessorOptions::LexEditorPlaceholders' data-ref="clang::PreprocessorOptions::LexEditorPlaceholders">LexEditorPlaceholders</a> = <b>true</b>;</td></tr>
+<tr><th id="201">201</th><td>    <a class="member" href="#clang::PreprocessorOptions::RetainRemappedFileBuffers" title='clang::PreprocessorOptions::RetainRemappedFileBuffers' data-ref="clang::PreprocessorOptions::RetainRemappedFileBuffers">RetainRemappedFileBuffers</a> = <b>true</b>;</td></tr>
+<tr><th id="202">202</th><td>    <a class="member" href="#clang::PreprocessorOptions::PrecompiledPreambleBytes" title='clang::PreprocessorOptions::PrecompiledPreambleBytes' data-ref="clang::PreprocessorOptions::PrecompiledPreambleBytes">PrecompiledPreambleBytes</a>.<a class="ref" href="../../../../../include/c++/7/bits/stl_pair.h.html#std::pair::first" title='std::pair&lt;unsigned int, bool&gt;::first' data-ref="std::pair::first">first</a> = <var>0</var>;</td></tr>
+<tr><th id="203">203</th><td>    <a class="member" href="#clang::PreprocessorOptions::PrecompiledPreambleBytes" title='clang::PreprocessorOptions::PrecompiledPreambleBytes' data-ref="clang::PreprocessorOptions::PrecompiledPreambleBytes">PrecompiledPreambleBytes</a>.<a class="ref" href="../../../../../include/c++/7/bits/stl_pair.h.html#std::pair::second" title='std::pair&lt;unsigned int, bool&gt;::second' data-ref="std::pair::second">second</a> = <b>false</b>;</td></tr>
+<tr><th id="204">204</th><td>  }</td></tr>
+<tr><th id="205">205</th><td>};</td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td>} <i>// namespace clang</i></td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td><u>#<span data-ppcond="9">endif</span> // LLVM_CLANG_LEX_PREPROCESSOROPTIONS_H_</u></td></tr>
+<tr><th id="210">210</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../lib/CodeGen/CGDebugInfo.cpp.html'>llvm/clang/lib/CodeGen/CGDebugInfo.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,40 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='2185' type='bool llvm::TargetLoweringBase::isLegalAddressingMode(const llvm::DataLayout &amp; DL, const llvm::TargetLoweringBase::AddrMode &amp; AM, llvm::Type * Ty, unsigned int AddrSpace, llvm::Instruction * I = nullptr) const'/>
+<use f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='2199' u='c' c='_ZNK4llvm18TargetLoweringBase20getScalingFactorCostERKNS_10DataLayoutERKNS0_8AddrModeEPNS_4TypeEj'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='2175'>/// Return true if the addressing mode represented by AM is legal for this
+  /// target, for a load/store of the specified type.
+  ///
+  /// The type may be VoidTy, in which case only return true if the addressing
+  /// mode is legal for a load/store of any legal type.  TODO: Handle
+  /// pre/postinc as well.
+  ///
+  /// If the address space cannot be determined, it will be -1.
+  ///
+  /// TODO: Remove default argument</doc>
+<use f='llvm/llvm/lib/CodeGen/CodeGenPrepare.cpp' l='3520' u='c' c='_ZN12_GLOBAL__N_121AddressingModeMatcher16matchScaledValueEPN4llvm5ValueElj'/>
+<use f='llvm/llvm/lib/CodeGen/CodeGenPrepare.cpp' l='3538' u='c' c='_ZN12_GLOBAL__N_121AddressingModeMatcher16matchScaledValueEPN4llvm5ValueElj'/>
+<use f='llvm/llvm/lib/CodeGen/CodeGenPrepare.cpp' l='4184' u='c' c='_ZN12_GLOBAL__N_121AddressingModeMatcher18matchOperationAddrEPN4llvm4UserEjjPb'/>
+<use f='llvm/llvm/lib/CodeGen/CodeGenPrepare.cpp' l='4336' u='c' c='_ZN12_GLOBAL__N_121AddressingModeMatcher9matchAddrEPN4llvm5ValueEj'/>
+<use f='llvm/llvm/lib/CodeGen/CodeGenPrepare.cpp' l='4343' u='c' c='_ZN12_GLOBAL__N_121AddressingModeMatcher9matchAddrEPN4llvm5ValueEj'/>
+<use f='llvm/llvm/lib/CodeGen/CodeGenPrepare.cpp' l='4387' u='c' c='_ZN12_GLOBAL__N_121AddressingModeMatcher9matchAddrEPN4llvm5ValueEj'/>
+<use f='llvm/llvm/lib/CodeGen/CodeGenPrepare.cpp' l='4397' u='c' c='_ZN12_GLOBAL__N_121AddressingModeMatcher9matchAddrEPN4llvm5ValueEj'/>
+<use f='llvm/llvm/lib/CodeGen/CodeGenPrepare.cpp' l='5340' u='c' c='_ZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEv'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='13361' u='c' c='_ZL23canFoldInAddressingModePN4llvm6SDNodeES1_RNS_12SelectionDAGERKNS_14TargetLoweringE'/>
+<def f='llvm/llvm/lib/CodeGen/TargetLoweringBase.cpp' l='1659' ll='1692' type='bool llvm::TargetLoweringBase::isLegalAddressingMode(const llvm::DataLayout &amp; DL, const llvm::TargetLoweringBase::AddrMode &amp; AM, llvm::Type * Ty, unsigned int AS, llvm::Instruction * I = nullptr) const'/>
+<doc f='llvm/llvm/lib/CodeGen/TargetLoweringBase.cpp' l='1653'>//===----------------------------------------------------------------------===//
+//  Loop Strength Reduction hooks
+//===----------------------------------------------------------------------===//
+
+/// isLegalAddressingMode - Return true if the addressing mode represented
+/// by AM is legal for this target, for a load/store of the specified type.</doc>
+<ovr f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='8761' c='_ZNK4llvm21AArch64TargetLowering21isLegalAddressingModeERKNS_10DataLayoutERKNS_18TargetLoweringBase8AddrModeEPNS_4TypeEjPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUPerfHintAnalysis.cpp' l='249' u='c' c='_ZN12_GLOBAL__N_114AMDGPUPerfHint5visitERKN4llvm8FunctionE'/>
+<ovr f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='1066' c='_ZNK4llvm16SITargetLowering21isLegalAddressingModeERKNS_10DataLayoutERKNS_18TargetLoweringBase8AddrModeEPNS_4TypeEjPNS_11InstructionE'/>
+<ovr f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='13431' c='_ZNK4llvm17ARMTargetLowering21isLegalAddressingModeERKNS_10DataLayoutERKNS_18TargetLoweringBase8AddrModeEPNS_4TypeEjPNS_11InstructionE'/>
+<ovr f='llvm/llvm/lib/Target/Hexagon/HexagonISelLowering.cpp' l='2934' c='_ZNK4llvm21HexagonTargetLowering21isLegalAddressingModeERKNS_10DataLayoutERKNS_18TargetLoweringBase8AddrModeEPNS_4TypeEjPNS_11InstructionE'/>
+<ovr f='llvm/llvm/lib/Target/Mips/MipsISelLowering.cpp' l='5289' c='_ZNK4llvm18MipsTargetLowering21isLegalAddressingModeERKNS_10DataLayoutERKNS_18TargetLoweringBase8AddrModeEPNS_4TypeEjPNS_11InstructionE'/>
+<ovr f='llvm/llvm/lib/Target/NVPTX/NVPTXISelLowering.cpp' l='4216' c='_ZNK4llvm19NVPTXTargetLowering21isLegalAddressingModeERKNS_10DataLayoutERKNS_18TargetLoweringBase8AddrModeEPNS_4TypeEjPNS_11InstructionE'/>
+<ovr f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='14120' c='_ZNK4llvm17PPCTargetLowering21isLegalAddressingModeERKNS_10DataLayoutERKNS_18TargetLoweringBase8AddrModeEPNS_4TypeEjPNS_11InstructionE'/>
+<ovr f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='871' c='_ZNK4llvm21SystemZTargetLowering21isLegalAddressingModeERKNS_10DataLayoutERKNS_18TargetLoweringBase8AddrModeEPNS_4TypeEjPNS_11InstructionE'/>
+<ovr f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyISelLowering.cpp' l='514' c='_ZNK4llvm25WebAssemblyTargetLowering21isLegalAddressingModeERKNS_10DataLayoutERKNS_18TargetLoweringBase8AddrModeEPNS_4TypeEjPNS_11InstructionE'/>
+<ovr f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='28360' c='_ZNK4llvm17X86TargetLowering21isLegalAddressingModeERKNS_10DataLayoutERKNS_18TargetLoweringBase8AddrModeEPNS_4TypeEjPNS_11InstructionE'/>
+<ovr f='llvm/llvm/lib/Target/XCore/XCoreISelLowering.cpp' l='1880' c='_ZNK4llvm19XCoreTargetLowering21isLegalAddressingModeERKNS_10DataLayoutERKNS_18TargetLoweringBase8AddrModeEPNS_4TypeEjPNS_11InstructionE'/>

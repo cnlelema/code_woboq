@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Driver.h source code [llvm/lld/include/lld/Common/Driver.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/lld/include/lld/Common/Driver.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>lld</a>/<a href='../..'>include</a>/<a href='..'>lld</a>/<a href='./'>Common</a>/<a href='Driver.h.html'>Driver.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- lld/Common/Driver.h - Linker Driver Emulator -----------------------===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLD_COMMON_DRIVER_H">LLD_COMMON_DRIVER_H</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLD_COMMON_DRIVER_H" data-ref="_M/LLD_COMMON_DRIVER_H">LLD_COMMON_DRIVER_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="../../../../llvm/include/llvm/ADT/ArrayRef.h.html">"llvm/ADT/ArrayRef.h"</a></u></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../../../../llvm/include/llvm/Support/raw_ostream.h.html">"llvm/Support/raw_ostream.h"</a></u></td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><b>namespace</b> <span class="namespace">lld</span> {</td></tr>
+<tr><th id="16">16</th><td><b>namespace</b> <span class="namespace">coff</span> {</td></tr>
+<tr><th id="17">17</th><td><em>bool</em> <a class="decl" href="../../../COFF/Driver.cpp.html#_ZN3lld4coff4linkEN4llvm8ArrayRefIPKcEEbRNS1_11raw_ostreamE" title='lld::coff::link' data-ref="_ZN3lld4coff4linkEN4llvm8ArrayRefIPKcEEbRNS1_11raw_ostreamE" id="_ZN3lld4coff4linkEN4llvm8ArrayRefIPKcEEbRNS1_11raw_ostreamE">link</a>(<span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/ArrayRef.h.html#llvm::ArrayRef" title='llvm::ArrayRef' data-ref="llvm::ArrayRef">ArrayRef</a>&lt;<em>const</em> <em>char</em> *&gt; <dfn class="local col8 decl" id="18Args" title='Args' data-type='llvm::ArrayRef&lt;const char *&gt;' data-ref="18Args">Args</dfn>, <em>bool</em> <dfn class="local col9 decl" id="19CanExitEarly" title='CanExitEarly' data-type='bool' data-ref="19CanExitEarly">CanExitEarly</dfn>,</td></tr>
+<tr><th id="18">18</th><td>          <span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col0 decl" id="20Diag" title='Diag' data-type='llvm::raw_ostream &amp;' data-ref="20Diag">Diag</dfn> = <span class="namespace">llvm::</span><a class="ref" href="../../../../llvm/include/llvm/Support/raw_ostream.h.html#_ZN4llvm4errsEv" title='llvm::errs' data-ref="_ZN4llvm4errsEv">errs</a>());</td></tr>
+<tr><th id="19">19</th><td>}</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><b>namespace</b> <span class="namespace">mingw</span> {</td></tr>
+<tr><th id="22">22</th><td><em>bool</em> <dfn class="decl" id="_ZN3lld5mingw4linkEN4llvm8ArrayRefIPKcEERNS1_11raw_ostreamE" title='lld::mingw::link' data-ref="_ZN3lld5mingw4linkEN4llvm8ArrayRefIPKcEERNS1_11raw_ostreamE">link</dfn>(<span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/ArrayRef.h.html#llvm::ArrayRef" title='llvm::ArrayRef' data-ref="llvm::ArrayRef">ArrayRef</a>&lt;<em>const</em> <em>char</em> *&gt; <dfn class="local col1 decl" id="21Args" title='Args' data-type='llvm::ArrayRef&lt;const char *&gt;' data-ref="21Args">Args</dfn>,</td></tr>
+<tr><th id="23">23</th><td>          <span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col2 decl" id="22Diag" title='Diag' data-type='llvm::raw_ostream &amp;' data-ref="22Diag">Diag</dfn> = <span class="namespace">llvm::</span><a class="ref" href="../../../../llvm/include/llvm/Support/raw_ostream.h.html#_ZN4llvm4errsEv" title='llvm::errs' data-ref="_ZN4llvm4errsEv">errs</a>());</td></tr>
+<tr><th id="24">24</th><td>}</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><b>namespace</b> <span class="namespace">elf</span> {</td></tr>
+<tr><th id="27">27</th><td><em>bool</em> <dfn class="decl" id="_ZN3lld3elf4linkEN4llvm8ArrayRefIPKcEEbRNS1_11raw_ostreamE" title='lld::elf::link' data-ref="_ZN3lld3elf4linkEN4llvm8ArrayRefIPKcEEbRNS1_11raw_ostreamE">link</dfn>(<span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/ArrayRef.h.html#llvm::ArrayRef" title='llvm::ArrayRef' data-ref="llvm::ArrayRef">ArrayRef</a>&lt;<em>const</em> <em>char</em> *&gt; <dfn class="local col3 decl" id="23Args" title='Args' data-type='llvm::ArrayRef&lt;const char *&gt;' data-ref="23Args">Args</dfn>, <em>bool</em> <dfn class="local col4 decl" id="24CanExitEarly" title='CanExitEarly' data-type='bool' data-ref="24CanExitEarly">CanExitEarly</dfn>,</td></tr>
+<tr><th id="28">28</th><td>          <span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col5 decl" id="25Diag" title='Diag' data-type='llvm::raw_ostream &amp;' data-ref="25Diag">Diag</dfn> = <span class="namespace">llvm::</span><a class="ref" href="../../../../llvm/include/llvm/Support/raw_ostream.h.html#_ZN4llvm4errsEv" title='llvm::errs' data-ref="_ZN4llvm4errsEv">errs</a>());</td></tr>
+<tr><th id="29">29</th><td>}</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><b>namespace</b> <span class="namespace">mach_o</span> {</td></tr>
+<tr><th id="32">32</th><td><em>bool</em> <dfn class="decl" id="_ZN3lld6mach_o4linkEN4llvm8ArrayRefIPKcEEbRNS1_11raw_ostreamE" title='lld::mach_o::link' data-ref="_ZN3lld6mach_o4linkEN4llvm8ArrayRefIPKcEEbRNS1_11raw_ostreamE">link</dfn>(<span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/ArrayRef.h.html#llvm::ArrayRef" title='llvm::ArrayRef' data-ref="llvm::ArrayRef">ArrayRef</a>&lt;<em>const</em> <em>char</em> *&gt; <dfn class="local col6 decl" id="26Args" title='Args' data-type='llvm::ArrayRef&lt;const char *&gt;' data-ref="26Args">Args</dfn>, <em>bool</em> <dfn class="local col7 decl" id="27CanExitEarly" title='CanExitEarly' data-type='bool' data-ref="27CanExitEarly">CanExitEarly</dfn>,</td></tr>
+<tr><th id="33">33</th><td>          <span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col8 decl" id="28Diag" title='Diag' data-type='llvm::raw_ostream &amp;' data-ref="28Diag">Diag</dfn> = <span class="namespace">llvm::</span><a class="ref" href="../../../../llvm/include/llvm/Support/raw_ostream.h.html#_ZN4llvm4errsEv" title='llvm::errs' data-ref="_ZN4llvm4errsEv">errs</a>());</td></tr>
+<tr><th id="34">34</th><td>}</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><b>namespace</b> <span class="namespace">wasm</span> {</td></tr>
+<tr><th id="37">37</th><td><em>bool</em> <dfn class="decl" id="_ZN3lld4wasm4linkEN4llvm8ArrayRefIPKcEEbRNS1_11raw_ostreamE" title='lld::wasm::link' data-ref="_ZN3lld4wasm4linkEN4llvm8ArrayRefIPKcEEbRNS1_11raw_ostreamE">link</dfn>(<span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/ArrayRef.h.html#llvm::ArrayRef" title='llvm::ArrayRef' data-ref="llvm::ArrayRef">ArrayRef</a>&lt;<em>const</em> <em>char</em> *&gt; <dfn class="local col9 decl" id="29Args" title='Args' data-type='llvm::ArrayRef&lt;const char *&gt;' data-ref="29Args">Args</dfn>, <em>bool</em> <dfn class="local col0 decl" id="30CanExitEarly" title='CanExitEarly' data-type='bool' data-ref="30CanExitEarly">CanExitEarly</dfn>,</td></tr>
+<tr><th id="38">38</th><td>          <span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col1 decl" id="31Diag" title='Diag' data-type='llvm::raw_ostream &amp;' data-ref="31Diag">Diag</dfn> = <span class="namespace">llvm::</span><a class="ref" href="../../../../llvm/include/llvm/Support/raw_ostream.h.html#_ZN4llvm4errsEv" title='llvm::errs' data-ref="_ZN4llvm4errsEv">errs</a>());</td></tr>
+<tr><th id="39">39</th><td>}</td></tr>
+<tr><th id="40">40</th><td>}</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><u>#<span data-ppcond="9">endif</span></u></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../COFF/Driver.cpp.html'>llvm/lld/COFF/Driver.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

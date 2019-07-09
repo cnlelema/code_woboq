@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetSubtargetInfo.h' l='190' type='bool llvm::TargetSubtargetInfo::enableMachineScheduler() const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetSubtargetInfo.h' l='184'>/// True if the subtarget should run MachineScheduler after aggressive
+  /// coalescing.
+  ///
+  /// This currently replaces the SelectionDAG scheduler with the &quot;source&quot; order
+  /// scheduler (though see below for an option to turn this off and use the
+  /// TargetLowering preference). It does not yet disable the postRA scheduler.</doc>
+<use f='llvm/llvm/lib/CodeGen/MachineScheduler.cpp' l='365' u='c' c='_ZN12_GLOBAL__N_116MachineScheduler20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGISel.cpp' l='260' u='c' c='_ZN4llvm22createDefaultSchedulerEPNS_16SelectionDAGISelENS_10CodeGenOpt5LevelE'/>
+<def f='llvm/llvm/lib/CodeGen/TargetSubtargetInfo.cpp' l='36' ll='38' type='bool llvm::TargetSubtargetInfo::enableMachineScheduler() const'/>
+<use f='llvm/llvm/lib/CodeGen/TargetSubtargetInfo.cpp' l='41' u='c' c='_ZNK4llvm19TargetSubtargetInfo22enableJoinGlobalCopiesEv'/>
+<ovr f='llvm/llvm/lib/Target/AMDGPU/AMDGPUSubtarget.h' l='1160' c='_ZNK4llvm13R600Subtarget22enableMachineSchedulerEv'/>
+<ovr f='llvm/llvm/lib/Target/Lanai/LanaiSubtarget.h' l='47' c='_ZNK4llvm14LanaiSubtarget22enableMachineSchedulerEv'/>
+<ovr f='llvm/llvm/lib/Target/Sparc/SparcSubtarget.cpp' l='100' c='_ZNK4llvm14SparcSubtarget22enableMachineSchedulerEv'/>

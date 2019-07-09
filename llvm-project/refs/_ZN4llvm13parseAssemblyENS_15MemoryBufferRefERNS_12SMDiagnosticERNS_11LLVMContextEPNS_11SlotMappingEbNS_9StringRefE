@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/AsmParser/Parser.h' l='120' type='std::unique_ptr&lt;Module&gt; llvm::parseAssembly(llvm::MemoryBufferRef F, llvm::SMDiagnostic &amp; Err, llvm::LLVMContext &amp; Context, llvm::SlotMapping * Slots = nullptr, bool UpgradeDebugInfo = true, llvm::StringRef DataLayoutString = &quot;&quot;)'/>
+<def f='llvm/llvm/lib/AsmParser/Parser.cpp' l='40' ll='52' type='std::unique_ptr&lt;Module&gt; llvm::parseAssembly(llvm::MemoryBufferRef F, llvm::SMDiagnostic &amp; Err, llvm::LLVMContext &amp; Context, llvm::SlotMapping * Slots = nullptr, bool UpgradeDebugInfo = true, llvm::StringRef DataLayoutString = &quot;&quot;)'/>
+<use f='llvm/llvm/lib/AsmParser/Parser.cpp' l='66' u='c' c='_ZN4llvm17parseAssemblyFileENS_9StringRefERNS_12SMDiagnosticERNS_11LLVMContextEPNS_11SlotMappingEbS0_'/>
+<use f='llvm/llvm/lib/AsmParser/Parser.cpp' l='106' u='c' c='_ZN4llvm19parseAssemblyStringENS_9StringRefERNS_12SMDiagnosticERNS_11LLVMContextEPNS_11SlotMappingEbS0_'/>
+<doc f='llvm/llvm/include/llvm/AsmParser/Parser.h' l='110'>/// parseAssemblyFile and parseAssemblyString are wrappers around this function.
+/// Parse LLVM Assembly from a MemoryBuffer.
+/// \param F The MemoryBuffer containing assembly
+/// \param Err Error result info.
+/// \param Slots The optional slot mapping that will be initialized during
+///              parsing.
+/// \param UpgradeDebugInfo Run UpgradeDebugInfo, which runs the Verifier.
+///                         This option should only be set to false by llvm-as
+///                         for use inside the LLVM testuite!
+/// \param DataLayoutString Override datalayout in the llvm assembly.</doc>
+<use f='llvm/llvm/lib/CodeGen/MIRParser/MIRParser.cpp' l='224' u='c' c='_ZN4llvm13MIRParserImpl13parseIRModuleEv'/>
+<use f='llvm/llvm/lib/IRReader/IRReader.cpp' l='49' u='c' c='_ZN4llvm15getLazyIRModuleESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS1_EERNS_12SMDiagnosticERNS_11LLVMContextEb'/>
+<use f='llvm/llvm/lib/IRReader/IRReader.cpp' l='91' u='c' c='_ZN4llvm7parseIRENS_15MemoryBufferRefERNS_12SMDiagnosticERNS_11LLVMContextEbNS_9StringRefE'/>

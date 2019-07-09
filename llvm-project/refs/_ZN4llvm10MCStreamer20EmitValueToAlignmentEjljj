@@ -1,0 +1,51 @@
+<dec f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='810' type='void llvm::MCStreamer::EmitValueToAlignment(unsigned int ByteAlignment, int64_t Value = 0, unsigned int ValueSize = 1, unsigned int MaxBytesToEmit = 0)'/>
+<doc f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='793'>/// Emit some number of copies of \p Value until the byte alignment \p
+  /// ByteAlignment is reached.
+  ///
+  /// If the number of bytes need to emit for the alignment is not a multiple
+  /// of \p ValueSize, then the contents of the emitted fill bytes is
+  /// undefined.
+  ///
+  /// This used to implement the .align assembler directive.
+  ///
+  /// \param ByteAlignment - The alignment to reach. This must be a power of
+  /// two on some targets.
+  /// \param Value - The value to use when filling bytes.
+  /// \param ValueSize - The size of the integer (in bytes) to emit for
+  /// \p Value. This must match a native machine width.
+  /// \param MaxBytesToEmit - The maximum numbers of bytes to emit, or 0. If
+  /// the alignment cannot be reached in this many bytes, no bytes are
+  /// emitted.</doc>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/AccelTable.cpp' l='540' u='c' c='_ZNK12_GLOBAL__N_122Dwarf5AccelTableWriter4emitEv'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/AsmPrinter.cpp' l='2203' u='c' c='_ZNK4llvm10AsmPrinter13EmitAlignmentEjPKNS_12GlobalObjectE'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/CodeViewDebug.cpp' l='514' u='c' c='_ZN4llvm13CodeViewDebug24emitCodeViewMagicVersionEv'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/CodeViewDebug.cpp' l='651' u='c' c='_ZN4llvm13CodeViewDebug20emitTypeGlobalHashesEv'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/CodeViewDebug.cpp' l='2878' u='c' c='_ZN4llvm13CodeViewDebug15endCVSubsectionEPNS_8MCSymbolE'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/CodeViewDebug.cpp' l='2905' u='c' c='_ZN4llvm13CodeViewDebug15endSymbolRecordEPNS_8MCSymbolE'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/WinException.cpp' l='716' u='c' c='_ZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/WinException.cpp' l='982' u='c' c='_ZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/StackMaps.cpp' l='531' u='c' c='_ZN4llvm9StackMaps19emitCallsiteEntriesERNS_10MCStreamerE'/>
+<use f='llvm/llvm/lib/CodeGen/StackMaps.cpp' l='543' u='c' c='_ZN4llvm9StackMaps19emitCallsiteEntriesERNS_10MCStreamerE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetLoweringObjectFileImpl.cpp' l='370' u='c' c='_ZNK4llvm27TargetLoweringObjectFileELF20emitPersonalityValueERNS_10MCStreamerERKNS_10DataLayoutEPKNS_8MCSymbolE'/>
+<ovr f='llvm/llvm/lib/MC/MCAsmStreamer.cpp' l='1081' c='_ZN12_GLOBAL__N_113MCAsmStreamer20EmitValueToAlignmentEjljj'/>
+<ovr f='llvm/llvm/lib/MC/MCObjectStreamer.cpp' l='531' c='_ZN4llvm16MCObjectStreamer20EmitValueToAlignmentEjljj'/>
+<use f='llvm/llvm/lib/MC/MCParser/AsmParser.cpp' l='3335' u='c' c='_ZN12_GLOBAL__N_19AsmParser19parseDirectiveAlignEbj'/>
+<use f='llvm/llvm/lib/MC/MCParser/DarwinAsmParser.cpp' l='495' u='c' c='_ZN12_GLOBAL__N_115DarwinAsmParser18parseSectionSwitchEN4llvm9StringRefES2_jjj'/>
+<use f='llvm/llvm/lib/MC/MCParser/ELFAsmParser.cpp' l='805' u='c' c='_ZN12_GLOBAL__N_112ELFAsmParser21ParseDirectiveVersionEN4llvm9StringRefENS1_5SMLocE'/>
+<def f='llvm/llvm/lib/MC/MCStreamer.cpp' l='1139' ll='1141' type='void llvm::MCStreamer::EmitValueToAlignment(unsigned int ByteAlignment, int64_t Value = 0, unsigned int ValueSize = 1, unsigned int MaxBytesToEmit = 0)'/>
+<use f='llvm/llvm/lib/MC/MCWin64EH.cpp' l='146' u='c' c='_ZL19EmitRuntimeFunctionRN4llvm10MCStreamerEPKNS_5WinEH9FrameInfoE'/>
+<use f='llvm/llvm/lib/MC/MCWin64EH.cpp' l='162' u='c' c='_ZL14EmitUnwindInfoRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoE'/>
+<use f='llvm/llvm/lib/MC/MCWin64EH.cpp' l='501' u='c' c='_ZL19ARM64EmitUnwindInfoRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoE'/>
+<use f='llvm/llvm/lib/MC/MCWin64EH.cpp' l='649' u='c' c='_ZL24ARM64EmitRuntimeFunctionRN4llvm10MCStreamerEPKNS_5WinEH9FrameInfoE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUAsmPrinter.cpp' l='242' u='c' c='_ZN4llvm16AMDGPUAsmPrinter19EmitFunctionBodyEndEv'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/MCTargetDesc/AMDGPUTargetStreamer.cpp' l='567' u='c' c='_ZN4llvm23AMDGPUTargetELFStreamer11EmitCodeEndEv'/>
+<use f='llvm/llvm/lib/Target/ARM/AsmParser/ARMAsmParser.cpp' l='10411' u='c' c='_ZN12_GLOBAL__N_112ARMAsmParser18parseDirectiveEvenEN4llvm5SMLocE'/>
+<use f='llvm/llvm/lib/Target/ARM/AsmParser/ARMAsmParser.cpp' l='10613' u='c' c='_ZN12_GLOBAL__N_112ARMAsmParser19parseDirectiveAlignEN4llvm5SMLocE'/>
+<use f='llvm/llvm/lib/Target/Mips/MCTargetDesc/MipsTargetStreamer.cpp' l='946' u='c' c='_ZN4llvm21MipsTargetELFStreamer6finishEv'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsAsmPrinter.cpp' l='1070' u='c' c='_ZN4llvm14MipsAsmPrinter14EmitFPCallStubEPKcPKNS_19Mips16HardFloatInfo13FuncSignatureE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/AsmParser/PPCAsmParser.cpp' l='1684' u='c' c='_ZN12_GLOBAL__N_112PPCAsmParser16ParseDirectiveTCEjN4llvm8AsmTokenE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/MCTargetDesc/PPCMCTargetDesc.cpp' l='144' u='c' c='_ZN12_GLOBAL__N_120PPCTargetELFStreamer11emitTCEntryERKN4llvm8MCSymbolE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCAsmPrinter.cpp' l='1331' u='c' c='_ZN12_GLOBAL__N_118PPCLinuxAsmPrinter22EmitFunctionEntryLabelEv'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCAsmPrinter.cpp' l='1373' u='c' c='_ZN12_GLOBAL__N_118PPCLinuxAsmPrinter14doFinalizationERN4llvm6ModuleE'/>
+<use f='llvm/llvm/lib/Target/X86/AsmParser/X86AsmParser.cpp' l='3593' u='c' c='_ZN12_GLOBAL__N_112X86AsmParser18parseDirectiveEvenEN4llvm5SMLocE'/>
+<use f='llvm/llvm/lib/Target/X86/MCTargetDesc/X86WinCOFFTargetStreamer.cpp' l='440' u='c' c='_ZN12_GLOBAL__N_124X86WinCOFFTargetStreamer11emitFPODataEPKN4llvm8MCSymbolENS1_5SMLocE'/>

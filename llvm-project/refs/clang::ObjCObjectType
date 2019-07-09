@@ -1,0 +1,69 @@
+<inh f='llvm/clang/include/clang/AST/Type.h' l='1428' c='clang::Type'/>
+<inh f='llvm/clang/include/clang/AST/Type.h' l='5493' c='clang::ObjCProtocolQualifiers'/>
+<def f='llvm/clang/include/clang/AST/Type.h' l='5622' ll='5769'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='5775' c='clang::ObjCObjectTypeImpl'/>
+<ovr f='llvm/clang/include/clang/AST/Type.h' l='5822' c='clang::ObjCInterfaceType'/>
+<size>40</size>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='5594'>/// Represents a class type in Objective C.
+///
+/// Every Objective C type is a combination of a base type, a set of
+/// type arguments (optional, for parameterized classes) and a list of
+/// protocols.
+///
+/// Given the following declarations:
+/// \code
+///   \@class C&lt;T&gt;;
+///   \@protocol P;
+/// \endcode
+///
+/// &apos;C&apos; is an ObjCInterfaceType C.  It is sugar for an ObjCObjectType
+/// with base C and no protocols.
+///
+/// &apos;C&lt;P&gt;&apos; is an unspecialized ObjCObjectType with base C and protocol list [P].
+/// &apos;C&lt;C*&gt;&apos; is a specialized ObjCObjectType with type arguments &apos;C*&apos; and no
+/// protocol list.
+/// &apos;C&lt;C*&gt;&lt;P&gt;&apos; is a specialized ObjCObjectType with base C, type arguments &apos;C*&apos;,
+/// and protocol list [P].
+///
+/// &apos;id&apos; is a TypedefType which is sugar for an ObjCObjectPointerType whose
+/// pointee is an ObjCObjectType with base BuiltinType::ObjCIdType
+/// and no protocols.
+///
+/// &apos;id&lt;P&gt;&apos; is an ObjCObjectPointerType whose pointee is an ObjCObjectType
+/// with base BuiltinType::ObjCIdType and protocol list [P].  Eventually
+/// this should get its own sugar class to better represent the source.</doc>
+<mbr r='clang::ObjCObjectType::BaseType' o='192' t='clang::QualType'/>
+<mbr r='clang::ObjCObjectType::CachedSuperClassType' o='256' t='llvm::PointerIntPair&lt;const ObjCObjectType *, 1, bool&gt;'/>
+<fun r='_ZN5clang14ObjCObjectType17getTypeArgStorageEv'/>
+<fun r='_ZNK5clang14ObjCObjectType17getTypeArgStorageEv'/>
+<fun r='_ZN5clang14ObjCObjectType22getProtocolStorageImplEv'/>
+<fun r='_ZNK5clang14ObjCObjectType19getNumProtocolsImplEv'/>
+<fun r='_ZN5clang14ObjCObjectType19setNumProtocolsImplEj'/>
+<fun r='_ZN5clang14ObjCObjectTypeC1ENS_8QualTypeES1_N4llvm8ArrayRefIS1_EENS3_IPNS_16ObjCProtocolDeclEEEb'/>
+<fun r='_ZN5clang14ObjCObjectTypeC1ENS0_19Nonce_ObjCInterfaceE'/>
+<fun r='_ZNK5clang14ObjCObjectType25computeSuperClassTypeSlowEv'/>
+<fun r='_ZNK5clang14ObjCObjectType11getBaseTypeEv'/>
+<fun r='_ZNK5clang14ObjCObjectType8isObjCIdEv'/>
+<fun r='_ZNK5clang14ObjCObjectType11isObjCClassEv'/>
+<fun r='_ZNK5clang14ObjCObjectType19isObjCUnqualifiedIdEv'/>
+<fun r='_ZNK5clang14ObjCObjectType22isObjCUnqualifiedClassEv'/>
+<fun r='_ZNK5clang14ObjCObjectType26isObjCUnqualifiedIdOrClassEv'/>
+<fun r='_ZNK5clang14ObjCObjectType17isObjCQualifiedIdEv'/>
+<fun r='_ZNK5clang14ObjCObjectType20isObjCQualifiedClassEv'/>
+<fun r='_ZNK5clang14ObjCObjectType12getInterfaceEv'/>
+<fun r='_ZNK5clang14ObjCObjectType13isSpecializedEv'/>
+<fun r='_ZNK5clang14ObjCObjectType22isSpecializedAsWrittenEv'/>
+<fun r='_ZNK5clang14ObjCObjectType15isUnspecializedEv'/>
+<fun r='_ZNK5clang14ObjCObjectType24isUnspecializedAsWrittenEv'/>
+<fun r='_ZNK5clang14ObjCObjectType11getTypeArgsEv'/>
+<fun r='_ZNK5clang14ObjCObjectType20getTypeArgsAsWrittenEv'/>
+<fun r='_ZNK5clang14ObjCObjectType21isKindOfTypeAsWrittenEv'/>
+<fun r='_ZNK5clang14ObjCObjectType12isKindOfTypeEv'/>
+<fun r='_ZNK5clang14ObjCObjectType17getSuperClassTypeEv'/>
+<fun r='_ZNK5clang14ObjCObjectType27stripObjCKindOfTypeAndQualsERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang14ObjCObjectType9isSugaredEv'/>
+<fun r='_ZNK5clang14ObjCObjectType7desugarEv'/>
+<fun r='_ZN5clang14ObjCObjectType7classofEPKNS_4TypeE'/>
+<fun r='_ZN5clang14ObjCObjectType17getTypeArgStorageEv'/>
+<fun r='_ZN5clang14ObjCObjectType22getProtocolStorageImplEv'/>
+<fun r='_ZNK5clang14ObjCObjectType12getInterfaceEv'/>

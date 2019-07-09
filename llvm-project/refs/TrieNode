@@ -1,0 +1,11 @@
+<def f='llvm/llvm/tools/llvm-xray/trie-node.h' l='30' ll='42'/>
+<doc f='llvm/llvm/tools/llvm-xray/trie-node.h' l='24'>/// A type to represent a trie of invocations. It is useful to construct a
+/// graph of these nodes from reading an XRay trace, such that each function
+/// call can be placed in a larger context.
+///
+/// The template parameter allows users of the template to attach their own
+/// data elements to each node in the invocation graph.</doc>
+<mbr r='TrieNode::FuncId' t='int32_t'/>
+<mbr r='TrieNode::Parent' t='TrieNode&lt;AssociatedData&gt; *'/>
+<mbr r='TrieNode::Callees' t='llvm::SmallVector&lt;TrieNode&lt;AssociatedData&gt; *, 4&gt;'/>
+<mbr r='TrieNode::ExtraData' t='AssociatedData'/>

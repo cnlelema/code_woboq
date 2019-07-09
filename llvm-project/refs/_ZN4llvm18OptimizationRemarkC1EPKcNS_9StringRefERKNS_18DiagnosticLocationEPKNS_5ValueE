@@ -1,0 +1,27 @@
+<dec f='llvm/llvm/include/llvm/IR/DiagnosticInfo.h' l='679' type='void llvm::OptimizationRemark::OptimizationRemark(const char * PassName, llvm::StringRef RemarkName, const llvm::DiagnosticLocation &amp; Loc, const llvm::Value * CodeRegion)'/>
+<doc f='llvm/llvm/include/llvm/IR/DiagnosticInfo.h' l='673'>/// \p PassName is the name of the pass emitting this diagnostic. If this name
+  /// matches the regular expression given in -Rpass=, then the diagnostic will
+  /// be emitted. \p RemarkName is a textual identifier for the remark (single-
+  /// word, camel-case). \p Loc is the debug location and \p CodeRegion is the
+  /// region that the optimization operates on (currently only block is
+  /// supported).</doc>
+<def f='llvm/llvm/lib/IR/DiagnosticInfo.cpp' l='231' ll='237' type='void llvm::OptimizationRemark::OptimizationRemark(const char * PassName, llvm::StringRef RemarkName, const llvm::DiagnosticLocation &amp; Loc, const llvm::Value * CodeRegion)'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUInline.cpp' l='206' u='c' c='_ZN12_GLOBAL__N_113AMDGPUInliner13getInlineCostEN4llvm8CallSiteE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/InlineSimple.cpp' l='61' u='c' c='_ZN12_GLOBAL__N_113SimpleInliner13getInlineCostEN4llvm8CallSiteE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/Inliner.cpp' l='513' u='c' c='_ZL17emit_inlined_intoRN4llvm25OptimizationRemarkEmitterERNS_8DebugLocEPKNS_10BasicBlockERKNS_8FunctionES9_RKNS_10InlineCostE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/SampleProfile.cpp' l='759' u='c' c='_ZN12_GLOBAL__N_119SampleProfileLoader21inlineCallInstructionEPN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/SampleProfile.cpp' l='766' u='c' c='_ZN12_GLOBAL__N_119SampleProfileLoader21inlineCallInstructionEPN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/WholeProgramDevirt.cpp' l='291' u='c' c='_ZN12_GLOBAL__N_115VirtualCallSite10emitRemarkEN4llvm9StringRefES2_NS1_12function_refIFRNS1_25OptimizationRemarkEmitterEPNS1_8FunctionEEEE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/WholeProgramDevirt.cpp' l='1352' u='c' c='_ZN12_GLOBAL__N_112DevirtModule17areRemarksEnabledEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopDistribute.cpp' l='852' u='c' c='_ZN12_GLOBAL__N_121LoopDistributeForLoop11processLoopERSt8functionIFRKN4llvm14LoopAccessInfoERNS2_4LoopEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopIdiomRecognize.cpp' l='975' u='c' c='_ZN12_GLOBAL__N_118LoopIdiomRecognize23processLoopStridedStoreEPN4llvm5ValueEjjS3_PNS1_11InstructionERNS1_15SmallPtrSetImplIS5_EEPKNS1_14SCEVAddRecExprEPKNS1_4SCEVEbb'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopIdiomRecognize.cpp' l='1115' u='c' c='_ZN12_GLOBAL__N_118LoopIdiomRecognize26processLoopStoreOfLoopLoadEPN4llvm9StoreInstEPKNS1_4SCEVE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopInterchange.cpp' l='573' u='c' c='_ZN12_GLOBAL__N_115LoopInterchange11processLoopEN4llvm11SmallVectorIPNS1_4LoopELj8EEEjjPNS1_10BasicBlockERSt6vectorIS8_IcSaIcEESaISA_EE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopVersioningLICM.cpp' l='552' u='c' c='_ZN12_GLOBAL__N_118LoopVersioningLICM20isLegalForVersioningEv'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnroll.cpp' l='442' u='c' c='_ZN4llvm10UnrollLoopEPNS_4LoopENS_17UnrollLoopOptionsEPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterEbPS1_'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnroll.cpp' l='452' u='c' c='_ZN4llvm10UnrollLoopEPNS_4LoopENS_17UnrollLoopOptionsEPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterEbPS1_'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnroll.cpp' l='459' u='c' c='_ZN4llvm10UnrollLoopEPNS_4LoopENS_17UnrollLoopOptionsEPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterEbPS1_'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnrollAndJam.cpp' l='221' u='c' c='_ZN4llvm16UnrollAndJamLoopEPNS_4LoopEjjjbPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterEPS1_'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnrollAndJam.cpp' l='227' u='c' c='_ZN4llvm16UnrollAndJamLoopEPNS_4LoopEjjjbPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterEPS1_'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='7511' u='c' c='_ZN4llvm17LoopVectorizePass11processLoopEPNS_4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='7531' u='c' c='_ZN4llvm17LoopVectorizePass11processLoopEPNS_4LoopE'/>

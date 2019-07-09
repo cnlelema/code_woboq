@@ -1,0 +1,22 @@
+<dec f='llvm/llvm/include/llvm/Support/Signals.h' l='46' type='void llvm::sys::PrintStackTraceOnErrorSignal(llvm::StringRef Argv0, bool DisableCrashReporting = false)'/>
+<doc f='llvm/llvm/include/llvm/Support/Signals.h' l='38'>/// When an error signal (such as SIGABRT or SIGSEGV) is delivered to the
+  /// process, print a stack trace and then exit.
+  /// Print a stack trace if a fatal signal occurs.
+  /// \param Argv0 the current binary name, used to find the symbolizer
+  ///        relative to the current binary before searching $PATH; can be
+  ///        StringRef(), in which case we will only search $PATH.
+  /// \param DisableCrashReporting if \c true, disable the normal crash
+  ///        reporting mechanisms on the underlying operating system.</doc>
+<use f='llvm/clang/tools/c-index-test/core_main.cpp' l='324' u='c' c='indextest_core_main'/>
+<use f='llvm/clang/tools/clang-import-test/clang-import-test.cpp' l='354' u='c' c='main'/>
+<use f='llvm/clang/tools/clang-offload-bundler/ClangOffloadBundler.cpp' l='924' u='c' c='main'/>
+<use f='llvm/clang/tools/clang-refactor/ClangRefactor.cpp' l='609' u='c' c='main'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='6573' u='c' c='clang_enableStackTraces'/>
+<use f='llvm/clang/utils/TableGen/TableGen.cpp' l='309' u='c' c='main'/>
+<use f='llvm/llvm/lib/Support/InitLLVM.cpp' l='25' u='c' c='_ZN4llvm8InitLLVMC1ERiRPPKc'/>
+<def f='llvm/llvm/lib/Support/Unix/Signals.inc' l='596' ll='617' type='void llvm::sys::PrintStackTraceOnErrorSignal(llvm::StringRef Argv0, bool DisableCrashReporting = false)'/>
+<doc f='llvm/llvm/lib/Support/Unix/Signals.inc' l='594'>/// When an error signal (such as SIGABRT or SIGSEGV) is delivered to the
+/// process, print a stack trace and then exit.</doc>
+<use f='llvm/llvm/tools/sancov/sancov.cpp' l='1226' u='c' c='main'/>
+<use f='llvm/llvm/utils/TableGen/TableGen.cpp' l='257' u='c' c='main'/>
+<use f='llvm/llvm/utils/unittest/UnitTestMain/TestMain.cpp' l='24' u='c' c='main'/>

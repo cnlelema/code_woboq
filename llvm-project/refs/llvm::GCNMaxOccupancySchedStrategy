@@ -1,0 +1,20 @@
+<inh f='llvm/llvm/include/llvm/CodeGen/MachineScheduler.h' l='927' c='llvm::GenericScheduler'/>
+<def f='llvm/llvm/lib/Target/AMDGPU/GCNSchedStrategy.h' l='29' ll='60'/>
+<size>1184</size>
+<doc f='llvm/llvm/lib/Target/AMDGPU/GCNSchedStrategy.h' l='25'>/// This is a minimal scheduler strategy.  The main difference between this
+/// and the GenericScheduler is that GCNSchedStrategy uses different
+/// heuristics to determine excess/critical pressure sets.  Its goal is to
+/// maximize kernel occupancy (i.e. maximum number of waves per simd).</doc>
+<fun r='_ZN4llvm28GCNMaxOccupancySchedStrategy21pickNodeBidirectionalERb'/>
+<fun r='_ZN4llvm28GCNMaxOccupancySchedStrategy17pickNodeFromQueueERNS_13SchedBoundaryERKNS_20GenericSchedulerBase10CandPolicyERKNS_18RegPressureTrackerERNS3_14SchedCandidateE'/>
+<fun r='_ZN4llvm28GCNMaxOccupancySchedStrategy13initCandidateERNS_20GenericSchedulerBase14SchedCandidateEPNS_5SUnitEbRKNS_18RegPressureTrackerEPKNS_14SIRegisterInfoEjj'/>
+<mbr r='llvm::GCNMaxOccupancySchedStrategy::SGPRExcessLimit' o='9216' t='unsigned int'/>
+<mbr r='llvm::GCNMaxOccupancySchedStrategy::VGPRExcessLimit' o='9248' t='unsigned int'/>
+<mbr r='llvm::GCNMaxOccupancySchedStrategy::SGPRCriticalLimit' o='9280' t='unsigned int'/>
+<mbr r='llvm::GCNMaxOccupancySchedStrategy::VGPRCriticalLimit' o='9312' t='unsigned int'/>
+<mbr r='llvm::GCNMaxOccupancySchedStrategy::TargetOccupancy' o='9344' t='unsigned int'/>
+<mbr r='llvm::GCNMaxOccupancySchedStrategy::MF' o='9408' t='llvm::MachineFunction *'/>
+<fun r='_ZN4llvm28GCNMaxOccupancySchedStrategyC1EPKNS_19MachineSchedContextE'/>
+<fun r='_ZN4llvm28GCNMaxOccupancySchedStrategy8pickNodeERb'/>
+<fun r='_ZN4llvm28GCNMaxOccupancySchedStrategy10initializeEPNS_13ScheduleDAGMIE'/>
+<fun r='_ZN4llvm28GCNMaxOccupancySchedStrategy18setTargetOccupancyEj'/>

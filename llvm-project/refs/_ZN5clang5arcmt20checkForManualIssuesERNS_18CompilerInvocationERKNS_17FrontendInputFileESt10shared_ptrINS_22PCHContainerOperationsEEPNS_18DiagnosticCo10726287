@@ -1,0 +1,17 @@
+<dec f='llvm/clang/include/clang/ARCMigrate/ARCMT.h' l='41' type='bool clang::arcmt::checkForManualIssues(clang::CompilerInvocation &amp; CI, const clang::FrontendInputFile &amp; Input, std::shared_ptr&lt;PCHContainerOperations&gt; PCHContainerOps, clang::DiagnosticConsumer * DiagClient, bool emitPremigrationARCErrors = false, llvm::StringRef plistOut = llvm::StringRef())'/>
+<doc f='llvm/clang/include/clang/ARCMigrate/ARCMT.h' l='24'>/// Creates an AST with the provided CompilerInvocation but with these
+/// changes:
+///   -if a PCH/PTH is set, the original header is used instead
+///   -Automatic Reference Counting mode is enabled
+///
+/// It then checks the AST and produces errors/warning for ARC migration issues
+/// that the user needs to handle manually.
+///
+/// \param emitPremigrationARCErrors if true all ARC errors will get emitted
+/// even if the migrator can fix them, but the function will still return false
+/// if all ARC errors can be fixed.
+///
+/// \param plistOut if non-empty, it is the file path to store the plist with
+/// the pre-migration ARC diagnostics.
+///
+/// \returns false if no error is produced, true otherwise.</doc>

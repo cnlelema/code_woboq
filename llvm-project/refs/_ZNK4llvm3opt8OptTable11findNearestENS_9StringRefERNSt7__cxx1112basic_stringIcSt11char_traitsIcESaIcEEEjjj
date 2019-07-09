@@ -1,0 +1,37 @@
+<dec f='llvm/llvm/include/llvm/Option/OptTable.h' l='161' type='unsigned int llvm::opt::OptTable::findNearest(llvm::StringRef Option, std::string &amp; NearestString, unsigned int FlagsToInclude = 0, unsigned int FlagsToExclude = 0, unsigned int MinimumLength = 4) const'/>
+<doc f='llvm/llvm/include/llvm/Option/OptTable.h' l='145'>/// Find the OptTable option that most closely matches the given string.
+  ///
+  /// \param [in] Option - A string, such as &quot;-stdlibs=l&quot;, that represents user
+  /// input of an option that may not exist in the OptTable. Note that the
+  /// string includes prefix dashes &quot;-&quot; as well as values &quot;=l&quot;.
+  /// \param [out] NearestString - The nearest option string found in the
+  /// OptTable.
+  /// \param [in] FlagsToInclude - Only find options with any of these flags.
+  /// Zero is the default, which includes all flags.
+  /// \param [in] FlagsToExclude - Don&apos;t find options with this flag. Zero
+  /// is the default, and means exclude nothing.
+  /// \param [in] MinimumLength - Don&apos;t find options shorter than this length.
+  /// For example, a minimum length of 3 prevents &quot;-x&quot; from being considered
+  /// near to &quot;-S&quot;.
+  ///
+  /// \return The edit distance of the nearest string found.</doc>
+<use f='llvm/clang/lib/Driver/Driver.cpp' l='218' u='c' c='_ZN5clang6driver6Driver15ParseArgStringsEN4llvm8ArrayRefIPKcEEbRb'/>
+<use f='llvm/clang/lib/Driver/Driver.cpp' l='2076' u='c' c='_ZNK5clang6driver6Driver22DiagnoseInputExistenceERKN4llvm3opt14DerivedArgListENS2_9StringRefENS0_5types2IDEb'/>
+<use f='llvm/lld/COFF/Driver.cpp' l='221' u='c' c='_ZN3lld4coff12LinkerDriver11enqueuePathEN4llvm9StringRefEb'/>
+<def f='llvm/llvm/lib/Option/OptTable.cpp' l='249' ll='320' type='unsigned int llvm::opt::OptTable::findNearest(llvm::StringRef Option, std::string &amp; NearestString, unsigned int FlagsToInclude = 0, unsigned int FlagsToExclude = 0, unsigned int MinimumLength = 4) const'/>
+<use f='llvm/llvm/unittests/Option/OptionParsingTest.cpp' l='279' u='c' c='_ZN23Option_FindNearest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Option/OptionParsingTest.cpp' l='280' u='c' c='_ZN23Option_FindNearest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Option/OptionParsingTest.cpp' l='281' u='c' c='_ZN23Option_FindNearest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Option/OptionParsingTest.cpp' l='285' u='c' c='_ZN23Option_FindNearest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Option/OptionParsingTest.cpp' l='287' u='c' c='_ZN23Option_FindNearest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Option/OptionParsingTest.cpp' l='289' u='c' c='_ZN23Option_FindNearest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Option/OptionParsingTest.cpp' l='291' u='c' c='_ZN23Option_FindNearest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Option/OptionParsingTest.cpp' l='293' u='c' c='_ZN23Option_FindNearest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Option/OptionParsingTest.cpp' l='298' u='c' c='_ZN23Option_FindNearest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Option/OptionParsingTest.cpp' l='302' u='c' c='_ZN23Option_FindNearest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Option/OptionParsingTest.cpp' l='304' u='c' c='_ZN23Option_FindNearest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Option/OptionParsingTest.cpp' l='308' u='c' c='_ZN23Option_FindNearest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Option/OptionParsingTest.cpp' l='312' u='c' c='_ZN23Option_FindNearest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Option/OptionParsingTest.cpp' l='316' u='c' c='_ZN23Option_FindNearest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Option/OptionParsingTest.cpp' l='318' u='c' c='_ZN23Option_FindNearest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Option/OptionParsingTest.cpp' l='331' u='c' c='_ZN37DISABLED_Option_FindNearestFIXME_Test8TestBodyEv'/>

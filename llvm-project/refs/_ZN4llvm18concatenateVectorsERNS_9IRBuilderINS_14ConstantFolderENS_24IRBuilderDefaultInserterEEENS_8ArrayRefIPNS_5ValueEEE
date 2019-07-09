@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/Analysis/VectorUtils.h' l='230' type='llvm::Value * llvm::concatenateVectors(IRBuilder&lt;&gt; &amp; Builder, ArrayRef&lt;llvm::Value *&gt; Vecs)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/VectorUtils.h' l='223'>/// Concatenate a list of vectors.
+///
+/// This function generates code that concatenate the vectors in \p Vecs into a
+/// single large vector. The number of vectors should be greater than one, and
+/// their element types should be the same. The number of elements in the
+/// vectors should also be the same; however, if the last vector has fewer
+/// elements, it will be padded with undefs.</doc>
+<def f='llvm/llvm/lib/Analysis/VectorUtils.cpp' l='721' ll='746' type='llvm::Value * llvm::concatenateVectors(IRBuilder&lt;&gt; &amp; Builder, ArrayRef&lt;llvm::Value *&gt; Vecs)'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='8555' u='c' c='_ZNK4llvm21AArch64TargetLowering20lowerInterleavedLoadEPNS_8LoadInstENS_8ArrayRefIPNS_17ShuffleVectorInstEEENS3_IjEEj'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='15065' u='c' c='_ZNK4llvm17ARMTargetLowering20lowerInterleavedLoadEPNS_8LoadInstENS_8ArrayRefIPNS_17ShuffleVectorInstEEENS3_IjEEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86InterleavedAccess.cpp' l='792' u='c' c='_ZN12_GLOBAL__N_125X86InterleavedAccessGroup26lowerIntoOptimizedSequenceEv'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='2190' u='c' c='_ZN4llvm19InnerLoopVectorizer24vectorizeInterleaveGroupEPNS_11InstructionEPNS_11SmallVectorIPNS_5ValueELj2EEE'/>

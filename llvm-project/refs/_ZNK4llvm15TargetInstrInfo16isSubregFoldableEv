@@ -1,0 +1,14 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='929' type='bool llvm::TargetInstrInfo::isSubregFoldable() const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='917'>/// Check whether the target can fold a load that feeds a subreg operand
+  /// (or a subreg operand that feeds a store).
+  /// For example, X86 may want to return true if it can fold
+  /// movl (%esp), %eax
+  /// subb, %al, ...
+  /// Into:
+  /// subb (%esp), ...
+  ///
+  /// Ideally, we&apos;d like the target implementation of foldMemoryOperand() to
+  /// reject subregs - but since this behavior used to be enforced in the
+  /// target-independent code, moving this responsibility to the targets
+  /// has the potential of causing nasty silent breakage in out-of-tree targets.</doc>
+<use f='llvm/llvm/lib/CodeGen/InlineSpiller.cpp' l='814' u='c' c='_ZN12_GLOBAL__N_113InlineSpiller17foldMemoryOperandEN4llvm8ArrayRefISt4pairIPNS1_12MachineInstrEjEEES5_'/>

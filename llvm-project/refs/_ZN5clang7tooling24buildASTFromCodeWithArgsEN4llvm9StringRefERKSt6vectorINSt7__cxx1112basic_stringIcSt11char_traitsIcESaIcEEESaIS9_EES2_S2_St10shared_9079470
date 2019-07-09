@@ -1,0 +1,26 @@
+<dec f='llvm/clang/include/clang/Tooling/Tooling.h' l='224' type='std::unique_ptr&lt;ASTUnit&gt; clang::tooling::buildASTFromCodeWithArgs(llvm::StringRef Code, const std::vector&lt;std::string&gt; &amp; Args, llvm::StringRef FileName = &quot;input.cc&quot;, llvm::StringRef ToolName = &quot;clang-tool&quot;, std::shared_ptr&lt;PCHContainerOperations&gt; PCHContainerOps = std::make_shared&lt;clang::PCHContainerOperations&gt;(), ArgumentsAdjuster Adjuster = getClangStripDependencyFileAdjuster())'/>
+<doc f='llvm/clang/include/clang/Tooling/Tooling.h' l='211'>/// Builds an AST for &apos;Code&apos; with additional flags.
+///
+/// \param Code C++ code.
+/// \param Args Additional flags to pass on.
+/// \param FileName The file name which &apos;Code&apos; will be mapped as.
+/// \param ToolName The name of the binary running the tool. Standard library
+///                 header paths will be resolved relative to this.
+/// \param PCHContainerOps The PCHContainerOperations for loading and creating
+/// clang modules.
+///
+/// \param Adjuster A function to filter the command line arguments as specified.
+///
+/// \return The resulting AST or null if an error occurred.</doc>
+<use f='llvm/clang/lib/Tooling/Tooling.cpp' l='578' u='c' c='_ZN5clang7tooling16buildASTFromCodeEN4llvm9StringRefES2_St10shared_ptrINS_22PCHContainerOperationsEE'/>
+<def f='llvm/clang/lib/Tooling/Tooling.cpp' l='582' ll='607' type='std::unique_ptr&lt;ASTUnit&gt; clang::tooling::buildASTFromCodeWithArgs(llvm::StringRef Code, const std::vector&lt;std::string&gt; &amp; Args, llvm::StringRef FileName = &quot;input.cc&quot;, llvm::StringRef ToolName = &quot;clang-tool&quot;, std::shared_ptr&lt;PCHContainerOperations&gt; PCHContainerOps = std::make_shared&lt;clang::PCHContainerOperations&gt;(), ArgumentsAdjuster Adjuster = getClangStripDependencyFileAdjuster())'/>
+<use f='llvm/clang/unittests/AST/ASTImporterFixtures.cpp' l='44' u='c' c='_ZN5clang12ast_matchers19ASTImporterTestBase2TUC1EN4llvm9StringRefES4_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESt8functio459055'/>
+<use f='llvm/clang/unittests/AST/ASTImporterFixtures.cpp' l='108' u='c' c='_ZN5clang12ast_matchers19ASTImporterTestBase13lazyInitToASTENS0_8LanguageEN4llvm9StringRefES4_'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='70' u='c' c='_ZN5clang12ast_matchers14TestImportBase10testImportERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS7_SaIS7_EES9_SE_RNS0_13MatchVer3974585'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='72' u='c' c='_ZN5clang12ast_matchers14TestImportBase10testImportERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS7_SaIS7_EES9_SE_RNS0_13MatchVer3974585'/>
+<use f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='170' u='c' c='_ZNK5clang12ast_matchers14TestImportBase13createASTUnitEN4llvm9StringRefERKNS1_9CodeEntryE'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='34' u='c' c='_ZN5clang12ast_matchers25StructuralEquivalenceTest9makeDeclsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_8LanguageERKT0_SD_'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='35' u='c' c='_ZN5clang12ast_matchers25StructuralEquivalenceTest9makeDeclsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_8LanguageERKT0_SD_'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='53' u='c' c='_ZN5clang12ast_matchers25StructuralEquivalenceTest11makeTuDeclsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_8LanguageE'/>
+<use f='llvm/clang/unittests/AST/StructuralEquivalenceTest.cpp' l='54' u='c' c='_ZN5clang12ast_matchers25StructuralEquivalenceTest11makeTuDeclsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_8LanguageE'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTest.h' l='277' u='c' c='_ZN5clang12ast_matchers33matchAndVerifyResultConditionallyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_St10unique_ptrINS0_18BoundNodesCa9448295'/>

@@ -1,0 +1,14 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='183' ll='187' type='int64_t llvm::TargetInstrInfo::getFrameSize(const llvm::MachineInstr &amp; I) const'/>
+<use f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='196' u='c' c='_ZNK4llvm15TargetInstrInfo17getFrameTotalSizeERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='198' u='c' c='_ZNK4llvm15TargetInstrInfo17getFrameTotalSizeERKNS_12MachineInstrE'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='175'>/// Returns size of the frame associated with the given frame instruction.
+  /// For frame setup instruction this is frame that is set up space set up
+  /// after the instruction. For frame destroy instruction this is the frame
+  /// freed by the caller.
+  /// Note, in some cases a call frame (or a part of it) may be prepared prior
+  /// to the frame setup instruction. It occurs in the calls that involve
+  /// inalloca arguments. This function reports only the size of the frame part
+  /// that is set up between the frame setup and destroy pseudo instructions.</doc>
+<use f='llvm/llvm/lib/CodeGen/MachineFrameInfo.cpp' l='199' u='c' c='_ZN4llvm16MachineFrameInfo23computeMaxCallFrameSizeERKNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/PrologEpilogInserter.cpp' l='317' u='c' c='_ZN12_GLOBAL__N_13PEI22calculateCallFrameInfoERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='968' u='c' c='_ZNK4llvm15TargetInstrInfo11getSPAdjustERKNS_12MachineInstrE'/>

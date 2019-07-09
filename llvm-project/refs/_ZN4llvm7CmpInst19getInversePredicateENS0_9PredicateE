@@ -1,0 +1,49 @@
+<use f='llvm/llvm/include/llvm/IR/InstrTypes.h' l='832' u='c' c='_ZNK4llvm7CmpInst19getInversePredicateEv'/>
+<dec f='llvm/llvm/include/llvm/IR/InstrTypes.h' l='839' type='static llvm::CmpInst::Predicate llvm::CmpInst::getInversePredicate(llvm::CmpInst::Predicate pred)'/>
+<doc f='llvm/llvm/include/llvm/IR/InstrTypes.h' l='835'>/// For example, EQ -&gt; NE, UGT -&gt; ULE, SLT -&gt; SGE,
+  ///              OEQ -&gt; UNE, UGT -&gt; OLE, OLT -&gt; UGE, etc.
+  /// @returns the inverse predicate for predicate provided in \p pred.
+  /// Return the inverse of a given predicate</doc>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='1452' u='c' c='_ZL34simplifyAndOfICmpsWithSameOperandsPN4llvm8ICmpInstES1_'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='1478' u='c' c='_ZL33simplifyOrOfICmpsWithSameOperandsPN4llvm8ICmpInstES1_'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='2894' u='c' c='_ZL22simplifyICmpWithMinMaxN4llvm7CmpInst9PredicateEPNS_5ValueES3_RKNS_13SimplifyQueryEj'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='2968' u='c' c='_ZL22simplifyICmpWithMinMaxN4llvm7CmpInst9PredicateEPNS_5ValueES3_RKNS_13SimplifyQueryEj'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='3094' u='c' c='_ZL16SimplifyICmpInstjPN4llvm5ValueES1_RKNS_13SimplifyQueryEj'/>
+<use f='llvm/llvm/include/llvm/Analysis/ValueLattice.h' l='311' u='c' c='_ZNK4llvm19ValueLatticeElement10getCompareENS_7CmpInst9PredicateEPNS_4TypeERKS0_'/>
+<use f='llvm/llvm/lib/Analysis/LazyValueInfo.cpp' l='1188' u='c' c='_ZL25getValueFromICmpConditionPN4llvm5ValueEPNS_8ICmpInstEb'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='9258' u='c' c='_ZN4llvm15ScalarEvolution24isLoopInvariantPredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_PKNS_4LoopERS2_RS5_SA_'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4645' u='c' c='_ZL19matchFastFloatClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_RS3_S4_'/>
+<use f='llvm/llvm/lib/IR/ConstantFold.cpp' l='1180' u='c' c='_ZN4llvm29ConstantFoldBinaryInstructionEjPNS_8ConstantES1_'/>
+<use f='llvm/llvm/lib/IR/ConstantRange.cpp' l='133' u='c' c='_ZN4llvm13ConstantRange24makeSatisfyingICmpRegionENS_7CmpInst9PredicateERKS0_'/>
+<def f='llvm/llvm/lib/IR/Instructions.cpp' l='3587' ll='3618' type='static CmpInst::Predicate llvm::CmpInst::getInversePredicate(llvm::CmpInst::Predicate pred)'/>
+<use f='llvm/llvm/lib/IR/Instructions.cpp' l='3838' u='c' c='_ZN4llvm7CmpInst27isImpliedFalseByMatchingCmpENS0_9PredicateES1_'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64FastISel.cpp' l='2285' u='c' c='_ZN12_GLOBAL__N_115AArch64FastISel20emitCompareAndBranchEPKN4llvm10BranchInstE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64FastISel.cpp' l='2416' u='c' c='_ZN12_GLOBAL__N_115AArch64FastISel12selectBranchEPKN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64InstructionSelector.cpp' l='1870' u='c' c='_ZNK12_GLOBAL__N_126AArch64InstructionSelector6selectERN4llvm12MachineInstrERNS1_15CodeGenCoverageE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFastISel.cpp' l='1253' u='c' c='_ZN12_GLOBAL__N_111ARMFastISel12SelectBranchEPKN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Target/X86/X86FastISel.cpp' l='1657' u='c' c='_ZN12_GLOBAL__N_111X86FastISel15X86SelectBranchEPKN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='800' u='c' c='_ZN4llvm12InstCombiner18simplifyRangeCheckEPNS_8ICmpInstES2_b'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='2855' u='c' c='_ZN4llvm12InstCombiner8visitXorERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCompares.cpp' l='1142' u='c' c='_ZN4llvm12InstCombiner21foldICmpShrConstConstERNS_8ICmpInstEPNS_5ValueERKNS_5APIntES7_'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCompares.cpp' l='1201' u='c' c='_ZN4llvm12InstCombiner21foldICmpShlConstConstERNS_8ICmpInstEPNS_5ValueERKNS_5APIntES7_'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCompares.cpp' l='1411' u='c' c='_ZN4llvm12InstCombiner26foldICmpWithDominatingICmpERNS_8ICmpInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCompares.cpp' l='4543' u='c' c='_ZN4llvm12InstCombiner22foldICmpUsingKnownBitsERNS_8ICmpInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCompares.cpp' l='4562' u='c' c='_ZN4llvm12InstCombiner22foldICmpUsingKnownBitsERNS_8ICmpInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineSelect.cpp' l='650' u='c' c='_ZL29canonicalizeSaturatedSubtractPKN4llvm8ICmpInstEPKNS_5ValueES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineSelect.cpp' l='1757' u='c' c='_ZN4llvm12InstCombiner15visitSelectInstERNS_10SelectInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='2556' u='c' c='_ZN4llvm12InstCombiner15visitBranchInstERNS_10BranchInstE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/ControlHeightReduction.cpp' l='1559' u='c' c='_ZL36negateICmpIfUsedByBranchOrSelectOnlyPN4llvm8ICmpInstEPNS_11InstructionEPN12_GLOBAL__N_18CHRScopeE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/EarlyCSE.cpp' l='200' u='c' c='_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_111SimpleValueEE12getHashValueES2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/EarlyCSE.cpp' l='201' u='c' c='_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_111SimpleValueEE12getHashValueES2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/EarlyCSE.cpp' l='303' u='c' c='_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_111SimpleValueEE7isEqualES2_S2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GuardWidening.cpp' l='546' u='c' c='_ZN12_GLOBAL__N_117GuardWideningImpl15widenCondCommonEPN4llvm5ValueES3_PNS1_11InstructionERS3_b'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='1809' u='c' c='_ZN12_GLOBAL__N_17WidenIV21calculatePostIncRangeEPN4llvm11InstructionES3_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopPredication.cpp' l='400' u='c' c='_ZN12_GLOBAL__N_115LoopPredication11expandCheckERN4llvm12SCEVExpanderEPNS1_11InstructionENS1_7CmpInst9PredicateEPKNS1_4SCEVESA_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopPredication.cpp' l='874' u='c' c='_ZN12_GLOBAL__N_115LoopPredication18parseLoopLatchICmpEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='2333' u='c' c='_ZN12_GLOBAL__N_111LSRInstance11OptimizeMaxEPN4llvm8ICmpInstERPNS1_11IVStrideUseE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/NewGVN.cpp' l='1936' u='c' c='_ZNK12_GLOBAL__N_16NewGVN28performSymbolicCmpEvaluationEPN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/FlattenCFG.cpp' l='262' u='c' c='_ZN12_GLOBAL__N_113FlattenCFGOpt20FlattenParallelAndOrEPN4llvm10BasicBlockERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnrollPeel.cpp' l='176' u='c' c='_ZL24countToEliminateComparesRN4llvm4LoopEjRNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnrollPeel.cpp' l='216' u='c' c='_ZL24countToEliminateComparesRN4llvm4LoopEjRNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnrollPeel.cpp' l='228' u='c' c='_ZL24countToEliminateComparesRN4llvm4LoopEjRNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyIndVar.cpp' l='267' u='c' c='_ZN12_GLOBAL__N_114SimplifyIndvar21eliminateIVComparisonEPN4llvm8ICmpInstEPNS1_5ValueE'/>

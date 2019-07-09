@@ -1,0 +1,41 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='227' type='PointerSumType&lt;llvm::MachineInstr::ExtraInfoInlineKinds, PointerSumTypeMember&lt;EIIK_MMO, llvm::MachineMemOperand *&gt;, PointerSumTypeMember&lt;EIIK_PreInstrSymbol, llvm::MCSymbol *&gt;, PointerSumTypeMember&lt;EIIK_PostInstrSymbol, llvm::MCSymbol *&gt;, PointerSumTypeMember&lt;EIIK_OutOfLine, llvm::MachineInstr::ExtraInfo *&gt; &gt;'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='518' u='m' c='_ZNK4llvm12MachineInstr11memoperandsEv'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='521' u='m' c='_ZNK4llvm12MachineInstr11memoperandsEv'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='522' u='m' c='_ZNK4llvm12MachineInstr11memoperandsEv'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='524' u='m' c='_ZNK4llvm12MachineInstr11memoperandsEv'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='557' u='m' c='_ZNK4llvm12MachineInstr17getPreInstrSymbolEv'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='559' u='m' c='_ZNK4llvm12MachineInstr17getPreInstrSymbolEv'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='561' u='m' c='_ZNK4llvm12MachineInstr17getPreInstrSymbolEv'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='569' u='m' c='_ZNK4llvm12MachineInstr18getPostInstrSymbolEv'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='571' u='m' c='_ZNK4llvm12MachineInstr18getPostInstrSymbolEv'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='573' u='m' c='_ZNK4llvm12MachineInstr18getPostInstrSymbolEv'/>
+<offset>448</offset>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='217'>// We store extra information about the instruction here. The common case is
+  // expected to be nothing or a single pointer (typically a MMO or a symbol).
+  // We work to optimize this common case by storing it inline here rather than
+  // requiring a separate allocation, but we fall back to an allocation when
+  // multiple pointers are needed.</doc>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='135' u='w' c='_ZN4llvm12MachineInstrC1ERNS_15MachineFunctionERKS0_'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='135' u='r' c='_ZN4llvm12MachineInstrC1ERNS_15MachineFunctionERKS0_'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='325' u='m' c='_ZN4llvm12MachineInstr11dropMemRefsERNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='329' u='m' c='_ZN4llvm12MachineInstr11dropMemRefsERNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='333' u='m' c='_ZN4llvm12MachineInstr11dropMemRefsERNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='338' u='m' c='_ZN4llvm12MachineInstr11dropMemRefsERNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='351' u='m' c='_ZN4llvm12MachineInstr10setMemRefsERNS_15MachineFunctionENS_8ArrayRefIPNS_17MachineMemOperandEEE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='356' u='m' c='_ZN4llvm12MachineInstr10setMemRefsERNS_15MachineFunctionENS_8ArrayRefIPNS_17MachineMemOperandEEE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='380' u='w' c='_ZN4llvm12MachineInstr12cloneMemRefsERNS_15MachineFunctionERKS0_'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='380' u='r' c='_ZN4llvm12MachineInstr12cloneMemRefsERNS_15MachineFunctionERKS0_'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='459' u='m' c='_ZN4llvm12MachineInstr17setPreInstrSymbolERNS_15MachineFunctionEPNS_8MCSymbolE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='460' u='m' c='_ZN4llvm12MachineInstr17setPreInstrSymbolERNS_15MachineFunctionEPNS_8MCSymbolE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='467' u='m' c='_ZN4llvm12MachineInstr17setPreInstrSymbolERNS_15MachineFunctionEPNS_8MCSymbolE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='472' u='m' c='_ZN4llvm12MachineInstr17setPreInstrSymbolERNS_15MachineFunctionEPNS_8MCSymbolE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='472' u='m' c='_ZN4llvm12MachineInstr17setPreInstrSymbolERNS_15MachineFunctionEPNS_8MCSymbolE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='474' u='m' c='_ZN4llvm12MachineInstr17setPreInstrSymbolERNS_15MachineFunctionEPNS_8MCSymbolE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='480' u='m' c='_ZN4llvm12MachineInstr17setPreInstrSymbolERNS_15MachineFunctionEPNS_8MCSymbolE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='491' u='m' c='_ZN4llvm12MachineInstr18setPostInstrSymbolERNS_15MachineFunctionEPNS_8MCSymbolE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='492' u='m' c='_ZN4llvm12MachineInstr18setPostInstrSymbolERNS_15MachineFunctionEPNS_8MCSymbolE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='499' u='m' c='_ZN4llvm12MachineInstr18setPostInstrSymbolERNS_15MachineFunctionEPNS_8MCSymbolE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='504' u='m' c='_ZN4llvm12MachineInstr18setPostInstrSymbolERNS_15MachineFunctionEPNS_8MCSymbolE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='504' u='m' c='_ZN4llvm12MachineInstr18setPostInstrSymbolERNS_15MachineFunctionEPNS_8MCSymbolE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='506' u='m' c='_ZN4llvm12MachineInstr18setPostInstrSymbolERNS_15MachineFunctionEPNS_8MCSymbolE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='512' u='m' c='_ZN4llvm12MachineInstr18setPostInstrSymbolERNS_15MachineFunctionEPNS_8MCSymbolE'/>

@@ -1,0 +1,51 @@
+<inh f='llvm/lld/ELF/LinkerScript.h' l='80' c='lld::elf::BaseCommand'/>
+<inh f='llvm/lld/ELF/InputSection.h' l='41' c='lld::elf::SectionBase'/>
+<def f='llvm/lld/ELF/OutputSections.h' l='32' ll='115'/>
+<size>488</size>
+<doc f='llvm/lld/ELF/OutputSections.h' l='28'>// This represents a section in an output file.
+// It is composed of multiple InputSections.
+// The writer creates multiple OutputSections and assign them unique,
+// non-overlapping file offsets and VAs.</doc>
+<fun r='_ZN3lld3elf13OutputSectionC1EN4llvm9StringRefEjm'/>
+<fun r='_ZN3lld3elf13OutputSection7classofEPKNS0_11SectionBaseE'/>
+<fun r='_ZN3lld3elf13OutputSection7classofEPKNS0_11BaseCommandE'/>
+<fun r='_ZNK3lld3elf13OutputSection6getLMAEv'/>
+<fun r='_ZN3lld3elf13OutputSection13writeHeaderToEPNT_4ShdrE'/>
+<mbr r='lld::elf::OutputSection::SectionIndex' o='544' t='uint32_t'/>
+<mbr r='lld::elf::OutputSection::SortRank' o='576' t='unsigned int'/>
+<fun r='_ZNK3lld3elf13OutputSection12getPhdrFlagsEv'/>
+<mbr r='lld::elf::OutputSection::PtLoad' o='640' t='lld::elf::PhdrEntry *'/>
+<mbr r='lld::elf::OutputSection::RelocationSection' o='704' t='lld::elf::OutputSection *'/>
+<mbr r='lld::elf::OutputSection::Size' o='768' t='uint64_t'/>
+<mbr r='lld::elf::OutputSection::Offset' o='832' t='uint64_t'/>
+<mbr r='lld::elf::OutputSection::Addr' o='896' t='uint64_t'/>
+<mbr r='lld::elf::OutputSection::ShName' o='960' t='uint32_t'/>
+<fun r='_ZN3lld3elf13OutputSection10addSectionEPNS0_12InputSectionE'/>
+<mbr r='lld::elf::OutputSection::MemRegion' o='1024' t='lld::elf::MemoryRegion *'/>
+<mbr r='lld::elf::OutputSection::LMARegion' o='1088' t='lld::elf::MemoryRegion *'/>
+<mbr r='lld::elf::OutputSection::AddrExpr' o='1152' t='Expr'/>
+<mbr r='lld::elf::OutputSection::AlignExpr' o='1408' t='Expr'/>
+<mbr r='lld::elf::OutputSection::LMAExpr' o='1664' t='Expr'/>
+<mbr r='lld::elf::OutputSection::SubalignExpr' o='1920' t='Expr'/>
+<mbr r='lld::elf::OutputSection::SectionCommands' o='2176' t='std::vector&lt;BaseCommand *&gt;'/>
+<mbr r='lld::elf::OutputSection::Phdrs' o='2368' t='std::vector&lt;StringRef&gt;'/>
+<mbr r='lld::elf::OutputSection::Filler' o='2560' t='llvm::Optional&lt;std::array&lt;uint8_t, 4&gt; &gt;'/>
+<mbr r='lld::elf::OutputSection::Constraint' o='2624' t='lld::elf::ConstraintKind'/>
+<mbr r='lld::elf::OutputSection::Location' o='2688' t='std::string'/>
+<mbr r='lld::elf::OutputSection::MemoryRegionName' o='2944' t='std::string'/>
+<mbr r='lld::elf::OutputSection::LMARegionName' o='3200' t='std::string'/>
+<mbr r='lld::elf::OutputSection::NonAlloc' o='3456' t='bool'/>
+<mbr r='lld::elf::OutputSection::Noload' o='3464' t='bool'/>
+<mbr r='lld::elf::OutputSection::ExpressionsUseSymbols' o='3472' t='bool'/>
+<mbr r='lld::elf::OutputSection::UsedInExpression' o='3480' t='bool'/>
+<mbr r='lld::elf::OutputSection::InOverlay' o='3488' t='bool'/>
+<mbr r='lld::elf::OutputSection::HasInputSections' o='3496' t='bool'/>
+<fun r='_ZN3lld3elf13OutputSection8finalizeEv'/>
+<fun r='_ZN3lld3elf13OutputSection7writeToEPh'/>
+<fun r='_ZN3lld3elf13OutputSection13maybeCompressEv'/>
+<fun r='_ZN3lld3elf13OutputSection4sortEN4llvm12function_refIFiPNS0_16InputSectionBaseEEEE'/>
+<fun r='_ZN3lld3elf13OutputSection12sortInitFiniEv'/>
+<fun r='_ZN3lld3elf13OutputSection14sortCtorsDtorsEv'/>
+<mbr r='lld::elf::OutputSection::ZDebugHeader' o='3520' t='std::vector&lt;uint8_t&gt;'/>
+<mbr r='lld::elf::OutputSection::CompressedData' o='3712' t='llvm::SmallVector&lt;char, 1&gt;'/>
+<fun r='_ZN3lld3elf13OutputSection9getFillerEv'/>

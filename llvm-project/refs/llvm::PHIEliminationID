@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/Passes.h' l='98' type='char &amp;'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/Passes.h' l='94'>/// PHIElimination - This pass eliminates machine instruction PHI nodes
+  /// by inserting copy instructions.  This destroys SSA information, but is the
+  /// desired input for some register allocators.  This pass is &quot;required&quot; by
+  /// these register allocator like this: AU.addRequiredID(PHIEliminationID);</doc>
+<def f='llvm/llvm/lib/CodeGen/PHIElimination.cpp' l='126' type='char &amp;'/>
+<use f='llvm/llvm/lib/CodeGen/TargetPassConfig.cpp' l='1129' u='a' c='_ZN4llvm16TargetPassConfig15addFastRegAllocEv'/>
+<use f='llvm/llvm/lib/CodeGen/TargetPassConfig.cpp' l='1153' u='a' c='_ZN4llvm16TargetPassConfig20addOptimizedRegAllocEv'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUTargetMachine.cpp' l='909' u='a' c='_ZN12_GLOBAL__N_113GCNPassConfig15addFastRegAllocEv'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUTargetMachine.cpp' l='928' u='a' c='_ZN12_GLOBAL__N_113GCNPassConfig20addOptimizedRegAllocEv'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXTargetMachine.cpp' l='335' u='a' c='_ZN12_GLOBAL__N_115NVPTXPassConfig15addFastRegAllocEv'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXTargetMachine.cpp' l='343' u='a' c='_ZN12_GLOBAL__N_115NVPTXPassConfig20addOptimizedRegAllocEv'/>

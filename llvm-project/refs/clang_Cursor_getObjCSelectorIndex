@@ -1,0 +1,15 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='4457' type='int clang_Cursor_getObjCSelectorIndex(CXCursor )'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='4446'>/**
+ * If the cursor points to a selector identifier in an Objective-C
+ * method or message expression, this returns the selector index.
+ *
+ * After getting a cursor with #clang_getCursor, this can be called to
+ * determine if the location points to a selector identifier.
+ *
+ * \returns The selector index if the cursor is an Objective-C method or message
+ * expression and the cursor is pointing to a selector identifier, or -1
+ * otherwise.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='2873' u='c' c='inspect_print_cursor'/>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='2875' u='c' c='inspect_print_cursor'/>
+<def f='llvm/clang/tools/libclang/CIndex.cpp' l='6451' ll='6453' type='int clang_Cursor_getObjCSelectorIndex(CXCursor cursor)'/>

@@ -1,0 +1,14 @@
+<def f='llvm/llvm/include/llvm/Passes/PassBuilder.h' l='562' ll='565' type='void llvm::PassBuilder::registerOptimizerLastEPCallback(const std::function&lt;void (FunctionPassManager &amp;, OptimizationLevel)&gt; &amp; C)'/>
+<use f='llvm/clang/lib/CodeGen/BackendUtil.cpp' l='1170' u='c' c='_ZN12_GLOBAL__N_118EmitAssemblyHelper30EmitAssemblyWithNewPassManagerEN5clang13BackendActionESt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EE'/>
+<use f='llvm/clang/lib/CodeGen/BackendUtil.cpp' l='1175' u='c' c='_ZN12_GLOBAL__N_118EmitAssemblyHelper30EmitAssemblyWithNewPassManagerEN5clang13BackendActionESt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EE'/>
+<use f='llvm/clang/lib/CodeGen/BackendUtil.cpp' l='1186' u='c' c='_ZN12_GLOBAL__N_118EmitAssemblyHelper30EmitAssemblyWithNewPassManagerEN5clang13BackendActionESt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EE'/>
+<use f='llvm/clang/lib/CodeGen/BackendUtil.cpp' l='1205' u='c' c='_ZN12_GLOBAL__N_118EmitAssemblyHelper30EmitAssemblyWithNewPassManagerEN5clang13BackendActionESt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EE'/>
+<use f='llvm/clang/lib/CodeGen/BackendUtil.cpp' l='1213' u='c' c='_ZN12_GLOBAL__N_118EmitAssemblyHelper30EmitAssemblyWithNewPassManagerEN5clang13BackendActionESt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EE'/>
+<doc f='llvm/llvm/include/llvm/Passes/PassBuilder.h' l='555'>/// Register a callback for a default optimizer pipeline extension point
+  ///
+  /// This extension point allows adding optimizations at the very end of the
+  /// function optimization pipeline. A key difference between this and the
+  /// legacy PassManager&apos;s OptimizerLast callback is that this extension point
+  /// is not triggered at O0. Extensions to the O0 pipeline should append their
+  /// passes to the end of the overall pipeline.</doc>
+<use f='llvm/llvm/tools/opt/NewPMDriver.cpp' l='196' u='c' c='_ZL19registerEPCallbacksRN4llvm11PassBuilderEbb'/>

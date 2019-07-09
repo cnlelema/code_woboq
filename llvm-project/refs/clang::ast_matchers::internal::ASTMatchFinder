@@ -1,0 +1,30 @@
+<def f='llvm/clang/include/clang/ASTMatchers/ASTMatchersInternal.h' l='951' ll='1046'/>
+<ovr f='llvm/clang/lib/ASTMatchers/ASTMatchFinder.cpp' l='302' c='clang::ast_matchers::internal::(anonymousnamespace)::MatchASTVisitor'/>
+<size>8</size>
+<doc f='llvm/clang/include/clang/ASTMatchers/ASTMatchersInternal.h' l='933'>/// Interface that allows matchers to traverse the AST.
+/// FIXME: Find a better name.
+///
+/// This provides three entry methods for each base node type in the AST:
+/// - \c matchesChildOf:
+///   Matches a matcher on every child node of the given node. Returns true
+///   if at least one child node could be matched.
+/// - \c matchesDescendantOf:
+///   Matches a matcher on all descendant nodes of the given node. Returns true
+///   if at least one descendant matched.
+/// - \c matchesAncestorOf:
+///   Matches a matcher on all ancestors of the given node. Returns true if
+///   at least one ancestor matched.
+///
+/// FIXME: Currently we only allow Stmt and Decl nodes to start a traversal.
+/// In the future, we want to implement this for all nodes for which it makes
+/// sense. In the case of matchesAncestorOf, we&apos;ll want to implement it for
+/// all nodes, as all nodes have ancestors.</doc>
+<fun r='_ZN5clang12ast_matchers8internal14ASTMatchFinderD1Ev'/>
+<fun r='_ZN5clang12ast_matchers8internal14ASTMatchFinder18classIsDerivedFromEPKNS_13CXXRecordDeclERKNS1_7MatcherINS_9NamedDeclEEEPNS1_21BoundNodesTreeBuilderE'/>
+<fun r='_ZN5clang12ast_matchers8internal14ASTMatchFinder14matchesChildOfERKT_RKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderENS_15ast_type_traits13Traver10406098'/>
+<fun r='_ZN5clang12ast_matchers8internal14ASTMatchFinder19matchesDescendantOfERKT_RKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderENS2_8BindKindE'/>
+<fun r='_ZN5clang12ast_matchers8internal14ASTMatchFinder17matchesAncestorOfERKT_RKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderENS2_17AncestorMatchModeE'/>
+<fun r='_ZNK5clang12ast_matchers8internal14ASTMatchFinder13getASTContextEv'/>
+<fun r='_ZN5clang12ast_matchers8internal14ASTMatchFinder14matchesChildOfERKNS_15ast_type_traits12DynTypedNodeERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBui6724271'/>
+<fun r='_ZN5clang12ast_matchers8internal14ASTMatchFinder19matchesDescendantOfERKNS_15ast_type_traits12DynTypedNodeERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTr15281439'/>
+<fun r='_ZN5clang12ast_matchers8internal14ASTMatchFinder17matchesAncestorOfERKNS_15ast_type_traits12DynTypedNodeERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTree7901858'/>

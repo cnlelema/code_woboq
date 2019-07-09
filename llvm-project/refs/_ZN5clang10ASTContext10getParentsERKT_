@@ -1,0 +1,30 @@
+<def f='llvm/clang/include/clang/AST/ASTContext.h' l='661' ll='663' type='clang::ASTContext::DynTypedNodeList clang::ASTContext::getParents(const NodeT &amp; Node)'/>
+<doc f='llvm/clang/include/clang/AST/ASTContext.h' l='637'>/// Returns the parents of the given node (within the traversal scope).
+  ///
+  /// Note that this will lazily compute the parents of all nodes
+  /// and store them for later retrieval. Thus, the first call is O(n)
+  /// in the number of AST nodes.
+  ///
+  /// Caveats and FIXMEs:
+  /// Calculating the parent map over all AST nodes will need to load the
+  /// full AST. This can be undesirable in the case where the full AST is
+  /// expensive to create (for example, when using precompiled header
+  /// preambles). Thus, there are good opportunities for optimization here.
+  /// One idea is to walk the given node downwards, looking for references
+  /// to declaration contexts - once a declaration context is found, compute
+  /// the parent map for the declaration context; if that can satisfy the
+  /// request, loading the whole AST can be avoided. Note that this is made
+  /// more complex by statements in templates having multiple parents - those
+  /// problems can be solved by building closure over the templated parts of
+  /// the AST, which also avoids touching large parts of the AST.
+  /// Additionally, we will want to add an interface to already give a hint
+  /// where to search for the parents, for example when looking at a statement
+  /// inside a certain function.
+  ///
+  /// &apos;NodeT&apos; can be one of Decl, Stmt, Type, TypeLoc,
+  /// NestedNameSpecifier or NestedNameSpecifierLoc.</doc>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='6336' u='c' c='_ZNK5clang12ast_matchers8internal27matcher_forFunction0Matcher7matchesERKNS_4StmtEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE'/>
+<use f='llvm/clang/lib/Tooling/ASTDiff/ASTDiff.cpp' l='386' u='c' c='_ZN5clang4diffL23getEnclosingDeclContextERNS_10ASTContextEPKNS_4StmtE'/>
+<use f='llvm/clang/lib/Tooling/Refactoring/Rename/USRLocFinder.cpp' l='353' u='c' c='_ZN5clang7tooling12_GLOBAL__N_115RenameLocFinder12VisitTypeLocENS_7TypeLocE'/>
+<use f='llvm/clang/lib/Tooling/Refactoring/Rename/USRLocFinder.cpp' l='478' u='c' c='_ZNK5clang7tooling12_GLOBAL__N_115RenameLocFinder16getParentTypeLocENS_7TypeLocE'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTraversalTest.cpp' l='2157' u='c' c='_ZZN5clang12ast_matchers33HasParent_NoDuplicateParents_Test8TestBodyEvEN19HasDuplicateParents3runEPKNS0_10BoundNodesEPNS_10ASTContextE'/>

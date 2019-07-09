@@ -1,0 +1,43 @@
+<def f='llvm/llvm/include/llvm/IR/CallSite.h' l='726' ll='878'/>
+<size>24</size>
+<doc f='llvm/llvm/include/llvm/IR/CallSite.h' l='704'>/// AbstractCallSite
+///
+/// An abstract call site is a wrapper that allows to treat direct,
+/// indirect, and callback calls the same. If an abstract call site
+/// represents a direct or indirect call site it behaves like a stripped
+/// down version of a normal call site object. The abstract call site can
+/// also represent a callback call, thus the fact that the initially
+/// called function (=broker) may invoke a third one (=callback callee).
+/// In this case, the abstract call site hides the middle man, hence the
+/// broker function. The result is a representation of the callback call,
+/// inside the broker, but in the context of the original call to the broker.
+///
+/// There are up to three functions involved when we talk about callback call
+/// sites. The caller (1), which invokes the broker function. The broker
+/// function (2), that will invoke the callee zero or more times. And finally
+/// the callee (3), which is the target of the callback call.
+///
+/// The abstract call site will handle the mapping from parameters to arguments
+/// depending on the semantic of the broker function. However, it is important
+/// to note that the mapping is often partial. Thus, some arguments of the
+/// call/invoke instruction are mapped to parameters of the callee while others
+/// are not.</doc>
+<mbr r='llvm::AbstractCallSite::CS' o='0' t='llvm::CallSite'/>
+<mbr r='llvm::AbstractCallSite::CI' o='64' t='llvm::AbstractCallSite::CallbackInfo'/>
+<fun r='_ZN4llvm16AbstractCallSiteC1EPKNS_3UseE'/>
+<fun r='_ZNK4llvm16AbstractCallSitecvbEv'/>
+<fun r='_ZNK4llvm16AbstractCallSite14getInstructionEv'/>
+<fun r='_ZNK4llvm16AbstractCallSite11getCallSiteEv'/>
+<fun r='_ZNK4llvm16AbstractCallSite12isDirectCallEv'/>
+<fun r='_ZNK4llvm16AbstractCallSite14isIndirectCallEv'/>
+<fun r='_ZNK4llvm16AbstractCallSite14isCallbackCallEv'/>
+<fun r='_ZNK4llvm16AbstractCallSite8isCalleeENS_5Value18user_iterator_implIKNS_4UserEEE'/>
+<fun r='_ZNK4llvm16AbstractCallSite8isCalleeEPKNS_3UseE'/>
+<fun r='_ZNK4llvm16AbstractCallSite17getNumArgOperandsEv'/>
+<fun r='_ZNK4llvm16AbstractCallSite19getCallArgOperandNoERNS_8ArgumentE'/>
+<fun r='_ZNK4llvm16AbstractCallSite19getCallArgOperandNoEj'/>
+<fun r='_ZNK4llvm16AbstractCallSite17getCallArgOperandERNS_8ArgumentE'/>
+<fun r='_ZNK4llvm16AbstractCallSite17getCallArgOperandEj'/>
+<fun r='_ZNK4llvm16AbstractCallSite28getCallArgOperandNoForCalleeEv'/>
+<fun r='_ZNK4llvm16AbstractCallSite14getCalledValueEv'/>
+<fun r='_ZNK4llvm16AbstractCallSite17getCalledFunctionEv'/>

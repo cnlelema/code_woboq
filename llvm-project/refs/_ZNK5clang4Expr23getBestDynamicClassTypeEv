@@ -1,0 +1,11 @@
+<dec f='llvm/clang/include/clang/AST/Expr.h' l='887' type='const clang::CXXRecordDecl * clang::Expr::getBestDynamicClassType() const'/>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='880'>/// For an expression of class type or pointer to class type,
+  /// return the most derived class decl the expression is known to refer to.
+  ///
+  /// If this expression is a cast, this method looks through it to find the
+  /// most derived decl that can be inferred from the expression.
+  /// This is valid because derived-to-base conversions have undefined
+  /// behavior if the object isn&apos;t dynamically of the derived type.</doc>
+<use f='llvm/clang/lib/AST/DeclCXX.cpp' l='2041' u='c' c='_ZN5clang13CXXMethodDecl22getDevirtualizedMethodEPKNS_4ExprEb'/>
+<def f='llvm/clang/lib/AST/Expr.cpp' l='62' ll='74' type='const clang::CXXRecordDecl * clang::Expr::getBestDynamicClassType() const'/>
+<use f='llvm/clang/lib/CodeGen/CGExprCXX.cpp' l='204' u='c' c='_ZN5clang7CodeGen15CodeGenFunction37EmitCXXMemberOrOperatorMemberCallExprEPKNS_8CallExprEPKNS_13CXXMethodDeclENS0_15ReturnValueSlotEbPNS_19NestedNameS2216372'/>

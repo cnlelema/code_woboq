@@ -1,0 +1,52 @@
+<def f='llvm/clang/lib/CodeGen/CGRecordLayout.h' l='65' ll='102'/>
+<size>16</size>
+<doc f='llvm/clang/lib/CodeGen/CGRecordLayout.h' l='25'>/// Structure with information about how a bitfield should be accessed.
+///
+/// Often we layout a sequence of bitfields as a contiguous sequence of bits.
+/// When the AST record layout does this, we represent it in the LLVM IR&apos;s type
+/// as either a sequence of i8 members or a byte array to reserve the number of
+/// bytes touched without forcing any particular alignment beyond the basic
+/// character alignment.
+///
+/// Then accessing a particular bitfield involves converting this byte array
+/// into a single integer of that size (i24 or i40 -- may not be power-of-two
+/// size), loading it, and shifting and masking to extract the particular
+/// subsequence of bits which make up that particular bitfield. This structure
+/// encodes the information used to construct the extraction code sequences.
+/// The CGRecordLayout also has a field index which encodes which byte-sequence
+/// this bitfield falls within. Let&apos;s assume the following C struct:
+///
+///   struct S {
+///     char a, b, c;
+///     unsigned bits : 3;
+///     unsigned more_bits : 4;
+///     unsigned still_more_bits : 7;
+///   };
+///
+/// This will end up as the following LLVM type. The first array is the
+/// bitfield, and the second is the padding out to a 4-byte alignmnet.
+///
+///   %t = type { i8, i8, i8, i8, i8, [3 x i8] }
+///
+/// When generating code to access more_bits, we&apos;ll generate something
+/// essentially like this:
+///
+///   define i32 @foo(%t* %base) {
+///     %0 = gep %t* %base, i32 0, i32 3
+///     %2 = load i8* %1
+///     %3 = lshr i8 %2, 3
+///     %4 = and i8 %3, 15
+///     %5 = zext i8 %4 to i32
+///     ret i32 %i
+///   }
+///</doc>
+<mbr r='clang::CodeGen::CGBitFieldInfo::Offset' o='0' t='unsigned int'/>
+<mbr r='clang::CodeGen::CGBitFieldInfo::Size' o='16' t='unsigned int'/>
+<mbr r='clang::CodeGen::CGBitFieldInfo::IsSigned' o='31' t='unsigned int'/>
+<mbr r='clang::CodeGen::CGBitFieldInfo::StorageSize' o='32' t='unsigned int'/>
+<mbr r='clang::CodeGen::CGBitFieldInfo::StorageOffset' o='64' t='clang::CharUnits'/>
+<fun r='_ZN5clang7CodeGen14CGBitFieldInfoC1Ev'/>
+<fun r='_ZN5clang7CodeGen14CGBitFieldInfoC1EjjbjNS_9CharUnitsE'/>
+<fun r='_ZNK5clang7CodeGen14CGBitFieldInfo5printERN4llvm11raw_ostreamE'/>
+<fun r='_ZNK5clang7CodeGen14CGBitFieldInfo4dumpEv'/>
+<fun r='_ZN5clang7CodeGen14CGBitFieldInfo8MakeInfoERNS0_12CodeGenTypesEPKNS_9FieldDeclEmmmNS_9CharUnitsE'/>

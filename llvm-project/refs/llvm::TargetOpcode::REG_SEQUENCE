@@ -1,0 +1,49 @@
+<dec f='llvm/llvm/include/llvm/Support/TargetOpcodes.def' l='94' type='15'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1056' u='r' c='_ZNK4llvm12MachineInstr13isRegSequenceEv'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1119' c='_ZNK4llvm12MachineInstr11isTransientEv'/>
+<doc f='llvm/llvm/include/llvm/Support/TargetOpcodes.def' l='83'>/// REG_SEQUENCE - This variadic instruction is used to form a register that
+/// represents a consecutive sequence of sub-registers. It&apos;s used as a
+/// register coalescing / allocation aid and must be eliminated before code
+/// emission.
+// In SDNode form, the first operand encodes the register class created by
+// the REG_SEQUENCE, while each subsequent pair names a vreg + subreg index
+// pair.  Once it has been lowered to a MachineInstr, the regclass operand
+// is no longer present.
+/// e.g. v1027 = REG_SEQUENCE v1024, 3, v1025, 4, v1026, 5
+/// After register coalescing references of v1024 should be replace with
+/// v1027:3, v1025 with v1027:4, etc.</doc>
+<use f='llvm/llvm/lib/CodeGen/DetectDeadLanes.cpp' l='145' c='_ZL14lowersToCopiesRKN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/DetectDeadLanes.cpp' l='171' c='_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/DetectDeadLanes.cpp' l='240' c='_ZNK12_GLOBAL__N_115DetectDeadLanes17transferUsedLanesERKN4llvm12MachineInstrENS1_11LaneBitmaskERKNS1_14MachineOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/DetectDeadLanes.cpp' l='315' c='_ZNK12_GLOBAL__N_115DetectDeadLanes20transferDefinedLanesERKN4llvm14MachineOperandEjNS1_11LaneBitmaskE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/RegisterBankInfo.cpp' l='153' u='r' c='_ZL10isCopyLikeRKN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/PeepholeOptimizer.cpp' l='1099' c='_ZL15getCopyRewriterRN4llvm12MachineInstrERKNS_15TargetInstrInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/InstrEmitter.cpp' l='635' u='r' c='_ZN4llvm12InstrEmitter15EmitRegSequenceEPNS_6SDNodeERNS_8DenseMapINS_7SDValueEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEEbb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/InstrEmitter.cpp' l='803' u='r' c='_ZN4llvm12InstrEmitter15EmitMachineNodeEPNS_6SDNodeEbbRNS_8DenseMapINS_7SDValueEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ResourcePriorityQueue.cpp' l='260' c='_ZN4llvm21ResourcePriorityQueue19isResourceAvailableEPNS_5SUnitE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ResourcePriorityQueue.cpp' l='299' c='_ZN4llvm21ResourcePriorityQueue16reserveResourcesEPNS_5SUnitE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGRRList.cpp' l='332' u='r' c='_ZL13GetCostForDefRKN4llvm18ScheduleDAGSDNodes10RegDefIterEPKNS_14TargetLoweringEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoERjSD_RKNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGRRList.cpp' l='2252' u='r' c='_ZN12_GLOBAL__N_118RegReductionPQBase15unscheduledNodeEPN4llvm5SUnitE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelDAGToDAG.cpp' l='1100' u='r' c='_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11createTupleEN4llvm8ArrayRefINS1_7SDValueEEEPKjS6_'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='11616' u='r' c='_ZL17createGPRPairNodeRN4llvm12SelectionDAGENS_7SDValueE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUISelDAGToDAG.cpp' l='484' c='_ZNK12_GLOBAL__N_118AMDGPUDAGToDAGISel18getOperandRegClassEPN4llvm6SDNodeEj'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUISelDAGToDAG.cpp' l='622' u='r' c='_ZN12_GLOBAL__N_118AMDGPUDAGToDAGISel17SelectBuildVectorEPN4llvm6SDNodeEj'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUISelDAGToDAG.cpp' l='716' u='r' c='_ZN12_GLOBAL__N_118AMDGPUDAGToDAGISel6SelectEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/R600OptimizeVectorRegisters.cpp' l='76' u='r' c='_ZN12_GLOBAL__N_110RegSeqInfoC1ERN4llvm19MachineRegisterInfoEPNS1_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/R600OptimizeVectorRegisters.cpp' l='351' u='r' c='_ZN12_GLOBAL__N_119R600VectorRegMerger20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIFixSGPRCopies.cpp' l='684' c='_ZN12_GLOBAL__N_115SIFixSGPRCopies20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIFixupVectorISel.cpp' l='104' c='_ZL20findSRegBaseAndIndexPN4llvm14MachineOperandERjS2_RNS_19MachineRegisterInfoEPKNS_14SIRegisterInfoE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp' l='1600' u='r' c='_ZN12_GLOBAL__N_115ARMDAGToDAGISel19createQuadDRegsNodeEN4llvm3EVTENS1_7SDValueES3_S3_S3_'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp' l='1615' u='r' c='_ZN12_GLOBAL__N_115ARMDAGToDAGISel19createQuadQRegsNodeEN4llvm3EVTENS1_7SDValueES3_S3_S3_'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='7940' u='r' c='_ZL17createGPRPairNodeRN4llvm12SelectionDAGENS_7SDValueE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/BitTracker.cpp' l='724' c='_ZNK4llvm10BitTracker16MachineEvaluator8evaluateERKNS_12MachineInstrERKSt3mapIjNS0_12RegisterCellESt4lessIjESaISt4pairIKjS6_EEERSD_'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonBitSimplify.cpp' l='437' u='r' c='_ZN12_GLOBAL__N_118HexagonBitSimplify16parseRegSequenceERKN4llvm12MachineInstrERNS1_10BitTracker11RegisterRefES7_RKNS1_19MachineRegisterInfoE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonBitSimplify.cpp' l='1651' c='_ZN12_GLOBAL__N_115CopyPropagation9isCopyRegEjb'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonBitSimplify.cpp' l='1685' c='_ZN12_GLOBAL__N_115CopyPropagation16propagateRegCopyERN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonBitSimplify.cpp' l='2713' u='r' c='_ZN12_GLOBAL__N_117BitSimplification12processBlockERN4llvm17MachineBasicBlockERKNS_11RegisterSetE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonConstExtenders.cpp' l='1594' u='r' c='_ZN12_GLOBAL__N_121HexagonConstExtenders17replaceInstrExactERKNS0_7ExtDescENS0_8RegisterE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonHardwareLoops.cpp' l='1541' c='_ZNK12_GLOBAL__N_120HexagonHardwareLoops17checkForImmediateERKN4llvm14MachineOperandERl'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='2325' c='_ZNK4llvm16HexagonInstrInfo17isLateResultInstrERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonMachineScheduler.cpp' l='111' c='_ZN4llvm17VLIWResourceModel19isResourceAvailableEPNS_5SUnitEb'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonMachineScheduler.cpp' l='164' c='_ZN4llvm17VLIWResourceModel16reserveResourcesEPNS_5SUnitEb'/>
+<use f='llvm/llvm/lib/Target/Hexagon/RDFCopy.cpp' l='57' c='_ZN4llvm3rdf15CopyPropagation15interpretAsCopyEPKNS_12MachineInstrERSt3mapINS0_11RegisterRefES6_St4lessIS6_ESaISt4pairIKS6_S6_EEE'/>

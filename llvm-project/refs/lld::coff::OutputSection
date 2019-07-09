@@ -1,0 +1,26 @@
+<def f='llvm/lld/COFF/Writer.h' l='39' ll='80'/>
+<size>144</size>
+<doc f='llvm/lld/COFF/Writer.h' l='34'>// OutputSection represents a section in an output file. It&apos;s a
+// container of chunks. OutputSection and Chunk are 1:N relationship.
+// Chunks cannot belong to more than one OutputSections. The writer
+// creates multiple OutputSections and assign them unique,
+// non-overlapping file offsets and RVAs.</doc>
+<fun r='_ZN3lld4coff13OutputSectionC1EN4llvm9StringRefEj'/>
+<fun r='_ZN3lld4coff13OutputSection8addChunkEPNS0_5ChunkE'/>
+<fun r='_ZN3lld4coff13OutputSection18insertChunkAtStartEPNS0_5ChunkE'/>
+<fun r='_ZN3lld4coff13OutputSection5mergeEPS1_'/>
+<fun r='_ZN3lld4coff13OutputSection14setPermissionsEj'/>
+<fun r='_ZN3lld4coff13OutputSection6getRVAEv'/>
+<fun r='_ZN3lld4coff13OutputSection10getFileOffEv'/>
+<fun r='_ZN3lld4coff13OutputSection13writeHeaderToEPh'/>
+<fun r='_ZN3lld4coff13OutputSection29addContributingPartialSectionEPNS0_14PartialSectionE'/>
+<fun r='_ZN3lld4coff13OutputSection14getVirtualSizeEv'/>
+<fun r='_ZN3lld4coff13OutputSection10getRawSizeEv'/>
+<fun r='_ZN3lld4coff13OutputSection17setStringTableOffEj'/>
+<mbr r='lld::coff::OutputSection::SectionIndex' o='0' t='uint32_t'/>
+<mbr r='lld::coff::OutputSection::Name' o='64' t='llvm::StringRef'/>
+<mbr r='lld::coff::OutputSection::Header' o='192' t='llvm::object::coff_section'/>
+<mbr r='lld::coff::OutputSection::Chunks' o='512' t='std::vector&lt;Chunk *&gt;'/>
+<mbr r='lld::coff::OutputSection::OrigChunks' o='704' t='std::vector&lt;Chunk *&gt;'/>
+<mbr r='lld::coff::OutputSection::ContribSections' o='896' t='std::vector&lt;PartialSection *&gt;'/>
+<mbr r='lld::coff::OutputSection::StringTableOff' o='1088' t='uint32_t'/>

@@ -1,0 +1,93 @@
+<def f='llvm/llvm/include/llvm/Transforms/Vectorize/LoopVectorizationLegality.h' l='204' ll='475'/>
+<size>592</size>
+<doc f='llvm/llvm/include/llvm/Transforms/Vectorize/LoopVectorizationLegality.h' l='191'>/// LoopVectorizationLegality checks if it is legal to vectorize a loop, and
+/// to what vectorization factor.
+/// This class does not look at the profitability of vectorization, only the
+/// legality. This class has two main kinds of checks:
+/// * Memory checks - The code in canVectorizeMemory checks if vectorization
+///   will change the order of memory accesses in a way that will change the
+///   correctness of the program.
+/// * Scalars checks - The code in canVectorizeInstrs and canVectorizeMemory
+/// checks for a number of different conditions, such as the availability of a
+/// single induction variable, that all types are supported and vectorize-able,
+/// etc. This code reflects the capabilities of InnerLoopVectorizer.
+/// This class is also used by InnerLoopVectorizer for identifying
+/// induction variable and the different reduction variables.</doc>
+<fun r='_ZN4llvm25LoopVectorizationLegalityC1EPNS_4LoopERNS_25PredicatedScalarEvolutionEPNS_13DominatorTreeEPNS_17TargetLibraryInfoEPNS_9AAResultsEPNS_8Functi8448667'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality12canVectorizeEb'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality20canFoldTailByMaskingEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality19getPrimaryInductionEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality16getReductionVarsEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality16getInductionVarsEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality24getFirstOrderRecurrencesEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality12getSinkAfterEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality22getWidestInductionTypeEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality14isInductionPhiEPKNS_5ValueE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality25isCastedInductionVariableEPKNS_5ValueE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality19isInductionVariableEPKNS_5ValueE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality19isReductionVariableEPNS_7PHINodeE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality22isFirstOrderRecurrenceEPKNS_7PHINodeE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality21blockNeedsPredicationEPNS_10BasicBlockE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality16isConsecutivePtrEPNS_5ValueE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality9isUniformEPNS_5ValueE'/>
+<fun r='_ZNK4llvm25LoopVectorizationLegality25getRuntimePointerCheckingEv'/>
+<fun r='_ZNK4llvm25LoopVectorizationLegality6getLAIEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality22getMaxSafeDepDistBytesEv'/>
+<fun r='_ZNK4llvm25LoopVectorizationLegality23getMaxSafeRegisterWidthEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality9hasStrideEPNS_5ValueE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality14isMaskRequiredEPKNS_11InstructionE'/>
+<fun r='_ZNK4llvm25LoopVectorizationLegality12getNumStoresEv'/>
+<fun r='_ZNK4llvm25LoopVectorizationLegality11getNumLoadsEv'/>
+<fun r='_ZNK4llvm25LoopVectorizationLegality15hasFunNoNaNAttrEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality23canVectorizeLoopNestCFGEPNS_4LoopEb'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality24setupOuterLoopInductionsEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality19canVectorizeLoopCFGEPNS_4LoopEb'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality18canVectorizeInstrsEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality18canVectorizeMemoryEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality25canVectorizeWithIfConvertEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality21canVectorizeOuterLoopEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality20blockCanBePredicatedEPNS_10BasicBlockERNS_15SmallPtrSetImplIPNS_5ValueEEE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality15addInductionPhiEPNS_7PHINodeERKNS_19InductionDescriptorERNS_15SmallPtrSetImplIPNS_5ValueEEE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality18getSymbolicStridesEv'/>
+<fun r='_ZNK4llvm25LoopVectorizationLegality26reportVectorizationFailureENS_9StringRefES1_S1_PNS_11InstructionE'/>
+<mbr r='llvm::LoopVectorizationLegality::TheLoop' o='0' t='llvm::Loop *'/>
+<mbr r='llvm::LoopVectorizationLegality::LI' o='64' t='llvm::LoopInfo *'/>
+<mbr r='llvm::LoopVectorizationLegality::PSE' o='128' t='llvm::PredicatedScalarEvolution &amp;'/>
+<mbr r='llvm::LoopVectorizationLegality::TLI' o='192' t='llvm::TargetLibraryInfo *'/>
+<mbr r='llvm::LoopVectorizationLegality::DT' o='256' t='llvm::DominatorTree *'/>
+<mbr r='llvm::LoopVectorizationLegality::GetLAA' o='320' t='std::function&lt;const LoopAccessInfo &amp;(Loop &amp;)&gt; *'/>
+<mbr r='llvm::LoopVectorizationLegality::LAI' o='384' t='const llvm::LoopAccessInfo *'/>
+<mbr r='llvm::LoopVectorizationLegality::ORE' o='448' t='llvm::OptimizationRemarkEmitter *'/>
+<mbr r='llvm::LoopVectorizationLegality::PrimaryInduction' o='512' t='llvm::PHINode *'/>
+<mbr r='llvm::LoopVectorizationLegality::Reductions' o='576' t='ReductionList'/>
+<mbr r='llvm::LoopVectorizationLegality::Inductions' o='832' t='InductionList'/>
+<mbr r='llvm::LoopVectorizationLegality::InductionCastsToIgnore' o='1280' t='SmallPtrSet&lt;llvm::Instruction *, 4&gt;'/>
+<mbr r='llvm::LoopVectorizationLegality::FirstOrderRecurrences' o='1856' t='RecurrenceSet'/>
+<mbr r='llvm::LoopVectorizationLegality::SinkAfter' o='2688' t='DenseMap&lt;llvm::Instruction *, llvm::Instruction *&gt;'/>
+<mbr r='llvm::LoopVectorizationLegality::WidestIndTy' o='2944' t='llvm::Type *'/>
+<mbr r='llvm::LoopVectorizationLegality::AllowedExit' o='3008' t='SmallPtrSet&lt;llvm::Value *, 4&gt;'/>
+<mbr r='llvm::LoopVectorizationLegality::HasFunNoNaNAttr' o='3584' t='bool'/>
+<mbr r='llvm::LoopVectorizationLegality::Requirements' o='3648' t='llvm::LoopVectorizationRequirements *'/>
+<mbr r='llvm::LoopVectorizationLegality::Hints' o='3712' t='llvm::LoopVectorizeHints *'/>
+<mbr r='llvm::LoopVectorizationLegality::DB' o='3776' t='llvm::DemandedBits *'/>
+<mbr r='llvm::LoopVectorizationLegality::AC' o='3840' t='llvm::AssumptionCache *'/>
+<mbr r='llvm::LoopVectorizationLegality::MaskedOp' o='3904' t='SmallPtrSet&lt;const llvm::Instruction *, 8&gt;'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality16isConsecutivePtrEPNS_5ValueE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality9isUniformEPNS_5ValueE'/>
+<fun r='_ZNK4llvm25LoopVectorizationLegality26reportVectorizationFailureENS_9StringRefES1_S1_PNS_11InstructionE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality21canVectorizeOuterLoopEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality15addInductionPhiEPNS_7PHINodeERKNS_19InductionDescriptorERNS_15SmallPtrSetImplIPNS_5ValueEEE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality24setupOuterLoopInductionsEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality18canVectorizeInstrsEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality18canVectorizeMemoryEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality14isInductionPhiEPKNS_5ValueE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality25isCastedInductionVariableEPKNS_5ValueE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality19isInductionVariableEPKNS_5ValueE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality22isFirstOrderRecurrenceEPKNS_7PHINodeE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality21blockNeedsPredicationEPNS_10BasicBlockE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality20blockCanBePredicatedEPNS_10BasicBlockERNS_15SmallPtrSetImplIPNS_5ValueEEE'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality25canVectorizeWithIfConvertEv'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality19canVectorizeLoopCFGEPNS_4LoopEb'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality23canVectorizeLoopNestCFGEPNS_4LoopEb'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality12canVectorizeEb'/>
+<fun r='_ZN4llvm25LoopVectorizationLegality20canFoldTailByMaskingEv'/>

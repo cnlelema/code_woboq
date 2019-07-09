@@ -1,0 +1,14 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='422' type='const char * clang_getFileContents(CXTranslationUnit tu, CXFile file, size_t * size)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='410'>/**
+ * Retrieve the buffer associated with the given file.
+ *
+ * \param tu the translation unit
+ *
+ * \param file the file for which to retrieve the buffer.
+ *
+ * \param size [out] if non-NULL, will be set to the size of the buffer.
+ *
+ * \returns a pointer to the buffer in memory that holds the contents of
+ * \p file, or a NULL pointer when the file is not loaded.
+ */</doc>
+<def f='llvm/clang/tools/libclang/CIndex.cpp' l='4236' ll='4255' type='const char * clang_getFileContents(CXTranslationUnit TU, CXFile file, size_t * size)'/>

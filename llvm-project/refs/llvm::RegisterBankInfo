@@ -1,0 +1,48 @@
+<def f='llvm/llvm/include/llvm/CodeGen/GlobalISel/RegisterBankInfo.h' l='37' ll='736'/>
+<size>184</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/RegisterBankInfo.h' l='36'>/// Holds all the information related to register banks.</doc>
+<mbr r='llvm::RegisterBankInfo::RegBanks' o='64' t='llvm::RegisterBank **'/>
+<mbr r='llvm::RegisterBankInfo::NumRegBanks' o='128' t='unsigned int'/>
+<mbr r='llvm::RegisterBankInfo::MapOfPartialMappings' o='192' t='DenseMap&lt;unsigned int, std::unique_ptr&lt;const PartialMapping&gt; &gt;'/>
+<mbr r='llvm::RegisterBankInfo::MapOfValueMappings' o='448' t='DenseMap&lt;unsigned int, std::unique_ptr&lt;const ValueMapping&gt; &gt;'/>
+<mbr r='llvm::RegisterBankInfo::MapOfOperandsMappings' o='704' t='DenseMap&lt;unsigned int, std::unique_ptr&lt;ValueMapping []&gt; &gt;'/>
+<mbr r='llvm::RegisterBankInfo::MapOfInstructionMappings' o='960' t='DenseMap&lt;unsigned int, std::unique_ptr&lt;const InstructionMapping&gt; &gt;'/>
+<mbr r='llvm::RegisterBankInfo::PhysRegMinimalRCs' o='1216' t='DenseMap&lt;unsigned int, const llvm::TargetRegisterClass *&gt;'/>
+<fun r='_ZN4llvm16RegisterBankInfoC1EPPNS_12RegisterBankEj'/>
+<fun r='_ZN4llvm16RegisterBankInfoC1Ev'/>
+<fun r='_ZN4llvm16RegisterBankInfo10getRegBankEj'/>
+<fun r='_ZNK4llvm16RegisterBankInfo22getMinimalPhysRegClassEjRKNS_18TargetRegisterInfoE'/>
+<fun r='_ZNK4llvm16RegisterBankInfo19getInstrMappingImplERKNS_12MachineInstrE'/>
+<fun r='_ZNK4llvm16RegisterBankInfo17getPartialMappingEjjRKNS_12RegisterBankE'/>
+<fun r='_ZNK4llvm16RegisterBankInfo15getValueMappingEjjRKNS_12RegisterBankE'/>
+<fun r='_ZNK4llvm16RegisterBankInfo15getValueMappingEPKNS0_14PartialMappingEj'/>
+<fun r='_ZNK4llvm16RegisterBankInfo18getOperandsMappingET_S1_'/>
+<fun r='_ZNK4llvm16RegisterBankInfo18getOperandsMappingERKNS_15SmallVectorImplIPKNS0_12ValueMappingEEE'/>
+<fun r='_ZNK4llvm16RegisterBankInfo18getOperandsMappingESt16initializer_listIPKNS0_12ValueMappingEE'/>
+<fun r='_ZNK4llvm16RegisterBankInfo25getInstructionMappingImplEbjjPKNS0_12ValueMappingEj'/>
+<fun r='_ZNK4llvm16RegisterBankInfo21getInstructionMappingEjjPKNS0_12ValueMappingEj'/>
+<fun r='_ZNK4llvm16RegisterBankInfo28getInvalidInstructionMappingEv'/>
+<fun r='_ZNK4llvm16RegisterBankInfo25getRegBankFromConstraintsERKNS_12MachineInstrEjRKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoE'/>
+<fun r='_ZN4llvm16RegisterBankInfo19applyDefaultMappingERKNS0_14OperandsMapperE'/>
+<fun r='_ZNK4llvm16RegisterBankInfo16applyMappingImplERKNS0_14OperandsMapperE'/>
+<fun r='_ZN4llvm16RegisterBankInfoD1Ev'/>
+<fun r='_ZNK4llvm16RegisterBankInfo10getRegBankEj'/>
+<fun r='_ZNK4llvm16RegisterBankInfo10getRegBankEjRKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE'/>
+<fun r='_ZNK4llvm16RegisterBankInfo14getNumRegBanksEv'/>
+<fun r='_ZNK4llvm16RegisterBankInfo22getRegBankFromRegClassERKNS_19TargetRegisterClassE'/>
+<fun r='_ZNK4llvm16RegisterBankInfo8copyCostERKNS_12RegisterBankES3_j'/>
+<fun r='_ZNK4llvm16RegisterBankInfo16getBreakDownCostERKNS0_12ValueMappingEPKNS_12RegisterBankE'/>
+<fun r='_ZN4llvm16RegisterBankInfo24constrainGenericRegisterEjRKNS_19TargetRegisterClassERNS_19MachineRegisterInfoE'/>
+<smbr r='llvm::RegisterBankInfo::DefaultMappingID' t='const unsigned int'/>
+<smbr r='llvm::RegisterBankInfo::InvalidMappingID' t='const unsigned int'/>
+<fun r='_ZNK4llvm16RegisterBankInfo15getInstrMappingERKNS_12MachineInstrE'/>
+<fun r='_ZNK4llvm16RegisterBankInfo27getInstrAlternativeMappingsERKNS_12MachineInstrE'/>
+<fun r='_ZNK4llvm16RegisterBankInfo24getInstrPossibleMappingsERKNS_12MachineInstrE'/>
+<fun r='_ZNK4llvm16RegisterBankInfo12applyMappingERKNS0_14OperandsMapperE'/>
+<fun r='_ZNK4llvm16RegisterBankInfo13getSizeInBitsEjRKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE'/>
+<fun r='_ZNK4llvm16RegisterBankInfo6verifyERKNS_18TargetRegisterInfoE'/>
+<ovr f='llvm/llvm/lib/Target/AArch64/AArch64RegisterBankInfo.h' l='25' c='llvm::AArch64GenRegisterBankInfo'/>
+<ovr f='llvm/llvm/lib/Target/AMDGPU/AMDGPURegisterBankInfo.h' l='30' c='llvm::AMDGPUGenRegisterBankInfo'/>
+<ovr f='llvm/llvm/lib/Target/ARM/ARMRegisterBankInfo.h' l='25' c='llvm::ARMGenRegisterBankInfo'/>
+<ovr f='llvm/llvm/lib/Target/Mips/MipsRegisterBankInfo.h' l='25' c='llvm::MipsGenRegisterBankInfo'/>
+<ovr f='llvm/llvm/lib/Target/X86/X86RegisterBankInfo.h' l='25' c='llvm::X86GenRegisterBankInfo'/>

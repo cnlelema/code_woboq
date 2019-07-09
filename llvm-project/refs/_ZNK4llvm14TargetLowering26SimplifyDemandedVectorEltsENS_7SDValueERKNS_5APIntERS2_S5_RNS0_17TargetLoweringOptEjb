@@ -1,0 +1,62 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='3130' type='bool llvm::TargetLowering::SimplifyDemandedVectorElts(llvm::SDValue Op, const llvm::APInt &amp; DemandedEltMask, llvm::APInt &amp; KnownUndef, llvm::APInt &amp; KnownZero, llvm::TargetLowering::TargetLoweringOpt &amp; TLO, unsigned int Depth = 0, bool AssumeSingleUse = false) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='3116'>/// Look at Vector Op. At this point, we know that only the DemandedElts
+  /// elements of the result of Op are ever used downstream.  If we can use
+  /// this information to simplify Op, create a new simplified DAG node and
+  /// return true, storing the original and new nodes in TLO.
+  /// Otherwise, analyze the expression and return a mask of KnownUndef and
+  /// KnownZero elements for the expression (used to simplify the caller).
+  /// The KnownUndef/Zero elements may only be accurate for those bits
+  /// in the DemandedMask.
+  /// \p AssumeSingleUse When this parameter is true, this function will
+  ///    attempt to simplify \p Op even if there are multiple uses.
+  ///    Callers are responsible for correctly updating the DAG based on the
+  ///    results of this function, because simply replacing replacing TLO.Old
+  ///    with TLO.New will be incorrect when this parameter is true and TLO.Old
+  ///    has multiple uses.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='1178' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner26SimplifyDemandedVectorEltsEN4llvm7SDValueERKNS1_5APIntEb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='1642' u='c' c='_ZNK4llvm14TargetLowering20SimplifyDemandedBitsENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='1665' u='c' c='_ZNK4llvm14TargetLowering20SimplifyDemandedBitsENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='1777' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_15DAGCombinerInfoE'/>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='1834' ll='2286' type='bool llvm::TargetLowering::SimplifyDemandedVectorElts(llvm::SDValue Op, const llvm::APInt &amp; OriginalDemandedElts, llvm::APInt &amp; KnownUndef, llvm::APInt &amp; KnownZero, llvm::TargetLowering::TargetLoweringOpt &amp; TLO, unsigned int Depth = 0, bool AssumeSingleUse = false) const'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='1891' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='1905' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='1947' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2002' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2023' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2028' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2044' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2066' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2081' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2095' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2104' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2107' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2135' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2138' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2192' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2219' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2223' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2233' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2236' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2252' u='c' c='_ZNK4llvm14TargetLowering26SimplifyDemandedVectorEltsENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEjb'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33537' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33540' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33567' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33577' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33589' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33600' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33603' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33616' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33620' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33632' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33641' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33647' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33652' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33674' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33701' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33711' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33720' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='33861' u='c' c='_ZNK4llvm17X86TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='34036' u='c' c='_ZNK4llvm17X86TargetLowering33SimplifyDemandedBitsForTargetNodeENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='34121' u='c' c='_ZNK4llvm17X86TargetLowering33SimplifyDemandedBitsForTargetNodeENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS_14TargetLowering17TargetLoweringOptEj'/>
+<use f='llvm/llvm/unittests/CodeGen/AArch64SelectionDAGTest.cpp' l='155' u='c' c='_ZN12_GLOBAL__N_173AArch64SelectionDAGTest_SimplifyDemandedVectorElts_EXTRACT_SUBVECTOR_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/CodeGen/AArch64SelectionDAGTest.cpp' l='155' u='c' c='_ZN12_GLOBAL__N_173AArch64SelectionDAGTest_SimplifyDemandedVectorElts_EXTRACT_SUBVECTOR_Test8TestBodyEv'/>

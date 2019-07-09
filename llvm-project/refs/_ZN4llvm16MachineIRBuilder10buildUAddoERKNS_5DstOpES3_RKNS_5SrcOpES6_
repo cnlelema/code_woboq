@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='436' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildUAddo(const llvm::DstOp &amp; Res, const llvm::DstOp &amp; CarryOut, const llvm::SrcOp &amp; Op0, const llvm::SrcOp &amp; Op1)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='424'>/// Build and insert \p Res, \p CarryOut = G_UADDO \p Op0, \p Op1
+  ///
+  /// G_UADDO sets \p Res to \p Op0 + \p Op1 (truncated to the bit width) and
+  /// sets \p CarryOut to 1 if the result overflowed in unsigned arithmetic.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Res, \p Op0 and \p Op1 must be generic virtual registers with the
+  /// same scalar type.
+  ////\pre \p CarryOut must be generic virtual register with scalar type
+  ///(typically s1)
+  ///
+  /// \return The newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2599' u='c' c='_ZN4llvm15LegalizerHelper17multiplyRegistersERNS_15SmallVectorImplIjEENS_8ArrayRefIjEES5_NS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2604' u='c' c='_ZN4llvm15LegalizerHelper17multiplyRegistersERNS_15SmallVectorImplIjEENS_8ArrayRefIjEES5_NS_3LLTE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='364' ll='369' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildUAddo(const llvm::DstOp &amp; Res, const llvm::DstOp &amp; CarryOut, const llvm::SrcOp &amp; Op0, const llvm::SrcOp &amp; Op1)'/>

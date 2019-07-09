@@ -1,0 +1,9 @@
+<def f='llvm/llvm/lib/Target/PowerPC/PPCRegisterInfo.cpp' l='630' ll='673' type='void llvm::PPCRegisterInfo::lowerCRSpilling(MachineBasicBlock::iterator II, unsigned int FrameIndex) const'/>
+<doc f='llvm/llvm/lib/Target/PowerPC/PPCRegisterInfo.cpp' l='622'>/// lowerCRSpilling - Generate the code for spilling a CR register. Instead of
+/// reserving a whole register (R0), we scrounge for one here. This generates
+/// code like this:
+///
+///   mfcr rA                  ; Move the conditional register into GPR rA.
+///   rlwinm rA, rA, SB, 0, 31 ; Shift the bits left so they are in CR0&apos;s slot.
+///   stw rA, FI               ; Store rA to the frame.
+///</doc>

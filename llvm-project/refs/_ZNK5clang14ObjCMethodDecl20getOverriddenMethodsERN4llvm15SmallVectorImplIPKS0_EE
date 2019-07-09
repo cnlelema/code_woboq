@@ -1,0 +1,14 @@
+<dec f='llvm/clang/include/clang/AST/DeclObjC.h' l='460' type='void clang::ObjCMethodDecl::getOverriddenMethods(SmallVectorImpl&lt;const clang::ObjCMethodDecl *&gt; &amp; Overridden) const'/>
+<doc f='llvm/clang/include/clang/AST/DeclObjC.h' l='452'>/// Return overridden methods for the given \p Method.
+  ///
+  /// An ObjC method is considered to override any method in the class&apos;s
+  /// base classes (and base&apos;s categories), its protocols, or its categories&apos;
+  /// protocols, that has
+  /// the same selector and is of the same kind (class or instance).
+  /// A method in an implementation is not considered as overriding the same
+  /// method in the interface or its categories.</doc>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='1523' u='c' c='_ZNK5clang10ASTContext20getOverriddenMethodsEPKNS_9NamedDeclERN4llvm15SmallVectorImplIS3_EE'/>
+<def f='llvm/clang/lib/AST/DeclObjC.cpp' l='1284' ll='1298' type='void clang::ObjCMethodDecl::getOverriddenMethods(SmallVectorImpl&lt;const clang::ObjCMethodDecl *&gt; &amp; Overridden) const'/>
+<use f='llvm/clang/lib/AST/DeclObjC.cpp' l='1370' u='c' c='_ZNK5clang14ObjCMethodDecl16findPropertyDeclEb'/>
+<use f='llvm/clang/lib/Index/IndexDecl.cpp' l='130' u='c' c='_ZN12_GLOBAL__N_119IndexingDeclVisitor16handleObjCMethodEPKN5clang14ObjCMethodDeclEPKNS1_16ObjCPropertyDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaExprObjC.cpp' l='1488' u='c' c='_ZL32findExplicitInstancetypeDeclarerPKN5clang14ObjCMethodDeclENS_8QualTypeE'/>

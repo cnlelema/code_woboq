@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='421' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildPtrMask(unsigned int Res, unsigned int Op0, uint32_t NumBits)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='408'>/// Build and insert \p Res = G_PTR_MASK \p Op0, \p NumBits
+  ///
+  /// G_PTR_MASK clears the low bits of a pointer operand without destroying its
+  /// pointer properties. This has the effect of rounding the address *down* to
+  /// a specified alignment in bits.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Res and \p Op0 must be generic virtual registers with pointer
+  ///      type.
+  /// \pre \p NumBits must be an integer representing the number of low bits to
+  ///      be cleared in \p Op0.
+  ///
+  /// \return a MachineInstrBuilder for the newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='1465' u='c' c='_ZN4llvm12IRTranslator15translateAllocaERKNS_4UserERNS_16MachineIRBuilderE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='228' ll='237' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildPtrMask(unsigned int Res, unsigned int Op0, uint32_t NumBits)'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64LegalizerInfo.cpp' l='669' u='c' c='_ZNK4llvm20AArch64LegalizerInfo13legalizeVaArgERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>

@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/include/llvm/ExecutionEngine/JITLink/JITLink.h' l='982' type='AtomGraphPassFunction llvm::jitlink::JITLinkContext::getMarkLivePass(const llvm::Triple &amp; TT) const'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/JITLink/JITLink.h' l='976'>/// Returns the mark-live pass to be used for this link. If no pass is
+  /// returned (the default) then the target-specific linker implementation will
+  /// choose a conservative default (usually marking all atoms live).
+  /// This function is only called if shouldAddDefaultTargetPasses returns true,
+  /// otherwise the JITContext is responsible for adding a mark-live pass in
+  /// modifyPassConfig.</doc>
+<def f='llvm/llvm/lib/ExecutionEngine/JITLink/JITLink.cpp' l='236' ll='238' type='AtomGraphPassFunction llvm::jitlink::JITLinkContext::getMarkLivePass(const llvm::Triple &amp; TT) const'/>
+<use f='llvm/llvm/lib/ExecutionEngine/JITLink/MachO_x86_64.cpp' l='545' u='c' c='_ZN4llvm7jitlink20jitLink_MachO_x86_64ESt10unique_ptrINS0_14JITLinkContextESt14default_deleteIS2_EE'/>
+<ovr f='llvm/llvm/lib/ExecutionEngine/Orc/ObjectLinkingLayer.cpp' l='147' c='_ZNK4llvm3orc32ObjectLinkingLayerJITLinkContext15getMarkLivePassERKNS_6TripleE'/>

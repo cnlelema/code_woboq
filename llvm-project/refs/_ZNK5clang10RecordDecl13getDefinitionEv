@@ -1,0 +1,39 @@
+<def f='llvm/clang/include/clang/AST/Decl.h' l='3804' ll='3806' type='clang::RecordDecl * clang::RecordDecl::getDefinition() const'/>
+<doc f='llvm/clang/include/clang/AST/Decl.h' l='3796'>/// Returns the RecordDecl that actually defines
+  ///  this struct/union/class.  When determining whether or not a
+  ///  struct/union/class is completely defined, one should use this
+  ///  method as opposed to &apos;isCompleteDefinition&apos;.
+  ///  &apos;isCompleteDefinition&apos; indicates whether or not a specific
+  ///  RecordDecl is a completed definition, not whether or not the
+  ///  record type is defined.  This method returns NULL if there is
+  ///  no RecordDecl that defines the struct/union/tag.</doc>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='8381' u='c' c='_ZN5clang11ASTImporter16ImportDefinitionEPNS_4DeclE'/>
+<use f='llvm/clang/lib/AST/ASTStructuralEquivalence.cpp' l='1075' u='c' c='_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_'/>
+<use f='llvm/clang/lib/AST/ASTStructuralEquivalence.cpp' l='1076' u='c' c='_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_'/>
+<use f='llvm/clang/lib/AST/CXXInheritance.cpp' l='166' u='c' c='_ZNK5clang13CXXRecordDecl11forallBasesEN4llvm12function_refIFbPKS0_EEEb'/>
+<use f='llvm/clang/lib/AST/Decl.cpp' l='3927' u='c' c='_ZNK5clang9FieldDecl13getFieldIndexEv'/>
+<use f='llvm/clang/lib/AST/RecordLayoutBuilder.cpp' l='2990' u='c' c='_ZNK5clang10ASTContext18getASTRecordLayoutEPKNS_10RecordDeclE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='1402' u='c' c='_ZL10dumpRecordRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeERPN4llvm5ValueENS_9CharUnitsENS4_14FunctionCalleeEi'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='2116' u='c' c='_ZN5clang7CodeGen11CGDebugInfo17completeClassDataEPKNS_10RecordDeclE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='2148' u='c' c='_ZL20shouldOmitDefinitionN5clang14codegenoptions13DebugInfoKindEbPKNS_10RecordDeclERKNS_11LangOptionsE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='2228' u='c' c='_ZN5clang7CodeGen11CGDebugInfo20CreateTypeDefinitionEPKNS_10RecordTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='2947' u='c' c='_ZN5clang7CodeGen11CGDebugInfo21getParentModuleOrNullEPKNS_4DeclE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='3104' u='c' c='_ZN5clang7CodeGen11CGDebugInfo17CreateLimitedTypeEPKNS_10RecordTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='3109' u='c' c='_ZN5clang7CodeGen11CGDebugInfo17CreateLimitedTypeEPKNS_10RecordTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenTBAA.cpp' l='100' u='c' c='_ZL15isValidBaseTypeN5clang8QualTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenTBAA.cpp' l='246' u='c' c='_ZN5clang7CodeGen11CodeGenTBAA13CollectFieldsEmNS_8QualTypeERN4llvm15SmallVectorImplINS3_9MDBuilder15TBAAStructFieldEEEb'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenTBAA.cpp' l='296' u='c' c='_ZN5clang7CodeGen11CodeGenTBAA21getBaseTypeInfoHelperEPKNS_4TypeE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenTypes.cpp' l='745' u='c' c='_ZN5clang7CodeGen12CodeGenTypes21ConvertRecordDeclTypeEPKNS_10RecordDeclE'/>
+<use f='llvm/clang/lib/CodeGen/TargetInfo.cpp' l='9157' u='c' c='_ZL16appendRecordTypeRN4llvm11SmallStringILj128EEEPKN5clang10RecordTypeERKNS3_7CodeGen13CodeGenModuleERN12_GLOBAL__N_115TypeStringCacheEPKNS3_14IdentifierInfoE'/>
+<use f='llvm/clang/lib/Sema/SemaCast.cpp' l='841' u='c' c='_ZN12_GLOBAL__N_113CastOperation16CheckDynamicCastEv'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='4972' u='c' c='_ZN5clang4Sema30BuildMicrosoftCAnonymousStructEPNS_5ScopeERNS_8DeclSpecEPNS_10RecordDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='4018' u='c' c='_ZN5clang4Sema26CheckAlignasUnderalignmentEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='5483' u='c' c='_ZL17handleObjCBoxableRN5clang4SemaEPNS_4DeclERKNS_10ParsedAttrE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='5484' u='c' c='_ZL17handleObjCBoxableRN5clang4SemaEPNS_4DeclERKNS_10ParsedAttrE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='2300' u='c' c='_ZN5clang4Sema18CheckBaseSpecifierEPNS_13CXXRecordDeclENS_11SourceRangeEbNS_15AccessSpecifierEPNS_14TypeSourceInfoENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='11622' u='c' c='_ZL24buildDeclareReductionRefRN5clang4SemaENS_14SourceLocationENS_11SourceRangeEPNS_5ScopeERNS_12CXXScopeSpecERKNS_19DeclarationNameInfoENS_8QualTypeE16596220'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='7316' u='c' c='_ZN5clang4Sema27AddMemberOperatorCandidatesENS_22OverloadedOperatorKindENS_14SourceLocationEN4llvm8ArrayRefIPNS_4ExprEEERNS_20OverloadCandidateSetENS_11SourceRangeE'/>
+<use f='llvm/clang/tools/libclang/CXType.cpp' l='994' u='c' c='_ZL23validateFieldParentType8CXCursor6CXType'/>
+<use f='llvm/clang/tools/libclang/CXType.cpp' l='1027' u='c' c='clang_Type_getOffsetOf'/>
+<use f='llvm/clang/tools/libclang/CXType.cpp' l='1238' u='c' c='clang_Type_visitFields'/>
+<use f='llvm/clang/unittests/CodeGen/CodeGenExternalTest.cpp' l='188' u='c' c='_ZN12_GLOBAL__N_1L16test_codegen_fnsEPNS_13MyASTConsumerE'/>

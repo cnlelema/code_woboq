@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Instrumentation.h' l='122' type='llvm::Instruction * llvm::pgo::promoteIndirectCall(llvm::Instruction * Inst, llvm::Function * F, uint64_t Count, uint64_t TotalCount, bool AttachProfToDirectCall, llvm::OptimizationRemarkEmitter * ORE)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Instrumentation.h' l='109'>// Helper function that transforms Inst (either an indirect-call instruction, or
+// an invoke instruction , to a conditional call to F. This is like:
+//     if (Inst.CalledValue == F)
+//        F(...);
+//     else
+//        Inst(...);
+//     end
+// TotalCount is the profile count value that the instruction executes.
+// Count is the profile count value that F is the target function.
+// These two values are used to update the branch weight.
+// If \p AttachProfToDirectCall is true, a prof metadata is attached to the
+// new direct call to contain \p Count.
+// Returns the promoted direct call instruction.</doc>
+<use f='llvm/llvm/lib/Transforms/IPO/SampleProfile.cpp' l='849' u='c' c='_ZN12_GLOBAL__N_119SampleProfileLoader18inlineHotFunctionsERN4llvm8FunctionERNS1_8DenseSetImNS1_12DenseMapInfoImEEEE'/>
+<def f='llvm/llvm/lib/Transforms/Instrumentation/IndirectCallPromotion.cpp' l='296' ll='329' type='llvm::Instruction * llvm::pgo::promoteIndirectCall(llvm::Instruction * Inst, llvm::Function * DirectCallee, uint64_t Count, uint64_t TotalCount, bool AttachProfToDirectCall, llvm::OptimizationRemarkEmitter * ORE)'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/IndirectCallPromotion.cpp' l='339' u='c' c='_ZN12_GLOBAL__N_118ICallPromotionFunc12tryToPromoteEPN4llvm11InstructionERKSt6vectorINS0_18PromotionCandidateESaIS5_EERm'/>

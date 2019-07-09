@@ -1,0 +1,29 @@
+<inh f='llvm/clang/include/clang/AST/Stmt.h' l='66' c='clang::Stmt'/>
+<def f='llvm/clang/include/clang/AST/StmtCXX.h' l='456' ll='514'/>
+<size>40</size>
+<doc f='llvm/clang/include/clang/AST/StmtCXX.h' l='445'>/// Represents a &apos;co_return&apos; statement in the C++ Coroutines TS.
+///
+/// This statament models the initialization of the coroutine promise
+/// (encapsulating the eventual notional return value) from an expression
+/// (or braced-init-list), followed by termination of the coroutine.
+///
+/// This initialization is modeled by the evaluation of the operand
+/// followed by a call to one of:
+///   &lt;promise&gt;.return_value(&lt;operand&gt;)
+///   &lt;promise&gt;.return_void()
+/// which we name the &quot;promise call&quot;.</doc>
+<mbr r='clang::CoreturnStmt::CoreturnLoc' o='64' t='clang::SourceLocation'/>
+<mbr r='clang::CoreturnStmt::SubStmts' o='128' t='clang::Stmt *[2]'/>
+<mbr r='clang::CoreturnStmt::IsImplicit' o='256' t='bool'/>
+<fun r='_ZN5clang12CoreturnStmtC1ENS_14SourceLocationEPNS_4StmtES3_b'/>
+<fun r='_ZN5clang12CoreturnStmtC1ENS_4Stmt10EmptyShellE'/>
+<fun r='_ZNK5clang12CoreturnStmt13getKeywordLocEv'/>
+<fun r='_ZNK5clang12CoreturnStmt10getOperandEv'/>
+<fun r='_ZNK5clang12CoreturnStmt14getPromiseCallEv'/>
+<fun r='_ZNK5clang12CoreturnStmt10isImplicitEv'/>
+<fun r='_ZN5clang12CoreturnStmt13setIsImplicitEb'/>
+<fun r='_ZNK5clang12CoreturnStmt11getBeginLocEv'/>
+<fun r='_ZNK5clang12CoreturnStmt9getEndLocEv'/>
+<fun r='_ZN5clang12CoreturnStmt8childrenEv'/>
+<fun r='_ZNK5clang12CoreturnStmt8childrenEv'/>
+<fun r='_ZN5clang12CoreturnStmt7classofEPKNS_4StmtE'/>

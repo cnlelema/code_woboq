@@ -1,0 +1,17 @@
+<def f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='783' ll='785' type='bool llvm::MachineInstr::isExtractSubregLike(llvm::MachineInstr::QueryType Type = IgnoreBundle) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='772'>/// Return true if this instruction behaves
+  /// the same way as the generic EXTRACT_SUBREG instructions.
+  /// E.g., on ARM,
+  /// rX, rY VMOVRRD dZ
+  /// is equivalent to two EXTRACT_SUBREG:
+  /// rX = EXTRACT_SUBREG dZ, ssub_0
+  /// rY = EXTRACT_SUBREG dZ, ssub_1
+  ///
+  /// Note that for the optimizers to be able to take advantage of
+  /// this property, TargetInstrInfo::getExtractSubregLikeInputs has to be
+  /// override accordingly.</doc>
+<use f='llvm/llvm/lib/CodeGen/PeepholeOptimizer.cpp' l='250' u='c' c='_ZN12_GLOBAL__N_117PeepholeOptimizer19isUncoalescableCopyERKN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/PeepholeOptimizer.cpp' l='1087' u='c' c='_ZL15getCopyRewriterRN4llvm12MachineInstrERKNS_15TargetInstrInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/PeepholeOptimizer.cpp' l='1968' u='c' c='_ZN12_GLOBAL__N_112ValueTracker30getNextSourceFromExtractSubregEv'/>
+<use f='llvm/llvm/lib/CodeGen/PeepholeOptimizer.cpp' l='2059' u='c' c='_ZN12_GLOBAL__N_112ValueTracker17getNextSourceImplEv'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='1176' u='c' c='_ZNK4llvm15TargetInstrInfo22getExtractSubregInputsERKNS_12MachineInstrEjRNS0_19RegSubRegPairAndIdxE'/>

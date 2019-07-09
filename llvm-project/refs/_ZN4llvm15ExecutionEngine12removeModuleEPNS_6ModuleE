@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/ExecutionEngine/ExecutionEngine.h' l='207' type='bool llvm::ExecutionEngine::removeModule(llvm::Module * M)'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/ExecutionEngine.h' l='201'>/// removeModule - Removes a Module from the list of modules, but does not
+  /// free the module&apos;s memory. Returns true if M is found, in which case the
+  /// caller assumes responsibility for deleting the module.
+  //
+  // FIXME: This stealth ownership transfer is horrible. This will probably be
+  //        fixed by deleting ExecutionEngine.</doc>
+<def f='llvm/llvm/lib/ExecutionEngine/ExecutionEngine.cpp' l='143' ll='154' type='bool llvm::ExecutionEngine::removeModule(llvm::Module * M)'/>
+<use f='llvm/llvm/lib/ExecutionEngine/ExecutionEngineBindings.cpp' l='264' u='c' c='LLVMRemoveModule'/>
+<ovr f='llvm/llvm/lib/ExecutionEngine/MCJIT/MCJIT.cpp' l='111' c='_ZN4llvm5MCJIT12removeModuleEPNS_6ModuleE'/>
+<ovr f='llvm/llvm/lib/ExecutionEngine/Orc/OrcMCJITReplacement.h' l='314' c='_ZN4llvm3orc19OrcMCJITReplacement12removeModuleEPNS_6ModuleE'/>

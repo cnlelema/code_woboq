@@ -1,0 +1,26 @@
+<def f='llvm/clang/include/clang/Basic/Diagnostic.h' l='256' ll='301'/>
+<size>40</size>
+<doc f='llvm/clang/include/clang/Basic/Diagnostic.h' l='245'>/// Mapping information for diagnostics.
+  ///
+  /// Mapping info is packed into four bits per diagnostic.  The low three
+  /// bits are the mapping (an instance of diag::Severity), or zero if unset.
+  /// The high bit is set when the mapping was established as a user mapping.
+  /// If the high bit is clear, then the low bits are set to the default
+  /// value, and should be mapped with -pedantic, -Werror, etc.
+  ///
+  /// A new DiagState is created and kept around when diagnostic pragmas modify
+  /// the state so that we know what is the diagnostic state at any given
+  /// source location.</doc>
+<mbr r='clang::DiagnosticsEngine::DiagState::DiagMap' o='0' t='llvm::DenseMap&lt;unsigned int, DiagnosticMapping&gt;'/>
+<mbr r='clang::DiagnosticsEngine::DiagState::IgnoreAllWarnings' o='256' t='unsigned int'/>
+<mbr r='clang::DiagnosticsEngine::DiagState::EnableAllWarnings' o='257' t='unsigned int'/>
+<mbr r='clang::DiagnosticsEngine::DiagState::WarningsAsErrors' o='258' t='unsigned int'/>
+<mbr r='clang::DiagnosticsEngine::DiagState::ErrorsAsFatal' o='259' t='unsigned int'/>
+<mbr r='clang::DiagnosticsEngine::DiagState::SuppressSystemWarnings' o='260' t='unsigned int'/>
+<mbr r='clang::DiagnosticsEngine::DiagState::ExtBehavior' o='288' t='diag::Severity'/>
+<fun r='_ZN5clang17DiagnosticsEngine9DiagStateC1Ev'/>
+<fun r='_ZN5clang17DiagnosticsEngine9DiagState10setMappingEjNS_17DiagnosticMappingE'/>
+<fun r='_ZNK5clang17DiagnosticsEngine9DiagState13lookupMappingEj'/>
+<fun r='_ZN5clang17DiagnosticsEngine9DiagState15getOrAddMappingEj'/>
+<fun r='_ZNK5clang17DiagnosticsEngine9DiagState5beginEv'/>
+<fun r='_ZNK5clang17DiagnosticsEngine9DiagState3endEv'/>

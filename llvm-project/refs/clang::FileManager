@@ -1,0 +1,49 @@
+<inh f='llvm/llvm/include/llvm/ADT/IntrusiveRefCntPtr.h' l='70' c='llvm::RefCountedBase'/>
+<def f='llvm/clang/include/clang/Basic/FileManager.h' l='116' ll='281'/>
+<size>664</size>
+<doc f='llvm/clang/include/clang/Basic/FileManager.h' l='109'>/// Implements support for file system lookup, file system caching,
+/// and directory search management.
+///
+/// This also handles more advanced properties, such as uniquing files based
+/// on &quot;inode&quot;, so that a file with two names (e.g. symlinked) will be treated
+/// as a single file.
+///</doc>
+<mbr r='clang::FileManager::FS' o='64' t='IntrusiveRefCntPtr&lt;llvm::vfs::FileSystem&gt;'/>
+<mbr r='clang::FileManager::FileSystemOpts' o='128' t='clang::FileSystemOptions'/>
+<mbr r='clang::FileManager::UniqueRealDirs' o='384' t='std::map&lt;llvm::sys::fs::UniqueID, DirectoryEntry&gt;'/>
+<mbr r='clang::FileManager::UniqueRealFiles' o='768' t='std::map&lt;llvm::sys::fs::UniqueID, FileEntry&gt;'/>
+<mbr r='clang::FileManager::VirtualDirectoryEntries' o='1152' t='SmallVector&lt;std::unique_ptr&lt;DirectoryEntry&gt;, 4&gt;'/>
+<mbr r='clang::FileManager::VirtualFileEntries' o='1536' t='SmallVector&lt;std::unique_ptr&lt;FileEntry&gt;, 4&gt;'/>
+<mbr r='clang::FileManager::SeenDirEntries' o='1920' t='llvm::StringMap&lt;DirectoryEntry *, llvm::BumpPtrAllocator&gt;'/>
+<mbr r='clang::FileManager::SeenFileEntries' o='2944' t='llvm::StringMap&lt;FileEntry *, llvm::BumpPtrAllocator&gt;'/>
+<mbr r='clang::FileManager::CanonicalDirNames' o='3968' t='llvm::DenseMap&lt;const DirectoryEntry *, llvm::StringRef&gt;'/>
+<mbr r='clang::FileManager::CanonicalNameStorage' o='4224' t='llvm::BumpPtrAllocator'/>
+<mbr r='clang::FileManager::NextFileUID' o='5056' t='unsigned int'/>
+<mbr r='clang::FileManager::NumDirLookups' o='5088' t='unsigned int'/>
+<mbr r='clang::FileManager::NumFileLookups' o='5120' t='unsigned int'/>
+<mbr r='clang::FileManager::NumDirCacheMisses' o='5152' t='unsigned int'/>
+<mbr r='clang::FileManager::NumFileCacheMisses' o='5184' t='unsigned int'/>
+<mbr r='clang::FileManager::StatCache' o='5248' t='std::unique_ptr&lt;FileSystemStatCache&gt;'/>
+<fun r='_ZN5clang11FileManager12getStatValueEN4llvm9StringRefERNS1_3vfs6StatusEbPSt10unique_ptrINS3_4FileESt14default_deleteIS7_EE'/>
+<fun r='_ZN5clang11FileManager25addAncestorsAsVirtualDirsEN4llvm9StringRefE'/>
+<fun r='_ZN5clang11FileManager16fillRealPathNameEPNS_9FileEntryEN4llvm9StringRefE'/>
+<fun r='_ZN5clang11FileManagerC1ERKNS_17FileSystemOptionsEN4llvm18IntrusiveRefCntPtrINS4_3vfs10FileSystemEEE'/>
+<fun r='_ZN5clang11FileManagerD1Ev'/>
+<fun r='_ZN5clang11FileManager12setStatCacheESt10unique_ptrINS_19FileSystemStatCacheESt14default_deleteIS2_EE'/>
+<fun r='_ZN5clang11FileManager14clearStatCacheEv'/>
+<fun r='_ZN5clang11FileManager12getDirectoryEN4llvm9StringRefEb'/>
+<fun r='_ZN5clang11FileManager7getFileEN4llvm9StringRefEbb'/>
+<fun r='_ZN5clang11FileManager17getFileSystemOptsEv'/>
+<fun r='_ZNK5clang11FileManager17getFileSystemOptsEv'/>
+<fun r='_ZNK5clang11FileManager20getVirtualFileSystemEv'/>
+<fun r='_ZN5clang11FileManager14getVirtualFileEN4llvm9StringRefEll'/>
+<fun r='_ZN5clang11FileManager16getBufferForFileEPKNS_9FileEntryEbb'/>
+<fun r='_ZN5clang11FileManager16getBufferForFileEN4llvm9StringRefEb'/>
+<fun r='_ZN5clang11FileManager21getNoncachedStatValueEN4llvm9StringRefERNS1_3vfs6StatusE'/>
+<fun r='_ZN5clang11FileManager15invalidateCacheEPKNS_9FileEntryE'/>
+<fun r='_ZNK5clang11FileManager17FixupRelativePathERN4llvm15SmallVectorImplIcEE'/>
+<fun r='_ZNK5clang11FileManager16makeAbsolutePathERN4llvm15SmallVectorImplIcEE'/>
+<fun r='_ZNK5clang11FileManager18GetUniqueIDMappingERN4llvm15SmallVectorImplIPKNS_9FileEntryEEE'/>
+<fun r='_ZN5clang11FileManager15modifyFileEntryEPNS_9FileEntryEll'/>
+<fun r='_ZN5clang11FileManager16getCanonicalNameEPKNS_14DirectoryEntryE'/>
+<fun r='_ZNK5clang11FileManager10PrintStatsEv'/>

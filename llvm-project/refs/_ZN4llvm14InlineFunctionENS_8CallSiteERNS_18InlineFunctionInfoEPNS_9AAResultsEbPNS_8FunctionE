@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/Cloning.h' l='235' type='llvm::InlineResult llvm::InlineFunction(llvm::CallSite CS, llvm::InlineFunctionInfo &amp; IFI, llvm::AAResults * CalleeAAR = nullptr, bool InsertLifetime = true, llvm::Function * ForwardVarArgsTo = nullptr)'/>
+<use f='llvm/llvm/lib/CodeGen/SafeStack.cpp' l='742' u='c' c='_ZN12_GLOBAL__N_19SafeStack23TryInlinePointerAddressEv'/>
+<use f='llvm/llvm/lib/Transforms/IPO/AlwaysInliner.cpp' l='53' u='c' c='_ZN4llvm17AlwaysInlinerPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/Inliner.cpp' l='286' u='c' c='_ZL20InlineCallIfPossibleN4llvm8CallSiteERNS_18InlineFunctionInfoERNS_8DenseMapIPNS_9ArrayTypeESt6vectorIPNS_10AllocaInstESaIS8_EENS_12DenseMapInfoIS52304727'/>
+<use f='llvm/llvm/lib/Transforms/IPO/Inliner.cpp' l='1073' u='c' c='_ZN4llvm11InlinerPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS2_JRS1_EEES5_RNS_17CGSCCUpdateResultE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='1407' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/SampleProfile.cpp' l='764' u='c' c='_ZN12_GLOBAL__N_119SampleProfileLoader21inlineCallInstructionEPN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/InlineFunction.cpp' l='90' u='c' c='_ZN4llvm14InlineFunctionEPNS_8CallBaseERNS_18InlineFunctionInfoEPNS_9AAResultsEb'/>
+<def f='llvm/llvm/lib/Transforms/Utils/InlineFunction.cpp' l='1537' ll='2420' type='llvm::InlineResult llvm::InlineFunction(llvm::CallSite CS, llvm::InlineFunctionInfo &amp; IFI, llvm::AAResults * CalleeAAR = nullptr, bool InsertLifetime = true, llvm::Function * ForwardVarArgsTo = nullptr)'/>
+<doc f='llvm/llvm/lib/Transforms/Utils/InlineFunction.cpp' l='1529'>/// This function inlines the called function into the basic block of the
+/// caller. This returns false if it is not possible to inline this call.
+/// The program is still in a well defined state if this occurs though.
+///
+/// Note that this only does one level of inlining.  For example, if the
+/// instruction &apos;call B&apos; is inlined, and &apos;B&apos; calls &apos;C&apos;, then the call to &apos;C&apos; now
+/// exists in the instruction stream.  Similarly this will inline a recursive
+/// function by one level.</doc>

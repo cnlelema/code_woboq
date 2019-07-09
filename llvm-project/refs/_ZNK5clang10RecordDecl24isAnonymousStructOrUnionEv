@@ -1,0 +1,21 @@
+<def f='llvm/clang/include/clang/AST/Decl.h' l='3696' ll='3698' type='bool clang::RecordDecl::isAnonymousStructOrUnion() const'/>
+<doc f='llvm/clang/include/clang/AST/Decl.h' l='3685'>/// Whether this is an anonymous struct or union. To be an anonymous
+  /// struct or union, it must have been declared without a name and
+  /// there must be no objects of this type declared, e.g.,
+  /// @code
+  ///   union { int i; float f; };
+  /// @endcode
+  /// is an anonymous union but neither of the following are:
+  /// @code
+  ///  union X { int i; float f; };
+  ///  union { int i; float f; } obj;
+  /// @endcode</doc>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='2721' u='c' c='_ZN5clang15ASTNodeImporter15VisitRecordDeclEPNS_10RecordDeclE'/>
+<use f='llvm/clang/lib/AST/ItaniumMangle.cpp' l='1335' u='c' c='_ZN12_GLOBAL__N_114CXXNameMangler21mangleUnqualifiedNameEPKN5clang9NamedDeclENS1_15DeclarationNameEjPKN4llvm11SmallVectorINS6_9StringRefELj4EEE'/>
+<use f='llvm/clang/lib/AST/ItaniumMangle.cpp' l='3437' u='c' c='_ZN12_GLOBAL__N_114CXXNameMangler20mangleMemberExprBaseEPKN5clang4ExprEb'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='4334' u='c' c='_ZN5clang7CodeGen11CGDebugInfo18EmitGlobalVariableEPN4llvm14GlobalVariableEPKNS_7VarDeclE'/>
+<use f='llvm/clang/lib/Index/IndexingContext.cpp' l='282' u='c' c='_ZL12adjustParentPKN5clang4DeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='4929' u='c' c='_ZL21PopulateKeysForFieldsPN5clang9FieldDeclERN4llvm15SmallVectorImplIPKvEE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='12292' u='c' c='_ZN5clang4Sema21CheckAddressOfOperandERNS_12ActionResultIPNS_4ExprELb1EEENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Serialization/ASTWriterDecl.cpp' l='472' u='c' c='_ZN5clang13ASTDeclWriter15VisitRecordDeclEPNS_10RecordDeclE'/>
+<use f='llvm/clang/tools/libclang/CXType.cpp' l='1275' u='c' c='clang_Cursor_isAnonymousRecordDecl'/>

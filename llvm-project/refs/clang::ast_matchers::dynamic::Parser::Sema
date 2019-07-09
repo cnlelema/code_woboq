@@ -1,0 +1,22 @@
+<def f='llvm/clang/include/clang/ASTMatchers/Dynamic/Parser.h' l='67' ll='125'/>
+<ovr f='llvm/clang/include/clang/ASTMatchers/Dynamic/Parser.h' l='129' c='clang::ast_matchers::dynamic::Parser::RegistrySema'/>
+<size>8</size>
+<doc f='llvm/clang/include/clang/ASTMatchers/Dynamic/Parser.h' l='57'>/// Interface to connect the parser with the registry and more.
+  ///
+  /// The parser uses the Sema instance passed into
+  /// parseMatcherExpression() to handle all matcher tokens. The simplest
+  /// processor implementation would simply call into the registry to create
+  /// the matchers.
+  /// However, a more complex processor might decide to intercept the matcher
+  /// creation and do some extra work. For example, it could apply some
+  /// transformation to the matcher by adding some id() nodes, or could detect
+  /// specific matcher nodes for more efficient lookup.</doc>
+<fun r='_ZN5clang12ast_matchers7dynamic6Parser4SemaD1Ev'/>
+<fun r='_ZN5clang12ast_matchers7dynamic6Parser4Sema22actOnMatcherExpressionEPKNS1_8internal17MatcherDescriptorENS1_11SourceRangeEN4llvm9StringRefENS9_8ArrayRe913734'/>
+<fun r='_ZN5clang12ast_matchers7dynamic6Parser4Sema17lookupMatcherCtorEN4llvm9StringRefE'/>
+<fun r='_ZN5clang12ast_matchers7dynamic6Parser4Sema26getAcceptedCompletionTypesEN4llvm8ArrayRefISt4pairIPKNS1_8internal17MatcherDescriptorEjEEE'/>
+<fun r='_ZN5clang12ast_matchers7dynamic6Parser4Sema21getMatcherCompletionsEN4llvm8ArrayRefINS1_7ArgKindEEE'/>
+<fun r='_ZN5clang12ast_matchers7dynamic6Parser4SemaD1Ev'/>
+<fun r='_ZN5clang12ast_matchers7dynamic6Parser4Sema26getAcceptedCompletionTypesEN4llvm8ArrayRefISt4pairIPKNS1_8internal17MatcherDescriptorEjEEE'/>
+<fun r='_ZN5clang12ast_matchers7dynamic6Parser4Sema21getMatcherCompletionsEN4llvm8ArrayRefINS1_7ArgKindEEE'/>
+<ovr f='llvm/clang/unittests/ASTMatchers/Dynamic/ParserTest.cpp' l='22' c='clang::ast_matchers::dynamic::(anonymousnamespace)::MockSema'/>

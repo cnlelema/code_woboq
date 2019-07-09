@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/BinaryFormat/ELFRelocs/Mips.def' l='130' type='94'/>
+<doc f='llvm/llvm/include/llvm/BinaryFormat/ELFRelocs/Mips.def' l='122'>// Write a capability pointing to the capability table for the referenced symbol
+// and set the tag bit (if processed by rtld). When linking statically we can
+// fill in the bits and change it to a R_MIPS_CHERI_SETTAG
+// When linking dynamically it should always be possible to change this to a
+// R_MIPS_CHERI_SETTAG_LOADADDR relocation
+// The same as R_MIPS_CHERI_CAPABILITY but must not be preemptible
+// The linker should always be able to optimize this into a
+// R_MIPS_CHERI_SETTAG_LOADADDR or R_MIPS_CHERI_SETTAG</doc>
+<doc f='llvm/llvm/include/llvm/BinaryFormat/ELFRelocs/Mips.def' l='130'>// XXXAR: probably not needed</doc>
+<use f='llvm/llvm/lib/Target/Mips/MCTargetDesc/MipsELFObjectWriter.cpp' l='657' c='_ZNK12_GLOBAL__N_119MipsELFObjectWriter23needsRelocateWithSymbolERKN4llvm8MCSymbolEj'/>

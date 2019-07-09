@@ -1,0 +1,23 @@
+<dec f='llvm/clang/include/clang/Frontend/CompilerInstance.h' l='696' type='std::unique_ptr&lt;raw_pwrite_stream&gt; clang::CompilerInstance::createDefaultOutputFile(bool Binary = true, llvm::StringRef BaseInput = &quot;&quot;, llvm::StringRef Extension = &quot;&quot;)'/>
+<doc f='llvm/clang/include/clang/Frontend/CompilerInstance.h' l='687'>/// Create the default output file (from the invocation&apos;s options) and add it
+  /// to the list of tracked output files.
+  ///
+  /// The files created by this function always use temporary files to write to
+  /// their result (that is, the data is written to a temporary file which will
+  /// atomically replace the target output on success).
+  ///
+  /// \return - Null on error.</doc>
+<use f='llvm/clang/lib/CodeGen/CodeGenAction.cpp' l='867' u='c' c='_ZL15GetOutputStreamRN5clang16CompilerInstanceEN4llvm9StringRefENS_13BackendActionE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenAction.cpp' l='869' u='c' c='_ZL15GetOutputStreamRN5clang16CompilerInstanceEN4llvm9StringRefENS_13BackendActionE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenAction.cpp' l='871' u='c' c='_ZL15GetOutputStreamRN5clang16CompilerInstanceEN4llvm9StringRefENS_13BackendActionE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenAction.cpp' l='877' u='c' c='_ZL15GetOutputStreamRN5clang16CompilerInstanceEN4llvm9StringRefENS_13BackendActionE'/>
+<def f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='664' ll='670' type='std::unique_ptr&lt;raw_pwrite_stream&gt; clang::CompilerInstance::createDefaultOutputFile(bool Binary = true, llvm::StringRef InFile = &quot;&quot;, llvm::StringRef Extension = &quot;&quot;)'/>
+<use f='llvm/clang/lib/Frontend/FrontendActions.cpp' l='70' u='c' c='_ZN5clang14ASTPrintAction17CreateASTConsumerERNS_16CompilerInstanceEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Frontend/FrontendActions.cpp' l='237' u='c' c='_ZN5clang29GenerateModuleInterfaceAction16CreateOutputFileERNS_16CompilerInstanceEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Frontend/FrontendActions.cpp' l='307' u='c' c='_ZN5clang26GenerateHeaderModuleAction16CreateOutputFileERNS_16CompilerInstanceEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Frontend/FrontendActions.cpp' l='813' u='c' c='_ZN5clang23PrintPreprocessedAction13ExecuteActionEv'/>
+<use f='llvm/clang/lib/Frontend/FrontendActions.cpp' l='868' u='c' c='_ZN5clang25DumpCompilerOptionsAction13ExecuteActionEv'/>
+<use f='llvm/clang/lib/Frontend/Rewrite/FrontendActions.cpp' l='42' u='c' c='_ZN5clang15HTMLPrintAction17CreateASTConsumerERNS_16CompilerInstanceEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Frontend/Rewrite/FrontendActions.cpp' l='183' u='c' c='_ZN5clang19RewriteMacrosAction13ExecuteActionEv'/>
+<use f='llvm/clang/lib/Frontend/Rewrite/FrontendActions.cpp' l='192' u='c' c='_ZN5clang17RewriteTestAction13ExecuteActionEv'/>
+<use f='llvm/clang/lib/Frontend/Rewrite/FrontendActions.cpp' l='268' u='c' c='_ZN5clang21RewriteIncludesAction21BeginSourceFileActionERNS_16CompilerInstanceE'/>

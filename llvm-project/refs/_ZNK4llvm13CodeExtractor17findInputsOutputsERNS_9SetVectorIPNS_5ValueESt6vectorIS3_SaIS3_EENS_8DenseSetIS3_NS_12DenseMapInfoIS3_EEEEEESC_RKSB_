@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/CodeExtractor.h' l='123' type='void llvm::CodeExtractor::findInputsOutputs(ValueSet &amp; Inputs, ValueSet &amp; Outputs, const ValueSet &amp; Allocas) const'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/CodeExtractor.h' l='115'>/// Compute the set of input values and output values for the code.
+    ///
+    /// These can be used either when performing the extraction or to evaluate
+    /// the expected size of a call to the extracted function. Note that this
+    /// work cannot be cached between the two as once we decide to extract
+    /// a code sequence, that sequence is modified, including changing these
+    /// sets, before extraction occurs. These modifications won&apos;t have any
+    /// significant impact on the cost however.</doc>
+<use f='llvm/llvm/lib/Transforms/IPO/HotColdSplitting.cpp' l='342' u='c' c='_ZN12_GLOBAL__N_116HotColdSplitting17extractColdRegionERKN4llvm11SmallVectorIPNS1_10BasicBlockELj0EEERNS1_13DominatorTreeEPNS1_18BlockFrequencyInfoERN14963532'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='1135' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEv'/>
+<def f='llvm/llvm/lib/Transforms/Utils/CodeExtractor.cpp' l='520' ll='540' type='void llvm::CodeExtractor::findInputsOutputs(ValueSet &amp; Inputs, ValueSet &amp; Outputs, const ValueSet &amp; SinkCands) const'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CodeExtractor.cpp' l='1412' u='c' c='_ZN4llvm13CodeExtractor17extractCodeRegionEv'/>

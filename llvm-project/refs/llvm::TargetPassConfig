@@ -1,0 +1,114 @@
+<inh f='llvm/llvm/include/llvm/Pass.h' l='255' c='llvm::ImmutablePass'/>
+<def f='llvm/llvm/include/llvm/CodeGen/TargetPassConfig.h' l='83' ll='452'/>
+<size>136</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetPassConfig.h' l='79'>/// Target-Independent Code Generator Pass Configuration Options.
+///
+/// This is an ImmutablePass solely for the purpose of exposing CodeGen options
+/// to the internals of other CodeGen passes.</doc>
+<mbr r='llvm::TargetPassConfig::PM' o='256' t='llvm::legacy::PassManagerBase *'/>
+<mbr r='llvm::TargetPassConfig::StartBefore' o='320' t='AnalysisID'/>
+<mbr r='llvm::TargetPassConfig::StartAfter' o='384' t='AnalysisID'/>
+<mbr r='llvm::TargetPassConfig::StopBefore' o='448' t='AnalysisID'/>
+<mbr r='llvm::TargetPassConfig::StopAfter' o='512' t='AnalysisID'/>
+<mbr r='llvm::TargetPassConfig::StartBeforeInstanceNum' o='576' t='unsigned int'/>
+<mbr r='llvm::TargetPassConfig::StartBeforeCount' o='608' t='unsigned int'/>
+<mbr r='llvm::TargetPassConfig::StartAfterInstanceNum' o='640' t='unsigned int'/>
+<mbr r='llvm::TargetPassConfig::StartAfterCount' o='672' t='unsigned int'/>
+<mbr r='llvm::TargetPassConfig::StopBeforeInstanceNum' o='704' t='unsigned int'/>
+<mbr r='llvm::TargetPassConfig::StopBeforeCount' o='736' t='unsigned int'/>
+<mbr r='llvm::TargetPassConfig::StopAfterInstanceNum' o='768' t='unsigned int'/>
+<mbr r='llvm::TargetPassConfig::StopAfterCount' o='800' t='unsigned int'/>
+<mbr r='llvm::TargetPassConfig::Started' o='832' t='bool'/>
+<mbr r='llvm::TargetPassConfig::Stopped' o='840' t='bool'/>
+<mbr r='llvm::TargetPassConfig::AddingMachinePasses' o='848' t='bool'/>
+<fun r='_ZN4llvm16TargetPassConfig18setStartStopPassesEv'/>
+<mbr r='llvm::TargetPassConfig::TM' o='896' t='llvm::LLVMTargetMachine *'/>
+<mbr r='llvm::TargetPassConfig::Impl' o='960' t='llvm::PassConfigImpl *'/>
+<mbr r='llvm::TargetPassConfig::Initialized' o='1024' t='bool'/>
+<mbr r='llvm::TargetPassConfig::DisableVerify' o='1032' t='bool'/>
+<mbr r='llvm::TargetPassConfig::EnableTailMerge' o='1040' t='bool'/>
+<mbr r='llvm::TargetPassConfig::RequireCodeGenSCCOrder' o='1048' t='bool'/>
+<fun r='_ZN4llvm16TargetPassConfig17addCoreISelPassesEv'/>
+<fun r='_ZN4llvm16TargetPassConfigC1ERNS_17LLVMTargetMachineERNS_6legacy15PassManagerBaseE'/>
+<fun r='_ZN4llvm16TargetPassConfigC1Ev'/>
+<fun r='_ZN4llvm16TargetPassConfigD1Ev'/>
+<smbr r='llvm::TargetPassConfig::ID' t='char'/>
+<fun r='_ZNK4llvm16TargetPassConfig5getTMEv'/>
+<fun r='_ZN4llvm16TargetPassConfig14setInitializedEv'/>
+<fun r='_ZNK4llvm16TargetPassConfig11getOptLevelEv'/>
+<fun r='_ZN4llvm16TargetPassConfig25hasLimitedCodeGenPipelineEv'/>
+<fun r='_ZN4llvm16TargetPassConfig27willCompleteCodeGenPipelineEv'/>
+<fun r='_ZNK4llvm16TargetPassConfig31getLimitedCodeGenPipelineReasonEPKc'/>
+<fun r='_ZN4llvm16TargetPassConfig16setDisableVerifyEb'/>
+<fun r='_ZNK4llvm16TargetPassConfig18getEnableTailMergeEv'/>
+<fun r='_ZN4llvm16TargetPassConfig18setEnableTailMergeEb'/>
+<fun r='_ZNK4llvm16TargetPassConfig23requiresCodeGenSCCOrderEv'/>
+<fun r='_ZN4llvm16TargetPassConfig26setRequiresCodeGenSCCOrderEb'/>
+<fun r='_ZN4llvm16TargetPassConfig14substitutePassEPKvNS_18IdentifyingPassPtrE'/>
+<fun r='_ZN4llvm16TargetPassConfig10insertPassEPKvNS_18IdentifyingPassPtrEbb'/>
+<fun r='_ZN4llvm16TargetPassConfig10enablePassEPKv'/>
+<fun r='_ZN4llvm16TargetPassConfig11disablePassEPKv'/>
+<fun r='_ZNK4llvm16TargetPassConfig19getPassSubstitutionEPKv'/>
+<fun r='_ZNK4llvm16TargetPassConfig29isPassSubstitutedOrOverriddenEPKv'/>
+<fun r='_ZNK4llvm16TargetPassConfig19getOptimizeRegAllocEv'/>
+<fun r='_ZNK4llvm16TargetPassConfig20usingDefaultRegAllocEv'/>
+<fun r='_ZN4llvm16TargetPassConfig13addISelPassesEv'/>
+<fun r='_ZN4llvm16TargetPassConfig11addIRPassesEv'/>
+<fun r='_ZN4llvm16TargetPassConfig27addPassesToHandleExceptionsEv'/>
+<fun r='_ZN4llvm16TargetPassConfig17addCodeGenPrepareEv'/>
+<fun r='_ZN4llvm16TargetPassConfig14addISelPrepareEv'/>
+<fun r='_ZN4llvm16TargetPassConfig15addInstSelectorEv'/>
+<fun r='_ZN4llvm16TargetPassConfig15addIRTranslatorEv'/>
+<fun r='_ZN4llvm16TargetPassConfig23addPreLegalizeMachineIREv'/>
+<fun r='_ZN4llvm16TargetPassConfig20addLegalizeMachineIREv'/>
+<fun r='_ZN4llvm16TargetPassConfig19addPreRegBankSelectEv'/>
+<fun r='_ZN4llvm16TargetPassConfig16addRegBankSelectEv'/>
+<fun r='_ZN4llvm16TargetPassConfig29addPreGlobalInstructionSelectEv'/>
+<fun r='_ZN4llvm16TargetPassConfig26addGlobalInstructionSelectEv'/>
+<fun r='_ZN4llvm16TargetPassConfig16addMachinePassesEv'/>
+<fun r='_ZNK4llvm16TargetPassConfig22createMachineSchedulerEPNS_19MachineSchedContextE'/>
+<fun r='_ZNK4llvm16TargetPassConfig26createPostMachineSchedulerEPNS_19MachineSchedContextE'/>
+<fun r='_ZN4llvm16TargetPassConfig14printAndVerifyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN4llvm16TargetPassConfig12addPrintPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN4llvm16TargetPassConfig13addVerifyPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZNK4llvm16TargetPassConfig24isGlobalISelAbortEnabledEv'/>
+<fun r='_ZNK4llvm16TargetPassConfig38reportDiagnosticWhenGlobalISelFallbackEv'/>
+<fun r='_ZNK4llvm16TargetPassConfig17isGISelCSEEnabledEv'/>
+<fun r='_ZNK4llvm16TargetPassConfig12getCSEConfigEv'/>
+<fun r='_ZN4llvm16TargetPassConfig6setOptERbb'/>
+<fun r='_ZN4llvm16TargetPassConfig10addPreISelEv'/>
+<fun r='_ZN4llvm16TargetPassConfig25addMachineSSAOptimizationEv'/>
+<fun r='_ZN4llvm16TargetPassConfig10addILPOptsEv'/>
+<fun r='_ZN4llvm16TargetPassConfig14addPreRegAllocEv'/>
+<fun r='_ZN4llvm16TargetPassConfig29createTargetRegisterAllocatorEb'/>
+<fun r='_ZN4llvm16TargetPassConfig15addFastRegAllocEv'/>
+<fun r='_ZN4llvm16TargetPassConfig20addOptimizedRegAllocEv'/>
+<fun r='_ZN4llvm16TargetPassConfig13addPreRewriteEv'/>
+<fun r='_ZN4llvm16TargetPassConfig14addPostRewriteEv'/>
+<fun r='_ZN4llvm16TargetPassConfig15addPostRegAllocEv'/>
+<fun r='_ZN4llvm16TargetPassConfig26addMachineLateOptimizationEv'/>
+<fun r='_ZN4llvm16TargetPassConfig12addPreSched2Ev'/>
+<fun r='_ZN4llvm16TargetPassConfig11addGCPassesEv'/>
+<fun r='_ZN4llvm16TargetPassConfig17addBlockPlacementEv'/>
+<fun r='_ZN4llvm16TargetPassConfig14addPreEmitPassEv'/>
+<fun r='_ZN4llvm16TargetPassConfig15addPreEmitPass2Ev'/>
+<fun r='_ZN4llvm16TargetPassConfig7addPassEPKvbb'/>
+<fun r='_ZN4llvm16TargetPassConfig7addPassEPNS_4PassEbb'/>
+<fun r='_ZN4llvm16TargetPassConfig18createRegAllocPassEb'/>
+<fun r='_ZN4llvm16TargetPassConfig20addRegAssignmentFastEv'/>
+<fun r='_ZN4llvm16TargetPassConfig25addRegAssignmentOptimizedEv'/>
+<ovr f='llvm/llvm/lib/Target/AArch64/AArch64TargetMachine.cpp' l='337' c='(anonymousnamespace)::AArch64PassConfig'/>
+<ovr f='llvm/llvm/lib/Target/AMDGPU/AMDGPUTargetMachine.cpp' l='535' c='(anonymousnamespace)::AMDGPUPassConfig'/>
+<ovr f='llvm/llvm/lib/Target/ARM/ARMTargetMachine.cpp' l='318' c='(anonymousnamespace)::ARMPassConfig'/>
+<ovr f='llvm/llvm/lib/Target/BPF/BPFTargetMachine.cpp' l='73' c='(anonymousnamespace)::BPFPassConfig'/>
+<ovr f='llvm/llvm/lib/Target/Hexagon/HexagonTargetMachine.cpp' l='275' c='(anonymousnamespace)::HexagonPassConfig'/>
+<ovr f='llvm/llvm/lib/Target/Lanai/LanaiTargetMachine.cpp' l='79' c='(anonymousnamespace)::LanaiPassConfig'/>
+<ovr f='llvm/llvm/lib/Target/MSP430/MSP430TargetMachine.cpp' l='58' c='(anonymousnamespace)::MSP430PassConfig'/>
+<ovr f='llvm/llvm/lib/Target/Mips/MipsTargetMachine.cpp' l='267' c='(anonymousnamespace)::MipsPassConfig'/>
+<ovr f='llvm/llvm/lib/Target/NVPTX/NVPTXTargetMachine.cpp' l='154' c='(anonymousnamespace)::NVPTXPassConfig'/>
+<ovr f='llvm/llvm/lib/Target/PowerPC/PPCTargetMachine.cpp' l='345' c='(anonymousnamespace)::PPCPassConfig'/>
+<ovr f='llvm/llvm/lib/Target/Sparc/SparcTargetMachine.cpp' l='144' c='(anonymousnamespace)::SparcPassConfig'/>
+<ovr f='llvm/llvm/lib/Target/SystemZ/SystemZTargetMachine.cpp' l='167' c='(anonymousnamespace)::SystemZPassConfig'/>
+<ovr f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyTargetMachine.cpp' l='288' c='(anonymousnamespace)::WebAssemblyPassConfig'/>
+<ovr f='llvm/llvm/lib/Target/X86/X86TargetMachine.cpp' l='346' c='(anonymousnamespace)::X86PassConfig'/>
+<ovr f='llvm/llvm/lib/Target/XCore/XCoreTargetMachine.cpp' l='66' c='(anonymousnamespace)::XCorePassConfig'/>

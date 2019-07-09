@@ -1,0 +1,22 @@
+<dec f='llvm/clang/include/clang/AST/Type.h' l='1226' type='clang::QualType clang::QualType::substObjCMemberType(clang::QualType objectType, const clang::DeclContext * dc, clang::ObjCSubstitutionContext context) const'/>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='1206'>/// Substitute type arguments from an object type for the Objective-C type
+  /// parameters used in the subject type.
+  ///
+  /// This operation combines the computation of type arguments for
+  /// substitution (\c Type::getObjCSubstitutions) with the actual process of
+  /// substitution (\c QualType::substObjCTypeArgs) for the convenience of
+  /// callers that need to perform a single substitution in isolation.
+  ///
+  /// \param objectType The type of the object whose member type we&apos;re
+  /// substituting into. For example, this might be the receiver of a message
+  /// or the base of a property access.
+  ///
+  /// \param dc The declaration context from which the subject type was
+  /// retrieved, which indicates (for example) which type parameters should
+  /// be substituted.
+  ///
+  /// \param context The context in which the subject type was written.
+  ///
+  /// \returns the subject type after replacing all of the Objective-C type
+  /// parameters with their corresponding arguments.</doc>
+<def f='llvm/clang/lib/AST/Type.cpp' l='1410' ll='1417' type='clang::QualType clang::QualType::substObjCMemberType(clang::QualType objectType, const clang::DeclContext * dc, clang::ObjCSubstitutionContext context) const'/>

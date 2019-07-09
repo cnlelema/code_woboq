@@ -1,0 +1,24 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='644' ll='648' type='llvm::TargetLoweringBase::BooleanContent llvm::TargetLoweringBase::getBooleanContents(bool isVec, bool isFloat) const'/>
+<use f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='651' u='c' c='_ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='631'>/// For targets without i1 registers, this gives the nature of the high-bits
+  /// of boolean values held in types wider than i1.
+  ///
+  /// &quot;Boolean values&quot; are special true/false values produced by nodes like
+  /// SETCC and consumed (as the condition) by nodes like SELECT and BRCOND.
+  /// Not to be confused with general values promoted from i1.  Some cpus
+  /// distinguish between vectors of boolean and scalars; the isVec parameter
+  /// selects between the two kinds.  For example on X86 a scalar boolean should
+  /// be zero extended from i1, while the elements of a vector of booleans
+  /// should be sign extended from i1.
+  ///
+  /// Some cpus also treat floating point types the same way as they treat
+  /// vectors instead of the way they treat scalars.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='397' u='c' c='_ZNK4llvm16MachineIRBuilder12getBoolExtOpEbb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='7997' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner21foldSelectOfConstantsEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='7999' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner21foldSelectOfConstantsEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='461' u='c' c='_ZN4llvm16DAGTypeLegalizer23ScalarizeVecRes_VSELECTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='462' u='c' c='_ZN4llvm16DAGTypeLegalizer23ScalarizeVecRes_VSELECTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='468' u='c' c='_ZN4llvm16DAGTypeLegalizer23ScalarizeVecRes_VSELECTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='469' u='c' c='_ZN4llvm16DAGTypeLegalizer23ScalarizeVecRes_VSELECTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='2812' u='c' c='_ZNK4llvm12SelectionDAG16computeKnownBitsENS_7SDValueERKNS_5APIntEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='3693' u='c' c='_ZNK4llvm12SelectionDAG18ComputeNumSignBitsENS_7SDValueERKNS_5APIntEj'/>

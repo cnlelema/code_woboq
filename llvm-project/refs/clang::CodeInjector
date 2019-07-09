@@ -1,0 +1,16 @@
+<def f='llvm/clang/include/clang/Analysis/CodeInjector.h' l='35' ll='42'/>
+<size>8</size>
+<doc f='llvm/clang/include/clang/Analysis/CodeInjector.h' l='25'>/// CodeInjector is an interface which is responsible for injecting AST
+/// of function definitions that may not be available in the original source.
+///
+/// The getBody function will be called each time the static analyzer examines a
+/// function call that has no definition available in the current translation
+/// unit. If the returned statement is not a null pointer, it is assumed to be
+/// the body of a function which will be used for the analysis. The source of
+/// the body can be arbitrary, but it is advised to use memoization to avoid
+/// unnecessary reparsing of the external source that provides the body of the
+/// functions.</doc>
+<fun r='_ZN5clang12CodeInjectorC1Ev'/>
+<fun r='_ZN5clang12CodeInjectorD1Ev'/>
+<fun r='_ZN5clang12CodeInjector7getBodyEPKNS_12FunctionDeclE'/>
+<fun r='_ZN5clang12CodeInjector7getBodyEPKNS_14ObjCMethodDeclE'/>

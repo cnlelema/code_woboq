@@ -1,0 +1,23 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='161' type='unsigned int llvm::TargetInstrInfo::getCallFrameSetupOpcode() const'/>
+<use f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='166' u='c' c='_ZNK4llvm15TargetInstrInfo12isFrameInstrERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='172' u='c' c='_ZNK4llvm15TargetInstrInfo12isFrameSetupERKNS_12MachineInstrE'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='156'>/// These methods return the opcode of the frame setup/destroy instructions
+  /// if they exist (-1 otherwise).  Some targets use pseudo instructions in
+  /// order to abstract away the difference between operating with a frame
+  /// pointer and operating without, through the use of these two instructions.
+  ///</doc>
+<use f='llvm/llvm/lib/CodeGen/MachineFrameInfo.cpp' l='189' u='c' c='_ZN4llvm16MachineFrameInfo23computeMaxCallFrameSizeERKNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineVerifier.cpp' l='2596' u='c' c='_ZN12_GLOBAL__N_115MachineVerifier16verifyStackFrameEv'/>
+<use f='llvm/llvm/lib/CodeGen/PrologEpilogInserter.cpp' l='305' u='c' c='_ZN12_GLOBAL__N_13PEI22calculateCallFrameInfoERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/FastISel.cpp' l='839' u='c' c='_ZN4llvm8FastISel14selectStackmapEPKNS_8CallInstE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGRRList.cpp' l='460' u='c' c='_ZL16IsChainDependentPN4llvm6SDNodeES1_jPKNS_15TargetInstrInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGRRList.cpp' l='517' u='c' c='_ZL16FindCallSeqStartPN4llvm6SDNodeERjS2_PKNS_15TargetInstrInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGRRList.cpp' l='787' u='c' c='_ZN12_GLOBAL__N_117ScheduleDAGRRList20ScheduleNodeBottomUpEPN4llvm5SUnitE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGRRList.cpp' l='858' u='c' c='_ZN12_GLOBAL__N_117ScheduleDAGRRList22UnscheduleNodeBottomUpEPN4llvm5SUnitE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGRRList.cpp' l='2969' u='c' c='_ZN12_GLOBAL__N_118RegReductionPQBase32PrescheduleNodesWithMultipleUsesEv'/>
+<use f='llvm/llvm/lib/CodeGen/ShrinkWrap.cpp' l='199' u='c' c='_ZN12_GLOBAL__N_110ShrinkWrap4initERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='962' u='c' c='_ZNK4llvm15TargetInstrInfo11getSPAdjustERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64FastISel.cpp' l='3037' u='c' c='_ZN12_GLOBAL__N_115AArch64FastISel15processCallArgsERN4llvm8FastISel16CallLoweringInfoERNS1_15SmallVectorImplINS1_3MVTEEERj'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFastISel.cpp' l='1954' u='c' c='_ZN12_GLOBAL__N_111ARMFastISel15ProcessCallArgsERN4llvm15SmallVectorImplIPNS1_5ValueEEERNS2_IjEERNS2_INS1_3MVTEEERNS2_INS1_3ISD10ArgFlagsTyEEES8_jRjb'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCFastISel.cpp' l='1420' u='c' c='_ZN12_GLOBAL__N_111PPCFastISel15processCallArgsERN4llvm15SmallVectorImplIPNS1_5ValueEEERNS2_IjEERNS2_INS1_3MVTEEERNS2_INS1_3ISD10ArgFlagsTyEEES8_jRjb'/>
+<use f='llvm/llvm/lib/Target/X86/X86FastISel.cpp' l='3303' u='c' c='_ZN12_GLOBAL__N_111X86FastISel13fastLowerCallERN4llvm8FastISel16CallLoweringInfoE'/>

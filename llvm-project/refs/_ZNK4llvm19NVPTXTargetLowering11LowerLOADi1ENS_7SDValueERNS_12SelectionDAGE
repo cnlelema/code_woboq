@@ -1,0 +1,7 @@
+<dec f='llvm/llvm/lib/Target/NVPTX/NVPTXISelLowering.h' l='564' type='llvm::SDValue llvm::NVPTXTargetLowering::LowerLOADi1(llvm::SDValue Op, llvm::SelectionDAG &amp; DAG) const'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXISelLowering.cpp' l='2226' u='c' c='_ZNK4llvm19NVPTXTargetLowering9LowerLOADENS_7SDValueERNS_12SelectionDAGE'/>
+<def f='llvm/llvm/lib/Target/NVPTX/NVPTXISelLowering.cpp' l='2248' ll='2264' type='llvm::SDValue llvm::NVPTXTargetLowering::LowerLOADi1(llvm::SDValue Op, llvm::SelectionDAG &amp; DAG) const'/>
+<doc f='llvm/llvm/lib/Target/NVPTX/NVPTXISelLowering.cpp' l='2244'>// v = ld i1* addr
+//   =&gt;
+// v1 = ld i8* addr (-&gt; i16)
+// v = trunc i16 to i1</doc>

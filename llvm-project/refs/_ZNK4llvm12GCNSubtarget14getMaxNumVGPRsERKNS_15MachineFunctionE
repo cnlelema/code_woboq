@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/lib/Target/AMDGPU/AMDGPUSubtarget.h' l='1025' type='unsigned int llvm::GCNSubtarget::getMaxNumVGPRs(const llvm::MachineFunction &amp; MF) const'/>
+<doc f='llvm/llvm/lib/Target/AMDGPU/AMDGPUSubtarget.h' l='1017'>/// \returns Maximum number of VGPRs that meets number of waves per execution
+  /// unit requirement for function \p MF, or number of VGPRs explicitly
+  /// requested using &quot;amdgpu-num-vgpr&quot; attribute attached to function \p MF.
+  ///
+  /// \returns Value that meets number of waves per execution unit requirement
+  /// if explicitly requested value cannot be converted to integer, violates
+  /// subtarget&apos;s specifications, or does not meet number of waves per execution
+  /// unit requirement.</doc>
+<def f='llvm/llvm/lib/Target/AMDGPU/AMDGPUSubtarget.cpp' l='659' ll='687' type='unsigned int llvm::GCNSubtarget::getMaxNumVGPRs(const llvm::MachineFunction &amp; MF) const'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/GCNNSAReassign.cpp' l='235' u='c' c='_ZN12_GLOBAL__N_114GCNNSAReassign20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/GCNRegBankReassign.cpp' l='738' u='c' c='_ZN12_GLOBAL__N_118GCNRegBankReassign20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIRegisterInfo.cpp' l='196' u='c' c='_ZNK4llvm14SIRegisterInfo15getReservedRegsERKNS_15MachineFunctionE'/>

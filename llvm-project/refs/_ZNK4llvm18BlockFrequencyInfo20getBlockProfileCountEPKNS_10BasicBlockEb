@@ -1,0 +1,25 @@
+<dec f='llvm/llvm/include/llvm/Analysis/BlockFrequencyInfo.h' l='70' type='Optional&lt;uint64_t&gt; llvm::BlockFrequencyInfo::getBlockProfileCount(const llvm::BasicBlock * BB, bool AllowSynthetic = false) const'/>
+<doc f='llvm/llvm/include/llvm/Analysis/BlockFrequencyInfo.h' l='67'>/// Returns the estimated profile count of \p BB.
+  /// This computes the relative block frequency of \p BB and multiplies it by
+  /// the enclosing function&apos;s count (if available) and returns the value.</doc>
+<def f='llvm/llvm/lib/Analysis/BlockFrequencyInfo.cpp' l='205' ll='212' type='Optional&lt;uint64_t&gt; llvm::BlockFrequencyInfo::getBlockProfileCount(const llvm::BasicBlock * BB, bool AllowSynthetic = false) const'/>
+<use f='llvm/llvm/lib/Analysis/OptimizationRemarkEmitter.cpp' l='62' u='c' c='_ZN4llvm25OptimizationRemarkEmitter14computeHotnessEPKNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/ProfileSummaryInfo.cpp' l='115' u='c' c='_ZN4llvm18ProfileSummaryInfo15getProfileCountEPKNS_11InstructionEPNS_18BlockFrequencyInfoEb'/>
+<use f='llvm/llvm/lib/Analysis/ProfileSummaryInfo.cpp' l='259' u='c' c='_ZN4llvm18ProfileSummaryInfo10isHotBlockEPKNS_10BasicBlockEPNS_18BlockFrequencyInfoE'/>
+<use f='llvm/llvm/lib/Analysis/ProfileSummaryInfo.cpp' l='265' u='c' c='_ZN4llvm18ProfileSummaryInfo11isColdBlockEPKNS_10BasicBlockEPNS_18BlockFrequencyInfoE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='443' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoEPN4llvm8FunctionERNS1_25OptimizationRemarkEmitterE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='444' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoEPN4llvm8FunctionERNS1_25OptimizationRemarkEmitterE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='957' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl29computeCallsiteToProfCountMapEPN4llvm8FunctionERNS1_8DenseMapIPNS1_4UserEmNS1_12DenseMapInfoIS6_EENS1_6detail128218580'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/CGProfile.cpp' l='48' u='c' c='_ZN4llvm13CGProfilePass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/ControlHeightReduction.cpp' l='1697' u='c' c='_ZN12_GLOBAL__N_13CHR15transformScopesEPNS_8CHRScopeERN4llvm8DenseSetIPNS3_7PHINodeENS3_12DenseMapInfoIS6_EEEE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/InstrProfiling.cpp' l='271' u='c' c='_ZN12_GLOBAL__N_118PGOCounterPromoter3runEPl'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/InstrProfiling.cpp' l='274' u='c' c='_ZN12_GLOBAL__N_118PGOCounterPromoter3runEPl'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/PGOMemOPSizeOpt.cpp' l='245' u='c' c='_ZN12_GLOBAL__N_112MemOPSizeOpt7performEPN4llvm12MemIntrinsicE'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='78' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='78' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='79' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='79' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='80' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='80' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='82' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='82' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>

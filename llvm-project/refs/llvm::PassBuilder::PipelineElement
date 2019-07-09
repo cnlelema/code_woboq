@@ -1,0 +1,12 @@
+<def f='llvm/llvm/include/llvm/Passes/PassBuilder.h' l='125' ll='128'/>
+<size>40</size>
+<doc f='llvm/llvm/include/llvm/Passes/PassBuilder.h' l='117'>/// A struct to capture parsed pass pipeline names.
+  ///
+  /// A pipeline is defined as a series of names, each of which may in itself
+  /// recursively contain a nested pipeline. A name is either the name of a pass
+  /// (e.g. &quot;instcombine&quot;) or the name of a pipeline type (e.g. &quot;cgscc&quot;). If the
+  /// name is the name of a pass, the InnerPipeline is empty, since passes
+  /// cannot contain inner pipelines. See parsePassPipeline() for a more
+  /// detailed description of the textual pipeline format.</doc>
+<mbr r='llvm::PassBuilder::PipelineElement::Name' o='0' t='llvm::StringRef'/>
+<mbr r='llvm::PassBuilder::PipelineElement::InnerPipeline' o='128' t='std::vector&lt;PipelineElement&gt;'/>

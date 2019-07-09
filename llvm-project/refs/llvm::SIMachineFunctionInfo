@@ -1,0 +1,153 @@
+<inh f='llvm/llvm/lib/Target/AMDGPU/AMDGPUMachineFunction.h' l='19' c='llvm::AMDGPUMachineFunction'/>
+<def f='llvm/llvm/lib/Target/AMDGPU/SIMachineFunctionInfo.h' l='132' ll='692'/>
+<size>520</size>
+<doc f='llvm/llvm/lib/Target/AMDGPU/SIMachineFunctionInfo.h' l='130'>/// This class keeps track of the SPI_SP_INPUT_ADDR config register, which
+/// tells the hardware which interpolation parameters to load.</doc>
+<mbr r='llvm::SIMachineFunctionInfo::TIDReg' t='unsigned int'/>
+<mbr r='llvm::SIMachineFunctionInfo::ScratchRSrcReg' t='unsigned int'/>
+<mbr r='llvm::SIMachineFunctionInfo::ScratchWaveOffsetReg' t='unsigned int'/>
+<mbr r='llvm::SIMachineFunctionInfo::FrameOffsetReg' t='unsigned int'/>
+<mbr r='llvm::SIMachineFunctionInfo::StackPtrOffsetReg' t='unsigned int'/>
+<mbr r='llvm::SIMachineFunctionInfo::ArgInfo' o='1024' t='llvm::AMDGPUFunctionArgInfo'/>
+<mbr r='llvm::SIMachineFunctionInfo::Mode' o='2112' t='AMDGPU::SIModeRegisterDefaults'/>
+<mbr r='llvm::SIMachineFunctionInfo::PSInputAddr' o='2144' t='unsigned int'/>
+<mbr r='llvm::SIMachineFunctionInfo::PSInputEnable' o='2176' t='unsigned int'/>
+<mbr r='llvm::SIMachineFunctionInfo::BytesInStackArgArea' o='2208' t='unsigned int'/>
+<mbr r='llvm::SIMachineFunctionInfo::ReturnsVoid' o='2240' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::FlatWorkGroupSizes' o='2272' t='std::pair&lt;unsigned int, unsigned int&gt;'/>
+<mbr r='llvm::SIMachineFunctionInfo::WavesPerEU' o='2336' t='std::pair&lt;unsigned int, unsigned int&gt;'/>
+<mbr r='llvm::SIMachineFunctionInfo::BufferPSVs' o='2432' t='DenseMap&lt;const llvm::Value *, std::unique_ptr&lt;const AMDGPUBufferPseudoSourceValue&gt; &gt;'/>
+<mbr r='llvm::SIMachineFunctionInfo::ImagePSVs' o='2688' t='DenseMap&lt;const llvm::Value *, std::unique_ptr&lt;const AMDGPUImagePseudoSourceValue&gt; &gt;'/>
+<mbr r='llvm::SIMachineFunctionInfo::LDSWaveSpillSize' o='2944' t='unsigned int'/>
+<mbr r='llvm::SIMachineFunctionInfo::NumUserSGPRs' o='2976' t='unsigned int'/>
+<mbr r='llvm::SIMachineFunctionInfo::NumSystemSGPRs' o='3008' t='unsigned int'/>
+<mbr r='llvm::SIMachineFunctionInfo::HasSpilledSGPRs' o='3040' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::HasSpilledVGPRs' o='3048' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::HasNonSpillStackObjects' o='3056' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::IsStackRealigned' o='3064' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::NumSpilledSGPRs' o='3072' t='unsigned int'/>
+<mbr r='llvm::SIMachineFunctionInfo::NumSpilledVGPRs' o='3104' t='unsigned int'/>
+<mbr r='llvm::SIMachineFunctionInfo::PrivateSegmentBuffer' o='3136' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::DispatchPtr' o='3137' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::QueuePtr' o='3138' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::KernargSegmentPtr' o='3139' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::DispatchID' o='3140' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::FlatScratchInit' o='3141' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::WorkGroupIDX' o='3142' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::WorkGroupIDY' o='3143' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::WorkGroupIDZ' o='3144' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::WorkGroupInfo' o='3145' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::PrivateSegmentWaveByteOffset' o='3146' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::WorkItemIDX' o='3147' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::WorkItemIDY' o='3148' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::WorkItemIDZ' o='3149' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::ImplicitBufferPtr' o='3150' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::ImplicitArgPtr' o='3151' t='bool'/>
+<mbr r='llvm::SIMachineFunctionInfo::GITPtrHigh' o='3168' t='unsigned int'/>
+<mbr r='llvm::SIMachineFunctionInfo::HighBitsOf32BitAddress' o='3200' t='unsigned int'/>
+<mbr r='llvm::SIMachineFunctionInfo::Occupancy' o='3232' t='unsigned int'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo15getNextUserSGPREv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo17getNextSystemSGPREv'/>
+<mbr r='llvm::SIMachineFunctionInfo::WWMReservedRegs' o='3264' t='SparseBitVector&lt;&gt;'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo18ReserveWWMRegisterEj'/>
+<mbr r='llvm::SIMachineFunctionInfo::SGPRToVGPRSpills' o='3520' t='DenseMap&lt;int, std::vector&lt;SpilledReg&gt; &gt;'/>
+<mbr r='llvm::SIMachineFunctionInfo::NumVGPRSpillLanes' o='3776' t='unsigned int'/>
+<mbr r='llvm::SIMachineFunctionInfo::SpillVGPRs' o='3840' t='SmallVector&lt;llvm::SIMachineFunctionInfo::SGPRSpillVGPRCSR, 2&gt;'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfoC1ERKNS_15MachineFunctionE'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo24initializeBaseYamlFieldsERKNS_4yaml21SIMachineFunctionInfoE'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo19getSGPRToVGPRSpillsEi'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo17getSGPRSpillVGPRsEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo7getModeEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo23allocateSGPRSpillToVGPRERNS_15MachineFunctionEi'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo28removeSGPRToVGPRFrameIndicesERNS_16MachineFrameInfoE'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo16hasCalculatedTIDEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo9getTIDRegEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo9setTIDRegEj'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo22getBytesInStackArgAreaEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo22setBytesInStackArgAreaEj'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo23addPrivateSegmentBufferERKNS_14SIRegisterInfoE'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo14addDispatchPtrERKNS_14SIRegisterInfoE'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo11addQueuePtrERKNS_14SIRegisterInfoE'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo20addKernargSegmentPtrERKNS_14SIRegisterInfoE'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo13addDispatchIDERKNS_14SIRegisterInfoE'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo18addFlatScratchInitERKNS_14SIRegisterInfoE'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo20addImplicitBufferPtrERKNS_14SIRegisterInfoE'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo15addWorkGroupIDXEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo15addWorkGroupIDYEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo15addWorkGroupIDZEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo16addWorkGroupInfoEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo14setWorkItemIDXENS_13ArgDescriptorE'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo14setWorkItemIDYENS_13ArgDescriptorE'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo14setWorkItemIDZENS_13ArgDescriptorE'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo31addPrivateSegmentWaveByteOffsetEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo31setPrivateSegmentWaveByteOffsetEj'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo23hasPrivateSegmentBufferEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo14hasDispatchPtrEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo11hasQueuePtrEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo20hasKernargSegmentPtrEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo13hasDispatchIDEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo18hasFlatScratchInitEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo15hasWorkGroupIDXEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo15hasWorkGroupIDYEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo15hasWorkGroupIDZEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo16hasWorkGroupInfoEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo31hasPrivateSegmentWaveByteOffsetEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo14hasWorkItemIDXEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo14hasWorkItemIDYEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo14hasWorkItemIDZEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo17hasImplicitArgPtrEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo20hasImplicitBufferPtrEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo10getArgInfoEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo10getArgInfoEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo17getPreloadedValueENS_21AMDGPUFunctionArgInfo14PreloadedValueE'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo15getPreloadedRegENS_21AMDGPUFunctionArgInfo14PreloadedValueE'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo13getGITPtrHighEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo23get32BitAddressHighBitsEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo15getNumUserSGPRsEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo20getNumPreloadedSGPRsEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo41getPrivateSegmentWaveByteOffsetSystemSGPREv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo17getScratchRSrcRegEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo17setScratchRSrcRegEj'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo23getScratchWaveOffsetRegEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo17getFrameOffsetRegEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo17setFrameOffsetRegEj'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo20setStackPtrOffsetRegEj'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo20getStackPtrOffsetRegEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo23setScratchWaveOffsetRegEj'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo19getQueuePtrUserSGPREv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo28getImplicitBufferPtrUserSGPREv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo15hasSpilledSGPRsEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo18setHasSpilledSGPRsEb'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo15hasSpilledVGPRsEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo18setHasSpilledVGPRsEb'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo23hasNonSpillStackObjectsEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo26setHasNonSpillStackObjectsEb'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo16isStackRealignedEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo19setIsStackRealignedEb'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo18getNumSpilledSGPRsEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo18getNumSpilledVGPRsEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo17addToSpilledSGPRsEj'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo17addToSpilledVGPRsEj'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo14getPSInputAddrEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo16getPSInputEnableEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo18isPSInputAllocatedEj'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo20markPSInputAllocatedEj'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo18markPSInputEnabledEj'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo11returnsVoidEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo16setIfReturnsVoidEb'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo21getFlatWorkGroupSizesEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo23getMinFlatWorkGroupSizeEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo23getMaxFlatWorkGroupSizeEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo13getWavesPerEUEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo16getMinWavesPerEUEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo16getMaxWavesPerEUEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo18getWorkGroupIDSGPREj'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo17getWorkItemIDVGPREj'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo19getLDSWaveSpillSizeEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo12getBufferPSVERKNS_11SIInstrInfoEPKNS_5ValueE'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo11getImagePSVERKNS_11SIInstrInfoEPKNS_5ValueE'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo12getOccupancyEv'/>
+<fun r='_ZNK4llvm21SIMachineFunctionInfo22getMinAllowedOccupancyEv'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo14limitOccupancyERKNS_15MachineFunctionE'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo14limitOccupancyEj'/>
+<fun r='_ZN4llvm21SIMachineFunctionInfo17increaseOccupancyERKNS_15MachineFunctionEj'/>

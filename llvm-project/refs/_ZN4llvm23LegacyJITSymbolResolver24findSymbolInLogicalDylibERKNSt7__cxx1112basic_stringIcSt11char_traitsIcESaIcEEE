@@ -1,0 +1,21 @@
+<dec f='llvm/llvm/include/llvm/ExecutionEngine/JITSymbol.h' l='374' type='llvm::JITSymbol llvm::LegacyJITSymbolResolver::findSymbolInLogicalDylib(const std::string &amp; Name)'/>
+<ovr f='llvm/llvm/include/llvm/ExecutionEngine/RTDyldMemoryManager.h' l='123' c='_ZN4llvm19RTDyldMemoryManager24findSymbolInLogicalDylibERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/JITSymbol.h' l='362'>/// This method returns the address of the specified symbol if it exists
+  /// within the logical dynamic library represented by this JITSymbolResolver.
+  /// Unlike findSymbol, queries through this interface should return addresses
+  /// for hidden symbols.
+  ///
+  /// This is of particular importance for the Orc JIT APIs, which support lazy
+  /// compilation by breaking up modules: Each of those broken out modules
+  /// must be able to resolve hidden symbols provided by the others. Clients
+  /// writing memory managers for MCJIT can usually ignore this method.
+  ///
+  /// This method will be queried by RuntimeDyld when checking for previous
+  /// definitions of common symbols.</doc>
+<ovr f='llvm/llvm/lib/ExecutionEngine/MCJIT/MCJIT.h' l='37' c='_ZN4llvm21LinkingSymbolResolver24findSymbolInLogicalDylibERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<ovr f='llvm/llvm/include/llvm/ExecutionEngine/Orc/LambdaResolver.h' l='32' c='_ZN4llvm3orc14LambdaResolver24findSymbolInLogicalDylibERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<ovr f='llvm/llvm/lib/ExecutionEngine/Orc/NullResolver.cpp' l='32' c='_ZN4llvm3orc18NullLegacyResolver24findSymbolInLogicalDylibERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/OrcMCJITReplacement.h' l='157' u='c' c='_ZN4llvm3orc19OrcMCJITReplacement18LinkingORCResolver20getResponsibilitySetERKNS_8DenseSetINS0_15SymbolStringPtrENS_12DenseMapInfoIS4_EEEE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/JITSymbol.cpp' l='75' u='c' c='_ZN4llvm23LegacyJITSymbolResolver6lookupERKSt3setINS_9StringRefESt4lessIS2_ESaIS2_EESt8functionIFvNS_8ExpectedISt3mapIS2_NS_18JITEvaluatedSymbolES4_Sa3190491'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/JITSymbol.cpp' l='116' u='c' c='_ZN4llvm23LegacyJITSymbolResolver20getResponsibilitySetERKSt3setINS_9StringRefESt4lessIS2_ESaIS2_EE'/>
+<use f='llvm/llvm/tools/lli/RemoteJITUtils.h' l='142' u='c' c='_ZN4llvm23ForwardingMemoryManager24findSymbolInLogicalDylibERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>

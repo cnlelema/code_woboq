@@ -1,0 +1,5 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/SimplifyLibCalls.h' l='181' type='llvm::Value * llvm::LibCallSimplifier::replacePowWithExp(llvm::CallInst * Pow, IRBuilder&lt;&gt; &amp; B)'/>
+<def f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='1245' ll='1357' type='llvm::Value * llvm::LibCallSimplifier::replacePowWithExp(llvm::CallInst * Pow, IRBuilder&lt;&gt; &amp; B)'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='1447' u='c' c='_ZN4llvm17LibCallSimplifier11optimizePowEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<doc f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='1243'>/// Use exp{,2}(x * y) for pow(exp{,2}(x), y);
+/// exp2(n * x) for pow(2.0 ** n, x); exp10(x) for pow(10.0, x).</doc>

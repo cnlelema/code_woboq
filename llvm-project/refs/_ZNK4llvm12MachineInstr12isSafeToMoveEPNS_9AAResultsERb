@@ -1,0 +1,32 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1388' type='bool llvm::MachineInstr::isSafeToMove(AliasAnalysis * AA, bool &amp; SawStore) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1385'>/// Return true if it is safe to move this instruction. If
+  /// SawStore is set to true, it means that there is a store (or call) between
+  /// the instruction&apos;s location and its intended destination.</doc>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='1934' u='c' c='_ZL28findHoistingInsertPosAndDepsPN4llvm17MachineBasicBlockEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoERNS_8SmallSetIjLj4ESt4lessIjEEESC_'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='2058' u='c' c='_ZN4llvm12BranchFolder22HoistCommonCodeInSuccsEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/DeadMachineInstructionElim.cpp' l='71' u='c' c='_ZNK12_GLOBAL__N_126DeadMachineInstructionElim6isDeadEPKN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/EarlyIfConversion.cpp' l='222' u='c' c='_ZN12_GLOBAL__N_19SSAIfConv18canSpeculateInstrsEPN4llvm17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/Utils.cpp' l='165' u='c' c='_ZN4llvm15isTriviallyDeadERKNS_12MachineInstrERKNS_19MachineRegisterInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/IfConversion.cpp' l='1980' u='c' c='_ZL12MaySpeculateRKN4llvm12MachineInstrERNS_8SmallSetItLj4ESt4lessItEEE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeEdit.cpp' l='219' u='c' c='_ZN4llvm13LiveRangeEdit10foldAsLoadEPNS_12LiveIntervalERNS_15SmallVectorImplIPNS_12MachineInstrEEE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeEdit.cpp' l='275' u='c' c='_ZN4llvm13LiveRangeEdit16eliminateDeadDefEPNS_12MachineInstrERNS_9SetVectorIPNS_12LiveIntervalENS_11SmallVectorIS5_Lj8EEENS_11SmallPtrSetIS5_Lj8EEEEEPNS_9AAResultsE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeShrink.cpp' l='154' u='c' c='_ZN12_GLOBAL__N_115LiveRangeShrink20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<def f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='1168' ll='1195' type='bool llvm::MachineInstr::isSafeToMove(AliasAnalysis * AA, bool &amp; SawStore) const'/>
+<doc f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='1165'>/// isSafeToMove - Return true if it is safe to move this instruction. If
+/// SawStore is set to true, it means that there is a store (or call) between
+/// the instruction&apos;s location and its intended destination.</doc>
+<use f='llvm/llvm/lib/CodeGen/MachineLICM.cpp' l='982' u='c' c='_ZN12_GLOBAL__N_115MachineLICMBase15IsLICMCandidateERN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='2647' u='c' c='_ZN4llvm17SwingSchedulerDAG22removeDeadInstructionsEPNS_17MachineBasicBlockERNS_15SmallVectorImplIS2_EE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineSink.cpp' l='784' u='c' c='_ZN12_GLOBAL__N_114MachineSinking15SinkInstructionERN4llvm12MachineInstrERbRSt3mapIPNS1_17MachineBasicBlockENS1_11SmallVectorIS7_Lj4EEESt4lessIS7_ESaISt4pairIKS7_S9_EEE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineSink.cpp' l='835' u='c' c='_ZN12_GLOBAL__N_114MachineSinking15SinkInstructionERN4llvm12MachineInstrERbRSt3mapIPNS1_17MachineBasicBlockENS1_11SmallVectorIS7_Lj4EEESt4lessIS7_ESaISt4pairIKS7_S9_EEE'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterCoalescer.cpp' l='1229' u='c' c='_ZN12_GLOBAL__N_117RegisterCoalescer23reMaterializeTrivialDefERKN4llvm13CoalescerPairEPNS1_12MachineInstrERb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/FastISel.cpp' l='203' u='c' c='_ZN4llvm8FastISel18flushLocalValueMapEv'/>
+<use f='llvm/llvm/lib/CodeGen/TwoAddressInstructionPass.cpp' l='224' u='c' c='_ZN12_GLOBAL__N_125TwoAddressInstructionPass20sink3AddrInstructionEPN4llvm12MachineInstrEjNS1_26MachineInstrBundleIteratorIS2_Lb0EEE'/>
+<use f='llvm/llvm/lib/CodeGen/TwoAddressInstructionPass.cpp' l='901' u='c' c='_ZN12_GLOBAL__N_125TwoAddressInstructionPass21rescheduleMIBelowKillERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_j'/>
+<use f='llvm/llvm/lib/CodeGen/TwoAddressInstructionPass.cpp' l='1086' u='c' c='_ZN12_GLOBAL__N_125TwoAddressInstructionPass21rescheduleKillAboveMIERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_j'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ConditionalCompares.cpp' l='421' u='c' c='_ZN12_GLOBAL__N_111SSACCmpConv18canSpeculateInstrsEPN4llvm17MachineBasicBlockEPKNS1_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='2076' u='c' c='_ZL16canFoldIntoMOVCCjRKN4llvm19MachineRegisterInfoEPKNS_15TargetInstrInfoE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonBitSimplify.cpp' l='1013' u='c' c='_ZN12_GLOBAL__N_119DeadCodeElimination9runOnNodeEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonGenInsert.cpp' l='1472' u='c' c='_ZN12_GLOBAL__N_116HexagonGenInsert14removeDeadCodeEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEE'/>
+<use f='llvm/llvm/lib/Target/Lanai/LanaiInstrInfo.cpp' l='488' u='c' c='_ZL17canFoldIntoSelectjRKN4llvm19MachineRegisterInfoE'/>
+<use f='llvm/llvm/lib/Target/X86/X86InstrInfo.cpp' l='3652' u='c' c='_ZNK4llvm12X86InstrInfo17optimizeLoadInstrERNS_12MachineInstrEPKNS_19MachineRegisterInfoERjRPS1_'/>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Mutex.cpp source code [llvm/llvm/lib/Support/Mutex.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/Support/Mutex.cpp'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>llvm</a>/<a href='../..'>llvm</a>/<a href='..'>lib</a>/<a href='./'>Support</a>/<a href='Mutex.cpp.html'>Mutex.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- Mutex.cpp - Mutual Exclusion Lock ------------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file implements the llvm::sys::Mutex class.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../../include/llvm/Support/Mutex.h.html">"llvm/Support/Mutex.h"</a></u></td></tr>
+<tr><th id="14">14</th><td><u>#include "llvm/Config/config.h"</u></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="../../include/llvm/Support/ErrorHandling.h.html">"llvm/Support/ErrorHandling.h"</a></u></td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="18">18</th><td><i>//=== WARNING: Implementation here must contain only TRULY operating system</i></td></tr>
+<tr><th id="19">19</th><td><i>//===          independent code.</i></td></tr>
+<tr><th id="20">20</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#<span data-ppcond="22">if</span> !defined(<span class="macro" data-ref="_M/LLVM_ENABLE_THREADS">LLVM_ENABLE_THREADS</span>) || <span class="macro" title="1" data-ref="_M/LLVM_ENABLE_THREADS">LLVM_ENABLE_THREADS</span> == 0</u></td></tr>
+<tr><th id="23">23</th><td><i>// Define all methods as no-ops if threading is explicitly disabled</i></td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> llvm {</td></tr>
+<tr><th id="25">25</th><td><b>using</b> <b>namespace</b> sys;</td></tr>
+<tr><th id="26">26</th><td>MutexImpl::MutexImpl( <em>bool</em> recursive) { }</td></tr>
+<tr><th id="27">27</th><td>MutexImpl::~MutexImpl() { }</td></tr>
+<tr><th id="28">28</th><td><em>bool</em> MutexImpl::acquire() { <b>return</b> <b>true</b>; }</td></tr>
+<tr><th id="29">29</th><td><em>bool</em> MutexImpl::release() { <b>return</b> <b>true</b>; }</td></tr>
+<tr><th id="30">30</th><td><em>bool</em> MutexImpl::tryacquire() { <b>return</b> <b>true</b>; }</td></tr>
+<tr><th id="31">31</th><td>}</td></tr>
+<tr><th id="32">32</th><td><u>#<span data-ppcond="22">else</span></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><u>#<span data-ppcond="34">if</span> defined(<span class="macro" data-ref="_M/HAVE_PTHREAD_H">HAVE_PTHREAD_H</span>) &amp;&amp; defined(<span class="macro" data-ref="_M/HAVE_PTHREAD_MUTEX_LOCK">HAVE_PTHREAD_MUTEX_LOCK</span>)</u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><u>#include <a href="../../../../include/c++/7/cassert.html">&lt;cassert&gt;</a></u></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="../../../../include/pthread.h.html">&lt;pthread.h&gt;</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="../../../../include/c++/7/stdlib.h.html">&lt;stdlib.h&gt;</a></u></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="41">41</th><td><b>using</b> <b>namespace</b> <span class="namespace">sys</span>;</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><i>// Construct a Mutex using pthread calls</i></td></tr>
+<tr><th id="44">44</th><td><a class="type" href="../../include/llvm/Support/Mutex.h.html#llvm::sys::MutexImpl" title='llvm::sys::MutexImpl' data-ref="llvm::sys::MutexImpl">MutexImpl</a>::<dfn class="decl def" id="_ZN4llvm3sys9MutexImplC1Eb" title='llvm::sys::MutexImpl::MutexImpl' data-ref="_ZN4llvm3sys9MutexImplC1Eb">MutexImpl</dfn>( <em>bool</em> <dfn class="local col1 decl" id="1recursive" title='recursive' data-type='bool' data-ref="1recursive">recursive</dfn>)</td></tr>
+<tr><th id="45">45</th><td>  : <a class="member" href="../../include/llvm/Support/Mutex.h.html#llvm::sys::MutexImpl::data_" title='llvm::sys::MutexImpl::data_' data-ref="llvm::sys::MutexImpl::data_">data_</a>(<b>nullptr</b>)</td></tr>
+<tr><th id="46">46</th><td>{</td></tr>
+<tr><th id="47">47</th><td>  <i>// Declare the pthread_mutex data structures</i></td></tr>
+<tr><th id="48">48</th><td>  <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/pthreadtypes.h.html#pthread_mutex_t" title='pthread_mutex_t' data-type='union pthread_mutex_t' data-ref="pthread_mutex_t">pthread_mutex_t</a>* <dfn class="local col2 decl" id="2mutex" title='mutex' data-type='pthread_mutex_t *' data-ref="2mutex">mutex</dfn> =</td></tr>
+<tr><th id="49">49</th><td>    <b>static_cast</b>&lt;<a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/pthreadtypes.h.html#pthread_mutex_t" title='pthread_mutex_t' data-type='union pthread_mutex_t' data-ref="pthread_mutex_t">pthread_mutex_t</a>*&gt;(<a class="ref" href="../../include/llvm/Support/MemAlloc.h.html#_ZN4llvm11safe_mallocEm" title='llvm::safe_malloc' data-ref="_ZN4llvm11safe_mallocEm">safe_malloc</a>(<b>sizeof</b>(<a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/pthreadtypes.h.html#pthread_mutex_t" title='pthread_mutex_t' data-type='union pthread_mutex_t' data-ref="pthread_mutex_t">pthread_mutex_t</a>)));</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td>  <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/pthreadtypes.h.html#pthread_mutexattr_t" title='pthread_mutexattr_t' data-type='union pthread_mutexattr_t' data-ref="pthread_mutexattr_t">pthread_mutexattr_t</a> <a class="ref fake" href="../../../../include/x86_64-linux-gnu/bits/pthreadtypes.h.html#32" title='(anonymous union)::' data-ref="_ZN19pthread_mutexattr_tC1Ev"></a><dfn class="local col3 decl" id="3attr" title='attr' data-type='pthread_mutexattr_t' data-ref="3attr">attr</dfn>;</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>  <i>// Initialize the mutex attributes</i></td></tr>
+<tr><th id="54">54</th><td>  <em>int</em> <dfn class="local col4 decl" id="4errorcode" title='errorcode' data-type='int' data-ref="4errorcode">errorcode</dfn> = <a class="ref" href="../../../../include/pthread.h.html#pthread_mutexattr_init" title='pthread_mutexattr_init' data-ref="pthread_mutexattr_init">pthread_mutexattr_init</a>(&amp;<a class="local col3 ref" href="#3attr" title='attr' data-ref="3attr">attr</a>);</td></tr>
+<tr><th id="55">55</th><td>  <a class="macro" href="../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (errorcode == 0) ? void (0) : __assert_fail (&quot;errorcode == 0&quot;, &quot;/root/cheri/llvm-project/llvm/lib/Support/Mutex.cpp&quot;, 55, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="local col4 ref" href="#4errorcode" title='errorcode' data-ref="4errorcode">errorcode</a> == <var>0</var>); (<em>void</em>)<a class="local col4 ref" href="#4errorcode" title='errorcode' data-ref="4errorcode">errorcode</a>;</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>  <i>// Initialize the mutex as a recursive mutex, if requested, or normal</i></td></tr>
+<tr><th id="58">58</th><td><i>  // otherwise.</i></td></tr>
+<tr><th id="59">59</th><td>  <em>int</em> <dfn class="local col5 decl" id="5kind" title='kind' data-type='int' data-ref="5kind">kind</dfn> = ( <a class="local col1 ref" href="#1recursive" title='recursive' data-ref="1recursive">recursive</a>  ? <a class="enum" href="../../../../include/pthread.h.html#PTHREAD_MUTEX_RECURSIVE" title='PTHREAD_MUTEX_RECURSIVE' data-ref="PTHREAD_MUTEX_RECURSIVE">PTHREAD_MUTEX_RECURSIVE</a> : <a class="enum" href="../../../../include/pthread.h.html#PTHREAD_MUTEX_NORMAL" title='PTHREAD_MUTEX_NORMAL' data-ref="PTHREAD_MUTEX_NORMAL">PTHREAD_MUTEX_NORMAL</a> );</td></tr>
+<tr><th id="60">60</th><td>  <a class="local col4 ref" href="#4errorcode" title='errorcode' data-ref="4errorcode">errorcode</a> = <a class="ref" href="../../../../include/pthread.h.html#pthread_mutexattr_settype" title='pthread_mutexattr_settype' data-ref="pthread_mutexattr_settype">pthread_mutexattr_settype</a>(&amp;<a class="local col3 ref" href="#3attr" title='attr' data-ref="3attr">attr</a>, <a class="local col5 ref" href="#5kind" title='kind' data-ref="5kind">kind</a>);</td></tr>
+<tr><th id="61">61</th><td>  <a class="macro" href="../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (errorcode == 0) ? void (0) : __assert_fail (&quot;errorcode == 0&quot;, &quot;/root/cheri/llvm-project/llvm/lib/Support/Mutex.cpp&quot;, 61, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="local col4 ref" href="#4errorcode" title='errorcode' data-ref="4errorcode">errorcode</a> == <var>0</var>);</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>  <i>// Initialize the mutex</i></td></tr>
+<tr><th id="64">64</th><td>  <a class="local col4 ref" href="#4errorcode" title='errorcode' data-ref="4errorcode">errorcode</a> = <a class="ref" href="../../../../include/pthread.h.html#pthread_mutex_init" title='pthread_mutex_init' data-ref="pthread_mutex_init">pthread_mutex_init</a>(<a class="local col2 ref" href="#2mutex" title='mutex' data-ref="2mutex">mutex</a>, &amp;<a class="local col3 ref" href="#3attr" title='attr' data-ref="3attr">attr</a>);</td></tr>
+<tr><th id="65">65</th><td>  <a class="macro" href="../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (errorcode == 0) ? void (0) : __assert_fail (&quot;errorcode == 0&quot;, &quot;/root/cheri/llvm-project/llvm/lib/Support/Mutex.cpp&quot;, 65, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="local col4 ref" href="#4errorcode" title='errorcode' data-ref="4errorcode">errorcode</a> == <var>0</var>);</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>  <i>// Destroy the attributes</i></td></tr>
+<tr><th id="68">68</th><td>  <a class="local col4 ref" href="#4errorcode" title='errorcode' data-ref="4errorcode">errorcode</a> = <a class="ref" href="../../../../include/pthread.h.html#pthread_mutexattr_destroy" title='pthread_mutexattr_destroy' data-ref="pthread_mutexattr_destroy">pthread_mutexattr_destroy</a>(&amp;<a class="local col3 ref" href="#3attr" title='attr' data-ref="3attr">attr</a>);</td></tr>
+<tr><th id="69">69</th><td>  <a class="macro" href="../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (errorcode == 0) ? void (0) : __assert_fail (&quot;errorcode == 0&quot;, &quot;/root/cheri/llvm-project/llvm/lib/Support/Mutex.cpp&quot;, 69, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="local col4 ref" href="#4errorcode" title='errorcode' data-ref="4errorcode">errorcode</a> == <var>0</var>);</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>  <i>// Assign the data member</i></td></tr>
+<tr><th id="72">72</th><td>  <a class="member" href="../../include/llvm/Support/Mutex.h.html#llvm::sys::MutexImpl::data_" title='llvm::sys::MutexImpl::data_' data-ref="llvm::sys::MutexImpl::data_">data_</a> = <a class="local col2 ref" href="#2mutex" title='mutex' data-ref="2mutex">mutex</a>;</td></tr>
+<tr><th id="73">73</th><td>}</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><i>// Destruct a Mutex</i></td></tr>
+<tr><th id="76">76</th><td><a class="type" href="../../include/llvm/Support/Mutex.h.html#llvm::sys::MutexImpl" title='llvm::sys::MutexImpl' data-ref="llvm::sys::MutexImpl">MutexImpl</a>::<dfn class="decl def" id="_ZN4llvm3sys9MutexImplD1Ev" title='llvm::sys::MutexImpl::~MutexImpl' data-ref="_ZN4llvm3sys9MutexImplD1Ev">~MutexImpl</dfn>()</td></tr>
+<tr><th id="77">77</th><td>{</td></tr>
+<tr><th id="78">78</th><td>  <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/pthreadtypes.h.html#pthread_mutex_t" title='pthread_mutex_t' data-type='union pthread_mutex_t' data-ref="pthread_mutex_t">pthread_mutex_t</a>* <dfn class="local col6 decl" id="6mutex" title='mutex' data-type='pthread_mutex_t *' data-ref="6mutex">mutex</dfn> = <b>static_cast</b>&lt;<a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/pthreadtypes.h.html#pthread_mutex_t" title='pthread_mutex_t' data-type='union pthread_mutex_t' data-ref="pthread_mutex_t">pthread_mutex_t</a>*&gt;(<a class="member" href="../../include/llvm/Support/Mutex.h.html#llvm::sys::MutexImpl::data_" title='llvm::sys::MutexImpl::data_' data-ref="llvm::sys::MutexImpl::data_">data_</a>);</td></tr>
+<tr><th id="79">79</th><td>  <a class="macro" href="../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (mutex != nullptr) ? void (0) : __assert_fail (&quot;mutex != nullptr&quot;, &quot;/root/cheri/llvm-project/llvm/lib/Support/Mutex.cpp&quot;, 79, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="local col6 ref" href="#6mutex" title='mutex' data-ref="6mutex">mutex</a> != <b>nullptr</b>);</td></tr>
+<tr><th id="80">80</th><td>  <a class="ref" href="../../../../include/pthread.h.html#pthread_mutex_destroy" title='pthread_mutex_destroy' data-ref="pthread_mutex_destroy">pthread_mutex_destroy</a>(<a class="local col6 ref" href="#6mutex" title='mutex' data-ref="6mutex">mutex</a>);</td></tr>
+<tr><th id="81">81</th><td>  <a class="ref" href="../../../../include/stdlib.h.html#free" title='free' data-ref="free">free</a>(<a class="local col6 ref" href="#6mutex" title='mutex' data-ref="6mutex">mutex</a>);</td></tr>
+<tr><th id="82">82</th><td>}</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><em>bool</em></td></tr>
+<tr><th id="85">85</th><td><a class="type" href="../../include/llvm/Support/Mutex.h.html#llvm::sys::MutexImpl" title='llvm::sys::MutexImpl' data-ref="llvm::sys::MutexImpl">MutexImpl</a>::<dfn class="decl def" id="_ZN4llvm3sys9MutexImpl7acquireEv" title='llvm::sys::MutexImpl::acquire' data-ref="_ZN4llvm3sys9MutexImpl7acquireEv">acquire</dfn>()</td></tr>
+<tr><th id="86">86</th><td>{</td></tr>
+<tr><th id="87">87</th><td>  <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/pthreadtypes.h.html#pthread_mutex_t" title='pthread_mutex_t' data-type='union pthread_mutex_t' data-ref="pthread_mutex_t">pthread_mutex_t</a>* <dfn class="local col7 decl" id="7mutex" title='mutex' data-type='pthread_mutex_t *' data-ref="7mutex">mutex</dfn> = <b>static_cast</b>&lt;<a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/pthreadtypes.h.html#pthread_mutex_t" title='pthread_mutex_t' data-type='union pthread_mutex_t' data-ref="pthread_mutex_t">pthread_mutex_t</a>*&gt;(<a class="member" href="../../include/llvm/Support/Mutex.h.html#llvm::sys::MutexImpl::data_" title='llvm::sys::MutexImpl::data_' data-ref="llvm::sys::MutexImpl::data_">data_</a>);</td></tr>
+<tr><th id="88">88</th><td>  <a class="macro" href="../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (mutex != nullptr) ? void (0) : __assert_fail (&quot;mutex != nullptr&quot;, &quot;/root/cheri/llvm-project/llvm/lib/Support/Mutex.cpp&quot;, 88, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="local col7 ref" href="#7mutex" title='mutex' data-ref="7mutex">mutex</a> != <b>nullptr</b>);</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>  <em>int</em> <dfn class="local col8 decl" id="8errorcode" title='errorcode' data-type='int' data-ref="8errorcode">errorcode</dfn> = <a class="ref" href="../../../../include/pthread.h.html#pthread_mutex_lock" title='pthread_mutex_lock' data-ref="pthread_mutex_lock">pthread_mutex_lock</a>(<a class="local col7 ref" href="#7mutex" title='mutex' data-ref="7mutex">mutex</a>);</td></tr>
+<tr><th id="91">91</th><td>  <b>return</b> <a class="local col8 ref" href="#8errorcode" title='errorcode' data-ref="8errorcode">errorcode</a> == <var>0</var>;</td></tr>
+<tr><th id="92">92</th><td>}</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td><em>bool</em></td></tr>
+<tr><th id="95">95</th><td><a class="type" href="../../include/llvm/Support/Mutex.h.html#llvm::sys::MutexImpl" title='llvm::sys::MutexImpl' data-ref="llvm::sys::MutexImpl">MutexImpl</a>::<dfn class="decl def" id="_ZN4llvm3sys9MutexImpl7releaseEv" title='llvm::sys::MutexImpl::release' data-ref="_ZN4llvm3sys9MutexImpl7releaseEv">release</dfn>()</td></tr>
+<tr><th id="96">96</th><td>{</td></tr>
+<tr><th id="97">97</th><td>  <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/pthreadtypes.h.html#pthread_mutex_t" title='pthread_mutex_t' data-type='union pthread_mutex_t' data-ref="pthread_mutex_t">pthread_mutex_t</a>* <dfn class="local col9 decl" id="9mutex" title='mutex' data-type='pthread_mutex_t *' data-ref="9mutex">mutex</dfn> = <b>static_cast</b>&lt;<a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/pthreadtypes.h.html#pthread_mutex_t" title='pthread_mutex_t' data-type='union pthread_mutex_t' data-ref="pthread_mutex_t">pthread_mutex_t</a>*&gt;(<a class="member" href="../../include/llvm/Support/Mutex.h.html#llvm::sys::MutexImpl::data_" title='llvm::sys::MutexImpl::data_' data-ref="llvm::sys::MutexImpl::data_">data_</a>);</td></tr>
+<tr><th id="98">98</th><td>  <a class="macro" href="../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (mutex != nullptr) ? void (0) : __assert_fail (&quot;mutex != nullptr&quot;, &quot;/root/cheri/llvm-project/llvm/lib/Support/Mutex.cpp&quot;, 98, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="local col9 ref" href="#9mutex" title='mutex' data-ref="9mutex">mutex</a> != <b>nullptr</b>);</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td>  <em>int</em> <dfn class="local col0 decl" id="10errorcode" title='errorcode' data-type='int' data-ref="10errorcode">errorcode</dfn> = <a class="ref" href="../../../../include/pthread.h.html#pthread_mutex_unlock" title='pthread_mutex_unlock' data-ref="pthread_mutex_unlock">pthread_mutex_unlock</a>(<a class="local col9 ref" href="#9mutex" title='mutex' data-ref="9mutex">mutex</a>);</td></tr>
+<tr><th id="101">101</th><td>  <b>return</b> <a class="local col0 ref" href="#10errorcode" title='errorcode' data-ref="10errorcode">errorcode</a> == <var>0</var>;</td></tr>
+<tr><th id="102">102</th><td>}</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td><em>bool</em></td></tr>
+<tr><th id="105">105</th><td><a class="type" href="../../include/llvm/Support/Mutex.h.html#llvm::sys::MutexImpl" title='llvm::sys::MutexImpl' data-ref="llvm::sys::MutexImpl">MutexImpl</a>::<dfn class="decl def" id="_ZN4llvm3sys9MutexImpl10tryacquireEv" title='llvm::sys::MutexImpl::tryacquire' data-ref="_ZN4llvm3sys9MutexImpl10tryacquireEv">tryacquire</dfn>()</td></tr>
+<tr><th id="106">106</th><td>{</td></tr>
+<tr><th id="107">107</th><td>  <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/pthreadtypes.h.html#pthread_mutex_t" title='pthread_mutex_t' data-type='union pthread_mutex_t' data-ref="pthread_mutex_t">pthread_mutex_t</a>* <dfn class="local col1 decl" id="11mutex" title='mutex' data-type='pthread_mutex_t *' data-ref="11mutex">mutex</dfn> = <b>static_cast</b>&lt;<a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/pthreadtypes.h.html#pthread_mutex_t" title='pthread_mutex_t' data-type='union pthread_mutex_t' data-ref="pthread_mutex_t">pthread_mutex_t</a>*&gt;(<a class="member" href="../../include/llvm/Support/Mutex.h.html#llvm::sys::MutexImpl::data_" title='llvm::sys::MutexImpl::data_' data-ref="llvm::sys::MutexImpl::data_">data_</a>);</td></tr>
+<tr><th id="108">108</th><td>  <a class="macro" href="../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (mutex != nullptr) ? void (0) : __assert_fail (&quot;mutex != nullptr&quot;, &quot;/root/cheri/llvm-project/llvm/lib/Support/Mutex.cpp&quot;, 108, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="local col1 ref" href="#11mutex" title='mutex' data-ref="11mutex">mutex</a> != <b>nullptr</b>);</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td>  <em>int</em> <dfn class="local col2 decl" id="12errorcode" title='errorcode' data-type='int' data-ref="12errorcode">errorcode</dfn> = <a class="ref" href="../../../../include/pthread.h.html#pthread_mutex_trylock" title='pthread_mutex_trylock' data-ref="pthread_mutex_trylock">pthread_mutex_trylock</a>(<a class="local col1 ref" href="#11mutex" title='mutex' data-ref="11mutex">mutex</a>);</td></tr>
+<tr><th id="111">111</th><td>  <b>return</b> <a class="local col2 ref" href="#12errorcode" title='errorcode' data-ref="12errorcode">errorcode</a> == <var>0</var>;</td></tr>
+<tr><th id="112">112</th><td>}</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>}</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td><u>#<span data-ppcond="34">elif</span> defined(LLVM_ON_UNIX)</u></td></tr>
+<tr><th id="117">117</th><td><u>#include "Unix/Mutex.inc"</u></td></tr>
+<tr><th id="118">118</th><td><u>#elif defined( _WIN32)</u></td></tr>
+<tr><th id="119">119</th><td><u>#include "Windows/Mutex.inc"</u></td></tr>
+<tr><th id="120">120</th><td><u>#else</u></td></tr>
+<tr><th id="121">121</th><td><u>#warning Neither LLVM_ON_UNIX nor _WIN32 was set in Support/Mutex.cpp</u></td></tr>
+<tr><th id="122">122</th><td><u>#<span data-ppcond="34">endif</span></u></td></tr>
+<tr><th id="123">123</th><td><u>#<span data-ppcond="22">endif</span></u></td></tr>
+<tr><th id="124">124</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

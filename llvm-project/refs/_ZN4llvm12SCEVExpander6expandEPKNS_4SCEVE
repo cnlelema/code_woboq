@@ -1,0 +1,23 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ScalarEvolutionExpander.h' l='345' type='llvm::Value * llvm::SCEVExpander::expand(const llvm::SCEV * S)'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='598' u='c' c='_ZN4llvm12SCEVExpander14expandAddToGEPEPKPKNS_4SCEVES5_PNS_11PointerTypeEPNS_4TypeEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='717' u='c' c='_ZN4llvm12SCEVExpander12visitAddExprEPKNS_11SCEVAddExprE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='742' u='c' c='_ZN4llvm12SCEVExpander12visitAddExprEPKNS_11SCEVAddExprE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1506' u='c' c='_ZN4llvm12SCEVExpander15visitAddRecExprEPKNS_14SCEVAddRecExprE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1534' u='c' c='_ZN4llvm12SCEVExpander15visitAddRecExprEPKNS_14SCEVAddRecExprE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1544' u='c' c='_ZN4llvm12SCEVExpander15visitAddRecExprEPKNS_14SCEVAddRecExprE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1545' u='c' c='_ZN4llvm12SCEVExpander15visitAddRecExprEPKNS_14SCEVAddRecExprE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1546' u='c' c='_ZN4llvm12SCEVExpander15visitAddRecExprEPKNS_14SCEVAddRecExprE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1598' u='c' c='_ZN4llvm12SCEVExpander15visitAddRecExprEPKNS_14SCEVAddRecExprE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1621' u='c' c='_ZN4llvm12SCEVExpander15visitAddRecExprEPKNS_14SCEVAddRecExprE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1652' u='c' c='_ZN4llvm12SCEVExpander13visitSMaxExprEPKNS_12SCEVSMaxExprE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1677' u='c' c='_ZN4llvm12SCEVExpander13visitUMaxExprEPKNS_12SCEVUMaxExprE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1702' u='c' c='_ZN4llvm12SCEVExpander13visitSMinExprEPKNS_12SCEVSMinExprE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1727' u='c' c='_ZN4llvm12SCEVExpander13visitUMinExprEPKNS_12SCEVUMinExprE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1759' u='c' c='_ZN4llvm12SCEVExpander13expandCodeForEPKNS_4SCEVEPNS_4TypeE'/>
+<def f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1803' ll='1901' type='llvm::Value * llvm::SCEVExpander::expand(const llvm::SCEV * S)'/>
+<doc f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1797'>// The expansion of SCEV will either reuse a previous Value in ExprValueMap,
+// or expand the SCEV literally. Specifically, if the expansion is in LSRMode,
+// and the SCEV contains any sub scAddRecExpr type SCEV, it will be expanded
+// literally, to prevent LSR&apos;s transformed SCEV from being reverted. Otherwise,
+// the expansion will try to reuse Value from ExprValueMap, and only when it
+// fails, expand the SCEV literally.</doc>

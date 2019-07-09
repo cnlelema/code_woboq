@@ -1,0 +1,18 @@
+<use f='llvm/clang/include/clang/Parse/Parser.h' l='1093' u='c' c='_ZN5clang6Parser9SkipUntilENS_3tok9TokenKindENS0_14SkipUntilFlagsE'/>
+<use f='llvm/clang/include/clang/Parse/Parser.h' l='1098' u='c' c='_ZN5clang6Parser9SkipUntilENS_3tok9TokenKindES2_NS0_14SkipUntilFlagsE'/>
+<use f='llvm/clang/include/clang/Parse/Parser.h' l='1103' u='c' c='_ZN5clang6Parser9SkipUntilENS_3tok9TokenKindES2_S2_NS0_14SkipUntilFlagsE'/>
+<dec f='llvm/clang/include/clang/Parse/Parser.h' l='1105' type='bool clang::Parser::SkipUntil(ArrayRef&lt;tok::TokenKind&gt; Toks, clang::Parser::SkipUntilFlags Flags = static_cast&lt;clang::Parser::SkipUntilFlags&gt;(0))'/>
+<use f='llvm/clang/lib/Parse/ParseDecl.cpp' l='2359' u='c' c='_ZN5clang6Parser44ParseDeclarationAfterDeclaratorAndAttributesERNS_10DeclaratorERKNS0_18ParsedTemplateInfoEPNS0_12ForRangeInitE'/>
+<use f='llvm/clang/lib/Parse/ParseExprCXX.cpp' l='3115' u='c' c='_ZN5clang6Parser24ParseCXXDeleteExpressionEbNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseObjc.cpp' l='529' u='c' c='_ZN5clang6Parser36parseObjCTypeParamListOrProtocolRefsERNS0_22ObjCTypeParamListScopeERNS_14SourceLocationERN4llvm15SmallVectorImplISt4pairIPNS_14IdentifierInfoES3_EEES4_b'/>
+<use f='llvm/clang/lib/Parse/ParseTentative.cpp' l='373' u='c' c='_ZN5clang6Parser40ConditionDeclarationOrInitStatementState17markNotExpressionEv'/>
+<use f='llvm/clang/lib/Parse/ParseTentative.cpp' l='2117' u='c' c='_ZN5clang6Parser22isTemplateArgumentListEj'/>
+<def f='llvm/clang/lib/Parse/Parser.cpp' l='245' ll='359' type='bool clang::Parser::SkipUntil(ArrayRef&lt;tok::TokenKind&gt; Toks, clang::Parser::SkipUntilFlags Flags = static_cast&lt;clang::Parser::SkipUntilFlags&gt;(0))'/>
+<doc f='llvm/clang/lib/Parse/Parser.cpp' l='237'>/// SkipUntil - Read tokens until we get to the specified token, then consume
+/// it (unless no flag StopBeforeMatch).  Because we cannot guarantee that the
+/// token will ever occur, this skips to the next token, or to some likely
+/// good stopping point.  If StopAtSemi is true, skipping will stop at a &apos;;&apos;
+/// character.
+///
+/// If SkipUntil finds the specified token, it returns true, otherwise it
+/// returns false.</doc>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Wasm.cpp source code [llvm/llvm/lib/BinaryFormat/Wasm.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/BinaryFormat/Wasm.cpp'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>llvm</a>/<a href='../..'>llvm</a>/<a href='..'>lib</a>/<a href='./'>BinaryFormat</a>/<a href='Wasm.cpp.html'>Wasm.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- llvm/BinaryFormat/Wasm.cpp -------------------------------*- C++-*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#include <a href="../../include/llvm/BinaryFormat/Wasm.h.html">"llvm/BinaryFormat/Wasm.h"</a></u></td></tr>
+<tr><th id="10">10</th><td></td></tr>
+<tr><th id="11">11</th><td><span class="namespace">std::</span><a class="typedef" href="../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <span class="namespace">llvm::wasm::</span><dfn class="decl def" id="_ZN4llvm4wasm8toStringENS0_14WasmSymbolTypeE" title='llvm::wasm::toString' data-ref="_ZN4llvm4wasm8toStringENS0_14WasmSymbolTypeE">toString</dfn>(<span class="namespace">wasm::</span><a class="type" href="../../include/llvm/BinaryFormat/Wasm.h.html#llvm::wasm::WasmSymbolType" title='llvm::wasm::WasmSymbolType' data-ref="llvm::wasm::WasmSymbolType">WasmSymbolType</a> <dfn class="local col1 decl" id="1Type" title='Type' data-type='wasm::WasmSymbolType' data-ref="1Type">Type</dfn>) {</td></tr>
+<tr><th id="12">12</th><td>  <b>switch</b> (<a class="local col1 ref" href="#1Type" title='Type' data-ref="1Type">Type</a>) {</td></tr>
+<tr><th id="13">13</th><td>  <b>case</b> <span class="namespace">wasm::</span><a class="enum" href="../../include/llvm/BinaryFormat/Wasm.h.html#llvm::wasm::WasmSymbolType::WASM_SYMBOL_TYPE_FUNCTION" title='llvm::wasm::WasmSymbolType::WASM_SYMBOL_TYPE_FUNCTION' data-ref="llvm::wasm::WasmSymbolType::WASM_SYMBOL_TYPE_FUNCTION">WASM_SYMBOL_TYPE_FUNCTION</a>:</td></tr>
+<tr><th id="14">14</th><td>    <b>return</b> <a class="ref fake" href="../../../../include/c++/7/bits/basic_string.h.html#_ZNSt7__cxx1112basic_stringC1EPKT_RKT1_" title='std::__cxx11::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt7__cxx1112basic_stringC1EPKT_RKT1_"></a><q>"WASM_SYMBOL_TYPE_FUNCTION"</q>;</td></tr>
+<tr><th id="15">15</th><td>  <b>case</b> <span class="namespace">wasm::</span><a class="enum" href="../../include/llvm/BinaryFormat/Wasm.h.html#llvm::wasm::WasmSymbolType::WASM_SYMBOL_TYPE_GLOBAL" title='llvm::wasm::WasmSymbolType::WASM_SYMBOL_TYPE_GLOBAL' data-ref="llvm::wasm::WasmSymbolType::WASM_SYMBOL_TYPE_GLOBAL">WASM_SYMBOL_TYPE_GLOBAL</a>:</td></tr>
+<tr><th id="16">16</th><td>    <b>return</b> <a class="ref fake" href="../../../../include/c++/7/bits/basic_string.h.html#_ZNSt7__cxx1112basic_stringC1EPKT_RKT1_" title='std::__cxx11::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt7__cxx1112basic_stringC1EPKT_RKT1_"></a><q>"WASM_SYMBOL_TYPE_GLOBAL"</q>;</td></tr>
+<tr><th id="17">17</th><td>  <b>case</b> <span class="namespace">wasm::</span><a class="enum" href="../../include/llvm/BinaryFormat/Wasm.h.html#llvm::wasm::WasmSymbolType::WASM_SYMBOL_TYPE_DATA" title='llvm::wasm::WasmSymbolType::WASM_SYMBOL_TYPE_DATA' data-ref="llvm::wasm::WasmSymbolType::WASM_SYMBOL_TYPE_DATA">WASM_SYMBOL_TYPE_DATA</a>:</td></tr>
+<tr><th id="18">18</th><td>    <b>return</b> <a class="ref fake" href="../../../../include/c++/7/bits/basic_string.h.html#_ZNSt7__cxx1112basic_stringC1EPKT_RKT1_" title='std::__cxx11::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt7__cxx1112basic_stringC1EPKT_RKT1_"></a><q>"WASM_SYMBOL_TYPE_DATA"</q>;</td></tr>
+<tr><th id="19">19</th><td>  <b>case</b> <span class="namespace">wasm::</span><a class="enum" href="../../include/llvm/BinaryFormat/Wasm.h.html#llvm::wasm::WasmSymbolType::WASM_SYMBOL_TYPE_SECTION" title='llvm::wasm::WasmSymbolType::WASM_SYMBOL_TYPE_SECTION' data-ref="llvm::wasm::WasmSymbolType::WASM_SYMBOL_TYPE_SECTION">WASM_SYMBOL_TYPE_SECTION</a>:</td></tr>
+<tr><th id="20">20</th><td>    <b>return</b> <a class="ref fake" href="../../../../include/c++/7/bits/basic_string.h.html#_ZNSt7__cxx1112basic_stringC1EPKT_RKT1_" title='std::__cxx11::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt7__cxx1112basic_stringC1EPKT_RKT1_"></a><q>"WASM_SYMBOL_TYPE_SECTION"</q>;</td></tr>
+<tr><th id="21">21</th><td>  <b>case</b> <span class="namespace">wasm::</span><a class="enum" href="../../include/llvm/BinaryFormat/Wasm.h.html#llvm::wasm::WasmSymbolType::WASM_SYMBOL_TYPE_EVENT" title='llvm::wasm::WasmSymbolType::WASM_SYMBOL_TYPE_EVENT' data-ref="llvm::wasm::WasmSymbolType::WASM_SYMBOL_TYPE_EVENT">WASM_SYMBOL_TYPE_EVENT</a>:</td></tr>
+<tr><th id="22">22</th><td>    <b>return</b> <a class="ref fake" href="../../../../include/c++/7/bits/basic_string.h.html#_ZNSt7__cxx1112basic_stringC1EPKT_RKT1_" title='std::__cxx11::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt7__cxx1112basic_stringC1EPKT_RKT1_"></a><q>"WASM_SYMBOL_TYPE_EVENT"</q>;</td></tr>
+<tr><th id="23">23</th><td>  }</td></tr>
+<tr><th id="24">24</th><td>  <a class="macro" href="../../include/llvm/Support/ErrorHandling.h.html#135" title="::llvm::llvm_unreachable_internal(&quot;unknown symbol type&quot;, &quot;/root/cheri/llvm-project/llvm/lib/BinaryFormat/Wasm.cpp&quot;, 24)" data-ref="_M/llvm_unreachable">llvm_unreachable</a>(<q>"unknown symbol type"</q>);</td></tr>
+<tr><th id="25">25</th><td>}</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><span class="namespace">std::</span><a class="typedef" href="../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <span class="namespace">llvm::wasm::</span><dfn class="decl def" id="_ZN4llvm4wasm17relocTypetoStringEj" title='llvm::wasm::relocTypetoString' data-ref="_ZN4llvm4wasm17relocTypetoStringEj">relocTypetoString</dfn>(<a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col2 decl" id="2Type" title='Type' data-type='uint32_t' data-ref="2Type">Type</dfn>) {</td></tr>
+<tr><th id="28">28</th><td>  <b>switch</b> (<a class="local col2 ref" href="#2Type" title='Type' data-ref="2Type">Type</a>) {</td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/WASM_RELOC" data-ref="_M/WASM_RELOC">WASM_RELOC</dfn>(NAME, VALUE)                                                \</u></td></tr>
+<tr><th id="30">30</th><td><u>  case VALUE:                                                                  \</u></td></tr>
+<tr><th id="31">31</th><td><u>    return #NAME;</u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../../include/llvm/BinaryFormat/WasmRelocs.def.html">"llvm/BinaryFormat/WasmRelocs.def"</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#undef <a class="macro" href="#29" data-ref="_M/WASM_RELOC">WASM_RELOC</a></u></td></tr>
+<tr><th id="34">34</th><td>  <b>default</b>:</td></tr>
+<tr><th id="35">35</th><td>    <a class="macro" href="../../include/llvm/Support/ErrorHandling.h.html#135" title="::llvm::llvm_unreachable_internal(&quot;unknown reloc type&quot;, &quot;/root/cheri/llvm-project/llvm/lib/BinaryFormat/Wasm.cpp&quot;, 35)" data-ref="_M/llvm_unreachable">llvm_unreachable</a>(<q>"unknown reloc type"</q>);</td></tr>
+<tr><th id="36">36</th><td>  }</td></tr>
+<tr><th id="37">37</th><td>}</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

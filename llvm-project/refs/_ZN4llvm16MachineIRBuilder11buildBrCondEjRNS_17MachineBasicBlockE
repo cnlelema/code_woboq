@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='586' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildBrCond(unsigned int Tst, llvm::MachineBasicBlock &amp; Dest)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='574'>/// Build and insert G_BRCOND \p Tst, \p Dest
+  ///
+  /// G_BRCOND is a conditional branch to \p Dest.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Tst must be a generic virtual register with scalar
+  ///      type. At the beginning of legalization, this will be a single
+  ///      bit (s1). Targets with interesting flags registers may change
+  ///      this. For a wider type, whether the branch is taken must only
+  ///      depend on bit 0 (for now).
+  ///
+  /// \return The newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='377' u='c' c='_ZN4llvm12IRTranslator11translateBrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='416' u='c' c='_ZN4llvm12IRTranslator15translateSwitchERKNS_4UserERNS_16MachineIRBuilderE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='328' ll='333' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildBrCond(unsigned int Tst, llvm::MachineBasicBlock &amp; Dest)'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/LegalizerHelperTest.cpp' l='673' u='c' c='_ZN12_GLOBAL__N_133GISelMITest_FewerElementsPhi_Test8TestBodyEv'/>

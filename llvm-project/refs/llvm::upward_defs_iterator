@@ -1,0 +1,23 @@
+<inh f='llvm/llvm/include/llvm/ADT/iterator.h' l='67' c='llvm::iterator_facade_base'/>
+<def f='llvm/llvm/include/llvm/Analysis/MemorySSA.h' l='1177' ll='1240'/>
+<size>120</size>
+<doc f='llvm/llvm/include/llvm/Analysis/MemorySSA.h' l='1169'>/// Provide an iterator that walks defs, giving both the memory access,
+/// and the current pointer location, updating the pointer location as it
+/// changes due to phi node translation.
+///
+/// This iterator, while somewhat specialized, is what most clients actually
+/// want when walking upwards through MemorySSA def chains. It takes a pair of
+/// &lt;MemoryAccess,MemoryLocation&gt;, and walks defs, properly translating the
+/// memory location through phi nodes for the user.</doc>
+<fun r='_ZN4llvm20upward_defs_iteratorC1ERKSt4pairIPNS_12MemoryAccessENS_14MemoryLocationEE'/>
+<fun r='_ZN4llvm20upward_defs_iteratorC1Ev'/>
+<fun r='_ZNK4llvm20upward_defs_iteratoreqERKS0_'/>
+<fun r='_ZNK4llvm20upward_defs_iteratordeEv'/>
+<fun r='_ZN4llvm20upward_defs_iteratorppEv'/>
+<fun r='_ZNK4llvm20upward_defs_iterator14getPhiArgBlockEv'/>
+<fun r='_ZN4llvm20upward_defs_iterator17fillInCurrentPairEv'/>
+<mbr r='llvm::upward_defs_iterator::CurrentPair' o='0' t='MemoryAccessPair'/>
+<mbr r='llvm::upward_defs_iterator::DefIterator' o='384' t='memoryaccess_def_iterator'/>
+<mbr r='llvm::upward_defs_iterator::Location' o='512' t='llvm::MemoryLocation'/>
+<mbr r='llvm::upward_defs_iterator::OriginalAccess' o='832' t='llvm::MemoryAccess *'/>
+<mbr r='llvm::upward_defs_iterator::WalkingPhi' o='896' t='bool'/>

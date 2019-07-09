@@ -1,0 +1,19 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='3568' type='unsigned long long clang_Cursor_getTemplateArgumentUnsignedValue(CXCursor C, unsigned int I)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='3551'>/**
+ * Retrieve the value of an Integral TemplateArgument (of a function
+ *  decl representing a template specialization) as an unsigned long long.
+ *
+ * It is undefined to call this function on a CXCursor that does not represent a
+ * FunctionDecl or whose I&apos;th template argument is not an integral value.
+ *
+ * For example, for the following declaration and specialization:
+ *   template &lt;typename T, int kInt, bool kBool&gt;
+ *   void foo() { ... }
+ *
+ *   template &lt;&gt;
+ *   void foo&lt;float, 2147483649, true&gt;();
+ *
+ * If called with I = 1 or 2, 2147483649 or true will be returned, respectively.
+ * For I == 0, this function&apos;s behavior is undefined.
+ */</doc>
+<def f='llvm/clang/tools/libclang/CXCursor.cpp' l='1334' ll='1349' type='unsigned long long clang_Cursor_getTemplateArgumentUnsignedValue(CXCursor C, unsigned int I)'/>

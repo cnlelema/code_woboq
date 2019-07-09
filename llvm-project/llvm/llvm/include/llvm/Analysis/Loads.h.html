@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Loads.h source code [llvm/llvm/include/llvm/Analysis/Loads.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/Analysis/Loads.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>Analysis</a>/<a href='Loads.h.html'>Loads.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- Loads.h - Local load analysis --------------------------------------===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file declares simple local analyses for load instructions.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#<span data-ppcond="13">ifndef</span> <span class="macro" data-ref="_M/LLVM_ANALYSIS_LOADS_H">LLVM_ANALYSIS_LOADS_H</span></u></td></tr>
+<tr><th id="14">14</th><td><u>#define <dfn class="macro" id="_M/LLVM_ANALYSIS_LOADS_H" data-ref="_M/LLVM_ANALYSIS_LOADS_H">LLVM_ANALYSIS_LOADS_H</dfn></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="AliasAnalysis.h.html">"llvm/Analysis/AliasAnalysis.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../IR/BasicBlock.h.html">"llvm/IR/BasicBlock.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../Support/CommandLine.h.html">"llvm/Support/CommandLine.h"</a></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><b>class</b> <a class="type" href="../IR/DataLayout.h.html#llvm::DataLayout" title='llvm::DataLayout' data-ref="llvm::DataLayout" id="llvm::DataLayout">DataLayout</a>;</td></tr>
+<tr><th id="23">23</th><td><b>class</b> <a class="type" href="../IR/Metadata.h.html#llvm::MDNode" title='llvm::MDNode' data-ref="llvm::MDNode" id="llvm::MDNode">MDNode</a>;</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><i class="doc">/// Return true if this is always a dereferenceable pointer. If the context</i></td></tr>
+<tr><th id="26">26</th><td><i class="doc">/// instruction is specified perform context-sensitive analysis and return true</i></td></tr>
+<tr><th id="27">27</th><td><i class="doc">/// if the pointer is dereferenceable at the specified instruction.</i></td></tr>
+<tr><th id="28">28</th><td><em>bool</em> <dfn class="decl" id="_ZN4llvm24isDereferenceablePointerEPKNS_5ValueERKNS_10DataLayoutEPKNS_11InstructionEPKNS_13DominatorTreeE" title='llvm::isDereferenceablePointer' data-ref="_ZN4llvm24isDereferenceablePointerEPKNS_5ValueERKNS_10DataLayoutEPKNS_11InstructionEPKNS_13DominatorTreeE">isDereferenceablePointer</dfn>(<em>const</em> <a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value">Value</a> *<dfn class="local col1 decl" id="1V" title='V' data-type='const llvm::Value *' data-ref="1V">V</dfn>, <em>const</em> <a class="type" href="../IR/DataLayout.h.html#llvm::DataLayout" title='llvm::DataLayout' data-ref="llvm::DataLayout">DataLayout</a> &amp;<dfn class="local col2 decl" id="2DL" title='DL' data-type='const llvm::DataLayout &amp;' data-ref="2DL">DL</dfn>,</td></tr>
+<tr><th id="29">29</th><td>                              <em>const</em> <a class="type" href="../IR/Instruction.h.html#llvm::Instruction" title='llvm::Instruction' data-ref="llvm::Instruction">Instruction</a> *<dfn class="local col3 decl" id="3CtxI" title='CtxI' data-type='const llvm::Instruction *' data-ref="3CtxI">CtxI</dfn> = <b>nullptr</b>,</td></tr>
+<tr><th id="30">30</th><td>                              <em>const</em> <a class="type" href="../IR/Dominators.h.html#llvm::DominatorTree" title='llvm::DominatorTree' data-ref="llvm::DominatorTree">DominatorTree</a> *<dfn class="local col4 decl" id="4DT" title='DT' data-type='const llvm::DominatorTree *' data-ref="4DT">DT</dfn> = <b>nullptr</b>);</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i class="doc">/// Returns true if V is always a dereferenceable pointer with alignment</i></td></tr>
+<tr><th id="33">33</th><td><i class="doc">/// greater or equal than requested. If the context instruction is specified</i></td></tr>
+<tr><th id="34">34</th><td><i class="doc">/// performs context-sensitive analysis and returns true if the pointer is</i></td></tr>
+<tr><th id="35">35</th><td><i class="doc">/// dereferenceable at the specified instruction.</i></td></tr>
+<tr><th id="36">36</th><td><em>bool</em> <dfn class="decl" id="_ZN4llvm34isDereferenceableAndAlignedPointerEPKNS_5ValueEjRKNS_10DataLayoutEPKNS_11InstructionEPKNS_13DominatorTreeE" title='llvm::isDereferenceableAndAlignedPointer' data-ref="_ZN4llvm34isDereferenceableAndAlignedPointerEPKNS_5ValueEjRKNS_10DataLayoutEPKNS_11InstructionEPKNS_13DominatorTreeE">isDereferenceableAndAlignedPointer</dfn>(<em>const</em> <a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value">Value</a> *<dfn class="local col5 decl" id="5V" title='V' data-type='const llvm::Value *' data-ref="5V">V</dfn>, <em>unsigned</em> <dfn class="local col6 decl" id="6Align" title='Align' data-type='unsigned int' data-ref="6Align">Align</dfn>,</td></tr>
+<tr><th id="37">37</th><td>                                        <em>const</em> <a class="type" href="../IR/DataLayout.h.html#llvm::DataLayout" title='llvm::DataLayout' data-ref="llvm::DataLayout">DataLayout</a> &amp;<dfn class="local col7 decl" id="7DL" title='DL' data-type='const llvm::DataLayout &amp;' data-ref="7DL">DL</dfn>,</td></tr>
+<tr><th id="38">38</th><td>                                        <em>const</em> <a class="type" href="../IR/Instruction.h.html#llvm::Instruction" title='llvm::Instruction' data-ref="llvm::Instruction">Instruction</a> *<dfn class="local col8 decl" id="8CtxI" title='CtxI' data-type='const llvm::Instruction *' data-ref="8CtxI">CtxI</dfn> = <b>nullptr</b>,</td></tr>
+<tr><th id="39">39</th><td>                                        <em>const</em> <a class="type" href="../IR/Dominators.h.html#llvm::DominatorTree" title='llvm::DominatorTree' data-ref="llvm::DominatorTree">DominatorTree</a> *<dfn class="local col9 decl" id="9DT" title='DT' data-type='const llvm::DominatorTree *' data-ref="9DT">DT</dfn> = <b>nullptr</b>);</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><i class="doc">/// Returns true if V is always dereferenceable for Size byte with alignment</i></td></tr>
+<tr><th id="42">42</th><td><i class="doc">/// greater or equal than requested. If the context instruction is specified</i></td></tr>
+<tr><th id="43">43</th><td><i class="doc">/// performs context-sensitive analysis and returns true if the pointer is</i></td></tr>
+<tr><th id="44">44</th><td><i class="doc">/// dereferenceable at the specified instruction.</i></td></tr>
+<tr><th id="45">45</th><td><em>bool</em> <dfn class="decl" id="_ZN4llvm34isDereferenceableAndAlignedPointerEPKNS_5ValueEjRKNS_5APIntERKNS_10DataLayoutEPKNS_11InstructionEPKNS_13DominatorTreeE" title='llvm::isDereferenceableAndAlignedPointer' data-ref="_ZN4llvm34isDereferenceableAndAlignedPointerEPKNS_5ValueEjRKNS_5APIntERKNS_10DataLayoutEPKNS_11InstructionEPKNS_13DominatorTreeE">isDereferenceableAndAlignedPointer</dfn>(<em>const</em> <a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value">Value</a> *<dfn class="local col0 decl" id="10V" title='V' data-type='const llvm::Value *' data-ref="10V">V</dfn>, <em>unsigned</em> <dfn class="local col1 decl" id="11Align" title='Align' data-type='unsigned int' data-ref="11Align">Align</dfn>,</td></tr>
+<tr><th id="46">46</th><td>                                        <em>const</em> <a class="type" href="../ADT/APInt.h.html#llvm::APInt" title='llvm::APInt' data-ref="llvm::APInt">APInt</a> &amp;<dfn class="local col2 decl" id="12Size" title='Size' data-type='const llvm::APInt &amp;' data-ref="12Size">Size</dfn>, <em>const</em> <a class="type" href="../IR/DataLayout.h.html#llvm::DataLayout" title='llvm::DataLayout' data-ref="llvm::DataLayout">DataLayout</a> &amp;<dfn class="local col3 decl" id="13DL" title='DL' data-type='const llvm::DataLayout &amp;' data-ref="13DL">DL</dfn>,</td></tr>
+<tr><th id="47">47</th><td>                                        <em>const</em> <a class="type" href="../IR/Instruction.h.html#llvm::Instruction" title='llvm::Instruction' data-ref="llvm::Instruction">Instruction</a> *<dfn class="local col4 decl" id="14CtxI" title='CtxI' data-type='const llvm::Instruction *' data-ref="14CtxI">CtxI</dfn> = <b>nullptr</b>,</td></tr>
+<tr><th id="48">48</th><td>                                        <em>const</em> <a class="type" href="../IR/Dominators.h.html#llvm::DominatorTree" title='llvm::DominatorTree' data-ref="llvm::DominatorTree">DominatorTree</a> *<dfn class="local col5 decl" id="15DT" title='DT' data-type='const llvm::DominatorTree *' data-ref="15DT">DT</dfn> = <b>nullptr</b>);</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><i class="doc">/// Return true if we know that executing a load from this value cannot trap.</i></td></tr>
+<tr><th id="51">51</th><td><i class="doc">///</i></td></tr>
+<tr><th id="52">52</th><td><i class="doc">/// If DT and ScanFrom are specified this method performs context-sensitive</i></td></tr>
+<tr><th id="53">53</th><td><i class="doc">/// analysis and returns true if it is safe to load immediately before ScanFrom.</i></td></tr>
+<tr><th id="54">54</th><td><i class="doc">///</i></td></tr>
+<tr><th id="55">55</th><td><i class="doc">/// If it is not obviously safe to load from the specified pointer, we do a</i></td></tr>
+<tr><th id="56">56</th><td><i class="doc">/// quick local scan of the basic block containing ScanFrom, to determine if</i></td></tr>
+<tr><th id="57">57</th><td><i class="doc">/// the address is already accessed.</i></td></tr>
+<tr><th id="58">58</th><td><em>bool</em> <dfn class="decl" id="_ZN4llvm27isSafeToLoadUnconditionallyEPNS_5ValueEjRKNS_10DataLayoutEPNS_11InstructionEPKNS_13DominatorTreeE" title='llvm::isSafeToLoadUnconditionally' data-ref="_ZN4llvm27isSafeToLoadUnconditionallyEPNS_5ValueEjRKNS_10DataLayoutEPNS_11InstructionEPKNS_13DominatorTreeE">isSafeToLoadUnconditionally</dfn>(<a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value">Value</a> *<dfn class="local col6 decl" id="16V" title='V' data-type='llvm::Value *' data-ref="16V">V</dfn>, <em>unsigned</em> <dfn class="local col7 decl" id="17Align" title='Align' data-type='unsigned int' data-ref="17Align">Align</dfn>,</td></tr>
+<tr><th id="59">59</th><td>                                 <em>const</em> <a class="type" href="../IR/DataLayout.h.html#llvm::DataLayout" title='llvm::DataLayout' data-ref="llvm::DataLayout">DataLayout</a> &amp;<dfn class="local col8 decl" id="18DL" title='DL' data-type='const llvm::DataLayout &amp;' data-ref="18DL">DL</dfn>,</td></tr>
+<tr><th id="60">60</th><td>                                 <a class="type" href="../IR/Instruction.h.html#llvm::Instruction" title='llvm::Instruction' data-ref="llvm::Instruction">Instruction</a> *<dfn class="local col9 decl" id="19ScanFrom" title='ScanFrom' data-type='llvm::Instruction *' data-ref="19ScanFrom">ScanFrom</dfn> = <b>nullptr</b>,</td></tr>
+<tr><th id="61">61</th><td>                                 <em>const</em> <a class="type" href="../IR/Dominators.h.html#llvm::DominatorTree" title='llvm::DominatorTree' data-ref="llvm::DominatorTree">DominatorTree</a> *<dfn class="local col0 decl" id="20DT" title='DT' data-type='const llvm::DominatorTree *' data-ref="20DT">DT</dfn> = <b>nullptr</b>);</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><i class="doc">/// The default number of maximum instructions to scan in the block, used by</i></td></tr>
+<tr><th id="64">64</th><td><i class="doc">/// FindAvailableLoadedValue().</i></td></tr>
+<tr><th id="65">65</th><td><b>extern</b> <span class="namespace">cl::</span><a class="type" href="../Support/CommandLine.h.html#llvm::cl::opt" title='llvm::cl::opt' data-ref="llvm::cl::opt">opt</a>&lt;<em>unsigned</em>&gt; <dfn class="decl" id="llvm::DefMaxInstsToScan" title='llvm::DefMaxInstsToScan' data-ref="llvm::DefMaxInstsToScan">DefMaxInstsToScan</dfn>;</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><i class="doc">/// Scan backwards to see if we have the value of the given load available</i></td></tr>
+<tr><th id="68">68</th><td><i class="doc">/// locally within a small number of instructions.</i></td></tr>
+<tr><th id="69">69</th><td><i class="doc">///</i></td></tr>
+<tr><th id="70">70</th><td><i class="doc">/// You can use this function to scan across multiple blocks: after you call</i></td></tr>
+<tr><th id="71">71</th><td><i class="doc">/// this function, if ScanFrom points at the beginning of the block, it's safe</i></td></tr>
+<tr><th id="72">72</th><td><i class="doc">/// to continue scanning the predecessors.</i></td></tr>
+<tr><th id="73">73</th><td><i class="doc">///</i></td></tr>
+<tr><th id="74">74</th><td><i class="doc">/// Note that performing load CSE requires special care to make sure the</i></td></tr>
+<tr><th id="75">75</th><td><i class="doc">/// metadata is set appropriately.  In particular, aliasing metadata needs</i></td></tr>
+<tr><th id="76">76</th><td><i class="doc">/// to be merged.  (This doesn't matter for store-to-load forwarding because</i></td></tr>
+<tr><th id="77">77</th><td><i class="doc">/// the only relevant load gets deleted.)</i></td></tr>
+<tr><th id="78">78</th><td><i class="doc">///</i></td></tr>
+<tr><th id="79">79</th><td><i class="doc">/// <span class="command">\param</span> <span class="arg">Load</span> The load we want to replace.</i></td></tr>
+<tr><th id="80">80</th><td><i class="doc">/// <span class="command">\param</span> <span class="arg">ScanBB</span> The basic block to scan.</i></td></tr>
+<tr><th id="81">81</th><td><i class="doc">/// <span class="command">\param</span> [in,out] <span class="arg">ScanFrom</span> The location to start scanning from. When this</i></td></tr>
+<tr><th id="82">82</th><td><i class="doc">/// function returns, it points at the last instruction scanned.</i></td></tr>
+<tr><th id="83">83</th><td><i class="doc">/// <span class="command">\param</span> <span class="arg">MaxInstsToScan</span> The maximum number of instructions to scan. If this</i></td></tr>
+<tr><th id="84">84</th><td><i class="doc">/// is zero, the whole block will be scanned.</i></td></tr>
+<tr><th id="85">85</th><td><i class="doc">/// <span class="command">\param</span> <span class="arg">AA</span> Optional pointer to alias analysis, to make the scan more</i></td></tr>
+<tr><th id="86">86</th><td><i class="doc">/// precise.</i></td></tr>
+<tr><th id="87">87</th><td><i class="doc">/// <span class="command">\param</span> [out] <span class="arg">IsLoadCSE</span> Whether the returned value is a load from the same</i></td></tr>
+<tr><th id="88">88</th><td><i class="doc">/// location in memory, as opposed to the value operand of a store.</i></td></tr>
+<tr><th id="89">89</th><td><i class="doc">///</i></td></tr>
+<tr><th id="90">90</th><td><i class="doc">/// <span class="command">\returns</span> The found value, or nullptr if no value is found.</i></td></tr>
+<tr><th id="91">91</th><td><a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value">Value</a> *<dfn class="decl" id="_ZN4llvm24FindAvailableLoadedValueEPNS_8LoadInstEPNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11InstructionELb1ELb0EvEELb014632270" title='llvm::FindAvailableLoadedValue' data-ref="_ZN4llvm24FindAvailableLoadedValueEPNS_8LoadInstEPNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11InstructionELb1ELb0EvEELb014632270">FindAvailableLoadedValue</dfn>(<a class="type" href="../IR/Instructions.h.html#llvm::LoadInst" title='llvm::LoadInst' data-ref="llvm::LoadInst">LoadInst</a> *<dfn class="local col1 decl" id="21Load" title='Load' data-type='llvm::LoadInst *' data-ref="21Load">Load</dfn>,</td></tr>
+<tr><th id="92">92</th><td>                                <a class="type" href="../IR/BasicBlock.h.html#llvm::BasicBlock" title='llvm::BasicBlock' data-ref="llvm::BasicBlock">BasicBlock</a> *<dfn class="local col2 decl" id="22ScanBB" title='ScanBB' data-type='llvm::BasicBlock *' data-ref="22ScanBB">ScanBB</dfn>,</td></tr>
+<tr><th id="93">93</th><td>                                <a class="type" href="../IR/BasicBlock.h.html#llvm::BasicBlock" title='llvm::BasicBlock' data-ref="llvm::BasicBlock">BasicBlock</a>::<a class="typedef" href="../IR/BasicBlock.h.html#llvm::BasicBlock::iterator" title='llvm::BasicBlock::iterator' data-type='InstListType::iterator' data-ref="llvm::BasicBlock::iterator">iterator</a> &amp;<dfn class="local col3 decl" id="23ScanFrom" title='ScanFrom' data-type='BasicBlock::iterator &amp;' data-ref="23ScanFrom">ScanFrom</dfn>,</td></tr>
+<tr><th id="94">94</th><td>                                <em>unsigned</em> <dfn class="local col4 decl" id="24MaxInstsToScan" title='MaxInstsToScan' data-type='unsigned int' data-ref="24MaxInstsToScan">MaxInstsToScan</dfn> = <a class="ref fake" href="../Support/CommandLine.h.html#_ZNK4llvm2cl11opt_storageIT_Lb0ELb0EEcvS2_Ev" title='llvm::cl::opt_storage&lt;type-parameter-0-0, false, false&gt;::operator type-parameter-0-0' data-ref="_ZNK4llvm2cl11opt_storageIT_Lb0ELb0EEcvS2_Ev"></a><a class="ref" href="#llvm::DefMaxInstsToScan" title='llvm::DefMaxInstsToScan' data-ref="llvm::DefMaxInstsToScan">DefMaxInstsToScan</a>,</td></tr>
+<tr><th id="95">95</th><td>                                <a class="typedef" href="AliasAnalysis.h.html#llvm::AliasAnalysis" title='llvm::AliasAnalysis' data-type='llvm::AAResults' data-ref="llvm::AliasAnalysis">AliasAnalysis</a> *<dfn class="local col5 decl" id="25AA" title='AA' data-type='AliasAnalysis *' data-ref="25AA">AA</dfn> = <b>nullptr</b>,</td></tr>
+<tr><th id="96">96</th><td>                                <em>bool</em> *<dfn class="local col6 decl" id="26IsLoadCSE" title='IsLoadCSE' data-type='bool *' data-ref="26IsLoadCSE">IsLoadCSE</dfn> = <b>nullptr</b>,</td></tr>
+<tr><th id="97">97</th><td>                                <em>unsigned</em> *<dfn class="local col7 decl" id="27NumScanedInst" title='NumScanedInst' data-type='unsigned int *' data-ref="27NumScanedInst">NumScanedInst</dfn> = <b>nullptr</b>);</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td><i class="doc">/// Scan backwards to see if we have the value of the given pointer available</i></td></tr>
+<tr><th id="100">100</th><td><i class="doc">/// locally within a small number of instructions.</i></td></tr>
+<tr><th id="101">101</th><td><i class="doc">///</i></td></tr>
+<tr><th id="102">102</th><td><i class="doc">/// You can use this function to scan across multiple blocks: after you call</i></td></tr>
+<tr><th id="103">103</th><td><i class="doc">/// this function, if ScanFrom points at the beginning of the block, it's safe</i></td></tr>
+<tr><th id="104">104</th><td><i class="doc">/// to continue scanning the predecessors.</i></td></tr>
+<tr><th id="105">105</th><td><i class="doc">///</i></td></tr>
+<tr><th id="106">106</th><td><i class="doc">/// <span class="command">\param</span> <span class="arg">Ptr</span> The pointer we want the load and store to originate from.</i></td></tr>
+<tr><th id="107">107</th><td><i class="doc">/// <span class="command">\param</span> <span class="arg">AccessTy</span> The access type of the pointer.</i></td></tr>
+<tr><th id="108">108</th><td><i class="doc">/// <span class="command">\param</span> <span class="arg">AtLeastAtomic</span> Are we looking for at-least an atomic load/store ? In</i></td></tr>
+<tr><th id="109">109</th><td><i class="doc">/// case it is false, we can return an atomic or non-atomic load or store. In</i></td></tr>
+<tr><th id="110">110</th><td><i class="doc">/// case it is true, we need to return an atomic load or store.</i></td></tr>
+<tr><th id="111">111</th><td><i class="doc">/// <span class="command">\param</span> <span class="arg">ScanBB</span> The basic block to scan.</i></td></tr>
+<tr><th id="112">112</th><td><i class="doc">/// <span class="command">\param</span> [in,out] <span class="arg">ScanFrom</span> The location to start scanning from. When this</i></td></tr>
+<tr><th id="113">113</th><td><i class="doc">/// function returns, it points at the last instruction scanned.</i></td></tr>
+<tr><th id="114">114</th><td><i class="doc">/// <span class="command">\param</span> <span class="arg">MaxInstsToScan</span> The maximum number of instructions to scan. If this</i></td></tr>
+<tr><th id="115">115</th><td><i class="doc">/// is zero, the whole block will be scanned.</i></td></tr>
+<tr><th id="116">116</th><td><i class="doc">/// <span class="command">\param</span> <span class="arg">AA</span> Optional pointer to alias analysis, to make the scan more</i></td></tr>
+<tr><th id="117">117</th><td><i class="doc">/// precise.</i></td></tr>
+<tr><th id="118">118</th><td><i class="doc">/// <span class="command">\param</span> [out] <span class="arg">IsLoad</span> Whether the returned value is a load from the same</i></td></tr>
+<tr><th id="119">119</th><td><i class="doc">/// location in memory, as opposed to the value operand of a store.</i></td></tr>
+<tr><th id="120">120</th><td><i class="doc">///</i></td></tr>
+<tr><th id="121">121</th><td><i class="doc">/// <span class="command">\returns</span> The found value, or nullptr if no value is found.</i></td></tr>
+<tr><th id="122">122</th><td><a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value">Value</a> *<dfn class="decl" id="_ZN4llvm25FindAvailablePtrLoadStoreEPNS_5ValueEPNS_4TypeEbPNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11InstructionELb1EL484192" title='llvm::FindAvailablePtrLoadStore' data-ref="_ZN4llvm25FindAvailablePtrLoadStoreEPNS_5ValueEPNS_4TypeEbPNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11InstructionELb1EL484192">FindAvailablePtrLoadStore</dfn>(<a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value">Value</a> *<dfn class="local col8 decl" id="28Ptr" title='Ptr' data-type='llvm::Value *' data-ref="28Ptr">Ptr</dfn>, <a class="type" href="../IR/Type.h.html#llvm::Type" title='llvm::Type' data-ref="llvm::Type">Type</a> *<dfn class="local col9 decl" id="29AccessTy" title='AccessTy' data-type='llvm::Type *' data-ref="29AccessTy">AccessTy</dfn>, <em>bool</em> <dfn class="local col0 decl" id="30AtLeastAtomic" title='AtLeastAtomic' data-type='bool' data-ref="30AtLeastAtomic">AtLeastAtomic</dfn>,</td></tr>
+<tr><th id="123">123</th><td>                                 <a class="type" href="../IR/BasicBlock.h.html#llvm::BasicBlock" title='llvm::BasicBlock' data-ref="llvm::BasicBlock">BasicBlock</a> *<dfn class="local col1 decl" id="31ScanBB" title='ScanBB' data-type='llvm::BasicBlock *' data-ref="31ScanBB">ScanBB</dfn>,</td></tr>
+<tr><th id="124">124</th><td>                                 <a class="type" href="../IR/BasicBlock.h.html#llvm::BasicBlock" title='llvm::BasicBlock' data-ref="llvm::BasicBlock">BasicBlock</a>::<a class="typedef" href="../IR/BasicBlock.h.html#llvm::BasicBlock::iterator" title='llvm::BasicBlock::iterator' data-type='InstListType::iterator' data-ref="llvm::BasicBlock::iterator">iterator</a> &amp;<dfn class="local col2 decl" id="32ScanFrom" title='ScanFrom' data-type='BasicBlock::iterator &amp;' data-ref="32ScanFrom">ScanFrom</dfn>,</td></tr>
+<tr><th id="125">125</th><td>                                 <em>unsigned</em> <dfn class="local col3 decl" id="33MaxInstsToScan" title='MaxInstsToScan' data-type='unsigned int' data-ref="33MaxInstsToScan">MaxInstsToScan</dfn>, <a class="typedef" href="AliasAnalysis.h.html#llvm::AliasAnalysis" title='llvm::AliasAnalysis' data-type='llvm::AAResults' data-ref="llvm::AliasAnalysis">AliasAnalysis</a> *<dfn class="local col4 decl" id="34AA" title='AA' data-type='AliasAnalysis *' data-ref="34AA">AA</dfn>,</td></tr>
+<tr><th id="126">126</th><td>                                 <em>bool</em> *<dfn class="local col5 decl" id="35IsLoad" title='IsLoad' data-type='bool *' data-ref="35IsLoad">IsLoad</dfn>, <em>unsigned</em> *<dfn class="local col6 decl" id="36NumScanedInst" title='NumScanedInst' data-type='unsigned int *' data-ref="36NumScanedInst">NumScanedInst</dfn>);</td></tr>
+<tr><th id="127">127</th><td>}</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td><u>#<span data-ppcond="13">endif</span></u></td></tr>
+<tr><th id="130">130</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../lib/Analysis/Lint.cpp.html'>llvm/llvm/lib/Analysis/Lint.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

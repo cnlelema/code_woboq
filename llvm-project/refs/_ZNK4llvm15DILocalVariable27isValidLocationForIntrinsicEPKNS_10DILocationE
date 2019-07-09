@@ -1,0 +1,26 @@
+<def f='llvm/llvm/include/llvm/IR/DebugInfoMetadata.h' l='2804' ll='2806' type='bool llvm::DILocalVariable::isValidLocationForIntrinsic(const llvm::DILocation * DL) const'/>
+<doc f='llvm/llvm/include/llvm/IR/DebugInfoMetadata.h' l='2799'>/// Check that a location is valid for this variable.
+  ///
+  /// Check that \c DL exists, is in the same subprogram, and has the same
+  /// inlined-at location as \c this.  (Otherwise, it&apos;s not a valid attachment
+  /// to a \a DbgInfoIntrinsic.)</doc>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/CodeViewDebug.cpp' l='1132' u='c' c='_ZN4llvm13CodeViewDebug30collectVariableInfoFromMFTableERNS_8DenseSetISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_12DenseMapInfoIS9_EEEE'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/DbgEntityHistoryCalculator.cpp' l='244' u='c' c='_ZN4llvm25calculateDbgEntityHistoryEPKNS_15MachineFunctionEPKNS_18TargetRegisterInfoERNS_18DbgValueHistoryMapERNS_16DbgLabelInstrMapE'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/DwarfDebug.cpp' l='1091' u='c' c='_ZN4llvm10DwarfDebug30collectVariableInfoFromMFTableERNS_16DwarfCompileUnitERNS_8DenseSetISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_12DenseMapInfoISB_EEEE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='95' u='c' c='_ZN4llvm16MachineIRBuilder19buildDirectDbgValueEjPKNS_6MDNodeES3_'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='108' u='c' c='_ZN4llvm16MachineIRBuilder21buildIndirectDbgValueEjPKNS_6MDNodeES3_'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='121' u='c' c='_ZN4llvm16MachineIRBuilder15buildFIDbgValueEiPKNS_6MDNodeES3_'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='136' u='c' c='_ZN4llvm16MachineIRBuilder18buildConstDbgValueERKNS_8ConstantEPKNS_6MDNodeES6_'/>
+<use f='llvm/llvm/lib/CodeGen/LiveDebugValues.cpp' l='542' u='c' c='_ZN12_GLOBAL__N_115LiveDebugValues18transferDebugValueERKN4llvm12MachineInstrERNS0_13OpenRangesSetERNS1_12UniqueVectorINS0_6VarLocEEE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveDebugVariables.cpp' l='1299' u='c' c='_ZN12_GLOBAL__N_19UserValue16insertDebugValueEPN4llvm17MachineBasicBlockENS1_9SlotIndexES4_16DbgValueLocationbjRNS1_13LiveIntervalsERKNS1_15TargetInst11289507'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='2019' u='c' c='_ZN4llvm7BuildMIERNS_15MachineFunctionERKNS_8DebugLocERKNS_11MCInstrDescEbjPKNS_6MDNodeESA_'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='2035' u='c' c='_ZN4llvm7BuildMIERNS_15MachineFunctionERKNS_8DebugLocERKNS_11MCInstrDescEbRNS_14MachineOperandEPKNS_6MDNodeESC_'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='2074' u='c' c='_ZL19computeExprForSpillRKN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/InstrEmitter.cpp' l='683' u='c' c='_ZN4llvm12InstrEmitter12EmitDbgValueEPNS_10SDDbgValueERNS_8DenseMapINS_7SDValueEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='8152' u='c' c='_ZN4llvm12SelectionDAG11getDbgValueEPNS_10DIVariableEPNS_12DIExpressionEPNS_6SDNodeEjbRKNS_8DebugLocEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='8163' u='c' c='_ZN4llvm12SelectionDAG19getConstantDbgValueEPNS_10DIVariableEPNS_12DIExpressionEPKNS_5ValueERKNS_8DebugLocEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='8174' u='c' c='_ZN4llvm12SelectionDAG21getFrameIndexDbgValueEPNS_10DIVariableEPNS_12DIExpressionEjbRKNS_8DebugLocEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='8185' u='c' c='_ZN4llvm12SelectionDAG15getVRegDbgValueEPNS_10DIVariableEPNS_12DIExpressionEjbRKNS_8DebugLocEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='1179' u='c' c='_ZN4llvm19SelectionDAGBuilder24resolveDanglingDebugInfoEPKNS_5ValueENS_7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='5502' u='c' c='_ZN4llvm19SelectionDAGBuilder24EmitFuncArgumentDbgValueEPKNS_5ValueEPNS_15DILocalVariableEPNS_12DIExpressionEPNS_10DILocationEbRKNS_7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGISel.cpp' l='602' u='c' c='_ZN4llvm16SelectionDAGISel20runOnMachineFunctionERNS_15MachineFunctionE'/>

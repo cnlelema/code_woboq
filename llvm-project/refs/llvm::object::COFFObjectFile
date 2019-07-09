@@ -1,0 +1,135 @@
+<inh f='llvm/llvm/include/llvm/Object/ObjectFile.h' l='226' c='llvm::object::ObjectFile'/>
+<def f='llvm/llvm/include/llvm/Object/COFF.h' l='762' ll='1071'/>
+<size>200</size>
+<mbr r='llvm::object::COFFObjectFile::COFFHeader' o='384' t='const llvm::object::coff_file_header *'/>
+<mbr r='llvm::object::COFFObjectFile::COFFBigObjHeader' o='448' t='const llvm::object::coff_bigobj_file_header *'/>
+<mbr r='llvm::object::COFFObjectFile::PE32Header' o='512' t='const llvm::object::pe32_header *'/>
+<mbr r='llvm::object::COFFObjectFile::PE32PlusHeader' o='576' t='const llvm::object::pe32plus_header *'/>
+<mbr r='llvm::object::COFFObjectFile::DataDirectory' o='640' t='const llvm::object::data_directory *'/>
+<mbr r='llvm::object::COFFObjectFile::SectionTable' o='704' t='const llvm::object::coff_section *'/>
+<mbr r='llvm::object::COFFObjectFile::SymbolTable16' o='768' t='const coff_symbol16 *'/>
+<mbr r='llvm::object::COFFObjectFile::SymbolTable32' o='832' t='const coff_symbol32 *'/>
+<mbr r='llvm::object::COFFObjectFile::StringTable' o='896' t='const char *'/>
+<mbr r='llvm::object::COFFObjectFile::StringTableSize' o='960' t='uint32_t'/>
+<mbr r='llvm::object::COFFObjectFile::ImportDirectory' o='1024' t='const llvm::object::coff_import_directory_table_entry *'/>
+<mbr r='llvm::object::COFFObjectFile::DelayImportDirectory' o='1088' t='const llvm::object::delay_import_directory_table_entry *'/>
+<mbr r='llvm::object::COFFObjectFile::NumberOfDelayImportDirectory' o='1152' t='uint32_t'/>
+<mbr r='llvm::object::COFFObjectFile::ExportDirectory' o='1216' t='const llvm::object::export_directory_table_entry *'/>
+<mbr r='llvm::object::COFFObjectFile::BaseRelocHeader' o='1280' t='const llvm::object::coff_base_reloc_block_header *'/>
+<mbr r='llvm::object::COFFObjectFile::BaseRelocEnd' o='1344' t='const llvm::object::coff_base_reloc_block_header *'/>
+<mbr r='llvm::object::COFFObjectFile::DebugDirectoryBegin' o='1408' t='const llvm::object::debug_directory *'/>
+<mbr r='llvm::object::COFFObjectFile::DebugDirectoryEnd' o='1472' t='const llvm::object::debug_directory *'/>
+<mbr r='llvm::object::COFFObjectFile::LoadConfig' o='1536' t='const void *'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile9getStringEjRNS_9StringRefE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile6toSymbENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile5toSecENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile5toRelENS0_11DataRefImplE'/>
+<fun r='_ZN4llvm6object14COFFObjectFile18initSymbolTablePtrEv'/>
+<fun r='_ZN4llvm6object14COFFObjectFile18initImportTablePtrEv'/>
+<fun r='_ZN4llvm6object14COFFObjectFile23initDelayImportTablePtrEv'/>
+<fun r='_ZN4llvm6object14COFFObjectFile18initExportTablePtrEv'/>
+<fun r='_ZN4llvm6object14COFFObjectFile16initBaseRelocPtrEv'/>
+<fun r='_ZN4llvm6object14COFFObjectFile21initDebugDirectoryPtrEv'/>
+<fun r='_ZN4llvm6object14COFFObjectFile17initLoadConfigPtrEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile14getSymbolTableEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile10getMachineEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile23getSizeOfOptionalHeaderEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile18getCharacteristicsEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile16getTimeDateStampEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile19getNumberOfSectionsEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile23getPointerToSymbolTableEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile21getRawNumberOfSymbolsEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile15getLoadConfig32Ev'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile15getLoadConfig64Ev'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile14moveSymbolNextERNS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile13getSymbolNameENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile16getSymbolAddressENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile18getSymbolAlignmentENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile18getSymbolValueImplENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile23getCommonSymbolSizeImplENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile14getSymbolFlagsENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile13getSymbolTypeENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile16getSymbolSectionENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile15moveSectionNextERNS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile14getSectionNameENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile17getSectionAddressENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile15getSectionIndexENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile14getSectionSizeENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile18getSectionContentsENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile19getSectionAlignmentENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile19isSectionCompressedENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile13isSectionTextENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile13isSectionDataENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile12isSectionBSSENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile16isSectionVirtualENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile17section_rel_beginENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile15section_rel_endENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile18moveRelocationNextERNS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile19getRelocationOffsetENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile19getRelocationSymbolENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile17getRelocationTypeENS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEE'/>
+<fun r='_ZN4llvm6object14COFFObjectFileC1ENS_15MemoryBufferRefERSt10error_code'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile12symbol_beginEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile10symbol_endEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile13section_beginEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile11section_endEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile14getCOFFSectionERKNS0_10SectionRefE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_9SymbolRefE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile17getCOFFRelocationERKNS0_13RelocationRefE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile12getSectionIDENS0_10SectionRefE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile18getSymbolSectionIDENS0_9SymbolRefE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile17getBytesInAddressEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile17getFileFormatNameEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile7getArchEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile15getStartAddressEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile11getFeaturesEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile22import_directory_beginEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile20import_directory_endEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile28delay_import_directory_beginEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile26delay_import_directory_endEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile22export_directory_beginEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile20export_directory_endEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile16base_reloc_beginEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile14base_reloc_endEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile21debug_directory_beginEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile19debug_directory_endEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile18import_directoriesEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile24delay_import_directoriesEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile18export_directoriesEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile11base_relocsEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile17debug_directoriesEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile12getDOSHeaderEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile13getCOFFHeaderERPKNS0_16coff_file_headerE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile19getCOFFBigObjHeaderERPKNS0_23coff_bigobj_file_headerE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile13getPE32HeaderERPKNS0_11pe32_headerE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile17getPE32PlusHeaderERPKNS0_15pe32plus_headerE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile16getDataDirectoryEjRPKNS0_14data_directoryE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile10getSectionEiRPKNS0_12coff_sectionE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile10getSectionENS_9StringRefERPKNS0_12coff_sectionE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile9getSymbolEjRPKT_'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile9getSymbolEj'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile12getAuxSymbolEjRPKT_'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile13getSymbolNameENS0_13COFFSymbolRefERNS_9StringRefE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile13getSymbolNameEPKNS0_19coff_symbol_genericERNS_9StringRefE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile16getSymbolAuxDataENS0_13COFFSymbolRefE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile14getSymbolIndexENS0_13COFFSymbolRefE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile23getSymbolTableEntrySizeEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile14getRelocationsEPKNS0_12coff_sectionE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile14getSectionNameEPKNS0_12coff_sectionE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile14getSectionSizeEPKNS0_12coff_sectionE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile18getSectionContentsEPKNS0_12coff_sectionERNS_8ArrayRefIhEE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile12getImageBaseEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile8getVaPtrEmRm'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRm'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile20getRvaAndSizeAsBytesEjjRNS_8ArrayRefIhEE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile11getHintNameEjRtRNS_9StringRefE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile15getDebugPDBInfoEPKNS0_15debug_directoryERPKNS_8codeview9DebugInfoERNS_9StringRefE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile15getDebugPDBInfoERPKNS_8codeview9DebugInfoERNS_9StringRefE'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile19isRelocatableObjectEv'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile4is64Ev'/>
+<fun r='_ZNK4llvm6object14COFFObjectFile19mapDebugSectionNameENS_9StringRefE'/>
+<fun r='_ZN4llvm6object14COFFObjectFile7classofEPKNS0_6BinaryE'/>

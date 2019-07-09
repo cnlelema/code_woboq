@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/LoopSimplify.h' l='62' type='bool llvm::simplifyLoop(llvm::Loop * L, llvm::DominatorTree * DT, llvm::LoopInfo * LI, llvm::ScalarEvolution * SE, llvm::AssumptionCache * AC, llvm::MemorySSAUpdater * MSSAU, bool PreserveLCSSA)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/LoopSimplify.h' l='56'>/// Simplify each loop in a loop nest recursively.
+///
+/// This takes a potentially un-simplified loop L (and its children) and turns
+/// it into a simplified loop nest with preheaders and single backedges. It will
+/// update \c DominatorTree, \c LoopInfo, \c ScalarEvolution and \c MemorySSA
+/// analyses if they&apos;re non-null, and LCSSA if \c PreserveLCSSA is true.</doc>
+<use f='llvm/llvm/lib/Transforms/Scalar/InductiveRangeCheckElimination.cpp' l='1548' u='c' c='_ZN12_GLOBAL__N_115LoopConstrainer3runEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnrollPass.cpp' l='1403' u='c' c='_ZN4llvm14LoopUnrollPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE'/>
+<def f='llvm/llvm/lib/Transforms/Utils/LoopSimplify.cpp' l='708' ll='741' type='bool llvm::simplifyLoop(llvm::Loop * L, llvm::DominatorTree * DT, llvm::LoopInfo * LI, llvm::ScalarEvolution * SE, llvm::AssumptionCache * AC, llvm::MemorySSAUpdater * MSSAU, bool PreserveLCSSA)'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopSimplify.cpp' l='818' u='c' c='_ZN12_GLOBAL__N_112LoopSimplify13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopSimplify.cpp' l='842' u='c' c='_ZN4llvm16LoopSimplifyPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnroll.cpp' l='829' u='c' c='_ZN4llvm10UnrollLoopEPNS_4LoopENS_17UnrollLoopOptionsEPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterEbPS1_'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnroll.cpp' l='833' u='c' c='_ZN4llvm10UnrollLoopEPNS_4LoopENS_17UnrollLoopOptionsEPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterEbPS1_'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnrollPeel.cpp' l='674' u='c' c='_ZN4llvm8peelLoopEPNS_4LoopEjPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEb'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='7594' u='c' c='_ZN4llvm17LoopVectorizePass7runImplERNS_8FunctionERNS_15ScalarEvolutionERNS_8LoopInfoERNS_19TargetTransformInfoERNS_13DominatorTreeERNS_18BlockFrequen2739751'/>

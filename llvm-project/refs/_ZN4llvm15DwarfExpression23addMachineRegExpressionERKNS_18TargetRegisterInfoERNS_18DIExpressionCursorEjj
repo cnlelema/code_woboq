@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/lib/CodeGen/AsmPrinter/DwarfExpression.h' l='263' type='bool llvm::DwarfExpression::addMachineRegExpression(const llvm::TargetRegisterInfo &amp; TRI, llvm::DIExpressionCursor &amp; Expr, unsigned int MachineReg, unsigned int FragmentOffsetInBits = 0)'/>
+<doc f='llvm/llvm/lib/CodeGen/AsmPrinter/DwarfExpression.h' l='253'>/// Emit a machine register location. As an optimization this may also consume
+  /// the prefix of a DwarfExpression if a more efficient representation for
+  /// combining the register location and the first operation exists.
+  ///
+  /// \param FragmentOffsetInBits     If this is one fragment out of a
+  /// fragmented
+  ///                                 location, this is the offset of the
+  ///                                 fragment inside the entire variable.
+  /// \return                         false if no DWARF register exists
+  ///                                 for MachineReg.</doc>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/DwarfCompileUnit.cpp' l='672' u='c' c='_ZN4llvm16DwarfCompileUnit24constructVariableDIEImplERKNS_11DbgVariableEb'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/DwarfCompileUnit.cpp' l='1105' u='c' c='_ZN4llvm16DwarfCompileUnit10addAddressERNS_3DIEENS_5dwarf9AttributeERKNS_15MachineLocationE'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/DwarfCompileUnit.cpp' l='1129' u='c' c='_ZN4llvm16DwarfCompileUnit17addComplexAddressERKNS_11DbgVariableERNS_3DIEENS_5dwarf9AttributeERKNS_15MachineLocationE'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/DwarfDebug.cpp' l='2016' u='c' c='_ZL17emitDebugLocValueRKN4llvm10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionE'/>
+<def f='llvm/llvm/lib/CodeGen/AsmPrinter/DwarfExpression.cpp' l='219' ll='297' type='bool llvm::DwarfExpression::addMachineRegExpression(const llvm::TargetRegisterInfo &amp; TRI, llvm::DIExpressionCursor &amp; ExprCursor, unsigned int MachineReg, unsigned int FragmentOffsetInBits = 0)'/>

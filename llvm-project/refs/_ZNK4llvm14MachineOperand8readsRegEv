@@ -1,0 +1,65 @@
+<def f='llvm/llvm/include/llvm/CodeGen/MachineOperand.h' l='446' ll='449' type='bool llvm::MachineOperand::readsReg() const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineOperand.h' l='439'>/// readsReg - Returns true if this operand reads the previous value of its
+  /// register.  A use operand with the &lt;undef&gt; flag set doesn&apos;t read its
+  /// register.  A sub-register def implicitly reads the other parts of the
+  /// register being redefined unless the &lt;undef&gt; flag is set.
+  ///
+  /// This refers to reading the register value from before the current
+  /// instruction or bundle. Internal bundle reads are not included.</doc>
+<use f='llvm/llvm/lib/CodeGen/DetectDeadLanes.cpp' l='195' u='c' c='_ZN12_GLOBAL__N_115DetectDeadLanes21addUsedLanesOnOperandERKN4llvm14MachineOperandENS1_11LaneBitmaskE'/>
+<use f='llvm/llvm/lib/CodeGen/DetectDeadLanes.cpp' l='276' u='c' c='_ZN12_GLOBAL__N_115DetectDeadLanes24transferDefinedLanesStepERKN4llvm14MachineOperandENS1_11LaneBitmaskE'/>
+<use f='llvm/llvm/lib/CodeGen/DetectDeadLanes.cpp' l='378' u='c' c='_ZN12_GLOBAL__N_115DetectDeadLanes28determineInitialDefinedLanesEj'/>
+<use f='llvm/llvm/lib/CodeGen/DetectDeadLanes.cpp' l='420' u='c' c='_ZN12_GLOBAL__N_115DetectDeadLanes25determineInitialUsedLanesEj'/>
+<use f='llvm/llvm/lib/CodeGen/DetectDeadLanes.cpp' l='549' u='c' c='_ZN12_GLOBAL__N_115DetectDeadLanes7runOnceERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/EarlyIfConversion.cpp' l='242' u='c' c='_ZN12_GLOBAL__N_19SSAIfConv18canSpeculateInstrsEPN4llvm17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/EarlyIfConversion.cpp' l='299' u='c' c='_ZN12_GLOBAL__N_19SSAIfConv18findInsertionPointEv'/>
+<use f='llvm/llvm/lib/CodeGen/LiveInterval.cpp' l='1368' u='c' c='_ZN4llvm24ConnectedVNInfoEqClasses10DistributeERNS_12LiveIntervalEPPS1_RNS_19MachineRegisterInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='553' u='c' c='_ZN4llvm13LiveIntervals12shrinkToUsesERNS_12LiveInterval8SubRangeEj'/>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='983' u='c' c='_ZN4llvm13LiveIntervals8HMEditor15updateAllRangesEPNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/LivePhysRegs.cpp' l='61' u='c' c='_ZN4llvm12LivePhysRegs7addUsesERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/LivePhysRegs.cpp' l='309' u='c' c='_ZN4llvm22recomputeLivenessFlagsERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='83' u='c' c='_ZN4llvm13LiveRangeCalc9calculateERNS_12LiveIntervalEb'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='174' u='c' c='_ZN4llvm13LiveRangeCalc12extendToUsesERNS_9LiveRangeEjNS_11LaneBitmaskEPNS_12LiveIntervalE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeEdit.cpp' l='113' u='c' c='_ZNK4llvm13LiveRangeEdit18allUsesAvailableAtEPKNS_12MachineInstrENS_9SlotIndexES4_'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeEdit.cpp' l='312' u='c' c='_ZN4llvm13LiveRangeEdit16eliminateDeadDefEPNS_12MachineInstrERNS_9SetVectorIPNS_12LiveIntervalENS_11SmallVectorIS5_Lj8EEENS_11SmallPtrSetIS5_Lj8EEEEEPNS_9AAResultsE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeEdit.cpp' l='325' u='c' c='_ZN4llvm13LiveRangeEdit16eliminateDeadDefEPNS_12MachineInstrERNS_9SetVectorIPNS_12LiveIntervalENS_11SmallVectorIS5_Lj8EEENS_11SmallPtrSetIS5_Lj8EEEEEPNS_9AAResultsE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRegUnits.cpp' l='60' u='c' c='_ZN4llvm12LiveRegUnits12stepBackwardERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRegUnits.cpp' l='76' u='c' c='_ZN4llvm12LiveRegUnits10accumulateERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveVariables.cpp' l='527' u='c' c='_ZN4llvm13LiveVariables10runOnInstrERNS_12MachineInstrERNS_15SmallVectorImplIjEE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveVariables.cpp' l='715' u='c' c='_ZN4llvm13LiveVariables15analyzePHINodesERKNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineCopyPropagation.cpp' l='493' u='c' c='_ZN12_GLOBAL__N_122MachineCopyPropagation18CopyPropagateBlockERN4llvm17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineCopyPropagation.cpp' l='561' u='c' c='_ZN12_GLOBAL__N_122MachineCopyPropagation18CopyPropagateBlockERN4llvm17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstrBundle.cpp' l='298' u='c' c='_ZN4llvm26MachineOperandIteratorBase14analyzeVirtRegEjPNS_15SmallVectorImplISt4pairIPNS_12MachineInstrEjEEE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstrBundle.cpp' l='340' u='c' c='_ZN4llvm26MachineOperandIteratorBase14analyzePhysRegEjPKNS_18TargetRegisterInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineScheduler.cpp' l='931' u='c' c='_ZN4llvm17ScheduleDAGMILive15collectVRegUsesERNS_5SUnitE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineScheduler.cpp' l='1691' u='c' c='_ZN12_GLOBAL__N_113CopyConstrain18constrainLocalCopyEPN4llvm5SUnitEPNS1_17ScheduleDAGMILiveE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineTraceMetrics.cpp' l='671' u='c' c='_ZL11getDataDepsRKN4llvm12MachineInstrERNS_15SmallVectorImplIN12_GLOBAL__N_17DataDepEEEPKNS_19MachineRegisterInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineTraceMetrics.cpp' l='723' u='c' c='_ZL23updatePhysDepsDownwardsPKN4llvm12MachineInstrERNS_15SmallVectorImplIN12_GLOBAL__N_17DataDepEEERNS_9SparseSetINS_11LiveRegUnitENS_8identityIjEEhEE12530778'/>
+<use f='llvm/llvm/lib/CodeGen/MachineTraceMetrics.cpp' l='908' u='c' c='_ZL21updatePhysDepsUpwardsRKN4llvm12MachineInstrEjRNS_9SparseSetINS_11LiveRegUnitENS_8identityIjEEhEERKNS_16TargetSchedModelEPKNS_15TargetInstrInfoEPK13369886'/>
+<use f='llvm/llvm/lib/CodeGen/MachineVerifier.cpp' l='1792' u='c' c='_ZN12_GLOBAL__N_115MachineVerifier13checkLivenessEPKN4llvm14MachineOperandEj'/>
+<use f='llvm/llvm/lib/CodeGen/MachineVerifier.cpp' l='2419' u='c' c='_ZN12_GLOBAL__N_115MachineVerifier22verifyLiveRangeSegmentERKN4llvm9LiveRangeEPKNS2_7SegmentEjNS1_11LaneBitmaskE'/>
+<use f='llvm/llvm/lib/CodeGen/ProcessImplicitDefs.cpp' l='69' u='c' c='_ZN12_GLOBAL__N_119ProcessImplicitDefs22canTurnIntoImplicitDefEPN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterCoalescer.cpp' l='2391' u='c' c='_ZNK12_GLOBAL__N_18JoinVals17computeWriteLanesEPKN4llvm12MachineInstrERb'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterCoalescer.cpp' l='2823' u='c' c='_ZNK12_GLOBAL__N_18JoinVals9usesLanesERKN4llvm12MachineInstrEjjNS1_11LaneBitmaskE'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterPressure.cpp' l='493' u='c' c='_ZNK12_GLOBAL__N_125RegisterOperandsCollector14collectOperandERKN4llvm14MachineOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterScavenging.cpp' l='704' u='c' c='_ZL31scavengeFrameVirtualRegsInBlockRN4llvm19MachineRegisterInfoERNS_12RegScavengerERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterScavenging.cpp' l='729' u='c' c='_ZL31scavengeFrameVirtualRegsInBlockRN4llvm19MachineRegisterInfoERNS_12RegScavengerERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterScavenging.cpp' l='744' u='c' c='_ZL31scavengeFrameVirtualRegsInBlockRN4llvm19MachineRegisterInfoERNS_12RegScavengerERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/RenameIndependentSubregs.cpp' l='179' u='c' c='_ZNK12_GLOBAL__N_124RenameIndependentSubregs14findComponentsERN4llvm12IntEqClassesERNS1_15SmallVectorImplINS0_12SubRangeInfoEEERNS1_12LiveIntervalE'/>
+<use f='llvm/llvm/lib/CodeGen/RenameIndependentSubregs.cpp' l='218' u='c' c='_ZNK12_GLOBAL__N_124RenameIndependentSubregs15rewriteOperandsERKN4llvm12IntEqClassesERKNS1_15SmallVectorImplINS0_12SubRangeInfoEEERKNS5_IPNS1_12LiveIntervalEEE'/>
+<use f='llvm/llvm/lib/CodeGen/ScheduleDAGInstrs.cpp' l='211' u='c' c='_ZN4llvm17ScheduleDAGInstrs19addSchedBarrierDepsEv'/>
+<use f='llvm/llvm/lib/CodeGen/ScheduleDAGInstrs.cpp' l='837' u='c' c='_ZN4llvm17ScheduleDAGInstrs15buildSchedGraphEPNS_9AAResultsEPNS_18RegPressureTrackerEPNS_13PressureDiffsEPNS_13LiveIntervalsEb'/>
+<use f='llvm/llvm/lib/CodeGen/ScheduleDAGInstrs.cpp' l='1061' u='c' c='_ZL11toggleKillsRKN4llvm19MachineRegisterInfoERNS_12LivePhysRegsERNS_12MachineInstrEb'/>
+<use f='llvm/llvm/lib/CodeGen/ShrinkWrap.cpp' l='270' u='c' c='_ZNK12_GLOBAL__N_110ShrinkWrap15useOrDefCSROrFIERKN4llvm12MachineInstrEPNS1_12RegScavengerE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetSchedule.cpp' l='177' u='c' c='_ZL10findUseIdxPKN4llvm12MachineInstrEj'/>
+<use f='llvm/llvm/lib/CodeGen/VirtRegMap.cpp' l='531' u='c' c='_ZN12_GLOBAL__N_115VirtRegRewriter7rewriteEv'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64CollectLOH.cpp' l='478' u='c' c='_ZL16handleNormalInstRKN4llvm12MachineInstrEP7LOHInfo'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64FalkorHWPFFix.cpp' l='746' u='c' c='_ZN12_GLOBAL__N_113FalkorHWPFFix9runOnLoopERN4llvm11MachineLoopERNS1_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/GCNRegPressure.cpp' l='232' u='c' c='_ZL21collectVirtualRegUsesRKN4llvm12MachineInstrERKNS_13LiveIntervalsERKNS_19MachineRegisterInfoE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIFormMemoryClauses.cpp' l='370' u='c' c='_ZN12_GLOBAL__N_119SIFormMemoryClauses20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SILoadStoreOptimizer.cpp' l='252' u='c' c='_ZL17addDefsUsesToListRKN4llvm12MachineInstrERNS_8DenseSetIjNS_12DenseMapInfoIjEEEES7_'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SILoadStoreOptimizer.cpp' l='283' u='c' c='_ZL21addToListsIfDependentRN4llvm12MachineInstrERNS_8DenseSetIjNS_12DenseMapInfoIjEEEES6_RNS_15SmallVectorImplIPS0_EE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='5006' u='c' c='_ZNK4llvm16ARMBaseInstrInfo28getPartialRegUpdateClearanceERKNS_12MachineInstrEjPKNS_18TargetRegisterInfoE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='5034' u='c' c='_ZNK4llvm16ARMBaseInstrInfo28getPartialRegUpdateClearanceERKNS_12MachineInstrEjPKNS_18TargetRegisterInfoE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMLoadStoreOptimizer.cpp' l='941' u='c' c='_ZN12_GLOBAL__N_115ARMLoadStoreOpt14MergeOpsUpdateERKNS0_14MergeCandidateE'/>
+<use f='llvm/llvm/lib/Target/X86/X86InstrInfo.cpp' l='4159' u='c' c='_ZNK4llvm12X86InstrInfo28getPartialRegUpdateClearanceERKNS_12MachineInstrEjPKNS_18TargetRegisterInfoE'/>

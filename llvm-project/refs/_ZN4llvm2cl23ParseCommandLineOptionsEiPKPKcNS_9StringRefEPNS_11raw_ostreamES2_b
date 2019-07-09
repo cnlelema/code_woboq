@@ -1,0 +1,156 @@
+<dec f='llvm/llvm/include/llvm/Support/CommandLine.h' l='66' type='bool llvm::cl::ParseCommandLineOptions(int argc, const char *const * argv, llvm::StringRef Overview = &quot;&quot;, llvm::raw_ostream * Errs = nullptr, const char * EnvVar = nullptr, bool LongOptionsUseDoubleDash = false)'/>
+<doc f='llvm/llvm/include/llvm/Support/CommandLine.h' l='52'>//===----------------------------------------------------------------------===//
+// ParseCommandLineOptions - Command line option processing entry point.
+//
+// Returns true on success. Otherwise, this will print the error message to
+// stderr and exit if \p Errs is not set (nullptr by default), or print the
+// error message to \p Errs and return false if \p Errs is provided.
+//
+// If EnvVar is not nullptr, command-line options are also parsed from the
+// environment variable named by EnvVar.  Precedence is given to occurrences
+// from argv.  This precedence is currently implemented by parsing argv after
+// the environment variable, so it is only implemented correctly for options
+// that give precedence to later occurrences.  If your program supports options
+// that give precedence to earlier occurrences, you will need to extend this
+// function to support it correctly.</doc>
+<use f='llvm/clang/lib/CodeGen/BackendUtil.cpp' l='765' u='c' c='_ZL18setCommandLineOptsRKN5clang14CodeGenOptionsE'/>
+<use f='llvm/clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp' l='235' u='c' c='_ZN5clang25ExecuteCompilerInvocationEPNS_16CompilerInstanceE'/>
+<use f='llvm/clang/lib/Tooling/CommonOptionsParser.cpp' l='116' u='c' c='_ZN5clang7tooling19CommonOptionsParser4initERiPPKcRN4llvm2cl14OptionCategoryENS7_18NumOccurrencesFlagES4_'/>
+<use f='llvm/clang/tools/c-index-test/core_main.cpp' l='341' u='c' c='indextest_core_main'/>
+<use f='llvm/clang/tools/clang-diff/ClangDiff.cpp' l='450' u='c' c='main'/>
+<use f='llvm/clang/tools/clang-format/ClangFormat.cpp' l='376' u='c' c='main'/>
+<use f='llvm/clang/tools/clang-import-test/clang-import-test.cpp' l='355' u='c' c='main'/>
+<use f='llvm/clang/tools/clang-offload-bundler/ClangOffloadBundler.cpp' l='928' u='c' c='main'/>
+<use f='llvm/clang/tools/clang-scan-deps/ClangScanDeps.cpp' l='143' u='c' c='main'/>
+<use f='llvm/clang/tools/diagtool/FindDiagnosticID.cpp' l='54' u='c' c='_ZN12_GLOBAL__N_116FindDiagnosticID3runEjPPcRN4llvm11raw_ostreamE'/>
+<use f='llvm/clang/tools/driver/cc1as_main.cpp' l='619' u='c' c='_Z10cc1as_mainN4llvm8ArrayRefIPKcEES2_Pv'/>
+<use f='llvm/clang/utils/TableGen/TableGen.cpp' l='311' u='c' c='main'/>
+<use f='llvm/lld/COFF/Driver.cpp' l='1064' u='c' c='_ZN3lld4coff12LinkerDriver4linkEN4llvm8ArrayRefIPKcEE'/>
+<use f='llvm/lld/ELF/Driver.cpp' l='840' u='c' c='_ZL16parseClangOptionN4llvm9StringRefERKNS_5TwineE'/>
+<use f='llvm/lld/lib/Driver/DarwinLdDriver.cpp' l='310' u='c' c='_ZL16parseLLVMOptionsRKN3lld14LinkingContextE'/>
+<use f='llvm/lld/wasm/Driver.cpp' l='648' u='c' c='_ZN12_GLOBAL__N_112LinkerDriver4linkEN4llvm8ArrayRefIPKcEE'/>
+<use f='llvm/llvm/lib/FuzzMutate/FuzzerCLI.cpp' l='35' u='c' c='_ZN4llvm17parseFuzzerCLOptsEiPPc'/>
+<use f='llvm/llvm/lib/FuzzMutate/FuzzerCLI.cpp' l='71' u='c' c='_ZN4llvm27handleExecNameEncodedBEOptsENS_9StringRefE'/>
+<use f='llvm/llvm/lib/FuzzMutate/FuzzerCLI.cpp' l='135' u='c' c='_ZN4llvm34handleExecNameEncodedOptimizerOptsENS_9StringRefE'/>
+<use f='llvm/llvm/lib/LTO/LTOCodeGenerator.cpp' l='630' u='c' c='_ZN4llvm16LTOCodeGenerator24parseCodeGenDebugOptionsEv'/>
+<use f='llvm/llvm/lib/Support/CommandLine.cpp' l='1217' u='c' c='_ZN4llvm2cl23ParseEnvironmentOptionsEPKcS2_S2_'/>
+<def f='llvm/llvm/lib/Support/CommandLine.cpp' l='1220' ll='1244' type='bool llvm::cl::ParseCommandLineOptions(int argc, const char *const * argv, llvm::StringRef Overview = &quot;&quot;, llvm::raw_ostream * Errs = nullptr, const char * EnvVar = nullptr, bool LongOptionsUseDoubleDash = false)'/>
+<use f='llvm/llvm/lib/Support/CommandLine.cpp' l='2493' u='c' c='LLVMParseCommandLineOptions'/>
+<use f='llvm/llvm/tools/bugpoint/bugpoint.cpp' l='148' u='c' c='main'/>
+<use f='llvm/llvm/tools/dsymutil/dsymutil.cpp' l='429' u='c' c='main'/>
+<use f='llvm/llvm/tools/llc/llc.cpp' l='320' u='c' c='main'/>
+<use f='llvm/llvm/tools/lli/lli.cpp' l='374' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-as/llvm-as.cpp' l='118' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-bcanalyzer/llvm-bcanalyzer.cpp' l='1001' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-cat/llvm-cat.cpp' l='52' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-cfi-verify/llvm-cfi-verify.cpp' l='246' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-cov/CodeCoverage.cpp' l='655' u='c' c='_ZN12_GLOBAL__N_116CodeCoverageTool3runENS0_7CommandEiPPKc'/>
+<use f='llvm/llvm/tools/llvm-cov/TestingSupport.cpp' l='29' u='c' c='_Z21convertForTestingMainiPPKc'/>
+<use f='llvm/llvm/tools/llvm-cov/gcov.cpp' l='140' u='c' c='_Z8gcovMainiPPKc'/>
+<use f='llvm/llvm/tools/llvm-cxxdump/llvm-cxxdump.cpp' l='548' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-cxxfilt/llvm-cxxfilt.cpp' l='135' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-cxxmap/llvm-cxxmap.cpp' l='133' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-diff/llvm-diff.cpp' l='68' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-dis/llvm-dis.cpp' l='157' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-dwarfdump/llvm-dwarfdump.cpp' l='573' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='654' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-elfabi/llvm-elfabi.cpp' l='119' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-extract/llvm-extract.cpp' l='129' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-jitlink/llvm-jitlink.cpp' l='612' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-link/llvm-link.cpp' l='355' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-lto/llvm-lto.cpp' l='864' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-lto2/llvm-lto2.cpp' l='167' u='c' c='_ZL3runiPPc'/>
+<use f='llvm/llvm/tools/llvm-mc/llvm-mc.cpp' l='318' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-modextract/llvm-modextract.cpp' l='39' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-nm/llvm-nm.cpp' l='2058' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-objdump/llvm-objdump.cpp' l='2226' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-opt-report/OptReport.cpp' l='436' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-pdbutil/llvm-pdbutil.cpp' l='1432' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-profdata/llvm-profdata.cpp' l='600' u='c' c='_ZL10merge_mainiPPKc'/>
+<use f='llvm/llvm/tools/llvm-profdata/llvm-profdata.cpp' l='682' u='c' c='_ZL12overlap_mainiPPKc'/>
+<use f='llvm/llvm/tools/llvm-profdata/llvm-profdata.cpp' l='1018' u='c' c='_ZL9show_mainiPPKc'/>
+<use f='llvm/llvm/tools/llvm-readobj/llvm-readobj.cpp' l='730' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-rtdyld/llvm-rtdyld.cpp' l='936' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-size/llvm-size.cpp' l='869' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-split/llvm-split.cpp' l='45' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-stress/llvm-stress.cpp' l='735' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-strings/llvm-strings.cpp' l='97' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-symbolizer/llvm-symbolizer.cpp' l='261' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-undname/llvm-undname.cpp' l='60' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-xray/llvm-xray.cpp' l='26' u='c' c='main'/>
+<use f='llvm/llvm/tools/lto/lto.cpp' l='547' u='c' c='thinlto_debug_options'/>
+<use f='llvm/llvm/tools/obj2yaml/obj2yaml.cpp' l='70' u='c' c='main'/>
+<use f='llvm/llvm/tools/opt/opt.cpp' l='542' u='c' c='main'/>
+<use f='llvm/llvm/tools/sancov/sancov.cpp' l='1234' u='c' c='main'/>
+<use f='llvm/llvm/tools/sanstats/sanstats.cpp' l='124' u='c' c='main'/>
+<use f='llvm/llvm/tools/verify-uselistorder/verify-uselistorder.cpp' l='534' u='c' c='main'/>
+<use f='llvm/llvm/tools/yaml2obj/yaml2obj.cpp' l='73' u='c' c='main'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='355' u='c' c='_ZN12_GLOBAL__N_141CommandLineTest_AliasesWithArguments_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='367' u='c' c='_ZN12_GLOBAL__N_117testAliasRequiredEiPKPKc'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='438' u='c' c='_ZN12_GLOBAL__N_144CommandLineTest_SetValueInSubcategories_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='451' u='c' c='_ZN12_GLOBAL__N_144CommandLineTest_SetValueInSubcategories_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='464' u='c' c='_ZN12_GLOBAL__N_144CommandLineTest_SetValueInSubcategories_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='483' u='c' c='_ZN12_GLOBAL__N_149CommandLineTest_LookupFailsInWrongSubCommand_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='504' u='c' c='_ZN12_GLOBAL__N_140CommandLineTest_AddToAllSubCommands_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='511' u='c' c='_ZN12_GLOBAL__N_140CommandLineTest_AddToAllSubCommands_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='518' u='c' c='_ZN12_GLOBAL__N_140CommandLineTest_AddToAllSubCommands_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='536' u='c' c='_ZN12_GLOBAL__N_146CommandLineTest_ReparseCommandLineOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='544' u='c' c='_ZN12_GLOBAL__N_146CommandLineTest_ReparseCommandLineOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='561' u='c' c='_ZN12_GLOBAL__N_148CommandLineTest_RemoveFromRegularSubCommand_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='569' u='c' c='_ZN12_GLOBAL__N_148CommandLineTest_RemoveFromRegularSubCommand_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='586' u='c' c='_ZN12_GLOBAL__N_149CommandLineTest_RemoveFromTopLevelSubCommand_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='593' u='c' c='_ZN12_GLOBAL__N_149CommandLineTest_RemoveFromTopLevelSubCommand_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='613' u='c' c='_ZN12_GLOBAL__N_145CommandLineTest_RemoveFromAllSubCommands_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='621' u='c' c='_ZN12_GLOBAL__N_145CommandLineTest_RemoveFromAllSubCommands_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='629' u='c' c='_ZN12_GLOBAL__N_145CommandLineTest_RemoveFromAllSubCommands_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='637' u='c' c='_ZN12_GLOBAL__N_145CommandLineTest_RemoveFromAllSubCommands_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='640' u='c' c='_ZN12_GLOBAL__N_145CommandLineTest_RemoveFromAllSubCommands_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='643' u='c' c='_ZN12_GLOBAL__N_145CommandLineTest_RemoveFromAllSubCommands_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='658' u='c' c='_ZN12_GLOBAL__N_145CommandLineTest_GetRegisteredSubcommands_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='669' u='c' c='_ZN12_GLOBAL__N_145CommandLineTest_GetRegisteredSubcommands_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='701' u='c' c='_ZN12_GLOBAL__N_135CommandLineTest_DefaultOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='711' u='c' c='_ZN12_GLOBAL__N_135CommandLineTest_DefaultOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='727' u='c' c='_ZN12_GLOBAL__N_135CommandLineTest_DefaultOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='772' u='c' c='_ZN12_GLOBAL__N_140CommandLineTest_ResponseFileWindows_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='971' u='c' c='_ZN12_GLOBAL__N_135CommandLineTest_SetDefautValue_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1069' u='c' c='_ZN12_GLOBAL__N_143CommandLineTest_PositionalEatArgsError_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1071' u='c' c='_ZN12_GLOBAL__N_143CommandLineTest_PositionalEatArgsError_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1073' u='c' c='_ZN12_GLOBAL__N_143CommandLineTest_PositionalEatArgsError_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1077' u='c' c='_ZN12_GLOBAL__N_143CommandLineTest_PositionalEatArgsError_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1326' u='c' c='_ZN12_GLOBAL__N_134CommandLineTest_PrefixOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1338' u='c' c='_ZN12_GLOBAL__N_134CommandLineTest_PrefixOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1349' u='c' c='_ZN12_GLOBAL__N_134CommandLineTest_PrefixOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1364' u='c' c='_ZN12_GLOBAL__N_134CommandLineTest_PrefixOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1376' u='c' c='_ZN12_GLOBAL__N_134CommandLineTest_PrefixOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1385' u='c' c='_ZN12_GLOBAL__N_134CommandLineTest_PrefixOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1406' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingWithValue_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1415' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingWithValue_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1422' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingWithValue_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1432' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingWithValue_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1442' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingWithValue_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1452' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingWithValue_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1468' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingAndPrefix_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1476' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingAndPrefix_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1484' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingAndPrefix_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1493' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingAndPrefix_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1501' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingAndPrefix_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1509' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingAndPrefix_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1519' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingAndPrefix_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1529' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingAndPrefix_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1537' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingAndPrefix_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1543' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingAndPrefix_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1552' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingAndPrefix_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1560' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingAndPrefix_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1565' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingAndPrefix_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1575' u='c' c='_ZN12_GLOBAL__N_138CommandLineTest_GroupingAndPrefix_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1605' u='c' c='_ZN12_GLOBAL__N_132CommandLineTest_LongOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1613' u='c' c='_ZN12_GLOBAL__N_132CommandLineTest_LongOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1623' u='c' c='_ZN12_GLOBAL__N_132CommandLineTest_LongOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1635' u='c' c='_ZN12_GLOBAL__N_132CommandLineTest_LongOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1641' u='c' c='_ZN12_GLOBAL__N_132CommandLineTest_LongOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1647' u='c' c='_ZN12_GLOBAL__N_132CommandLineTest_LongOptions_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/tools/llvm-cfi-verify/FileAnalysis.cpp' l='1092' u='c' c='main'/>
+<use f='llvm/llvm/utils/FileCheck/FileCheck.cpp' l='512' u='c' c='main'/>
+<use f='llvm/llvm/utils/TableGen/TableGen.cpp' l='259' u='c' c='main'/>
+<use f='llvm/llvm/utils/unittest/UnitTestMain/TestMain.cpp' l='30' u='c' c='main'/>
+<use f='llvm/llvm/utils/yaml-bench/YAMLBench.cpp' l='197' u='c' c='main'/>

@@ -1,0 +1,77 @@
+<def f='llvm/clang/include/clang/Basic/IdentifierTable.h' l='57' ll='404'/>
+<size>24</size>
+<doc f='llvm/clang/include/clang/Basic/IdentifierTable.h' l='51'>/// One of these records is kept for each identifier that
+/// is lexed.  This contains information about whether the token was \#define&apos;d,
+/// is a language keyword, or if it is a front-end token of some sort (e.g. a
+/// variable or function name).  The preprocessor keeps this information in a
+/// set, and all tok::identifier tokens have a pointer to one of these.
+/// It is aligned to 8 bytes because DeclarationName needs the lower 3 bits.</doc>
+<mbr r='clang::IdentifierInfo::TokenID' o='0' t='unsigned int'/>
+<mbr r='clang::IdentifierInfo::ObjCOrBuiltinID' o='9' t='unsigned int'/>
+<mbr r='clang::IdentifierInfo::HasMacro' o='22' t='unsigned int'/>
+<mbr r='clang::IdentifierInfo::HadMacro' o='23' t='unsigned int'/>
+<mbr r='clang::IdentifierInfo::IsExtension' o='24' t='unsigned int'/>
+<mbr r='clang::IdentifierInfo::IsFutureCompatKeyword' o='25' t='unsigned int'/>
+<mbr r='clang::IdentifierInfo::IsPoisoned' o='26' t='unsigned int'/>
+<mbr r='clang::IdentifierInfo::IsCPPOperatorKeyword' o='27' t='unsigned int'/>
+<mbr r='clang::IdentifierInfo::NeedsHandleIdentifier' o='28' t='unsigned int'/>
+<mbr r='clang::IdentifierInfo::IsFromAST' o='29' t='unsigned int'/>
+<mbr r='clang::IdentifierInfo::ChangedAfterLoad' o='30' t='unsigned int'/>
+<mbr r='clang::IdentifierInfo::FEChangedAfterLoad' o='31' t='unsigned int'/>
+<mbr r='clang::IdentifierInfo::RevertedTokenID' o='32' t='unsigned int'/>
+<mbr r='clang::IdentifierInfo::OutOfDate' o='33' t='unsigned int'/>
+<mbr r='clang::IdentifierInfo::IsModulesImport' o='34' t='unsigned int'/>
+<mbr r='clang::IdentifierInfo::FETokenInfo' o='64' t='void *'/>
+<mbr r='clang::IdentifierInfo::Entry' o='128' t='llvm::StringMapEntry&lt;IdentifierInfo *&gt; *'/>
+<fun r='_ZN5clang14IdentifierInfoC1Ev'/>
+<fun r='_ZN5clang14IdentifierInfoC1ERKS0_'/>
+<fun r='_ZN5clang14IdentifierInfoaSERKS0_'/>
+<fun r='_ZN5clang14IdentifierInfoC1EOS0_'/>
+<fun r='_ZN5clang14IdentifierInfoaSEOS0_'/>
+<fun r='_ZNK5clang14IdentifierInfo5isStrERAT__Kc'/>
+<fun r='_ZNK5clang14IdentifierInfo5isStrEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang14IdentifierInfo12getNameStartEv'/>
+<fun r='_ZNK5clang14IdentifierInfo9getLengthEv'/>
+<fun r='_ZNK5clang14IdentifierInfo7getNameEv'/>
+<fun r='_ZNK5clang14IdentifierInfo18hasMacroDefinitionEv'/>
+<fun r='_ZN5clang14IdentifierInfo21setHasMacroDefinitionEb'/>
+<fun r='_ZNK5clang14IdentifierInfo18hadMacroDefinitionEv'/>
+<fun r='_ZNK5clang14IdentifierInfo10getTokenIDEv'/>
+<fun r='_ZNK5clang14IdentifierInfo30hasRevertedTokenIDToIdentifierEv'/>
+<fun r='_ZN5clang14IdentifierInfo25revertTokenIDToIdentifierEv'/>
+<fun r='_ZN5clang14IdentifierInfo25revertIdentifierToTokenIDENS_3tok9TokenKindE'/>
+<fun r='_ZNK5clang14IdentifierInfo14getPPKeywordIDEv'/>
+<fun r='_ZNK5clang14IdentifierInfo16getObjCKeywordIDEv'/>
+<fun r='_ZN5clang14IdentifierInfo16setObjCKeywordIDENS_3tok15ObjCKeywordKindE'/>
+<fun r='_ZNK5clang14IdentifierInfo18hasRevertedBuiltinEv'/>
+<fun r='_ZN5clang14IdentifierInfo13revertBuiltinEv'/>
+<fun r='_ZNK5clang14IdentifierInfo12getBuiltinIDEv'/>
+<fun r='_ZN5clang14IdentifierInfo12setBuiltinIDEj'/>
+<fun r='_ZNK5clang14IdentifierInfo18getObjCOrBuiltinIDEv'/>
+<fun r='_ZN5clang14IdentifierInfo18setObjCOrBuiltinIDEj'/>
+<fun r='_ZNK5clang14IdentifierInfo16isExtensionTokenEv'/>
+<fun r='_ZN5clang14IdentifierInfo19setIsExtensionTokenEb'/>
+<fun r='_ZNK5clang14IdentifierInfo21isFutureCompatKeywordEv'/>
+<fun r='_ZN5clang14IdentifierInfo24setIsFutureCompatKeywordEb'/>
+<fun r='_ZN5clang14IdentifierInfo13setIsPoisonedEb'/>
+<fun r='_ZNK5clang14IdentifierInfo10isPoisonedEv'/>
+<fun r='_ZN5clang14IdentifierInfo29setIsCPlusPlusOperatorKeywordEb'/>
+<fun r='_ZNK5clang14IdentifierInfo26isCPlusPlusOperatorKeywordEv'/>
+<fun r='_ZNK5clang14IdentifierInfo9isKeywordERKNS_11LangOptionsE'/>
+<fun r='_ZNK5clang14IdentifierInfo18isCPlusPlusKeywordERKNS_11LangOptionsE'/>
+<fun r='_ZNK5clang14IdentifierInfo14getFETokenInfoEv'/>
+<fun r='_ZN5clang14IdentifierInfo14setFETokenInfoEPv'/>
+<fun r='_ZNK5clang14IdentifierInfo22isHandleIdentifierCaseEv'/>
+<fun r='_ZNK5clang14IdentifierInfo9isFromASTEv'/>
+<fun r='_ZN5clang14IdentifierInfo12setIsFromASTEv'/>
+<fun r='_ZNK5clang14IdentifierInfo30hasChangedSinceDeserializationEv'/>
+<fun r='_ZN5clang14IdentifierInfo30setChangedSinceDeserializationEv'/>
+<fun r='_ZNK5clang14IdentifierInfo41hasFETokenInfoChangedSinceDeserializationEv'/>
+<fun r='_ZN5clang14IdentifierInfo41setFETokenInfoChangedSinceDeserializationEv'/>
+<fun r='_ZNK5clang14IdentifierInfo11isOutOfDateEv'/>
+<fun r='_ZN5clang14IdentifierInfo12setOutOfDateEb'/>
+<fun r='_ZNK5clang14IdentifierInfo15isModulesImportEv'/>
+<fun r='_ZN5clang14IdentifierInfo16setModulesImportEb'/>
+<fun r='_ZNK5clang14IdentifierInfo19isEditorPlaceholderEv'/>
+<fun r='_ZNK5clang14IdentifierInfoltERKS0_'/>
+<fun r='_ZN5clang14IdentifierInfo30RecomputeNeedsHandleIdentifierEv'/>

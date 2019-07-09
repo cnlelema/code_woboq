@@ -1,0 +1,23 @@
+<dec f='llvm/llvm/include/llvm/Analysis/LoopAccessAnalysis.h' l='693' type='int64_t llvm::getPtrStride(llvm::PredicatedScalarEvolution &amp; PSE, llvm::Value * Ptr, const llvm::Loop * Lp, const ValueToValueMap &amp; StridesMap = ValueToValueMap(), bool Assume = false, bool ShouldCheckWrap = true)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/LoopAccessAnalysis.h' l='683'>/// If the pointer has a constant stride return it in units of its
+/// element size.  Otherwise return zero.
+///
+/// Ensure that it does not wrap in the address space, assuming the predicate
+/// associated with \p PSE is true.
+///
+/// If necessary this method will version the stride of the pointer according
+/// to \p PtrToStride and therefore add further predicates to \p PSE.
+/// The \p Assume parameter indicates if we are allowed to make additional
+/// run-time assumptions.</doc>
+<use f='llvm/llvm/lib/Analysis/LoopAccessAnalysis.cpp' l='646' u='c' c='_ZL8isNoWrapRN4llvm25PredicatedScalarEvolutionERKNS_8DenseMapIPKNS_5ValueEPS3_NS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S6_EEEES6_PNS_4LoopE'/>
+<def f='llvm/llvm/lib/Analysis/LoopAccessAnalysis.cpp' l='990' ll='1098' type='int64_t llvm::getPtrStride(llvm::PredicatedScalarEvolution &amp; PSE, llvm::Value * Ptr, const llvm::Loop * Lp, const ValueToValueMap &amp; StridesMap = ValueToValueMap(), bool Assume = false, bool ShouldCheckWrap = true)'/>
+<use f='llvm/llvm/lib/Analysis/LoopAccessAnalysis.cpp' l='1448' u='c' c='_ZN4llvm16MemoryDepChecker11isDependentERKNS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEEjS12820736'/>
+<use f='llvm/llvm/lib/Analysis/LoopAccessAnalysis.cpp' l='1449' u='c' c='_ZN4llvm16MemoryDepChecker11isDependentERKNS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEEjS12820736'/>
+<use f='llvm/llvm/lib/Analysis/LoopAccessAnalysis.cpp' l='1950' u='c' c='_ZN4llvm14LoopAccessInfo11analyzeLoopEPNS_9AAResultsEPNS_8LoopInfoEPKNS_17TargetLibraryInfoEPNS_13DominatorTreeE'/>
+<doc f='llvm/llvm/lib/Analysis/LoopAccessAnalysis.cpp' l='989'>/// Check whether the access through \p Ptr has a constant stride.</doc>
+<use f='llvm/llvm/lib/Analysis/VectorUtils.cpp' l='827' u='c' c='_ZN4llvm21InterleavedAccessInfo26collectConstStrideAccessesERNS_9MapVectorIPNS_11InstructionENS0_16StrideDescriptorENS_8DenseMapIS3_jNS_12DenseMapInfo11695689'/>
+<use f='llvm/llvm/lib/Analysis/VectorUtils.cpp' l='1077' u='c' c='_ZN4llvm21InterleavedAccessInfo19analyzeInterleavingEb'/>
+<use f='llvm/llvm/lib/Analysis/VectorUtils.cpp' l='1088' u='c' c='_ZN4llvm21InterleavedAccessInfo19analyzeInterleavingEb'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopLoadElimination.cpp' l='112' u='c' c='_ZNK12_GLOBAL__N_130StoreToLoadForwardingCandidate25isDependenceDistanceOfOneERN4llvm25PredicatedScalarEvolutionEPNS1_4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopLoadElimination.cpp' l='113' u='c' c='_ZNK12_GLOBAL__N_130StoreToLoadForwardingCandidate25isDependenceDistanceOfOneERN4llvm25PredicatedScalarEvolutionEPNS1_4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorizationLegality.cpp' l='438' u='c' c='_ZN4llvm25LoopVectorizationLegality16isConsecutivePtrEPNS_5ValueE'/>

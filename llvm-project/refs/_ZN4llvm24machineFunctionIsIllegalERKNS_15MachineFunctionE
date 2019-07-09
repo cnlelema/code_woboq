@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/LegalizerInfo.h' l='1308' type='const llvm::MachineInstr * llvm::machineFunctionIsIllegal(const llvm::MachineFunction &amp; MF)'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/InstructionSelect.cpp' l='87' u='c' c='_ZN4llvm17InstructionSelect20runOnMachineFunctionERNS_15MachineFunctionE'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/LegalizerInfo.h' l='1306'>/// Checks that MIR is fully legal, returns an illegal instruction if it&apos;s not,
+/// nullptr otherwise</doc>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerInfo.cpp' l='700' ll='710' type='const llvm::MachineInstr * llvm::machineFunctionIsIllegal(const llvm::MachineFunction &amp; MF)'/>
+<doc f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerInfo.cpp' l='695'>// FIXME: This should be in the MachineVerifier, but it can&apos;t use the
+// LegalizerInfo as it&apos;s currently in the separate GlobalISel library.
+// Note that RegBankSelected property already checked in the verifier
+// has the same layering problem, but we only use inline methods so
+// end up not needing to link against the GlobalISel library.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/RegBankSelect.cpp' l='670' u='c' c='_ZN4llvm13RegBankSelect20runOnMachineFunctionERNS_15MachineFunctionE'/>

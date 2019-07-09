@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/LegalizerHelper.h' l='162' type='void llvm::LegalizerHelper::insertParts(unsigned int DstReg, llvm::LLT ResultTy, llvm::LLT PartTy, ArrayRef&lt;unsigned int&gt; PartRegs, llvm::LLT LeftoverTy = llvm::LLT(), ArrayRef&lt;unsigned int&gt; LeftoverRegs = {})'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/LegalizerHelper.h' l='153'>/// Helper function to build a wide generic register \p DstReg of type \p
+  /// RegTy from smaller parts. This will produce a G_MERGE_VALUES,
+  /// G_BUILD_VECTOR, G_CONCAT_VECTORS, or sequence of G_INSERT as appropriate
+  /// for the types.
+  ///
+  /// \p PartRegs must be registers of type \p PartTy.
+  ///
+  /// If \p ResultTy does not evenly break into \p PartTy sized pieces, the
+  /// remainder must be specified with \p LeftoverRegs of type \p LeftoverTy.</doc>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='170' ll='213' type='void llvm::LegalizerHelper::insertParts(unsigned int DstReg, llvm::LLT ResultTy, llvm::LLT PartTy, ArrayRef&lt;unsigned int&gt; PartRegs, llvm::LLT LeftoverTy = llvm::LLT(), ArrayRef&lt;unsigned int&gt; LeftoverRegs = {})'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='510' u='c' c='_ZN4llvm15LegalizerHelper12narrowScalarERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1831' u='c' c='_ZN4llvm15LegalizerHelper31fewerElementsVectorMultiEltTypeERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2060' u='c' c='_ZN4llvm15LegalizerHelper22fewerElementsVectorPhiERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2171' u='c' c='_ZN4llvm15LegalizerHelper20reduceLoadStoreWidthERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2831' u='c' c='_ZN4llvm15LegalizerHelper17narrowScalarBasicERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2877' u='c' c='_ZN4llvm15LegalizerHelper18narrowScalarSelectERNS_12MachineInstrEjNS_3LLTE'/>

@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/Support/Path.h' l='253' type='llvm::StringRef llvm::sys::path::root_directory(llvm::StringRef path, llvm::sys::path::Style style = Style::native)'/>
+<doc f='llvm/llvm/include/llvm/Support/Path.h' l='242'>/// Get root directory.
+///
+/// @code
+///   /goo/hello =&gt; /
+///   c:/hello   =&gt; /
+///   d/file.txt =&gt; &lt;empty&gt;
+/// @endcode
+///
+/// @param path Input path.
+/// @result The root directory of \a path if it has one, otherwise
+///               &quot;&quot;.</doc>
+<use f='llvm/clang/lib/Tooling/InterpolatingCompilationDatabase.cpp' l='412' u='c' c='_ZNK5clang7tooling12_GLOBAL__N_19FileIndex15scoreCandidatesEN4llvm9StringRefE'/>
+<def f='llvm/llvm/lib/Support/Path.cpp' l='389' ll='410' type='llvm::StringRef llvm::sys::path::root_directory(llvm::StringRef path, llvm::sys::path::Style style = Style::native)'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='618' u='c' c='_ZN4llvm3sys4path18has_root_directoryERKNS_5TwineENS1_5StyleE'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='889' u='c' c='_ZN4llvm3sys2fs13make_absoluteERKNS_5TwineERNS_15SmallVectorImplIcEE'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='171' u='c' c='_ZN12_GLOBAL__N_117Support_Path_Test8TestBodyEv'/>

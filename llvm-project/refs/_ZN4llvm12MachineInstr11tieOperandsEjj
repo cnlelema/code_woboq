@@ -1,0 +1,36 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1303' type='void llvm::MachineInstr::tieOperands(unsigned int DefIdx, unsigned int UseIdx)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1297'>/// Add a tie between the register operands at DefIdx and UseIdx.
+  /// The tie will cause the register allocator to ensure that the two
+  /// operands are assigned the same physical register.
+  ///
+  /// Tied operands are managed automatically for explicit operands in the
+  /// MCInstrDesc. This method is for exceptional cases like inline asm.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/Utils.cpp' l='154' u='c' c='_ZN4llvm32constrainSelectedInstRegOperandsERNS_12MachineInstrERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/MIRParser/MIParser.cpp' l='1388' u='c' c='_ZN12_GLOBAL__N_18MIParser18assignRegisterTiesERN4llvm12MachineInstrENS1_8ArrayRefINS_20ParsedMachineOperandEEE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='283' u='c' c='_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE'/>
+<def f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='1056' ll='1076' type='void llvm::MachineInstr::tieOperands(unsigned int DefIdx, unsigned int UseIdx)'/>
+<doc f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='1044'>/// tieOperands - Mark operands at DefIdx and UseIdx as tied to each other.
+///
+/// Use and def operands can be tied together, indicated by a non-zero TiedTo
+/// field. TiedTo can have these values:
+///
+/// 0:              Operand is not tied to anything.
+/// 1 to TiedMax-1: Tied to getOperand(TiedTo-1).
+/// TiedMax:        Tied to an operand &gt;= TiedMax-1.
+///
+/// The tied def must be one of the first TiedMax operands on a normal
+/// instruction. INLINEASM instructions allow more tied defs.
+///</doc>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='2923' u='c' c='_ZN4llvm17SwingSchedulerDAG10cloneInstrEPNS_12MachineInstrEjj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/InstrEmitter.cpp' l='1125' u='c' c='_ZN4llvm12InstrEmitter15EmitSpecialNodeEPNS_6SDNodeEbbRNS_8DenseMapINS_7SDValueEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIAddIMGInit.cpp' l='171' u='c' c='_ZN12_GLOBAL__N_112SIAddIMGInit20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIShrinkInstructions.cpp' l='373' u='c' c='_ZL19shrinkScalarLogicOpRKN4llvm12GCNSubtargetERNS_19MachineRegisterInfoEPKNS_11SIInstrInfoERNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIShrinkInstructions.cpp' l='654' u='c' c='_ZN12_GLOBAL__N_120SIShrinkInstructions20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='2151' u='c' c='_ZNK4llvm16ARMBaseInstrInfo14optimizeSelectERNS_12MachineInstrERNS_15SmallPtrSetImplIPS1_EEb'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='9618' u='c' c='_ZNK4llvm17ARMTargetLowering29AdjustInstrPostInstrSelectionERNS_12MachineInstrEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonExpandCondsets.cpp' l='521' u='c' c='_ZN12_GLOBAL__N_121HexagonExpandCondsets18updateDeadsInRangeEjN4llvm11LaneBitmaskERNS1_9LiveRangeE'/>
+<use f='llvm/llvm/lib/Target/Lanai/LanaiInstrInfo.cpp' l='535' u='c' c='_ZNK4llvm14LanaiInstrInfo14optimizeSelectERNS_12MachineInstrERNS_15SmallPtrSetImplIPS1_EEb'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZInstrInfo.cpp' l='176' u='c' c='_ZNK4llvm16SystemZInstrInfo15expandRIEPseudoERNS_12MachineInstrEjjj'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZPostRewrite.cpp' l='85' u='c' c='_ZN12_GLOBAL__N_118SystemZPostRewrite8selectMIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZShortenInst.cpp' l='69' u='c' c='_ZL14tieOpsIfNeededRN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZShortenInst.cpp' l='315' u='c' c='_ZN12_GLOBAL__N_118SystemZShortenInst12processBlockERN4llvm17MachineBasicBlockE'/>

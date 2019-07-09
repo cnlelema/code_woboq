@@ -1,0 +1,8 @@
+<dec f='llvm/llvm/lib/Target/SystemZ/SystemZInstrInfo.h' l='170' type='llvm::MachineInstrBuilder llvm::SystemZInstrInfo::emitGRX32Move(llvm::MachineBasicBlock &amp; MBB, MachineBasicBlock::iterator MBBI, const llvm::DebugLoc &amp; DL, unsigned int DestReg, unsigned int SrcReg, unsigned int LowLowOpcode, unsigned int Size, bool KillSrc, bool UndefSrc) const'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZInstrInfo.cpp' l='230' u='c' c='_ZNK4llvm16SystemZInstrInfo16expandZExtPseudoERNS_12MachineInstrEjj'/>
+<def f='llvm/llvm/lib/Target/SystemZ/SystemZInstrInfo.cpp' l='275' ll='300' type='llvm::MachineInstrBuilder llvm::SystemZInstrInfo::emitGRX32Move(llvm::MachineBasicBlock &amp; MBB, MachineBasicBlock::iterator MBBI, const llvm::DebugLoc &amp; DL, unsigned int DestReg, unsigned int SrcReg, unsigned int LowLowOpcode, unsigned int Size, bool KillSrc, bool UndefSrc) const'/>
+<doc f='llvm/llvm/lib/Target/SystemZ/SystemZInstrInfo.cpp' l='270'>// Emit a zero-extending move from 32-bit GPR SrcReg to 32-bit GPR
+// DestReg before MBBI in MBB.  Use LowLowOpcode when both DestReg and SrcReg
+// are low registers, otherwise use RISB[LH]G.  Size is the number of bits
+// taken from the low end of SrcReg (8 for LLCR, 16 for LLHR and 32 for LR).
+// KillSrc is true if this move is the last use of SrcReg.</doc>

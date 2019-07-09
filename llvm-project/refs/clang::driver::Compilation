@@ -1,0 +1,56 @@
+<def f='llvm/clang/include/clang/Driver/Compilation.h' l='45' ll='306'/>
+<size>488</size>
+<doc f='llvm/clang/include/clang/Driver/Compilation.h' l='43'>/// Compilation - A set of tasks to perform for a single driver
+/// invocation.</doc>
+<mbr r='clang::driver::Compilation::TheDriver' o='0' t='const clang::driver::Driver &amp;'/>
+<mbr r='clang::driver::Compilation::DefaultToolChain' o='64' t='const clang::driver::ToolChain &amp;'/>
+<mbr r='clang::driver::Compilation::ActiveOffloadMask' o='128' t='unsigned int'/>
+<mbr r='clang::driver::Compilation::OrderedOffloadingToolchains' o='192' t='std::multimap&lt;Action::OffloadKind, const ToolChain *&gt;'/>
+<mbr r='clang::driver::Compilation::Args' o='576' t='llvm::opt::InputArgList *'/>
+<mbr r='clang::driver::Compilation::TranslatedArgs' o='640' t='llvm::opt::DerivedArgList *'/>
+<mbr r='clang::driver::Compilation::AllActions' o='704' t='std::vector&lt;std::unique_ptr&lt;Action&gt; &gt;'/>
+<mbr r='clang::driver::Compilation::Actions' o='896' t='ActionList'/>
+<mbr r='clang::driver::Compilation::Jobs' o='1216' t='clang::driver::JobList'/>
+<mbr r='clang::driver::Compilation::TCArgs' o='1600' t='std::map&lt;TCArgsKey, llvm::opt::DerivedArgList *&gt;'/>
+<mbr r='clang::driver::Compilation::TempFiles' o='1984' t='llvm::opt::ArgStringList'/>
+<mbr r='clang::driver::Compilation::ResultFiles' o='3136' t='ArgStringMap'/>
+<mbr r='clang::driver::Compilation::FailureResultFiles' o='3392' t='ArgStringMap'/>
+<mbr r='clang::driver::Compilation::Redirects' o='3648' t='std::vector&lt;Optional&lt;StringRef&gt; &gt;'/>
+<mbr r='clang::driver::Compilation::ForDiagnostics' o='3840' t='bool'/>
+<mbr r='clang::driver::Compilation::ContainsError' o='3848' t='bool'/>
+<mbr r='clang::driver::Compilation::ForceKeepTempFiles' o='3856' t='bool'/>
+<fun r='_ZN5clang6driver11CompilationC1ERKNS0_6DriverERKNS0_9ToolChainEPN4llvm3opt12InputArgListEPNS9_14DerivedArgListEb'/>
+<fun r='_ZN5clang6driver11CompilationD1Ev'/>
+<fun r='_ZNK5clang6driver11Compilation9getDriverEv'/>
+<fun r='_ZNK5clang6driver11Compilation19getDefaultToolChainEv'/>
+<fun r='_ZNK5clang6driver11Compilation20isOffloadingHostKindENS0_6Action11OffloadKindE'/>
+<fun r='_ZNK5clang6driver11Compilation20getOffloadToolChainsEv'/>
+<fun r='_ZNK5clang6driver11Compilation19hasOffloadToolChainEv'/>
+<fun r='_ZNK5clang6driver11Compilation25getSingleOffloadToolChainEv'/>
+<fun r='_ZN5clang6driver11Compilation25addOffloadDeviceToolChainEPKNS0_9ToolChainENS0_6Action11OffloadKindE'/>
+<fun r='_ZNK5clang6driver11Compilation12getInputArgsEv'/>
+<fun r='_ZNK5clang6driver11Compilation7getArgsEv'/>
+<fun r='_ZN5clang6driver11Compilation7getArgsEv'/>
+<fun r='_ZN5clang6driver11Compilation10getActionsEv'/>
+<fun r='_ZNK5clang6driver11Compilation10getActionsEv'/>
+<fun r='_ZN5clang6driver11Compilation10MakeActionEDpOT0_'/>
+<fun r='_ZN5clang6driver11Compilation7getJobsEv'/>
+<fun r='_ZNK5clang6driver11Compilation7getJobsEv'/>
+<fun r='_ZN5clang6driver11Compilation10addCommandESt10unique_ptrINS0_7CommandESt14default_deleteIS3_EE'/>
+<fun r='_ZNK5clang6driver11Compilation12getTempFilesEv'/>
+<fun r='_ZNK5clang6driver11Compilation14getResultFilesEv'/>
+<fun r='_ZNK5clang6driver11Compilation21getFailureResultFilesEv'/>
+<fun r='_ZNK5clang6driver11Compilation10getSysRootEv'/>
+<fun r='_ZN5clang6driver11Compilation19getArgsForToolChainEPKNS0_9ToolChainEN4llvm9StringRefENS0_6Action11OffloadKindE'/>
+<fun r='_ZN5clang6driver11Compilation11addTempFileEPKc'/>
+<fun r='_ZN5clang6driver11Compilation13addResultFileEPKcPKNS0_9JobActionE'/>
+<fun r='_ZN5clang6driver11Compilation20addFailureResultFileEPKcPKNS0_9JobActionE'/>
+<fun r='_ZNK5clang6driver11Compilation11CleanupFileEPKcb'/>
+<fun r='_ZNK5clang6driver11Compilation15CleanupFileListERKN4llvm11SmallVectorIPKcLj16EEEb'/>
+<fun r='_ZNK5clang6driver11Compilation14CleanupFileMapERKN4llvm8DenseMapIPKNS0_9JobActionEPKcNS2_12DenseMapInfoIS6_EENS2_6detail12DenseMapPairIS6_S8_EEEES6_b'/>
+<fun r='_ZNK5clang6driver11Compilation14ExecuteCommandERKNS0_7CommandERPS3_'/>
+<fun r='_ZNK5clang6driver11Compilation11ExecuteJobsERKNS0_7JobListERN4llvm15SmallVectorImplISt4pairIiPKNS0_7CommandEEEE'/>
+<fun r='_ZN5clang6driver11Compilation29initCompilationForDiagnosticsEv'/>
+<fun r='_ZNK5clang6driver11Compilation16isForDiagnosticsEv'/>
+<fun r='_ZNK5clang6driver11Compilation13containsErrorEv'/>
+<fun r='_ZN5clang6driver11Compilation8RedirectEN4llvm8ArrayRefINS2_8OptionalINS2_9StringRefEEEEE'/>

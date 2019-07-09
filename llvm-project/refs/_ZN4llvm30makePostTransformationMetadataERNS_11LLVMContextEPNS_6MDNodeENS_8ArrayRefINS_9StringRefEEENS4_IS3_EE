@@ -1,0 +1,19 @@
+<dec f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='1202' type='llvm::MDNode * llvm::makePostTransformationMetadata(llvm::LLVMContext &amp; Context, llvm::MDNode * OrigLoopID, llvm::ArrayRef&lt;llvm::StringRef&gt; RemovePrefixes, llvm::ArrayRef&lt;llvm::MDNode *&gt; AddAttrs)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='1186'>/// Create a new LoopID after the loop has been transformed.
+///
+/// This can be used when no follow-up loop attributes are defined
+/// (llvm::makeFollowupLoopID returning None) to stop transformations to be
+/// applied again.
+///
+/// @param Context        The LLVMContext in which to create the new LoopID.
+/// @param OrigLoopID     The original LoopID; can be nullptr if the original
+///                       loop has no LoopID.
+/// @param RemovePrefixes Remove all loop attributes that have these prefixes.
+///                       Use to remove metadata of the transformation that has
+///                       been applied.
+/// @param AddAttrs       Add these loop attributes to the new LoopID.
+///
+/// @return A new LoopID that can be applied using Loop::setLoopID().</doc>
+<use f='llvm/llvm/lib/Analysis/LoopInfo.cpp' l='489' u='c' c='_ZN4llvm4Loop22setLoopAlreadyUnrolledEv'/>
+<def f='llvm/llvm/lib/Analysis/LoopInfo.cpp' l='968' ll='1006' type='llvm::MDNode * llvm::makePostTransformationMetadata(llvm::LLVMContext &amp; Context, llvm::MDNode * OrigLoopID, ArrayRef&lt;llvm::StringRef&gt; RemovePrefixes, ArrayRef&lt;llvm::MDNode *&gt; AddAttrs)'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorizationLegality.cpp' l='128' u='c' c='_ZN4llvm18LoopVectorizeHints20setAlreadyVectorizedEv'/>

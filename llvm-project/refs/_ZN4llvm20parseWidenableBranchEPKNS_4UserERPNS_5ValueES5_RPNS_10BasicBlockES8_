@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/Analysis/GuardUtils.h' l='38' type='bool llvm::parseWidenableBranch(const llvm::User * U, llvm::Value *&amp; Condition, llvm::Value *&amp; WidenableCondition, llvm::BasicBlock *&amp; IfTrueBB, llvm::BasicBlock *&amp; IfFalseBB)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/GuardUtils.h' l='29'>/// If U is widenable branch looking like:
+///   %cond = ...
+///   %wc = call i1 @llvm.experimental.widenable.condition()
+///   %branch_cond = and i1 %cond, %wc
+///   br i1 %branch_cond, label %if_true_bb, label %if_false_bb ; &lt;--- U
+/// The function returns true, and the values %cond and %wc and blocks
+/// %if_true_bb, if_false_bb are returned in
+/// the parameters (Condition, WidenableCondition, IfTrueBB and IfFalseFF)
+/// respectively. If \p U does not match this pattern, return false.</doc>
+<use f='llvm/llvm/lib/Analysis/GuardUtils.cpp' l='25' u='c' c='_ZN4llvm24isGuardAsWidenableBranchEPKNS_4UserE'/>
+<def f='llvm/llvm/lib/Analysis/GuardUtils.cpp' l='38' ll='49' type='bool llvm::parseWidenableBranch(const llvm::User * U, llvm::Value *&amp; Condition, llvm::Value *&amp; WidenableCondition, llvm::BasicBlock *&amp; IfTrueBB, llvm::BasicBlock *&amp; IfFalseBB)'/>

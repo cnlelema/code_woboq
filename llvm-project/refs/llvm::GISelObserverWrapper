@@ -1,0 +1,19 @@
+<inh f='llvm/llvm/include/llvm/CodeGen/MachineFunction.h' l='370' c='llvm::MachineFunction::Delegate'/>
+<inh f='llvm/llvm/include/llvm/CodeGen/GlobalISel/GISelChangeObserver.h' l='28' c='llvm::GISelChangeObserver'/>
+<def f='llvm/llvm/include/llvm/CodeGen/GlobalISel/GISelChangeObserver.h' l='65' ll='102'/>
+<size>136</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/GISelChangeObserver.h' l='61'>/// Simple wrapper observer that takes several observers, and calls
+/// each one for each event. If there are multiple observers (say CSE,
+/// Legalizer, Combiner), it&apos;s sufficient to register this to the machine
+/// function as the delegate.</doc>
+<mbr r='llvm::GISelObserverWrapper::Observers' o='704' t='SmallVector&lt;llvm::GISelChangeObserver *, 4&gt;'/>
+<fun r='_ZN4llvm20GISelObserverWrapperC1Ev'/>
+<fun r='_ZN4llvm20GISelObserverWrapperC1ENS_8ArrayRefIPNS_19GISelChangeObserverEEE'/>
+<fun r='_ZN4llvm20GISelObserverWrapper11addObserverEPNS_19GISelChangeObserverE'/>
+<fun r='_ZN4llvm20GISelObserverWrapper14removeObserverEPNS_19GISelChangeObserverE'/>
+<fun r='_ZN4llvm20GISelObserverWrapper12erasingInstrERNS_12MachineInstrE'/>
+<fun r='_ZN4llvm20GISelObserverWrapper12createdInstrERNS_12MachineInstrE'/>
+<fun r='_ZN4llvm20GISelObserverWrapper13changingInstrERNS_12MachineInstrE'/>
+<fun r='_ZN4llvm20GISelObserverWrapper12changedInstrERNS_12MachineInstrE'/>
+<fun r='_ZN4llvm20GISelObserverWrapper18MF_HandleInsertionERNS_12MachineInstrE'/>
+<fun r='_ZN4llvm20GISelObserverWrapper16MF_HandleRemovalERNS_12MachineInstrE'/>

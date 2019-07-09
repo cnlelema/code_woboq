@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/MC/MCObjectWriter.h' l='68' type='void llvm::MCObjectWriter::recordRelocation(llvm::MCAssembler &amp; Asm, const llvm::MCAsmLayout &amp; Layout, const llvm::MCFragment * Fragment, const llvm::MCFixup &amp; Fixup, llvm::MCValue Target, uint64_t &amp; FixedValue)'/>
+<doc f='llvm/llvm/include/llvm/MC/MCObjectWriter.h' l='62'>/// Record a relocation entry.
+  ///
+  /// This routine is called by the assembler after layout and relaxation, and
+  /// post layout binding. The implementation is responsible for storing
+  /// information about the relocation so that it can be emitted during
+  /// writeObject().</doc>
+<ovr f='llvm/llvm/lib/MC/ELFObjectWriter.cpp' l='1439' c='_ZN12_GLOBAL__N_115ELFObjectWriter16recordRelocationERN4llvm11MCAssemblerERKNS1_11MCAsmLayoutEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm'/>
+<use f='llvm/llvm/lib/MC/MCAssembler.cpp' l='743' u='c' c='_ZN4llvm11MCAssembler11handleFixupERKNS_11MCAsmLayoutERNS_10MCFragmentERKNS_7MCFixupE'/>
+<use f='llvm/llvm/lib/MC/MCAssembler.cpp' l='747' u='c' c='_ZN4llvm11MCAssembler11handleFixupERKNS_11MCAsmLayoutERNS_10MCFragmentERKNS_7MCFixupE'/>
+<use f='llvm/llvm/lib/MC/MCAssembler.cpp' l='750' u='c' c='_ZN4llvm11MCAssembler11handleFixupERKNS_11MCAsmLayoutERNS_10MCFragmentERKNS_7MCFixupE'/>
+<ovr f='llvm/llvm/lib/MC/MachObjectWriter.cpp' l='460' c='_ZN4llvm16MachObjectWriter16recordRelocationERNS_11MCAssemblerERKNS_11MCAsmLayoutEPKNS_10MCFragmentERKNS_7MCFixupENS_7MCValueERm'/>
+<ovr f='llvm/llvm/lib/MC/WasmObjectWriter.cpp' l='436' c='_ZN12_GLOBAL__N_116WasmObjectWriter16recordRelocationERN4llvm11MCAssemblerERKNS1_11MCAsmLayoutEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm'/>
+<ovr f='llvm/llvm/lib/MC/WinCOFFObjectWriter.cpp' l='696' c='_ZN12_GLOBAL__N_119WinCOFFObjectWriter16recordRelocationERN4llvm11MCAssemblerERKNS1_11MCAsmLayoutEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm'/>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GlobalMappingLayer.h source code [llvm/llvm/include/llvm/ExecutionEngine/Orc/GlobalMappingLayer.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::orc::GlobalMappingLayer "/>
+<link rel="stylesheet" href="../../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/ExecutionEngine/Orc/GlobalMappingLayer.h'; var root_path = '../../../../../..'; var data_path = '../../../../../../../data';</script>
+<script src='../../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>llvm</a>/<a href='../../../..'>llvm</a>/<a href='../../..'>include</a>/<a href='../..'>llvm</a>/<a href='..'>ExecutionEngine</a>/<a href='./'>Orc</a>/<a href='GlobalMappingLayer.h.html'>GlobalMappingLayer.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- GlobalMappingLayer.h - Run all IR through a functor ------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// Convenience layer for injecting symbols that will appear in calls to</i></td></tr>
+<tr><th id="10">10</th><td><i>// findSymbol.</i></td></tr>
+<tr><th id="11">11</th><td><i>//</i></td></tr>
+<tr><th id="12">12</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><u>#<span data-ppcond="14">ifndef</span> <span class="macro" data-ref="_M/LLVM_EXECUTIONENGINE_ORC_GLOBALMAPPINGLAYER_H">LLVM_EXECUTIONENGINE_ORC_GLOBALMAPPINGLAYER_H</span></u></td></tr>
+<tr><th id="15">15</th><td><u>#define <dfn class="macro" id="_M/LLVM_EXECUTIONENGINE_ORC_GLOBALMAPPINGLAYER_H" data-ref="_M/LLVM_EXECUTIONENGINE_ORC_GLOBALMAPPINGLAYER_H">LLVM_EXECUTIONENGINE_ORC_GLOBALMAPPINGLAYER_H</dfn></u></td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../JITSymbol.h.html">"llvm/ExecutionEngine/JITSymbol.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../../../../include/c++/7/map.html">&lt;map&gt;</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../../../include/c++/7/memory.html">&lt;memory&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../../../include/c++/7/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>class</b> <a class="type" href="../../IR/Module.h.html#llvm::Module" title='llvm::Module' data-ref="llvm::Module" id="llvm::Module">Module</a>;</td></tr>
+<tr><th id="25">25</th><td><b>class</b> <a class="type" href="../JITSymbol.h.html#llvm::JITSymbolResolver" title='llvm::JITSymbolResolver' data-ref="llvm::JITSymbolResolver" id="llvm::JITSymbolResolver">JITSymbolResolver</a>;</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><b>namespace</b> <span class="namespace">orc</span> {</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><i class="doc">/// Global mapping layer.</i></td></tr>
+<tr><th id="30">30</th><td><i class="doc">///</i></td></tr>
+<tr><th id="31">31</th><td><i class="doc">///   This layer overrides the findSymbol method to first search a local symbol</i></td></tr>
+<tr><th id="32">32</th><td><i class="doc">/// table that the client can define. It can be used to inject new symbol</i></td></tr>
+<tr><th id="33">33</th><td><i class="doc">/// mappings into the JIT. Beware, however: symbols within a single IR module or</i></td></tr>
+<tr><th id="34">34</th><td><i class="doc">/// object file will still resolve locally (via RuntimeDyld's symbol table) -</i></td></tr>
+<tr><th id="35">35</th><td><i class="doc">/// such internal references cannot be overriden via this layer.</i></td></tr>
+<tr><th id="36">36</th><td><b>template</b> &lt;<b>typename</b> BaseLayerT&gt;</td></tr>
+<tr><th id="37">37</th><td><b>class</b> <dfn class="type def" id="llvm::orc::GlobalMappingLayer" title='llvm::orc::GlobalMappingLayer' data-ref="llvm::orc::GlobalMappingLayer">GlobalMappingLayer</dfn> {</td></tr>
+<tr><th id="38">38</th><td><b>public</b>:</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td>  <i class="doc">/// Handle to an added module.</i></td></tr>
+<tr><th id="41">41</th><td>  <b>using</b> <dfn class="typedef" id="llvm::orc::GlobalMappingLayer::ModuleHandleT" title='llvm::orc::GlobalMappingLayer::ModuleHandleT' data-type='typename BaseLayerT::ModuleHandleT' data-ref="llvm::orc::GlobalMappingLayer::ModuleHandleT">ModuleHandleT</dfn> = <b>typename</b> BaseLayerT::ModuleHandleT;</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td>  <i class="doc">/// Construct an GlobalMappingLayer with the given BaseLayer</i></td></tr>
+<tr><th id="44">44</th><td>  <dfn class="decl def" id="_ZN4llvm3orc18GlobalMappingLayerC1ERT_" title='llvm::orc::GlobalMappingLayer::GlobalMappingLayer&lt;BaseLayerT&gt;' data-ref="_ZN4llvm3orc18GlobalMappingLayerC1ERT_">GlobalMappingLayer</dfn>(BaseLayerT &amp;<dfn class="local col1 decl" id="1BaseLayer" title='BaseLayer' data-type='BaseLayerT &amp;' data-ref="1BaseLayer">BaseLayer</dfn>) : <a class="member" href="#llvm::orc::GlobalMappingLayer::BaseLayer" title='llvm::orc::GlobalMappingLayer::BaseLayer' data-ref="llvm::orc::GlobalMappingLayer::BaseLayer">BaseLayer</a>(<a class="local col1 ref" href="#1BaseLayer" title='BaseLayer' data-ref="1BaseLayer">BaseLayer</a>) {}</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td>  <i class="doc">/// Add the given module to the JIT.</i></td></tr>
+<tr><th id="47">47</th><td><i class="doc">  /// <span class="command">@return</span> A handle for the added modules.</i></td></tr>
+<tr><th id="48">48</th><td>  <a class="type" href="../../Support/Error.h.html#llvm::Expected" title='llvm::Expected' data-ref="llvm::Expected">Expected</a>&lt;<a class="typedef" href="#llvm::orc::GlobalMappingLayer::ModuleHandleT" title='llvm::orc::GlobalMappingLayer::ModuleHandleT' data-type='typename BaseLayerT::ModuleHandleT' data-ref="llvm::orc::GlobalMappingLayer::ModuleHandleT">ModuleHandleT</a>&gt;</td></tr>
+<tr><th id="49">49</th><td>  <dfn class="decl def" id="_ZN4llvm3orc18GlobalMappingLayer9addModuleESt10shared_ptrINS_6ModuleEES2_INS_17JITSymbolResolverEE" title='llvm::orc::GlobalMappingLayer::addModule' data-ref="_ZN4llvm3orc18GlobalMappingLayer9addModuleESt10shared_ptrINS_6ModuleEES2_INS_17JITSymbolResolverEE">addModule</dfn>(<span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/7/bits/shared_ptr_base.h.html#std::shared_ptr" title='std::shared_ptr' data-ref="std::shared_ptr">shared_ptr</a>&lt;<a class="type" href="../../IR/Module.h.html#llvm::Module" title='llvm::Module' data-ref="llvm::Module">Module</a>&gt; <dfn class="local col2 decl" id="2M" title='M' data-type='std::shared_ptr&lt;Module&gt;' data-ref="2M">M</dfn>,</td></tr>
+<tr><th id="50">50</th><td>            <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/7/bits/shared_ptr_base.h.html#std::shared_ptr" title='std::shared_ptr' data-ref="std::shared_ptr">shared_ptr</a>&lt;<a class="type" href="../JITSymbol.h.html#llvm::JITSymbolResolver" title='llvm::JITSymbolResolver' data-ref="llvm::JITSymbolResolver">JITSymbolResolver</a>&gt; <dfn class="local col3 decl" id="3Resolver" title='Resolver' data-type='std::shared_ptr&lt;JITSymbolResolver&gt;' data-ref="3Resolver">Resolver</dfn>) {</td></tr>
+<tr><th id="51">51</th><td>    <b>return</b> <a class="member" href="#llvm::orc::GlobalMappingLayer::BaseLayer" title='llvm::orc::GlobalMappingLayer::BaseLayer' data-ref="llvm::orc::GlobalMappingLayer::BaseLayer">BaseLayer</a>.addModule(<span class="namespace">std::</span><a class="ref" href="../../../../../../include/c++/7/bits/move.h.html#_ZSt4moveOT_" title='std::move' data-ref="_ZSt4moveOT_">move</a>(<span class='refarg'><a class="local col2 ref" href="#2M" title='M' data-ref="2M">M</a></span>), <span class="namespace">std::</span><a class="ref" href="../../../../../../include/c++/7/bits/move.h.html#_ZSt4moveOT_" title='std::move' data-ref="_ZSt4moveOT_">move</a>(<span class='refarg'><a class="local col3 ref" href="#3Resolver" title='Resolver' data-ref="3Resolver">Resolver</a></span>));</td></tr>
+<tr><th id="52">52</th><td>  }</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td>  <i class="doc">/// Remove the module set associated with the handle H.</i></td></tr>
+<tr><th id="55">55</th><td>  <a class="type" href="../../Support/Error.h.html#llvm::Error" title='llvm::Error' data-ref="llvm::Error">Error</a> <dfn class="decl def" id="_ZN4llvm3orc18GlobalMappingLayer12removeModuleENT_13ModuleHandleTE" title='llvm::orc::GlobalMappingLayer::removeModule' data-ref="_ZN4llvm3orc18GlobalMappingLayer12removeModuleENT_13ModuleHandleTE">removeModule</dfn>(<a class="typedef" href="#llvm::orc::GlobalMappingLayer::ModuleHandleT" title='llvm::orc::GlobalMappingLayer::ModuleHandleT' data-type='typename BaseLayerT::ModuleHandleT' data-ref="llvm::orc::GlobalMappingLayer::ModuleHandleT">ModuleHandleT</a> <dfn class="local col4 decl" id="4H" title='H' data-type='ModuleHandleT' data-ref="4H">H</dfn>) { <b>return</b> <a class="member" href="#llvm::orc::GlobalMappingLayer::BaseLayer" title='llvm::orc::GlobalMappingLayer::BaseLayer' data-ref="llvm::orc::GlobalMappingLayer::BaseLayer">BaseLayer</a>.removeModule(<a class="local col4 ref" href="#4H" title='H' data-ref="4H">H</a>); }</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>  <i class="doc">/// Manually set the address to return for the given symbol.</i></td></tr>
+<tr><th id="58">58</th><td>  <em>void</em> <dfn class="decl def" id="_ZN4llvm3orc18GlobalMappingLayer16setGlobalMappingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm" title='llvm::orc::GlobalMappingLayer::setGlobalMapping' data-ref="_ZN4llvm3orc18GlobalMappingLayer16setGlobalMappingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm">setGlobalMapping</dfn>(<em>const</em> <span class="namespace">std::</span><a class="typedef" href="../../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> &amp;<dfn class="local col5 decl" id="5Name" title='Name' data-type='const std::string &amp;' data-ref="5Name">Name</dfn>, <a class="typedef" href="../JITSymbol.h.html#llvm::JITTargetAddress" title='llvm::JITTargetAddress' data-type='uint64_t' data-ref="llvm::JITTargetAddress">JITTargetAddress</a> <dfn class="local col6 decl" id="6Addr" title='Addr' data-type='JITTargetAddress' data-ref="6Addr">Addr</dfn>) {</td></tr>
+<tr><th id="59">59</th><td>    <a class="member" href="#llvm::orc::GlobalMappingLayer::SymbolTable" title='llvm::orc::GlobalMappingLayer::SymbolTable' data-ref="llvm::orc::GlobalMappingLayer::SymbolTable">SymbolTable</a>[<a class="local col5 ref" href="#5Name" title='Name' data-ref="5Name">Name</a>] = <a class="local col6 ref" href="#6Addr" title='Addr' data-ref="6Addr">Addr</a>;</td></tr>
+<tr><th id="60">60</th><td>  }</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>  <i class="doc">/// Remove the given symbol from the global mapping.</i></td></tr>
+<tr><th id="63">63</th><td>  <em>void</em> <dfn class="decl def" id="_ZN4llvm3orc18GlobalMappingLayer18eraseGlobalMappingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE" title='llvm::orc::GlobalMappingLayer::eraseGlobalMapping' data-ref="_ZN4llvm3orc18GlobalMappingLayer18eraseGlobalMappingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE">eraseGlobalMapping</dfn>(<em>const</em> <span class="namespace">std::</span><a class="typedef" href="../../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> &amp;<dfn class="local col7 decl" id="7Name" title='Name' data-type='const std::string &amp;' data-ref="7Name">Name</dfn>) {</td></tr>
+<tr><th id="64">64</th><td>    <a class="member" href="#llvm::orc::GlobalMappingLayer::SymbolTable" title='llvm::orc::GlobalMappingLayer::SymbolTable' data-ref="llvm::orc::GlobalMappingLayer::SymbolTable">SymbolTable</a>.erase(<a class="local col7 ref" href="#7Name" title='Name' data-ref="7Name">Name</a>);</td></tr>
+<tr><th id="65">65</th><td>  }</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>  <i class="doc">/// Search for the given named symbol.</i></td></tr>
+<tr><th id="68">68</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="69">69</th><td><i class="doc">  ///          This method will first search the local symbol table, returning</i></td></tr>
+<tr><th id="70">70</th><td><i class="doc">  ///        any symbol found there. If the symbol is not found in the local</i></td></tr>
+<tr><th id="71">71</th><td><i class="doc">  ///        table then this call will be passed through to the base layer.</i></td></tr>
+<tr><th id="72">72</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="73">73</th><td><i class="doc">  /// <span class="command">@param</span> <span class="arg">Name</span> The name of the symbol to search for.</i></td></tr>
+<tr><th id="74">74</th><td><i class="doc">  /// <span class="command">@param</span> <span class="arg">ExportedSymbolsOnly</span> If true, search only for exported symbols.</i></td></tr>
+<tr><th id="75">75</th><td><i class="doc">  /// <span class="command">@return</span> A handle for the given named symbol, if it exists.</i></td></tr>
+<tr><th id="76">76</th><td>  <a class="type" href="../JITSymbol.h.html#llvm::JITSymbol" title='llvm::JITSymbol' data-ref="llvm::JITSymbol">JITSymbol</a> <dfn class="decl def" id="_ZN4llvm3orc18GlobalMappingLayer10findSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb" title='llvm::orc::GlobalMappingLayer::findSymbol' data-ref="_ZN4llvm3orc18GlobalMappingLayer10findSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb">findSymbol</dfn>(<em>const</em> <span class="namespace">std::</span><a class="typedef" href="../../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> &amp;<dfn class="local col8 decl" id="8Name" title='Name' data-type='const std::string &amp;' data-ref="8Name">Name</dfn>, <em>bool</em> <dfn class="local col9 decl" id="9ExportedSymbolsOnly" title='ExportedSymbolsOnly' data-type='bool' data-ref="9ExportedSymbolsOnly">ExportedSymbolsOnly</dfn>) {</td></tr>
+<tr><th id="77">77</th><td>    <em>auto</em> <dfn class="local col0 decl" id="10I" title='I' data-type='auto' data-ref="10I">I</dfn> = <a class="member" href="#llvm::orc::GlobalMappingLayer::SymbolTable" title='llvm::orc::GlobalMappingLayer::SymbolTable' data-ref="llvm::orc::GlobalMappingLayer::SymbolTable">SymbolTable</a>.find(<a class="local col8 ref" href="#8Name" title='Name' data-ref="8Name">Name</a>);</td></tr>
+<tr><th id="78">78</th><td>    <b>if</b> (<a class="local col0 ref" href="#10I" title='I' data-ref="10I">I</a> != <a class="member" href="#llvm::orc::GlobalMappingLayer::SymbolTable" title='llvm::orc::GlobalMappingLayer::SymbolTable' data-ref="llvm::orc::GlobalMappingLayer::SymbolTable">SymbolTable</a>.end())</td></tr>
+<tr><th id="79">79</th><td>      <b>return</b> <a class="type" href="../JITSymbol.h.html#llvm::JITSymbol" title='llvm::JITSymbol' data-ref="llvm::JITSymbol">JITSymbol</a>(<a class="local col0 ref" href="#10I" title='I' data-ref="10I">I</a>-&gt;second, <a class="type" href="../JITSymbol.h.html#llvm::JITSymbolFlags" title='llvm::JITSymbolFlags' data-ref="llvm::JITSymbolFlags">JITSymbolFlags</a>::<a class="enum" href="../JITSymbol.h.html#llvm::JITSymbolFlags::FlagNames::Exported" title='llvm::JITSymbolFlags::FlagNames::Exported' data-ref="llvm::JITSymbolFlags::FlagNames::Exported">Exported</a>);</td></tr>
+<tr><th id="80">80</th><td>    <b>return</b> <a class="member" href="#llvm::orc::GlobalMappingLayer::BaseLayer" title='llvm::orc::GlobalMappingLayer::BaseLayer' data-ref="llvm::orc::GlobalMappingLayer::BaseLayer">BaseLayer</a>.findSymbol(<a class="local col8 ref" href="#8Name" title='Name' data-ref="8Name">Name</a>, <a class="local col9 ref" href="#9ExportedSymbolsOnly" title='ExportedSymbolsOnly' data-ref="9ExportedSymbolsOnly">ExportedSymbolsOnly</a>);</td></tr>
+<tr><th id="81">81</th><td>  }</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td>  <i class="doc">/// Get the address of the given symbol in the context of the of the</i></td></tr>
+<tr><th id="84">84</th><td><i class="doc">  ///        module represented by the handle H. This call is forwarded to the</i></td></tr>
+<tr><th id="85">85</th><td><i class="doc">  ///        base layer's implementation.</i></td></tr>
+<tr><th id="86">86</th><td><i class="doc">  /// <span class="command">@param</span> <span class="arg">H</span> The handle for the module to search in.</i></td></tr>
+<tr><th id="87">87</th><td><i class="doc">  /// <span class="command">@param</span> <span class="arg">Name</span> The name of the symbol to search for.</i></td></tr>
+<tr><th id="88">88</th><td><i class="doc">  /// <span class="command">@param</span> <span class="arg">ExportedSymbolsOnly</span> If true, search only for exported symbols.</i></td></tr>
+<tr><th id="89">89</th><td><i class="doc">  /// <span class="command">@return</span> A handle for the given named symbol, if it is found in the</i></td></tr>
+<tr><th id="90">90</th><td><i class="doc">  ///         given module.</i></td></tr>
+<tr><th id="91">91</th><td>  <a class="type" href="../JITSymbol.h.html#llvm::JITSymbol" title='llvm::JITSymbol' data-ref="llvm::JITSymbol">JITSymbol</a> <dfn class="decl def" id="_ZN4llvm3orc18GlobalMappingLayer12findSymbolInENT_13ModuleHandleTERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb" title='llvm::orc::GlobalMappingLayer::findSymbolIn' data-ref="_ZN4llvm3orc18GlobalMappingLayer12findSymbolInENT_13ModuleHandleTERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb">findSymbolIn</dfn>(<a class="typedef" href="#llvm::orc::GlobalMappingLayer::ModuleHandleT" title='llvm::orc::GlobalMappingLayer::ModuleHandleT' data-type='typename BaseLayerT::ModuleHandleT' data-ref="llvm::orc::GlobalMappingLayer::ModuleHandleT">ModuleHandleT</a> <dfn class="local col1 decl" id="11H" title='H' data-type='ModuleHandleT' data-ref="11H">H</dfn>, <em>const</em> <span class="namespace">std::</span><a class="typedef" href="../../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> &amp;<dfn class="local col2 decl" id="12Name" title='Name' data-type='const std::string &amp;' data-ref="12Name">Name</dfn>,</td></tr>
+<tr><th id="92">92</th><td>                         <em>bool</em> <dfn class="local col3 decl" id="13ExportedSymbolsOnly" title='ExportedSymbolsOnly' data-type='bool' data-ref="13ExportedSymbolsOnly">ExportedSymbolsOnly</dfn>) {</td></tr>
+<tr><th id="93">93</th><td>    <b>return</b> <a class="member" href="#llvm::orc::GlobalMappingLayer::BaseLayer" title='llvm::orc::GlobalMappingLayer::BaseLayer' data-ref="llvm::orc::GlobalMappingLayer::BaseLayer">BaseLayer</a>.findSymbolIn(<a class="local col1 ref" href="#11H" title='H' data-ref="11H">H</a>, <a class="local col2 ref" href="#12Name" title='Name' data-ref="12Name">Name</a>, <a class="local col3 ref" href="#13ExportedSymbolsOnly" title='ExportedSymbolsOnly' data-ref="13ExportedSymbolsOnly">ExportedSymbolsOnly</a>);</td></tr>
+<tr><th id="94">94</th><td>  }</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td>  <i class="doc">/// Immediately emit and finalize the module set represented by the</i></td></tr>
+<tr><th id="97">97</th><td><i class="doc">  ///        given handle.</i></td></tr>
+<tr><th id="98">98</th><td><i class="doc">  /// <span class="command">@param</span> <span class="arg">H</span> Handle for module set to emit/finalize.</i></td></tr>
+<tr><th id="99">99</th><td>  <a class="type" href="../../Support/Error.h.html#llvm::Error" title='llvm::Error' data-ref="llvm::Error">Error</a> <dfn class="decl def" id="_ZN4llvm3orc18GlobalMappingLayer15emitAndFinalizeENT_13ModuleHandleTE" title='llvm::orc::GlobalMappingLayer::emitAndFinalize' data-ref="_ZN4llvm3orc18GlobalMappingLayer15emitAndFinalizeENT_13ModuleHandleTE">emitAndFinalize</dfn>(<a class="typedef" href="#llvm::orc::GlobalMappingLayer::ModuleHandleT" title='llvm::orc::GlobalMappingLayer::ModuleHandleT' data-type='typename BaseLayerT::ModuleHandleT' data-ref="llvm::orc::GlobalMappingLayer::ModuleHandleT">ModuleHandleT</a> <dfn class="local col4 decl" id="14H" title='H' data-type='ModuleHandleT' data-ref="14H">H</dfn>) {</td></tr>
+<tr><th id="100">100</th><td>    <b>return</b> <a class="member" href="#llvm::orc::GlobalMappingLayer::BaseLayer" title='llvm::orc::GlobalMappingLayer::BaseLayer' data-ref="llvm::orc::GlobalMappingLayer::BaseLayer">BaseLayer</a>.emitAndFinalize(<a class="local col4 ref" href="#14H" title='H' data-ref="14H">H</a>);</td></tr>
+<tr><th id="101">101</th><td>  }</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td><b>private</b>:</td></tr>
+<tr><th id="104">104</th><td>  BaseLayerT &amp;<dfn class="decl" id="llvm::orc::GlobalMappingLayer::BaseLayer" title='llvm::orc::GlobalMappingLayer::BaseLayer' data-ref="llvm::orc::GlobalMappingLayer::BaseLayer">BaseLayer</dfn>;</td></tr>
+<tr><th id="105">105</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/7/bits/stl_map.h.html#std::map" title='std::map' data-ref="std::map">map</a>&lt;<span class="namespace">std::</span><a class="typedef" href="../../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a>, <a class="typedef" href="../JITSymbol.h.html#llvm::JITTargetAddress" title='llvm::JITTargetAddress' data-type='uint64_t' data-ref="llvm::JITTargetAddress">JITTargetAddress</a>&gt; <dfn class="decl" id="llvm::orc::GlobalMappingLayer::SymbolTable" title='llvm::orc::GlobalMappingLayer::SymbolTable' data-ref="llvm::orc::GlobalMappingLayer::SymbolTable">SymbolTable</dfn>;</td></tr>
+<tr><th id="106">106</th><td>};</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>} <i>// end namespace orc</i></td></tr>
+<tr><th id="109">109</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td><u>#<span data-ppcond="14">endif</span> // LLVM_EXECUTIONENGINE_ORC_GLOBALMAPPINGLAYER_H</u></td></tr>
+<tr><th id="112">112</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../unittests/ExecutionEngine/Orc/GlobalMappingLayerTest.cpp.html'>llvm/llvm/unittests/ExecutionEngine/Orc/GlobalMappingLayerTest.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

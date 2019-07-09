@@ -1,0 +1,61 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='5535' type='clang::DeclContext * clang::Sema::computeDeclContext(const clang::CXXScopeSpec &amp; SS, bool EnteringContext = false)'/>
+<def f='llvm/clang/lib/Sema/SemaCXXScopeSpec.cpp' l='74' ll='165' type='clang::DeclContext * clang::Sema::computeDeclContext(const clang::CXXScopeSpec &amp; SS, bool EnteringContext = false)'/>
+<use f='llvm/clang/lib/Sema/SemaCXXScopeSpec.cpp' l='401' u='c' c='_ZN5clang4Sema28isNonTypeNestedNameSpecifierEPNS_5ScopeERNS_12CXXScopeSpecERNS0_18NestedNameSpecInfoE'/>
+<use f='llvm/clang/lib/Sema/SemaCXXScopeSpec.cpp' l='510' u='c' c='_ZN5clang4Sema27BuildCXXNestedNameSpecifierEPNS_5ScopeERNS0_18NestedNameSpecInfoEbRNS_12CXXScopeSpecEPNS_9NamedDeclEbPbb'/>
+<use f='llvm/clang/lib/Sema/SemaCXXScopeSpec.cpp' l='1074' u='c' c='_ZN5clang4Sema28ActOnCXXEnterDeclaratorScopeEPNS_5ScopeERNS_12CXXScopeSpecE'/>
+<use f='llvm/clang/lib/Sema/SemaCXXScopeSpec.cpp' l='1100' u='c' c='_ZN5clang4Sema27ActOnCXXExitDeclaratorScopeEPNS_5ScopeERKNS_12CXXScopeSpecE'/>
+<doc f='llvm/clang/lib/Sema/SemaCXXScopeSpec.cpp' l='61'>/// Compute the DeclContext that is associated with the given
+/// scope specifier.
+///
+/// \param SS the C++ scope specifier as it appears in the source
+///
+/// \param EnteringContext when true, we will be entering the context of
+/// this scope specifier, so we can retrieve the declaration context of a
+/// class template or class template partial specialization even if it is
+/// not the current instantiation.
+///
+/// \returns the declaration context represented by the scope specifier @p SS,
+/// or NULL if the declaration context cannot be computed (e.g., because it is
+/// dependent and not the current instantiation).</doc>
+<use f='llvm/clang/lib/Sema/SemaCodeComplete.cpp' l='5362' u='c' c='_ZN5clang4Sema23CodeCompleteQualifiedIdEPNS_5ScopeERNS_12CXXScopeSpecEbNS_8QualTypeES5_'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='301' u='c' c='_ZN5clang4Sema11getTypeNameERKNS_14IdentifierInfoENS_14SourceLocationEPNS_5ScopeEPNS_12CXXScopeSpecEbbNS_9OpaquePtrINS_8QualTypeEEEbbbPPS1_'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='693' u='c' c='_ZN5clang4Sema23DiagnoseUnknownTypeNameERPNS_14IdentifierInfoENS_14SourceLocationEPNS_5ScopeEPNS_12CXXScopeSpecERNS_9OpaquePtrINS_8QualTypeEEEb'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='746' u='c' c='_ZN5clang4Sema23DiagnoseUnknownTypeNameERPNS_14IdentifierInfoENS_14SourceLocationEPNS_5ScopeEPNS_12CXXScopeSpecERNS_9OpaquePtrINS_8QualTypeEEEb'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='970' u='c' c='_ZN5clang4Sema12ClassifyNameEPNS_5ScopeERNS_12CXXScopeSpecERPNS_14IdentifierInfoENS_14SourceLocationERKNS_5TokenEbPNS_27CorrectionCandidateCallbackE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='5401' u='c' c='_ZN5clang4Sema16HandleDeclaratorEPNS_5ScopeERNS_10DeclaratorEN4llvm15MutableArrayRefIPNS_21TemplateParameterListEEE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='14436' u='c' c='_ZN5clang4Sema8ActOnTagEPNS_5ScopeEjNS0_10TagUseKindENS_14SourceLocationERNS_12CXXScopeSpecEPNS_14IdentifierInfoES4_RKNS_20ParsedAttributesViewENS_15A7284731'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='14442' u='c' c='_ZN5clang4Sema8ActOnTagEPNS_5ScopeEjNS0_10TagUseKindENS_14SourceLocationERNS_12CXXScopeSpecEPNS_14IdentifierInfoES4_RKNS_20ParsedAttributesViewENS_15A7284731'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='2136' u='c' c='_ZN5clang4Sema15getCurrentClassEPNS_5ScopeEPKNS_12CXXScopeSpecE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='2164' u='c' c='_ZN5clang4Sema22isCurrentClassNameTypoERPNS_14IdentifierInfoEPKNS_12CXXScopeSpecE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='3131' u='c' c='_ZN5clang4Sema24ActOnCXXMemberDeclaratorEPNS_5ScopeENS_15AccessSpecifierERNS_10DeclaratorEN4llvm15MutableArrayRefIPNS_21TemplateParameterListEEEPNS_4E15006520'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='3931' u='c' c='_ZN5clang4Sema19BuildMemInitializerEPNS_4DeclEPNS_5ScopeERNS_12CXXScopeSpecEPNS_14IdentifierInfoENS_9OpaquePtrINS_8QualTypeEEERKNS_8DeclSpecENS_14Sour9377157'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='9391' u='c' c='_ZL26TryNamespaceTypoCorrectionRN5clang4SemaERNS_12LookupResultEPNS_5ScopeERNS_12CXXScopeSpecENS_14SourceLocationEPNS_14IdentifierInfoE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='10044' u='c' c='_ZN5clang4Sema21BuildUsingDeclarationEPNS_5ScopeENS_15AccessSpecifierENS_14SourceLocationEbS4_RNS_12CXXScopeSpecENS_19DeclarationNameInfoES4_RKNS_20ParsedAttributesViewEb'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='10356' u='c' c='_ZN5clang4Sema23CheckUsingDeclQualifierENS_14SourceLocationEbRKNS_12CXXScopeSpecERKNS_19DeclarationNameInfoES1_'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='14502' u='c' c='_ZN5clang4Sema23ActOnFriendFunctionDeclEPNS_5ScopeERNS_10DeclaratorEN4llvm15MutableArrayRefIPNS_21TemplateParameterListEEE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='1898' u='c' c='_ZL29emitEmptyLookupTypoDiagnosticRKN5clang14TypoCorrectionERNS_4SemaERKNS_12CXXScopeSpecENS_15DeclarationNameENS_14SourceLocationEN4llvm8ArrayRefIPNS_4ExprEEEjj'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='2221' u='c' c='_ZN5clang4Sema17ActOnIdExpressionEPNS_5ScopeERNS_12CXXScopeSpecENS_14SourceLocationERNS_13UnqualifiedIdEbbPNS_27CorrectionCandidateCallbackEbPNS_5TokenE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='2432' u='c' c='_ZN5clang4Sema33BuildQualifiedDeclarationNameExprERNS_12CXXScopeSpecERKNS_19DeclarationNameInfoEbPKNS_5ScopeEPPNS_14TypeSourceInfoE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='190' u='c' c='_ZN5clang4Sema17getDestructorNameENS_14SourceLocationERNS_14IdentifierInfoES1_PNS_5ScopeERNS_12CXXScopeSpecENS_9OpaquePtrINS_8QualTypeEEEb'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='207' u='c' c='_ZN5clang4Sema17getDestructorNameENS_14SourceLocationERNS_14IdentifierInfoES1_PNS_5ScopeERNS_12CXXScopeSpecENS_9OpaquePtrINS_8QualTypeEEEb'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='213' u='c' c='_ZN5clang4Sema17getDestructorNameENS_14SourceLocationERNS_14IdentifierInfoES1_PNS_5ScopeERNS_12CXXScopeSpecENS_9OpaquePtrINS_8QualTypeEEEb'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='281' u='c' c='_ZN5clang4Sema17getDestructorNameENS_14SourceLocationERNS_14IdentifierInfoES1_PNS_5ScopeERNS_12CXXScopeSpecENS_9OpaquePtrINS_8QualTypeEEEb'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='7047' u='c' c='_ZN5clang4Sema25ActOnPseudoDestructorExprEPNS_5ScopeEPNS_4ExprENS_14SourceLocationENS_3tok9TokenKindERNS_12CXXScopeSpecERNS_13UnqualifiedIdES5_S5_SB_'/>
+<use f='llvm/clang/lib/Sema/SemaLookup.cpp' l='2392' u='c' c='_ZN5clang4Sema16LookupParsedNameERNS_12LookupResultEPNS_5ScopeEPNS_12CXXScopeSpecEbb'/>
+<use f='llvm/clang/lib/Sema/SemaLookup.cpp' l='4763' u='c' c='_ZN5clang4Sema26makeTypoCorrectionConsumerERKNS_19DeclarationNameInfoENS0_14LookupNameKindEPNS_5ScopeEPNS_12CXXScopeSpecERNS_27CorrectionCandidateCall2880099'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='327' u='c' c='_ZN5clang4Sema27DiagnoseUnknownTemplateNameERKNS_14IdentifierInfoENS_14SourceLocationEPNS_5ScopeEPKNS_12CXXScopeSpecERNS_9OpaquePtrINS_12TemplateNameE2138294'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='376' u='c' c='_ZN5clang4Sema18LookupTemplateNameERNS_12LookupResultEPNS_5ScopeERNS_12CXXScopeSpecENS_8QualTypeEbRbNS_14SourceLocationEPNS0_19AssumedTemplateKindE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='1369' u='c' c='_ZN5clang4Sema18CheckClassTemplateEPNS_5ScopeEjNS0_10TagUseKindENS_14SourceLocationERNS_12CXXScopeSpecEPNS_14IdentifierInfoES4_RKNS_20ParsedAttributes4636109'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='2633' u='c' c='_ZN5clang4Sema39MatchTemplateParametersToScopeSpecifierENS_14SourceLocationES1_RKNS_12CXXScopeSpecEPNS_20TemplateIdAnnotationEN4llvm8ArrayRefIPNS_21Te11435786'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='3461' u='c' c='_ZN5clang4Sema19ActOnTemplateIdTypeEPNS_5ScopeERNS_12CXXScopeSpecENS_14SourceLocationENS_9OpaquePtrINS_12TemplateNameEEEPNS_14IdentifierInfoES5_S5_N4l1029684'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='4292' u='c' c='_ZN5clang4Sema28BuildQualifiedTemplateIdExprERNS_12CXXScopeSpecENS_14SourceLocationERKNS_19DeclarationNameInfoEPKNS_24TemplateArgumentListInfoE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='4348' u='c' c='_ZN5clang4Sema26ActOnDependentTemplateNameEPNS_5ScopeERNS_12CXXScopeSpecENS_14SourceLocationERKNS_13UnqualifiedIdENS_9OpaquePtrINS_8QualTypeEEEbRNS9_I13478385'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='9696' u='c' c='_ZN5clang4Sema17ActOnTypenameTypeEPNS_5ScopeENS_14SourceLocationERKNS_12CXXScopeSpecES3_NS_9OpaquePtrINS_12TemplateNameEEEPNS_14IdentifierInfoES3_S3_N12119790'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='9818' u='c' c='_ZN5clang4Sema17CheckTypenameTypeENS_21ElaboratedTypeKeywordENS_14SourceLocationENS_22NestedNameSpecifierLocERKNS_14IdentifierInfoES2_'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateInstantiateDecl.cpp' l='1287' u='c' c='_ZN5clang24TemplateDeclInstantiator22VisitClassTemplateDeclEPNS_17ClassTemplateDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateInstantiateDecl.cpp' l='1759' u='c' c='_ZN5clang24TemplateDeclInstantiator17VisitFunctionDeclEPNS_12FunctionDeclEPNS_21TemplateParameterListE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateInstantiateDecl.cpp' l='2067' u='c' c='_ZN5clang24TemplateDeclInstantiator18VisitCXXMethodDeclEPNS_13CXXMethodDeclEPNS_21TemplateParameterListEN4llvm8OptionalIPKNS_27ASTTemplateArgumentListInfoEEE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='4978' u='c' c='_ZL24GetFullTypeForDeclaratorRN12_GLOBAL__N_119TypeProcessingStateEN5clang8QualTypeEPNS2_14TypeSourceInfoE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='5109' u='c' c='_ZL24GetFullTypeForDeclaratorRN12_GLOBAL__N_119TypeProcessingStateEN5clang8QualTypeEPNS2_14TypeSourceInfoE'/>
+<use f='llvm/clang/unittests/Sema/ExternalSemaSourceTest.cpp' l='117' u='c' c='_ZN12_GLOBAL__N_121NamespaceTypoProvider11CorrectTypoERKN5clang19DeclarationNameInfoEiPNS1_5ScopeEPNS1_12CXXScopeSpecERNS1_27CorrectionCandidateCallba11402919'/>
+<use f='llvm/clang/unittests/Sema/ExternalSemaSourceTest.cpp' l='159' u='c' c='_ZN12_GLOBAL__N_120FunctionTypoProvider11CorrectTypoERKN5clang19DeclarationNameInfoEiPNS1_5ScopeEPNS1_12CXXScopeSpecERNS1_27CorrectionCandidateCallbac4161355'/>

@@ -1,0 +1,9 @@
+<def f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='130' ll='132' type='llvm::TailPaddingAmount llvm::MCTargetStreamer::getTailPaddingForPreciseBounds(unsigned int Size)'/>
+<doc f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='124'>/// CHERI128 uses compressed capabilities. If we would like to guarantee
+  /// non-overlapping bounds for all global symbols we must over-align the
+  /// symbol if the size is no precisely representable. We also add padding at
+  /// the end to ensure that we cannot access another variable that happens to
+  /// be located in the bytes that are accessible after the end of the object
+  /// due to the bounds having been rounded up.</doc>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/AsmPrinter.cpp' l='507' u='c' c='_ZN4llvm10AsmPrinter18EmitGlobalVariableEPKNS_14GlobalVariableE'/>
+<ovr f='llvm/llvm/lib/Target/Mips/MCTargetDesc/MipsTargetStreamer.cpp' l='397' c='_ZN4llvm18MipsTargetStreamer30getTailPaddingForPreciseBoundsEj'/>

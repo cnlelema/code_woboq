@@ -1,0 +1,13 @@
+<dec f='llvm/clang/include/clang/AST/ComparisonCategories.h' l='89' type='llvm::APSInt clang::ComparisonCategoryInfo::ValueInfo::getIntValue() const'/>
+<doc f='llvm/clang/include/clang/AST/ComparisonCategories.h' l='87'>/// Get the constant integer value used by this variable to represent
+    /// the comparison category result type.</doc>
+<def f='llvm/clang/lib/AST/ComparisonCategories.cpp' l='45' ll='48' type='llvm::APSInt clang::ComparisonCategoryInfo::ValueInfo::getIntValue() const'/>
+<doc f='llvm/clang/lib/AST/ComparisonCategories.cpp' l='37'>/// Attempt to determine the integer value used to represent the comparison
+/// category result by evaluating the initializer for the specified VarDecl as
+/// a constant expression and retreiving the value of the class&apos;s first
+/// (and only) field.
+///
+/// Note: The STL types are expected to have the form:
+///    struct X { T value; };
+/// where T is an integral or enumeration type.</doc>
+<use f='llvm/clang/lib/CodeGen/CGExprAgg.cpp' l='1001' u='c' c='_ZN12_GLOBAL__N_114AggExprEmitter11VisitBinCmpEPKN5clang14BinaryOperatorE'/>

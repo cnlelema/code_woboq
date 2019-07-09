@@ -1,0 +1,33 @@
+<dec f='llvm/llvm/include/llvm/ExecutionEngine/Orc/Core.h' l='207' type='void llvm::orc::MaterializationResponsibility::resolve(const SymbolMap &amp; Symbols)'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/Core.h' l='201'>/// Notifies the target JITDylib that the given symbols have been resolved.
+  /// This will update the given symbols&apos; addresses in the JITDylib, and notify
+  /// any pending queries on the given symbols of their resolution. The given
+  /// symbols must be ones covered by this MaterializationResponsibility
+  /// instance. Individual calls to this method may resolve a subset of the
+  /// symbols, but all symbols must have been resolved prior to calling emit.</doc>
+<def f='llvm/llvm/lib/ExecutionEngine/Orc/Core.cpp' l='370' ll='388' type='void llvm::orc::MaterializationResponsibility::resolve(const SymbolMap &amp; Symbols)'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/Core.cpp' l='487' u='c' c='_ZN4llvm3orc34AbsoluteSymbolsMaterializationUnit11materializeENS0_29MaterializationResponsibilityE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/Core.cpp' l='635' u='c' c='_ZN4llvm3orc28ReExportsMaterializationUnit11materializeENS0_29MaterializationResponsibilityE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/IndirectionUtils.cpp' l='40' u='c' c='_ZN12_GLOBAL__N_134CompileCallbackMaterializationUnit11materializeEN4llvm3orc29MaterializationResponsibilityE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/LazyReexports.cpp' l='181' u='c' c='_ZN4llvm3orc32LazyReexportsMaterializationUnit11materializeENS0_29MaterializationResponsibilityE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/ObjectLinkingLayer.cpp' l='130' u='c' c='_ZN4llvm3orc32ObjectLinkingLayerJITLinkContext14notifyResolvedERNS_7jitlink9AtomGraphE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/RTDyldObjectLinkingLayer.cpp' l='187' u='c' c='_ZN4llvm3orc24RTDyldObjectLinkingLayer9onObjLoadEmRNS0_29MaterializationResponsibilityERNS_6object10ObjectFileESt10unique_ptrINS_11RuntimeDyld16Loaded14000370'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='51' u='c' c='_ZN12_GLOBAL__N_147CoreAPIsStandardTest_BasicSuccessfulLookup_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='112' u='c' c='_ZN12_GLOBAL__N_143CoreAPIsStandardTest_RemoveSymbolsTest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='159' u='c' c='_ZN12_GLOBAL__N_143CoreAPIsStandardTest_RemoveSymbolsTest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='320' u='c' c='_ZN12_GLOBAL__N_171CoreAPIsStandardTest_TestThatReExportsDontUnnecessarilyMaterialize_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='375' u='c' c='_ZN12_GLOBAL__N_155CoreAPIsStandardTest_TestTrivialCircularDependency_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='489' u='c' c='_ZN12_GLOBAL__N_161CoreAPIsStandardTest_TestCircularDependenceInOneJITDylib_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='490' u='c' c='_ZN12_GLOBAL__N_161CoreAPIsStandardTest_TestCircularDependenceInOneJITDylib_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='491' u='c' c='_ZN12_GLOBAL__N_161CoreAPIsStandardTest_TestCircularDependenceInOneJITDylib_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='561' u='c' c='_ZN12_GLOBAL__N_153CoreAPIsStandardTest_AddAndMaterializeLazySymbol_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='602' u='c' c='_ZN12_GLOBAL__N_160CoreAPIsStandardTest_TestBasicWeakSymbolMaterialization_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='651' u='c' c='_ZN12_GLOBAL__N_151CoreAPIsStandardTest_DefineMaterializingSymbol_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='725' u='c' c='_ZN12_GLOBAL__N_143CoreAPIsStandardTest_FailEmissionEarly_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='757' u='c' c='_ZN12_GLOBAL__N_165CoreAPIsStandardTest_TestLookupWithUnthreadedMaterialization_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='816' u='c' c='_ZN12_GLOBAL__N_159CoreAPIsStandardTest_TestGetRequestedSymbolsAndReplace_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='823' u='c' c='_ZN12_GLOBAL__N_159CoreAPIsStandardTest_TestGetRequestedSymbolsAndReplace_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='855' u='c' c='_ZN12_GLOBAL__N_169CoreAPIsStandardTest_TestMaterializationResponsibilityDelegation_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='857' u='c' c='_ZN12_GLOBAL__N_169CoreAPIsStandardTest_TestMaterializationResponsibilityDelegation_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='908' u='c' c='_ZN12_GLOBAL__N_151CoreAPIsStandardTest_TestMaterializeWeakSymbol_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/LazyCallThroughAndReexportsTest.cpp' l='44' u='c' c='_ZN60LazyReexportsTest_BasicLocalCallThroughManagerOperation_Test8TestBodyEv'/>

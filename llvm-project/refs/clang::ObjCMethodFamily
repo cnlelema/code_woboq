@@ -1,0 +1,18 @@
+<def f='llvm/clang/include/clang/Basic/IdentifierTable.h' l='610' ll='637'/>
+<doc f='llvm/clang/include/clang/Basic/IdentifierTable.h' l='593'>/// A family of Objective-C methods.
+///
+/// These families have no inherent meaning in the language, but are
+/// nonetheless central enough in the existing implementations to
+/// merit direct AST support.  While, in theory, arbitrary methods can
+/// be considered to form families, we focus here on the methods
+/// involving allocation and retain-count management, as these are the
+/// most &quot;core&quot; and the most likely to be useful to diverse clients
+/// without extra information.
+///
+/// Both selectors and actual method declarations may be classified
+/// into families.  Method families may impose additional restrictions
+/// beyond their selector name; for example, a method called &apos;_init&apos;
+/// that returns void is not considered to be in the &apos;init&apos; family
+/// (but would be if it returned &apos;id&apos;).  It is also possible to
+/// explicitly change or remove a method&apos;s family.  Therefore the
+/// method&apos;s family should be considered the single source of truth.</doc>

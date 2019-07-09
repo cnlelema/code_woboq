@@ -1,0 +1,17 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='1681' type='unsigned int llvm::TargetLoweringBase::getMinCmpXchgSizeInBits() const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='1674'>/// Returns the size of the smallest cmpxchg or ll/sc instruction
+  /// the backend supports.  Any smaller operations are widened in
+  /// AtomicExpandPass.
+  ///
+  /// Note that *unlike* operations above the maximum size, atomic ops
+  /// are still natively supported below the minimum; they just
+  /// require a more complex expansion.</doc>
+<use f='llvm/llvm/lib/CodeGen/AtomicExpandPass.cpp' l='314' u='c' c='_ZN12_GLOBAL__N_112AtomicExpand13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/AtomicExpandPass.cpp' l='569' u='c' c='_ZN12_GLOBAL__N_112AtomicExpand18tryExpandAtomicRMWEPN4llvm13AtomicRMWInstE'/>
+<use f='llvm/llvm/lib/CodeGen/AtomicExpandPass.cpp' l='585' u='c' c='_ZN12_GLOBAL__N_112AtomicExpand18tryExpandAtomicRMWEPN4llvm13AtomicRMWInstE'/>
+<use f='llvm/llvm/lib/CodeGen/AtomicExpandPass.cpp' l='752' u='c' c='_ZN12_GLOBAL__N_112AtomicExpand23expandPartwordAtomicRMWEPN4llvm13AtomicRMWInstENS1_18TargetLoweringBase19AtomicExpansionKindE'/>
+<use f='llvm/llvm/lib/CodeGen/AtomicExpandPass.cpp' l='785' u='c' c='_ZN12_GLOBAL__N_112AtomicExpand22widenPartwordAtomicRMWEPN4llvm13AtomicRMWInstE'/>
+<use f='llvm/llvm/lib/CodeGen/AtomicExpandPass.cpp' l='854' u='c' c='_ZN12_GLOBAL__N_112AtomicExpand21expandPartwordCmpXchgEPN4llvm17AtomicCmpXchgInstE'/>
+<use f='llvm/llvm/lib/CodeGen/AtomicExpandPass.cpp' l='951' u='c' c='_ZN12_GLOBAL__N_112AtomicExpand32expandAtomicRMWToMaskedIntrinsicEPN4llvm13AtomicRMWInstE'/>
+<use f='llvm/llvm/lib/CodeGen/AtomicExpandPass.cpp' l='978' u='c' c='_ZN12_GLOBAL__N_112AtomicExpand36expandAtomicCmpXchgToMaskedIntrinsicEPN4llvm17AtomicCmpXchgInstE'/>
+<use f='llvm/llvm/lib/CodeGen/AtomicExpandPass.cpp' l='1408' u='c' c='_ZN12_GLOBAL__N_112AtomicExpand22tryExpandAtomicCmpXchgEPN4llvm17AtomicCmpXchgInstE'/>

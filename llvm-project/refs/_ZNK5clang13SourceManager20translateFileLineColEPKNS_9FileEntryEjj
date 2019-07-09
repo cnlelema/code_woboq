@@ -1,0 +1,21 @@
+<dec f='llvm/clang/include/clang/Basic/SourceManager.h' l='1553' type='clang::SourceLocation clang::SourceManager::translateFileLineCol(const clang::FileEntry * SourceFile, unsigned int Line, unsigned int Col) const'/>
+<doc f='llvm/clang/include/clang/Basic/SourceManager.h' l='1545'>//===--------------------------------------------------------------------===//
+  // Other miscellaneous methods.
+  //===--------------------------------------------------------------------===//
+
+  /// Get the source location for the given file:line:col triplet.
+  ///
+  /// If the source file is included multiple times, the source location will
+  /// be based upon the first inclusion.</doc>
+<def f='llvm/clang/lib/Basic/SourceManager.cpp' l='1557' ll='1565' type='clang::SourceLocation clang::SourceManager::translateFileLineCol(const clang::FileEntry * SourceFile, unsigned int Line, unsigned int Col) const'/>
+<doc f='llvm/clang/lib/Basic/SourceManager.cpp' l='1553'>/// Get the source location for the given file:line:col triplet.
+///
+/// If the source file is included multiple times, the source location will
+/// be based upon an arbitrary inclusion.</doc>
+<use f='llvm/clang/lib/CodeGen/CodeGenAction.cpp' l='568' u='c' c='_ZNK5clang15BackendConsumer27getBestLocationFromDebugLocERKN4llvm30DiagnosticInfoWithLocationBaseERbRNS1_9StringRefERjS8_'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenAction.cpp' l='1022' u='c' c='_ZN5clang13CodeGenAction10loadModuleEN4llvm15MemoryBufferRefE'/>
+<use f='llvm/clang/lib/Frontend/ASTUnit.cpp' l='2497' u='c' c='_ZNK5clang7ASTUnit11getLocationEPKNS_9FileEntryEjj'/>
+<use f='llvm/clang/lib/Frontend/ASTUnit.cpp' l='2504' u='c' c='_ZNK5clang7ASTUnit11getLocationEPKNS_9FileEntryEj'/>
+<use f='llvm/clang/lib/Frontend/VerifyDiagnosticConsumer.cpp' l='544' u='c' c='_ZL14ParseDirectiveN4llvm9StringRefEPN5clang24VerifyDiagnosticConsumer12ExpectedDataERNS1_13SourceManagerEPNS1_12PreprocessorENS1_14SourceLocationERNS11838509'/>
+<use f='llvm/clang/lib/Frontend/VerifyDiagnosticConsumer.cpp' l='547' u='c' c='_ZL14ParseDirectiveN4llvm9StringRefEPN5clang24VerifyDiagnosticConsumer12ExpectedDataERNS1_13SourceManagerEPNS1_12PreprocessorENS1_14SourceLocationERNS11838509'/>
+<use f='llvm/clang/unittests/Tooling/RewriterTestContext.h' l='87' u='c' c='_ZN5clang19RewriterTestContext11getLocationENS_6FileIDEjj'/>

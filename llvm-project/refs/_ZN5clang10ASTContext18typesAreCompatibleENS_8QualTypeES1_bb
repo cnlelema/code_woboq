@@ -1,0 +1,39 @@
+<dec f='llvm/clang/include/clang/AST/ASTContext.h' l='2637' type='bool clang::ASTContext::typesAreCompatible(clang::QualType T1, clang::QualType T2, bool CompareUnqualified = false, bool CompareCapabilityQualifier = true)'/>
+<doc f='llvm/clang/include/clang/AST/ASTContext.h' l='2631'>//===--------------------------------------------------------------------===//
+  //                    Type Compatibility Predicates
+  //===--------------------------------------------------------------------===//
+
+  /// Compatibility predicates used to check assignment expressions.</doc>
+<def f='llvm/clang/lib/AST/ASTContext.cpp' l='8618' ll='8627' type='bool clang::ASTContext::typesAreCompatible(clang::QualType LHS, clang::QualType RHS, bool CompareUnqualified = false, bool CompareCapabilityQualifier = true)'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='8630' u='c' c='_ZN5clang10ASTContext26propertyTypesAreCompatibleENS_8QualTypeES1_'/>
+<doc f='llvm/clang/lib/AST/ASTContext.cpp' l='8614'>/// typesAreCompatible - C99 6.7.3p9: For two qualified types to be compatible,
+/// both shall have the identically qualified version of a compatible type.
+/// C99 6.2.7p1: Two types have compatible types if their types are the
+/// same. See 6.7.[2,3,5] for additional rules.</doc>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='5667' u='c' c='_ZN5clang4Sema18SemaBuiltinVAStartEjPNS_8CallExprE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='6375' u='c' c='_ZN5clang4Sema31SemaBuiltinARMMemoryTaggingCallEjPNS_8CallExprE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='9527' u='c' c='_ZN5clang4Sema23CheckMemaccessArgumentsEPKNS_8CallExprEjPNS_14IdentifierInfoE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='3477' u='c' c='_ZN5clang4Sema17MergeFunctionDeclEPNS_12FunctionDeclERPNS_9NamedDeclEPNS_5ScopeEb'/>
+<use f='llvm/clang/lib/Sema/SemaDeclObjC.cpp' l='4402' u='c' c='_ZN5clang4Sema24CheckObjCMethodOverridesEPNS_14ObjCMethodDeclEPNS_17ObjCInterfaceDeclENS0_27ResultTypeCompatibilityKindE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='1519' u='c' c='_ZN5clang4Sema26CreateGenericSelectionExprENS_14SourceLocationES1_S1_PNS_4ExprEN4llvm8ArrayRefIPNS_14TypeSourceInfoEEENS5_IS3_EE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='1550' u='c' c='_ZN5clang4Sema26CreateGenericSelectionExprENS_14SourceLocationES1_S1_PNS_4ExprEN4llvm8ArrayRefIPNS_14TypeSourceInfoEEENS5_IS3_EE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='7846' u='c' c='_ZL30checkPointerTypesForAssignmentRN5clang4SemaENS_8QualTypeES2_'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='7989' u='c' c='_ZL34checkObjCPointerTypesForAssignmentRN5clang4SemaENS_8QualTypeES2_'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='8074' u='c' c='_ZN5clang4Sema26CheckAssignmentConstraintsENS_8QualTypeERNS_12ActionResultIPNS_4ExprELb1EEERNS_8CastKindEb'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='8388' u='c' c='_ZN5clang4Sema26CheckAssignmentConstraintsENS_8QualTypeERNS_12ActionResultIPNS_4ExprELb1EEERNS_8CastKindEb'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='9681' u='c' c='_ZN5clang4Sema24CheckSubtractionOperandsERNS_12ActionResultIPNS_4ExprELb1EEES5_NS_14SourceLocationEPNS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='10721' u='c' c='_ZN5clang4Sema20CheckCompareOperandsERNS_12ActionResultIPNS_4ExprELb1EEES5_NS_14SourceLocationENS_18BinaryOperatorKindE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='10835' u='c' c='_ZN5clang4Sema20CheckCompareOperandsERNS_12ActionResultIPNS_4ExprELb1EEES5_NS_14SourceLocationENS_18BinaryOperatorKindE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='10877' u='c' c='_ZN5clang4Sema20CheckCompareOperandsERNS_12ActionResultIPNS_4ExprELb1EEES5_NS_14SourceLocationENS_18BinaryOperatorKindE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='14347' u='c' c='_ZN5clang4Sema14BuildVAArgExprENS_14SourceLocationEPNS_4ExprEPNS_14TypeSourceInfoES1_'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='3703' u='c' c='_ZN5clang4Sema42IsStringLiteralToNonConstPointerConversionEPNS_4ExprENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='5133' u='c' c='_ZL23EvaluateBinaryTypeTraitRN5clang4SemaENS_9TypeTraitENS_8QualTypeES3_NS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='39' u='c' c='_ZL20IsWideCharCompatibleN5clang8QualTypeERNS_10ASTContextE'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='42' u='c' c='_ZL20IsWideCharCompatibleN5clang8QualTypeERNS_10ASTContextE'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='43' u='c' c='_ZL20IsWideCharCompatibleN5clang8QualTypeERNS_10ASTContextE'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='107' u='c' c='_ZL12IsStringInitPN5clang4ExprEPKNS_9ArrayTypeERNS_10ASTContextE'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='115' u='c' c='_ZL12IsStringInitPN5clang4ExprEPKNS_9ArrayTypeERNS_10ASTContextE'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='123' u='c' c='_ZL12IsStringInitPN5clang4ExprEPKNS_9ArrayTypeERNS_10ASTContextE'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='1835' u='c' c='_ZL20IsStandardConversionRN5clang4SemaEPNS_4ExprENS_8QualTypeEbRNS_26StandardConversionSequenceEbb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='2371' u='c' c='_ZN5clang4Sema19IsPointerConversionEPNS_4ExprENS_8QualTypeES3_bRS3_Rb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='2654' u='c' c='_ZN5clang4Sema25isObjCWritebackConversionENS_8QualTypeES1_RS1_'/>

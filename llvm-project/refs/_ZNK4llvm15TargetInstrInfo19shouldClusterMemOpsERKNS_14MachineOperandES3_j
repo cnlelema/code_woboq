@@ -1,0 +1,8 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='1180' ll='1184' type='bool llvm::TargetInstrInfo::shouldClusterMemOps(const llvm::MachineOperand &amp; BaseOp1, const llvm::MachineOperand &amp; BaseOp2, unsigned int NumLoads) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='1174'>/// Returns true if the two given memory operations should be scheduled
+  /// adjacent. Note that you have to add:
+  ///   DAG-&gt;addMutation(createLoadClusterDAGMutation(DAG-&gt;TII, DAG-&gt;TRI));
+  /// or
+  ///   DAG-&gt;addMutation(createStoreClusterDAGMutation(DAG-&gt;TII, DAG-&gt;TRI));
+  /// to TargetPassConfig::createMachineScheduler() to have an effect.</doc>
+<use f='llvm/llvm/lib/CodeGen/MachineScheduler.cpp' l='1571' u='c' c='_ZN12_GLOBAL__N_124BaseMemOpClusterMutation24clusterNeighboringMemOpsEN4llvm8ArrayRefIPNS1_5SUnitEEEPNS1_17ScheduleDAGInstrsE'/>

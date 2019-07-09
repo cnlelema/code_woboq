@@ -1,0 +1,21 @@
+<def f='llvm/clang/include/clang/Basic/SourceManager.h' l='245' ll='302'/>
+<size>16</size>
+<doc f='llvm/clang/include/clang/Basic/SourceManager.h' l='236'>/// Information about a FileID, basically just the logical file
+  /// that it represents and include stack information.
+  ///
+  /// Each FileInfo has include stack information, indicating where it came
+  /// from. This information encodes the \#include chain that a token was
+  /// expanded from. The main include file has an invalid IncludeLoc.
+  ///
+  /// FileInfos contain a &quot;ContentCache *&quot;, with the contents of the file.
+  ///</doc>
+<mbr r='clang::SrcMgr::FileInfo::IncludeLoc' o='0' t='unsigned int'/>
+<mbr r='clang::SrcMgr::FileInfo::NumCreatedFIDs' o='32' t='unsigned int'/>
+<mbr r='clang::SrcMgr::FileInfo::HasLineDirectives' o='63' t='unsigned int'/>
+<mbr r='clang::SrcMgr::FileInfo::ContentAndKind' o='64' t='llvm::PointerIntPair&lt;const ContentCache *, 3, CharacteristicKind&gt;'/>
+<fun r='_ZN5clang6SrcMgr8FileInfo3getENS_14SourceLocationEPKNS0_12ContentCacheENS0_18CharacteristicKindE'/>
+<fun r='_ZNK5clang6SrcMgr8FileInfo13getIncludeLocEv'/>
+<fun r='_ZNK5clang6SrcMgr8FileInfo15getContentCacheEv'/>
+<fun r='_ZNK5clang6SrcMgr8FileInfo21getFileCharacteristicEv'/>
+<fun r='_ZNK5clang6SrcMgr8FileInfo17hasLineDirectivesEv'/>
+<fun r='_ZN5clang6SrcMgr8FileInfo20setHasLineDirectivesEv'/>

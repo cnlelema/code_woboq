@@ -1,0 +1,85 @@
+<def f='llvm/clang/include/clang/AST/Type.h' l='1854' ll='1856' type='bool clang::Type::containsUnexpandedParameterPack() const'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='2522' u='c' c='_ZN5clang11ComplexTypeC1ENS_8QualTypeES1_'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='2552' u='c' c='_ZN5clang9ParenTypeC1ENS_8QualTypeES1_'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='2583' u='c' c='_ZN5clang11PointerTypeC1ENS_8QualTypeES1_b'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='2638' u='c' c='_ZN5clang12AdjustedTypeC1ENS_4Type9TypeClassENS_8QualTypeES3_S3_'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='2690' u='c' c='_ZN5clang16BlockPointerTypeC1ENS_8QualTypeES1_'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='2724' u='c' c='_ZN5clang13ReferenceTypeC1ENS_4Type9TypeClassENS_8QualTypeES3_bb'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='2817' u='c' c='_ZN5clang17MemberPointerTypeC1ENS_8QualTypeEPKNS_4TypeES1_'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='2818' u='c' c='_ZN5clang17MemberPointerTypeC1ENS_8QualTypeEPKNS_4TypeES1_'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='2924' u='c' c='_ZN5clang17ConstantArrayTypeC1ENS_8QualTypeES1_RKN4llvm5APIntENS_9ArrayType17ArraySizeModifierEj'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='2932' u='c' c='_ZN5clang17ConstantArrayTypeC1ENS_4Type9TypeClassENS_8QualTypeES3_RKN4llvm5APIntENS_9ArrayType17ArraySizeModifierEj'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='2978' u='c' c='_ZN5clang19IncompleteArrayTypeC1ENS_8QualTypeES1_NS_9ArrayType17ArraySizeModifierEj'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='3031' u='c' c='_ZN5clang17VariableArrayTypeC1ENS_8QualTypeES1_PNS_4ExprENS_9ArrayType17ArraySizeModifierEjNS_11SourceRangeE'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='3864' u='c' c='_ZN5clang17FunctionProtoType34containsAnyUnexpandedParameterPackEPKNS_8QualTypeEj'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='4235' u='c' c='_ZN5clang18MacroQualifiedTypeC1ENS_8QualTypeES1_PKNS_14IdentifierInfoE'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='4310' u='c' c='_ZN5clang10TypeOfTypeC1ENS_8QualTypeES1_'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='4522' u='c' c='_ZN5clang14AttributedTypeC1ENS_8QualTypeENS_4attr4KindES1_S1_'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='4627' u='c' c='_ZN5clang20TemplateTypeParmTypeC1EPNS_20TemplateTypeParmDeclENS_8QualTypeE'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='4695' u='c' c='_ZN5clang25SubstTemplateTypeParmTypeC1EPKNS_20TemplateTypeParmTypeENS_8QualTypeE'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='4806' u='c' c='_ZN5clang11DeducedTypeC1ENS_4Type9TypeClassENS_8QualTypeEbbb'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='4852' u='c' c='_ZN5clang8AutoType7ProfileERN4llvm16FoldingSetNodeIDE'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5236' u='c' c='_ZN5clang14ElaboratedTypeC1ENS_21ElaboratedTypeKeywordEPNS_19NestedNameSpecifierENS_8QualTypeES4_PNS_7TagDeclE'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5888' u='c' c='_ZN5clang21ObjCObjectPointerTypeC1ENS_8QualTypeES1_'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='6061' u='c' c='_ZN5clang10AtomicTypeC1ENS_8QualTypeES1_'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='6096' u='c' c='_ZN5clang8PipeTypeC1ENS_8QualTypeES1_b'/>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='1839'>/// Whether this type is or contains an unexpanded parameter
+  /// pack, used to support C++0x variadic templates.
+  ///
+  /// A type that contains a parameter pack shall be expanded by the
+  /// ellipsis operator at some point. For example, the typedef in the
+  /// following example contains an unexpanded parameter pack &apos;T&apos;:
+  ///
+  /// \code
+  /// template&lt;typename ...T&gt;
+  /// struct X {
+  ///   typedef T* pointer_types; // ill-formed; T is a parameter pack.
+  /// };
+  /// \endcode
+  ///
+  /// Note that this routine does not specify which</doc>
+<use f='llvm/clang/include/clang/AST/LocInfoType.h' l='40' u='c' c='_ZN5clang11LocInfoTypeC1ENS_8QualTypeEPNS_14TypeSourceInfoE'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='4501' u='c' c='_ZN5clang10ASTContext20getPackExpansionTypeENS_8QualTypeEN4llvm8OptionalIjEE'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='4516' u='c' c='_ZN5clang10ASTContext20getPackExpansionTypeENS_8QualTypeEN4llvm8OptionalIjEE'/>
+<use f='llvm/clang/lib/AST/DeclarationName.cpp' l='423' u='c' c='_ZNK5clang19DeclarationNameInfo31containsUnexpandedParameterPackEv'/>
+<use f='llvm/clang/lib/AST/DeclarationName.cpp' l='425' u='c' c='_ZNK5clang19DeclarationNameInfo31containsUnexpandedParameterPackEv'/>
+<use f='llvm/clang/lib/AST/ExprCXX.cpp' l='1019' u='c' c='_ZN5clang16CXXConstructExprC1ENS_4Stmt9StmtClassENS_8QualTypeENS_14SourceLocationEPNS_18CXXConstructorDeclEbN4llvm8ArrayRefIPNS_4ExprEEEbbbbNS0_16Cons3463018'/>
+<use f='llvm/clang/lib/AST/ExprCXX.cpp' l='1611' u='c' c='_ZN5clang13TypeTraitExprC1ENS_8QualTypeENS_14SourceLocationENS_9TypeTraitEN4llvm8ArrayRefIPNS_14TypeSourceInfoEEES2_b'/>
+<use f='llvm/clang/lib/AST/JSONNodeDumper.cpp' l='74' u='c' c='_ZN5clang14JSONNodeDumper5VisitEPKNS_4TypeE'/>
+<use f='llvm/clang/lib/AST/NestedNameSpecifier.cpp' l='265' u='c' c='_ZNK5clang19NestedNameSpecifier31containsUnexpandedParameterPackEv'/>
+<use f='llvm/clang/lib/AST/TemplateBase.cpp' l='227' u='c' c='_ZNK5clang16TemplateArgument31containsUnexpandedParameterPackEv'/>
+<use f='llvm/clang/lib/AST/TextNodeDumper.cpp' l='203' u='c' c='_ZN5clang14TextNodeDumper5VisitEPKNS_4TypeE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='165' u='c' c='_ZN5clang23DependentSizedArrayTypeC1ERKNS_10ASTContextENS_8QualTypeES4_PNS_4ExprENS_9ArrayType17ArraySizeModifierEjNS_11SourceRangeE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='187' u='c' c='_ZN5clang19DependentVectorTypeC1ERKNS_10ASTContextENS_8QualTypeES4_PNS_4ExprENS_14SourceLocationENS_10VectorType10VectorKindE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='211' u='c' c='_ZN5clang27DependentSizedExtVectorTypeC1ERKNS_10ASTContextENS_8QualTypeES4_PNS_4ExprENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='230' u='c' c='_ZN5clang25DependentAddressSpaceTypeC1ERKNS_10ASTContextENS_8QualTypeES4_PNS_4ExprENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='253' u='c' c='_ZN5clang10VectorTypeC1ENS_4Type9TypeClassENS_8QualTypeEjS3_NS0_10VectorKindE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='663' u='c' c='_ZN5clang14ObjCObjectTypeC1ENS_8QualTypeES1_N4llvm8ArrayRefIS1_EENS3_IPNS_16ObjCProtocolDeclEEEb'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='680' u='c' c='_ZN5clang14ObjCObjectTypeC1ENS_8QualTypeES1_N4llvm8ArrayRefIS1_EENS3_IPNS_16ObjCProtocolDeclEEEb'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='2994' u='c' c='_ZN5clang17FunctionProtoTypeC1ENS_8QualTypeEN4llvm8ArrayRefIS1_EES1_RKNS0_12ExtProtoInfoE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='3018' u='c' c='_ZN5clang17FunctionProtoTypeC1ENS_8QualTypeEN4llvm8ArrayRefIS1_EES1_RKNS0_12ExtProtoInfoE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='3037' u='c' c='_ZN5clang17FunctionProtoTypeC1ENS_8QualTypeEN4llvm8ArrayRefIS1_EES1_RKNS0_12ExtProtoInfoE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='3298' u='c' c='_ZN5clang18UnaryTransformTypeC1ENS_8QualTypeES1_NS0_7UTTKindES1_'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='2232' u='c' c='_ZN5clang4Sema18CheckBaseSpecifierEPNS_13CXXRecordDeclENS_11SourceRangeEbNS_15AccessSpecifierEPNS_14TypeSourceInfoENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='4179' u='c' c='_ZN5clang4Sema20BuildBaseInitializerENS_8QualTypeEPNS_14TypeSourceInfoEPNS_4ExprEPNS_13CXXRecordDeclENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/TreeTransform.h' l='5241' u='c' c='_ZN5clang13TreeTransform27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtP15805661'/>
+<use f='llvm/clang/lib/Sema/TreeTransform.h' l='10899' u='c' c='_ZN5clang13TreeTransform22TransformTypeTraitExprEPNS_13TypeTraitExprE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='1492' u='c' c='_ZN5clang4Sema26CreateGenericSelectionExprENS_14SourceLocationES1_S1_PNS_4ExprEN4llvm8ArrayRefIPNS_14TypeSourceInfoEEENS5_IS3_EE'/>
+<use f='llvm/clang/lib/Sema/SemaLambda.cpp' l='934' u='c' c='_ZN5clang4Sema28ActOnStartOfLambdaDefinitionERNS_16LambdaIntroducerERNS_10DeclaratorEPNS_5ScopeE'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='11583' u='c' c='_ZL24buildDeclareReductionRefRN5clang4SemaENS_14SourceLocationENS_11SourceRangeEPNS_5ScopeERNS_12CXXScopeSpecERKNS_19DeclarationNameInfoENS_8QualTypeE16596220'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='13880' u='c' c='_ZL25buildUserDefinedMapperRefRN5clang4SemaEPNS_5ScopeERNS_12CXXScopeSpecERKNS_19DeclarationNameInfoENS_8QualTypeEPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='4576' u='c' c='_ZN5clang4Sema13SubstAutoTypeENS_8QualTypeES1_'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='4576' u='c' c='_ZN5clang4Sema13SubstAutoTypeENS_8QualTypeES1_'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='4588' u='c' c='_ZN5clang4Sema23SubstAutoTypeSourceInfoEPNS_14TypeSourceInfoENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='4588' u='c' c='_ZN5clang4Sema23SubstAutoTypeSourceInfoEPNS_14TypeSourceInfoENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateInstantiate.cpp' l='1765' u='c' c='_ZN5clang4Sema16SubstParmVarDeclEPNS_11ParmVarDeclERKNS_30MultiLevelTemplateArgumentListEiN4llvm8OptionalIjEEb'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateVariadic.cpp' l='373' u='c' c='_ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationEPNS_14TypeSourceInfoENS0_30UnexpandedParameterPackContextE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateVariadic.cpp' l='437' u='c' c='_ZN5clang4Sema31DiagnoseUnexpandedParameterPackERKNS_19DeclarationNameInfoENS0_30UnexpandedParameterPackContextE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateVariadic.cpp' l='596' u='c' c='_ZN5clang4Sema18CheckPackExpansionENS_8QualTypeENS_11SourceRangeENS_14SourceLocationEN4llvm8OptionalIjEE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateVariadic.cpp' l='828' u='c' c='_ZN5clang4Sema32containsUnexpandedParameterPacksERNS_10DeclaratorE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateVariadic.cpp' l='896' u='c' c='_ZN5clang4Sema32containsUnexpandedParameterPacksERNS_10DeclaratorE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateVariadic.cpp' l='903' u='c' c='_ZN5clang4Sema32containsUnexpandedParameterPacksERNS_10DeclaratorE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateVariadic.cpp' l='912' u='c' c='_ZN5clang4Sema32containsUnexpandedParameterPacksERNS_10DeclaratorE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='5213' u='c' c='_ZL24GetFullTypeForDeclaratorRN12_GLOBAL__N_119TypeProcessingStateEN5clang8QualTypeEPNS2_14TypeSourceInfoE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='5231' u='c' c='_ZL24GetFullTypeForDeclaratorRN12_GLOBAL__N_119TypeProcessingStateEN5clang8QualTypeEPNS2_14TypeSourceInfoE'/>
+<use f='llvm/clang/lib/Serialization/ASTWriter.cpp' l='375' u='c' c='_ZN5clang13ASTTypeWriter13VisitAutoTypeEPKNS_8AutoTypeE'/>

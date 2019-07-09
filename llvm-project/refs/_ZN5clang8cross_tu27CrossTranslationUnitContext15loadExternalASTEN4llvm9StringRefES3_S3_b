@@ -1,0 +1,15 @@
+<dec f='llvm/clang/include/clang/CrossTU/CrossTranslationUnit.h' l='144' type='llvm::Expected&lt;ASTUnit *&gt; clang::cross_tu::CrossTranslationUnitContext::loadExternalAST(llvm::StringRef LookupName, llvm::StringRef CrossTUDir, llvm::StringRef IndexName, bool DisplayCTUProgress = false)'/>
+<use f='llvm/clang/lib/CrossTU/CrossTranslationUnit.cpp' l='232' u='c' c='_ZN5clang8cross_tu27CrossTranslationUnitContext24getCrossTUDefinitionImplEPKT_N4llvm9StringRefES6_b'/>
+<def f='llvm/clang/lib/CrossTU/CrossTranslationUnit.cpp' l='334' ll='393' type='llvm::Expected&lt;ASTUnit *&gt; clang::cross_tu::CrossTranslationUnitContext::loadExternalAST(llvm::StringRef LookupName, llvm::StringRef CrossTUDir, llvm::StringRef IndexName, bool DisplayCTUProgress = false)'/>
+<doc f='llvm/clang/include/clang/CrossTU/CrossTranslationUnit.h' l='132'>/// This function loads a definition from an external AST file.
+  ///
+  /// A definition with the same declaration will be looked up in the
+  /// index file which should be in the \p CrossTUDir directory, called
+  /// \p IndexName. In case the declaration is found in the index the
+  /// corresponding AST file will be loaded.
+  ///
+  /// \return Returns a pointer to the ASTUnit that contains the definition of
+  /// the looked up name or an Error.
+  /// The returned pointer is never a nullptr.
+  ///
+  /// Note that the AST files should also be in the \p CrossTUDir.</doc>

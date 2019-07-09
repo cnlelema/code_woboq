@@ -1,0 +1,61 @@
+<dec f='llvm/llvm/include/llvm/Passes/PassBuilder.h' l='439' type='llvm::Error llvm::PassBuilder::parsePassPipeline(ModulePassManager &amp; MPM, llvm::StringRef PipelineText, bool VerifyEachPass = true, bool DebugLogging = false)'/>
+<doc f='llvm/llvm/include/llvm/Passes/PassBuilder.h' l='410'>/// Parse a textual pass pipeline description into a \c
+  /// ModulePassManager.
+  ///
+  /// The format of the textual pass pipeline description looks something like:
+  ///
+  ///   module(function(instcombine,sroa),dce,cgscc(inliner,function(...)),...)
+  ///
+  /// Pass managers have ()s describing the nest structure of passes. All passes
+  /// are comma separated. As a special shortcut, if the very first pass is not
+  /// a module pass (as a module pass manager is), this will automatically form
+  /// the shortest stack of pass managers that allow inserting that first pass.
+  /// So, assuming function passes &apos;fpassN&apos;, CGSCC passes &apos;cgpassN&apos;, and loop
+  /// passes &apos;lpassN&apos;, all of these are valid:
+  ///
+  ///   fpass1,fpass2,fpass3
+  ///   cgpass1,cgpass2,cgpass3
+  ///   lpass1,lpass2,lpass3
+  ///
+  /// And they are equivalent to the following (resp.):
+  ///
+  ///   module(function(fpass1,fpass2,fpass3))
+  ///   module(cgscc(cgpass1,cgpass2,cgpass3))
+  ///   module(function(loop(lpass1,lpass2,lpass3)))
+  ///
+  /// This shortcut is especially useful for debugging and testing small pass
+  /// combinations. Note that these shortcuts don&apos;t introduce any other magic.
+  /// If the sequence of passes aren&apos;t all the exact same kind of pass, it will
+  /// be an error. You cannot mix different levels implicitly, you must
+  /// explicitly form a pass manager in which to nest passes.</doc>
+<use f='llvm/llvm/lib/LTO/LTOBackend.cpp' l='255' u='c' c='_ZN12_GLOBAL__N_1L20runNewPMCustomPassesERN4llvm6ModuleEPNS0_13TargetMachineENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b'/>
+<def f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='2171' ll='2211' type='llvm::Error llvm::PassBuilder::parsePassPipeline(ModulePassManager &amp; MPM, llvm::StringRef PipelineText, bool VerifyEachPass = true, bool DebugLogging = false)'/>
+<doc f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='2168'>// Primary pass pipeline description parsing routine for a \c ModulePassManager
+// FIXME: Should this routine accept a TargetMachine or require the caller to
+// pre-populate the analysis managers with target-specific stuff?</doc>
+<use f='llvm/llvm/tools/llvm-opt-fuzzer/llvm-opt-fuzzer.cpp' l='146' u='c' c='LLVMFuzzerTestOneInput'/>
+<use f='llvm/llvm/tools/llvm-opt-fuzzer/llvm-opt-fuzzer.cpp' l='238' u='c' c='LLVMFuzzerInitialize'/>
+<use f='llvm/llvm/tools/opt/NewPMDriver.cpp' l='192' u='c' c='_ZL19registerEPCallbacksRN4llvm11PassBuilderEbb'/>
+<use f='llvm/llvm/tools/opt/NewPMDriver.cpp' l='327' u='c' c='_ZN4llvm15runPassPipelineENS_9StringRefERNS_6ModuleEPNS_13TargetMachineEPNS_14ToolOutputFileES6_S6_S0_NS_8opt_tool10OutputKindENS7_12VerifierKindEbbbbb'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='477' u='c' c='_ZN12_GLOBAL__N_131ModuleCallbacksTest_Passes_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='511' u='c' c='_ZN12_GLOBAL__N_143ModuleCallbacksTest_InstrumentedPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='542' u='c' c='_ZN12_GLOBAL__N_150ModuleCallbacksTest_InstrumentedSkippedPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='554' u='c' c='_ZN12_GLOBAL__N_133FunctionCallbacksTest_Passes_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='593' u='c' c='_ZN12_GLOBAL__N_145FunctionCallbacksTest_InstrumentedPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='629' u='c' c='_ZN12_GLOBAL__N_152FunctionCallbacksTest_InstrumentedSkippedPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='640' u='c' c='_ZN12_GLOBAL__N_129LoopCallbacksTest_Passes_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='680' u='c' c='_ZN12_GLOBAL__N_141LoopCallbacksTest_InstrumentedPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='724' u='c' c='_ZN12_GLOBAL__N_153LoopCallbacksTest_InstrumentedInvalidatingPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='759' u='c' c='_ZN12_GLOBAL__N_148LoopCallbacksTest_InstrumentedSkippedPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='770' u='c' c='_ZN12_GLOBAL__N_130CGSCCCallbacksTest_Passes_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='809' u='c' c='_ZN12_GLOBAL__N_142CGSCCCallbacksTest_InstrumentedPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='852' u='c' c='_ZN12_GLOBAL__N_154CGSCCCallbacksTest_InstrumentedInvalidatingPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='887' u='c' c='_ZN12_GLOBAL__N_149CGSCCCallbacksTest_InstrumentedSkippedPasses_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='902' u='c' c='_ZN12_GLOBAL__N_142ModuleCallbacksTest_AnalysisUtilities_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='912' u='c' c='_ZN12_GLOBAL__N_137CGSCCCallbacksTest_PassUtilities_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='922' u='c' c='_ZN12_GLOBAL__N_144FunctionCallbacksTest_AnalysisUtilities_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='933' u='c' c='_ZN12_GLOBAL__N_136LoopCallbacksTest_PassUtilities_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='973' u='c' c='_ZN12_GLOBAL__N_146ModuleCallbacksTest_ParseTopLevelPipeline_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/PassBuilderCallbacksTest.cpp' l='979' u='c' c='_ZN12_GLOBAL__N_146ModuleCallbacksTest_ParseTopLevelPipeline_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Passes/PluginsTest.cpp' l='57' u='c' c='_ZN28PluginsTests_LoadPlugin_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Passes/PluginsTest.cpp' l='60' u='c' c='_ZN28PluginsTests_LoadPlugin_Test8TestBodyEv'/>

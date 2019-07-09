@@ -1,0 +1,21 @@
+<dec f='llvm/llvm/include/llvm/Passes/PassBuilder.h' l='188' type='2'/>
+<use f='llvm/clang/lib/CodeGen/BackendUtil.cpp' l='951' u='r' c='_ZL10mapToLevelRKN5clang14CodeGenOptionsE'/>
+<doc f='llvm/llvm/include/llvm/Passes/PassBuilder.h' l='172'>/// Optimize for fast execution as much as possible without triggering
+    /// significant incremental compile time or code size growth.
+    ///
+    /// The key idea is that optimizations at this level should &quot;pay for
+    /// themselves&quot;. So if an optimization increases compile time by 5% or
+    /// increases code size by 5% for a particular benchmark, that benchmark
+    /// should also be one which sees a 5% runtime improvement. If the compile
+    /// time or code size penalties happen on average across a diverse range of
+    /// LLVM users&apos; benchmarks, then the improvements should as well.
+    ///
+    /// And no matter what, the compile time needs to not grow superlinearly
+    /// with the size of input to LLVM so that users can control the runtime of
+    /// the optimizer in this mode.
+    ///
+    /// This is expected to be a good default optimization level for the vast
+    /// majority of users.</doc>
+<use f='llvm/llvm/lib/LTO/LTOBackend.cpp' l='204' u='r' c='_ZN12_GLOBAL__N_1L14runNewPMPassesERN4llvm3lto6ConfigERNS0_6ModuleEPNS0_13TargetMachineEjbPNS0_18ModuleSummaryIndexEPKS8_'/>
+<use f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='236' c='_ZL19isOptimizingForSizeN4llvm11PassBuilder17OptimizationLevelE'/>
+<use f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='1796' u='r' c='_ZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEbb'/>

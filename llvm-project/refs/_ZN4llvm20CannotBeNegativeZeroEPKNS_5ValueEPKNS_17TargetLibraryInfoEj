@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='193' type='bool llvm::CannotBeNegativeZero(const llvm::Value * V, const llvm::TargetLibraryInfo * TLI, unsigned int Depth = 0)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='191'>/// Return true if we can prove that the specified FP value is never equal to
+  /// -0.0.</doc>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='4367' u='c' c='_ZL16SimplifyFAddInstPN4llvm5ValueES1_NS_13FastMathFlagsERKNS_13SimplifyQueryEj'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='4414' u='c' c='_ZL16SimplifyFSubInstPN4llvm5ValueES1_NS_13FastMathFlagsERKNS_13SimplifyQueryEj'/>
+<def f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='3002' ll='3044' type='bool llvm::CannotBeNegativeZero(const llvm::Value * V, const llvm::TargetLibraryInfo * TLI, unsigned int Depth = 0)'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='3159' u='c' c='_ZL31cannotBeOrderedLessThanZeroImplPKN4llvm5ValueEPKNS_17TargetLibraryInfoEbj'/>
+<doc f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='2997'>/// Return true if we can prove that the specified FP value is never equal to
+/// -0.0.
+///
+/// NOTE: this function will need to be revisited when we support non-default
+/// rounding modes!</doc>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAddSub.cpp' l='1917' u='c' c='_ZN4llvm12InstCombiner9visitFSubERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineSelect.cpp' l='103' u='c' c='_ZL23foldSelectBinOpIdentityRN4llvm10SelectInstERKNS_17TargetLibraryInfoE'/>

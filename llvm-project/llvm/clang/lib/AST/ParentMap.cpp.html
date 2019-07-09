@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ParentMap.cpp source code [llvm/clang/lib/AST/ParentMap.cpp] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="OpaqueValueMode "/>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/clang/lib/AST/ParentMap.cpp'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>llvm</a>/<a href='../..'>clang</a>/<a href='..'>lib</a>/<a href='./'>AST</a>/<a href='ParentMap.cpp.html'>ParentMap.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===--- ParentMap.cpp - Mappings from Stmts to their Parents ---*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>//  This file defines the ParentMap class.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../../include/clang/AST/ParentMap.h.html">"clang/AST/ParentMap.h"</a></u></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="../../include/clang/AST/Decl.h.html">"clang/AST/Decl.h"</a></u></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="../../include/clang/AST/Expr.h.html">"clang/AST/Expr.h"</a></u></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="../../include/clang/AST/ExprCXX.h.html">"clang/AST/ExprCXX.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../include/clang/AST/StmtObjC.h.html">"clang/AST/StmtObjC.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../llvm/include/llvm/ADT/DenseMap.h.html">"llvm/ADT/DenseMap.h"</a></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><b>using</b> <b>namespace</b> <span class="namespace">clang</span>;</td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><b>typedef</b> <span class="namespace">llvm::</span><a class="type" href="../../../llvm/include/llvm/ADT/DenseMap.h.html#llvm::DenseMap" title='llvm::DenseMap' data-ref="llvm::DenseMap">DenseMap</a>&lt;<a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a>*, <a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a>*&gt; <dfn class="typedef" id="MapTy" title='MapTy' data-type='llvm::DenseMap&lt;Stmt *, Stmt *&gt;' data-ref="MapTy">MapTy</dfn>;</td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>enum</b> <dfn class="type def" id="OpaqueValueMode" title='OpaqueValueMode' data-ref="OpaqueValueMode">OpaqueValueMode</dfn> {</td></tr>
+<tr><th id="25">25</th><td>  <dfn class="enum" id="OpaqueValueMode::OV_Transparent" title='OpaqueValueMode::OV_Transparent' data-ref="OpaqueValueMode::OV_Transparent">OV_Transparent</dfn>,</td></tr>
+<tr><th id="26">26</th><td>  <dfn class="enum" id="OpaqueValueMode::OV_Opaque" title='OpaqueValueMode::OV_Opaque' data-ref="OpaqueValueMode::OV_Opaque">OV_Opaque</dfn></td></tr>
+<tr><th id="27">27</th><td>};</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="_ZL14BuildParentMapRN4llvm8DenseMapIPN5clang4StmtES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEEES3_15OpaqueValueMode" title='BuildParentMap' data-type='void BuildParentMap(MapTy &amp; M, clang::Stmt * S, OpaqueValueMode OVMode = OV_Transparent)' data-ref="_ZL14BuildParentMapRN4llvm8DenseMapIPN5clang4StmtES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEEES3_15OpaqueValueMode">BuildParentMap</dfn>(<a class="typedef" href="#MapTy" title='MapTy' data-type='llvm::DenseMap&lt;Stmt *, Stmt *&gt;' data-ref="MapTy">MapTy</a>&amp; <dfn class="local col1 decl" id="11M" title='M' data-type='MapTy &amp;' data-ref="11M">M</dfn>, <a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a>* <dfn class="local col2 decl" id="12S" title='S' data-type='clang::Stmt *' data-ref="12S">S</dfn>,</td></tr>
+<tr><th id="30">30</th><td>                           <a class="type" href="#OpaqueValueMode" title='OpaqueValueMode' data-ref="OpaqueValueMode">OpaqueValueMode</a> <dfn class="local col3 decl" id="13OVMode" title='OVMode' data-type='OpaqueValueMode' data-ref="13OVMode">OVMode</dfn> = <a class="enum" href="#OpaqueValueMode::OV_Transparent" title='OpaqueValueMode::OV_Transparent' data-ref="OpaqueValueMode::OV_Transparent">OV_Transparent</a>) {</td></tr>
+<tr><th id="31">31</th><td>  <b>if</b> (!<a class="local col2 ref" href="#12S" title='S' data-ref="12S">S</a>)</td></tr>
+<tr><th id="32">32</th><td>    <b>return</b>;</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td>  <b>switch</b> (<a class="local col2 ref" href="#12S" title='S' data-ref="12S">S</a>-&gt;<a class="ref" href="../../include/clang/AST/Stmt.h.html#_ZNK5clang4Stmt12getStmtClassEv" title='clang::Stmt::getStmtClass' data-ref="_ZNK5clang4Stmt12getStmtClassEv">getStmtClass</a>()) {</td></tr>
+<tr><th id="35">35</th><td>  <b>case</b> Stmt::<span class='error' title="no member named &apos;PseudoObjectExprClass&apos; in &apos;clang::Stmt&apos;">PseudoObjectExprClass</span>: {</td></tr>
+<tr><th id="36">36</th><td>    <a class="macro" href="../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (OVMode == OV_Transparent &amp;&amp; &quot;Should not appear alongside OVEs&quot;) ? void (0) : __assert_fail (&quot;OVMode == OV_Transparent &amp;&amp; \&quot;Should not appear alongside OVEs\&quot;&quot;, &quot;/root/cheri/llvm-project/clang/lib/AST/ParentMap.cpp&quot;, 36, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(OVMode == OV_Transparent &amp;&amp; <q>"Should not appear alongside OVEs"</q>);</td></tr>
+<tr><th id="37">37</th><td>    PseudoObjectExpr *POE = cast&lt;PseudoObjectExpr&gt;(S);</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td>    <i>// If we are rebuilding the map, clear out any existing state.</i></td></tr>
+<tr><th id="40">40</th><td>    <b>if</b> (M[POE-&gt;getSyntacticForm()])</td></tr>
+<tr><th id="41">41</th><td>      <b>for</b> (Stmt *SubStmt : S-&gt;<span class='error' title="calling &apos;children&apos; with incomplete return type &apos;child_range&apos; (aka &apos;iterator_range&lt;clang::StmtIterator&gt;&apos;)">children</span>())</td></tr>
+<tr><th id="42">42</th><td>        M[SubStmt] = <b>nullptr</b>;</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>    M[POE-&gt;getSyntacticForm()] = S;</td></tr>
+<tr><th id="45">45</th><td>    BuildParentMap(M, POE-&gt;getSyntacticForm(), OV_Transparent);</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td>    <b>for</b> (PseudoObjectExpr::semantics_iterator I = POE-&gt;semantics_begin(),</td></tr>
+<tr><th id="48">48</th><td>                                              E = POE-&gt;semantics_end();</td></tr>
+<tr><th id="49">49</th><td>         I != E; ++I) {</td></tr>
+<tr><th id="50">50</th><td>      M[*I] = S;</td></tr>
+<tr><th id="51">51</th><td>      BuildParentMap(M, *I, OV_Opaque);</td></tr>
+<tr><th id="52">52</th><td>    }</td></tr>
+<tr><th id="53">53</th><td>    <b>break</b>;</td></tr>
+<tr><th id="54">54</th><td>  }</td></tr>
+<tr><th id="55">55</th><td>  <b>case</b> Stmt::<span class='error' title="no member named &apos;BinaryConditionalOperatorClass&apos; in &apos;clang::Stmt&apos;">BinaryConditionalOperatorClass</span>: {</td></tr>
+<tr><th id="56">56</th><td>    <a class="macro" href="../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (OVMode == OV_Transparent &amp;&amp; &quot;Should not appear alongside OVEs&quot;) ? void (0) : __assert_fail (&quot;OVMode == OV_Transparent &amp;&amp; \&quot;Should not appear alongside OVEs\&quot;&quot;, &quot;/root/cheri/llvm-project/clang/lib/AST/ParentMap.cpp&quot;, 56, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(OVMode == OV_Transparent &amp;&amp; <q>"Should not appear alongside OVEs"</q>);</td></tr>
+<tr><th id="57">57</th><td>    BinaryConditionalOperator *BCO = cast&lt;BinaryConditionalOperator&gt;(S);</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>    M[BCO-&gt;getCommon()] = S;</td></tr>
+<tr><th id="60">60</th><td>    BuildParentMap(M, BCO-&gt;getCommon(), OV_Transparent);</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>    M[BCO-&gt;getCond()] = S;</td></tr>
+<tr><th id="63">63</th><td>    BuildParentMap(M, BCO-&gt;getCond(), OV_Opaque);</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>    M[BCO-&gt;getTrueExpr()] = S;</td></tr>
+<tr><th id="66">66</th><td>    BuildParentMap(M, BCO-&gt;getTrueExpr(), OV_Opaque);</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>    M[BCO-&gt;getFalseExpr()] = S;</td></tr>
+<tr><th id="69">69</th><td>    BuildParentMap(M, BCO-&gt;getFalseExpr(), OV_Transparent);</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>    <b>break</b>;</td></tr>
+<tr><th id="72">72</th><td>  }</td></tr>
+<tr><th id="73">73</th><td>  <b>case</b> Stmt::<span class='error' title="no member named &apos;OpaqueValueExprClass&apos; in &apos;clang::Stmt&apos;">OpaqueValueExprClass</span>: {</td></tr>
+<tr><th id="74">74</th><td>    <i>// FIXME: This isn't correct; it assumes that multiple OpaqueValueExprs</i></td></tr>
+<tr><th id="75">75</th><td><i>    // share a single source expression, but in the AST a single</i></td></tr>
+<tr><th id="76">76</th><td><i>    // OpaqueValueExpr is shared among multiple parent expressions.</i></td></tr>
+<tr><th id="77">77</th><td><i>    // The right thing to do is to give the OpaqueValueExpr its syntactic</i></td></tr>
+<tr><th id="78">78</th><td><i>    // parent, then not reassign that when traversing the semantic expressions.</i></td></tr>
+<tr><th id="79">79</th><td>    OpaqueValueExpr *OVE = cast&lt;OpaqueValueExpr&gt;(S);</td></tr>
+<tr><th id="80">80</th><td>    <b>if</b> (OVMode == OV_Transparent || !M[OVE-&gt;getSourceExpr()]) {</td></tr>
+<tr><th id="81">81</th><td>      M[OVE-&gt;getSourceExpr()] = S;</td></tr>
+<tr><th id="82">82</th><td>      BuildParentMap(M, OVE-&gt;getSourceExpr(), OV_Transparent);</td></tr>
+<tr><th id="83">83</th><td>    }</td></tr>
+<tr><th id="84">84</th><td>    <b>break</b>;</td></tr>
+<tr><th id="85">85</th><td>  }</td></tr>
+<tr><th id="86">86</th><td>  <b>default</b>:</td></tr>
+<tr><th id="87">87</th><td>    <b>for</b> (Stmt *SubStmt : S-&gt;<span class='error' title="calling &apos;children&apos; with incomplete return type &apos;child_range&apos; (aka &apos;iterator_range&lt;clang::StmtIterator&gt;&apos;)">children</span>()) {</td></tr>
+<tr><th id="88">88</th><td>      <b>if</b> (SubStmt) {</td></tr>
+<tr><th id="89">89</th><td>        M[SubStmt] = S;</td></tr>
+<tr><th id="90">90</th><td>        BuildParentMap(M, SubStmt, OVMode);</td></tr>
+<tr><th id="91">91</th><td>      }</td></tr>
+<tr><th id="92">92</th><td>    }</td></tr>
+<tr><th id="93">93</th><td>    <b>break</b>;</td></tr>
+<tr><th id="94">94</th><td>  }</td></tr>
+<tr><th id="95">95</th><td>}</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><a class="type" href="../../include/clang/AST/ParentMap.h.html#clang::ParentMap" title='clang::ParentMap' data-ref="clang::ParentMap">ParentMap</a>::<dfn class="decl def" id="_ZN5clang9ParentMapC1EPNS_4StmtE" title='clang::ParentMap::ParentMap' data-ref="_ZN5clang9ParentMapC1EPNS_4StmtE">ParentMap</dfn>(<a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a> *<dfn class="local col4 decl" id="14S" title='S' data-type='clang::Stmt *' data-ref="14S">S</dfn>) : <a class="member" href="../../include/clang/AST/ParentMap.h.html#clang::ParentMap::Impl" title='clang::ParentMap::Impl' data-ref="clang::ParentMap::Impl">Impl</a>(<b>nullptr</b>) {</td></tr>
+<tr><th id="98">98</th><td>  <b>if</b> (<a class="local col4 ref" href="#14S" title='S' data-ref="14S">S</a>) {</td></tr>
+<tr><th id="99">99</th><td>    <a class="typedef" href="#MapTy" title='MapTy' data-type='llvm::DenseMap&lt;Stmt *, Stmt *&gt;' data-ref="MapTy">MapTy</a> *<dfn class="local col5 decl" id="15M" title='M' data-type='MapTy *' data-ref="15M">M</dfn> = <b>new</b> <a class="typedef" href="#MapTy" title='MapTy' data-type='llvm::DenseMap&lt;Stmt *, Stmt *&gt;' data-ref="MapTy">MapTy</a><a class="ref" href="../../../llvm/include/llvm/ADT/DenseMap.h.html#_ZN4llvm8DenseMapC1Ej" title='llvm::DenseMap::DenseMap&lt;KeyT, ValueT, KeyInfoT, BucketT&gt;' data-ref="_ZN4llvm8DenseMapC1Ej">(</a>);</td></tr>
+<tr><th id="100">100</th><td>    <a class="tu ref" href="#_ZL14BuildParentMapRN4llvm8DenseMapIPN5clang4StmtES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEEES3_15OpaqueValueMode" title='BuildParentMap' data-use='c' data-ref="_ZL14BuildParentMapRN4llvm8DenseMapIPN5clang4StmtES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEEES3_15OpaqueValueMode">BuildParentMap</a>(<span class='refarg'>*<a class="local col5 ref" href="#15M" title='M' data-ref="15M">M</a></span>, <a class="local col4 ref" href="#14S" title='S' data-ref="14S">S</a>);</td></tr>
+<tr><th id="101">101</th><td>    <a class="member" href="../../include/clang/AST/ParentMap.h.html#clang::ParentMap::Impl" title='clang::ParentMap::Impl' data-ref="clang::ParentMap::Impl">Impl</a> = <a class="local col5 ref" href="#15M" title='M' data-ref="15M">M</a>;</td></tr>
+<tr><th id="102">102</th><td>  }</td></tr>
+<tr><th id="103">103</th><td>}</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td><a class="type" href="../../include/clang/AST/ParentMap.h.html#clang::ParentMap" title='clang::ParentMap' data-ref="clang::ParentMap">ParentMap</a>::<dfn class="decl def" id="_ZN5clang9ParentMapD1Ev" title='clang::ParentMap::~ParentMap' data-ref="_ZN5clang9ParentMapD1Ev">~ParentMap</dfn>() {</td></tr>
+<tr><th id="106">106</th><td>  <b>delete</b> (<a class="typedef" href="#MapTy" title='MapTy' data-type='llvm::DenseMap&lt;Stmt *, Stmt *&gt;' data-ref="MapTy">MapTy</a>*) <a class="member" href="../../include/clang/AST/ParentMap.h.html#clang::ParentMap::Impl" title='clang::ParentMap::Impl' data-ref="clang::ParentMap::Impl">Impl</a>;</td></tr>
+<tr><th id="107">107</th><td>}</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td><em>void</em> <a class="type" href="../../include/clang/AST/ParentMap.h.html#clang::ParentMap" title='clang::ParentMap' data-ref="clang::ParentMap">ParentMap</a>::<dfn class="decl def" id="_ZN5clang9ParentMap7addStmtEPNS_4StmtE" title='clang::ParentMap::addStmt' data-ref="_ZN5clang9ParentMap7addStmtEPNS_4StmtE">addStmt</dfn>(<a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a>* <dfn class="local col6 decl" id="16S" title='S' data-type='clang::Stmt *' data-ref="16S">S</dfn>) {</td></tr>
+<tr><th id="110">110</th><td>  <b>if</b> (<a class="local col6 ref" href="#16S" title='S' data-ref="16S">S</a>) {</td></tr>
+<tr><th id="111">111</th><td>    <a class="tu ref" href="#_ZL14BuildParentMapRN4llvm8DenseMapIPN5clang4StmtES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEEES3_15OpaqueValueMode" title='BuildParentMap' data-use='c' data-ref="_ZL14BuildParentMapRN4llvm8DenseMapIPN5clang4StmtES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEEES3_15OpaqueValueMode">BuildParentMap</a>(<span class='refarg'>*(<a class="typedef" href="#MapTy" title='MapTy' data-type='llvm::DenseMap&lt;Stmt *, Stmt *&gt;' data-ref="MapTy">MapTy</a>*) <a class="member" href="../../include/clang/AST/ParentMap.h.html#clang::ParentMap::Impl" title='clang::ParentMap::Impl' data-ref="clang::ParentMap::Impl">Impl</a></span>, <a class="local col6 ref" href="#16S" title='S' data-ref="16S">S</a>);</td></tr>
+<tr><th id="112">112</th><td>  }</td></tr>
+<tr><th id="113">113</th><td>}</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td><em>void</em> <a class="type" href="../../include/clang/AST/ParentMap.h.html#clang::ParentMap" title='clang::ParentMap' data-ref="clang::ParentMap">ParentMap</a>::<dfn class="decl def" id="_ZN5clang9ParentMap9setParentEPKNS_4StmtES3_" title='clang::ParentMap::setParent' data-ref="_ZN5clang9ParentMap9setParentEPKNS_4StmtES3_">setParent</dfn>(<em>const</em> <a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a> *<dfn class="local col7 decl" id="17S" title='S' data-type='const clang::Stmt *' data-ref="17S">S</dfn>, <em>const</em> <a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a> *<dfn class="local col8 decl" id="18Parent" title='Parent' data-type='const clang::Stmt *' data-ref="18Parent">Parent</dfn>) {</td></tr>
+<tr><th id="116">116</th><td>  <a class="macro" href="../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (S) ? void (0) : __assert_fail (&quot;S&quot;, &quot;/root/cheri/llvm-project/clang/lib/AST/ParentMap.cpp&quot;, 116, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="local col7 ref" href="#17S" title='S' data-ref="17S">S</a>);</td></tr>
+<tr><th id="117">117</th><td>  <a class="macro" href="../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (Parent) ? void (0) : __assert_fail (&quot;Parent&quot;, &quot;/root/cheri/llvm-project/clang/lib/AST/ParentMap.cpp&quot;, 117, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="local col8 ref" href="#18Parent" title='Parent' data-ref="18Parent">Parent</a>);</td></tr>
+<tr><th id="118">118</th><td>  <a class="typedef" href="#MapTy" title='MapTy' data-type='llvm::DenseMap&lt;Stmt *, Stmt *&gt;' data-ref="MapTy">MapTy</a> *<dfn class="local col9 decl" id="19M" title='M' data-type='MapTy *' data-ref="19M">M</dfn> = <b>reinterpret_cast</b>&lt;<a class="typedef" href="#MapTy" title='MapTy' data-type='llvm::DenseMap&lt;Stmt *, Stmt *&gt;' data-ref="MapTy">MapTy</a> *&gt;(<a class="member" href="../../include/clang/AST/ParentMap.h.html#clang::ParentMap::Impl" title='clang::ParentMap::Impl' data-ref="clang::ParentMap::Impl">Impl</a>);</td></tr>
+<tr><th id="119">119</th><td>  <a class="local col9 ref" href="#19M" title='M' data-ref="19M">M</a>-&gt;<a class="ref" href="../../../llvm/include/llvm/ADT/DenseMap.h.html#_ZN4llvm12DenseMapBase6insertEOSt4pairIT0_T1_E" title='llvm::DenseMapBase::insert' data-ref="_ZN4llvm12DenseMapBase6insertEOSt4pairIT0_T1_E">insert</a>(<span class="namespace">std::</span><a class="ref" href="../../../../include/c++/7/bits/stl_pair.h.html#_ZSt9make_pairOT_OT0_" title='std::make_pair' data-ref="_ZSt9make_pairOT_OT0_">make_pair</a>(<b>const_cast</b>&lt;<a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a> *&gt;(<a class="local col7 ref" href="#17S" title='S' data-ref="17S">S</a>), <b>const_cast</b>&lt;<a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a> *&gt;(<a class="local col8 ref" href="#18Parent" title='Parent' data-ref="18Parent">Parent</a>)));</td></tr>
+<tr><th id="120">120</th><td>}</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td><a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a>* <a class="type" href="../../include/clang/AST/ParentMap.h.html#clang::ParentMap" title='clang::ParentMap' data-ref="clang::ParentMap">ParentMap</a>::<dfn class="decl def" id="_ZNK5clang9ParentMap9getParentEPNS_4StmtE" title='clang::ParentMap::getParent' data-ref="_ZNK5clang9ParentMap9getParentEPNS_4StmtE">getParent</dfn>(<a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a>* <dfn class="local col0 decl" id="20S" title='S' data-type='clang::Stmt *' data-ref="20S">S</dfn>) <em>const</em> {</td></tr>
+<tr><th id="123">123</th><td>  <a class="typedef" href="#MapTy" title='MapTy' data-type='llvm::DenseMap&lt;Stmt *, Stmt *&gt;' data-ref="MapTy">MapTy</a>* <dfn class="local col1 decl" id="21M" title='M' data-type='MapTy *' data-ref="21M">M</dfn> = (<a class="typedef" href="#MapTy" title='MapTy' data-type='llvm::DenseMap&lt;Stmt *, Stmt *&gt;' data-ref="MapTy">MapTy</a>*) <a class="member" href="../../include/clang/AST/ParentMap.h.html#clang::ParentMap::Impl" title='clang::ParentMap::Impl' data-ref="clang::ParentMap::Impl">Impl</a>;</td></tr>
+<tr><th id="124">124</th><td>  <a class="typedef" href="#MapTy" title='MapTy' data-type='llvm::DenseMap&lt;Stmt *, Stmt *&gt;' data-ref="MapTy">MapTy</a>::<a class="typedef" href="../../../llvm/include/llvm/ADT/DenseMap.h.html#llvm::DenseMapBase{llvm::DenseMap{clang::Stmt*,clang::Stmt*,llvm::DenseMapInfo{clang::Stmt*},llvm::detail::DenseMapPair{clang::Stmt*,clang::Stmt*}},cl14185250" title='llvm::DenseMapBase&lt;llvm::DenseMap&lt;clang::Stmt *, clang::Stmt *, llvm::DenseMapInfo&lt;clang::Stmt *&gt;, llvm::detail::DenseMapPair&lt;clang::Stmt *, clang::Stmt *&gt; &gt;, clang::Stmt *, clang::Stmt *, llvm::DenseMapInfo&lt;clang::Stmt *&gt;, llvm::detail::DenseMapPair&lt;clang::Stmt *, clang::Stmt *&gt; &gt;::iterator' data-type='DenseMapIterator&lt;clang::Stmt *, clang::Stmt *, llvm::DenseMapInfo&lt;clang::Stmt *&gt;, llvm::detail::DenseMapPair&lt;clang::Stmt *, clang::Stmt *&gt; &gt;' data-ref="llvm::DenseMapBase{llvm::DenseMap{clang::Stmt*,clang::Stmt*,llvm::DenseMapInfo{clang::Stmt*},llvm::detail::DenseMapPair{clang::Stmt*,clang::Stmt*}},cl14185250">iterator</a> <dfn class="local col2 decl" id="22I" title='I' data-type='MapTy::iterator' data-ref="22I">I</dfn> = <a class="local col1 ref" href="#21M" title='M' data-ref="21M">M</a>-&gt;<a class="ref" href="../../../llvm/include/llvm/ADT/DenseMap.h.html#_ZN4llvm12DenseMapBase4findENS_26const_pointer_or_const_refIT0_vE4typeE" title='llvm::DenseMapBase::find' data-ref="_ZN4llvm12DenseMapBase4findENS_26const_pointer_or_const_refIT0_vE4typeE">find</a>(<a class="local col0 ref" href="#20S" title='S' data-ref="20S">S</a>);</td></tr>
+<tr><th id="125">125</th><td>  <b>return</b> <a class="local col2 ref" href="#22I" title='I' data-ref="22I">I</a> <a class="ref" href="../../../llvm/include/llvm/ADT/DenseMap.h.html#_ZNK4llvm16DenseMapIteratoreqERKNS_16DenseMapIteratorIT_T0_T1_T2_Lb1EEE" title='llvm::DenseMapIterator::operator==' data-ref="_ZNK4llvm16DenseMapIteratoreqERKNS_16DenseMapIteratorIT_T0_T1_T2_Lb1EEE">==</a> <a class="ref fake" href="../../../llvm/include/llvm/ADT/DenseMap.h.html#_ZN4llvm16DenseMapIteratorC1ERKNS_16DenseMapIteratorIT_T0_T1_T2_XT_EEE" title='llvm::DenseMapIterator::DenseMapIterator&lt;KeyT, ValueT, KeyInfoT, Bucket, IsConst&gt;' data-ref="_ZN4llvm16DenseMapIteratorC1ERKNS_16DenseMapIteratorIT_T0_T1_T2_XT_EEE"></a><a class="local col1 ref" href="#21M" title='M' data-ref="21M">M</a>-&gt;<a class="ref" href="../../../llvm/include/llvm/ADT/DenseMap.h.html#_ZN4llvm12DenseMapBase3endEv" title='llvm::DenseMapBase::end' data-ref="_ZN4llvm12DenseMapBase3endEv">end</a>() ? <b>nullptr</b> : <a class="local col2 ref" href="#22I" title='I' data-ref="22I">I</a><a class="ref" href="../../../llvm/include/llvm/ADT/DenseMap.h.html#_ZNK4llvm16DenseMapIteratorptEv" title='llvm::DenseMapIterator::operator-&gt;' data-ref="_ZNK4llvm16DenseMapIteratorptEv">-&gt;</a><a class="ref" href="../../../../include/c++/7/bits/stl_pair.h.html#std::pair::second" title='std::pair&lt;clang::Stmt *, clang::Stmt *&gt;::second' data-ref="std::pair::second">second</a>;</td></tr>
+<tr><th id="126">126</th><td>}</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td><a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a> *<a class="type" href="../../include/clang/AST/ParentMap.h.html#clang::ParentMap" title='clang::ParentMap' data-ref="clang::ParentMap">ParentMap</a>::<dfn class="decl def" id="_ZNK5clang9ParentMap21getParentIgnoreParensEPNS_4StmtE" title='clang::ParentMap::getParentIgnoreParens' data-ref="_ZNK5clang9ParentMap21getParentIgnoreParensEPNS_4StmtE">getParentIgnoreParens</dfn>(<a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a> *<dfn class="local col3 decl" id="23S" title='S' data-type='clang::Stmt *' data-ref="23S">S</dfn>) <em>const</em> {</td></tr>
+<tr><th id="129">129</th><td>  <b>do</b> { <a class="local col3 ref" href="#23S" title='S' data-ref="23S">S</a> = <a class="member" href="#_ZNK5clang9ParentMap9getParentEPNS_4StmtE" title='clang::ParentMap::getParent' data-ref="_ZNK5clang9ParentMap9getParentEPNS_4StmtE">getParent</a>(<a class="local col3 ref" href="#23S" title='S' data-ref="23S">S</a>); } <b>while</b> (<a class="local col3 ref" href="#23S" title='S' data-ref="23S">S</a> &amp;&amp; <a class="ref" href="../../../llvm/include/llvm/Support/Casting.h.html#_ZN4llvm3isaERKT0_" title='llvm::isa' data-ref="_ZN4llvm3isaERKT0_">isa</a>&lt;<a class="type" href="../../include/clang/AST/Expr.h.html#clang::ParenExpr" title='clang::ParenExpr' data-ref="clang::ParenExpr">ParenExpr</a>&gt;(<a class="local col3 ref" href="#23S" title='S' data-ref="23S">S</a>));</td></tr>
+<tr><th id="130">130</th><td>  <b>return</b> <a class="local col3 ref" href="#23S" title='S' data-ref="23S">S</a>;</td></tr>
+<tr><th id="131">131</th><td>}</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td><a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a> *<a class="type" href="../../include/clang/AST/ParentMap.h.html#clang::ParentMap" title='clang::ParentMap' data-ref="clang::ParentMap">ParentMap</a>::<dfn class="decl def" id="_ZNK5clang9ParentMap25getParentIgnoreParenCastsEPNS_4StmtE" title='clang::ParentMap::getParentIgnoreParenCasts' data-ref="_ZNK5clang9ParentMap25getParentIgnoreParenCastsEPNS_4StmtE">getParentIgnoreParenCasts</dfn>(<a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a> *<dfn class="local col4 decl" id="24S" title='S' data-type='clang::Stmt *' data-ref="24S">S</dfn>) <em>const</em> {</td></tr>
+<tr><th id="134">134</th><td>  <b>do</b> {</td></tr>
+<tr><th id="135">135</th><td>    <a class="local col4 ref" href="#24S" title='S' data-ref="24S">S</a> = <a class="member" href="#_ZNK5clang9ParentMap9getParentEPNS_4StmtE" title='clang::ParentMap::getParent' data-ref="_ZNK5clang9ParentMap9getParentEPNS_4StmtE">getParent</a>(<a class="local col4 ref" href="#24S" title='S' data-ref="24S">S</a>);</td></tr>
+<tr><th id="136">136</th><td>  }</td></tr>
+<tr><th id="137">137</th><td>  <b>while</b> (<a class="local col4 ref" href="#24S" title='S' data-ref="24S">S</a> &amp;&amp; (<a class="ref" href="../../../llvm/include/llvm/Support/Casting.h.html#_ZN4llvm3isaERKT0_" title='llvm::isa' data-ref="_ZN4llvm3isaERKT0_">isa</a>&lt;<a class="type" href="../../include/clang/AST/Expr.h.html#clang::ParenExpr" title='clang::ParenExpr' data-ref="clang::ParenExpr">ParenExpr</a>&gt;(<a class="local col4 ref" href="#24S" title='S' data-ref="24S">S</a>) || <a class="ref" href="../../../llvm/include/llvm/Support/Casting.h.html#_ZN4llvm3isaERKT0_" title='llvm::isa' data-ref="_ZN4llvm3isaERKT0_">isa</a>&lt;<a class="type" href="../../include/clang/AST/Expr.h.html#clang::CastExpr" title='clang::CastExpr' data-ref="clang::CastExpr">CastExpr</a>&gt;(<a class="local col4 ref" href="#24S" title='S' data-ref="24S">S</a>)));</td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td>  <b>return</b> <a class="local col4 ref" href="#24S" title='S' data-ref="24S">S</a>;</td></tr>
+<tr><th id="140">140</th><td>}</td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td><a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a> *<a class="type" href="../../include/clang/AST/ParentMap.h.html#clang::ParentMap" title='clang::ParentMap' data-ref="clang::ParentMap">ParentMap</a>::<dfn class="decl def" id="_ZNK5clang9ParentMap28getParentIgnoreParenImpCastsEPNS_4StmtE" title='clang::ParentMap::getParentIgnoreParenImpCasts' data-ref="_ZNK5clang9ParentMap28getParentIgnoreParenImpCastsEPNS_4StmtE">getParentIgnoreParenImpCasts</dfn>(<a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a> *<dfn class="local col5 decl" id="25S" title='S' data-type='clang::Stmt *' data-ref="25S">S</dfn>) <em>const</em> {</td></tr>
+<tr><th id="143">143</th><td>  <b>do</b> {</td></tr>
+<tr><th id="144">144</th><td>    <a class="local col5 ref" href="#25S" title='S' data-ref="25S">S</a> = <a class="member" href="#_ZNK5clang9ParentMap9getParentEPNS_4StmtE" title='clang::ParentMap::getParent' data-ref="_ZNK5clang9ParentMap9getParentEPNS_4StmtE">getParent</a>(<a class="local col5 ref" href="#25S" title='S' data-ref="25S">S</a>);</td></tr>
+<tr><th id="145">145</th><td>  } <b>while</b> (<a class="local col5 ref" href="#25S" title='S' data-ref="25S">S</a> &amp;&amp; <a class="ref" href="../../../llvm/include/llvm/Support/Casting.h.html#_ZN4llvm3isaERKT0_" title='llvm::isa' data-ref="_ZN4llvm3isaERKT0_">isa</a>&lt;<a class="type" href="../../include/clang/AST/Expr.h.html#clang::Expr" title='clang::Expr' data-ref="clang::Expr">Expr</a>&gt;(<a class="local col5 ref" href="#25S" title='S' data-ref="25S">S</a>) &amp;&amp; <a class="ref" href="../../../llvm/include/llvm/Support/Casting.h.html#_ZN4llvm4castEPT0_" title='llvm::cast' data-ref="_ZN4llvm4castEPT0_">cast</a>&lt;<a class="type" href="../../include/clang/AST/Expr.h.html#clang::Expr" title='clang::Expr' data-ref="clang::Expr">Expr</a>&gt;(<a class="local col5 ref" href="#25S" title='S' data-ref="25S">S</a>)-&gt;<a class="ref" href="../../include/clang/AST/Expr.h.html#_ZN5clang4Expr19IgnoreParenImpCastsEv" title='clang::Expr::IgnoreParenImpCasts' data-ref="_ZN5clang4Expr19IgnoreParenImpCastsEv">IgnoreParenImpCasts</a>() != <a class="local col5 ref" href="#25S" title='S' data-ref="25S">S</a>);</td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td>  <b>return</b> <a class="local col5 ref" href="#25S" title='S' data-ref="25S">S</a>;</td></tr>
+<tr><th id="148">148</th><td>}</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td><a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a> *<a class="type" href="../../include/clang/AST/ParentMap.h.html#clang::ParentMap" title='clang::ParentMap' data-ref="clang::ParentMap">ParentMap</a>::<dfn class="decl def" id="_ZNK5clang9ParentMap19getOuterParenParentEPNS_4StmtE" title='clang::ParentMap::getOuterParenParent' data-ref="_ZNK5clang9ParentMap19getOuterParenParentEPNS_4StmtE">getOuterParenParent</dfn>(<a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a> *<dfn class="local col6 decl" id="26S" title='S' data-type='clang::Stmt *' data-ref="26S">S</dfn>) <em>const</em> {</td></tr>
+<tr><th id="151">151</th><td>  <a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a> *<dfn class="local col7 decl" id="27Paren" title='Paren' data-type='clang::Stmt *' data-ref="27Paren">Paren</dfn> = <b>nullptr</b>;</td></tr>
+<tr><th id="152">152</th><td>  <b>while</b> (<a class="ref" href="../../../llvm/include/llvm/Support/Casting.h.html#_ZN4llvm3isaERKT0_" title='llvm::isa' data-ref="_ZN4llvm3isaERKT0_">isa</a>&lt;<a class="type" href="../../include/clang/AST/Expr.h.html#clang::ParenExpr" title='clang::ParenExpr' data-ref="clang::ParenExpr">ParenExpr</a>&gt;(<a class="local col6 ref" href="#26S" title='S' data-ref="26S">S</a>)) {</td></tr>
+<tr><th id="153">153</th><td>    <a class="local col7 ref" href="#27Paren" title='Paren' data-ref="27Paren">Paren</a> = <a class="local col6 ref" href="#26S" title='S' data-ref="26S">S</a>;</td></tr>
+<tr><th id="154">154</th><td>    <a class="local col6 ref" href="#26S" title='S' data-ref="26S">S</a> = <a class="member" href="#_ZNK5clang9ParentMap9getParentEPNS_4StmtE" title='clang::ParentMap::getParent' data-ref="_ZNK5clang9ParentMap9getParentEPNS_4StmtE">getParent</a>(<a class="local col6 ref" href="#26S" title='S' data-ref="26S">S</a>);</td></tr>
+<tr><th id="155">155</th><td>  };</td></tr>
+<tr><th id="156">156</th><td>  <b>return</b> <a class="local col7 ref" href="#27Paren" title='Paren' data-ref="27Paren">Paren</a>;</td></tr>
+<tr><th id="157">157</th><td>}</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td><em>bool</em> <a class="type" href="../../include/clang/AST/ParentMap.h.html#clang::ParentMap" title='clang::ParentMap' data-ref="clang::ParentMap">ParentMap</a>::<dfn class="decl def" id="_ZNK5clang9ParentMap14isConsumedExprEPNS_4ExprE" title='clang::ParentMap::isConsumedExpr' data-ref="_ZNK5clang9ParentMap14isConsumedExprEPNS_4ExprE">isConsumedExpr</dfn>(<a class="type" href="../../include/clang/AST/Expr.h.html#clang::Expr" title='clang::Expr' data-ref="clang::Expr">Expr</a>* <dfn class="local col8 decl" id="28E" title='E' data-type='clang::Expr *' data-ref="28E">E</dfn>) <em>const</em> {</td></tr>
+<tr><th id="160">160</th><td>  <a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a> *<dfn class="local col9 decl" id="29P" title='P' data-type='clang::Stmt *' data-ref="29P">P</dfn> = <a class="member" href="#_ZNK5clang9ParentMap9getParentEPNS_4StmtE" title='clang::ParentMap::getParent' data-ref="_ZNK5clang9ParentMap9getParentEPNS_4StmtE">getParent</a>(<a class="local col8 ref" href="#28E" title='E' data-ref="28E">E</a>);</td></tr>
+<tr><th id="161">161</th><td>  <a class="type" href="../../include/clang/AST/Stmt.h.html#clang::Stmt" title='clang::Stmt' data-ref="clang::Stmt">Stmt</a> *<dfn class="local col0 decl" id="30DirectChild" title='DirectChild' data-type='clang::Stmt *' data-ref="30DirectChild">DirectChild</dfn> = <a class="local col8 ref" href="#28E" title='E' data-ref="28E">E</a>;</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>  <i>// Ignore parents that don't guarantee consumption.</i></td></tr>
+<tr><th id="164">164</th><td>  <b>while</b> (<a class="local col9 ref" href="#29P" title='P' data-ref="29P">P</a> &amp;&amp; (<a class="ref" href="../../../llvm/include/llvm/Support/Casting.h.html#_ZN4llvm3isaERKT0_" title='llvm::isa' data-ref="_ZN4llvm3isaERKT0_">isa</a>&lt;<a class="type" href="../../include/clang/AST/Expr.h.html#clang::ParenExpr" title='clang::ParenExpr' data-ref="clang::ParenExpr">ParenExpr</a>&gt;(<a class="local col9 ref" href="#29P" title='P' data-ref="29P">P</a>) || <a class="ref" href="../../../llvm/include/llvm/Support/Casting.h.html#_ZN4llvm3isaERKT0_" title='llvm::isa' data-ref="_ZN4llvm3isaERKT0_">isa</a>&lt;<a class="type" href="../../include/clang/AST/Expr.h.html#clang::CastExpr" title='clang::CastExpr' data-ref="clang::CastExpr">CastExpr</a>&gt;(<a class="local col9 ref" href="#29P" title='P' data-ref="29P">P</a>) ||</td></tr>
+<tr><th id="165">165</th><td>               <a class="ref" href="../../../llvm/include/llvm/Support/Casting.h.html#_ZN4llvm3isaERKT0_" title='llvm::isa' data-ref="_ZN4llvm3isaERKT0_">isa</a>&lt;<a class="type" href="../../include/clang/AST/Expr.h.html#clang::FullExpr" title='clang::FullExpr' data-ref="clang::FullExpr">FullExpr</a>&gt;(<a class="local col9 ref" href="#29P" title='P' data-ref="29P">P</a>))) {</td></tr>
+<tr><th id="166">166</th><td>    <a class="local col0 ref" href="#30DirectChild" title='DirectChild' data-ref="30DirectChild">DirectChild</a> = <a class="local col9 ref" href="#29P" title='P' data-ref="29P">P</a>;</td></tr>
+<tr><th id="167">167</th><td>    <a class="local col9 ref" href="#29P" title='P' data-ref="29P">P</a> = <a class="member" href="#_ZNK5clang9ParentMap9getParentEPNS_4StmtE" title='clang::ParentMap::getParent' data-ref="_ZNK5clang9ParentMap9getParentEPNS_4StmtE">getParent</a>(<a class="local col9 ref" href="#29P" title='P' data-ref="29P">P</a>);</td></tr>
+<tr><th id="168">168</th><td>  }</td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td>  <b>if</b> (!<a class="local col9 ref" href="#29P" title='P' data-ref="29P">P</a>)</td></tr>
+<tr><th id="171">171</th><td>    <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>  <b>switch</b> (<a class="local col9 ref" href="#29P" title='P' data-ref="29P">P</a>-&gt;<a class="ref" href="../../include/clang/AST/Stmt.h.html#_ZNK5clang4Stmt12getStmtClassEv" title='clang::Stmt::getStmtClass' data-ref="_ZNK5clang4Stmt12getStmtClassEv">getStmtClass</a>()) {</td></tr>
+<tr><th id="174">174</th><td>    <b>default</b>:</td></tr>
+<tr><th id="175">175</th><td>      <b>return</b> <a class="ref" href="../../../llvm/include/llvm/Support/Casting.h.html#_ZN4llvm3isaERKT0_" title='llvm::isa' data-ref="_ZN4llvm3isaERKT0_">isa</a>&lt;<a class="type" href="../../include/clang/AST/Expr.h.html#clang::Expr" title='clang::Expr' data-ref="clang::Expr">Expr</a>&gt;(<a class="local col9 ref" href="#29P" title='P' data-ref="29P">P</a>);</td></tr>
+<tr><th id="176">176</th><td>    <b>case</b> Stmt::<span class='error' title="no member named &apos;DeclStmtClass&apos; in &apos;clang::Stmt&apos;">DeclStmtClass</span>:</td></tr>
+<tr><th id="177">177</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="178">178</th><td>    <b>case</b> Stmt::<span class='error' title="no member named &apos;BinaryOperatorClass&apos; in &apos;clang::Stmt&apos;">BinaryOperatorClass</span>: {</td></tr>
+<tr><th id="179">179</th><td>      BinaryOperator *BE = cast&lt;BinaryOperator&gt;(P);</td></tr>
+<tr><th id="180">180</th><td>      <i>// If it is a comma, only the right side is consumed.</i></td></tr>
+<tr><th id="181">181</th><td><i>      // If it isn't a comma, both sides are consumed.</i></td></tr>
+<tr><th id="182">182</th><td>      <b>return</b> BE-&gt;getOpcode()!=BO_Comma ||DirectChild==BE-&gt;getRHS();</td></tr>
+<tr><th id="183">183</th><td>    }</td></tr>
+<tr><th id="184">184</th><td>    <b>case</b> Stmt::<span class='error' title="no member named &apos;ForStmtClass&apos; in &apos;clang::Stmt&apos;">ForStmtClass</span>:</td></tr>
+<tr><th id="185">185</th><td>      <b>return</b> DirectChild == cast&lt;ForStmt&gt;(P)-&gt;getCond();</td></tr>
+<tr><th id="186">186</th><td>    <b>case</b> Stmt::<span class='error' title="no member named &apos;WhileStmtClass&apos; in &apos;clang::Stmt&apos;">WhileStmtClass</span>:</td></tr>
+<tr><th id="187">187</th><td>      <b>return</b> DirectChild == cast&lt;WhileStmt&gt;(P)-&gt;getCond();</td></tr>
+<tr><th id="188">188</th><td>    <b>case</b> Stmt::<span class='error' title="no member named &apos;DoStmtClass&apos; in &apos;clang::Stmt&apos;">DoStmtClass</span>:</td></tr>
+<tr><th id="189">189</th><td>      <b>return</b> DirectChild == cast&lt;DoStmt&gt;(P)-&gt;getCond();</td></tr>
+<tr><th id="190">190</th><td>    <b>case</b> Stmt::<span class='error' title="no member named &apos;IfStmtClass&apos; in &apos;clang::Stmt&apos;">IfStmtClass</span>:</td></tr>
+<tr><th id="191">191</th><td>      <b>return</b> DirectChild == cast&lt;IfStmt&gt;(P)-&gt;getCond();</td></tr>
+<tr><th id="192">192</th><td>    <b>case</b> Stmt::<span class='error' title="no member named &apos;IndirectGotoStmtClass&apos; in &apos;clang::Stmt&apos;">IndirectGotoStmtClass</span>:</td></tr>
+<tr><th id="193">193</th><td>      <b>return</b> DirectChild == cast&lt;IndirectGotoStmt&gt;(P)-&gt;getTarget();</td></tr>
+<tr><th id="194">194</th><td>    <b>case</b> Stmt::<span class='error' title="no member named &apos;SwitchStmtClass&apos; in &apos;clang::Stmt&apos;">SwitchStmtClass</span>:</td></tr>
+<tr><th id="195">195</th><td>      <b>return</b> DirectChild == cast&lt;SwitchStmt&gt;(P)-&gt;getCond();</td></tr>
+<tr><th id="196">196</th><td>    <b>case</b> Stmt::<span class='error' title="no member named &apos;ObjCForCollectionStmtClass&apos; in &apos;clang::Stmt&apos;">ObjCForCollectionStmtClass</span>:</td></tr>
+<tr><th id="197">197</th><td>      <b>return</b> DirectChild == cast&lt;ObjCForCollectionStmt&gt;(P)-&gt;getCollection();</td></tr>
+<tr><th id="198">198</th><td>    <b>case</b> Stmt::<span class='error' title="no member named &apos;ReturnStmtClass&apos; in &apos;clang::Stmt&apos;">ReturnStmtClass</span>:</td></tr>
+<tr><th id="199">199</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="200">200</th><td>  }</td></tr>
+<tr><th id="201">201</th><td>}</td></tr>
+<tr><th id="202">202</th><td></td></tr>
+<tr><th id="203">203</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

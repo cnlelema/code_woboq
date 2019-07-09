@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/include/llvm/Support/Process.h' l='123' type='static std::error_code llvm::sys::Process::SafelyCloseFileDescriptor(int FD)'/>
+<doc f='llvm/llvm/include/llvm/Support/Process.h' l='116'>// This function safely closes a file descriptor.  It is not safe to retry
+  // close(2) when it returns with errno equivalent to EINTR; this is because
+  // *nixen cannot agree if the file descriptor is, in fact, closed when this
+  // occurs.
+  //
+  // N.B. Some operating systems, due to thread cancellation, cannot properly
+  // guarantee that it will or will not be closed one way or the other!</doc>
+<use f='llvm/clang/lib/Frontend/PrecompiledPreamble.cpp' l='553' u='c' c='_ZN5clang19PrecompiledPreamble11TempPCHFile21createInSystemTempDirERKN4llvm5TwineENS2_9StringRefE'/>
+<def f='llvm/llvm/lib/Support/Unix/Process.inc' l='228' ll='261' type='static std::error_code llvm::sys::Process::SafelyCloseFileDescriptor(int FD)'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='224' u='c' c='_ZN12_GLOBAL__N_18RealFile5closeEv'/>
+<use f='llvm/llvm/lib/Support/raw_ostream.cpp' l='596' u='c' c='_ZN4llvm14raw_fd_ostreamD1Ev'/>
+<use f='llvm/llvm/lib/Support/raw_ostream.cpp' l='728' u='c' c='_ZN4llvm14raw_fd_ostream5closeEv'/>
+<use f='llvm/llvm/tools/llvm-objcopy/llvm-objcopy.cpp' l='206' u='c' c='_ZL17restoreDateOnFileN4llvm9StringRefERKNS_3sys2fs11file_statusE'/>
+<use f='llvm/llvm/unittests/Support/ReplaceFileTest.cpp' l='51' u='c' c='_ZN12_GLOBAL__N_18ScopedFDD1Ev'/>

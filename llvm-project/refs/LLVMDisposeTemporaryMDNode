@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/include/llvm-c/DebugInfo.h' l='1135' type='void LLVMDisposeTemporaryMDNode(LLVMMetadataRef TempNode)'/>
+<def f='llvm/llvm/lib/IR/DebugInfo.cpp' l='1304' ll='1306' type='void LLVMDisposeTemporaryMDNode(LLVMMetadataRef TempNode)'/>
+<doc f='llvm/llvm/include/llvm-c/DebugInfo.h' l='1128'>/**
+ * Deallocate a temporary node.
+ *
+ * Calls \c replaceAllUsesWith(nullptr) before deleting, so any remaining
+ * references will be reset.
+ * \param TempNode    The temporary metadata node.
+ */</doc>

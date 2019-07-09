@@ -1,0 +1,60 @@
+<def f='llvm/clang/include/clang/AST/TemplateName.h' l='187' ll='334'/>
+<size>8</size>
+<doc f='llvm/clang/include/clang/AST/TemplateName.h' l='160'>/// Represents a C++ template name within the type system.
+///
+/// A C++ template name refers to a template within the C++ type
+/// system. In most cases, a template name is simply a reference to a
+/// class template, e.g.
+///
+/// \code
+/// template&lt;typename T&gt; class X { };
+///
+/// X&lt;int&gt; xi;
+/// \endcode
+///
+/// Here, the &apos;X&apos; in \c X&lt;int&gt; is a template name that refers to the
+/// declaration of the class template X, above. Template names can
+/// also refer to function templates, C++0x template aliases, etc.
+///
+/// Some template names are dependent. For example, consider:
+///
+/// \code
+/// template&lt;typename MetaFun, typename T1, typename T2&gt; struct apply2 {
+///   typedef typename MetaFun::template apply&lt;T1, T2&gt;::type type;
+/// };
+/// \endcode
+///
+/// Here, &quot;apply&quot; is treated as a template name within the typename
+/// specifier in the typedef. &quot;apply&quot; is a nested template, and can
+/// only be understood in the context of</doc>
+<mbr r='clang::TemplateName::Storage' o='0' t='StorageType'/>
+<fun r='_ZN5clang12TemplateNameC1EPv'/>
+<fun r='_ZN5clang12TemplateNameC1Ev'/>
+<fun r='_ZN5clang12TemplateNameC1EPNS_12TemplateDeclE'/>
+<fun r='_ZN5clang12TemplateNameC1EPNS_25OverloadedTemplateStorageE'/>
+<fun r='_ZN5clang12TemplateNameC1EPNS_22AssumedTemplateStorageE'/>
+<fun r='_ZN5clang12TemplateNameC1EPNS_32SubstTemplateTemplateParmStorageE'/>
+<fun r='_ZN5clang12TemplateNameC1EPNS_36SubstTemplateTemplateParmPackStorageE'/>
+<fun r='_ZN5clang12TemplateNameC1EPNS_21QualifiedTemplateNameE'/>
+<fun r='_ZN5clang12TemplateNameC1EPNS_21DependentTemplateNameE'/>
+<fun r='_ZNK5clang12TemplateName6isNullEv'/>
+<fun r='_ZNK5clang12TemplateName7getKindEv'/>
+<fun r='_ZNK5clang12TemplateName17getAsTemplateDeclEv'/>
+<fun r='_ZNK5clang12TemplateName23getAsOverloadedTemplateEv'/>
+<fun r='_ZNK5clang12TemplateName24getAsAssumedTemplateNameEv'/>
+<fun r='_ZNK5clang12TemplateName30getAsSubstTemplateTemplateParmEv'/>
+<fun r='_ZNK5clang12TemplateName34getAsSubstTemplateTemplateParmPackEv'/>
+<fun r='_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv'/>
+<fun r='_ZNK5clang12TemplateName26getAsDependentTemplateNameEv'/>
+<fun r='_ZNK5clang12TemplateName13getUnderlyingEv'/>
+<fun r='_ZNK5clang12TemplateName19getNameToSubstituteEv'/>
+<fun r='_ZNK5clang12TemplateName11isDependentEv'/>
+<fun r='_ZNK5clang12TemplateName24isInstantiationDependentEv'/>
+<fun r='_ZNK5clang12TemplateName31containsUnexpandedParameterPackEv'/>
+<fun r='_ZNK5clang12TemplateName5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyEb'/>
+<fun r='_ZNK5clang12TemplateName4dumpERN4llvm11raw_ostreamE'/>
+<fun r='_ZNK5clang12TemplateName4dumpEv'/>
+<fun r='_ZN5clang12TemplateName7ProfileERN4llvm16FoldingSetNodeIDE'/>
+<fun r='_ZNK5clang12TemplateName16getAsVoidPointerEv'/>
+<fun r='_ZN5clang12TemplateName18getFromVoidPointerEPv'/>
+<fun r='_ZNK5clang12TemplateName13getUnderlyingEv'/>

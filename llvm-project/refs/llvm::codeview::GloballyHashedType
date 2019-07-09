@@ -1,0 +1,24 @@
+<def f='llvm/llvm/include/llvm/DebugInfo/CodeView/TypeHashing.h' l='77' ll='163'/>
+<size>8</size>
+<doc f='llvm/llvm/include/llvm/DebugInfo/CodeView/TypeHashing.h' l='65'>/// A globally hashed type represents a hash value that is sufficient to
+/// uniquely identify a record across multiple type streams or type sequences.
+/// This works by, for any given record A which references B, replacing the
+/// TypeIndex that refers to B with a previously-computed global hash for B.  As
+/// this is a recursive algorithm (e.g. the global hash of B also depends on the
+/// global hashes of the types that B refers to), a global hash can uniquely
+/// identify identify that A occurs in another stream that has a completely
+/// different graph structure.  Although the hash itself is slower to compute,
+/// probing is much faster with a globally hashed type, because the hash itself
+/// is considered &quot;as good as&quot; the original type.  Since type records can be
+/// quite large, this makes the equality comparison of the hash much faster than
+/// equality comparison of a full record.</doc>
+<fun r='_ZN4llvm8codeview18GloballyHashedTypeC1Ev'/>
+<fun r='_ZN4llvm8codeview18GloballyHashedTypeC1ENS_9StringRefE'/>
+<fun r='_ZN4llvm8codeview18GloballyHashedTypeC1ENS_8ArrayRefIhEE'/>
+<mbr r='llvm::codeview::GloballyHashedType::Hash' o='0' t='std::array&lt;uint8_t, 8&gt;'/>
+<fun r='_ZNK4llvm8codeview18GloballyHashedType5emptyEv'/>
+<fun r='_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_'/>
+<fun r='_ZN4llvm8codeview18GloballyHashedType8hashTypeENS0_8CVRecordINS0_12TypeLeafKindEEENS_8ArrayRefIS1_EES6_'/>
+<fun r='_ZN4llvm8codeview18GloballyHashedType9hashTypesEOT_'/>
+<fun r='_ZN4llvm8codeview18GloballyHashedType7hashIdsEOT_NS_8ArrayRefIS1_EE'/>
+<fun r='_ZN4llvm8codeview18GloballyHashedType18hashTypeCollectionERNS0_14TypeCollectionE'/>

@@ -1,0 +1,9 @@
+<dec f='llvm/clang/include/clang/AST/ASTImporter.h' l='79' type='llvm::SmallVector&lt;Decl *, 2&gt; clang::getCanonicalForwardRedeclChain(clang::Decl * D)'/>
+<def f='llvm/clang/lib/AST/ASTImporter.cpp' l='120' ll='128' type='SmallVector&lt;clang::Decl *, 2&gt; clang::getCanonicalForwardRedeclChain(clang::Decl * D)'/>
+<doc f='llvm/clang/include/clang/AST/ASTImporter.h' l='72'>// \brief Returns with a list of declarations started from the canonical decl
+  // then followed by subsequent decls in the translation unit.
+  // This gives a canonical list for each entry in the redecl chain.
+  // `Decl::redecls()` gives a list of decls which always start from the
+  // previous decl and the next item is actually the previous item in the order
+  // of source locations.  Thus, `Decl::redecls()` gives different lists for
+  // the different entries in a given redecl chain.</doc>

@@ -1,0 +1,33 @@
+<dec f='llvm/clang/include/clang/AST/ASTContext.h' l='2469' type='clang::NestedNameSpecifier * clang::ASTContext::getCanonicalNestedNameSpecifier(clang::NestedNameSpecifier * NNS) const'/>
+<doc f='llvm/clang/include/clang/AST/ASTContext.h' l='2445'>/// Retrieves the &quot;canonical&quot; nested name specifier for a
+  /// given nested name specifier.
+  ///
+  /// The canonical nested name specifier is a nested name specifier
+  /// that uniquely identifies a type or namespace within the type
+  /// system. For example, given:
+  ///
+  /// \code
+  /// namespace N {
+  ///   struct S {
+  ///     template&lt;typename T&gt; struct X { typename T* type; };
+  ///   };
+  /// }
+  ///
+  /// template&lt;typename T&gt; struct Y {
+  ///   typename N::S::X&lt;T&gt;::type member;
+  /// };
+  /// \endcode
+  ///
+  /// Here, the nested-name-specifier for N::S::X&lt;T&gt;:: will be
+  /// S::X&lt;template-param-0-0&gt;, since &apos;S&apos; and &apos;X&apos; are uniquely defined
+  /// by declarations in the type system and the canonical type for
+  /// the template type parameter &apos;T&apos; is template-param-0-0.</doc>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='4364' u='c' c='_ZNK5clang10ASTContext20getDependentNameTypeENS_21ElaboratedTypeKeywordEPNS_19NestedNameSpecifierEPKNS_14IdentifierInfoENS_8QualTypeE'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='4416' u='c' c='_ZNK5clang10ASTContext38getDependentTemplateSpecializationTypeENS_21ElaboratedTypeKeywordEPNS_19NestedNameSpecifierEPKNS_14IdentifierInfoEN4llvm8Array12785437'/>
+<def f='llvm/clang/lib/AST/ASTContext.cpp' l='5511' ll='5565' type='clang::NestedNameSpecifier * clang::ASTContext::getCanonicalNestedNameSpecifier(clang::NestedNameSpecifier * NNS) const'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='5520' u='c' c='_ZNK5clang10ASTContext31getCanonicalNestedNameSpecifierEPNS_19NestedNameSpecifierE'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='7827' u='c' c='_ZNK5clang10ASTContext24getDependentTemplateNameEPNS_19NestedNameSpecifierEPKNS_14IdentifierInfoE'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='7863' u='c' c='_ZNK5clang10ASTContext24getDependentTemplateNameEPNS_19NestedNameSpecifierENS_22OverloadedOperatorKindE'/>
+<use f='llvm/clang/lib/AST/StmtProfile.cpp' l='152' u='c' c='_ZN12_GLOBAL__N_124StmtProfilerWithPointers24VisitNestedNameSpecifierEPN5clang19NestedNameSpecifierE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='10335' u='c' c='_ZN5clang4Sema27CheckUsingDeclRedeclarationENS_14SourceLocationEbRKNS_12CXXScopeSpecES1_RKNS_12LookupResultE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='10336' u='c' c='_ZN5clang4Sema27CheckUsingDeclRedeclarationENS_14SourceLocationEbRKNS_12CXXScopeSpecES1_RKNS_12LookupResultE'/>

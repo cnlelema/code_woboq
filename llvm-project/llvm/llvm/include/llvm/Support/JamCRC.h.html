@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>JamCRC.h source code [llvm/llvm/include/llvm/Support/JamCRC.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::JamCRC "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/Support/JamCRC.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>Support</a>/<a href='JamCRC.h.html'>JamCRC.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- llvm/Support/JamCRC.h - Cyclic Redundancy Check ---------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file contains an implementation of JamCRC.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>// We will use the "Rocksoft^tm Model CRC Algorithm" to describe the properties</i></td></tr>
+<tr><th id="12">12</th><td><i>// of this CRC:</i></td></tr>
+<tr><th id="13">13</th><td><i>//   Width  : 32</i></td></tr>
+<tr><th id="14">14</th><td><i>//   Poly   : 04C11DB7</i></td></tr>
+<tr><th id="15">15</th><td><i>//   Init   : FFFFFFFF</i></td></tr>
+<tr><th id="16">16</th><td><i>//   RefIn  : True</i></td></tr>
+<tr><th id="17">17</th><td><i>//   RefOut : True</i></td></tr>
+<tr><th id="18">18</th><td><i>//   XorOut : 00000000</i></td></tr>
+<tr><th id="19">19</th><td><i>//   Check  : 340BC6D9 (result of CRC for "123456789")</i></td></tr>
+<tr><th id="20">20</th><td><i>//</i></td></tr>
+<tr><th id="21">21</th><td><i>// N.B.  We permit flexibility of the "Init" value.  Some consumers of this need</i></td></tr>
+<tr><th id="22">22</th><td><i>//       it to be zero.</i></td></tr>
+<tr><th id="23">23</th><td><i>//</i></td></tr>
+<tr><th id="24">24</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><u>#<span data-ppcond="26">ifndef</span> <span class="macro" data-ref="_M/LLVM_SUPPORT_JAMCRC_H">LLVM_SUPPORT_JAMCRC_H</span></u></td></tr>
+<tr><th id="27">27</th><td><u>#define <dfn class="macro" id="_M/LLVM_SUPPORT_JAMCRC_H" data-ref="_M/LLVM_SUPPORT_JAMCRC_H">LLVM_SUPPORT_JAMCRC_H</dfn></u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="DataTypes.h.html">"llvm/Support/DataTypes.h"</a></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="32">32</th><td><b>template</b> &lt;<b>typename</b> T&gt; <b>class</b> <a class="type" href="../ADT/ArrayRef.h.html#llvm::ArrayRef" title='llvm::ArrayRef' data-ref="llvm::ArrayRef" id="llvm::ArrayRef">ArrayRef</a>;</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><b>class</b> <dfn class="type def" id="llvm::JamCRC" title='llvm::JamCRC' data-ref="llvm::JamCRC">JamCRC</dfn> {</td></tr>
+<tr><th id="35">35</th><td><b>public</b>:</td></tr>
+<tr><th id="36">36</th><td>  <dfn class="decl def" id="_ZN4llvm6JamCRCC1Ej" title='llvm::JamCRC::JamCRC' data-ref="_ZN4llvm6JamCRCC1Ej">JamCRC</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col1 decl" id="1Init" title='Init' data-type='uint32_t' data-ref="1Init">Init</dfn> = <var>0xFFFFFFFFU</var>) : <a class="member" href="#llvm::JamCRC::CRC" title='llvm::JamCRC::CRC' data-ref="llvm::JamCRC::CRC">CRC</a>(<a class="local col1 ref" href="#1Init" title='Init' data-ref="1Init">Init</a>) {}</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td>  <i>// Update the CRC calculation with Data.</i></td></tr>
+<tr><th id="39">39</th><td>  <em>void</em> <dfn class="decl" id="_ZN4llvm6JamCRC6updateENS_8ArrayRefIcEE" title='llvm::JamCRC::update' data-ref="_ZN4llvm6JamCRC6updateENS_8ArrayRefIcEE">update</dfn>(<a class="type" href="../ADT/APInt.h.html#llvm::ArrayRef" title='llvm::ArrayRef' data-ref="llvm::ArrayRef">ArrayRef</a>&lt;<em>char</em>&gt; <dfn class="local col2 decl" id="2Data" title='Data' data-type='ArrayRef&lt;char&gt;' data-ref="2Data">Data</dfn>);</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="decl def" id="_ZNK4llvm6JamCRC6getCRCEv" title='llvm::JamCRC::getCRC' data-ref="_ZNK4llvm6JamCRC6getCRCEv">getCRC</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::JamCRC::CRC" title='llvm::JamCRC::CRC' data-ref="llvm::JamCRC::CRC">CRC</a>; }</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><b>private</b>:</td></tr>
+<tr><th id="44">44</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="decl" id="llvm::JamCRC::CRC" title='llvm::JamCRC::CRC' data-ref="llvm::JamCRC::CRC">CRC</dfn>;</td></tr>
+<tr><th id="45">45</th><td>};</td></tr>
+<tr><th id="46">46</th><td>} <i>// End of namespace llvm</i></td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><u>#<span data-ppcond="26">endif</span></u></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../clang/lib/AST/MicrosoftMangle.cpp.html'>llvm/clang/lib/AST/MicrosoftMangle.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

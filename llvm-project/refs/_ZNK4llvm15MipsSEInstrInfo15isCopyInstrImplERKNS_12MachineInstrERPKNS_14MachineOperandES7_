@@ -1,0 +1,8 @@
+<dec f='llvm/llvm/lib/Target/Mips/MipsSEInstrInfo.h' l='82' type='bool llvm::MipsSEInstrInfo::isCopyInstrImpl(const llvm::MachineInstr &amp; MI, const llvm::MachineOperand *&amp; Source, const llvm::MachineOperand *&amp; Destination) const'/>
+<doc f='llvm/llvm/lib/Target/Mips/MipsSEInstrInfo.h' l='79'>/// If the specific machine instruction is a instruction that moves/copies
+  /// value from one register to another register return true along with
+  /// @Source machine operand and @Destination machine operand.</doc>
+<def f='llvm/llvm/lib/Target/Mips/MipsSEInstrInfo.cpp' l='243' ll='268' type='bool llvm::MipsSEInstrInfo::isCopyInstrImpl(const llvm::MachineInstr &amp; MI, const llvm::MachineOperand *&amp; Src, const llvm::MachineOperand *&amp; Dest) const'/>
+<doc f='llvm/llvm/lib/Target/Mips/MipsSEInstrInfo.cpp' l='240'>/// We check for the common case of &apos;or&apos;, as it&apos;s MIPS&apos; preferred instruction
+/// for GPRs but we have to check the operands to ensure that is the case.
+/// Other move instructions for MIPS are directly identifiable.</doc>

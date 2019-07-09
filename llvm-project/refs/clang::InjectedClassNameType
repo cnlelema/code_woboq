@@ -1,0 +1,30 @@
+<inh f='llvm/clang/include/clang/AST/Type.h' l='1428' c='clang::Type'/>
+<def f='llvm/clang/include/clang/AST/Type.h' l='5062' ll='5112'/>
+<size>40</size>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='5045'>/// The injected class name of a C++ class template or class
+/// template partial specialization.  Used to record that a type was
+/// spelled with a bare identifier rather than as a template-id; the
+/// equivalent for non-templated classes is just RecordType.
+///
+/// Injected class name types are always dependent.  Template
+/// instantiation turns these into RecordTypes.
+///
+/// Injected class name types are always canonical.  This works
+/// because it is impossible to compare an injected class name type
+/// with the corresponding non-injected template type, for the same
+/// reason that it is impossible to directly compare template
+/// parameters from different dependent contexts: injected class name
+/// types can only occur within the scope of a particular templated
+/// declaration, and within that scope every template specialization
+/// will canonicalize to the injected class name (when appropriate
+/// according to the rules of the language).</doc>
+<mbr r='clang::InjectedClassNameType::Decl' o='192' t='clang::CXXRecordDecl *'/>
+<mbr r='clang::InjectedClassNameType::InjectedType' o='256' t='clang::QualType'/>
+<fun r='_ZN5clang21InjectedClassNameTypeC1EPNS_13CXXRecordDeclENS_8QualTypeE'/>
+<fun r='_ZNK5clang21InjectedClassNameType29getInjectedSpecializationTypeEv'/>
+<fun r='_ZNK5clang21InjectedClassNameType14getInjectedTSTEv'/>
+<fun r='_ZNK5clang21InjectedClassNameType15getTemplateNameEv'/>
+<fun r='_ZNK5clang21InjectedClassNameType7getDeclEv'/>
+<fun r='_ZNK5clang21InjectedClassNameType9isSugaredEv'/>
+<fun r='_ZNK5clang21InjectedClassNameType7desugarEv'/>
+<fun r='_ZN5clang21InjectedClassNameType7classofEPKNS_4TypeE'/>

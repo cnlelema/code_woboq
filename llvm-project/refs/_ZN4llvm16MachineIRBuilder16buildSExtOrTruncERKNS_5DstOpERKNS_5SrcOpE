@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='528' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildSExtOrTrunc(const llvm::DstOp &amp; Res, const llvm::SrcOp &amp; Op)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='520'>/// Build and insert \p Res = G_SEXT \p Op, \p Res = G_TRUNC \p Op, or
+  /// \p Res = COPY \p Op depending on the differing sizes of \p Res and \p Op.
+  ///  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Res must be a generic virtual register with scalar or vector type.
+  /// \pre \p Op must be a generic virtual register with scalar or vector type.
+  ///
+  /// \return The newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='696' u='c' c='_ZN4llvm12IRTranslator22translateGetElementPtrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='1544' u='c' c='_ZN4llvm12IRTranslator23translateExtractElementERKNS_4UserERNS_16MachineIRBuilderE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='438' ll='441' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildSExtOrTrunc(const llvm::DstOp &amp; Res, const llvm::SrcOp &amp; Op)'/>

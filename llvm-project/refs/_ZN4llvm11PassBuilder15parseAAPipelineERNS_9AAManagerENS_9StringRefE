@@ -1,0 +1,22 @@
+<dec f='llvm/llvm/include/llvm/Passes/PassBuilder.h' l='476' type='llvm::Error llvm::PassBuilder::parseAAPipeline(llvm::AAManager &amp; AA, llvm::StringRef PipelineText)'/>
+<doc f='llvm/llvm/include/llvm/Passes/PassBuilder.h' l='459'>/// @}}
+
+  /// Parse a textual alias analysis pipeline into the provided AA manager.
+  ///
+  /// The format of the textual AA pipeline is a comma separated list of AA
+  /// pass names:
+  ///
+  ///   basic-aa,globals-aa,...
+  ///
+  /// The AA manager is set up such that the provided alias analyses are tried
+  /// in the order specified. See the \c AAManaager documentation for details
+  /// about the logic used. This routine just provides the textual mapping
+  /// between AA names and the analyses to register with the manager.
+  ///
+  /// Returns false if the text cannot be parsed cleanly. The specific state of
+  /// the \p AA manager is unspecified if such an error is encountered and this
+  /// returns false.</doc>
+<use f='llvm/llvm/lib/LTO/LTOBackend.cpp' l='171' u='c' c='_ZN12_GLOBAL__N_1L14runNewPMPassesERN4llvm3lto6ConfigERNS0_6ModuleEPNS0_13TargetMachineEjbPNS0_18ModuleSummaryIndexEPKS8_'/>
+<use f='llvm/llvm/lib/LTO/LTOBackend.cpp' l='230' u='c' c='_ZN12_GLOBAL__N_1L20runNewPMCustomPassesERN4llvm6ModuleEPNS0_13TargetMachineENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b'/>
+<def f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='2279' ll='2297' type='llvm::Error llvm::PassBuilder::parseAAPipeline(llvm::AAManager &amp; AA, llvm::StringRef PipelineText)'/>
+<use f='llvm/llvm/tools/opt/NewPMDriver.cpp' l='300' u='c' c='_ZN4llvm15runPassPipelineENS_9StringRefERNS_6ModuleEPNS_13TargetMachineEPNS_14ToolOutputFileES6_S6_S0_NS_8opt_tool10OutputKindENS7_12VerifierKindEbbbbb'/>

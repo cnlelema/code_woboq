@@ -1,0 +1,16 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='853' type='CXDiagnosticSet clang_loadDiagnostics(const char * file, enum CXLoadDiag_Error * error, CXString * errorString)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='840'>/**
+ * Deserialize a set of diagnostics from a Clang diagnostics bitcode
+ * file.
+ *
+ * \param file The name of the file to deserialize.
+ * \param error A pointer to a enum value recording if there was a problem
+ *        deserializing the diagnostics.
+ * \param errorString A pointer to a CXString for recording the error string
+ *        if the file was not successfully loaded.
+ *
+ * \returns A loaded CXDiagnosticSet if successful, and NULL otherwise.  These
+ * diagnostics should be released using clang_disposeDiagnosticSet().
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='4696' u='c' c='read_diagnostics'/>
+<def f='llvm/clang/tools/libclang/CXLoadedDiagnostic.cpp' l='389' ll='394' type='CXDiagnosticSet clang_loadDiagnostics(const char * file, enum CXLoadDiag_Error * error, CXString * errorString)'/>

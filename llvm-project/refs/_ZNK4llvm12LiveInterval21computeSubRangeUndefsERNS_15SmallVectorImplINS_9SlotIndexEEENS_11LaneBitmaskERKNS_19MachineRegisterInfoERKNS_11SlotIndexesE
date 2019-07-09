@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/LiveInterval.h' l='777' type='void llvm::LiveInterval::computeSubRangeUndefs(SmallVectorImpl&lt;llvm::SlotIndex&gt; &amp; Undefs, llvm::LaneBitmask LaneMask, const llvm::MachineRegisterInfo &amp; MRI, const llvm::SlotIndexes &amp; Indexes) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/LiveInterval.h' l='775'>/// For a given lane mask @p LaneMask, compute indexes at which the
+    /// lane is marked undefined by subregister &lt;def,read-undef&gt; definitions.</doc>
+<def f='llvm/llvm/lib/CodeGen/LiveInterval.cpp' l='966' ll='988' type='void llvm::LiveInterval::computeSubRangeUndefs(SmallVectorImpl&lt;llvm::SlotIndex&gt; &amp; Undefs, llvm::LaneBitmask LaneMask, const llvm::MachineRegisterInfo &amp; MRI, const llvm::SlotIndexes &amp; Indexes) const'/>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='432' u='c' c='_ZN4llvm13LiveIntervals20extendSegmentsToUsesERNS_9LiveRangeERNS_11SmallVectorISt4pairINS_9SlotIndexEPNS_6VNInfoEELj16EEEjNS_11LaneBitmaskE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='160' u='c' c='_ZN4llvm13LiveRangeCalc12extendToUsesERNS_9LiveRangeEjNS_11LaneBitmaskEPNS_12LiveIntervalE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineVerifier.cpp' l='2461' u='c' c='_ZN12_GLOBAL__N_115MachineVerifier22verifyLiveRangeSegmentERKN4llvm9LiveRangeEPKNS2_7SegmentEjNS1_11LaneBitmaskE'/>
+<use f='llvm/llvm/lib/CodeGen/SplitKit.cpp' l='1296' u='c' c='_ZN4llvm11SplitEditor19extendPHIKillRangesEv'/>
+<use f='llvm/llvm/lib/CodeGen/SplitKit.cpp' l='1392' u='c' c='_ZN4llvm11SplitEditor15rewriteAssignedEb'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonExpandCondsets.cpp' l='426' u='c' c='_ZN12_GLOBAL__N_121HexagonExpandCondsets18updateDeadsInRangeEjN4llvm11LaneBitmaskERNS1_9LiveRangeE'/>

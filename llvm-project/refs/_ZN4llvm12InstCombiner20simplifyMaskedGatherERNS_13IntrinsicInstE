@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='451' type='llvm::Instruction * llvm::InstCombiner::simplifyMaskedGather(llvm::IntrinsicInst &amp; II)'/>
+<def f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1126' ll='1128' type='llvm::Instruction * llvm::InstCombiner::simplifyMaskedGather(llvm::IntrinsicInst &amp; II)'/>
+<doc f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1119'>// TODO, Obvious Missing Transforms:
+// * Single constant active lane load -&gt; load
+// * Dereferenceable address &amp; few lanes -&gt; scalarize speculative load/selects
+// * Adjacent vector addresses -&gt; masked.load
+// * Narrow width by halfs excluding zero/undef lanes
+// * Vector splat address w/known mask -&gt; scalar load
+// * Vector incrementing address -&gt; vector masked load</doc>

@@ -1,0 +1,47 @@
+<inh f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCUtils.h' l='1465' c='llvm::orc::rpc::SingleThreadedRPCEndpoint'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/OrcRemoteTargetClient.h' l='55' ll='694'/>
+<size>624</size>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/OrcRemoteTargetClient.h' l='48'>/// This class provides utilities (including memory manager, indirect stubs
+/// manager, and compile callback manager types) that support remote JITing
+/// in ORC.
+///
+/// Each of the utility classes talks to a JIT server (an instance of the
+/// OrcRemoteTargetServer class) via an RPC system (see RPCUtils.h) to carry out
+/// its actions.</doc>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient6CreateERNS0_3rpc14RawByteChannelERNS0_16ExecutionSessionE'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient11callIntVoidEm'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient8callMainEmRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient12callVoidVoidEm'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient25createRemoteMemoryManagerEv'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient26createIndirectStubsManagerEv'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient22enableCompileCallbacksEm'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient16getSymbolAddressENS_9StringRefE'/>
+<fun r='_ZNK4llvm3orc6remote21OrcRemoteTargetClient15getTargetTripleEv'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient16terminateSessionEv'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClientC1ERNS0_3rpc14RawByteChannelERNS0_16ExecutionSessionERNS_5ErrorE'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient18deregisterEHFramesEmj'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient22destroyRemoteAllocatorEm'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient27destroyIndirectStubsManagerEm'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient17emitIndirectStubsEmj'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient19emitTrampolineBlockEv'/>
+<fun r='_ZNK4llvm3orc6remote21OrcRemoteTargetClient19getIndirectStubSizeEv'/>
+<fun r='_ZNK4llvm3orc6remote21OrcRemoteTargetClient11getPageSizeEv'/>
+<fun r='_ZNK4llvm3orc6remote21OrcRemoteTargetClient14getPointerSizeEv'/>
+<fun r='_ZNK4llvm3orc6remote21OrcRemoteTargetClient17getTrampolineSizeEv'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient7readMemEPcmm'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient16registerEHFramesERmj'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient10reserveMemEmmj'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient14setProtectionsEmmj'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient8writeMemEmPKcm'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient12writePointerEmm'/>
+<fun r='_ZN4llvm3orc6remote21OrcRemoteTargetClient9doNothingEv'/>
+<mbr r='llvm::orc::remote::OrcRemoteTargetClient::ES' o='2624' t='llvm::orc::ExecutionSession &amp;'/>
+<mbr r='llvm::orc::remote::OrcRemoteTargetClient::ReportError' o='2688' t='std::function&lt;void (Error)&gt;'/>
+<mbr r='llvm::orc::remote::OrcRemoteTargetClient::RemoteTargetTriple' o='2944' t='std::string'/>
+<mbr r='llvm::orc::remote::OrcRemoteTargetClient::RemotePointerSize' o='3200' t='uint32_t'/>
+<mbr r='llvm::orc::remote::OrcRemoteTargetClient::RemotePageSize' o='3232' t='uint32_t'/>
+<mbr r='llvm::orc::remote::OrcRemoteTargetClient::RemoteTrampolineSize' o='3264' t='uint32_t'/>
+<mbr r='llvm::orc::remote::OrcRemoteTargetClient::RemoteIndirectStubSize' o='3296' t='uint32_t'/>
+<mbr r='llvm::orc::remote::OrcRemoteTargetClient::AllocatorIds' o='3328' t='llvm::orc::remote::ResourceIdMgr'/>
+<mbr r='llvm::orc::remote::OrcRemoteTargetClient::IndirectStubOwnerIds' o='3584' t='llvm::orc::remote::ResourceIdMgr'/>
+<mbr r='llvm::orc::remote::OrcRemoteTargetClient::CallbackManager' o='3840' t='Optional&lt;llvm::orc::remote::OrcRemoteTargetClient::RemoteCompileCallbackManager&gt;'/>

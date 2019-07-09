@@ -1,0 +1,14 @@
+<def f='llvm/llvm/lib/Transforms/Vectorize/VPlanValue.h' l='64' type='llvm::Value * llvm::VPValue::getUnderlyingValue()'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/VPlan.h' l='651' u='c' c='_ZN4llvm13VPInstruction18getUnderlyingInstrEv'/>
+<doc f='llvm/llvm/lib/Transforms/Vectorize/VPlanValue.h' l='56'>// DESIGN PRINCIPLE: Access to the underlying IR must be strictly limited to
+  // the front-end and back-end of VPlan so that the middle-end is as
+  // independent as possible of the underlying IR. We grant access to the
+  // underlying IR using friendship. In that way, we should be able to use VPlan
+  // for multiple underlying IRs (Polly?) by providing a new VPlan front-end,
+  // back-end and analysis information for the new IR.
+
+  /// Return the underlying Value attached to this VPValue.</doc>
+<use f='llvm/llvm/lib/Transforms/Vectorize/VPlan.cpp' l='204' u='c' c='_ZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/VPlan.cpp' l='723' u='c' c='_ZN4llvm23VPInterleavedAccessInfo10visitBlockEPNS_11VPBlockBaseERNS_8DenseMapIPNS_15InterleaveGroupINS_11InstructionEEEPNS4_INS_13VPInstructionEEENS_12779539'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/VPlanHCFGTransforms.cpp' l='33' u='c' c='_ZN4llvm19VPlanHCFGTransforms25VPInstructionsToVPRecipesERSt10unique_ptrINS_5VPlanESt14default_deleteIS2_EEPNS_9MapVectorIPNS_7PHINodeENS_19InductionD9378'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/VPlanHCFGTransforms.cpp' l='50' u='c' c='_ZN4llvm19VPlanHCFGTransforms25VPInstructionsToVPRecipesERSt10unique_ptrINS_5VPlanESt14default_deleteIS2_EEPNS_9MapVectorIPNS_7PHINodeENS_19InductionD9378'/>

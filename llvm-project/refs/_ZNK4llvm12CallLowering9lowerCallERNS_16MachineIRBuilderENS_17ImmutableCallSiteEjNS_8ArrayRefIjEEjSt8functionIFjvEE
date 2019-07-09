@@ -1,0 +1,25 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/CallLowering.h' l='256' type='bool llvm::CallLowering::lowerCall(llvm::MachineIRBuilder &amp; MIRBuilder, llvm::ImmutableCallSite CS, unsigned int ResReg, ArrayRef&lt;unsigned int&gt; ArgRegs, unsigned int SwiftErrorVReg, std::function&lt;unsigned int ()&gt; GetCalleeReg) const'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/CallLowering.cpp' l='29' ll='64' type='bool llvm::CallLowering::lowerCall(llvm::MachineIRBuilder &amp; MIRBuilder, llvm::ImmutableCallSite CS, unsigned int ResReg, ArrayRef&lt;unsigned int&gt; ArgRegs, unsigned int SwiftErrorVReg, std::function&lt;unsigned int ()&gt; GetCalleeReg) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/CallLowering.h' l='235'>/// Lower the given call instruction, including argument and return value
+  /// marshalling.
+  ///
+  /// \p CI is the call/invoke instruction.
+  ///
+  /// \p ResReg is a register where the call&apos;s return value should be stored (or
+  /// 0 if there is no return value).
+  ///
+  /// \p ArgRegs is a list of virtual registers containing each argument that
+  /// needs to be passed.
+  ///
+  /// \p SwiftErrorVReg is non-zero if the call has a swifterror inout
+  /// parameter, and contains the vreg that the swifterror should be copied into
+  /// after the call.
+  ///
+  /// \p GetCalleeReg is a callback to materialize a register for the callee if
+  /// the target determines it cannot jump to the destination based purely on \p
+  /// CI. This might be because \p CI is indirect, or because of the limited
+  /// range of an immediate jump.
+  ///
+  /// \return true if the lowering succeeded, false otherwise.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='1225' u='c' c='_ZN4llvm12IRTranslator13translateCallERKNS_4UserERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='1322' u='c' c='_ZN4llvm12IRTranslator15translateInvokeERKNS_4UserERNS_16MachineIRBuilderE'/>

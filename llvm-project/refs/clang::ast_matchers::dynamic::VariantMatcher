@@ -1,0 +1,28 @@
+<def f='llvm/clang/include/clang/ASTMatchers/Dynamic/VariantValue.h' l='92' ll='222'/>
+<size>16</size>
+<doc f='llvm/clang/include/clang/ASTMatchers/Dynamic/VariantValue.h' l='79'>/// A variant matcher object.
+///
+/// The purpose of this object is to abstract simple and polymorphic matchers
+/// into a single object type.
+/// Polymorphic matchers might be implemented as a list of all the possible
+/// overloads of the matcher. \c VariantMatcher knows how to select the
+/// appropriate overload when needed.
+/// To get a real matcher object out of a \c VariantMatcher you can do:
+///  - getSingleMatcher() which returns a matcher, only if it is not ambiguous
+///    to decide which matcher to return. Eg. it contains only a single
+///    matcher, or a polymorphic one with only one overload.
+///  - hasTypedMatcher&lt;T&gt;()/getTypedMatcher&lt;T&gt;(): These calls will determine if
+///    the underlying matcher(s) can unambiguously return a Matcher&lt;T&gt;.</doc>
+<fun r='_ZN5clang12ast_matchers7dynamic14VariantMatcherC1Ev'/>
+<fun r='_ZN5clang12ast_matchers7dynamic14VariantMatcher13SingleMatcherERKNS0_8internal15DynTypedMatcherE'/>
+<fun r='_ZN5clang12ast_matchers7dynamic14VariantMatcher18PolymorphicMatcherESt6vectorINS0_8internal15DynTypedMatcherESaIS5_EE'/>
+<fun r='_ZN5clang12ast_matchers7dynamic14VariantMatcher23VariadicOperatorMatcherENS0_8internal15DynTypedMatcher16VariadicOperatorESt6vectorIS2_SaIS2_EE'/>
+<fun r='_ZN5clang12ast_matchers7dynamic14VariantMatcher5resetEv'/>
+<fun r='_ZNK5clang12ast_matchers7dynamic14VariantMatcher6isNullEv'/>
+<fun r='_ZNK5clang12ast_matchers7dynamic14VariantMatcher16getSingleMatcherEv'/>
+<fun r='_ZNK5clang12ast_matchers7dynamic14VariantMatcher15hasTypedMatcherEv'/>
+<fun r='_ZNK5clang12ast_matchers7dynamic14VariantMatcher15isConvertibleToENS_15ast_type_traits11ASTNodeKindEPj'/>
+<fun r='_ZNK5clang12ast_matchers7dynamic14VariantMatcher15getTypedMatcherEv'/>
+<fun r='_ZNK5clang12ast_matchers7dynamic14VariantMatcher15getTypeAsStringEv'/>
+<fun r='_ZN5clang12ast_matchers7dynamic14VariantMatcherC1ESt10shared_ptrINS2_7PayloadEE'/>
+<mbr r='clang::ast_matchers::dynamic::VariantMatcher::Value' o='0' t='std::shared_ptr&lt;const Payload&gt;'/>

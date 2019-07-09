@@ -1,0 +1,23 @@
+<dec f='llvm/lld/ELF/InputSection.h' l='72' type='unsigned int'/>
+<use f='llvm/lld/ELF/InputSection.h' l='112' u='w' c='_ZN3lld3elf11SectionBaseC1ENS1_4KindEN4llvm9StringRefEmmmjjj'/>
+<offset>195</offset>
+<doc f='llvm/lld/ELF/InputSection.h' l='58'>// The next three bit fields are only used by InputSectionBase, but we
+  // put them here so the struct packs better.
+
+  // True if this section has already been placed to a linker script
+  // output section. This is needed because, in a linker script, you
+  // can refer to the same section more than once. For example, in
+  // the following linker script,
+  //
+  //   .foo : { *(.text) }
+  //   .bar : { *(.text) }
+  //
+  // .foo takes all .text sections, and .bar becomes empty. To achieve
+  // this, we need to memorize whether a section has been placed or
+  // not for each input section.</doc>
+<use f='llvm/lld/ELF/LinkerScript.cpp' l='383' u='r' c='_ZN3lld3elf12LinkerScript20computeInputSectionsEPKNS0_23InputSectionDescriptionE'/>
+<use f='llvm/lld/ELF/LinkerScript.cpp' l='405' u='w' c='_ZN3lld3elf12LinkerScript20computeInputSectionsEPKNS0_23InputSectionDescriptionE'/>
+<use f='llvm/lld/ELF/LinkerScript.cpp' l='427' u='w' c='_ZN3lld3elf12LinkerScript7discardEN4llvm8ArrayRefIPNS0_12InputSectionEEE'/>
+<use f='llvm/lld/ELF/LinkerScript.cpp' l='496' u='w' c='_ZN3lld3elf12LinkerScript22processSectionCommandsEv'/>
+<use f='llvm/lld/ELF/OutputSections.cpp' l='130' u='r' c='_ZN3lld3elf13OutputSection10addSectionEPNS0_12InputSectionE'/>
+<use f='llvm/lld/ELF/OutputSections.cpp' l='131' u='w' c='_ZN3lld3elf13OutputSection10addSectionEPNS0_12InputSectionE'/>

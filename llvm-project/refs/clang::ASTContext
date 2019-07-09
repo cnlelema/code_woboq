@@ -1,0 +1,739 @@
+<inh f='llvm/llvm/include/llvm/ADT/IntrusiveRefCntPtr.h' l='70' c='llvm::RefCountedBase'/>
+<def f='llvm/clang/include/clang/AST/ASTContext.h' l='154' ll='3109'/>
+<size>1</size>
+<doc f='llvm/clang/include/clang/AST/ASTContext.h' l='152'>/// Holds long-lived AST nodes (such as types and decls) that can be
+/// referred to throughout the semantic analysis of a file.</doc>
+<mbr r='clang::ASTContext::Types' t='SmallVector&lt;clang::Type *, 0&gt;'/>
+<mbr r='clang::ASTContext::ExtQualNodes' t='llvm::FoldingSet&lt;ExtQuals&gt;'/>
+<mbr r='clang::ASTContext::ComplexTypes' t='llvm::FoldingSet&lt;ComplexType&gt;'/>
+<mbr r='clang::ASTContext::PointerTypes' t='llvm::FoldingSet&lt;PointerType&gt;'/>
+<mbr r='clang::ASTContext::AdjustedTypes' t='llvm::FoldingSet&lt;AdjustedType&gt;'/>
+<mbr r='clang::ASTContext::BlockPointerTypes' t='llvm::FoldingSet&lt;BlockPointerType&gt;'/>
+<mbr r='clang::ASTContext::LValueReferenceTypes' t='llvm::FoldingSet&lt;LValueReferenceType&gt;'/>
+<mbr r='clang::ASTContext::RValueReferenceTypes' t='llvm::FoldingSet&lt;RValueReferenceType&gt;'/>
+<mbr r='clang::ASTContext::MemberPointerTypes' t='llvm::FoldingSet&lt;MemberPointerType&gt;'/>
+<mbr r='clang::ASTContext::ConstantArrayTypes' t='llvm::FoldingSet&lt;ConstantArrayType&gt;'/>
+<mbr r='clang::ASTContext::IncompleteArrayTypes' t='llvm::FoldingSet&lt;IncompleteArrayType&gt;'/>
+<mbr r='clang::ASTContext::VariableArrayTypes' t='std::vector&lt;VariableArrayType *&gt;'/>
+<mbr r='clang::ASTContext::DependentSizedArrayTypes' t='llvm::FoldingSet&lt;DependentSizedArrayType&gt;'/>
+<mbr r='clang::ASTContext::DependentSizedExtVectorTypes' t='llvm::FoldingSet&lt;DependentSizedExtVectorType&gt;'/>
+<mbr r='clang::ASTContext::DependentAddressSpaceTypes' t='llvm::FoldingSet&lt;DependentAddressSpaceType&gt;'/>
+<mbr r='clang::ASTContext::VectorTypes' t='llvm::FoldingSet&lt;VectorType&gt;'/>
+<mbr r='clang::ASTContext::DependentVectorTypes' t='llvm::FoldingSet&lt;DependentVectorType&gt;'/>
+<mbr r='clang::ASTContext::FunctionNoProtoTypes' t='llvm::FoldingSet&lt;FunctionNoProtoType&gt;'/>
+<mbr r='clang::ASTContext::FunctionProtoTypes' t='llvm::ContextualFoldingSet&lt;FunctionProtoType, ASTContext &amp;&gt;'/>
+<mbr r='clang::ASTContext::DependentTypeOfExprTypes' t='llvm::FoldingSet&lt;DependentTypeOfExprType&gt;'/>
+<mbr r='clang::ASTContext::DependentDecltypeTypes' t='llvm::FoldingSet&lt;DependentDecltypeType&gt;'/>
+<mbr r='clang::ASTContext::TemplateTypeParmTypes' t='llvm::FoldingSet&lt;TemplateTypeParmType&gt;'/>
+<mbr r='clang::ASTContext::ObjCTypeParamTypes' t='llvm::FoldingSet&lt;ObjCTypeParamType&gt;'/>
+<mbr r='clang::ASTContext::SubstTemplateTypeParmTypes' t='llvm::FoldingSet&lt;SubstTemplateTypeParmType&gt;'/>
+<mbr r='clang::ASTContext::SubstTemplateTypeParmPackTypes' t='llvm::FoldingSet&lt;SubstTemplateTypeParmPackType&gt;'/>
+<mbr r='clang::ASTContext::TemplateSpecializationTypes' t='llvm::ContextualFoldingSet&lt;TemplateSpecializationType, ASTContext &amp;&gt;'/>
+<mbr r='clang::ASTContext::ParenTypes' t='llvm::FoldingSet&lt;ParenType&gt;'/>
+<mbr r='clang::ASTContext::ElaboratedTypes' t='llvm::FoldingSet&lt;ElaboratedType&gt;'/>
+<mbr r='clang::ASTContext::DependentNameTypes' t='llvm::FoldingSet&lt;DependentNameType&gt;'/>
+<mbr r='clang::ASTContext::DependentTemplateSpecializationTypes' t='llvm::ContextualFoldingSet&lt;DependentTemplateSpecializationType, ASTContext &amp;&gt;'/>
+<mbr r='clang::ASTContext::PackExpansionTypes' t='llvm::FoldingSet&lt;PackExpansionType&gt;'/>
+<mbr r='clang::ASTContext::ObjCObjectTypes' t='llvm::FoldingSet&lt;ObjCObjectTypeImpl&gt;'/>
+<mbr r='clang::ASTContext::ObjCObjectPointerTypes' t='llvm::FoldingSet&lt;ObjCObjectPointerType&gt;'/>
+<mbr r='clang::ASTContext::DependentUnaryTransformTypes' t='llvm::FoldingSet&lt;DependentUnaryTransformType&gt;'/>
+<mbr r='clang::ASTContext::AutoTypes' t='llvm::FoldingSet&lt;AutoType&gt;'/>
+<mbr r='clang::ASTContext::DeducedTemplateSpecializationTypes' t='llvm::FoldingSet&lt;DeducedTemplateSpecializationType&gt;'/>
+<mbr r='clang::ASTContext::AtomicTypes' t='llvm::FoldingSet&lt;AtomicType&gt;'/>
+<mbr r='clang::ASTContext::AttributedTypes' t='llvm::FoldingSet&lt;AttributedType&gt;'/>
+<mbr r='clang::ASTContext::PipeTypes' t='llvm::FoldingSet&lt;PipeType&gt;'/>
+<mbr r='clang::ASTContext::QualifiedTemplateNames' t='llvm::FoldingSet&lt;QualifiedTemplateName&gt;'/>
+<mbr r='clang::ASTContext::DependentTemplateNames' t='llvm::FoldingSet&lt;DependentTemplateName&gt;'/>
+<mbr r='clang::ASTContext::SubstTemplateTemplateParms' t='llvm::FoldingSet&lt;SubstTemplateTemplateParmStorage&gt;'/>
+<mbr r='clang::ASTContext::SubstTemplateTemplateParmPacks' t='llvm::ContextualFoldingSet&lt;SubstTemplateTemplateParmPackStorage, ASTContext &amp;&gt;'/>
+<mbr r='clang::ASTContext::NestedNameSpecifiers' t='llvm::FoldingSet&lt;NestedNameSpecifier&gt;'/>
+<mbr r='clang::ASTContext::GlobalNestedNameSpecifier' t='clang::NestedNameSpecifier *'/>
+<mbr r='clang::ASTContext::ASTRecordLayouts' t='llvm::DenseMap&lt;const RecordDecl *, const ASTRecordLayout *&gt;'/>
+<mbr r='clang::ASTContext::ObjCLayouts' t='llvm::DenseMap&lt;const ObjCContainerDecl *, const ASTRecordLayout *&gt;'/>
+<mbr r='clang::ASTContext::MemoizedTypeInfo' t='TypeInfoMap'/>
+<mbr r='clang::ASTContext::MemoizedUnadjustedAlign' t='UnadjustedAlignMap'/>
+<mbr r='clang::ASTContext::KeyFunctions' t='llvm::DenseMap&lt;const CXXRecordDecl *, LazyDeclPtr&gt;'/>
+<mbr r='clang::ASTContext::ObjCImpls' t='llvm::DenseMap&lt;ObjCContainerDecl *, ObjCImplDecl *&gt;'/>
+<mbr r='clang::ASTContext::ObjCMethodRedecls' t='llvm::DenseMap&lt;const ObjCMethodDecl *, const ObjCMethodDecl *&gt;'/>
+<mbr r='clang::ASTContext::BlockVarCopyInits' t='llvm::DenseMap&lt;const VarDecl *, BlockVarCopyInit&gt;'/>
+<mbr r='clang::ASTContext::MaterializedTemporaryValues' t='llvm::DenseMap&lt;const MaterializeTemporaryExpr *, APValue *&gt;'/>
+<mbr r='clang::ASTContext::StringLiteralCache' t='llvm::StringMap&lt;StringLiteral *&gt;'/>
+<mbr r='clang::ASTContext::CanonTemplateTemplateParms' t='llvm::FoldingSet&lt;CanonicalTemplateTemplateParm&gt;'/>
+<fun r='_ZNK5clang10ASTContext36getCanonicalTemplateTemplateParmDeclEPNS_24TemplateTemplateParmDeclE'/>
+<mbr r='clang::ASTContext::Int128Decl' t='clang::TypedefDecl *'/>
+<mbr r='clang::ASTContext::UInt128Decl' t='clang::TypedefDecl *'/>
+<mbr r='clang::ASTContext::IntCapDecl' t='clang::TypedefDecl *'/>
+<mbr r='clang::ASTContext::UIntCapDecl' t='clang::TypedefDecl *'/>
+<mbr r='clang::ASTContext::BuiltinVaListDecl' t='clang::TypedefDecl *'/>
+<mbr r='clang::ASTContext::BuiltinMSVaListDecl' t='clang::TypedefDecl *'/>
+<mbr r='clang::ASTContext::ObjCIdDecl' t='clang::TypedefDecl *'/>
+<mbr r='clang::ASTContext::ObjCSelDecl' t='clang::TypedefDecl *'/>
+<mbr r='clang::ASTContext::ObjCClassDecl' t='clang::TypedefDecl *'/>
+<mbr r='clang::ASTContext::ObjCProtocolClassDecl' t='clang::ObjCInterfaceDecl *'/>
+<mbr r='clang::ASTContext::BOOLDecl' t='clang::TypedefDecl *'/>
+<mbr r='clang::ASTContext::ObjCIdRedefinitionType' t='clang::QualType'/>
+<mbr r='clang::ASTContext::ObjCClassRedefinitionType' t='clang::QualType'/>
+<mbr r='clang::ASTContext::ObjCSelRedefinitionType' t='clang::QualType'/>
+<mbr r='clang::ASTContext::BoolName' t='clang::IdentifierInfo *'/>
+<mbr r='clang::ASTContext::NSObjectName' t='clang::IdentifierInfo *'/>
+<mbr r='clang::ASTContext::NSCopyingName' t='clang::IdentifierInfo *'/>
+<mbr r='clang::ASTContext::MakeIntegerSeqName' t='clang::IdentifierInfo *'/>
+<mbr r='clang::ASTContext::TypePackElementName' t='clang::IdentifierInfo *'/>
+<mbr r='clang::ASTContext::ObjCConstantStringType' t='clang::QualType'/>
+<mbr r='clang::ASTContext::CFConstantStringTagDecl' t='clang::RecordDecl *'/>
+<mbr r='clang::ASTContext::CFConstantStringTypeDecl' t='clang::TypedefDecl *'/>
+<mbr r='clang::ASTContext::ObjCSuperType' t='clang::QualType'/>
+<mbr r='clang::ASTContext::ObjCNSStringType' t='clang::QualType'/>
+<mbr r='clang::ASTContext::ObjCInstanceTypeDecl' t='clang::TypedefDecl *'/>
+<mbr r='clang::ASTContext::CHERIClassDecl' t='clang::RecordDecl *'/>
+<mbr r='clang::ASTContext::FILEDecl' t='clang::TypeDecl *'/>
+<mbr r='clang::ASTContext::jmp_bufDecl' t='clang::TypeDecl *'/>
+<mbr r='clang::ASTContext::sigjmp_bufDecl' t='clang::TypeDecl *'/>
+<mbr r='clang::ASTContext::ucontext_tDecl' t='clang::TypeDecl *'/>
+<mbr r='clang::ASTContext::pthread_tDecl' t='clang::TypeDecl *'/>
+<mbr r='clang::ASTContext::pthread_attr_tDecl' t='clang::TypeDecl *'/>
+<mbr r='clang::ASTContext::BlockDescriptorType' t='clang::RecordDecl *'/>
+<mbr r='clang::ASTContext::BlockDescriptorExtendedType' t='clang::RecordDecl *'/>
+<mbr r='clang::ASTContext::cudaConfigureCallDecl' t='clang::FunctionDecl *'/>
+<mbr r='clang::ASTContext::DeclAttrs' t='llvm::DenseMap&lt;const Decl *, AttrVec *&gt;'/>
+<mbr r='clang::ASTContext::MergedDecls' t='llvm::DenseMap&lt;Decl *, Decl *&gt;'/>
+<mbr r='clang::ASTContext::MergedDefModules' t='llvm::DenseMap&lt;NamedDecl *, llvm::TinyPtrVector&lt;Module *&gt; &gt;'/>
+<mbr r='clang::ASTContext::ModuleInitializers' t='llvm::DenseMap&lt;Module *, PerModuleInitializers *&gt;'/>
+<fun r='_ZN5clang10ASTContext5this_Ev'/>
+<mbr r='clang::ASTContext::TemplateOrInstantiation' t='llvm::DenseMap&lt;const VarDecl *, TemplateOrSpecializationInfo&gt;'/>
+<mbr r='clang::ASTContext::InstantiatedFromUsingDecl' t='llvm::DenseMap&lt;NamedDecl *, NamedDecl *&gt;'/>
+<mbr r='clang::ASTContext::InstantiatedFromUsingShadowDecl' t='llvm::DenseMap&lt;UsingShadowDecl *, UsingShadowDecl *&gt;'/>
+<mbr r='clang::ASTContext::InstantiatedFromUnnamedFieldDecl' t='llvm::DenseMap&lt;FieldDecl *, FieldDecl *&gt;'/>
+<mbr r='clang::ASTContext::OverriddenMethods' t='llvm::DenseMap&lt;const CXXMethodDecl *, CXXMethodVector&gt;'/>
+<mbr r='clang::ASTContext::MangleNumberingContexts' t='llvm::DenseMap&lt;const DeclContext *, std::unique_ptr&lt;MangleNumberingContext&gt; &gt;'/>
+<mbr r='clang::ASTContext::MangleNumbers' t='llvm::MapVector&lt;const NamedDecl *, unsigned int&gt;'/>
+<mbr r='clang::ASTContext::StaticLocalNumbers' t='llvm::MapVector&lt;const VarDecl *, unsigned int&gt;'/>
+<mbr r='clang::ASTContext::ParamIndices' t='ParameterIndexTable'/>
+<mbr r='clang::ASTContext::FirstLocalImport' t='clang::ImportDecl *'/>
+<mbr r='clang::ASTContext::LastLocalImport' t='clang::ImportDecl *'/>
+<mbr r='clang::ASTContext::TUDecl' t='clang::TranslationUnitDecl *'/>
+<mbr r='clang::ASTContext::ExternCContext' t='clang::ExternCContextDecl *'/>
+<mbr r='clang::ASTContext::MakeIntegerSeqDecl' t='clang::BuiltinTemplateDecl *'/>
+<mbr r='clang::ASTContext::TypePackElementDecl' t='clang::BuiltinTemplateDecl *'/>
+<mbr r='clang::ASTContext::SourceMgr' t='clang::SourceManager &amp;'/>
+<mbr r='clang::ASTContext::LangOpts' t='clang::LangOptions &amp;'/>
+<mbr r='clang::ASTContext::SanitizerBL' t='std::unique_ptr&lt;SanitizerBlacklist&gt;'/>
+<mbr r='clang::ASTContext::XRayFilter' t='std::unique_ptr&lt;XRayFunctionFilter&gt;'/>
+<mbr r='clang::ASTContext::BumpAlloc' t='llvm::BumpPtrAllocator'/>
+<mbr r='clang::ASTContext::DiagAllocator' t='PartialDiagnostic::StorageAllocator'/>
+<mbr r='clang::ASTContext::ABI' t='std::unique_ptr&lt;CXXABI&gt;'/>
+<fun r='_ZN5clang10ASTContext12createCXXABIERKNS_10TargetInfoE'/>
+<mbr r='clang::ASTContext::AddrSpaceMap' t='const LangASMap *'/>
+<mbr r='clang::ASTContext::AddrSpaceMapMangling' t='bool'/>
+<mbr r='clang::ASTContext::Target' t='const clang::TargetInfo *'/>
+<mbr r='clang::ASTContext::AuxTarget' t='const clang::TargetInfo *'/>
+<mbr r='clang::ASTContext::PrintingPolicy' t='clang::PrintingPolicy'/>
+<mbr r='clang::ASTContext::Idents' t='clang::IdentifierTable &amp;'/>
+<mbr r='clang::ASTContext::Selectors' t='clang::SelectorTable &amp;'/>
+<mbr r='clang::ASTContext::BuiltinInfo' t='Builtin::Context &amp;'/>
+<mbr r='clang::ASTContext::DeclarationNames' t='clang::DeclarationNameTable'/>
+<mbr r='clang::ASTContext::ExternalSource' t='IntrusiveRefCntPtr&lt;clang::ExternalASTSource&gt;'/>
+<mbr r='clang::ASTContext::Listener' t='clang::ASTMutationListener *'/>
+<fun r='_ZNK5clang10ASTContext17getTraversalScopeEv'/>
+<fun r='_ZN5clang10ASTContext17setTraversalScopeERKSt6vectorIPNS_4DeclESaIS3_EE'/>
+<fun r='_ZN5clang10ASTContext10getParentsERKT_'/>
+<fun r='_ZN5clang10ASTContext10getParentsERKNS_15ast_type_traits12DynTypedNodeE'/>
+<fun r='_ZNK5clang10ASTContext17getPrintingPolicyEv'/>
+<fun r='_ZN5clang10ASTContext17setPrintingPolicyERKNS_14PrintingPolicyE'/>
+<fun r='_ZN5clang10ASTContext16getSourceManagerEv'/>
+<fun r='_ZNK5clang10ASTContext16getSourceManagerEv'/>
+<fun r='_ZNK5clang10ASTContext12getAllocatorEv'/>
+<fun r='_ZNK5clang10ASTContext8AllocateEmj'/>
+<fun r='_ZNK5clang10ASTContext8AllocateEm'/>
+<fun r='_ZNK5clang10ASTContext10DeallocateEPv'/>
+<fun r='_ZNK5clang10ASTContext21getASTAllocatedMemoryEv'/>
+<fun r='_ZNK5clang10ASTContext27getSideTableAllocatedMemoryEv'/>
+<fun r='_ZN5clang10ASTContext16getDiagAllocatorEv'/>
+<fun r='_ZNK5clang10ASTContext13getTargetInfoEv'/>
+<fun r='_ZNK5clang10ASTContext16getAuxTargetInfoEv'/>
+<fun r='_ZNK5clang10ASTContext21getIntTypeForBitwidthEjj'/>
+<fun r='_ZNK5clang10ASTContext22getRealTypeForBitwidthEj'/>
+<fun r='_ZNK5clang10ASTContext28AtomicUsesUnsupportedLibcallEPKNS_10AtomicExprE'/>
+<fun r='_ZNK5clang10ASTContext11getLangOptsEv'/>
+<fun r='_ZNK5clang10ASTContext21getSanitizerBlacklistEv'/>
+<fun r='_ZNK5clang10ASTContext13getXRayFilterEv'/>
+<fun r='_ZNK5clang10ASTContext14getDiagnosticsEv'/>
+<fun r='_ZNK5clang10ASTContext10getFullLocENS_14SourceLocationE'/>
+<mbr r='clang::ASTContext::Comments' t='clang::RawCommentList'/>
+<mbr r='clang::ASTContext::CommentsLoaded' t='bool'/>
+<mbr r='clang::ASTContext::RedeclComments' t='llvm::DenseMap&lt;const Decl *, RawCommentAndCacheFlags&gt;'/>
+<mbr r='clang::ASTContext::ParsedComments' t='llvm::DenseMap&lt;const Decl *, comments::FullComment *&gt;'/>
+<fun r='_ZNK5clang10ASTContext27getRawCommentForDeclNoCacheEPKNS_4DeclE'/>
+<fun r='_ZN5clang10ASTContext17getRawCommentListEv'/>
+<fun r='_ZN5clang10ASTContext10addCommentERKNS_10RawCommentE'/>
+<fun r='_ZNK5clang10ASTContext25getRawCommentForAnyRedeclEPKNS_4DeclEPS3_'/>
+<fun r='_ZNK5clang10ASTContext17getCommentForDeclEPKNS_4DeclEPKNS_12PreprocessorE'/>
+<fun r='_ZNK5clang10ASTContext30getLocalCommentForDeclUncachedEPKNS_4DeclE'/>
+<fun r='_ZNK5clang10ASTContext16cloneFullCommentEPNS_8comments11FullCommentEPKNS_4DeclE'/>
+<mbr r='clang::ASTContext::CommentCommandTraits' t='comments::CommandTraits'/>
+<fun r='_ZNK5clang10ASTContext23getCommentCommandTraitsEv'/>
+<fun r='_ZN5clang10ASTContext12getDeclAttrsEPKNS_4DeclE'/>
+<fun r='_ZN5clang10ASTContext14eraseDeclAttrsEPKNS_4DeclE'/>
+<fun r='_ZN5clang10ASTContext35getInstantiatedFromStaticDataMemberEPKNS_7VarDeclE'/>
+<fun r='_ZN5clang10ASTContext31getTemplateOrSpecializationInfoEPKNS_7VarDeclE'/>
+<fun r='_ZN5clang10ASTContext35setInstantiatedFromStaticDataMemberEPNS_7VarDeclES2_NS_26TemplateSpecializationKindENS_14SourceLocationE'/>
+<fun r='_ZN5clang10ASTContext31setTemplateOrSpecializationInfoEPNS_7VarDeclEN4llvm12PointerUnionIJPNS_15VarTemplateDeclEPNS_24MemberSpecializationInfoEEEE'/>
+<fun r='_ZN5clang10ASTContext28getInstantiatedFromUsingDeclEPNS_9NamedDeclE'/>
+<fun r='_ZN5clang10ASTContext28setInstantiatedFromUsingDeclEPNS_9NamedDeclES2_'/>
+<fun r='_ZN5clang10ASTContext34setInstantiatedFromUsingShadowDeclEPNS_15UsingShadowDeclES2_'/>
+<fun r='_ZN5clang10ASTContext34getInstantiatedFromUsingShadowDeclEPNS_15UsingShadowDeclE'/>
+<fun r='_ZN5clang10ASTContext35getInstantiatedFromUnnamedFieldDeclEPNS_9FieldDeclE'/>
+<fun r='_ZN5clang10ASTContext35setInstantiatedFromUnnamedFieldDeclEPNS_9FieldDeclES2_'/>
+<fun r='_ZNK5clang10ASTContext24overridden_methods_beginEPKNS_13CXXMethodDeclE'/>
+<fun r='_ZNK5clang10ASTContext22overridden_methods_endEPKNS_13CXXMethodDeclE'/>
+<fun r='_ZNK5clang10ASTContext23overridden_methods_sizeEPKNS_13CXXMethodDeclE'/>
+<fun r='_ZNK5clang10ASTContext18overridden_methodsEPKNS_13CXXMethodDeclE'/>
+<fun r='_ZN5clang10ASTContext19addOverriddenMethodEPKNS_13CXXMethodDeclES3_'/>
+<fun r='_ZNK5clang10ASTContext20getOverriddenMethodsEPKNS_9NamedDeclERN4llvm15SmallVectorImplIS3_EE'/>
+<fun r='_ZN5clang10ASTContext20addedLocalImportDeclEPNS_10ImportDeclE'/>
+<fun r='_ZN5clang10ASTContext18getNextLocalImportEPNS_10ImportDeclE'/>
+<fun r='_ZNK5clang10ASTContext13local_importsEv'/>
+<fun r='_ZN5clang10ASTContext20getPrimaryMergedDeclEPNS_4DeclE'/>
+<fun r='_ZN5clang10ASTContext20setPrimaryMergedDeclEPNS_4DeclES2_'/>
+<fun r='_ZN5clang10ASTContext25mergeDefinitionIntoModuleEPNS_9NamedDeclEPNS_6ModuleEb'/>
+<fun r='_ZN5clang10ASTContext30deduplicateMergedDefinitonsForEPNS_9NamedDeclE'/>
+<fun r='_ZN5clang10ASTContext30getModulesWithMergedDefinitionEPKNS_9NamedDeclE'/>
+<fun r='_ZN5clang10ASTContext20addModuleInitializerEPNS_6ModuleEPNS_4DeclE'/>
+<fun r='_ZN5clang10ASTContext25addLazyModuleInitializersEPNS_6ModuleEN4llvm8ArrayRefIjEE'/>
+<fun r='_ZN5clang10ASTContext21getModuleInitializersEPNS_6ModuleE'/>
+<fun r='_ZNK5clang10ASTContext22getTranslationUnitDeclEv'/>
+<fun r='_ZNK5clang10ASTContext21getExternCContextDeclEv'/>
+<fun r='_ZNK5clang10ASTContext21getMakeIntegerSeqDeclEv'/>
+<fun r='_ZNK5clang10ASTContext22getTypePackElementDeclEv'/>
+<mbr r='clang::ASTContext::VoidTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::BoolTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::CharTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::WCharTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::WideCharTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::WIntTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::Char8Ty' t='CanQualType'/>
+<mbr r='clang::ASTContext::Char16Ty' t='CanQualType'/>
+<mbr r='clang::ASTContext::Char32Ty' t='CanQualType'/>
+<mbr r='clang::ASTContext::SignedCharTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::ShortTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::IntTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::LongTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::LongLongTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::Int128Ty' t='CanQualType'/>
+<mbr r='clang::ASTContext::UnsignedCharTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::UnsignedShortTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::UnsignedIntTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::UnsignedLongTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::IntCapTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::UnsignedIntCapTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::UnsignedLongLongTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::UnsignedInt128Ty' t='CanQualType'/>
+<mbr r='clang::ASTContext::FloatTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::DoubleTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::LongDoubleTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::Float128Ty' t='CanQualType'/>
+<mbr r='clang::ASTContext::ShortAccumTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::AccumTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::LongAccumTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::UnsignedShortAccumTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::UnsignedAccumTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::UnsignedLongAccumTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::ShortFractTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::FractTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::LongFractTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::UnsignedShortFractTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::UnsignedFractTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::UnsignedLongFractTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::SatShortAccumTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::SatAccumTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::SatLongAccumTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::SatUnsignedShortAccumTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::SatUnsignedAccumTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::SatUnsignedLongAccumTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::SatShortFractTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::SatFractTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::SatLongFractTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::SatUnsignedShortFractTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::SatUnsignedFractTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::SatUnsignedLongFractTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::HalfTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::Float16Ty' t='CanQualType'/>
+<mbr r='clang::ASTContext::FloatComplexTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::DoubleComplexTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::LongDoubleComplexTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::Float128ComplexTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::VoidPtrTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::NullPtrTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::DependentTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OverloadTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::BoundMemberTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::UnknownAnyTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::BuiltinFnTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::PseudoObjectTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::ARCUnbridgedCastTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::ObjCBuiltinIdTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::ObjCBuiltinClassTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::ObjCBuiltinSelTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::ObjCBuiltinBoolTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage1dROTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage1dArrayROTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage1dBufferROTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dROTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dArrayROTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dDepthROTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dArrayDepthROTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dMSAAROTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dArrayMSAAROTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dMSAADepthROTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dArrayMSAADepthROTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage3dROTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage1dWOTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage1dArrayWOTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage1dBufferWOTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dWOTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dArrayWOTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dDepthWOTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dArrayDepthWOTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dMSAAWOTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dArrayMSAAWOTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dMSAADepthWOTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dArrayMSAADepthWOTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage3dWOTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage1dRWTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage1dArrayRWTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage1dBufferRWTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dRWTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dArrayRWTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dDepthRWTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dArrayDepthRWTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dMSAARWTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dArrayMSAARWTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dMSAADepthRWTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage2dArrayMSAADepthRWTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLImage3dRWTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLSamplerTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLEventTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLClkEventTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLQueueTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLReserveIDTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OMPArraySectionTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLIntelSubgroupAVCMcePayloadTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLIntelSubgroupAVCImePayloadTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLIntelSubgroupAVCRefPayloadTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLIntelSubgroupAVCSicPayloadTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLIntelSubgroupAVCMceResultTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLIntelSubgroupAVCImeResultTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLIntelSubgroupAVCRefResultTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLIntelSubgroupAVCSicResultTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLIntelSubgroupAVCImeResultSingleRefStreamoutTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLIntelSubgroupAVCImeResultDualRefStreamoutTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLIntelSubgroupAVCImeSingleRefStreaminTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::OCLIntelSubgroupAVCImeDualRefStreaminTy' t='CanQualType'/>
+<mbr r='clang::ASTContext::AutoDeductTy' t='clang::QualType'/>
+<mbr r='clang::ASTContext::AutoRRefDeductTy' t='clang::QualType'/>
+<mbr r='clang::ASTContext::VaListTagDecl' t='clang::Decl *'/>
+<fun r='_ZN5clang10ASTContextC1ERNS_11LangOptionsERNS_13SourceManagerERNS_15IdentifierTableERNS_13SelectorTableERNS_7Builtin7ContextE'/>
+<fun r='_ZN5clang10ASTContextC1ERKS0_'/>
+<fun r='_ZN5clang10ASTContextaSERKS0_'/>
+<fun r='_ZN5clang10ASTContextD1Ev'/>
+<fun r='_ZN5clang10ASTContext17setExternalSourceEN4llvm18IntrusiveRefCntPtrINS_17ExternalASTSourceEEE'/>
+<fun r='_ZNK5clang10ASTContext17getExternalSourceEv'/>
+<fun r='_ZN5clang10ASTContext22setASTMutationListenerEPNS_19ASTMutationListenerE'/>
+<fun r='_ZNK5clang10ASTContext22getASTMutationListenerEv'/>
+<fun r='_ZNK5clang10ASTContext10PrintStatsEv'/>
+<fun r='_ZNK5clang10ASTContext8getTypesEv'/>
+<fun r='_ZNK5clang10ASTContext24buildBuiltinTemplateDeclENS_19BuiltinTemplateKindEPKNS_14IdentifierInfoE'/>
+<fun r='_ZNK5clang10ASTContext19buildImplicitRecordEN4llvm9StringRefENS_11TagTypeKindE'/>
+<fun r='_ZNK5clang10ASTContext20buildImplicitTypedefENS_8QualTypeEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang10ASTContext13getInt128DeclEv'/>
+<fun r='_ZNK5clang10ASTContext14getUInt128DeclEv'/>
+<fun r='_ZNK5clang10ASTContext13getIntCapDeclEv'/>
+<fun r='_ZNK5clang10ASTContext14getUIntCapDeclEv'/>
+<fun r='_ZNK5clang10ASTContext14getExtQualTypeEPKNS_4TypeENS_10QualifiersE'/>
+<fun r='_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE'/>
+<fun r='_ZNK5clang10ASTContext11getPipeTypeENS_8QualTypeEb'/>
+<fun r='_ZNK5clang10ASTContext20getAddrSpaceQualTypeENS_8QualTypeENS_6LangASE'/>
+<fun r='_ZNK5clang10ASTContext23removeAddrSpaceQualTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext27applyObjCProtocolQualifiersENS_8QualTypeEN4llvm8ArrayRefIPNS_16ObjCProtocolDeclEEERbb'/>
+<fun r='_ZNK5clang10ASTContext17getObjCGCQualTypeENS_8QualTypeENS_10Qualifiers2GCE'/>
+<fun r='_ZNK5clang10ASTContext15getRestrictTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext15getVolatileTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext12getConstTypeENS_8QualTypeE'/>
+<fun r='_ZN5clang10ASTContext18adjustFunctionTypeEPKNS_12FunctionTypeENS1_7ExtInfoE'/>
+<fun r='_ZNK5clang10ASTContext30getCanonicalFunctionResultTypeENS_8QualTypeE'/>
+<fun r='_ZN5clang10ASTContext31adjustDeducedFunctionResultTypeEPNS_12FunctionDeclENS_8QualTypeE'/>
+<fun r='_ZN5clang10ASTContext32getFunctionTypeWithExceptionSpecENS_8QualTypeERKNS_17FunctionProtoType17ExceptionSpecInfoE'/>
+<fun r='_ZN5clang10ASTContext40hasSameFunctionTypeIgnoringExceptionSpecENS_8QualTypeES1_'/>
+<fun r='_ZN5clang10ASTContext19adjustExceptionSpecEPNS_12FunctionDeclERKNS_17FunctionProtoType17ExceptionSpecInfoEb'/>
+<fun r='_ZNK5clang10ASTContext14getComplexTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext14getComplexTypeENS_7CanQualINS_4TypeEEE'/>
+<fun r='_ZNK5clang10ASTContext14getPointerTypeENS_8QualTypeENS0_25PointerInterpretationKindE'/>
+<fun r='_ZNK5clang10ASTContext14getPointerTypeENS_7CanQualINS_4TypeEEENS0_25PointerInterpretationKindE'/>
+<fun r='_ZNK5clang10ASTContext17shouldUseCHERICapENS0_25PointerInterpretationKindE'/>
+<fun r='_ZNK5clang10ASTContext15getAdjustedTypeENS_8QualTypeES1_'/>
+<fun r='_ZNK5clang10ASTContext15getAdjustedTypeENS_7CanQualINS_4TypeEEES3_'/>
+<fun r='_ZNK5clang10ASTContext14getDecayedTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext14getDecayedTypeENS_7CanQualINS_4TypeEEE'/>
+<fun r='_ZNK5clang10ASTContext13getAtomicTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext19getBlockPointerTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext22getBlockDescriptorTypeEv'/>
+<fun r='_ZNK5clang10ASTContext15getReadPipeTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext16getWritePipeTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext30getBlockDescriptorExtendedTypeEv'/>
+<fun r='_ZNK5clang10ASTContext17getOpenCLTypeKindEPKNS_4TypeE'/>
+<fun r='_ZNK5clang10ASTContext22getOpenCLTypeAddrSpaceEPKNS_4TypeE'/>
+<fun r='_ZN5clang10ASTContext24setcudaConfigureCallDeclEPNS_12FunctionDeclE'/>
+<fun r='_ZN5clang10ASTContext24getcudaConfigureCallDeclEv'/>
+<fun r='_ZN5clang10ASTContext20BlockRequiresCopyingENS_8QualTypeEPKNS_7VarDeclE'/>
+<fun r='_ZNK5clang10ASTContext16getByrefLifetimeENS_8QualTypeERNS_10Qualifiers12ObjCLifetimeERb'/>
+<fun r='_ZNK5clang10ASTContext22getLValueReferenceTypeENS_8QualTypeEbNS0_25PointerInterpretationKindE'/>
+<fun r='_ZNK5clang10ASTContext22getRValueReferenceTypeENS_8QualTypeENS0_25PointerInterpretationKindE'/>
+<fun r='_ZNK5clang10ASTContext20getMemberPointerTypeENS_8QualTypeEPKNS_4TypeE'/>
+<fun r='_ZNK5clang10ASTContext20getVariableArrayTypeENS_8QualTypeEPNS_4ExprENS_9ArrayType17ArraySizeModifierEjNS_11SourceRangeE'/>
+<fun r='_ZNK5clang10ASTContext26getDependentSizedArrayTypeENS_8QualTypeEPNS_4ExprENS_9ArrayType17ArraySizeModifierEjNS_11SourceRangeE'/>
+<fun r='_ZNK5clang10ASTContext22getIncompleteArrayTypeENS_8QualTypeENS_9ArrayType17ArraySizeModifierEj'/>
+<fun r='_ZNK5clang10ASTContext20getConstantArrayTypeENS_8QualTypeERKN4llvm5APIntENS_9ArrayType17ArraySizeModifierEj'/>
+<fun r='_ZNK5clang10ASTContext25getStringLiteralArrayTypeENS_8QualTypeEj'/>
+<fun r='_ZNK5clang10ASTContext27getVariableArrayDecayedTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext13getVectorTypeENS_8QualTypeEjNS_10VectorType10VectorKindE'/>
+<fun r='_ZNK5clang10ASTContext22getDependentVectorTypeENS_8QualTypeEPNS_4ExprENS_14SourceLocationENS_10VectorType10VectorKindE'/>
+<fun r='_ZNK5clang10ASTContext16getExtVectorTypeENS_8QualTypeEj'/>
+<fun r='_ZNK5clang10ASTContext30getDependentSizedExtVectorTypeENS_8QualTypeEPNS_4ExprENS_14SourceLocationE'/>
+<fun r='_ZNK5clang10ASTContext28getDependentAddressSpaceTypeENS_8QualTypeEPNS_4ExprENS_14SourceLocationE'/>
+<fun r='_ZNK5clang10ASTContext22getFunctionNoProtoTypeENS_8QualTypeERKNS_12FunctionType7ExtInfoE'/>
+<fun r='_ZNK5clang10ASTContext22getFunctionNoProtoTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext15getFunctionTypeENS_8QualTypeEN4llvm8ArrayRefIS1_EERKNS_17FunctionProtoType12ExtProtoInfoE'/>
+<fun r='_ZNK5clang10ASTContext27adjustStringLiteralBaseTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext23getFunctionTypeInternalENS_8QualTypeEN4llvm8ArrayRefIS1_EERKNS_17FunctionProtoType12ExtProtoInfoEb'/>
+<fun r='_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_'/>
+<fun r='_ZNK5clang10ASTContext14getTypedefTypeEPKNS_15TypedefNameDeclENS_8QualTypeEb'/>
+<fun r='_ZNK5clang10ASTContext13getRecordTypeEPKNS_10RecordDeclE'/>
+<fun r='_ZNK5clang10ASTContext11getEnumTypeEPKNS_8EnumDeclE'/>
+<fun r='_ZNK5clang10ASTContext24getInjectedClassNameTypeEPNS_13CXXRecordDeclENS_8QualTypeE'/>
+<fun r='_ZN5clang10ASTContext17getAttributedTypeENS_4attr4KindENS_8QualTypeES3_'/>
+<fun r='_ZNK5clang10ASTContext28getSubstTemplateTypeParmTypeEPKNS_20TemplateTypeParmTypeENS_8QualTypeE'/>
+<fun r='_ZN5clang10ASTContext32getSubstTemplateTypeParmPackTypeEPKNS_20TemplateTypeParmTypeERKNS_16TemplateArgumentE'/>
+<fun r='_ZNK5clang10ASTContext23getTemplateTypeParmTypeEjjbPNS_20TemplateTypeParmDeclE'/>
+<fun r='_ZNK5clang10ASTContext29getTemplateSpecializationTypeENS_12TemplateNameEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext38getCanonicalTemplateSpecializationTypeENS_12TemplateNameEN4llvm8ArrayRefINS_16TemplateArgumentEEE'/>
+<fun r='_ZNK5clang10ASTContext29getTemplateSpecializationTypeENS_12TemplateNameERKNS_24TemplateArgumentListInfoENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext33getTemplateSpecializationTypeInfoENS_12TemplateNameENS_14SourceLocationERKNS_24TemplateArgumentListInfoENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext12getParenTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext21getMacroQualifiedTypeENS_8QualTypeEPKNS_14IdentifierInfoE'/>
+<fun r='_ZNK5clang10ASTContext17getElaboratedTypeENS_21ElaboratedTypeKeywordEPNS_19NestedNameSpecifierENS_8QualTypeEPNS_7TagDeclE'/>
+<fun r='_ZNK5clang10ASTContext20getDependentNameTypeENS_21ElaboratedTypeKeywordEPNS_19NestedNameSpecifierEPKNS_14IdentifierInfoENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext38getDependentTemplateSpecializationTypeENS_21ElaboratedTypeKeywordEPNS_19NestedNameSpecifierEPKNS_14IdentifierInfoERKNS_24TemplateArgumentListInfoE'/>
+<fun r='_ZNK5clang10ASTContext38getDependentTemplateSpecializationTypeENS_21ElaboratedTypeKeywordEPNS_19NestedNameSpecifierEPKNS_14IdentifierInfoEN4llvm8Array12785437'/>
+<fun r='_ZN5clang10ASTContext22getInjectedTemplateArgEPNS_9NamedDeclE'/>
+<fun r='_ZN5clang10ASTContext23getInjectedTemplateArgsEPKNS_21TemplateParameterListERN4llvm15SmallVectorImplINS_16TemplateArgumentEEE'/>
+<fun r='_ZN5clang10ASTContext20getPackExpansionTypeENS_8QualTypeEN4llvm8OptionalIjEE'/>
+<fun r='_ZNK5clang10ASTContext20getObjCInterfaceTypeEPKNS_17ObjCInterfaceDeclEPS1_'/>
+<fun r='_ZNK5clang10ASTContext17getObjCObjectTypeENS_8QualTypeEPKPNS_16ObjCProtocolDeclEj'/>
+<fun r='_ZNK5clang10ASTContext17getObjCObjectTypeENS_8QualTypeEN4llvm8ArrayRefIS1_EENS3_IPNS_16ObjCProtocolDeclEEEb'/>
+<fun r='_ZNK5clang10ASTContext20getObjCTypeParamTypeEPKNS_17ObjCTypeParamDeclEN4llvm8ArrayRefIPNS_16ObjCProtocolDeclEEENS_8QualTypeE'/>
+<fun r='_ZN5clang10ASTContext30ObjCObjectAdoptsQTypeProtocolsENS_8QualTypeEPNS_17ObjCInterfaceDeclE'/>
+<fun r='_ZN5clang10ASTContext36QIdProtocolsAdoptObjCObjectProtocolsENS_8QualTypeEPNS_17ObjCInterfaceDeclE'/>
+<fun r='_ZNK5clang10ASTContext24getObjCObjectPointerTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext17getTypeOfExprTypeEPNS_4ExprE'/>
+<fun r='_ZNK5clang10ASTContext13getTypeOfTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext15getDecltypeTypeEPNS_4ExprENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext21getUnaryTransformTypeENS_8QualTypeES1_NS_18UnaryTransformType7UTTKindE'/>
+<fun r='_ZNK5clang10ASTContext11getAutoTypeENS_8QualTypeENS_15AutoTypeKeywordEbb'/>
+<fun r='_ZNK5clang10ASTContext17getAutoDeductTypeEv'/>
+<fun r='_ZNK5clang10ASTContext21getAutoRRefDeductTypeEv'/>
+<fun r='_ZNK5clang10ASTContext36getDeducedTemplateSpecializationTypeENS_12TemplateNameENS_8QualTypeEb'/>
+<fun r='_ZNK5clang10ASTContext14getTagDeclTypeEPKNS_7TagDeclE'/>
+<fun r='_ZNK5clang10ASTContext11getSizeTypeEv'/>
+<fun r='_ZNK5clang10ASTContext17getSignedSizeTypeEv'/>
+<fun r='_ZNK5clang10ASTContext13getIntMaxTypeEv'/>
+<fun r='_ZNK5clang10ASTContext14getUIntMaxTypeEv'/>
+<fun r='_ZNK5clang10ASTContext12getWCharTypeEv'/>
+<fun r='_ZNK5clang10ASTContext15getWideCharTypeEv'/>
+<fun r='_ZNK5clang10ASTContext18getSignedWCharTypeEv'/>
+<fun r='_ZNK5clang10ASTContext20getUnsignedWCharTypeEv'/>
+<fun r='_ZNK5clang10ASTContext11getWIntTypeEv'/>
+<fun r='_ZNK5clang10ASTContext13getIntPtrTypeEv'/>
+<fun r='_ZNK5clang10ASTContext14getUIntPtrTypeEv'/>
+<fun r='_ZNK5clang10ASTContext18getPointerDiffTypeEv'/>
+<fun r='_ZNK5clang10ASTContext26getUnsignedPointerDiffTypeEv'/>
+<fun r='_ZNK5clang10ASTContext16getProcessIDTypeEv'/>
+<fun r='_ZNK5clang10ASTContext23getCFConstantStringTypeEv'/>
+<fun r='_ZNK5clang10ASTContext16getObjCSuperTypeEv'/>
+<fun r='_ZN5clang10ASTContext16setObjCSuperTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext26getRawCFConstantStringTypeEv'/>
+<fun r='_ZN5clang10ASTContext23setCFConstantStringTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext23getCFConstantStringDeclEv'/>
+<fun r='_ZNK5clang10ASTContext26getCFConstantStringTagDeclEv'/>
+<fun r='_ZN5clang10ASTContext30setObjCConstantStringInterfaceEPNS_17ObjCInterfaceDeclE'/>
+<fun r='_ZNK5clang10ASTContext30getObjCConstantStringInterfaceEv'/>
+<fun r='_ZNK5clang10ASTContext19getObjCNSStringTypeEv'/>
+<fun r='_ZN5clang10ASTContext19setObjCNSStringTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext25getObjCIdRedefinitionTypeEv'/>
+<fun r='_ZN5clang10ASTContext25setObjCIdRedefinitionTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext28getObjCClassRedefinitionTypeEv'/>
+<fun r='_ZN5clang10ASTContext28setObjCClassRedefinitionTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext26getObjCSelRedefinitionTypeEv'/>
+<fun r='_ZN5clang10ASTContext26setObjCSelRedefinitionTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext15getNSObjectNameEv'/>
+<fun r='_ZN5clang10ASTContext16getNSCopyingNameEv'/>
+<fun r='_ZNK5clang10ASTContext17getNSUIntegerTypeEv'/>
+<fun r='_ZNK5clang10ASTContext16getNSIntegerTypeEv'/>
+<fun r='_ZNK5clang10ASTContext11getBoolNameEv'/>
+<fun r='_ZNK5clang10ASTContext21getMakeIntegerSeqNameEv'/>
+<fun r='_ZNK5clang10ASTContext22getTypePackElementNameEv'/>
+<fun r='_ZN5clang10ASTContext19getObjCInstanceTypeEv'/>
+<fun r='_ZN5clang10ASTContext23getObjCInstanceTypeDeclEv'/>
+<fun r='_ZN5clang10ASTContext11setFILEDeclEPNS_8TypeDeclE'/>
+<fun r='_ZNK5clang10ASTContext11getFILETypeEv'/>
+<fun r='_ZN5clang10ASTContext14setjmp_bufDeclEPNS_8TypeDeclE'/>
+<fun r='_ZNK5clang10ASTContext14getjmp_bufTypeEv'/>
+<fun r='_ZN5clang10ASTContext17setsigjmp_bufDeclEPNS_8TypeDeclE'/>
+<fun r='_ZNK5clang10ASTContext17getsigjmp_bufTypeEv'/>
+<fun r='_ZN5clang10ASTContext17setucontext_tDeclEPNS_8TypeDeclE'/>
+<fun r='_ZNK5clang10ASTContext17getucontext_tTypeEv'/>
+<fun r='_ZN5clang10ASTContext16setpthread_tDeclEPNS_8TypeDeclE'/>
+<fun r='_ZNK5clang10ASTContext16getpthread_tTypeEv'/>
+<fun r='_ZN5clang10ASTContext21setpthread_attr_tDeclEPNS_8TypeDeclE'/>
+<fun r='_ZNK5clang10ASTContext21getpthread_attr_tTypeEv'/>
+<fun r='_ZNK5clang10ASTContext23getLogicalOperationTypeEv'/>
+<fun r='_ZNK5clang10ASTContext22getObjCEncodingForTypeENS_8QualTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9FieldDeclEPS1_'/>
+<fun r='_ZNK5clang10ASTContext30getObjCEncodingForPropertyTypeENS_8QualTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZNK5clang10ASTContext29getLegacyIntegralTypeEncodingERNS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext31getObjCEncodingForTypeQualifierENS_4Decl17ObjCDeclQualifierERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZNK5clang10ASTContext30getObjCEncodingForFunctionDeclEPKNS_12FunctionDeclE'/>
+<fun r='_ZNK5clang10ASTContext28getObjCEncodingForMethodDeclEPKNS_14ObjCMethodDeclEb'/>
+<fun r='_ZNK5clang10ASTContext23getObjCEncodingForBlockEPKNS_9BlockExprE'/>
+<fun r='_ZNK5clang10ASTContext30getObjCEncodingForPropertyDeclEPKNS_16ObjCPropertyDeclEPKNS_4DeclE'/>
+<fun r='_ZNK5clang10ASTContext30ProtocolCompatibleWithProtocolEPNS_16ObjCProtocolDeclES2_'/>
+<fun r='_ZNK5clang10ASTContext38getObjCPropertyImplDeclForPropertyDeclEPKNS_16ObjCPropertyDeclEPKNS_4DeclE'/>
+<fun r='_ZNK5clang10ASTContext23getObjCEncodingTypeSizeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext13getObjCIdDeclEv'/>
+<fun r='_ZNK5clang10ASTContext13getObjCIdTypeEv'/>
+<fun r='_ZNK5clang10ASTContext14getObjCSelDeclEv'/>
+<fun r='_ZNK5clang10ASTContext14getObjCSelTypeEv'/>
+<fun r='_ZNK5clang10ASTContext16getObjCClassDeclEv'/>
+<fun r='_ZNK5clang10ASTContext16getObjCClassTypeEv'/>
+<fun r='_ZNK5clang10ASTContext17getCHERIClassDeclEv'/>
+<fun r='_ZNK5clang10ASTContext17getCHERIClassTypeEv'/>
+<fun r='_ZNK5clang10ASTContext19getObjCProtocolDeclEv'/>
+<fun r='_ZNK5clang10ASTContext11getBOOLDeclEv'/>
+<fun r='_ZN5clang10ASTContext11setBOOLDeclEPNS_11TypedefDeclE'/>
+<fun r='_ZNK5clang10ASTContext11getBOOLTypeEv'/>
+<fun r='_ZNK5clang10ASTContext16getObjCProtoTypeEv'/>
+<fun r='_ZNK5clang10ASTContext20getBuiltinVaListDeclEv'/>
+<fun r='_ZNK5clang10ASTContext20getBuiltinVaListTypeEv'/>
+<fun r='_ZNK5clang10ASTContext16getVaListTagDeclEv'/>
+<fun r='_ZNK5clang10ASTContext22getBuiltinMSVaListDeclEv'/>
+<fun r='_ZNK5clang10ASTContext22getBuiltinMSVaListTypeEv'/>
+<fun r='_ZNK5clang10ASTContext22canBuiltinBeRedeclaredEPKNS_12FunctionDeclE'/>
+<fun r='_ZNK5clang10ASTContext19getCVRQualifiedTypeENS_8QualTypeEj'/>
+<fun r='_ZNK5clang10ASTContext16getQualifiedTypeENS_13SplitQualTypeE'/>
+<fun r='_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE'/>
+<fun r='_ZNK5clang10ASTContext16getQualifiedTypeEPKNS_4TypeENS_10QualifiersE'/>
+<fun r='_ZN5clang10ASTContext24getLifetimeQualifiedTypeENS_8QualTypeENS_10Qualifiers12ObjCLifetimeE'/>
+<fun r='_ZNK5clang10ASTContext29getUnqualifiedObjCPointerTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext18getFixedPointScaleENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext18getFixedPointIBitsENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext22getFixedPointSemanticsENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext16getFixedPointMaxENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext16getFixedPointMinENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext18getNameForTemplateENS_12TemplateNameENS_14SourceLocationE'/>
+<fun r='_ZNK5clang10ASTContext25getOverloadedTemplateNameENS_21UnresolvedSetIteratorES1_'/>
+<fun r='_ZNK5clang10ASTContext22getAssumedTemplateNameENS_15DeclarationNameE'/>
+<fun r='_ZNK5clang10ASTContext24getQualifiedTemplateNameEPNS_19NestedNameSpecifierEbPNS_12TemplateDeclE'/>
+<fun r='_ZNK5clang10ASTContext24getDependentTemplateNameEPNS_19NestedNameSpecifierEPKNS_14IdentifierInfoE'/>
+<fun r='_ZNK5clang10ASTContext24getDependentTemplateNameEPNS_19NestedNameSpecifierENS_22OverloadedOperatorKindE'/>
+<fun r='_ZNK5clang10ASTContext28getSubstTemplateTemplateParmEPNS_24TemplateTemplateParmDeclENS_12TemplateNameE'/>
+<fun r='_ZNK5clang10ASTContext32getSubstTemplateTemplateParmPackEPNS_24TemplateTemplateParmDeclERKNS_16TemplateArgumentE'/>
+<fun r='_ZNK5clang10ASTContext14GetBuiltinTypeEjRNS0_19GetBuiltinTypeErrorEPj'/>
+<mbr r='clang::ASTContext::CompCategories' t='clang::ComparisonCategories'/>
+<mbr r='clang::ASTContext::ContainsCapabilities' t='llvm::DenseMap&lt;void *, bool&gt;'/>
+<fun r='_ZNK5clang10ASTContext17getFromTargetTypeEj'/>
+<fun r='_ZNK5clang10ASTContext15getTypeInfoImplEPKNS_4TypeE'/>
+<fun r='_ZNK5clang10ASTContext17getObjCGCAttrKindENS_8QualTypeE'/>
+<fun r='_ZN5clang10ASTContext24areCompatibleVectorTypesENS_8QualTypeES1_'/>
+<fun r='_ZN5clang10ASTContext18isObjCNSObjectTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE'/>
+<fun r='_ZNK5clang10ASTContext11getTypeInfoENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext25getOpenMPDefaultSimdAlignENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext11getTypeSizeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext11getTypeSizeEPKNS_4TypeE'/>
+<fun r='_ZNK5clang10ASTContext12getCharWidthEv'/>
+<fun r='_ZNK5clang10ASTContext19toCharUnitsFromBitsEl'/>
+<fun r='_ZNK5clang10ASTContext6toBitsENS_9CharUnitsE'/>
+<fun r='_ZNK5clang10ASTContext18getTypeSizeInCharsENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext18getTypeSizeInCharsEPKNS_4TypeE'/>
+<fun r='_ZNK5clang10ASTContext25getTypeSizeInCharsIfKnownENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext25getTypeSizeInCharsIfKnownEPKNS_4TypeE'/>
+<fun r='_ZNK5clang10ASTContext12getTypeAlignENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext12getTypeAlignEPKNS_4TypeE'/>
+<fun r='_ZNK5clang10ASTContext22getTypeUnadjustedAlignENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext22getTypeUnadjustedAlignEPKNS_4TypeE'/>
+<fun r='_ZNK5clang10ASTContext19getTypeAlignIfKnownENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext19getTypeAlignInCharsENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext19getTypeAlignInCharsEPKNS_4TypeE'/>
+<fun r='_ZNK5clang10ASTContext29getTypeUnadjustedAlignInCharsENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext29getTypeUnadjustedAlignInCharsEPKNS_4TypeE'/>
+<fun r='_ZNK5clang10ASTContext26getTypeInfoDataSizeInCharsENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext18getTypeInfoInCharsEPKNS_4TypeE'/>
+<fun r='_ZNK5clang10ASTContext18getTypeInfoInCharsENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext19isAlignmentRequiredEPKNS_4TypeE'/>
+<fun r='_ZNK5clang10ASTContext19isAlignmentRequiredENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext21getPreferredTypeAlignEPKNS_4TypeE'/>
+<fun r='_ZNK5clang10ASTContext40getTargetDefaultAlignForAttributeAlignedEv'/>
+<fun r='_ZNK5clang10ASTContext19getAlignOfGlobalVarENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext26getAlignOfGlobalVarInCharsENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext12getDeclAlignEPKNS_4DeclEb'/>
+<fun r='_ZNK5clang10ASTContext21getExnObjectAlignmentEv'/>
+<fun r='_ZNK5clang10ASTContext18getASTRecordLayoutEPKNS_10RecordDeclE'/>
+<fun r='_ZNK5clang10ASTContext25getASTObjCInterfaceLayoutEPKNS_17ObjCInterfaceDeclE'/>
+<fun r='_ZNK5clang10ASTContext16DumpRecordLayoutEPKNS_10RecordDeclERN4llvm11raw_ostreamEb'/>
+<fun r='_ZNK5clang10ASTContext30getASTObjCImplementationLayoutEPKNS_22ObjCImplementationDeclE'/>
+<fun r='_ZN5clang10ASTContext21getCurrentKeyFunctionEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang10ASTContext17setNonKeyFunctionEPKNS_13CXXMethodDeclE'/>
+<fun r='_ZNK5clang10ASTContext24getOffsetOfBaseWithVBPtrEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZNK5clang10ASTContext14getFieldOffsetEPKNS_9ValueDeclE'/>
+<fun r='_ZNK5clang10ASTContext20lookupFieldBitOffsetEPKNS_17ObjCInterfaceDeclEPKNS_22ObjCImplementationDeclEPKNS_12ObjCIvarDeclE'/>
+<fun r='_ZNK5clang10ASTContext13isNearlyEmptyEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang10ASTContext16getVTableContextEv'/>
+<fun r='_ZN5clang10ASTContext19createMangleContextEPKNS_10TargetInfoE'/>
+<fun r='_ZNK5clang10ASTContext20DeepCollectObjCIvarsEPKNS_17ObjCInterfaceDeclEbRN4llvm15SmallVectorImplIPKNS_12ObjCIvarDeclEEE'/>
+<fun r='_ZNK5clang10ASTContext18CountNonClassIvarsEPKNS_17ObjCInterfaceDeclE'/>
+<fun r='_ZN5clang10ASTContext25CollectInheritedProtocolsEPKNS_4DeclERN4llvm11SmallPtrSetIPNS_16ObjCProtocolDeclELj8EEE'/>
+<fun r='_ZNK5clang10ASTContext20containsCapabilitiesEPKNS_10RecordDeclE'/>
+<fun r='_ZNK5clang10ASTContext20containsCapabilitiesENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext30hasUniqueObjectRepresentationsENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext16getCanonicalTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext16getCanonicalTypeEPKNS_4TypeE'/>
+<fun r='_ZNK5clang10ASTContext21getCanonicalParamTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext11hasSameTypeENS_8QualTypeES1_'/>
+<fun r='_ZNK5clang10ASTContext11hasSameTypeEPKNS_4TypeES3_'/>
+<fun r='_ZN5clang10ASTContext23getUnqualifiedArrayTypeENS_8QualTypeERNS_10QualifiersE'/>
+<fun r='_ZNK5clang10ASTContext22hasSameUnqualifiedTypeENS_8QualTypeES1_'/>
+<fun r='_ZNK5clang10ASTContext31hasSameNullabilityTypeQualifierENS_8QualTypeES1_b'/>
+<fun r='_ZN5clang10ASTContext19ObjCMethodsAreEqualEPKNS_14ObjCMethodDeclES3_'/>
+<fun r='_ZN5clang10ASTContext18UnwrapSimilarTypesERNS_8QualTypeES2_'/>
+<fun r='_ZN5clang10ASTContext23UnwrapSimilarArrayTypesERNS_8QualTypeES2_'/>
+<fun r='_ZN5clang10ASTContext14hasSimilarTypeENS_8QualTypeES1_'/>
+<fun r='_ZN5clang10ASTContext17hasCvrSimilarTypeENS_8QualTypeES1_'/>
+<fun r='_ZNK5clang10ASTContext31getCanonicalNestedNameSpecifierEPNS_19NestedNameSpecifierE'/>
+<fun r='_ZNK5clang10ASTContext27getDefaultCallingConventionEbbb'/>
+<fun r='_ZNK5clang10ASTContext24getCanonicalTemplateNameENS_12TemplateNameE'/>
+<fun r='_ZN5clang10ASTContext19hasSameTemplateNameENS_12TemplateNameES1_'/>
+<fun r='_ZNK5clang10ASTContext28getCanonicalTemplateArgumentERKNS_16TemplateArgumentE'/>
+<fun r='_ZNK5clang10ASTContext14getAsArrayTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext22getAsVariableArrayTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext24getAsIncompleteArrayTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext28getAsDependentSizedArrayTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext18getBaseElementTypeEPKNS_9ArrayTypeE'/>
+<fun r='_ZNK5clang10ASTContext18getBaseElementTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext28getConstantArrayElementCountEPKNS_17ConstantArrayTypeE'/>
+<fun r='_ZNK5clang10ASTContext24getAdjustedParameterTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext25getSignatureParameterTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext22getExceptionObjectTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext19getArrayDecayedTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext22getPromotedIntegerTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext21getInnerObjCOwnershipENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext20isPromotableBitFieldEPNS_4ExprE'/>
+<fun r='_ZNK5clang10ASTContext19getIntegerTypeOrderENS_8QualTypeES1_'/>
+<fun r='_ZNK5clang10ASTContext20getFloatingTypeOrderENS_8QualTypeES1_'/>
+<fun r='_ZNK5clang10ASTContext28getFloatingTypeSemanticOrderENS_8QualTypeES1_'/>
+<fun r='_ZNK5clang10ASTContext33getFloatingTypeOfSizeWithinDomainENS_8QualTypeES1_'/>
+<fun r='_ZNK5clang10ASTContext21getTargetAddressSpaceENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext21getTargetAddressSpaceENS_10QualifiersE'/>
+<fun r='_ZNK5clang10ASTContext21getTargetAddressSpaceENS_6LangASE'/>
+<fun r='_ZNK5clang10ASTContext31getLangASForBuiltinAddressSpaceEj'/>
+<fun r='_ZNK5clang10ASTContext25getTargetNullPointerValueENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext26addressSpaceMapManglingForENS_6LangASE'/>
+<fun r='_ZNK5clang10ASTContext14getIntegerRankEPKNS_4TypeE'/>
+<fun r='_ZN5clang10ASTContext18typesAreCompatibleENS_8QualTypeES1_bb'/>
+<fun r='_ZN5clang10ASTContext26propertyTypesAreCompatibleENS_8QualTypeES1_'/>
+<fun r='_ZN5clang10ASTContext30typesAreBlockPointerCompatibleENS_8QualTypeES1_'/>
+<fun r='_ZNK5clang10ASTContext12isObjCIdTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext15isObjCClassTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext13isObjCSelTypeENS_8QualTypeE'/>
+<fun r='_ZN5clang10ASTContext33ObjCQualifiedIdTypesAreCompatibleENS_8QualTypeES1_b'/>
+<fun r='_ZN5clang10ASTContext36ObjCQualifiedClassTypesAreCompatibleENS_8QualTypeES1_'/>
+<fun r='_ZN5clang10ASTContext23canAssignObjCInterfacesEPKNS_21ObjCObjectPointerTypeES3_'/>
+<fun r='_ZN5clang10ASTContext23canAssignObjCInterfacesEPKNS_14ObjCObjectTypeES3_'/>
+<fun r='_ZN5clang10ASTContext37canAssignObjCInterfacesInBlockPointerEPKNS_21ObjCObjectPointerTypeES3_b'/>
+<fun r='_ZN5clang10ASTContext29areComparableObjCPointerTypesENS_8QualTypeES1_'/>
+<fun r='_ZN5clang10ASTContext23areCommonBaseCompatibleEPKNS_21ObjCObjectPointerTypeES3_'/>
+<fun r='_ZN5clang10ASTContext21canBindObjCObjectTypeENS_8QualTypeES1_'/>
+<fun r='_ZN5clang10ASTContext10mergeTypesENS_8QualTypeES1_bbbbbb'/>
+<fun r='_ZN5clang10ASTContext18mergeFunctionTypesENS_8QualTypeES1_bb'/>
+<fun r='_ZN5clang10ASTContext27mergeFunctionParameterTypesENS_8QualTypeES1_bb'/>
+<fun r='_ZN5clang10ASTContext25mergeTransparentUnionTypeENS_8QualTypeES1_bb'/>
+<fun r='_ZN5clang10ASTContext21mergeObjCGCQualifiersENS_8QualTypeES1_'/>
+<fun r='_ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE'/>
+<fun r='_ZN5clang10ASTContext15ResetObjCLayoutEPKNS_17ObjCContainerDeclE'/>
+<fun r='_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext11getIntRangeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext28getCorrespondingUnsignedTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext29getCorrespondingSaturatedTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext36getCorrespondingSignedFixedPointTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext12MakeIntValueEmNS_8QualTypeE'/>
+<fun r='_ZN5clang10ASTContext18isSentinelNullExprEPKNS_4ExprE'/>
+<fun r='_ZN5clang10ASTContext21getObjCImplementationEPNS_17ObjCInterfaceDeclE'/>
+<fun r='_ZN5clang10ASTContext21getObjCImplementationEPNS_16ObjCCategoryDeclE'/>
+<fun r='_ZN5clang10ASTContext21AnyObjCImplementationEv'/>
+<fun r='_ZN5clang10ASTContext21setObjCImplementationEPNS_17ObjCInterfaceDeclEPNS_22ObjCImplementationDeclE'/>
+<fun r='_ZN5clang10ASTContext21setObjCImplementationEPNS_16ObjCCategoryDeclEPNS_20ObjCCategoryImplDeclE'/>
+<fun r='_ZNK5clang10ASTContext26getObjCMethodRedeclarationEPKNS_14ObjCMethodDeclE'/>
+<fun r='_ZN5clang10ASTContext26setObjCMethodRedeclarationEPKNS_14ObjCMethodDeclES3_'/>
+<fun r='_ZNK5clang10ASTContext25getObjContainingInterfaceEPKNS_9NamedDeclE'/>
+<fun r='_ZN5clang10ASTContext19setBlockVarCopyInitEPKNS_7VarDeclEPNS_4ExprEb'/>
+<fun r='_ZNK5clang10ASTContext19getBlockVarCopyInitEPKNS_7VarDeclE'/>
+<fun r='_ZNK5clang10ASTContext20CreateTypeSourceInfoENS_8QualTypeEj'/>
+<fun r='_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE'/>
+<fun r='_ZN5clang10ASTContext15AddDeallocationEPFvPvES1_'/>
+<fun r='_ZN5clang10ASTContext14addDestructionEPT_'/>
+<fun r='_ZNK5clang10ASTContext24GetGVALinkageForFunctionEPKNS_12FunctionDeclE'/>
+<fun r='_ZN5clang10ASTContext24GetGVALinkageForVariableEPKNS_7VarDeclE'/>
+<fun r='_ZN5clang10ASTContext17DeclMustBeEmittedEPKNS_4DeclE'/>
+<fun r='_ZNK5clang10ASTContext36forEachMultiversionedFunctionVersionEPKNS_12FunctionDeclEN4llvm12function_refIFvPS1_EEE'/>
+<fun r='_ZN5clang10ASTContext36getCopyConstructorForExceptionObjectEPNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang10ASTContext36addCopyConstructorForExceptionObjectEPNS_13CXXRecordDeclEPNS_18CXXConstructorDeclE'/>
+<fun r='_ZN5clang10ASTContext31addTypedefNameForUnnamedTagDeclEPNS_7TagDeclEPNS_15TypedefNameDeclE'/>
+<fun r='_ZN5clang10ASTContext31getTypedefNameForUnnamedTagDeclEPKNS_7TagDeclE'/>
+<fun r='_ZN5clang10ASTContext30addDeclaratorForUnnamedTagDeclEPNS_7TagDeclEPNS_14DeclaratorDeclE'/>
+<fun r='_ZN5clang10ASTContext30getDeclaratorForUnnamedTagDeclEPKNS_7TagDeclE'/>
+<fun r='_ZN5clang10ASTContext17setManglingNumberEPKNS_9NamedDeclEj'/>
+<fun r='_ZNK5clang10ASTContext17getManglingNumberEPKNS_9NamedDeclE'/>
+<fun r='_ZN5clang10ASTContext20setStaticLocalNumberEPKNS_7VarDeclEj'/>
+<fun r='_ZNK5clang10ASTContext20getStaticLocalNumberEPKNS_7VarDeclE'/>
+<fun r='_ZN5clang10ASTContext24getManglingNumberContextEPKNS_11DeclContextE'/>
+<fun r='_ZNK5clang10ASTContext28createMangleNumberingContextEv'/>
+<fun r='_ZN5clang10ASTContext17setParameterIndexEPKNS_11ParmVarDeclEj'/>
+<fun r='_ZNK5clang10ASTContext17getParameterIndexEPKNS_11ParmVarDeclE'/>
+<fun r='_ZN5clang10ASTContext29getMaterializedTemporaryValueEPKNS_24MaterializeTemporaryExprEb'/>
+<fun r='_ZNK5clang10ASTContext35getPredefinedStringLiteralFromCacheEN4llvm9StringRefE'/>
+<mbr r='clang::ASTContext::NumImplicitDefaultConstructors' t='unsigned int'/>
+<mbr r='clang::ASTContext::NumImplicitDefaultConstructorsDeclared' t='unsigned int'/>
+<mbr r='clang::ASTContext::NumImplicitCopyConstructors' t='unsigned int'/>
+<mbr r='clang::ASTContext::NumImplicitCopyConstructorsDeclared' t='unsigned int'/>
+<mbr r='clang::ASTContext::NumImplicitMoveConstructors' t='unsigned int'/>
+<mbr r='clang::ASTContext::NumImplicitMoveConstructorsDeclared' t='unsigned int'/>
+<mbr r='clang::ASTContext::NumImplicitCopyAssignmentOperators' t='unsigned int'/>
+<mbr r='clang::ASTContext::NumImplicitCopyAssignmentOperatorsDeclared' t='unsigned int'/>
+<mbr r='clang::ASTContext::NumImplicitMoveAssignmentOperators' t='unsigned int'/>
+<mbr r='clang::ASTContext::NumImplicitMoveAssignmentOperatorsDeclared' t='unsigned int'/>
+<mbr r='clang::ASTContext::NumImplicitDestructors' t='unsigned int'/>
+<mbr r='clang::ASTContext::NumImplicitDestructorsDeclared' t='unsigned int'/>
+<fun r='_ZN5clang10ASTContext16InitBuiltinTypesERKNS_10TargetInfoEPS2_'/>
+<fun r='_ZN5clang10ASTContext15InitBuiltinTypeERNS_7CanQualINS_4TypeEEENS_11BuiltinType4KindE'/>
+<fun r='_ZNK5clang10ASTContext26getObjCEncodingForTypeImplENS_8QualTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14ObjCEncOptionsEPKNS_9FieldDeclEPS1_'/>
+<fun r='_ZNK5clang10ASTContext31getObjCEncodingForStructureImplEPNS_10RecordDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9FieldDeclEbPNS_8QualTypeE'/>
+<fun r='_ZNK5clang10ASTContext33getObjCEncodingForMethodParameterENS_4Decl17ObjCDeclQualifierENS_8QualTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb'/>
+<fun r='_ZNK5clang10ASTContext36isMSStaticDataMemberInlineDefinitionEPKNS_7VarDeclE'/>
+<fun r='_ZNK5clang10ASTContext31getInlineVariableDefinitionKindEPKNS_7VarDeclE'/>
+<fun r='_ZNK5clang10ASTContext13getObjCLayoutEPKNS_17ObjCInterfaceDeclEPKNS_22ObjCImplementationDeclE'/>
+<mbr r='clang::ASTContext::Deallocations' t='DeallocationFunctionsAndArguments'/>
+<mbr r='clang::ASTContext::LastSDM' t='llvm::PointerIntPair&lt;StoredDeclsMap *, 1&gt;'/>
+<mbr r='clang::ASTContext::TraversalScope' t='std::vector&lt;Decl *&gt;'/>
+<mbr r='clang::ASTContext::Parents' t='std::unique_ptr&lt;ParentMap&gt;'/>
+<mbr r='clang::ASTContext::VTContext' t='std::unique_ptr&lt;VTableContextBase&gt;'/>
+<fun r='_ZN5clang10ASTContext22ReleaseDeclContextMapsEv'/>
+<mbr r='clang::ASTContext::SectionInfos' t='llvm::StringMap&lt;SectionInfo&gt;'/>

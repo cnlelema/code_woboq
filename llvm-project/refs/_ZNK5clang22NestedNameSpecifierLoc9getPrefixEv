@@ -1,0 +1,19 @@
+<def f='llvm/clang/include/clang/AST/NestedNameSpecifier.h' l='320' ll='325' type='clang::NestedNameSpecifierLoc clang::NestedNameSpecifierLoc::getPrefix() const'/>
+<doc f='llvm/clang/include/clang/AST/NestedNameSpecifier.h' l='314'>/// Return the prefix of this nested-name-specifier.
+  ///
+  /// For example, if this instance refers to a nested-name-specifier
+  /// \c \::std::vector&lt;int&gt;::, the prefix is \c \::std::. Note that the
+  /// returned prefix may be empty, if this is the first component of
+  /// the nested-name-specifier.</doc>
+<use f='llvm/clang/include/clang/AST/RecursiveASTVisitor.h' l='767' u='c' c='_ZN5clang19RecursiveASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE'/>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='8017' u='c' c='_ZN5clang11ASTImporter6ImportENS_22NestedNameSpecifierLocE'/>
+<use f='llvm/clang/lib/AST/NestedNameSpecifier.cpp' l='426' u='c' c='_ZNK5clang22NestedNameSpecifierLoc14getSourceRangeEv'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='5990' u='c' c='_ZNK5clang12ast_matchers8internal25matcher_hasPrefix1Matcher7matchesERKNS_22NestedNameSpecifierLocEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE'/>
+<use f='llvm/clang/lib/Index/IndexTypeSourceInfo.cpp' l='239' u='c' c='_ZN5clang5index15IndexingContext27indexNestedNameSpecifierLocENS_22NestedNameSpecifierLocEPKNS_9NamedDeclEPKNS_11DeclContextE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='5358' u='c' c='_ZN5clang4Sema28diagnoseQualifiedDeclarationERNS_12CXXScopeSpecEPNS_11DeclContextENS_15DeclarationNameENS_14SourceLocationEb'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='5359' u='c' c='_ZN5clang4Sema28diagnoseQualifiedDeclarationERNS_12CXXScopeSpecEPNS_11DeclContextENS_15DeclarationNameENS_14SourceLocationEb'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='2579' u='c' c='_ZL35getRangeOfTypeInNestedNameSpecifierRN5clang10ASTContextENS_8QualTypeERKNS_12CXXScopeSpecE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='5643' u='c' c='_ZN12_GLOBAL__N_119DeclaratorLocFiller25VisitMemberPointerTypeLocEN5clang20MemberPointerTypeLocE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='5653' u='c' c='_ZN12_GLOBAL__N_119DeclaratorLocFiller25VisitMemberPointerTypeLocEN5clang20MemberPointerTypeLocE'/>
+<use f='llvm/clang/lib/Serialization/ASTWriter.cpp' l='5824' u='c' c='_ZN5clang15ASTRecordWriter25AddNestedNameSpecifierLocENS_22NestedNameSpecifierLocE'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='1366' u='c' c='_ZN5clang8cxcursor13CursorVisitor27VisitNestedNameSpecifierLocENS_22NestedNameSpecifierLocE'/>

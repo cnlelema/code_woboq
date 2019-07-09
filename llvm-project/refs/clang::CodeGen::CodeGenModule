@@ -1,0 +1,359 @@
+<inh f='llvm/clang/lib/CodeGen/CodeGenTypeCache.h' l='32' c='clang::CodeGen::CodeGenTypeCache'/>
+<def f='llvm/clang/lib/CodeGen/CodeGenModule.h' l='277' ll='1533'/>
+<size>3608</size>
+<doc f='llvm/clang/lib/CodeGen/CodeGenModule.h' l='275'>/// This class organizes the cross-function state that is used while generating
+/// LLVM code.</doc>
+<fun r='_ZN5clang7CodeGen13CodeGenModuleC1ERKS1_'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModuleaSERKS1_'/>
+<mbr r='clang::CodeGen::CodeGenModule::Context' o='1088' t='clang::ASTContext &amp;'/>
+<mbr r='clang::CodeGen::CodeGenModule::LangOpts' o='1152' t='const clang::LangOptions &amp;'/>
+<mbr r='clang::CodeGen::CodeGenModule::HeaderSearchOpts' o='1216' t='const clang::HeaderSearchOptions &amp;'/>
+<mbr r='clang::CodeGen::CodeGenModule::PreprocessorOpts' o='1280' t='const clang::PreprocessorOptions &amp;'/>
+<mbr r='clang::CodeGen::CodeGenModule::CodeGenOpts' o='1344' t='const clang::CodeGenOptions &amp;'/>
+<mbr r='clang::CodeGen::CodeGenModule::TheModule' o='1408' t='llvm::Module &amp;'/>
+<mbr r='clang::CodeGen::CodeGenModule::Diags' o='1472' t='clang::DiagnosticsEngine &amp;'/>
+<mbr r='clang::CodeGen::CodeGenModule::Target' o='1536' t='const clang::TargetInfo &amp;'/>
+<mbr r='clang::CodeGen::CodeGenModule::ABI' o='1600' t='std::unique_ptr&lt;CGCXXABI&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::VMContext' o='1664' t='llvm::LLVMContext &amp;'/>
+<mbr r='clang::CodeGen::CodeGenModule::TBAA' o='1728' t='std::unique_ptr&lt;CodeGenTBAA&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::TheTargetCodeGenInfo' o='1792' t='std::unique_ptr&lt;TargetCodeGenInfo&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::Types' o='1856' t='clang::CodeGen::CodeGenTypes'/>
+<mbr r='clang::CodeGen::CodeGenModule::VTables' o='6144' t='clang::CodeGen::CodeGenVTables'/>
+<mbr r='clang::CodeGen::CodeGenModule::ObjCRuntime' o='6912' t='std::unique_ptr&lt;CGObjCRuntime&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::OpenCLRuntime' o='6976' t='std::unique_ptr&lt;CGOpenCLRuntime&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::OpenMPRuntime' o='7040' t='std::unique_ptr&lt;CGOpenMPRuntime&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::CUDARuntime' o='7104' t='std::unique_ptr&lt;CGCUDARuntime&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::DebugInfo' o='7168' t='std::unique_ptr&lt;CGDebugInfo&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::ObjCData' o='7232' t='std::unique_ptr&lt;ObjCEntrypoints&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::NoObjCARCExceptionsMetadata' o='7296' t='llvm::MDNode *'/>
+<mbr r='clang::CodeGen::CodeGenModule::PGOReader' o='7360' t='std::unique_ptr&lt;llvm::IndexedInstrProfReader&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::PGOStats' o='7424' t='clang::CodeGen::InstrProfStats'/>
+<mbr r='clang::CodeGen::CodeGenModule::SanStats' o='7616' t='std::unique_ptr&lt;llvm::SanitizerStatReport&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::WeakRefReferences' o='7680' t='llvm::SmallPtrSet&lt;llvm::GlobalValue *, 10&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::DeferredDecls' o='9024' t='std::map&lt;StringRef, GlobalDecl&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::DeferredDeclsToEmit' o='9408' t='std::vector&lt;GlobalDecl&gt;'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21addDeferredDeclToEmitENS_10GlobalDeclE'/>
+<mbr r='clang::CodeGen::CodeGenModule::Aliases' o='9600' t='std::vector&lt;GlobalDecl&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::MultiVersionFuncs' o='9792' t='std::vector&lt;GlobalDecl&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::Replacements' o='9984' t='ReplacementsTy'/>
+<mbr r='clang::CodeGen::CodeGenModule::GlobalValReplacements' o='10240' t='llvm::SmallVector&lt;std::pair&lt;llvm::GlobalValue *, llvm::Constant *&gt;, 8&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::DiagnosedConflictingDefinitions' o='11392' t='llvm::DenseSet&lt;GlobalDecl&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::DeferredVTables' o='11648' t='std::vector&lt;const CXXRecordDecl *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::OpportunisticVTables' o='11840' t='std::vector&lt;const CXXRecordDecl *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::LLVMUsed' o='12032' t='std::vector&lt;llvm::WeakTrackingVH&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::LLVMCompilerUsed' o='12224' t='std::vector&lt;llvm::WeakTrackingVH&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::GlobalCtors' o='12416' t='CtorList'/>
+<mbr r='clang::CodeGen::CodeGenModule::GlobalDtors' o='12608' t='CtorList'/>
+<mbr r='clang::CodeGen::CodeGenModule::MangledDeclNames' o='12800' t='llvm::MapVector&lt;GlobalDecl, StringRef&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::Manglings' o='13248' t='llvm::StringMap&lt;GlobalDecl, llvm::BumpPtrAllocator&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::CPUSpecificMangledDeclNames' o='14272' t='llvm::MapVector&lt;std::pair&lt;GlobalDecl, unsigned int&gt;, StringRef&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::CPUSpecificManglings' o='14720' t='llvm::StringMap&lt;std::pair&lt;GlobalDecl, unsigned int&gt;, llvm::BumpPtrAllocator&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::Annotations' o='15744' t='std::vector&lt;llvm::Constant *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::AnnotationStrings' o='15936' t='llvm::StringMap&lt;llvm::Constant *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::CFConstantStringMap' o='16192' t='llvm::StringMap&lt;llvm::GlobalVariable *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::ConstantStringMap' o='16448' t='llvm::DenseMap&lt;llvm::Constant *, llvm::GlobalVariable *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::StaticLocalDeclMap' o='16704' t='llvm::DenseMap&lt;const Decl *, llvm::Constant *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::StaticLocalDeclGuardMap' o='16960' t='llvm::DenseMap&lt;const Decl *, llvm::GlobalVariable *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::MaterializedGlobalTemporaryMap' o='17216' t='llvm::DenseMap&lt;const Expr *, llvm::Constant *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::AtomicSetterHelperFnMap' o='17472' t='llvm::DenseMap&lt;QualType, llvm::Constant *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::AtomicGetterHelperFnMap' o='17728' t='llvm::DenseMap&lt;QualType, llvm::Constant *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::TypeDescriptorMap' o='17984' t='llvm::DenseMap&lt;QualType, llvm::Constant *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::StaticExternCValues' o='18240' t='StaticExternCMap'/>
+<mbr r='clang::CodeGen::CodeGenModule::CXXThreadLocals' o='18688' t='std::vector&lt;const VarDecl *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::CXXThreadLocalInits' o='18880' t='std::vector&lt;llvm::Function *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::CXXThreadLocalInitVars' o='19072' t='std::vector&lt;const VarDecl *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::CXXGlobalInits' o='19264' t='std::vector&lt;llvm::Function *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::DelayedCXXInitPosition' o='19456' t='llvm::DenseMap&lt;const Decl *, unsigned int&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::PrioritizedCXXGlobalInits' o='19712' t='SmallVector&lt;GlobalInitData, 8&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::CXXGlobalDtors' o='20864' t='std::vector&lt;std::tuple&lt;llvm::FunctionType *, llvm::WeakTrackingVH, llvm::Constant *&gt; &gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::ImportedModules' o='21056' t='llvm::SetVector&lt;clang::Module *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::EmittedModuleInitializers' o='21504' t='llvm::SmallPtrSet&lt;clang::Module *, 16&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::LinkerOptionsMetadata' o='22848' t='SmallVector&lt;llvm::MDNode *, 16&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::ELFDependentLibraries' o='24000' t='SmallVector&lt;llvm::MDNode *, 16&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::CFConstantStringClassRef' o='25152' t='llvm::WeakTrackingVH'/>
+<mbr r='clang::CodeGen::CodeGenModule::ObjCFastEnumerationStateType' o='25344' t='clang::QualType'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule17createObjCRuntimeEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule19createOpenCLRuntimeEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule19createOpenMPRuntimeEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule17createCUDARuntimeEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20isTriviallyRecursiveEPKNS_12FunctionDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule18shouldEmitFunctionENS_10GlobalDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule34shouldOpportunisticallyEmitVTablesEv'/>
+<mbr r='clang::CodeGen::CodeGenModule::EmittedCompoundLiterals' o='25408' t='llvm::DenseMap&lt;const CompoundLiteralExpr *, llvm::GlobalVariable *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::EmittedGlobalBlocks' o='25664' t='llvm::DenseMap&lt;const BlockExpr *, llvm::Constant *&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::NSConcreteGlobalBlock' o='25920' t='llvm::Constant *'/>
+<mbr r='clang::CodeGen::CodeGenModule::NSConcreteStackBlock' o='25984' t='llvm::Constant *'/>
+<mbr r='clang::CodeGen::CodeGenModule::BlockObjectAssign' o='26048' t='llvm::FunctionCallee'/>
+<mbr r='clang::CodeGen::CodeGenModule::BlockObjectDispose' o='26176' t='llvm::FunctionCallee'/>
+<mbr r='clang::CodeGen::CodeGenModule::BlockDescriptorType' o='26304' t='llvm::Type *'/>
+<mbr r='clang::CodeGen::CodeGenModule::GenericBlockLiteralType' o='26368' t='llvm::Type *'/>
+<mbr r='clang::CodeGen::CodeGenModule::Block' o='26432' t='struct (anonymous struct at /root/cheri/llvm-project/clang/lib/CodeGen/CodeGenModule.h:518:3)'/>
+<mbr r='clang::CodeGen::CodeGenModule::LifetimeStartFn' o='26496' t='llvm::Function *'/>
+<mbr r='clang::CodeGen::CodeGenModule::LifetimeEndFn' o='26560' t='llvm::Function *'/>
+<mbr r='clang::CodeGen::CodeGenModule::initializedGlobalDecl' o='26624' t='clang::GlobalDecl'/>
+<mbr r='clang::CodeGen::CodeGenModule::SanitizerMD' o='26752' t='std::unique_ptr&lt;SanitizerMetadata&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::DeferredEmptyCoverageMappingDecls' o='26816' t='llvm::MapVector&lt;const Decl *, bool&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::CoverageMapping' o='27264' t='std::unique_ptr&lt;CoverageMappingModuleGen&gt;'/>
+<mbr r='clang::CodeGen::CodeGenModule::MetadataIdMap' o='27328' t='MetadataTypeMap'/>
+<mbr r='clang::CodeGen::CodeGenModule::VirtualMetadataIdMap' o='27584' t='MetadataTypeMap'/>
+<mbr r='clang::CodeGen::CodeGenModule::GeneralizedMetadataIdMap' o='27840' t='MetadataTypeMap'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModuleC1ERNS_10ASTContextERKNS_19HeaderSearchOptionsERKNS_19PreprocessorOptionsERKNS_14CodeGenOptionsERN4llvm6ModuleERNS_17D6477505'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModuleD1Ev'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule5clearEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule7ReleaseEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule29getExpressionLocationsEnabledEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule14getObjCRuntimeEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule14hasObjCRuntimeEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule16getOpenCLRuntimeEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule16getOpenMPRuntimeEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule14getCUDARuntimeEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule18getObjCEntrypointsEv'/>
+<mbr r='clang::CodeGen::CodeGenModule::IsOSVersionAtLeastFn' o='28096' t='llvm::FunctionCallee'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule11getPGOStatsEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule12getPGOReaderEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule18getCoverageMappingEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule25getStaticLocalDeclAddressEPKNS_7VarDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule25setStaticLocalDeclAddressEPKNS_7VarDeclEPN4llvm8ConstantE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule24getOrCreateStaticVarDeclERKNS_7VarDeclEN4llvm11GlobalValue12LinkageTypesE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule30getStaticLocalDeclGuardAddressEPKNS_7VarDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule30setStaticLocalDeclGuardAddressEPKNS_7VarDeclEPN4llvm14GlobalVariableE'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule24lookupRepresentativeDeclEN4llvm9StringRefERNS_10GlobalDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule26getAtomicSetterHelperFnMapENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule26setAtomicSetterHelperFnMapENS_8QualTypeEPN4llvm8ConstantE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule26getAtomicGetterHelperFnMapENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule26setAtomicGetterHelperFnMapENS_8QualTypeEPN4llvm8ConstantE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule24getTypeDescriptorFromMapENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule22setTypeDescriptorInMapENS_8QualTypeEPN4llvm8ConstantE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule18getModuleDebugInfoEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule30getNoObjCARCExceptionsMetadataEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule10getContextEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule11getLangOptsEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule19getHeaderSearchOptsEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule19getPreprocessorOptsEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule14getCodeGenOptsEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule9getModuleEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule8getDiagsEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule13getDataLayoutEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule20getFunctionAddrSpaceEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule9getTargetEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule9getTripleEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule14supportsCOMDATEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21maybeSetTrivialComdatERKNS_4DeclERN4llvm12GlobalObjectE'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule9getCXXABIEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule14getLLVMContextEv'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule13shouldUseTBAAEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20getTargetCodeGenInfoEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule22getAddressSpaceForTypeENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21getTargetAddressSpaceENS_6LangASE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21getTargetAddressSpaceENS_10QualifiersE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule8getTypesEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule10getVTablesEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule23getItaniumVTableContextEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule25getMicrosoftVTableContextEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule14getGlobalCtorsEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule14getGlobalDtorsEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule15getTBAATypeInfoENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule17getTBAAAccessInfoENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule26getTBAAVTablePtrAccessInfoEPN4llvm4TypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule17getTBAAStructInfoENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule19getTBAABaseTypeInfoENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20getTBAAAccessTagInfoENS0_14TBAAAccessInfoE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20mergeTBAAInfoForCastENS0_14TBAAAccessInfoES2_'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule35mergeTBAAInfoForConditionalOperatorENS0_14TBAAAccessInfoES2_'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule30mergeTBAAInfoForMemoryTransferENS0_14TBAAAccessInfoES2_'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule23getTBAAInfoForSubobjectENS0_6LValueENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule14isTypeConstantENS_8QualTypeEb'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule18isPaddedAtomicTypeENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule18isPaddedAtomicTypeEPKNS_10AtomicTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule27DecorateInstructionWithTBAAEPN4llvm11InstructionENS0_14TBAAAccessInfoE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule37DecorateInstructionWithInvariantGroupEPN4llvm11InstructionEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule7getSizeENS_9CharUnitsE'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule19setGlobalVisibilityEPN4llvm11GlobalValueEPKNS_9NamedDeclE'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule11setDSOLocalEPN4llvm11GlobalValueE'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule21setDLLImportDLLExportEPN4llvm11GlobalValueENS_10GlobalDeclE'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule21setDLLImportDLLExportEPN4llvm11GlobalValueEPKNS_9NamedDeclE'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule15setGVPropertiesEPN4llvm11GlobalValueENS_10GlobalDeclE'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule15setGVPropertiesEPN4llvm11GlobalValueEPKNS_9NamedDeclE'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule18setGVPropertiesAuxEPN4llvm11GlobalValueEPKNS_9NamedDeclE'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule10setTLSModeEPN4llvm11GlobalValueERKNS_7VarDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule17GetLLVMVisibilityENS_10VisibilityE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule15GetAddrOfGlobalENS_10GlobalDeclENS0_15ForDefinition_tE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule33CreateOrReplaceCXXRuntimeVariableEN4llvm9StringRefEPNS2_4TypeENS2_11GlobalValue12LinkageTypesEj'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule34CreateGlobalInitOrDestructFunctionEPN4llvm12FunctionTypeERKNS2_5TwineERKNS0_14CGFunctionInfoENS_14SourceLocationEb'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule24GetGlobalVarAddressSpaceEPKNS_7VarDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule18GetAddrOfGlobalVarEPKNS_7VarDeclEPN4llvm4TypeENS0_15ForDefinition_tE'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule28getStringLiteralAddressSpaceEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule17GetAddrOfFunctionENS_10GlobalDeclEPN4llvm4TypeEbbNS0_15ForDefinition_tE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule23GetAddrOfRTTIDescriptorENS_8QualTypeEb'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule23GetAddrOfUuidDescriptorEPKi'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule14GetAddrOfThunkEN4llvm9StringRefEPNS2_4TypeENS_10GlobalDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule19GetWeakRefReferenceEPKNS_9ValueDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule24getClassPointerAlignmentEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule17getVBaseAlignmentENS_9CharUnitsEPKNS_13CXXRecordDeclES5_'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule25getDynamicOffsetAlignmentENS_9CharUnitsEPKNS_13CXXRecordDeclES2_'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule32computeNonVirtualBaseClassOffsetEPKNS_13CXXRecordDeclEPKPKNS_16CXXBaseSpecifierES9_'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule28GetNonVirtualBaseClassOffsetEPKNS_13CXXRecordDeclEPKPKNS_16CXXBaseSpecifierES9_'/>
+<mbr r='clang::CodeGen::CodeGenModule::ByrefHelpersCache' o='28224' t='llvm::FoldingSet&lt;BlockByrefHelpers&gt;'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule19getUniqueBlockCountEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule22getBlockDescriptorTypeEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule26getGenericBlockLiteralTypeEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20GetAddrOfGlobalBlockEPKNS_9BlockExprEN4llvm9StringRefE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule29getAddrOfGlobalBlockIfEmittedEPKNS_9BlockExprE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20setAddrOfGlobalBlockEPKNS_9BlockExprEPN4llvm8ConstantE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule25GetAddrOfConstantCFStringEPKNS_13StringLiteralE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule23GetAddrOfConstantStringEPKNS_13StringLiteralE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule33GetConstantArrayFromStringLiteralEPKNS_13StringLiteralE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule34GetAddrOfConstantStringFromLiteralEPKNS_13StringLiteralEN4llvm9StringRefE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule37GetAddrOfConstantStringFromObjCEncodeEPKNS_14ObjCEncodeExprE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule24GetAddrOfConstantCStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule32GetAddrOfConstantCompoundLiteralEPKNS_19CompoundLiteralExprE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule41getAddrOfConstantCompoundLiteralIfEmittedEPKNS_19CompoundLiteralExprE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule32setAddrOfConstantCompoundLiteralEPKNS_19CompoundLiteralExprEPN4llvm14GlobalVariableE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule24GetAddrOfGlobalTemporaryEPKNS_24MaterializeTemporaryExprEPKNS_4ExprE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule31getObjCFastEnumerationStateTypeEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule18codegenCXXStructorENS_10GlobalDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20getAddrOfCXXStructorENS_10GlobalDeclEPKNS0_14CGFunctionInfoEPN4llvm12FunctionTypeEbNS0_15ForDefinition_tE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule27getAddrAndTypeOfCXXStructorENS_10GlobalDeclEPKNS0_14CGFunctionInfoEPN4llvm12FunctionTypeEbNS0_15ForDefinition_tE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21getBuiltinLibFunctionEPKNS_12FunctionDeclEj'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule12getIntrinsicEjN4llvm8ArrayRefIPNS2_4TypeEEE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule16EmitTopLevelDeclEPNS_4DeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule32AddDeferredUnusedCoverageMappingEPNS_4DeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule26ClearUnusedCoverageMappingEPKNS_4DeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule34EmitDeferredUnusedCoverageMappingsEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule37HandleCXXStaticMemberVarInstantiationEPNS_7VarDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule26MaybeHandleStaticInExternCEPKT_PN4llvm11GlobalValueE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule13addUsedGlobalEPN4llvm11GlobalValueE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21addCompilerUsedGlobalEPN4llvm11GlobalValueE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule15AddCXXDtorEntryEN4llvm14FunctionCalleeEPNS2_8ConstantE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21CreateRuntimeFunctionEPN4llvm12FunctionTypeENS2_9StringRefENS2_13AttributeListEb'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21CreateRuntimeVariableEPN4llvm4TypeENS2_9StringRefEj'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule24getNSConcreteGlobalBlockEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule23getNSConcreteStackBlockEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20getBlockObjectAssignEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21getBlockObjectDisposeEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule22getLLVMLifetimeStartFnEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20getLLVMLifetimeEndFnEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule19UpdateCompletedTypeEPKNS_7TagDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule24getMemberPointerConstantEPKNS_13UnaryOperatorEPNS0_15CodeGenFunctionE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule24EmitExplicitCastExprTypeEPKNS_16ExplicitCastExprEPNS0_15CodeGenFunctionE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule16EmitNullConstantENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule23EmitNullConstantForBaseEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule5ErrorENS_14SourceLocationEN4llvm9StringRefE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule16ErrorUnsupportedEPKNS_4StmtEPKc'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule16ErrorUnsupportedEPKNS_4DeclEPKc'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule29SetInternalFunctionAttributesENS_10GlobalDeclEPN4llvm8FunctionERKNS0_14CGFunctionInfoE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule25SetLLVMFunctionAttributesENS_10GlobalDeclERKNS0_14CGFunctionInfoEPN4llvm8FunctionE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule38SetLLVMFunctionAttributesForDefinitionEPKNS_4DeclEPN4llvm8FunctionE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule18ReturnTypeUsesSRetERKNS0_14CGFunctionInfoE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule28ReturnSlotInterferesWithArgsERKNS0_14CGFunctionInfoE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule19ReturnTypeUsesFPRetENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20ReturnTypeUsesFP2RetENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule22ConstructAttributeListEN4llvm9StringRefERKNS0_14CGFunctionInfoENS0_12CGCalleeInfoERNS2_13AttributeListERjb'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule17AddDefaultFnAttrsERN4llvm8FunctionE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule25filterFunctionTargetAttrsEPKi'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21getFunctionFeatureMapERN4llvm9StringMapIbNS2_15MallocAllocatorEEENS_10GlobalDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule14getMangledNameENS_10GlobalDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule19getBlockMangledNameENS_10GlobalDeclEPKNS_9BlockDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule23EmitTentativeDefinitionEPKNS_7VarDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule10EmitVTableEPNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule24RefreshTypeCacheForClassEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule19AppendLinkerOptionsEN4llvm9StringRefE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule17AddDetectMismatchEN4llvm9StringRefES3_'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule15AddDependentLibEN4llvm9StringRefE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule18getFunctionLinkageENS_10GlobalDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule18setFunctionLinkageENS_10GlobalDeclEPN4llvm8FunctionE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule25EmitSandboxRequiredMethodEN4llvm9StringRefES3_'/>
+<mbr r='clang::CodeGen::CodeGenModule::PointerCastStats' o='28416' t='std::unique_ptr&lt;PointerCastLocations&gt;'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule24EmitSandboxDefinedMethodEN4llvm9StringRefES3_PNS2_8FunctionE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule16getVTableLinkageEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule22GetTargetTypeStoreSizeEPN4llvm4TypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule27getLLVMLinkageForDeclaratorEPKNS_14DeclaratorDeclENS_10GVALinkageEb'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule27getLLVMLinkageVarDefinitionEPKNS_7VarDeclEb'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21EmitGlobalAnnotationsEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20EmitAnnotationStringEN4llvm9StringRefE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule18EmitAnnotationUnitENS_14SourceLocationE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20EmitAnnotationLineNoENS_14SourceLocationE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule16EmitAnnotateAttrEPN4llvm11GlobalValueEPKNS_12AnnotateAttrENS_14SourceLocationE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20AddGlobalAnnotationsEPKNS_9ValueDeclEPN4llvm11GlobalValueE'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule22isInSanitizerBlacklistENS_13SanitizerMaskEPN4llvm8FunctionENS_14SourceLocationE'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule22isInSanitizerBlacklistEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS2_9StringRefE'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule14imbueXRayAttrsEPN4llvm8FunctionENS_14SourceLocationENS2_9StringRefE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20getSanitizerMetadataEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule17addDeferredVTableEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule10EmitGlobalENS_10GlobalDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule28TryEmitBaseDestructorAsAliasEPKNS_17CXXDestructorDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule14GetGlobalValueEN4llvm9StringRefE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule19SetCommonAttributesENS_10GlobalDeclEPN4llvm11GlobalValueE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule14addReplacementEN4llvm9StringRefEPNS2_8ConstantE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule23addGlobalValReplacementEPN4llvm11GlobalValueEPNS2_8ConstantE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule24EmitOMPThreadPrivateDeclEPKNS_20OMPThreadPrivateDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule23EmitOMPDeclareReductionEPKNS_23OMPDeclareReductionDeclEPNS0_15CodeGenFunctionE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20EmitOMPDeclareMapperEPKNS_20OMPDeclareMapperDeclEPNS0_15CodeGenFunctionE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule19EmitOMPRequiresDeclEPKNS_15OMPRequiresDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule22HasHiddenLTOVisibilityEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPN4llvm14GlobalVariableERKNS_12VTableLayoutE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule23CreateCrossDsoCfiTypeIdEPN4llvm8MetadataE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule31CreateMetadataIdentifierForTypeENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule44CreateMetadataIdentifierForVirtualMemPtrTypeENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule35CreateMetadataIdentifierGeneralizedENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule34CreateFunctionTypeMetadataForIcallEPKNS_12FunctionDeclEPN4llvm8FunctionE'/>
+<fun r='_ZNK5clang7CodeGen13CodeGenModule20NeedAllVtablesTypeIdEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21AddVTableTypeMetadataEPN4llvm14GlobalVariableENS_9CharUnitsEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule18getMostBaseClassesEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule14getTerminateFnEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule11getSanStatsEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule34createOpenCLIntToSamplerConversionEPKNS_4ExprERNS0_15CodeGenFunctionE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20GenOpenCLArgMetadataEPN4llvm8FunctionEPKNS_12FunctionDeclEPNS0_15CodeGenFunctionE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule14getNullPointerEPN4llvm11PointerTypeENS_8QualTypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21getPointerInDefaultASEPN4llvm4TypeE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule23GetOrCreateLLVMFunctionEN4llvm9StringRefEPNS2_4TypeENS_10GlobalDeclEbbbNS2_13AttributeListENS0_15ForDefinition_tE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule31GetOrCreateMultiVersionResolverENS_10GlobalDeclEPN4llvm4TypeEPKNS_12FunctionDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule23UpdateMultiVersionNamesENS_10GlobalDeclEPKNS_12FunctionDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21GetOrCreateLLVMGlobalEN4llvm9StringRefEPNS2_11PointerTypeEPKNS_7VarDeclENS0_15ForDefinition_tE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule27GetCPUAndFeaturesAttributesENS_10GlobalDeclERN4llvm11AttrBuilderE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21setNonAliasAttributesENS_10GlobalDeclEPN4llvm12GlobalObjectE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21SetFunctionAttributesENS_10GlobalDeclEPN4llvm8FunctionEbb'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule20EmitGlobalDefinitionENS_10GlobalDeclEPN4llvm11GlobalValueE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule28EmitGlobalFunctionDefinitionENS_10GlobalDeclEPN4llvm11GlobalValueE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule34EmitMultiVersionFunctionDefinitionENS_10GlobalDeclEPN4llvm11GlobalValueE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule23EmitGlobalVarDefinitionEPKNS_7VarDeclEb'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule19EmitAliasDefinitionENS_10GlobalDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule19emitIFuncDefinitionENS_10GlobalDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule25emitCPUDispatchDefinitionENS_10GlobalDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule31EmitObjCPropertyImplementationsEPKNS_22ObjCImplementationDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule27EmitObjCIvarInitializationsEPNS_22ObjCImplementationDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule15EmitDeclContextEPKNS_11DeclContextE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule15EmitLinkageSpecEPKNS_15LinkageSpecDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule26EmitCXXThreadLocalInitFuncEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21EmitCXXGlobalInitFuncEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21EmitCXXGlobalDtorFuncEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule28EmitCXXGlobalVarDeclInitFuncEPKNS_7VarDeclEPN4llvm14GlobalVariableEb'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21EmitPointerToInitFuncEPKNS_7VarDeclEPN4llvm14GlobalVariableEPNS5_8FunctionEPi'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule13AddGlobalCtorEPN4llvm8FunctionEiPNS2_8ConstantE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule13AddGlobalDtorEPN4llvm8FunctionEi'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule12EmitCtorListERSt6vectorINS1_8StructorESaIS3_EEPKc'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule12EmitDeferredEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule28EmitVTablesOpportunisticallyEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule17applyReplacementsEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule26applyGlobalValReplacementsEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule12checkAliasesEv'/>
+<mbr r='clang::CodeGen::CodeGenModule::DtorsUsingAtExit' o='28480' t='std::map&lt;int, llvm::TinyPtrVector&lt;llvm::Function *&gt; &gt;'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule29registerGlobalDtorsWithAtExitEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule25emitMultiVersionFunctionsEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule19EmitDeferredVTablesEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule24emitAtAvailableLinkGuardEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule12emitLLVMUsedEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21EmitModuleLinkOptionsEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule24EmitStaticExternCAliasesEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule16EmitDeclMetadataEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule24EmitVersionIdentMetadataEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule23EmitCommandLineMetadataEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule18EmitTargetMetadataEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule18EmitOpenCLMetadataEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule16EmitCoverageFileEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule21EmitUuidofInitializerEN4llvm9StringRefE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule13MustBeEmittedEPKNS_9ValueDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule19MayBeEmittedEagerlyEPKNS_9ValueDeclE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule19SimplifyPersonalityEv'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule26ConstructDefaultFnAttrListEN4llvm9StringRefEbbRNS2_11AttrBuilderE'/>
+<fun r='_ZN5clang7CodeGen13CodeGenModule28CreateMetadataIdentifierImplENS_8QualTypeERN4llvm8DenseMapIS2_PNS3_8MetadataENS3_12DenseMapInfoIS2_EENS3_6detail12De15155093'/>

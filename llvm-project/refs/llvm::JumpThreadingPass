@@ -1,0 +1,52 @@
+<inh f='llvm/llvm/include/llvm/IR/PassManager.h' l='372' c='llvm::PassInfoMixin'/>
+<def f='llvm/llvm/include/llvm/Transforms/Scalar/JumpThreading.h' l='77' ll='158'/>
+<size>512</size>
+<doc f='llvm/llvm/include/llvm/Transforms/Scalar/JumpThreading.h' l='62'>/// This pass performs &apos;jump threading&apos;, which looks at blocks that have
+/// multiple predecessors and multiple successors.  If one or more of the
+/// predecessors of the block can be proven to always jump to one of the
+/// successors, we forward the edge from the predecessor to the successor by
+/// duplicating the contents of this block.
+///
+/// An example of when this can occur is code like this:
+///
+///   if () { ...
+///     X = 4;
+///   }
+///   if (X &lt; 3) {
+///
+/// In this case, the unconditional branch at the end of the first if can be
+/// revectored to the false side of the second if.</doc>
+<mbr r='llvm::JumpThreadingPass::TLI' o='0' t='llvm::TargetLibraryInfo *'/>
+<mbr r='llvm::JumpThreadingPass::LVI' o='64' t='llvm::LazyValueInfo *'/>
+<mbr r='llvm::JumpThreadingPass::AA' o='128' t='AliasAnalysis *'/>
+<mbr r='llvm::JumpThreadingPass::DTU' o='192' t='llvm::DomTreeUpdater *'/>
+<mbr r='llvm::JumpThreadingPass::BFI' o='256' t='std::unique_ptr&lt;BlockFrequencyInfo&gt;'/>
+<mbr r='llvm::JumpThreadingPass::BPI' o='320' t='std::unique_ptr&lt;BranchProbabilityInfo&gt;'/>
+<mbr r='llvm::JumpThreadingPass::HasProfileData' o='384' t='bool'/>
+<mbr r='llvm::JumpThreadingPass::HasGuards' o='392' t='bool'/>
+<mbr r='llvm::JumpThreadingPass::LoopHeaders' o='448' t='SmallSet&lt;AssertingVH&lt;const llvm::BasicBlock&gt;, 16&gt;'/>
+<mbr r='llvm::JumpThreadingPass::BBDupThreshold' o='4032' t='unsigned int'/>
+<fun r='_ZN4llvm17JumpThreadingPassC1Ei'/>
+<fun r='_ZN4llvm17JumpThreadingPass7runImplERNS_8FunctionEPNS_17TargetLibraryInfoEPNS_13LazyValueInfoEPNS_9AAResultsEPNS_14DomTreeUpdaterEbSt10unique_ptrINS_16218292'/>
+<fun r='_ZN4llvm17JumpThreadingPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE'/>
+<fun r='_ZN4llvm17JumpThreadingPass13releaseMemoryEv'/>
+<fun r='_ZN4llvm17JumpThreadingPass15FindLoopHeadersERNS_8FunctionE'/>
+<fun r='_ZN4llvm17JumpThreadingPass12ProcessBlockEPNS_10BasicBlockE'/>
+<fun r='_ZN4llvm17JumpThreadingPass10ThreadEdgeEPNS_10BasicBlockERKNS_15SmallVectorImplIS2_EES2_'/>
+<fun r='_ZN4llvm17JumpThreadingPass32DuplicateCondBranchOnPHIIntoPredEPNS_10BasicBlockERKNS_15SmallVectorImplIS2_EE'/>
+<fun r='_ZN4llvm17JumpThreadingPass35ComputeValueKnownInPredecessorsImplEPNS_5ValueEPNS_10BasicBlockERNS_15SmallVectorImplISt4pairIPNS_8ConstantES4_EEENS_13ju8595034'/>
+<fun r='_ZN4llvm17JumpThreadingPass31ComputeValueKnownInPredecessorsEPNS_5ValueEPNS_10BasicBlockERNS_15SmallVectorImplISt4pairIPNS_8ConstantES4_EEENS_13jumpth16338021'/>
+<fun r='_ZN4llvm17JumpThreadingPass22ProcessThreadableEdgesEPNS_5ValueEPNS_10BasicBlockENS_13jumpthreading18ConstantPreferenceEPNS_11InstructionE'/>
+<fun r='_ZN4llvm17JumpThreadingPass18ProcessBranchOnPHIEPNS_7PHINodeE'/>
+<fun r='_ZN4llvm17JumpThreadingPass18ProcessBranchOnXOREPNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm17JumpThreadingPass23ProcessImpliedConditionEPNS_10BasicBlockE'/>
+<fun r='_ZN4llvm17JumpThreadingPass30SimplifyPartiallyRedundantLoadEPNS_8LoadInstE'/>
+<fun r='_ZN4llvm17JumpThreadingPass17UnfoldSelectInstrEPNS_10BasicBlockES2_PNS_10SelectInstEPNS_7PHINodeEj'/>
+<fun r='_ZN4llvm17JumpThreadingPass17TryToUnfoldSelectEPNS_7CmpInstEPNS_10BasicBlockE'/>
+<fun r='_ZN4llvm17JumpThreadingPass17TryToUnfoldSelectEPNS_10SwitchInstEPNS_10BasicBlockE'/>
+<fun r='_ZN4llvm17JumpThreadingPass25TryToUnfoldSelectInCurrBBEPNS_10BasicBlockE'/>
+<fun r='_ZN4llvm17JumpThreadingPass13ProcessGuardsEPNS_10BasicBlockE'/>
+<fun r='_ZN4llvm17JumpThreadingPass11ThreadGuardEPNS_10BasicBlockEPNS_13IntrinsicInstEPNS_10BranchInstE'/>
+<fun r='_ZN4llvm17JumpThreadingPass15SplitBlockPredsEPNS_10BasicBlockENS_8ArrayRefIS2_EEPKc'/>
+<fun r='_ZN4llvm17JumpThreadingPass28UpdateBlockFreqAndEdgeWeightEPNS_10BasicBlockES2_S2_S2_'/>
+<fun r='_ZN4llvm17JumpThreadingPass24doesBlockHaveProfileDataEPNS_10BasicBlockE'/>

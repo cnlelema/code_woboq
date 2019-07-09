@@ -1,0 +1,14 @@
+<dec f='llvm/clang/include/clang/Parse/Parser.h' l='2575' type='void clang::Parser::ParseObjCBridgeRelatedAttribute(clang::IdentifierInfo &amp; ObjCBridgeRelated, clang::SourceLocation ObjCBridgeRelatedLoc, clang::ParsedAttributes &amp; attrs, clang::SourceLocation * endLoc, clang::IdentifierInfo * ScopeName, clang::SourceLocation ScopeLoc, ParsedAttr::Syntax Syntax)'/>
+<use f='llvm/clang/lib/Parse/ParseDecl.cpp' l='435' u='c' c='_ZN5clang6Parser21ParseGNUAttributeArgsEPNS_14IdentifierInfoENS_14SourceLocationERNS_16ParsedAttributesEPS3_S2_S3_NS_10ParsedAttr6SyntaxEPNS_10DeclaratorE'/>
+<def f='llvm/clang/lib/Parse/ParseDecl.cpp' l='1320' ll='1393' type='void clang::Parser::ParseObjCBridgeRelatedAttribute(clang::IdentifierInfo &amp; ObjCBridgeRelated, clang::SourceLocation ObjCBridgeRelatedLoc, clang::ParsedAttributes &amp; attrs, clang::SourceLocation * endLoc, clang::IdentifierInfo * ScopeName, clang::SourceLocation ScopeLoc, ParsedAttr::Syntax Syntax)'/>
+<doc f='llvm/clang/lib/Parse/ParseDecl.cpp' l='1309'>/// Parse the contents of the &quot;objc_bridge_related&quot; attribute.
+/// objc_bridge_related &apos;(&apos; related_class &apos;,&apos; opt-class_method &apos;,&apos; opt-instance_method &apos;)&apos;
+/// related_class:
+///     Identifier
+///
+/// opt-class_method:
+///     Identifier: | &lt;empty&gt;
+///
+/// opt-instance_method:
+///     Identifier | &lt;empty&gt;
+///</doc>

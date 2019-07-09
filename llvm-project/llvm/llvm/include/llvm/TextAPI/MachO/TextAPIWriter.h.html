@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TextAPIWriter.h source code [llvm/llvm/include/llvm/TextAPI/MachO/TextAPIWriter.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::MachO::TextAPIWriter "/>
+<link rel="stylesheet" href="../../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/TextAPI/MachO/TextAPIWriter.h'; var root_path = '../../../../../..'; var data_path = '../../../../../../../data';</script>
+<script src='../../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>llvm</a>/<a href='../../../..'>llvm</a>/<a href='../../..'>include</a>/<a href='../..'>llvm</a>/<a href='..'>TextAPI</a>/<a href='./'>MachO</a>/<a href='TextAPIWriter.h.html'>TextAPIWriter.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===--- TextAPIWriter.h - Text API Writer ----------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLVM_TEXTAPI_MACHO_WRITER_H">LLVM_TEXTAPI_MACHO_WRITER_H</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLVM_TEXTAPI_MACHO_WRITER_H" data-ref="_M/LLVM_TEXTAPI_MACHO_WRITER_H">LLVM_TEXTAPI_MACHO_WRITER_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="../../Support/MemoryBuffer.h.html">"llvm/Support/MemoryBuffer.h"</a></u></td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="15">15</th><td><b>namespace</b> <span class="namespace">MachO</span> {</td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><b>class</b> <a class="type" href="InterfaceFile.h.html#llvm::MachO::InterfaceFile" title='llvm::MachO::InterfaceFile' data-ref="llvm::MachO::InterfaceFile" id="llvm::MachO::InterfaceFile">InterfaceFile</a>;</td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><b>class</b> <dfn class="type def" id="llvm::MachO::TextAPIWriter" title='llvm::MachO::TextAPIWriter' data-ref="llvm::MachO::TextAPIWriter">TextAPIWriter</dfn> {</td></tr>
+<tr><th id="20">20</th><td><b>public</b>:</td></tr>
+<tr><th id="21">21</th><td>  <dfn class="decl def" id="_ZN4llvm5MachO13TextAPIWriterC1Ev" title='llvm::MachO::TextAPIWriter::TextAPIWriter' data-ref="_ZN4llvm5MachO13TextAPIWriterC1Ev">TextAPIWriter</dfn>() = <b>delete</b>;</td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td>  <em>static</em> <a class="type" href="../../Support/Error.h.html#llvm::Error" title='llvm::Error' data-ref="llvm::Error">Error</a> <a class="decl" href="../../../../lib/TextAPI/MachO/TextStub.cpp.html#_ZN4llvm5MachO13TextAPIWriter13writeToStreamERNS_11raw_ostreamERKNS0_13InterfaceFileE" title='llvm::MachO::TextAPIWriter::writeToStream' data-ref="_ZN4llvm5MachO13TextAPIWriter13writeToStreamERNS_11raw_ostreamERKNS0_13InterfaceFileE" id="_ZN4llvm5MachO13TextAPIWriter13writeToStreamERNS_11raw_ostreamERKNS0_13InterfaceFileE">writeToStream</a>(<a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col3 decl" id="3os" title='os' data-type='llvm::raw_ostream &amp;' data-ref="3os">os</dfn>, <em>const</em> <a class="type" href="InterfaceFile.h.html#llvm::MachO::InterfaceFile" title='llvm::MachO::InterfaceFile' data-ref="llvm::MachO::InterfaceFile">InterfaceFile</a> &amp;);</td></tr>
+<tr><th id="24">24</th><td>};</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td>} <i>// end namespace MachO.</i></td></tr>
+<tr><th id="27">27</th><td>} <i>// end namespace llvm.</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="9">endif</span> // LLVM_TEXTAPI_MACHO_WRITER_H</u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../lib/TextAPI/MachO/TextStub.cpp.html'>llvm/llvm/lib/TextAPI/MachO/TextStub.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/LoopUtils.h' l='75' type='bool llvm::formLCSSAForInstructions(SmallVectorImpl&lt;llvm::Instruction *&gt; &amp; Worklist, llvm::DominatorTree &amp; DT, llvm::LoopInfo &amp; LI)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/LoopUtils.h' l='64'>/// Ensures LCSSA form for every instruction from the Worklist in the scope of
+/// innermost containing loop.
+///
+/// For the given instruction which have uses outside of the loop, an LCSSA PHI
+/// node is inserted and the uses outside the loop are rewritten to use this
+/// node.
+///
+/// LoopInfo and DominatorTree are required and, since the routine makes no
+/// changes to CFG, preserved.
+///
+/// Returns true if any modifications are made.</doc>
+<def f='llvm/llvm/lib/Transforms/Utils/LCSSA.cpp' l='76' ll='272' type='bool llvm::formLCSSAForInstructions(SmallVectorImpl&lt;llvm::Instruction *&gt; &amp; Worklist, llvm::DominatorTree &amp; DT, llvm::LoopInfo &amp; LI)'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LCSSA.cpp' l='371' u='c' c='_ZN4llvm9formLCSSAERNS_4LoopERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15ScalarEvolutionE'/>
+<doc f='llvm/llvm/lib/Transforms/Utils/LCSSA.cpp' l='73'>/// For every instruction from the worklist, check to see if it has any uses
+/// that are outside the current loop.  If so, insert LCSSA PHI nodes and
+/// rewrite the uses.</doc>

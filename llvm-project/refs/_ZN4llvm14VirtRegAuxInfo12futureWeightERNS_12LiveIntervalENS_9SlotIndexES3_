@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/CalcSpillWeights.h' l='78' type='float llvm::VirtRegAuxInfo::futureWeight(llvm::LiveInterval &amp; li, llvm::SlotIndex start, llvm::SlotIndex end)'/>
+<def f='llvm/llvm/lib/CodeGen/CalcSpillWeights.cpp' l='145' ll='148' type='float llvm::VirtRegAuxInfo::futureWeight(llvm::LiveInterval &amp; li, llvm::SlotIndex start, llvm::SlotIndex end)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/CalcSpillWeights.h' l='69'>/// Compute future expected spill weight of a split artifact of li
+    /// that will span between start and end slot indexes.
+    /// \param li     The live interval to be split.
+    /// \param start  The expected begining of the split artifact. Instructions
+    ///               before start will not affect the weight.
+    /// \param end    The expected end of the split artifact. Instructions
+    ///               after end will not affect the weight.
+    /// \return The expected spill weight of the split artifact. Returns
+    /// negative weight for unspillable li.</doc>
+<use f='llvm/llvm/lib/CodeGen/RegAllocGreedy.cpp' l='1523' u='c' c='_ZN12_GLOBAL__N_18RAGreedy26splitCanCauseEvictionChainEjRNS0_20GlobalSplitCandidateEjRKN4llvm15AllocationOrderE'/>
+<use f='llvm/llvm/lib/CodeGen/RegAllocGreedy.cpp' l='1566' u='c' c='_ZN12_GLOBAL__N_18RAGreedy23splitCanCauseLocalSpillEjRNS0_20GlobalSplitCandidateEjRKN4llvm15AllocationOrderE'/>

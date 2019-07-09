@@ -1,0 +1,12 @@
+<dec f='llvm/clang/include/clang/AST/Expr.h' l='546' type='bool clang::Expr::isConstantInitializer(clang::ASTContext &amp; Ctx, bool ForRef, const clang::Expr ** Culprit = nullptr) const'/>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='542'>/// isConstantInitializer - Returns true if this expression can be emitted to
+  /// IR as a constant, and thus can be used as a constant initializer in C.
+  /// If this expression is not constant and Culprit is non-null,
+  /// it is used to store the address of first non constant expr.</doc>
+<def f='llvm/clang/lib/AST/Expr.cpp' l='3045' ll='3220' type='bool clang::Expr::isConstantInitializer(clang::ASTContext &amp; Ctx, bool IsForRef, const clang::Expr ** Culprit = nullptr) const'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='3169' u='c' c='_ZNK5clang4Expr21isConstantInitializerERNS_10ASTContextEbPPKS0_'/>
+<use f='llvm/clang/lib/CodeGen/CGDecl.cpp' l='1436' u='c' c='_ZN5clang7CodeGen15CodeGenFunction17EmitAutoVarAllocaERKNS_7VarDeclE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='5771' u='c' c='_ZN5clang7CodeGen13CodeGenModule24EmitOMPThreadPrivateDeclEPKNS_20OMPThreadPrivateDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='10651' u='c' c='_ZN5clang4Sema27CheckForConstantInitializerEPNS_4ExprENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='11432' u='c' c='_ZN5clang4Sema20AddInitializerToDeclEPNS_4DeclEPNS_4ExprEb'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='8267' u='c' c='_ZN5clang22InitializationSequence7PerformERNS_4SemaERKNS_17InitializedEntityERKNS_18InitializationKindEN4llvm15MutableArrayRefIPNS_4ExprEEEPNS_8QualTypeE'/>

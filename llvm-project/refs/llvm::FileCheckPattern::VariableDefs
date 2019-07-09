@@ -1,0 +1,19 @@
+<dec f='llvm/llvm/include/llvm/Support/FileCheck.h' l='356' type='std::map&lt;StringRef, unsigned int&gt;'/>
+<use f='llvm/llvm/include/llvm/Support/FileCheck.h' l='458' u='m' c='_ZNK4llvm16FileCheckPattern11hasVariableEv'/>
+<use f='llvm/llvm/lib/Support/FileCheck.cpp' l='527' u='m' c='_ZN4llvm16FileCheckPattern12parsePatternENS_9StringRefES1_RNS_9SourceMgrERKNS_16FileCheckRequestE'/>
+<use f='llvm/llvm/lib/Support/FileCheck.cpp' l='527' u='m' c='_ZN4llvm16FileCheckPattern12parsePatternENS_9StringRefES1_RNS_9SourceMgrERKNS_16FileCheckRequestE'/>
+<use f='llvm/llvm/lib/Support/FileCheck.cpp' l='528' u='m' c='_ZN4llvm16FileCheckPattern12parsePatternENS_9StringRefES1_RNS_9SourceMgrERKNS_16FileCheckRequestE'/>
+<use f='llvm/llvm/lib/Support/FileCheck.cpp' l='560' u='m' c='_ZN4llvm16FileCheckPattern12parsePatternENS_9StringRefES1_RNS_9SourceMgrERKNS_16FileCheckRequestE'/>
+<use f='llvm/llvm/lib/Support/FileCheck.cpp' l='667' c='_ZNK4llvm16FileCheckPattern5matchENS_9StringRefERmRKNS_9SourceMgrE'/>
+<offset>640</offset>
+<doc f='llvm/llvm/include/llvm/Support/FileCheck.h' l='345'>/// Maps names of string variables defined in a pattern to the number of
+  /// their parenthesis group in RegExStr capturing their last definition.
+  ///
+  /// E.g. for the pattern &quot;foo[[bar:.*]]baz([[bar]][[QUUX]][[bar:.*]])&quot;,
+  /// RegExStr will be &quot;foo(.*)baz(\1&lt;quux value&gt;(.*))&quot; where &lt;quux value&gt; is
+  /// the value captured for QUUX on the earlier line where it was defined, and
+  /// VariableDefs will map &quot;bar&quot; to the third parenthesis group which captures
+  /// the second definition of &quot;bar&quot;.
+  ///
+  /// Note: uses std::map rather than StringMap to be able to get the key when
+  /// iterating over values.</doc>

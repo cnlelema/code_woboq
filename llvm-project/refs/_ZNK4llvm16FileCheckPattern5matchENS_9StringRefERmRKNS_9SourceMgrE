@@ -1,0 +1,18 @@
+<dec f='llvm/llvm/include/llvm/Support/FileCheck.h' l='449' type='size_t llvm::FileCheckPattern::match(llvm::StringRef Buffer, size_t &amp; MatchLen, const llvm::SourceMgr &amp; SM) const'/>
+<def f='llvm/llvm/lib/Support/FileCheck.cpp' l='615' ll='698' type='size_t llvm::FileCheckPattern::match(llvm::StringRef Buffer, size_t &amp; MatchLen, const llvm::SourceMgr &amp; SM) const'/>
+<use f='llvm/llvm/lib/Support/FileCheck.cpp' l='1415' u='c' c='_ZNK4llvm15FileCheckString5CheckERKNS_9SourceMgrENS_9StringRefEbRmRNS_16FileCheckRequestEPSt6vectorINS_13FileCheckDiagESaIS9_EE'/>
+<use f='llvm/llvm/lib/Support/FileCheck.cpp' l='1536' u='c' c='_ZNK4llvm15FileCheckString8CheckNotERKNS_9SourceMgrENS_9StringRefERKSt6vectorIPKNS_16FileCheckPatternESaIS8_EERKNS_16FileCheckRequestEPS5_INS_13FileCheckDiagESaISG_EE'/>
+<use f='llvm/llvm/lib/Support/FileCheck.cpp' l='1596' u='c' c='_ZNK4llvm15FileCheckString8CheckDagERKNS_9SourceMgrENS_9StringRefERSt6vectorIPKNS_16FileCheckPatternESaIS8_EERKNS_16FileCheckRequestEPS5_INS_13FileCheckDiagESaISF_EE'/>
+<doc f='llvm/llvm/include/llvm/Support/FileCheck.h' l='437'>/// Matches the pattern string against the input buffer \p Buffer
+  ///
+  /// \returns the position that is matched or npos if there is no match. If
+  /// there is a match, updates \p MatchLen with the size of the matched
+  /// string.
+  ///
+  /// The GlobalVariableTable StringMap in the FileCheckPatternContext class
+  /// instance provides the current values of FileCheck string variables and
+  /// is updated if this match defines new values. Likewise, the
+  /// GlobalNumericVariableTable StringMap in the same class provides the
+  /// current values of FileCheck numeric variables and is updated if this
+  /// match defines new numeric values.</doc>
+<use f='llvm/llvm/unittests/Support/FileCheckTest.cpp' l='201' u='c' c='_ZN12_GLOBAL__N_113PatternTester11matchExpectEN4llvm9StringRefE'/>

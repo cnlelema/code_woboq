@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PassPrinters.h source code [llvm/llvm/tools/opt/PassPrinters.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/tools/opt/PassPrinters.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>llvm</a>/<a href='../..'>llvm</a>/<a href='..'>tools</a>/<a href='./'>opt</a>/<a href='PassPrinters.h.html'>PassPrinters.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//=- PassPrinters.h - Utilities to print analysis info for passes -*- C++ -*-=//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>///</i></td></tr>
+<tr><th id="9">9</th><td><i>/// \file</i></td></tr>
+<tr><th id="10">10</th><td><i>/// Utilities to print analysis info for various kinds of passes.</i></td></tr>
+<tr><th id="11">11</th><td><i>///</i></td></tr>
+<tr><th id="12">12</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><u>#<span data-ppcond="14">ifndef</span> <span class="macro" data-ref="_M/LLVM_TOOLS_OPT_PASSPRINTERS_H">LLVM_TOOLS_OPT_PASSPRINTERS_H</span></u></td></tr>
+<tr><th id="15">15</th><td><u>#define <dfn class="macro" id="_M/LLVM_TOOLS_OPT_PASSPRINTERS_H" data-ref="_M/LLVM_TOOLS_OPT_PASSPRINTERS_H">LLVM_TOOLS_OPT_PASSPRINTERS_H</dfn></u></td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../include/llvm/IR/PassManager.h.html">"llvm/IR/PassManager.h"</a></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><b>class</b> <a class="type" href="../../include/llvm/Pass.h.html#llvm::BasicBlockPass" title='llvm::BasicBlockPass' data-ref="llvm::BasicBlockPass" id="llvm::BasicBlockPass">BasicBlockPass</a>;</td></tr>
+<tr><th id="22">22</th><td><b>class</b> <dfn class="type" id="llvm::CallGraphSCCPass" title='llvm::CallGraphSCCPass' data-ref="llvm::CallGraphSCCPass">CallGraphSCCPass</dfn>;</td></tr>
+<tr><th id="23">23</th><td><b>class</b> <a class="type" href="../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass" id="llvm::FunctionPass">FunctionPass</a>;</td></tr>
+<tr><th id="24">24</th><td><b>class</b> <a class="type" href="../../include/llvm/Pass.h.html#llvm::ModulePass" title='llvm::ModulePass' data-ref="llvm::ModulePass" id="llvm::ModulePass">ModulePass</a>;</td></tr>
+<tr><th id="25">25</th><td><b>class</b> <dfn class="type" id="llvm::LoopPass" title='llvm::LoopPass' data-ref="llvm::LoopPass">LoopPass</dfn>;</td></tr>
+<tr><th id="26">26</th><td><b>class</b> <a class="type" href="../../include/llvm/PassInfo.h.html#llvm::PassInfo" title='llvm::PassInfo' data-ref="llvm::PassInfo" id="llvm::PassInfo">PassInfo</a>;</td></tr>
+<tr><th id="27">27</th><td><b>class</b> <a class="type" href="../../include/llvm/Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream" id="llvm::raw_ostream">raw_ostream</a>;</td></tr>
+<tr><th id="28">28</th><td><b>class</b> <dfn class="type" id="llvm::RegionPass" title='llvm::RegionPass' data-ref="llvm::RegionPass">RegionPass</dfn>;</td></tr>
+<tr><th id="29">29</th><td><b>class</b> <a class="type" href="../../include/llvm/IR/Module.h.html#llvm::Module" title='llvm::Module' data-ref="llvm::Module" id="llvm::Module">Module</a>;</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><a class="type" href="../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm25createFunctionPassPrinterEPKNS_8PassInfoERNS_11raw_ostreamEb" title='llvm::createFunctionPassPrinter' data-ref="_ZN4llvm25createFunctionPassPrinterEPKNS_8PassInfoERNS_11raw_ostreamEb">createFunctionPassPrinter</dfn>(<em>const</em> <a class="type" href="../../include/llvm/PassInfo.h.html#llvm::PassInfo" title='llvm::PassInfo' data-ref="llvm::PassInfo">PassInfo</a> *<dfn class="local col5 decl" id="15PI" title='PI' data-type='const llvm::PassInfo *' data-ref="15PI">PI</dfn>, <a class="type" href="../../include/llvm/Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col6 decl" id="16out" title='out' data-type='llvm::raw_ostream &amp;' data-ref="16out">out</dfn>,</td></tr>
+<tr><th id="32">32</th><td>                                        <em>bool</em> <dfn class="local col7 decl" id="17Quiet" title='Quiet' data-type='bool' data-ref="17Quiet">Quiet</dfn>);</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><a class="type" href="#llvm::CallGraphSCCPass" title='llvm::CallGraphSCCPass' data-ref="llvm::CallGraphSCCPass">CallGraphSCCPass</a> *<dfn class="decl" id="_ZN4llvm26createCallGraphPassPrinterEPKNS_8PassInfoERNS_11raw_ostreamEb" title='llvm::createCallGraphPassPrinter' data-ref="_ZN4llvm26createCallGraphPassPrinterEPKNS_8PassInfoERNS_11raw_ostreamEb">createCallGraphPassPrinter</dfn>(<em>const</em> <a class="type" href="../../include/llvm/PassInfo.h.html#llvm::PassInfo" title='llvm::PassInfo' data-ref="llvm::PassInfo">PassInfo</a> *<dfn class="local col8 decl" id="18PI" title='PI' data-type='const llvm::PassInfo *' data-ref="18PI">PI</dfn>,</td></tr>
+<tr><th id="35">35</th><td>                                             <a class="type" href="../../include/llvm/Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col9 decl" id="19out" title='out' data-type='llvm::raw_ostream &amp;' data-ref="19out">out</dfn>, <em>bool</em> <dfn class="local col0 decl" id="20Quiet" title='Quiet' data-type='bool' data-ref="20Quiet">Quiet</dfn>);</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><a class="type" href="../../include/llvm/Pass.h.html#llvm::ModulePass" title='llvm::ModulePass' data-ref="llvm::ModulePass">ModulePass</a> *<dfn class="decl" id="_ZN4llvm23createModulePassPrinterEPKNS_8PassInfoERNS_11raw_ostreamEb" title='llvm::createModulePassPrinter' data-ref="_ZN4llvm23createModulePassPrinterEPKNS_8PassInfoERNS_11raw_ostreamEb">createModulePassPrinter</dfn>(<em>const</em> <a class="type" href="../../include/llvm/PassInfo.h.html#llvm::PassInfo" title='llvm::PassInfo' data-ref="llvm::PassInfo">PassInfo</a> *<dfn class="local col1 decl" id="21PI" title='PI' data-type='const llvm::PassInfo *' data-ref="21PI">PI</dfn>, <a class="type" href="../../include/llvm/Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col2 decl" id="22out" title='out' data-type='llvm::raw_ostream &amp;' data-ref="22out">out</dfn>,</td></tr>
+<tr><th id="38">38</th><td>                                    <em>bool</em> <dfn class="local col3 decl" id="23Quiet" title='Quiet' data-type='bool' data-ref="23Quiet">Quiet</dfn>);</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><a class="type" href="#llvm::LoopPass" title='llvm::LoopPass' data-ref="llvm::LoopPass">LoopPass</a> *<dfn class="decl" id="_ZN4llvm21createLoopPassPrinterEPKNS_8PassInfoERNS_11raw_ostreamEb" title='llvm::createLoopPassPrinter' data-ref="_ZN4llvm21createLoopPassPrinterEPKNS_8PassInfoERNS_11raw_ostreamEb">createLoopPassPrinter</dfn>(<em>const</em> <a class="type" href="../../include/llvm/PassInfo.h.html#llvm::PassInfo" title='llvm::PassInfo' data-ref="llvm::PassInfo">PassInfo</a> *<dfn class="local col4 decl" id="24PI" title='PI' data-type='const llvm::PassInfo *' data-ref="24PI">PI</dfn>, <a class="type" href="../../include/llvm/Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col5 decl" id="25out" title='out' data-type='llvm::raw_ostream &amp;' data-ref="25out">out</dfn>,</td></tr>
+<tr><th id="41">41</th><td>                                <em>bool</em> <dfn class="local col6 decl" id="26Quiet" title='Quiet' data-type='bool' data-ref="26Quiet">Quiet</dfn>);</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><a class="type" href="#llvm::RegionPass" title='llvm::RegionPass' data-ref="llvm::RegionPass">RegionPass</a> *<dfn class="decl" id="_ZN4llvm23createRegionPassPrinterEPKNS_8PassInfoERNS_11raw_ostreamEb" title='llvm::createRegionPassPrinter' data-ref="_ZN4llvm23createRegionPassPrinterEPKNS_8PassInfoERNS_11raw_ostreamEb">createRegionPassPrinter</dfn>(<em>const</em> <a class="type" href="../../include/llvm/PassInfo.h.html#llvm::PassInfo" title='llvm::PassInfo' data-ref="llvm::PassInfo">PassInfo</a> *<dfn class="local col7 decl" id="27PI" title='PI' data-type='const llvm::PassInfo *' data-ref="27PI">PI</dfn>, <a class="type" href="../../include/llvm/Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col8 decl" id="28out" title='out' data-type='llvm::raw_ostream &amp;' data-ref="28out">out</dfn>,</td></tr>
+<tr><th id="44">44</th><td>                                    <em>bool</em> <dfn class="local col9 decl" id="29Quiet" title='Quiet' data-type='bool' data-ref="29Quiet">Quiet</dfn>);</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><a class="type" href="../../include/llvm/Pass.h.html#llvm::BasicBlockPass" title='llvm::BasicBlockPass' data-ref="llvm::BasicBlockPass">BasicBlockPass</a> *<dfn class="decl" id="_ZN4llvm27createBasicBlockPassPrinterEPKNS_8PassInfoERNS_11raw_ostreamEb" title='llvm::createBasicBlockPassPrinter' data-ref="_ZN4llvm27createBasicBlockPassPrinterEPKNS_8PassInfoERNS_11raw_ostreamEb">createBasicBlockPassPrinter</dfn>(<em>const</em> <a class="type" href="../../include/llvm/PassInfo.h.html#llvm::PassInfo" title='llvm::PassInfo' data-ref="llvm::PassInfo">PassInfo</a> *<dfn class="local col0 decl" id="30PI" title='PI' data-type='const llvm::PassInfo *' data-ref="30PI">PI</dfn>,</td></tr>
+<tr><th id="47">47</th><td>                                            <a class="type" href="../../include/llvm/Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col1 decl" id="31out" title='out' data-type='llvm::raw_ostream &amp;' data-ref="31out">out</dfn>, <em>bool</em> <dfn class="local col2 decl" id="32Quiet" title='Quiet' data-type='bool' data-ref="32Quiet">Quiet</dfn>);</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><u>#<span data-ppcond="14">endif</span> // LLVM_TOOLS_OPT_PASSPRINTERS_H</u></td></tr>
+<tr><th id="52">52</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='NewPMDriver.cpp.html'>llvm/llvm/tools/opt/NewPMDriver.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/lib/AsmParser/LLParser.h' l='323' type='bool llvm::LLParser::ParseGlobal(const std::string &amp; Name, LocTy NameLoc, unsigned int Linkage, bool HasLinkage, unsigned int Visibility, unsigned int DLLStorageClass, bool DSOLocal, GlobalVariable::ThreadLocalMode TLM, GlobalVariable::UnnamedAddr UnnamedAddr)'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='577' u='c' c='_ZN4llvm8LLParser18ParseUnnamedGlobalEv'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='607' u='c' c='_ZN4llvm8LLParser16ParseNamedGlobalEv'/>
+<def f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='1023' ll='1150' type='bool llvm::LLParser::ParseGlobal(const std::string &amp; Name, LocTy NameLoc, unsigned int Linkage, bool HasLinkage, unsigned int Visibility, unsigned int DLLStorageClass, bool DSOLocal, GlobalVariable::ThreadLocalMode TLM, GlobalVariable::UnnamedAddr UnnamedAddr)'/>
+<doc f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='1010'>/// ParseGlobal
+///   ::= GlobalVar &apos;=&apos; OptionalLinkage OptionalPreemptionSpecifier
+///       OptionalVisibility OptionalDLLStorageClass
+///       OptionalThreadLocal OptionalUnnamedAddr OptionalAddrSpace
+///       OptionalExternallyInitialized GlobalType Type Const OptionalAttrs
+///   ::= OptionalLinkage OptionalPreemptionSpecifier OptionalVisibility
+///       OptionalDLLStorageClass OptionalThreadLocal OptionalUnnamedAddr
+///       OptionalAddrSpace OptionalExternallyInitialized GlobalType Type
+///       Const OptionalAttrs
+///
+/// Everything up to and including OptionalUnnamedAddr has been parsed
+/// already.
+///</doc>

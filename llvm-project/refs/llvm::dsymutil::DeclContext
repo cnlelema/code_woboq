@@ -1,0 +1,41 @@
+<def f='llvm/llvm/tools/dsymutil/DeclContext.h' l='74' ll='114'/>
+<size>80</size>
+<doc f='llvm/llvm/tools/dsymutil/DeclContext.h' l='56'>/// A DeclContext is a named program scope that is used for ODR uniquing of
+/// types.
+///
+/// The set of DeclContext for the ODR-subject parts of a Dwarf link is
+/// expanded (and uniqued) with each new object file processed. We need to
+/// determine the context of each DIE in an linked object file to see if the
+/// corresponding type has already been emitted.
+///
+/// The contexts are conceptually organized as a tree (eg. a function scope is
+/// contained in a namespace scope that contains other scopes), but
+/// storing/accessing them in an actual tree is too inefficient: we need to be
+/// able to very quickly query a context for a given child context by name.
+/// Storing a StringMap in each DeclContext would be too space inefficient.
+///
+/// The solution here is to give each DeclContext a link to its parent (this
+/// allows to walk up the tree), but to query the existence of a specific
+/// DeclContext using a separate DenseMap keyed on the hash of the fully
+/// qualified name of the context.</doc>
+<fun r='_ZN4llvm8dsymutil11DeclContextC1Ev'/>
+<fun r='_ZN4llvm8dsymutil11DeclContextC1EjjjtNS_9StringRefES2_RKS1_NS_8DWARFDieEj'/>
+<fun r='_ZNK4llvm8dsymutil11DeclContext20getQualifiedNameHashEv'/>
+<fun r='_ZN4llvm8dsymutil11DeclContext14setLastSeenDIEERNS0_11CompileUnitERKNS_8DWARFDieE'/>
+<fun r='_ZNK4llvm8dsymutil11DeclContext21getCanonicalDIEOffsetEv'/>
+<fun r='_ZN4llvm8dsymutil11DeclContext21setCanonicalDIEOffsetEj'/>
+<fun r='_ZNK4llvm8dsymutil11DeclContext22isDefinedInClangModuleEv'/>
+<fun r='_ZN4llvm8dsymutil11DeclContext23setDefinedInClangModuleEb'/>
+<fun r='_ZNK4llvm8dsymutil11DeclContext6getTagEv'/>
+<fun r='_ZNK4llvm8dsymutil11DeclContext7getNameEv'/>
+<mbr r='llvm::dsymutil::DeclContext::QualifiedNameHash' o='0' t='unsigned int'/>
+<mbr r='llvm::dsymutil::DeclContext::Line' o='32' t='uint32_t'/>
+<mbr r='llvm::dsymutil::DeclContext::ByteSize' o='64' t='uint32_t'/>
+<mbr r='llvm::dsymutil::DeclContext::Tag' o='96' t='uint16_t'/>
+<mbr r='llvm::dsymutil::DeclContext::DefinedInClangModule' o='112' t='unsigned int'/>
+<mbr r='llvm::dsymutil::DeclContext::Name' o='128' t='llvm::StringRef'/>
+<mbr r='llvm::dsymutil::DeclContext::File' o='256' t='llvm::StringRef'/>
+<mbr r='llvm::dsymutil::DeclContext::Parent' o='384' t='const llvm::dsymutil::DeclContext &amp;'/>
+<mbr r='llvm::dsymutil::DeclContext::LastSeenDIE' o='448' t='llvm::DWARFDie'/>
+<mbr r='llvm::dsymutil::DeclContext::LastSeenCompileUnitID' o='576' t='uint32_t'/>
+<mbr r='llvm::dsymutil::DeclContext::CanonicalDIEOffset' o='608' t='uint32_t'/>

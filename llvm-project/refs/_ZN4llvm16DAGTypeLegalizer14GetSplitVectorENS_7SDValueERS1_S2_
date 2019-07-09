@@ -1,0 +1,66 @@
+<dec f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.h' l='740' type='void llvm::DAGTypeLegalizer::GetSplitVector(llvm::SDValue Op, llvm::SDValue &amp; Lo, llvm::SDValue &amp; Hi)'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.h' l='919' u='c' c='_ZN4llvm16DAGTypeLegalizer10GetSplitOpENS_7SDValueERS1_S2_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeFloatTypes.cpp' l='2139' u='c' c='_ZN4llvm16DAGTypeLegalizer34PromoteFloatRes_EXTRACT_VECTOR_ELTEPNS_6SDNodeE'/>
+<doc f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.h' l='729'>//===--------------------------------------------------------------------===//
+  // Vector Splitting Support: LegalizeVectorTypes.cpp
+  //===--------------------------------------------------------------------===//
+
+  /// Given a processed vector Op which was split into vectors of half the size,
+  /// this method returns the halves. The first elements of Op coincide with the
+  /// elements of Lo; the remaining elements of Op coincide with the elements of
+  /// Hi: Op is what you would get by concatenating Lo and Hi.
+  /// For example, if Op is a v8i32 that was split into two v4i32&apos;s, then this
+  /// method returns the two v4i32&apos;s, with Lo corresponding to the first 4
+  /// elements of Op, and Hi to the last 4 elements.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='324' u='c' c='_ZN4llvm16DAGTypeLegalizer21PromoteIntRes_BITCASTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='884' u='c' c='_ZN4llvm16DAGTypeLegalizer22PromoteIntRes_TRUNCATEEPNS_6SDNodeE'/>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.cpp' l='821' ll='828' type='void llvm::DAGTypeLegalizer::GetSplitVector(llvm::SDValue Op, llvm::SDValue &amp; Lo, llvm::SDValue &amp; Hi)'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypesGeneric.cpp' l='79' u='c' c='_ZN4llvm16DAGTypeLegalizer17ExpandRes_BITCASTEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypesGeneric.cpp' l='547' u='c' c='_ZN4llvm16DAGTypeLegalizer15SplitRes_SELECTEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='989' u='c' c='_ZN4llvm16DAGTypeLegalizer17SplitVecRes_BinOpEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='991' u='c' c='_ZN4llvm16DAGTypeLegalizer17SplitVecRes_BinOpEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1003' u='c' c='_ZN4llvm16DAGTypeLegalizer21SplitVecRes_TernaryOpEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1005' u='c' c='_ZN4llvm16DAGTypeLegalizer21SplitVecRes_TernaryOpEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1007' u='c' c='_ZN4llvm16DAGTypeLegalizer21SplitVecRes_TernaryOpEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1018' u='c' c='_ZN4llvm16DAGTypeLegalizer18SplitVecRes_MULFIXEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1020' u='c' c='_ZN4llvm16DAGTypeLegalizer18SplitVecRes_MULFIXEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1066' u='c' c='_ZN4llvm16DAGTypeLegalizer19SplitVecRes_BITCASTEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1142' u='c' c='_ZN4llvm16DAGTypeLegalizer28SplitVecRes_INSERT_SUBVECTOREPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1193' u='c' c='_ZN4llvm16DAGTypeLegalizer17SplitVecRes_FPOWIEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1201' u='c' c='_ZN4llvm16DAGTypeLegalizer21SplitVecRes_FCOPYSIGNEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1208' u='c' c='_ZN4llvm16DAGTypeLegalizer21SplitVecRes_FCOPYSIGNEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1220' u='c' c='_ZN4llvm16DAGTypeLegalizer19SplitVecRes_InregOpEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1242' u='c' c='_ZN4llvm16DAGTypeLegalizer25SplitVecRes_ExtVecInRegOpEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1297' u='c' c='_ZN4llvm16DAGTypeLegalizer22SplitVecRes_StrictFPOpEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1389' u='c' c='_ZN4llvm16DAGTypeLegalizer22SplitVecRes_OverflowOpEPNS_6SDNodeEjRNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1390' u='c' c='_ZN4llvm16DAGTypeLegalizer22SplitVecRes_OverflowOpEPNS_6SDNodeEjRNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1425' u='c' c='_ZN4llvm16DAGTypeLegalizer29SplitVecRes_INSERT_VECTOR_ELTEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1567' u='c' c='_ZN4llvm16DAGTypeLegalizer17SplitVecRes_MLOADEPNS_16MaskedLoadSDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1577' u='c' c='_ZN4llvm16DAGTypeLegalizer17SplitVecRes_MLOADEPNS_16MaskedLoadSDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1629' u='c' c='_ZN4llvm16DAGTypeLegalizer19SplitVecRes_MGATHEREPNS_18MaskedGatherSDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1640' u='c' c='_ZN4llvm16DAGTypeLegalizer19SplitVecRes_MGATHEREPNS_18MaskedGatherSDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1646' u='c' c='_ZN4llvm16DAGTypeLegalizer19SplitVecRes_MGATHEREPNS_18MaskedGatherSDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1687' u='c' c='_ZN4llvm16DAGTypeLegalizer17SplitVecRes_SETCCEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1693' u='c' c='_ZN4llvm16DAGTypeLegalizer17SplitVecRes_SETCCEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1713' u='c' c='_ZN4llvm16DAGTypeLegalizer19SplitVecRes_UnaryOpEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1798' u='c' c='_ZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1799' u='c' c='_ZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2034' u='c' c='_ZN4llvm16DAGTypeLegalizer18SplitVecOp_VSELECTEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2063' u='c' c='_ZN4llvm16DAGTypeLegalizer20SplitVecOp_VECREDUCEEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2102' u='c' c='_ZN4llvm16DAGTypeLegalizer18SplitVecOp_UnaryOpEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2135' u='c' c='_ZN4llvm16DAGTypeLegalizer18SplitVecOp_BITCASTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2152' u='c' c='_ZN4llvm16DAGTypeLegalizer28SplitVecOp_EXTRACT_SUBVECTOREPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2177' u='c' c='_ZN4llvm16DAGTypeLegalizer29SplitVecOp_EXTRACT_VECTOR_ELTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2252' u='c' c='_ZN4llvm16DAGTypeLegalizer18SplitVecOp_MGATHEREPNS_18MaskedGatherSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2262' u='c' c='_ZN4llvm16DAGTypeLegalizer18SplitVecOp_MGATHEREPNS_18MaskedGatherSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2268' u='c' c='_ZN4llvm16DAGTypeLegalizer18SplitVecOp_MGATHEREPNS_18MaskedGatherSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2322' u='c' c='_ZN4llvm16DAGTypeLegalizer17SplitVecOp_MSTOREEPNS_17MaskedStoreSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2329' u='c' c='_ZN4llvm16DAGTypeLegalizer17SplitVecOp_MSTOREEPNS_17MaskedStoreSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2385' u='c' c='_ZN4llvm16DAGTypeLegalizer19SplitVecOp_MSCATTEREPNS_19MaskedScatterSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2392' u='c' c='_ZN4llvm16DAGTypeLegalizer19SplitVecOp_MSCATTEREPNS_19MaskedScatterSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2398' u='c' c='_ZN4llvm16DAGTypeLegalizer19SplitVecOp_MSCATTEREPNS_19MaskedScatterSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2438' u='c' c='_ZN4llvm16DAGTypeLegalizer16SplitVecOp_STOREEPNS_11StoreSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2547' u='c' c='_ZN4llvm16DAGTypeLegalizer25SplitVecOp_TruncateHelperEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2579' u='c' c='_ZN4llvm16DAGTypeLegalizer17SplitVecOp_VSETCCEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2580' u='c' c='_ZN4llvm16DAGTypeLegalizer17SplitVecOp_VSETCCEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2597' u='c' c='_ZN4llvm16DAGTypeLegalizer19SplitVecOp_FP_ROUNDEPNS_6SDNodeE'/>

@@ -1,0 +1,29 @@
+<def f='llvm/clang/include/clang/AST/DeclBase.h' l='828' ll='832' type='clang::DeclContext * clang::Decl::getLexicalDeclContext()'/>
+<use f='llvm/clang/include/clang/AST/DeclBase.h' l='834' u='c' c='_ZNK5clang4Decl21getLexicalDeclContextEv'/>
+<doc f='llvm/clang/include/clang/AST/DeclBase.h' l='818'>/// getLexicalDeclContext - The declaration context where this Decl was
+  /// lexically declared (LexicalDC). May be different from
+  /// getDeclContext() (SemanticDC).
+  /// e.g.:
+  ///
+  ///   namespace A {
+  ///      void f(); // SemanticDC == LexicalDC == &apos;namespace A&apos;
+  ///   }
+  ///   void A::f(); // SemanticDC == namespace &apos;A&apos;
+  ///                // LexicalDC == global namespace</doc>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='1654' u='c' c='_ZN5clang15ASTNodeImporter17ImportDeclContextEPNS_4DeclERPNS_11DeclContextES5_'/>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='1656' u='c' c='_ZN5clang15ASTNodeImporter17ImportDeclContextEPNS_4DeclERPNS_11DeclContextES5_'/>
+<use f='llvm/clang/lib/AST/DeclBase.cpp' l='299' u='c' c='_ZN5clang4Decl21setLexicalDeclContextEPNS_11DeclContextE'/>
+<use f='llvm/clang/lib/AST/DeclBase.cpp' l='1434' u='c' c='_ZN5clang11DeclContext10removeDeclEPNS_4DeclE'/>
+<use f='llvm/clang/lib/AST/DeclBase.cpp' l='1488' u='c' c='_ZN5clang11DeclContext13addHiddenDeclEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Frontend/ASTUnit.cpp' l='2423' u='c' c='_ZN5clang7ASTUnit16addFileLevelDeclEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Sema/SemaAccess.cpp' l='1475' u='c' c='_ZN5clang4Sema24HandleDelayedAccessCheckERNS_4sema17DelayedDiagnosticEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='9539' u='c' c='_ZN5clang4Sema35shouldLinkDependentDeclWithPreviousEPNS_4DeclES2_'/>
+<use f='llvm/clang/lib/Sema/SemaLookup.cpp' l='353' u='c' c='_ZL26getContextForScopeMatchingPN5clang4DeclE'/>
+<use f='llvm/clang/lib/Sema/SemaLookup.cpp' l='1462' u='c' c='_ZL17getDefiningModuleRN5clang4SemaEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Serialization/ASTWriterDecl.cpp' l='293' u='c' c='_ZN5clang13ASTDeclWriter9VisitDeclEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Serialization/ASTWriterDecl.cpp' l='294' u='c' c='_ZN5clang13ASTDeclWriter9VisitDeclEPNS_4DeclE'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='294' u='c' c='_ZL18isInLexicalContextPN5clang4DeclEPNS_11DeclContextE'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='377' u='c' c='_ZN5clang8cxcursor13CursorVisitor24visitDeclsFromFileRegionENS_6FileIDEjj'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='378' u='c' c='_ZN5clang8cxcursor13CursorVisitor24visitDeclsFromFileRegionENS_6FileIDEjj'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='391' u='c' c='_ZN5clang8cxcursor13CursorVisitor24visitDeclsFromFileRegionENS_6FileIDEjj'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='629' u='c' c='_ZN5clang8cxcursor13CursorVisitor16VisitDeclContextEPNS_11DeclContextE'/>

@@ -1,0 +1,28 @@
+<dec f='llvm/llvm/include/llvm/Analysis/MemoryDependenceAnalysis.h' l='447' type='llvm::MemDepResult llvm::MemoryDependenceResults::getPointerDependencyFrom(const llvm::MemoryLocation &amp; Loc, bool isLoad, BasicBlock::iterator ScanIt, llvm::BasicBlock * BB, llvm::Instruction * QueryInst = nullptr, unsigned int * Limit = nullptr, llvm::OrderedBasicBlock * OBB = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/MemoryDependenceAnalysis.h' l='434'>/// Returns the instruction on which a memory location depends.
+  ///
+  /// If isLoad is true, this routine ignores may-aliases with read-only
+  /// operations.  If isLoad is false, this routine ignores may-aliases
+  /// with reads from read-only locations. If possible, pass the query
+  /// instruction as well; this function may take advantage of the metadata
+  /// annotated to the query instruction to refine the result. \p Limit
+  /// can be used to set the maximum number of instructions that will be
+  /// examined to find the pointer dependency. On return, it will be set to
+  /// the number of instructions left to examine. If a null pointer is passed
+  /// in, the limit will default to the value of -memdep-block-scan-limit.
+  ///
+  /// Note that this is an uncached query, and thus may be inefficient.</doc>
+<def f='llvm/llvm/lib/Analysis/MemoryDependenceAnalysis.cpp' l='327' ll='353' type='llvm::MemDepResult llvm::MemoryDependenceResults::getPointerDependencyFrom(const llvm::MemoryLocation &amp; MemLoc, bool isLoad, BasicBlock::iterator ScanIt, llvm::BasicBlock * BB, llvm::Instruction * QueryInst = nullptr, unsigned int * Limit = nullptr, llvm::OrderedBasicBlock * OBB = nullptr)'/>
+<use f='llvm/llvm/lib/Analysis/MemoryDependenceAnalysis.cpp' l='754' u='c' c='_ZN4llvm23MemoryDependenceResults13getDependencyEPNS_11InstructionEPNS_17OrderedBasicBlockE'/>
+<use f='llvm/llvm/lib/Analysis/MemoryDependenceAnalysis.cpp' l='1018' u='c' c='_ZN4llvm23MemoryDependenceResults23GetNonLocalInfoForBlockEPNS_11InstructionERKNS_14MemoryLocationEbPNS_10BasicBlockEPSt6vectorINS_16NonLocalDepEntryESaIS9_EEj'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUAnnotateUniformValues.cpp' l='109' u='c' c='_ZN12_GLOBAL__N_127AMDGPUAnnotateUniformValues21isClobberedInFunctionEPN4llvm8LoadInstE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPURewriteOutArguments.cpp' l='305' u='c' c='_ZN12_GLOBAL__N_125AMDGPURewriteOutArguments13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/DeadStoreElimination.cpp' l='673' u='c' c='_ZL10handleFreePN4llvm8CallInstEPNS_9AAResultsEPNS_23MemoryDependenceResultsEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoERNS_8DenseMapIPNS_11Instruct6701801'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/DeadStoreElimination.cpp' l='702' u='c' c='_ZL10handleFreePN4llvm8CallInstEPNS_9AAResultsEPNS_23MemoryDependenceResultsEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoERNS_8DenseMapIPNS_11Instruct6701801'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/DeadStoreElimination.cpp' l='1295' u='c' c='_ZL19eliminateDeadStoresRN4llvm10BasicBlockEPNS_9AAResultsEPNS_23MemoryDependenceResultsEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='1049' u='c' c='_ZN4llvm13MemCpyOptPass29processMemCpyMemCpyDependenceEPNS_10MemCpyInstES2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='1107' u='c' c='_ZN4llvm13MemCpyOptPass29processMemSetMemCpyDependenceEPNS_10MemCpyInstEPNS_10MemSetInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='1204' u='c' c='_ZN4llvm13MemCpyOptPass26performMemCpyToMemSetOptznEPNS_10MemCpyInstEPNS_10MemSetInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='1283' u='c' c='_ZN4llvm13MemCpyOptPass13processMemCpyEPNS_10MemCpyInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='1348' u='c' c='_ZN4llvm13MemCpyOptPass20processByValArgumentENS_8CallSiteEj'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='1395' u='c' c='_ZN4llvm13MemCpyOptPass20processByValArgumentENS_8CallSiteEj'/>

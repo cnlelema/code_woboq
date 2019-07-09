@@ -1,0 +1,52 @@
+<dec f='llvm/clang/include/clang/Tooling/Core/Replacement.h' l='328' type='llvm::Expected&lt;std::string&gt; clang::tooling::applyAllReplacements(llvm::StringRef Code, const clang::tooling::Replacements &amp; Replaces)'/>
+<doc f='llvm/clang/include/clang/Tooling/Core/Replacement.h' l='321'>/// Applies all replacements in \p Replaces to \p Code.
+///
+/// This completely ignores the path stored in each replacement. If all
+/// replacements are applied successfully, this returns the code with
+/// replacements applied; otherwise, an llvm::Error carrying llvm::StringError
+/// is returned (the Error message can be converted to string using
+/// `llvm::toString()` and &apos;std::error_code` in the `Error` should be ignored).</doc>
+<use f='llvm/clang/lib/Format/ContinuationIndenter.cpp' l='1578' u='c' c='_ZN5clang6format20ContinuationIndenter24reformatRawStringLiteralERKNS0_11FormatTokenERNS0_9LineStateERKNS0_11FormatStyleEbb'/>
+<use f='llvm/clang/lib/Format/Format.cpp' l='2109' u='c' c='_ZN5clang6formatL19processReplacementsET_N4llvm9StringRefERKNS_7tooling12ReplacementsERKNS0_11FormatStyleE'/>
+<use f='llvm/clang/lib/Format/Format.cpp' l='2296' u='c' c='_ZN5clang6format8internal8reformatERKNS0_11FormatStyleEN4llvm9StringRefENS5_8ArrayRefINS_7tooling5RangeEEEjjjS6_PNS0_23FormattingAttemptStatusE'/>
+<use f='llvm/clang/lib/Index/CommentToXML.cpp' l='596' u='c' c='_ZN12_GLOBAL__N_124CommentASTToXMLConverter23formatTextOfDeclarationEPKN5clang8comments8DeclInfoERN4llvm11SmallStringILj128EEE'/>
+<def f='llvm/clang/lib/Tooling/Core/Replacement.cpp' l='579' ll='608' type='llvm::Expected&lt;std::string&gt; clang::tooling::applyAllReplacements(llvm::StringRef Code, const clang::tooling::Replacements &amp; Replaces)'/>
+<use f='llvm/clang/lib/Tooling/Refactoring/AtomicChange.cpp' l='331' u='c' c='_ZN5clang7tooling18applyAtomicChangesEN4llvm9StringRefES2_NS1_8ArrayRefINS0_12AtomicChangeEEERKNS0_16ApplyChangesSpecE'/>
+<use f='llvm/clang/lib/Tooling/Refactoring/AtomicChange.cpp' l='341' u='c' c='_ZN5clang7tooling18applyAtomicChangesEN4llvm9StringRefES2_NS1_8ArrayRefINS0_12AtomicChangeEEERKNS0_16ApplyChangesSpecE'/>
+<use f='llvm/clang/lib/Tooling/Refactoring/AtomicChange.cpp' l='354' u='c' c='_ZN5clang7tooling18applyAtomicChangesEN4llvm9StringRefES2_NS1_8ArrayRefINS0_12AtomicChangeEEERKNS0_16ApplyChangesSpecE'/>
+<use f='llvm/clang/tools/clang-format/ClangFormat.cpp' l='307' u='c' c='_ZN5clang6formatL6formatEN4llvm9StringRefE'/>
+<use f='llvm/clang/unittests/Format/CleanupTest.cpp' l='31' u='c' c='_ZN5clang6format12_GLOBAL__N_111CleanupTest7cleanupEN4llvm9StringRefERKSt6vectorINS_7tooling5RangeESaIS7_EERKNS0_11FormatStyleE'/>
+<use f='llvm/clang/unittests/Format/CleanupTest.cpp' l='307' u='c' c='_ZN5clang6format12_GLOBAL__N_123CleanUpReplacementsTest5applyEN4llvm9StringRefERKNS_7tooling12ReplacementsE'/>
+<use f='llvm/clang/unittests/Format/CleanupTest.cpp' l='320' u='c' c='_ZN5clang6format12_GLOBAL__N_123CleanUpReplacementsTest14formatAndApplyEN4llvm9StringRefERKNS_7tooling12ReplacementsE'/>
+<use f='llvm/clang/unittests/Format/FormatTest.cpp' l='53' u='c' c='_ZN5clang6format12_GLOBAL__N_110FormatTest6formatEN4llvm9StringRefERKNS0_11FormatStyleENS2_11StatusCheckE'/>
+<use f='llvm/clang/unittests/Format/FormatTest.cpp' l='13410' u='c' c='_ZN5clang6format12_GLOBAL__N_148ReplacementTest_FormatCodeAfterReplacements_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Format/FormatTest.cpp' l='13439' u='c' c='_ZN5clang6format12_GLOBAL__N_149ReplacementTest_SortIncludesAfterReplacement_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Format/FormatTestCSharp.cpp' l='27' u='c' c='_ZN5clang6format16FormatTestCSharp6formatEN4llvm9StringRefEjjRKNS0_11FormatStyleE'/>
+<use f='llvm/clang/unittests/Format/FormatTestComments.cpp' l='52' u='c' c='_ZN5clang6format12_GLOBAL__N_118FormatTestComments6formatEN4llvm9StringRefERKNS0_11FormatStyleENS2_11StatusCheckE'/>
+<use f='llvm/clang/unittests/Format/FormatTestJS.cpp' l='30' u='c' c='_ZN5clang6format12FormatTestJS6formatEN4llvm9StringRefEjjRKNS0_11FormatStyleE'/>
+<use f='llvm/clang/unittests/Format/FormatTestJava.cpp' l='27' u='c' c='_ZN5clang6format14FormatTestJava6formatEN4llvm9StringRefEjjRKNS0_11FormatStyleE'/>
+<use f='llvm/clang/unittests/Format/FormatTestObjC.cpp' l='53' u='c' c='_ZN5clang6format12_GLOBAL__N_114FormatTestObjC6formatEN4llvm9StringRefENS2_11StatusCheckE'/>
+<use f='llvm/clang/unittests/Format/FormatTestProto.cpp' l='27' u='c' c='_ZN5clang6format15FormatTestProto6formatEN4llvm9StringRefEjjRKNS0_11FormatStyleE'/>
+<use f='llvm/clang/unittests/Format/FormatTestRawStrings.cpp' l='47' u='c' c='_ZN5clang6format12_GLOBAL__N_120FormatTestRawStrings6formatEN4llvm9StringRefERKNS0_11FormatStyleENS2_11StatusCheckE'/>
+<use f='llvm/clang/unittests/Format/FormatTestSelective.cpp' l='30' u='c' c='_ZN5clang6format12_GLOBAL__N_119FormatTestSelective6formatEN4llvm9StringRefEjj'/>
+<use f='llvm/clang/unittests/Format/FormatTestTableGen.cpp' l='27' u='c' c='_ZN5clang6format18FormatTestTableGen6formatEN4llvm9StringRefEjjRKNS0_11FormatStyleE'/>
+<use f='llvm/clang/unittests/Format/FormatTestTextProto.cpp' l='27' u='c' c='_ZN5clang6format19FormatTestTextProto6formatEN4llvm9StringRefEjjRKNS0_11FormatStyleE'/>
+<use f='llvm/clang/unittests/Format/NamespaceEndCommentsFixerTest.cpp' l='31' u='c' c='_ZN5clang6format12_GLOBAL__N_129NamespaceEndCommentsFixerTest23fixNamespaceEndCommentsEN4llvm9StringRefERKSt6vectorINS_7tooling5RangeESaIS7_EERKNS0_11FormatStyleE'/>
+<use f='llvm/clang/unittests/Format/SortImportsTestJS.cpp' l='28' u='c' c='_ZN5clang6format12_GLOBAL__N_117SortImportsTestJS4sortEN4llvm9StringRefEjj'/>
+<use f='llvm/clang/unittests/Format/SortImportsTestJS.cpp' l='30' u='c' c='_ZN5clang6format12_GLOBAL__N_117SortImportsTestJS4sortEN4llvm9StringRefEjj'/>
+<use f='llvm/clang/unittests/Format/SortImportsTestJava.cpp' l='19' u='c' c='_ZN5clang6format12_GLOBAL__N_119SortImportsTestJava4sortEN4llvm9StringRefESt6vectorINS_7tooling5RangeESaIS7_EE'/>
+<use f='llvm/clang/unittests/Format/SortImportsTestJava.cpp' l='21' u='c' c='_ZN5clang6format12_GLOBAL__N_119SortImportsTestJava4sortEN4llvm9StringRefESt6vectorINS_7tooling5RangeESaIS7_EE'/>
+<use f='llvm/clang/unittests/Format/SortIncludesTest.cpp' l='33' u='c' c='_ZN5clang6format12_GLOBAL__N_116SortIncludesTest4sortEN4llvm9StringRefESt6vectorINS_7tooling5RangeESaIS7_EES4_j'/>
+<use f='llvm/clang/unittests/Format/SortIncludesTest.cpp' l='35' u='c' c='_ZN5clang6format12_GLOBAL__N_116SortIncludesTest4sortEN4llvm9StringRefESt6vectorINS_7tooling5RangeESaIS7_EES4_j'/>
+<use f='llvm/clang/unittests/Format/UsingDeclarationsSorterTest.cpp' l='29' u='c' c='_ZN5clang6format12_GLOBAL__N_127UsingDeclarationsSorterTest21sortUsingDeclarationsEN4llvm9StringRefERKSt6vectorINS_7tooling5RangeESaIS7_EERKNS0_11FormatStyleE'/>
+<use f='llvm/clang/unittests/Rename/ClangRenameTest.h' l='98' u='c' c='_ZN5clang12clang_rename4test15ClangRenameTest6formatEN4llvm9StringRefE'/>
+<use f='llvm/clang/unittests/Tooling/HeaderIncludesTest.cpp' l='29' u='c' c='_ZN5clang7tooling12_GLOBAL__N_118HeaderIncludesTest6insertEN4llvm9StringRefES4_'/>
+<use f='llvm/clang/unittests/Tooling/HeaderIncludesTest.cpp' l='38' u='c' c='_ZN5clang7tooling12_GLOBAL__N_118HeaderIncludesTest6removeEN4llvm9StringRefES4_'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringTest.cpp' l='920' u='c' c='_ZN5clang7tooling21MergeReplacementsTest19mergeAndTestRewriteEN4llvm9StringRefES3_S3_RKNS0_12ReplacementsES6_'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringTest.cpp' l='922' u='c' c='_ZN5clang7tooling21MergeReplacementsTest19mergeAndTestRewriteEN4llvm9StringRefES3_S3_RKNS0_12ReplacementsES6_'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringTest.cpp' l='928' u='c' c='_ZN5clang7tooling21MergeReplacementsTest19mergeAndTestRewriteEN4llvm9StringRefES3_S3_RKNS0_12ReplacementsES6_'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringTest.cpp' l='938' u='c' c='_ZN5clang7tooling21MergeReplacementsTest19mergeAndTestRewriteEN4llvm9StringRefERKNS0_12ReplacementsES6_'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringTest.cpp' l='940' u='c' c='_ZN5clang7tooling21MergeReplacementsTest19mergeAndTestRewriteEN4llvm9StringRefERKNS0_12ReplacementsES6_'/>
+<use f='llvm/clang/unittests/Tooling/RefactoringTest.cpp' l='942' u='c' c='_ZN5clang7tooling21MergeReplacementsTest19mergeAndTestRewriteEN4llvm9StringRefERKNS0_12ReplacementsES6_'/>
+<use f='llvm/clang/unittests/Tooling/RewriterTest.cpp' l='46' u='c' c='_ZN5clang7tooling12_GLOBAL__N_137Rewriter_AdjacentInsertAndDelete_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Tooling/TransformerTest.cpp' l='55' u='c' c='_ZN12_GLOBAL__N_1L6formatEN4llvm9StringRefE'/>

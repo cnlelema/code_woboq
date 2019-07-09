@@ -1,0 +1,123 @@
+<inh f='llvm/llvm/include/llvm/ADT/IntrusiveRefCntPtr.h' l='70' c='llvm::RefCountedBase'/>
+<def f='llvm/clang/include/clang/StaticAnalyzer/Core/AnalyzerOptions.h' l='162' ll='386'/>
+<size>400</size>
+<doc f='llvm/clang/include/clang/StaticAnalyzer/Core/AnalyzerOptions.h' l='140'>/// Stores options for the analyzer from the command line.
+///
+/// Some options are frontend flags (e.g.: -analyzer-output), but some are
+/// analyzer configuration options, which are preceded by -analyzer-config
+/// (e.g.: -analyzer-config notes-as-events=true).
+///
+/// If you&apos;d like to add a new frontend flag, add it to
+/// include/clang/Driver/CC1Options.td, add a new field to store the value of
+/// that flag in this class, and initialize it in
+/// lib/Frontend/CompilerInvocation.cpp.
+///
+/// If you&apos;d like to add a new non-checker configuration, register it in
+/// include/clang/StaticAnalyzer/Core/AnalyzerOptions.def, and refer to the
+/// top of the file for documentation.
+///
+/// If you&apos;d like to add a new checker option, call getChecker*Option()
+/// whenever.
+///
+/// Some of the options are controlled by raw frontend flags for no good reason,
+/// and should be eventually converted into -analyzer-config flags. New analyzer
+/// options should not be implemented as frontend flags. Frontend flags still
+/// make sense for things that do not affect the actual analysis.</doc>
+<fun r='_ZN5clang15AnalyzerOptions21getRegisteredCheckersEb'/>
+<fun r='_ZN5clang15AnalyzerOptions19printFormattedEntryERN4llvm11raw_ostreamESt4pairINS1_9StringRefES5_Emmm'/>
+<mbr r='clang::AnalyzerOptions::CheckersControlList' o='64' t='std::vector&lt;std::pair&lt;std::string, bool&gt; &gt;'/>
+<mbr r='clang::AnalyzerOptions::Config' o='256' t='ConfigTable'/>
+<mbr r='clang::AnalyzerOptions::AnalysisStoreOpt' o='512' t='clang::AnalysisStores'/>
+<mbr r='clang::AnalyzerOptions::AnalysisConstraintsOpt' o='544' t='clang::AnalysisConstraints'/>
+<mbr r='clang::AnalyzerOptions::AnalysisDiagOpt' o='576' t='clang::AnalysisDiagClients'/>
+<mbr r='clang::AnalyzerOptions::AnalysisPurgeOpt' o='608' t='clang::AnalysisPurgeMode'/>
+<mbr r='clang::AnalyzerOptions::AnalyzeSpecificFunction' o='640' t='std::string'/>
+<mbr r='clang::AnalyzerOptions::DumpExplodedGraphTo' o='896' t='std::string'/>
+<mbr r='clang::AnalyzerOptions::FullCompilerInvocation' o='1152' t='std::string'/>
+<mbr r='clang::AnalyzerOptions::maxBlockVisitOnPath' o='1408' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::DisableAllChecks' o='1440' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::ShowCheckerHelp' o='1441' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::ShowCheckerHelpAlpha' o='1442' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::ShowCheckerHelpDeveloper' o='1443' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::ShowCheckerOptionList' o='1444' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::ShowCheckerOptionAlphaList' o='1445' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::ShowCheckerOptionDeveloperList' o='1446' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::ShowEnabledCheckerList' o='1447' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::ShowConfigOptionsList' o='1448' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::ShouldEmitErrorsOnInvalidConfigValue' o='1449' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::AnalyzeAll' o='1450' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::AnalyzerDisplayProgress' o='1451' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::AnalyzeNestedBlocks' o='1452' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::eagerlyAssumeBinOpBifurcation' o='1453' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::TrimGraph' o='1454' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::visualizeExplodedGraphWithGraphViz' o='1455' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::UnoptimizedCFG' o='1456' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::PrintStats' o='1457' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::NoRetryExhausted' o='1458' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::AnalyzerWerror' o='1459' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::InlineMaxStackDepth' o='1472' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::InliningMode' o='1504' t='clang::AnalysisInliningMode'/>
+<mbr r='clang::AnalyzerOptions::UserMode' o='1536' t='llvm::StringRef'/>
+<mbr r='clang::AnalyzerOptions::ShouldIncludeImplicitDtorsInCFG' o='1664' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldIncludeTemporaryDtorsInCFG' o='1672' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldIncludeLifetimeInCFG' o='1680' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldIncludeLoopExitInCFG' o='1688' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldIncludeRichConstructorsInCFG' o='1696' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldIncludeScopesInCFG' o='1704' t='bool'/>
+<mbr r='clang::AnalyzerOptions::MayInlineTemplateFunctions' o='1712' t='bool'/>
+<mbr r='clang::AnalyzerOptions::MayInlineCXXStandardLibrary' o='1720' t='bool'/>
+<mbr r='clang::AnalyzerOptions::MayInlineCXXAllocator' o='1728' t='bool'/>
+<mbr r='clang::AnalyzerOptions::MayInlineCXXSharedPtrDtor' o='1736' t='bool'/>
+<mbr r='clang::AnalyzerOptions::MayInlineCXXTemporaryDtors' o='1744' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldSuppressNullReturnPaths' o='1752' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldAvoidSuppressingNullArgumentPaths' o='1760' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldSuppressInlinedDefensiveChecks' o='1768' t='bool'/>
+<mbr r='clang::AnalyzerOptions::MayInlineCXXContainerMethods' o='1776' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldSuppressFromCXXStandardLibrary' o='1784' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldCrosscheckWithZ3' o='1792' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldReportIssuesInMainSourceFile' o='1800' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldWriteStableReportFilename' o='1808' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldSerializeStats' o='1816' t='bool'/>
+<mbr r='clang::AnalyzerOptions::MayInlineObjCMethod' o='1824' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldPrunePaths' o='1832' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldAddPopUpNotes' o='1840' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldConditionalizeStaticInitializers' o='1848' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldSynthesizeBodies' o='1856' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldElideConstructors' o='1864' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldInlineLambdas' o='1872' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldWidenLoops' o='1880' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldUnrollLoops' o='1888' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldDisplayNotesAsEvents' o='1896' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldAggressivelySimplifyBinaryOperation' o='1904' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldEagerlyAssume' o='1912' t='bool'/>
+<mbr r='clang::AnalyzerOptions::IsNaiveCTUEnabled' o='1920' t='bool'/>
+<mbr r='clang::AnalyzerOptions::ShouldDisplayMacroExpansions' o='1928' t='bool'/>
+<mbr r='clang::AnalyzerOptions::DisplayCTUProgress' o='1936' t='bool'/>
+<mbr r='clang::AnalyzerOptions::AlwaysInlineSize' o='1952' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::GraphTrimInterval' o='1984' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::MinCFGSizeTreatFunctionsAsLarge' o='2016' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::MaxSymbolComplexity' o='2048' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::MaxTimesInlineLarge' o='2080' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::MaxInlinableSize' o='2112' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::MaxNodesPerTopLevelFunction' o='2144' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::RegionStoreSmallStructLimit' o='2176' t='unsigned int'/>
+<mbr r='clang::AnalyzerOptions::CTUDir' o='2240' t='llvm::StringRef'/>
+<mbr r='clang::AnalyzerOptions::CTUIndexName' o='2368' t='llvm::StringRef'/>
+<mbr r='clang::AnalyzerOptions::ModelPath' o='2496' t='llvm::StringRef'/>
+<mbr r='clang::AnalyzerOptions::CXXMemberInliningMode' o='2624' t='llvm::StringRef'/>
+<mbr r='clang::AnalyzerOptions::IPAMode' o='2752' t='llvm::StringRef'/>
+<mbr r='clang::AnalyzerOptions::ExplorationStrategy' o='2880' t='llvm::StringRef'/>
+<mbr r='clang::AnalyzerOptions::AnalyzerConfigCmdFlags' o='3008' t='std::vector&lt;StringRef&gt;'/>
+<fun r='_ZNK5clang15AnalyzerOptions23isUnknownAnalyzerConfigEN4llvm9StringRefE'/>
+<fun r='_ZN5clang15AnalyzerOptionsC1Ev'/>
+<fun r='_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEN4llvm9StringRefES2_b'/>
+<fun r='_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb'/>
+<fun r='_ZNK5clang15AnalyzerOptions23getCheckerIntegerOptionEN4llvm9StringRefES2_b'/>
+<fun r='_ZNK5clang15AnalyzerOptions23getCheckerIntegerOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb'/>
+<fun r='_ZNK5clang15AnalyzerOptions22getCheckerStringOptionEN4llvm9StringRefES2_b'/>
+<fun r='_ZNK5clang15AnalyzerOptions22getCheckerStringOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb'/>
+<fun r='_ZNK5clang15AnalyzerOptions11getUserModeEv'/>
+<fun r='_ZNK5clang15AnalyzerOptions22getExplorationStrategyEv'/>
+<fun r='_ZNK5clang15AnalyzerOptions10getIPAModeEv'/>
+<fun r='_ZNK5clang15AnalyzerOptions26mayInlineCXXMemberFunctionENS_23CXXInlineableMemberKindE'/>
+<fun r='_ZNK5clang15AnalyzerOptions11getUserModeEv'/>

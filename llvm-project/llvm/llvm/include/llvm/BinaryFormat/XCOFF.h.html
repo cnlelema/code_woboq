@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>XCOFF.h source code [llvm/llvm/include/llvm/BinaryFormat/XCOFF.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::XCOFF::ReservedSectionNum,llvm::XCOFF::SectionTypeFlags,llvm::XCOFF::StorageClass "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/BinaryFormat/XCOFF.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>BinaryFormat</a>/<a href='XCOFF.h.html'>XCOFF.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- llvm/BinaryFormat/XCOFF.h - The XCOFF file format -------*- C++/-*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file defines manifest constants for the XCOFF object file format.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#<span data-ppcond="13">ifndef</span> <span class="macro" data-ref="_M/LLVM_BINARYFORMAT_XCOFF_H">LLVM_BINARYFORMAT_XCOFF_H</span></u></td></tr>
+<tr><th id="14">14</th><td><u>#define <dfn class="macro" id="_M/LLVM_BINARYFORMAT_XCOFF_H" data-ref="_M/LLVM_BINARYFORMAT_XCOFF_H">LLVM_BINARYFORMAT_XCOFF_H</dfn></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="../../../../../include/c++/7/cstdint.html">&lt;cstdint&gt;</a></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="19">19</th><td><b>namespace</b> <span class="namespace">XCOFF</span> {</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><i>// Constants used in the XCOFF definition.</i></td></tr>
+<tr><th id="22">22</th><td><b>enum</b> { <dfn class="enum" id="llvm::XCOFF::SectionNameSize" title='llvm::XCOFF::SectionNameSize' data-ref="llvm::XCOFF::SectionNameSize">SectionNameSize</dfn> = <var>8</var>, <dfn class="enum" id="llvm::XCOFF::SymbolNameSize" title='llvm::XCOFF::SymbolNameSize' data-ref="llvm::XCOFF::SymbolNameSize">SymbolNameSize</dfn> = <var>8</var> };</td></tr>
+<tr><th id="23">23</th><td><b>enum</b> <dfn class="type def" id="llvm::XCOFF::ReservedSectionNum" title='llvm::XCOFF::ReservedSectionNum' data-ref="llvm::XCOFF::ReservedSectionNum">ReservedSectionNum</dfn> { <dfn class="enum" id="llvm::XCOFF::ReservedSectionNum::N_DEBUG" title='llvm::XCOFF::ReservedSectionNum::N_DEBUG' data-ref="llvm::XCOFF::ReservedSectionNum::N_DEBUG">N_DEBUG</dfn> = -<var>2</var>, <dfn class="enum" id="llvm::XCOFF::ReservedSectionNum::N_ABS" title='llvm::XCOFF::ReservedSectionNum::N_ABS' data-ref="llvm::XCOFF::ReservedSectionNum::N_ABS">N_ABS</dfn> = -<var>1</var>, <dfn class="enum" id="llvm::XCOFF::ReservedSectionNum::N_UNDEF" title='llvm::XCOFF::ReservedSectionNum::N_UNDEF' data-ref="llvm::XCOFF::ReservedSectionNum::N_UNDEF">N_UNDEF</dfn> = <var>0</var> };</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><i>// Flags for defining the section type. Used for the s_flags field of</i></td></tr>
+<tr><th id="26">26</th><td><i>// the section header structure. Defined in the system header `scnhdr.h`.</i></td></tr>
+<tr><th id="27">27</th><td><b>enum</b> <dfn class="type def" id="llvm::XCOFF::SectionTypeFlags" title='llvm::XCOFF::SectionTypeFlags' data-ref="llvm::XCOFF::SectionTypeFlags">SectionTypeFlags</dfn> {</td></tr>
+<tr><th id="28">28</th><td>  <dfn class="enum" id="llvm::XCOFF::SectionTypeFlags::STYP_PAD" title='llvm::XCOFF::SectionTypeFlags::STYP_PAD' data-ref="llvm::XCOFF::SectionTypeFlags::STYP_PAD">STYP_PAD</dfn> = <var>0x0008</var>,</td></tr>
+<tr><th id="29">29</th><td>  <dfn class="enum" id="llvm::XCOFF::SectionTypeFlags::STYP_DWARF" title='llvm::XCOFF::SectionTypeFlags::STYP_DWARF' data-ref="llvm::XCOFF::SectionTypeFlags::STYP_DWARF">STYP_DWARF</dfn> = <var>0x0010</var>,</td></tr>
+<tr><th id="30">30</th><td>  <dfn class="enum" id="llvm::XCOFF::SectionTypeFlags::STYP_TEXT" title='llvm::XCOFF::SectionTypeFlags::STYP_TEXT' data-ref="llvm::XCOFF::SectionTypeFlags::STYP_TEXT">STYP_TEXT</dfn> = <var>0x0020</var>,</td></tr>
+<tr><th id="31">31</th><td>  <dfn class="enum" id="llvm::XCOFF::SectionTypeFlags::STYP_DATA" title='llvm::XCOFF::SectionTypeFlags::STYP_DATA' data-ref="llvm::XCOFF::SectionTypeFlags::STYP_DATA">STYP_DATA</dfn> = <var>0x0040</var>,</td></tr>
+<tr><th id="32">32</th><td>  <dfn class="enum" id="llvm::XCOFF::SectionTypeFlags::STYP_BSS" title='llvm::XCOFF::SectionTypeFlags::STYP_BSS' data-ref="llvm::XCOFF::SectionTypeFlags::STYP_BSS">STYP_BSS</dfn> = <var>0x0080</var>,</td></tr>
+<tr><th id="33">33</th><td>  <dfn class="enum" id="llvm::XCOFF::SectionTypeFlags::STYP_EXCEPT" title='llvm::XCOFF::SectionTypeFlags::STYP_EXCEPT' data-ref="llvm::XCOFF::SectionTypeFlags::STYP_EXCEPT">STYP_EXCEPT</dfn> = <var>0x0100</var>,</td></tr>
+<tr><th id="34">34</th><td>  <dfn class="enum" id="llvm::XCOFF::SectionTypeFlags::STYP_INFO" title='llvm::XCOFF::SectionTypeFlags::STYP_INFO' data-ref="llvm::XCOFF::SectionTypeFlags::STYP_INFO">STYP_INFO</dfn> = <var>0x0200</var>,</td></tr>
+<tr><th id="35">35</th><td>  <dfn class="enum" id="llvm::XCOFF::SectionTypeFlags::STYP_TDATA" title='llvm::XCOFF::SectionTypeFlags::STYP_TDATA' data-ref="llvm::XCOFF::SectionTypeFlags::STYP_TDATA">STYP_TDATA</dfn> = <var>0x0400</var>,</td></tr>
+<tr><th id="36">36</th><td>  <dfn class="enum" id="llvm::XCOFF::SectionTypeFlags::STYP_TBSS" title='llvm::XCOFF::SectionTypeFlags::STYP_TBSS' data-ref="llvm::XCOFF::SectionTypeFlags::STYP_TBSS">STYP_TBSS</dfn> = <var>0x0800</var>,</td></tr>
+<tr><th id="37">37</th><td>  <dfn class="enum" id="llvm::XCOFF::SectionTypeFlags::STYP_LOADER" title='llvm::XCOFF::SectionTypeFlags::STYP_LOADER' data-ref="llvm::XCOFF::SectionTypeFlags::STYP_LOADER">STYP_LOADER</dfn> = <var>0x1000</var>,</td></tr>
+<tr><th id="38">38</th><td>  <dfn class="enum" id="llvm::XCOFF::SectionTypeFlags::STYP_DEBUG" title='llvm::XCOFF::SectionTypeFlags::STYP_DEBUG' data-ref="llvm::XCOFF::SectionTypeFlags::STYP_DEBUG">STYP_DEBUG</dfn> = <var>0x2000</var>,</td></tr>
+<tr><th id="39">39</th><td>  <dfn class="enum" id="llvm::XCOFF::SectionTypeFlags::STYP_TYPCHK" title='llvm::XCOFF::SectionTypeFlags::STYP_TYPCHK' data-ref="llvm::XCOFF::SectionTypeFlags::STYP_TYPCHK">STYP_TYPCHK</dfn> = <var>0x4000</var>,</td></tr>
+<tr><th id="40">40</th><td>  <dfn class="enum" id="llvm::XCOFF::SectionTypeFlags::STYP_OVRFLO" title='llvm::XCOFF::SectionTypeFlags::STYP_OVRFLO' data-ref="llvm::XCOFF::SectionTypeFlags::STYP_OVRFLO">STYP_OVRFLO</dfn> = <var>0x8000</var></td></tr>
+<tr><th id="41">41</th><td>};</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><i>// STORAGE CLASSES, n_sclass field of syment.</i></td></tr>
+<tr><th id="44">44</th><td><i>// The values come from `storclass.h` and `dbxstclass.h`.</i></td></tr>
+<tr><th id="45">45</th><td><b>enum</b> <dfn class="type def" id="llvm::XCOFF::StorageClass" title='llvm::XCOFF::StorageClass' data-ref="llvm::XCOFF::StorageClass">StorageClass</dfn> : uint8_t {</td></tr>
+<tr><th id="46">46</th><td>  <i>// Storage classes used for symbolic debugging symbols.</i></td></tr>
+<tr><th id="47">47</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_FILE" title='llvm::XCOFF::StorageClass::C_FILE' data-ref="llvm::XCOFF::StorageClass::C_FILE">C_FILE</dfn> = <var>103</var>,  <i>// File name</i></td></tr>
+<tr><th id="48">48</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_BINCL" title='llvm::XCOFF::StorageClass::C_BINCL' data-ref="llvm::XCOFF::StorageClass::C_BINCL">C_BINCL</dfn> = <var>108</var>, <i>// Beginning of include file</i></td></tr>
+<tr><th id="49">49</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_EINCL" title='llvm::XCOFF::StorageClass::C_EINCL' data-ref="llvm::XCOFF::StorageClass::C_EINCL">C_EINCL</dfn> = <var>109</var>, <i>// Ending of include file</i></td></tr>
+<tr><th id="50">50</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_GSYM" title='llvm::XCOFF::StorageClass::C_GSYM' data-ref="llvm::XCOFF::StorageClass::C_GSYM">C_GSYM</dfn> = <var>128</var>,  <i>// Global variable</i></td></tr>
+<tr><th id="51">51</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_STSYM" title='llvm::XCOFF::StorageClass::C_STSYM' data-ref="llvm::XCOFF::StorageClass::C_STSYM">C_STSYM</dfn> = <var>133</var>, <i>// Statically allocated symbol</i></td></tr>
+<tr><th id="52">52</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_BCOMM" title='llvm::XCOFF::StorageClass::C_BCOMM' data-ref="llvm::XCOFF::StorageClass::C_BCOMM">C_BCOMM</dfn> = <var>135</var>, <i>// Beginning of common block</i></td></tr>
+<tr><th id="53">53</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_ECOMM" title='llvm::XCOFF::StorageClass::C_ECOMM' data-ref="llvm::XCOFF::StorageClass::C_ECOMM">C_ECOMM</dfn> = <var>137</var>, <i>// End of common block</i></td></tr>
+<tr><th id="54">54</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_ENTRY" title='llvm::XCOFF::StorageClass::C_ENTRY' data-ref="llvm::XCOFF::StorageClass::C_ENTRY">C_ENTRY</dfn> = <var>141</var>, <i>// Alternate entry</i></td></tr>
+<tr><th id="55">55</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_BSTAT" title='llvm::XCOFF::StorageClass::C_BSTAT' data-ref="llvm::XCOFF::StorageClass::C_BSTAT">C_BSTAT</dfn> = <var>143</var>, <i>// Beginning of static block</i></td></tr>
+<tr><th id="56">56</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_ESTAT" title='llvm::XCOFF::StorageClass::C_ESTAT' data-ref="llvm::XCOFF::StorageClass::C_ESTAT">C_ESTAT</dfn> = <var>144</var>, <i>// End of static block</i></td></tr>
+<tr><th id="57">57</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_GTLS" title='llvm::XCOFF::StorageClass::C_GTLS' data-ref="llvm::XCOFF::StorageClass::C_GTLS">C_GTLS</dfn> = <var>145</var>,  <i>// Global thread-local variable</i></td></tr>
+<tr><th id="58">58</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_STTLS" title='llvm::XCOFF::StorageClass::C_STTLS' data-ref="llvm::XCOFF::StorageClass::C_STTLS">C_STTLS</dfn> = <var>146</var>, <i>// Static thread-local variable</i></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>  <i>// Storage classes used for DWARF symbols.</i></td></tr>
+<tr><th id="61">61</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_DWARF" title='llvm::XCOFF::StorageClass::C_DWARF' data-ref="llvm::XCOFF::StorageClass::C_DWARF">C_DWARF</dfn> = <var>112</var>, <i>// DWARF section symbol</i></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>  <i>// Storage classes used for absolute symbols.</i></td></tr>
+<tr><th id="64">64</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_LSYM" title='llvm::XCOFF::StorageClass::C_LSYM' data-ref="llvm::XCOFF::StorageClass::C_LSYM">C_LSYM</dfn> = <var>129</var>,  <i>// Automatic variable allocated on stack</i></td></tr>
+<tr><th id="65">65</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_PSYM" title='llvm::XCOFF::StorageClass::C_PSYM' data-ref="llvm::XCOFF::StorageClass::C_PSYM">C_PSYM</dfn> = <var>130</var>,  <i>// Argument to subroutine allocated on stack</i></td></tr>
+<tr><th id="66">66</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_RSYM" title='llvm::XCOFF::StorageClass::C_RSYM' data-ref="llvm::XCOFF::StorageClass::C_RSYM">C_RSYM</dfn> = <var>131</var>,  <i>// Register variable</i></td></tr>
+<tr><th id="67">67</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_RPSYM" title='llvm::XCOFF::StorageClass::C_RPSYM' data-ref="llvm::XCOFF::StorageClass::C_RPSYM">C_RPSYM</dfn> = <var>132</var>, <i>// Argument to function or procedure stored in register</i></td></tr>
+<tr><th id="68">68</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_ECOML" title='llvm::XCOFF::StorageClass::C_ECOML' data-ref="llvm::XCOFF::StorageClass::C_ECOML">C_ECOML</dfn> = <var>136</var>, <i>// Local member of common block</i></td></tr>
+<tr><th id="69">69</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_FUN" title='llvm::XCOFF::StorageClass::C_FUN' data-ref="llvm::XCOFF::StorageClass::C_FUN">C_FUN</dfn> = <var>142</var>,   <i>// Function or procedure</i></td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>  <i>// Storage classes used for undefined external symbols or</i></td></tr>
+<tr><th id="72">72</th><td><i>  // symbols of general sections.</i></td></tr>
+<tr><th id="73">73</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_EXT" title='llvm::XCOFF::StorageClass::C_EXT' data-ref="llvm::XCOFF::StorageClass::C_EXT">C_EXT</dfn> = <var>2</var>,       <i>// External symbol</i></td></tr>
+<tr><th id="74">74</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_WEAKEXT" title='llvm::XCOFF::StorageClass::C_WEAKEXT' data-ref="llvm::XCOFF::StorageClass::C_WEAKEXT">C_WEAKEXT</dfn> = <var>111</var>, <i>// Weak external symbol</i></td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>  <i>// Storage classes used for symbols of general sections.</i></td></tr>
+<tr><th id="77">77</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_NULL" title='llvm::XCOFF::StorageClass::C_NULL' data-ref="llvm::XCOFF::StorageClass::C_NULL">C_NULL</dfn> = <var>0</var>,</td></tr>
+<tr><th id="78">78</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_STAT" title='llvm::XCOFF::StorageClass::C_STAT' data-ref="llvm::XCOFF::StorageClass::C_STAT">C_STAT</dfn> = <var>3</var>,     <i>// Static</i></td></tr>
+<tr><th id="79">79</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_BLOCK" title='llvm::XCOFF::StorageClass::C_BLOCK' data-ref="llvm::XCOFF::StorageClass::C_BLOCK">C_BLOCK</dfn> = <var>100</var>,  <i>// ".bb" or ".eb"</i></td></tr>
+<tr><th id="80">80</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_FCN" title='llvm::XCOFF::StorageClass::C_FCN' data-ref="llvm::XCOFF::StorageClass::C_FCN">C_FCN</dfn> = <var>101</var>,    <i>// ".bf" or ".ef"</i></td></tr>
+<tr><th id="81">81</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_HIDEXT" title='llvm::XCOFF::StorageClass::C_HIDEXT' data-ref="llvm::XCOFF::StorageClass::C_HIDEXT">C_HIDEXT</dfn> = <var>107</var>, <i>// Un-named external symbol</i></td></tr>
+<tr><th id="82">82</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_INFO" title='llvm::XCOFF::StorageClass::C_INFO' data-ref="llvm::XCOFF::StorageClass::C_INFO">C_INFO</dfn> = <var>110</var>,   <i>// Comment string in .info section</i></td></tr>
+<tr><th id="83">83</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_DECL" title='llvm::XCOFF::StorageClass::C_DECL' data-ref="llvm::XCOFF::StorageClass::C_DECL">C_DECL</dfn> = <var>140</var>,   <i>// Declaration of object (type)</i></td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td>  <i>// Storage classes - Obsolete/Undocumented.</i></td></tr>
+<tr><th id="86">86</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_AUTO" title='llvm::XCOFF::StorageClass::C_AUTO' data-ref="llvm::XCOFF::StorageClass::C_AUTO">C_AUTO</dfn> = <var>1</var>,     <i>// Automatic variable</i></td></tr>
+<tr><th id="87">87</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_REG" title='llvm::XCOFF::StorageClass::C_REG' data-ref="llvm::XCOFF::StorageClass::C_REG">C_REG</dfn> = <var>4</var>,      <i>// Register variable</i></td></tr>
+<tr><th id="88">88</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_EXTDEF" title='llvm::XCOFF::StorageClass::C_EXTDEF' data-ref="llvm::XCOFF::StorageClass::C_EXTDEF">C_EXTDEF</dfn> = <var>5</var>,   <i>// External definition</i></td></tr>
+<tr><th id="89">89</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_LABEL" title='llvm::XCOFF::StorageClass::C_LABEL' data-ref="llvm::XCOFF::StorageClass::C_LABEL">C_LABEL</dfn> = <var>6</var>,    <i>// Label</i></td></tr>
+<tr><th id="90">90</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_ULABEL" title='llvm::XCOFF::StorageClass::C_ULABEL' data-ref="llvm::XCOFF::StorageClass::C_ULABEL">C_ULABEL</dfn> = <var>7</var>,   <i>// Undefined label</i></td></tr>
+<tr><th id="91">91</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_MOS" title='llvm::XCOFF::StorageClass::C_MOS' data-ref="llvm::XCOFF::StorageClass::C_MOS">C_MOS</dfn> = <var>8</var>,      <i>// Member of structure</i></td></tr>
+<tr><th id="92">92</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_ARG" title='llvm::XCOFF::StorageClass::C_ARG' data-ref="llvm::XCOFF::StorageClass::C_ARG">C_ARG</dfn> = <var>9</var>,      <i>// Function argument</i></td></tr>
+<tr><th id="93">93</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_STRTAG" title='llvm::XCOFF::StorageClass::C_STRTAG' data-ref="llvm::XCOFF::StorageClass::C_STRTAG">C_STRTAG</dfn> = <var>10</var>,  <i>// Structure tag</i></td></tr>
+<tr><th id="94">94</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_MOU" title='llvm::XCOFF::StorageClass::C_MOU' data-ref="llvm::XCOFF::StorageClass::C_MOU">C_MOU</dfn> = <var>11</var>,     <i>// Member of union</i></td></tr>
+<tr><th id="95">95</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_UNTAG" title='llvm::XCOFF::StorageClass::C_UNTAG' data-ref="llvm::XCOFF::StorageClass::C_UNTAG">C_UNTAG</dfn> = <var>12</var>,   <i>// Union tag</i></td></tr>
+<tr><th id="96">96</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_TPDEF" title='llvm::XCOFF::StorageClass::C_TPDEF' data-ref="llvm::XCOFF::StorageClass::C_TPDEF">C_TPDEF</dfn> = <var>13</var>,   <i>// Type definition</i></td></tr>
+<tr><th id="97">97</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_USTATIC" title='llvm::XCOFF::StorageClass::C_USTATIC' data-ref="llvm::XCOFF::StorageClass::C_USTATIC">C_USTATIC</dfn> = <var>14</var>, <i>// Undefined static</i></td></tr>
+<tr><th id="98">98</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_ENTAG" title='llvm::XCOFF::StorageClass::C_ENTAG' data-ref="llvm::XCOFF::StorageClass::C_ENTAG">C_ENTAG</dfn> = <var>15</var>,   <i>// Enumeration tag</i></td></tr>
+<tr><th id="99">99</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_MOE" title='llvm::XCOFF::StorageClass::C_MOE' data-ref="llvm::XCOFF::StorageClass::C_MOE">C_MOE</dfn> = <var>16</var>,     <i>// Member of enumeration</i></td></tr>
+<tr><th id="100">100</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_REGPARM" title='llvm::XCOFF::StorageClass::C_REGPARM' data-ref="llvm::XCOFF::StorageClass::C_REGPARM">C_REGPARM</dfn> = <var>17</var>, <i>// Register parameter</i></td></tr>
+<tr><th id="101">101</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_FIELD" title='llvm::XCOFF::StorageClass::C_FIELD' data-ref="llvm::XCOFF::StorageClass::C_FIELD">C_FIELD</dfn> = <var>18</var>,   <i>// Bit field</i></td></tr>
+<tr><th id="102">102</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_EOS" title='llvm::XCOFF::StorageClass::C_EOS' data-ref="llvm::XCOFF::StorageClass::C_EOS">C_EOS</dfn> = <var>102</var>,    <i>// End of structure</i></td></tr>
+<tr><th id="103">103</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_LINE" title='llvm::XCOFF::StorageClass::C_LINE' data-ref="llvm::XCOFF::StorageClass::C_LINE">C_LINE</dfn> = <var>104</var>,</td></tr>
+<tr><th id="104">104</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_ALIAS" title='llvm::XCOFF::StorageClass::C_ALIAS' data-ref="llvm::XCOFF::StorageClass::C_ALIAS">C_ALIAS</dfn> = <var>105</var>,  <i>// Duplicate tag</i></td></tr>
+<tr><th id="105">105</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_HIDDEN" title='llvm::XCOFF::StorageClass::C_HIDDEN' data-ref="llvm::XCOFF::StorageClass::C_HIDDEN">C_HIDDEN</dfn> = <var>106</var>, <i>// Special storage class for external</i></td></tr>
+<tr><th id="106">106</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_EFCN" title='llvm::XCOFF::StorageClass::C_EFCN' data-ref="llvm::XCOFF::StorageClass::C_EFCN">C_EFCN</dfn> = <var>255</var>,   <i>// Physical end of function</i></td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>  <i>// Storage classes - reserved</i></td></tr>
+<tr><th id="109">109</th><td>  <dfn class="enum" id="llvm::XCOFF::StorageClass::C_TCSYM" title='llvm::XCOFF::StorageClass::C_TCSYM' data-ref="llvm::XCOFF::StorageClass::C_TCSYM">C_TCSYM</dfn> = <var>134</var> <i>// Reserved</i></td></tr>
+<tr><th id="110">110</th><td>};</td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td>} <i>// end namespace XCOFF</i></td></tr>
+<tr><th id="113">113</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td><u>#<span data-ppcond="13">endif</span></u></td></tr>
+<tr><th id="116">116</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../lib/MC/MCContext.cpp.html'>llvm/llvm/lib/MC/MCContext.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

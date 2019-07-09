@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/include/llvm/ADT/APInt.h' l='1806' type='llvm::APInt llvm::APInt::multiplicativeInverse(const llvm::APInt &amp; modulo) const'/>
+<doc f='llvm/llvm/include/llvm/ADT/APInt.h' l='1805'>/// \returns the multiplicative inverse for a given modulo.</doc>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='1200' u='c' c='_ZL19BinomialCoefficientPKN4llvm4SCEVEjRNS_15ScalarEvolutionEPNS_4TypeE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='8369' u='c' c='_ZL28SolveLinEquationWithOverflowRKN4llvm5APIntEPKNS_4SCEVERNS_15ScalarEvolutionE'/>
+<def f='llvm/llvm/lib/Support/APInt.cpp' l='1098' ll='1138' type='llvm::APInt llvm::APInt::multiplicativeInverse(const llvm::APInt &amp; modulo) const'/>
+<doc f='llvm/llvm/lib/Support/APInt.cpp' l='1093'>/// Computes the multiplicative inverse of this APInt for a given modulo. The
+/// iterative extended Euclidean algorithm is used to solve for this value,
+/// however we simplify it to speed up calculating only the inverse, and take
+/// advantage of div+rem calculations. We also use some tricks to avoid copying
+/// (potentially large) APInts around.</doc>

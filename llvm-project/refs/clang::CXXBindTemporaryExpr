@@ -1,0 +1,33 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<def f='llvm/clang/include/clang/AST/ExprCXX.h' l='1277' ll='1323'/>
+<size>32</size>
+<doc f='llvm/clang/include/clang/AST/ExprCXX.h' l='1263'>/// Represents binding an expression to a temporary.
+///
+/// This ensures the destructor is called for the temporary. It should only be
+/// needed for non-POD, non-trivially destructable class types. For example:
+///
+/// \code
+///   struct S {
+///     S() { }  // User defined constructor makes S non-POD.
+///     ~S() { } // User defined destructor makes it non-trivial.
+///   };
+///   void test() {
+///     const S &amp;s_ref = S(); // Requires a CXXBindTemporaryExpr.
+///   }
+/// \endcode</doc>
+<mbr r='clang::CXXBindTemporaryExpr::Temp' o='128' t='clang::CXXTemporary *'/>
+<mbr r='clang::CXXBindTemporaryExpr::SubExpr' o='192' t='clang::Stmt *'/>
+<fun r='_ZN5clang20CXXBindTemporaryExprC1EPNS_12CXXTemporaryEPNS_4ExprE'/>
+<fun r='_ZN5clang20CXXBindTemporaryExprC1ENS_4Stmt10EmptyShellE'/>
+<fun r='_ZN5clang20CXXBindTemporaryExpr6CreateERKNS_10ASTContextEPNS_12CXXTemporaryEPNS_4ExprE'/>
+<fun r='_ZN5clang20CXXBindTemporaryExpr12getTemporaryEv'/>
+<fun r='_ZNK5clang20CXXBindTemporaryExpr12getTemporaryEv'/>
+<fun r='_ZN5clang20CXXBindTemporaryExpr12setTemporaryEPNS_12CXXTemporaryE'/>
+<fun r='_ZNK5clang20CXXBindTemporaryExpr10getSubExprEv'/>
+<fun r='_ZN5clang20CXXBindTemporaryExpr10getSubExprEv'/>
+<fun r='_ZN5clang20CXXBindTemporaryExpr10setSubExprEPNS_4ExprE'/>
+<fun r='_ZNK5clang20CXXBindTemporaryExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang20CXXBindTemporaryExpr9getEndLocEv'/>
+<fun r='_ZN5clang20CXXBindTemporaryExpr7classofEPKNS_4StmtE'/>
+<fun r='_ZN5clang20CXXBindTemporaryExpr8childrenEv'/>
+<fun r='_ZNK5clang20CXXBindTemporaryExpr8childrenEv'/>

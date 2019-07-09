@@ -1,0 +1,9 @@
+<dec f='llvm/lld/COFF/InputFiles.h' l='99' type='void lld::coff::ArchiveFile::addMember(const Archive::Symbol * Sym)'/>
+<doc f='llvm/lld/COFF/InputFiles.h' l='96'>// Enqueues an archive member load for the given symbol. If we&apos;ve already
+  // enqueued a load for the same archive member, this function does nothing,
+  // which ensures that we don&apos;t load the same member more than once.</doc>
+<def f='llvm/lld/COFF/InputFiles.cpp' l='88' ll='98' type='void lld::coff::ArchiveFile::addMember(const Archive::Symbol * Sym)'/>
+<doc f='llvm/lld/COFF/InputFiles.cpp' l='87'>// Returns a buffer pointing to a member file containing a given symbol.</doc>
+<use f='llvm/lld/COFF/SymbolTable.cpp' l='143' u='c' c='_ZN3lld4coff11SymbolTable25loadMinGWAutomaticImportsEv'/>
+<use f='llvm/lld/COFF/SymbolTable.cpp' l='315' u='c' c='_ZN3lld4coff11SymbolTable12addUndefinedEN4llvm9StringRefEPNS0_9InputFileEb'/>
+<use f='llvm/lld/COFF/SymbolTable.cpp' l='334' u='c' c='_ZN3lld4coff11SymbolTable7addLazyEPNS0_11ArchiveFileEN4llvm6object7Archive6SymbolE'/>

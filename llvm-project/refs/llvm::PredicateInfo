@@ -1,0 +1,72 @@
+<def f='llvm/llvm/include/llvm/Transforms/Utils/PredicateInfo.h' l='199' ll='267'/>
+<size>3808</size>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/PredicateInfo.h' l='197'>/// Encapsulates PredicateInfo, including all data associated with memory
+/// accesses.</doc>
+<mbr r='llvm::PredicateInfo::AllInfos' o='0' t='iplist&lt;llvm::PredicateBase&gt;'/>
+<fun r='_ZN4llvm13PredicateInfoC1ERNS_8FunctionERNS_13DominatorTreeERNS_15AssumptionCacheE'/>
+<fun r='_ZN4llvm13PredicateInfoD1Ev'/>
+<fun r='_ZNK4llvm13PredicateInfo19verifyPredicateInfoEv'/>
+<fun r='_ZNK4llvm13PredicateInfo4dumpEv'/>
+<fun r='_ZNK4llvm13PredicateInfo5printERNS_11raw_ostreamE'/>
+<fun r='_ZNK4llvm13PredicateInfo19getPredicateInfoForEPKNS_5ValueE'/>
+<fun r='_ZN4llvm13PredicateInfo18buildPredicateInfoEv'/>
+<fun r='_ZN4llvm13PredicateInfo13processAssumeEPNS_13IntrinsicInstEPNS_10BasicBlockERNS_15SmallPtrSetImplIPNS_5ValueEEE'/>
+<fun r='_ZN4llvm13PredicateInfo13processBranchEPNS_10BranchInstEPNS_10BasicBlockERNS_15SmallPtrSetImplIPNS_5ValueEEE'/>
+<fun r='_ZN4llvm13PredicateInfo13processSwitchEPNS_10SwitchInstEPNS_10BasicBlockERNS_15SmallPtrSetImplIPNS_5ValueEEE'/>
+<fun r='_ZN4llvm13PredicateInfo10renameUsesERNS_15SmallPtrSetImplIPNS_5ValueEEE'/>
+<fun r='_ZN4llvm13PredicateInfo23convertUsesToDFSOrderedEPNS_5ValueERNS_15SmallVectorImplINS_20PredicateInfoClasses8ValueDFSEEE'/>
+<fun r='_ZN4llvm13PredicateInfo16materializeStackERjRNS_15SmallVectorImplINS_20PredicateInfoClasses8ValueDFSEEEPNS_5ValueE'/>
+<fun r='_ZNK4llvm13PredicateInfo14stackIsInScopeERKNS_15SmallVectorImplINS_20PredicateInfoClasses8ValueDFSEEERKS3_'/>
+<fun r='_ZN4llvm13PredicateInfo21popStackUntilDFSScopeERNS_15SmallVectorImplINS_20PredicateInfoClasses8ValueDFSEEERKS3_'/>
+<fun r='_ZN4llvm13PredicateInfo20getOrCreateValueInfoEPNS_5ValueE'/>
+<fun r='_ZN4llvm13PredicateInfo10addInfoForERNS_15SmallPtrSetImplIPNS_5ValueEEES3_PNS_13PredicateBaseE'/>
+<fun r='_ZNK4llvm13PredicateInfo12getValueInfoEPNS_5ValueE'/>
+<mbr r='llvm::PredicateInfo::F' o='128' t='llvm::Function &amp;'/>
+<mbr r='llvm::PredicateInfo::DT' o='192' t='llvm::DominatorTree &amp;'/>
+<mbr r='llvm::PredicateInfo::AC' o='256' t='llvm::AssumptionCache &amp;'/>
+<mbr r='llvm::PredicateInfo::OI' o='320' t='llvm::OrderedInstructions'/>
+<mbr r='llvm::PredicateInfo::PredicateMap' o='640' t='DenseMap&lt;const llvm::Value *, const llvm::PredicateBase *&gt;'/>
+<mbr r='llvm::PredicateInfo::ValueInfos' o='896' t='SmallVector&lt;llvm::PredicateInfo::ValueInfo, 32&gt;'/>
+<mbr r='llvm::PredicateInfo::ValueInfoNums' o='25600' t='DenseMap&lt;llvm::Value *, unsigned int&gt;'/>
+<mbr r='llvm::PredicateInfo::EdgeUsesOnly' o='25856' t='DenseSet&lt;std::pair&lt;BasicBlock *, BasicBlock *&gt; &gt;'/>
+<mbr r='llvm::PredicateInfo::CreatedDeclarations' o='26112' t='SmallSet&lt;AssertingVH&lt;llvm::Function&gt;, 20&gt;'/>
+<def f='llvm/llvm/utils/TableGen/CodeGenSchedule.h' l='312' ll='323'/>
+<size>40</size>
+<doc f='llvm/llvm/utils/TableGen/CodeGenSchedule.h' l='279'>/// Used to correlate instructions to MCInstPredicates specified by
+/// InstructionEquivalentClass tablegen definitions.
+///
+/// Example: a XOR of a register with self, is a known zero-idiom for most
+/// X86 processors.
+///
+/// Each processor can use a (potentially different) InstructionEquivalenceClass
+///  definition to classify zero-idioms. That means, XORrr is likely to appear
+/// in more than one equivalence class (where each class definition is
+/// contributed by a different processor).
+///
+/// There is no guarantee that the same MCInstPredicate will be used to describe
+/// equivalence classes that identify XORrr as a zero-idiom.
+///
+/// To be more specific, the requirements for being a zero-idiom XORrr may be
+/// different for different processors.
+///
+/// Class PredicateInfo identifies a subset of processors that specify the same
+/// requirements (i.e. same MCInstPredicate and OperandMask) for an instruction
+/// opcode.
+///
+/// Back to the example. Field `ProcModelMask` will have one bit set for every
+/// processor model that sees XORrr as a zero-idiom, and that specifies the same
+/// set of constraints.
+///
+/// By construction, there can be multiple instances of PredicateInfo associated
+/// with a same instruction opcode. For example, different processors may define
+/// different constraints on the same opcode.
+///
+/// Field OperandMask can be used as an extra constraint.
+/// It may be used to describe conditions that appy only to a subset of the
+/// operands of a machine instruction, and the operands subset may not be the
+/// same for all processor models.</doc>
+<mbr r='llvm::PredicateInfo::ProcModelMask' o='0' t='llvm::APInt'/>
+<mbr r='llvm::PredicateInfo::OperandMask' o='128' t='llvm::APInt'/>
+<mbr r='llvm::PredicateInfo::Predicate' o='256' t='const llvm::Record *'/>
+<fun r='_ZN4llvm13PredicateInfoC1ENS_5APIntES1_PKNS_6RecordE'/>
+<fun r='_ZNK4llvm13PredicateInfoeqERKS0_'/>

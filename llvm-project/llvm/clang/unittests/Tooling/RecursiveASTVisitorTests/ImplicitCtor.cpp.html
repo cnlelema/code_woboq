@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ImplicitCtor.cpp source code [llvm/clang/unittests/Tooling/RecursiveASTVisitorTests/ImplicitCtor.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/clang/unittests/Tooling/RecursiveASTVisitorTests/ImplicitCtor.cpp'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>clang</a>/<a href='../..'>unittests</a>/<a href='..'>Tooling</a>/<a href='./'>RecursiveASTVisitorTests</a>/<a href='ImplicitCtor.cpp.html'>ImplicitCtor.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- unittest/Tooling/RecursiveASTVisitorTests/ImplicitCtor.cpp ---------===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#include <a href="../TestVisitor.h.html">"TestVisitor.h"</a></u></td></tr>
+<tr><th id="10">10</th><td></td></tr>
+<tr><th id="11">11</th><td><b>using</b> <b>namespace</b> <span class="namespace">clang</span>;</td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><b>namespace</b> {</td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><i  data-doc="(anonymousnamespace)::ImplicitCtorVisitor">// A visitor that visits implicit declarations and matches constructors.</i></td></tr>
+<tr><th id="16">16</th><td><b>class</b> <dfn class="tu type def" id="(anonymousnamespace)::ImplicitCtorVisitor" title='(anonymous namespace)::ImplicitCtorVisitor' data-ref="(anonymousnamespace)::ImplicitCtorVisitor">ImplicitCtorVisitor</dfn></td></tr>
+<tr><th id="17">17</th><td>    : <b>public</b> ExpectedLocationVisitor&lt;ImplicitCtorVisitor&gt; {</td></tr>
+<tr><th id="18">18</th><td><b>public</b>:</td></tr>
+<tr><th id="19">19</th><td>  <em>bool</em> <dfn class="tu decl def" id="_ZNK12_GLOBAL__N_119ImplicitCtorVisitor23shouldVisitImplicitCodeEv" title='(anonymous namespace)::ImplicitCtorVisitor::shouldVisitImplicitCode' data-type='bool (anonymous namespace)::ImplicitCtorVisitor::shouldVisitImplicitCode() const' data-ref="_ZNK12_GLOBAL__N_119ImplicitCtorVisitor23shouldVisitImplicitCodeEv">shouldVisitImplicitCode</dfn>() <em>const</em> { <b>return</b> <b>true</b>; }</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td>  <em>bool</em> <dfn class="tu decl def" id="_ZN12_GLOBAL__N_119ImplicitCtorVisitor23VisitCXXConstructorDeclEPN5clang18CXXConstructorDeclE" title='(anonymous namespace)::ImplicitCtorVisitor::VisitCXXConstructorDecl' data-type='bool (anonymous namespace)::ImplicitCtorVisitor::VisitCXXConstructorDecl(clang::CXXConstructorDecl * Ctor)' data-ref="_ZN12_GLOBAL__N_119ImplicitCtorVisitor23VisitCXXConstructorDeclEPN5clang18CXXConstructorDeclE">VisitCXXConstructorDecl</dfn>(<a class="type" href="../../../include/clang/AST/DeclCXX.h.html#clang::CXXConstructorDecl" title='clang::CXXConstructorDecl' data-ref="clang::CXXConstructorDecl">CXXConstructorDecl</a>* <dfn class="local col1 decl" id="1Ctor" title='Ctor' data-type='clang::CXXConstructorDecl *' data-ref="1Ctor">Ctor</dfn>) {</td></tr>
+<tr><th id="22">22</th><td>    <b>if</b> (<span class='error' title="cannot initialize object parameter of type &apos;const clang::Decl&apos; with an expression of type &apos;clang::CXXConstructorDecl&apos;">Ctor</span>-&gt;isImplicit()) {  <i>// Was not written in source code</i></td></tr>
+<tr><th id="23">23</th><td>      <b>if</b> (<em>const</em> <a class="type" href="../../../include/clang/AST/DeclCXX.h.html#clang::CXXRecordDecl" title='clang::CXXRecordDecl' data-ref="clang::CXXRecordDecl">CXXRecordDecl</a>* <dfn class="local col2 decl" id="2Class" title='Class' data-type='const clang::CXXRecordDecl *' data-ref="2Class"><a class="local col2 ref" href="#2Class" title='Class' data-ref="2Class">Class</a></dfn> = Ctor-&gt;<span class='error' title="no matching member function for call to &apos;getParent&apos;">getParent</span>()) {</td></tr>
+<tr><th id="24">24</th><td>        Match(<span class='error' title="cannot initialize object parameter of type &apos;const clang::NamedDecl&apos; with an expression of type &apos;const clang::CXXRecordDecl&apos;">Class</span>-&gt;getName(), <span class='error' title="cannot initialize object parameter of type &apos;const clang::Decl&apos; with an expression of type &apos;clang::CXXConstructorDecl&apos;">Ctor</span>-&gt;getLocation());</td></tr>
+<tr><th id="25">25</th><td>      }</td></tr>
+<tr><th id="26">26</th><td>    }</td></tr>
+<tr><th id="27">27</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="28">28</th><td>  }</td></tr>
+<tr><th id="29">29</th><td>};</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><a class="macro" href="../../../../llvm/utils/unittest/googletest/include/gtest/gtest.h.html#2187" title="class RecursiveASTVisitor_VisitsImplicitCopyConstructors_Test : public ::testing::Test { public: RecursiveASTVisitor_VisitsImplicitCopyConstructors_Test() {} private: virtual void TestBody(); static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); RecursiveASTVisitor_VisitsImplicitCopyConstructors_Test(RecursiveASTVisitor_VisitsImplicitCopyConstructors_Test const &amp;); void operator=(RecursiveASTVisitor_VisitsImplicitCopyConstructors_Test const &amp;);};::testing::TestInfo* const RecursiveASTVisitor_VisitsImplicitCopyConstructors_Test ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( &quot;RecursiveASTVisitor&quot;, &quot;VisitsImplicitCopyConstructors&quot;, __null, __null, ::testing::internal::CodeLocation(&quot;/root/cheri/llvm-project/clang/unittests/Tooling/RecursiveASTVisitorTests/ImplicitCtor.cpp&quot;, 31), (::testing::internal::GetTestTypeId()), ::testing::Test::SetUpTestCase, ::testing::Test::TearDownTestCase, new ::testing::internal::TestFactoryImpl&lt; RecursiveASTVisitor_VisitsImplicitCopyConstructors_Test&gt;);void RecursiveASTVisitor_VisitsImplicitCopyConstructors_Test::TestBody()" data-ref="_M/TEST">TEST</a>(RecursiveASTVisitor, VisitsImplicitCopyConstructors) {</td></tr>
+<tr><th id="32">32</th><td>  <a class="tu type" href="#(anonymousnamespace)::ImplicitCtorVisitor" title='(anonymous namespace)::ImplicitCtorVisitor' data-ref="(anonymousnamespace)::ImplicitCtorVisitor">ImplicitCtorVisitor</a> <a class="tu ref fake" href="#16" title='(anonymous namespace)::ImplicitCtorVisitor::ImplicitCtorVisitor' data-use='c' data-ref="_ZN12_GLOBAL__N_119ImplicitCtorVisitorC1Ev"></a><dfn class="local col3 decl" id="3Visitor" title='Visitor' data-type='(anonymous namespace)::ImplicitCtorVisitor' data-ref="3Visitor">Visitor</dfn>;</td></tr>
+<tr><th id="33">33</th><td>  Visitor.<span class='error' title="no member named &apos;ExpectMatch&apos; in &apos;(anonymous namespace)::ImplicitCtorVisitor&apos;">ExpectMatch</span>(<q>"Simple"</q>, <var>2</var>, <var>8</var>);</td></tr>
+<tr><th id="34">34</th><td>  <i>// Note: Clang lazily instantiates implicit declarations, so we need</i></td></tr>
+<tr><th id="35">35</th><td><i>  // to use them in order to force them to appear in the AST.</i></td></tr>
+<tr><th id="36">36</th><td>  <a class="macro" href="../../../../llvm/utils/unittest/googletest/include/gtest/gtest.h.html#1859" title="switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult((Visitor.runOver( &quot;struct WithCtor { WithCtor(); }; \n&quot; &quot;struct Simple { Simple(); WithCtor w; }; \n&quot; &quot;int main() { Simple s; Simple t(s); }\n&quot;)))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, &quot;/root/cheri/llvm-project/clang/unittests/Tooling/RecursiveASTVisitorTests/ImplicitCtor.cpp&quot;, 39, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, &quot;Visitor.runOver( \&quot;struct WithCtor { WithCtor(); }; \\n\&quot; \&quot;struct Simple { Simple(); WithCtor w; }; \\n\&quot; \&quot;int main() { Simple s; Simple t(s); }\\n\&quot;)&quot;, &quot;false&quot;, &quot;true&quot;).c_str()) = ::testing::Message()" data-ref="_M/EXPECT_TRUE">EXPECT_TRUE</a>(Visitor.<span class='error' title="no member named &apos;runOver&apos; in &apos;(anonymous namespace)::ImplicitCtorVisitor&apos;">runOver</span>(</td></tr>
+<tr><th id="37">37</th><td>      <q>"struct WithCtor { WithCtor(); }; \n"</q></td></tr>
+<tr><th id="38">38</th><td>      <q>"struct Simple { Simple(); WithCtor w; }; \n"</q></td></tr>
+<tr><th id="39">39</th><td>      <q>"int main() { Simple s; Simple t(s); }\n"</q>));</td></tr>
+<tr><th id="40">40</th><td>}</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td>} <i>// end anonymous namespace</i></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

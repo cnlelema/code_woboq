@@ -1,0 +1,8 @@
+<dec f='llvm/llvm/include/llvm/Support/GenericDomTreeConstruction.h' l='88' type='DenseMap&lt;NodePtr, SmallVector&lt;NodePtrAndKind, 4&gt; &gt;'/>
+<doc f='llvm/llvm/include/llvm/Support/GenericDomTreeConstruction.h' l='81'>// In order to be able to walk a CFG that is out of sync with the CFG
+    // DominatorTree last knew about, use the list of updates to reconstruct
+    // previous CFG versions of the current CFG. For each node, we store a set
+    // of its virtually added/deleted future successors and predecessors.
+    // Note that these children are from the future relative to what the
+    // DominatorTree knows about -- using them to gets us some snapshot of the
+    // CFG from the past (relative to the state of the CFG).</doc>

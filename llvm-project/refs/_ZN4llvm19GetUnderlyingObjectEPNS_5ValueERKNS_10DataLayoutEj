@@ -1,0 +1,35 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='320' type='llvm::Value * llvm::GetUnderlyingObject(llvm::Value * V, const llvm::DataLayout &amp; DL, unsigned int MaxLookup = 6)'/>
+<use f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='324' u='c' c='_ZN4llvm19GetUnderlyingObjectEPKNS_5ValueERKNS_10DataLayoutEj'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='315'>/// This method strips off any GEP address adjustments and pointer casts from
+  /// the specified value, returning the original object being addressed. Note
+  /// that the returned value has pointer type if the specified value does. If
+  /// the MaxLookup value is non-zero, it limits the number of instructions to
+  /// be stripped off.</doc>
+<use f='llvm/llvm/lib/Analysis/ConstantFolding.cpp' l='671' u='c' c='_ZN4llvm28ConstantFoldLoadFromConstPtrEPNS_8ConstantEPNS_4TypeERKNS_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Analysis/GlobalsModRef.cpp' l='432' u='c' c='_ZN4llvm15GlobalsAAResult27AnalyzeIndirectGlobalMemoryEPNS_14GlobalVariableE'/>
+<use f='llvm/llvm/lib/Analysis/LazyValueInfo.cpp' l='668' u='c' c='_ZL30InstructionDereferencesPointerPN4llvm11InstructionEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/LazyValueInfo.cpp' l='673' u='c' c='_ZL30InstructionDereferencesPointerPN4llvm11InstructionEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/LazyValueInfo.cpp' l='684' u='c' c='_ZL30InstructionDereferencesPointerPN4llvm11InstructionEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/LazyValueInfo.cpp' l='689' u='c' c='_ZL30InstructionDereferencesPointerPN4llvm11InstructionEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/LazyValueInfo.cpp' l='704' u='c' c='_ZL27isObjectDereferencedInBlockPN4llvm5ValueEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Analysis/LazyValueInfo.cpp' l='707' u='c' c='_ZL27isObjectDereferencedInBlockPN4llvm5ValueEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Analysis/Lint.cpp' l='673' u='c' c='_ZNK12_GLOBAL__N_14Lint13findValueImplEPN4llvm5ValueEbRNS1_15SmallPtrSetImplIS3_EE'/>
+<use f='llvm/llvm/lib/Analysis/LoopAccessAnalysis.cpp' l='1113' u='c' c='_ZN4llvm15sortPtrAccessesENS_8ArrayRefIPNS_5ValueEEERKNS_10DataLayoutERNS_15ScalarEvolutionERNS_15SmallVectorImplIjEE'/>
+<use f='llvm/llvm/lib/Analysis/LoopAccessAnalysis.cpp' l='1124' u='c' c='_ZN4llvm15sortPtrAccessesENS_8ArrayRefIPNS_5ValueEEERKNS_10DataLayoutERNS_15ScalarEvolutionERNS_15SmallVectorImplIjEE'/>
+<def f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='3867' ll='3914' type='llvm::Value * llvm::GetUnderlyingObject(llvm::Value * V, const llvm::DataLayout &amp; DL, unsigned int MaxLookup = 6)'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUInline.cpp' l='138' u='c' c='_ZNK12_GLOBAL__N_113AMDGPUInliner18getInlineThresholdEN4llvm8CallSiteE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUPromoteAlloca.cpp' l='498' u='c' c='_ZNK12_GLOBAL__N_119AMDGPUPromoteAlloca31binaryOpIsDerivedFromSameAllocaEPN4llvm5ValueES3_PNS1_11InstructionEii'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXLowerArgs.cpp' l='215' u='c' c='_ZN12_GLOBAL__N_114NVPTXLowerArgs19runOnKernelFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCompares.cpp' l='5012' u='c' c='_ZN4llvm12InstCombiner13visitICmpInstERNS_8ICmpInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCompares.cpp' l='5015' u='c' c='_ZN4llvm12InstCombiner13visitICmpInstERNS_8ICmpInstE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/AddressSanitizer.cpp' l='1563' u='c' c='_ZN12_GLOBAL__N_116AddressSanitizer13instrumentMopERN4llvm23ObjectSizeOffsetVisitorEPNS1_11InstructionEbRKNS1_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/AddressSanitizer.cpp' l='1573' u='c' c='_ZN12_GLOBAL__N_116AddressSanitizer13instrumentMopERN4llvm23ObjectSizeOffsetVisitorEPNS1_11InstructionEbRKNS1_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/ThreadSanitizer.cpp' l='398' u='c' c='_ZN12_GLOBAL__N_115ThreadSanitizer30chooseInstructionsToInstrumentERN4llvm15SmallVectorImplIPNS1_11InstructionEEES6_RKNS1_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/DeadStoreElimination.cpp' l='681' u='c' c='_ZL10handleFreePN4llvm8CallInstEPNS_9AAResultsEPNS_23MemoryDependenceResultsEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoERNS_8DenseMapIPNS_11Instruct6701801'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/DeadStoreElimination.cpp' l='1057' u='c' c='_ZL18eliminateNoopStorePN4llvm11InstructionERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS0_Lb1ELb0EvEELb0ELb0EEEPNS_9AAResultsEPNS_23MemoryDe3532369'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='1917' u='c' c='_ZN4llvm28promoteLoopAccessesToScalarsERKNS_14SmallSetVectorIPNS_5ValueELj8EEERNS_15SmallVectorImplIPNS_10BasicBlockEEERNS6_IPNS_11InstructionEEERNS6_2137798'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='2055' u='c' c='_ZN4llvm28promoteLoopAccessesToScalarsERKNS_14SmallSetVectorIPNS_5ValueELj8EEERNS_15SmallVectorImplIPNS_10BasicBlockEEERNS6_IPNS_11InstructionEEERNS6_2137798'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopIdiomRecognize.cpp' l='531' u='c' c='_ZN12_GLOBAL__N_118LoopIdiomRecognize13collectStoresEPN4llvm10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopIdiomRecognize.cpp' l='536' u='c' c='_ZN12_GLOBAL__N_118LoopIdiomRecognize13collectStoresEPN4llvm10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/VNCoercion.cpp' l='348' u='c' c='_ZN4llvm10VNCoercion32analyzeLoadFromClobberingMemInstEPNS_4TypeEPNS_5ValueEPNS_12MemIntrinsicERKNS_10DataLayoutEPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp' l='5226' u='c' c='_ZN4llvm17SLPVectorizerPass23collectSeedInstructionsEPNS_10BasicBlockE'/>

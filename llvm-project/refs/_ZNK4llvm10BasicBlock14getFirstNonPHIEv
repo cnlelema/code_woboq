@@ -1,0 +1,41 @@
+<dec f='llvm/llvm/include/llvm/IR/BasicBlock.h' l='151' type='const llvm::Instruction * llvm::BasicBlock::getFirstNonPHI() const'/>
+<use f='llvm/llvm/include/llvm/IR/BasicBlock.h' l='154' u='c' c='_ZN4llvm10BasicBlock14getFirstNonPHIEv'/>
+<use f='llvm/llvm/include/llvm/IR/BasicBlock.h' l='406' u='c' c='_ZNK4llvm10BasicBlock7isEHPadEv'/>
+<doc f='llvm/llvm/include/llvm/IR/BasicBlock.h' l='145'>/// Returns a pointer to the first instruction in this block that is not a
+  /// PHINode instruction.
+  ///
+  /// When adding instructions to the beginning of the basic block, they should
+  /// be added before the returned value, not before the first instruction,
+  /// which might be PHI. Returns 0 is there&apos;s no non-PHI instruction.</doc>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4581' u='c' c='_ZN4llvm28programUndefinedIfFullPoisonEPKNS_11InstructionE'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/WinException.cpp' l='912' u='c' c='_ZN4llvm12WinException20computeIP2StateTableEPKNS_15MachineFunctionERKNS_13WinEHFuncInfoERNS_15SmallVectorImplISt4pairIPKNS_6MCExprEiEEE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='1856' u='c' c='_ZN4llvm12IRTranslator20runOnMachineFunctionERNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineFunction.cpp' l='650' u='c' c='_ZN4llvm15MachineFunction13addLandingPadEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/FunctionLoweringInfo.cpp' l='233' u='c' c='_ZN4llvm20FunctionLoweringInfo3setERKNS_8FunctionERNS_15MachineFunctionEPNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='1660' u='c' c='_ZL26findWasmUnwindDestinationsRN4llvm20FunctionLoweringInfoEPKNS_10BasicBlockENS_17BranchProbabilityERNS_15SmallVectorImplISt4pairIPNS_17MachineBasicBlockES5_EEE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='1708' u='c' c='_ZL22findUnwindDestinationsRN4llvm20FunctionLoweringInfoEPKNS_10BasicBlockENS_17BranchProbabilityERNS_15SmallVectorImplISt4pairIPNS_17MachineBasicBlockES5_EEE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGISel.cpp' l='1214' u='c' c='_ZN4llvm16SelectionDAGISel19PrepareEHLandingPadEv'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGISel.cpp' l='1239' u='c' c='_ZN4llvm16SelectionDAGISel19PrepareEHLandingPadEv'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGISel.cpp' l='1426' u='c' c='_ZN4llvm16SelectionDAGISel20SelectAllBasicBlocksERKNS_8FunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/WasmEHPrepare.cpp' l='358' u='c' c='_ZN4llvm19calculateWasmEHInfoEPKNS_8FunctionERNS_14WasmEHFuncInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/WasmEHPrepare.cpp' l='364' u='c' c='_ZN4llvm19calculateWasmEHInfoEPKNS_8FunctionERNS_14WasmEHFuncInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/WinEHPrepare.cpp' l='247' u='c' c='_ZL24calculateCXXStateNumbersRN4llvm13WinEHFuncInfoEPKNS_11InstructionEi'/>
+<use f='llvm/llvm/lib/CodeGen/WinEHPrepare.cpp' l='255' u='c' c='_ZL24calculateCXXStateNumbersRN4llvm13WinEHFuncInfoEPKNS_11InstructionEi'/>
+<use f='llvm/llvm/lib/CodeGen/WinEHPrepare.cpp' l='302' u='c' c='_ZL24calculateCXXStateNumbersRN4llvm13WinEHFuncInfoEPKNS_11InstructionEi'/>
+<use f='llvm/llvm/lib/CodeGen/WinEHPrepare.cpp' l='352' u='c' c='_ZL24calculateSEHStateNumbersRN4llvm13WinEHFuncInfoEPKNS_11InstructionEi'/>
+<use f='llvm/llvm/lib/CodeGen/WinEHPrepare.cpp' l='368' u='c' c='_ZL24calculateSEHStateNumbersRN4llvm13WinEHFuncInfoEPKNS_11InstructionEi'/>
+<use f='llvm/llvm/lib/CodeGen/WinEHPrepare.cpp' l='404' u='c' c='_ZL24calculateSEHStateNumbersRN4llvm13WinEHFuncInfoEPKNS_11InstructionEi'/>
+<use f='llvm/llvm/lib/CodeGen/WinEHPrepare.cpp' l='436' u='c' c='_ZN4llvm24calculateSEHStateNumbersEPKNS_8FunctionERNS_13WinEHFuncInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/WinEHPrepare.cpp' l='454' u='c' c='_ZN4llvm29calculateWinCXXEHStateNumbersEPKNS_8FunctionERNS_13WinEHFuncInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/WinEHPrepare.cpp' l='508' u='c' c='_ZN4llvm26calculateClrEHStateNumbersEPKNS_8FunctionERNS_13WinEHFuncInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/WinEHPrepare.cpp' l='557' u='c' c='_ZN4llvm26calculateClrEHStateNumbersEPKNS_8FunctionERNS_13WinEHFuncInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/WinEHPrepare.cpp' l='584' u='c' c='_ZN4llvm26calculateClrEHStateNumbersEPKNS_8FunctionERNS_13WinEHFuncInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/WinEHPrepare.cpp' l='633' u='c' c='_ZN4llvm26calculateClrEHStateNumbersEPKNS_8FunctionERNS_13WinEHFuncInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/WinEHPrepare.cpp' l='668' u='c' c='_ZN4llvm26calculateClrEHStateNumbersEPKNS_8FunctionERNS_13WinEHFuncInfoE'/>
+<def f='llvm/llvm/lib/IR/BasicBlock.cpp' l='189' ll='194' type='const llvm::Instruction * llvm::BasicBlock::getFirstNonPHI() const'/>
+<use f='llvm/llvm/lib/IR/BasicBlock.cpp' l='217' u='c' c='_ZNK4llvm10BasicBlock19getFirstInsertionPtEv'/>
+<use f='llvm/llvm/lib/IR/BasicBlock.cpp' l='372' u='c' c='_ZNK4llvm10BasicBlock20canSplitPredecessorsEv'/>
+<use f='llvm/llvm/lib/IR/BasicBlock.cpp' l='464' u='c' c='_ZNK4llvm10BasicBlock12isLandingPadEv'/>
+<use f='llvm/llvm/lib/IR/BasicBlock.cpp' l='469' u='c' c='_ZNK4llvm10BasicBlock17getLandingPadInstEv'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUInline.cpp' l='164' u='c' c='_ZL17isWrapperOnlyCallN4llvm8CallSiteE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/InlineFunction.cpp' l='1636' u='c' c='_ZN4llvm14InlineFunctionENS_8CallSiteERNS_18InlineFunctionInfoEPNS_9AAResultsEbPNS_8FunctionE'/>

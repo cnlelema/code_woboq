@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ClangFuzzer.cpp source code [llvm/clang/tools/clang-fuzzer/ClangFuzzer.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/clang/tools/clang-fuzzer/ClangFuzzer.cpp'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>llvm</a>/<a href='../..'>clang</a>/<a href='..'>tools</a>/<a href='./'>clang-fuzzer</a>/<a href='ClangFuzzer.cpp.html'>ClangFuzzer.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- ClangFuzzer.cpp - Fuzz Clang --------------------------------------===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>///</i></td></tr>
+<tr><th id="9">9</th><td><i>/// \file</i></td></tr>
+<tr><th id="10">10</th><td><i>/// This file implements a function that runs Clang on a single</i></td></tr>
+<tr><th id="11">11</th><td><i>///  input. This function is then linked into the Fuzzer library.</i></td></tr>
+<tr><th id="12">12</th><td><i>///</i></td></tr>
+<tr><th id="13">13</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="handle-cxx/handle_cxx.h.html">"handle-cxx/handle_cxx.h"</a></u></td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><b>using</b> <b>namespace</b> <span class="namespace">clang_fuzzer</span>;</td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><b>extern</b> <q>"C"</q> <em>int</em> <dfn class="decl def" id="LLVMFuzzerInitialize" title='LLVMFuzzerInitialize' data-ref="LLVMFuzzerInitialize">LLVMFuzzerInitialize</dfn>(<em>int</em> *<dfn class="local col3 decl" id="3argc" title='argc' data-type='int *' data-ref="3argc">argc</dfn>, <em>char</em> ***<dfn class="local col4 decl" id="4argv" title='argv' data-type='char ***' data-ref="4argv">argv</dfn>) { <b>return</b> <var>0</var>; }</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><b>extern</b> <q>"C"</q> <em>int</em> <dfn class="decl def" id="LLVMFuzzerTestOneInput" title='LLVMFuzzerTestOneInput' data-ref="LLVMFuzzerTestOneInput">LLVMFuzzerTestOneInput</dfn>(<a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col5 decl" id="5data" title='data' data-type='uint8_t *' data-ref="5data">data</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col6 decl" id="6size" title='size' data-type='size_t' data-ref="6size">size</dfn>) {</td></tr>
+<tr><th id="22">22</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a> <dfn class="local col7 decl" id="7s" title='s' data-type='std::string' data-ref="7s">s</dfn><a class="ref" href="../../../../include/c++/7/bits/basic_string.h.html#_ZNSt7__cxx1112basic_stringC1EPKT_N9__gnu_cxx14__alloc_traitsINS5_IT1_E6rebindIS1_E5otherEE9size_typeERKS6_" title='std::__cxx11::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt7__cxx1112basic_stringC1EPKT_N9__gnu_cxx14__alloc_traitsINS5_IT1_E6rebindIS1_E5otherEE9size_typeERKS6_">(</a>(<em>const</em> <em>char</em> *)<a class="local col5 ref" href="#5data" title='data' data-ref="5data">data</a>, <a class="local col6 ref" href="#6size" title='size' data-ref="6size">size</a>);</td></tr>
+<tr><th id="23">23</th><td>  <a class="ref" href="handle-cxx/handle_cxx.h.html#_ZN12clang_fuzzer9HandleCXXERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIPKcSaISA_EE" title='clang_fuzzer::HandleCXX' data-ref="_ZN12clang_fuzzer9HandleCXXERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIPKcSaISA_EE">HandleCXX</a>(<a class="local col7 ref" href="#7s" title='s' data-ref="7s">s</a>, <a class="ref fake" href="../../../../include/c++/7/bits/stl_vector.h.html#_ZNSt6vectorC1ESt16initializer_listIT_ERKT0_" title='std::vector::vector&lt;_Tp, _Alloc&gt;' data-ref="_ZNSt6vectorC1ESt16initializer_listIT_ERKT0_"></a>{<q>"-O2"</q>});</td></tr>
+<tr><th id="24">24</th><td>  <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="25">25</th><td>}</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

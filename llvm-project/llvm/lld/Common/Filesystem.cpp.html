@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Filesystem.cpp source code [llvm/lld/Common/Filesystem.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/lld/Common/Filesystem.cpp'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>llvm</a>/<a href='..'>lld</a>/<a href='./'>Common</a>/<a href='Filesystem.cpp.html'>Filesystem.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- Filesystem.cpp -----------------------------------------------------===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file contains a few utility functions to handle files.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../include/lld/Common/Filesystem.h.html">"lld/Common/Filesystem.h"</a></u></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="../include/lld/Common/Threads.h.html">"lld/Common/Threads.h"</a></u></td></tr>
+<tr><th id="15">15</th><td><u>#include "llvm/Config/llvm-config.h"</u></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="../../llvm/include/llvm/Support/FileOutputBuffer.h.html">"llvm/Support/FileOutputBuffer.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../llvm/include/llvm/Support/FileSystem.h.html">"llvm/Support/FileSystem.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="18">if</span> <span class="macro" title="1" data-ref="_M/LLVM_ON_UNIX">LLVM_ON_UNIX</span></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../include/unistd.h.html">&lt;unistd.h&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#<span data-ppcond="18">endif</span></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../include/c++/7/thread.html">&lt;thread&gt;</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>using</b> <b>namespace</b> <span class="namespace">llvm</span>;</td></tr>
+<tr><th id="24">24</th><td><b>using</b> <b>namespace</b> <span class="namespace">lld</span>;</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><i>// Removes a given file asynchronously. This is a performance hack,</i></td></tr>
+<tr><th id="27">27</th><td><i>// so remove this when operating systems are improved.</i></td></tr>
+<tr><th id="28">28</th><td><i>//</i></td></tr>
+<tr><th id="29">29</th><td><i>// On Linux (and probably on other Unix-like systems), unlink(2) is a</i></td></tr>
+<tr><th id="30">30</th><td><i>// noticeably slow system call. As of 2016, unlink takes 250</i></td></tr>
+<tr><th id="31">31</th><td><i>// milliseconds to remove a 1 GB file on ext4 filesystem on my machine.</i></td></tr>
+<tr><th id="32">32</th><td><i>//</i></td></tr>
+<tr><th id="33">33</th><td><i>// To create a new result file, we first remove existing file. So, if</i></td></tr>
+<tr><th id="34">34</th><td><i>// you repeatedly link a 1 GB program in a regular compile-link-debug</i></td></tr>
+<tr><th id="35">35</th><td><i>// cycle, every cycle wastes 250 milliseconds only to remove a file.</i></td></tr>
+<tr><th id="36">36</th><td><i>// Since LLD can link a 1 GB binary in about 5 seconds, that waste</i></td></tr>
+<tr><th id="37">37</th><td><i>// actually counts.</i></td></tr>
+<tr><th id="38">38</th><td><i>//</i></td></tr>
+<tr><th id="39">39</th><td><i>// This function spawns a background thread to remove the file.</i></td></tr>
+<tr><th id="40">40</th><td><i>// The calling thread returns almost immediately.</i></td></tr>
+<tr><th id="41">41</th><td><em>void</em> <span class="namespace">lld::</span><dfn class="decl def" id="_ZN3lld11unlinkAsyncEN4llvm9StringRefE" title='lld::unlinkAsync' data-ref="_ZN3lld11unlinkAsyncEN4llvm9StringRefE">unlinkAsync</dfn>(<a class="type" href="../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col1 decl" id="1Path" title='Path' data-type='llvm::StringRef' data-ref="1Path">Path</dfn>) {</td></tr>
+<tr><th id="42">42</th><td><i>// Removing a file is async on windows.</i></td></tr>
+<tr><th id="43">43</th><td><u>#<span data-ppcond="43">if</span> defined(<span class="macro" data-ref="_M/_WIN32">_WIN32</span>)</u></td></tr>
+<tr><th id="44">44</th><td>  sys::fs::remove(Path);</td></tr>
+<tr><th id="45">45</th><td><u>#<span data-ppcond="43">else</span></u></td></tr>
+<tr><th id="46">46</th><td>  <b>if</b> (!<a class="ref" href="../include/lld/Common/Threads.h.html#lld::ThreadsEnabled" title='lld::ThreadsEnabled' data-ref="lld::ThreadsEnabled">ThreadsEnabled</a> || !<span class="namespace">sys::fs::</span><a class="ref" href="../../llvm/include/llvm/Support/FileSystem.h.html#_ZN4llvm3sys2fs6existsERKNS_5TwineE" title='llvm::sys::fs::exists' data-ref="_ZN4llvm3sys2fs6existsERKNS_5TwineE">exists</a>(<a class="ref fake" href="../../llvm/include/llvm/ADT/Twine.h.html#_ZN4llvm5TwineC1ERKNS_9StringRefE" title='llvm::Twine::Twine' data-ref="_ZN4llvm5TwineC1ERKNS_9StringRefE"></a><a class="local col1 ref" href="#1Path" title='Path' data-ref="1Path">Path</a>) ||</td></tr>
+<tr><th id="47">47</th><td>      !<span class="namespace">sys::fs::</span><a class="ref" href="../../llvm/include/llvm/Support/FileSystem.h.html#_ZN4llvm3sys2fs15is_regular_fileERKNS_5TwineE" title='llvm::sys::fs::is_regular_file' data-ref="_ZN4llvm3sys2fs15is_regular_fileERKNS_5TwineE">is_regular_file</a>(<a class="ref fake" href="../../llvm/include/llvm/ADT/Twine.h.html#_ZN4llvm5TwineC1ERKNS_9StringRefE" title='llvm::Twine::Twine' data-ref="_ZN4llvm5TwineC1ERKNS_9StringRefE"></a><a class="local col1 ref" href="#1Path" title='Path' data-ref="1Path">Path</a>))</td></tr>
+<tr><th id="48">48</th><td>    <b>return</b>;</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>  <i>// We cannot just remove path from a different thread because we are now going</i></td></tr>
+<tr><th id="51">51</th><td><i>  // to create path as a new file.</i></td></tr>
+<tr><th id="52">52</th><td><i>  // Instead we open the file and unlink it on this thread. The unlink is fast</i></td></tr>
+<tr><th id="53">53</th><td><i>  // since the open fd guarantees that it is not removing the last reference.</i></td></tr>
+<tr><th id="54">54</th><td>  <em>int</em> <dfn class="local col2 decl" id="2FD" title='FD' data-type='int' data-ref="2FD">FD</dfn>;</td></tr>
+<tr><th id="55">55</th><td>  <span class="namespace">std::</span><a class="type" href="../../../include/c++/7/system_error.html#std::error_code" title='std::error_code' data-ref="std::error_code">error_code</a> <dfn class="local col3 decl" id="3EC" title='EC' data-type='std::error_code' data-ref="3EC">EC</dfn> = <span class="namespace">sys::fs::</span><a class="ref" href="../../llvm/include/llvm/Support/FileSystem.h.html#_ZN4llvm3sys2fs15openFileForReadERKNS_5TwineERiNS1_9OpenFlagsEPNS_15SmallVectorImplIcEE" title='llvm::sys::fs::openFileForRead' data-ref="_ZN4llvm3sys2fs15openFileForReadERKNS_5TwineERiNS1_9OpenFlagsEPNS_15SmallVectorImplIcEE">openFileForRead</a>(<a class="ref fake" href="../../llvm/include/llvm/ADT/Twine.h.html#_ZN4llvm5TwineC1ERKNS_9StringRefE" title='llvm::Twine::Twine' data-ref="_ZN4llvm5TwineC1ERKNS_9StringRefE"></a><a class="local col1 ref" href="#1Path" title='Path' data-ref="1Path">Path</a>, <span class='refarg'><a class="local col2 ref" href="#2FD" title='FD' data-ref="2FD">FD</a></span>);</td></tr>
+<tr><th id="56">56</th><td>  <span class="namespace">sys::fs::</span><a class="ref" href="../../llvm/include/llvm/Support/FileSystem.h.html#_ZN4llvm3sys2fs6removeERKNS_5TwineEb" title='llvm::sys::fs::remove' data-ref="_ZN4llvm3sys2fs6removeERKNS_5TwineEb">remove</a>(<a class="ref fake" href="../../llvm/include/llvm/ADT/Twine.h.html#_ZN4llvm5TwineC1ERKNS_9StringRefE" title='llvm::Twine::Twine' data-ref="_ZN4llvm5TwineC1ERKNS_9StringRefE"></a><a class="local col1 ref" href="#1Path" title='Path' data-ref="1Path">Path</a>);</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>  <b>if</b> (<a class="ref fake" href="../../../include/c++/7/system_error.html#_ZNKSt10error_codecvbEv" title='std::error_code::operator bool' data-ref="_ZNKSt10error_codecvbEv"></a><a class="local col3 ref" href="#3EC" title='EC' data-ref="3EC">EC</a>)</td></tr>
+<tr><th id="59">59</th><td>    <b>return</b>;</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>  <i>// close and therefore remove TempPath in background.</i></td></tr>
+<tr><th id="62">62</th><td>  <span class="namespace">std::</span><a class="type" href="../../../include/c++/7/bits/std_mutex.h.html#std::mutex" title='std::mutex' data-ref="std::mutex">mutex</a> <a class="ref fake" href="../../../include/c++/7/bits/std_mutex.h.html#_ZNSt5mutexC1Ev" title='std::mutex::mutex' data-ref="_ZNSt5mutexC1Ev"></a><dfn class="local col4 decl" id="4M" title='M' data-type='std::mutex' data-ref="4M">M</dfn>;</td></tr>
+<tr><th id="63">63</th><td>  <span class="namespace">std::</span><a class="type" href="../../../include/c++/7/condition_variable.html#std::condition_variable" title='std::condition_variable' data-ref="std::condition_variable">condition_variable</a> <a class="ref fake" href="../../../include/c++/7/condition_variable.html#_ZNSt18condition_variableC1Ev" title='std::condition_variable::condition_variable' data-ref="_ZNSt18condition_variableC1Ev"></a><dfn class="local col5 decl" id="5CV" title='CV' data-type='std::condition_variable' data-ref="5CV">CV</dfn>;</td></tr>
+<tr><th id="64">64</th><td>  <em>bool</em> <dfn class="local col6 decl" id="6Started" title='Started' data-type='bool' data-ref="6Started">Started</dfn> = <b>false</b>;</td></tr>
+<tr><th id="65">65</th><td>  <span class="namespace">std::</span><a class="type" href="../../../include/c++/7/thread.html#std::thread" title='std::thread' data-ref="std::thread">thread</a><a class="ref" href="../../../include/c++/7/thread.html#_ZNSt6threadC1EOT_DpOT0_" title='std::thread::thread' data-ref="_ZNSt6threadC1EOT_DpOT0_">(</a>[&amp;, FD] {</td></tr>
+<tr><th id="66">66</th><td>    {</td></tr>
+<tr><th id="67">67</th><td>      <span class="namespace">std::</span><a class="type" href="../../../include/c++/7/bits/std_mutex.h.html#std::lock_guard" title='std::lock_guard' data-ref="std::lock_guard">lock_guard</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../include/c++/7/bits/std_mutex.h.html#std::mutex" title='std::mutex' data-ref="std::mutex">mutex</a>&gt; <dfn class="local col7 decl" id="7L" title='L' data-type='std::lock_guard&lt;std::mutex&gt;' data-ref="7L">L</dfn><a class="ref" href="../../../include/c++/7/bits/std_mutex.h.html#_ZNSt10lock_guardC1ERT_" title='std::lock_guard::lock_guard&lt;_Mutex&gt;' data-ref="_ZNSt10lock_guardC1ERT_">(</a><a class="local col4 ref" href="#4M" title='M' data-ref="4M">M</a>);</td></tr>
+<tr><th id="68">68</th><td>      <a class="local col6 ref" href="#6Started" title='Started' data-ref="6Started">Started</a> = <b>true</b>;</td></tr>
+<tr><th id="69">69</th><td>      <a class="local col5 ref" href="#5CV" title='CV' data-ref="5CV">CV</a>.<a class="ref" href="../../../include/c++/7/condition_variable.html#_ZNSt18condition_variable10notify_allEv" title='std::condition_variable::notify_all' data-ref="_ZNSt18condition_variable10notify_allEv">notify_all</a>();</td></tr>
+<tr><th id="70">70</th><td>    }</td></tr>
+<tr><th id="71">71</th><td>    ::<a class="ref" href="../../../include/unistd.h.html#close" title='close' data-ref="close">close</a>(<a class="local col2 ref" href="#2FD" title='FD' data-ref="2FD">FD</a>);</td></tr>
+<tr><th id="72">72</th><td>  }).<a class="ref" href="../../../include/c++/7/thread.html#_ZNSt6thread6detachEv" title='std::thread::detach' data-ref="_ZNSt6thread6detachEv">detach</a>();</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td>  <i>// GLIBC 2.26 and earlier have race condition that crashes an entire process</i></td></tr>
+<tr><th id="75">75</th><td><i>  // if the main thread calls exit(2) while other thread is starting up.</i></td></tr>
+<tr><th id="76">76</th><td>  <span class="namespace">std::</span><a class="type" href="../../../include/c++/7/bits/std_mutex.h.html#std::unique_lock" title='std::unique_lock' data-ref="std::unique_lock">unique_lock</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../include/c++/7/bits/std_mutex.h.html#std::mutex" title='std::mutex' data-ref="std::mutex">mutex</a>&gt; <dfn class="local col8 decl" id="8L" title='L' data-type='std::unique_lock&lt;std::mutex&gt;' data-ref="8L">L</dfn><a class="ref" href="../../../include/c++/7/bits/std_mutex.h.html#_ZNSt11unique_lockC1ERT_" title='std::unique_lock::unique_lock&lt;_Mutex&gt;' data-ref="_ZNSt11unique_lockC1ERT_">(</a><a class="local col4 ref" href="#4M" title='M' data-ref="4M">M</a>);</td></tr>
+<tr><th id="77">77</th><td>  <a class="local col5 ref" href="#5CV" title='CV' data-ref="5CV">CV</a>.<a class="ref" href="../../../include/c++/7/condition_variable.html#_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexET_" title='std::condition_variable::wait' data-ref="_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexET_">wait</a>(<span class='refarg'><a class="local col8 ref" href="#8L" title='L' data-ref="8L">L</a></span>, [&amp;] { <b>return</b> <a class="local col6 ref" href="#6Started" title='Started' data-ref="6Started">Started</a>; });</td></tr>
+<tr><th id="78">78</th><td><u>#<span data-ppcond="43">endif</span></u></td></tr>
+<tr><th id="79">79</th><td>}</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td><i>// Simulate file creation to see if Path is writable.</i></td></tr>
+<tr><th id="82">82</th><td><i>//</i></td></tr>
+<tr><th id="83">83</th><td><i>// Determining whether a file is writable or not is amazingly hard,</i></td></tr>
+<tr><th id="84">84</th><td><i>// and after all the only reliable way of doing that is to actually</i></td></tr>
+<tr><th id="85">85</th><td><i>// create a file. But we don't want to do that in this function</i></td></tr>
+<tr><th id="86">86</th><td><i>// because LLD shouldn't update any file if it will end in a failure.</i></td></tr>
+<tr><th id="87">87</th><td><i>// We also don't want to reimplement heuristics to determine if a</i></td></tr>
+<tr><th id="88">88</th><td><i>// file is writable. So we'll let FileOutputBuffer do the work.</i></td></tr>
+<tr><th id="89">89</th><td><i>//</i></td></tr>
+<tr><th id="90">90</th><td><i>// FileOutputBuffer doesn't touch a desitnation file until commit()</i></td></tr>
+<tr><th id="91">91</th><td><i>// is called. We use that class without calling commit() to predict</i></td></tr>
+<tr><th id="92">92</th><td><i>// if the given file is writable.</i></td></tr>
+<tr><th id="93">93</th><td><span class="namespace">std::</span><a class="type" href="../../../include/c++/7/system_error.html#std::error_code" title='std::error_code' data-ref="std::error_code">error_code</a> <span class="namespace">lld::</span><dfn class="decl def" id="_ZN3lld13tryCreateFileEN4llvm9StringRefE" title='lld::tryCreateFile' data-ref="_ZN3lld13tryCreateFileEN4llvm9StringRefE">tryCreateFile</dfn>(<a class="type" href="../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col9 decl" id="9Path" title='Path' data-type='llvm::StringRef' data-ref="9Path">Path</dfn>) {</td></tr>
+<tr><th id="94">94</th><td>  <b>if</b> (<a class="local col9 ref" href="#9Path" title='Path' data-ref="9Path">Path</a>.<a class="ref" href="../../llvm/include/llvm/ADT/StringRef.h.html#_ZNK4llvm9StringRef5emptyEv" title='llvm::StringRef::empty' data-ref="_ZNK4llvm9StringRef5emptyEv">empty</a>())</td></tr>
+<tr><th id="95">95</th><td>    <b>return</b> <span class="namespace">std::</span><a class="type" href="../../../include/c++/7/system_error.html#std::error_code" title='std::error_code' data-ref="std::error_code">error_code</a><a class="ref" href="../../../include/c++/7/system_error.html#_ZNSt10error_codeC1Ev" title='std::error_code::error_code' data-ref="_ZNSt10error_codeC1Ev">(</a>);</td></tr>
+<tr><th id="96">96</th><td>  <b>if</b> (<a class="ref fake" href="../../llvm/include/llvm/ADT/StringRef.h.html#48" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1ERKS0_"></a><a class="local col9 ref" href="#9Path" title='Path' data-ref="9Path">Path</a> <a class="ref" href="../../llvm/include/llvm/ADT/StringRef.h.html#_ZN4llvmeqENS_9StringRefES0_" title='llvm::operator==' data-ref="_ZN4llvmeqENS_9StringRefES0_">==</a> <a class="ref fake" href="../../llvm/include/llvm/ADT/StringRef.h.html#_ZN4llvm9StringRefC1EPKc" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1EPKc"></a><q>"-"</q>)</td></tr>
+<tr><th id="97">97</th><td>    <b>return</b> <span class="namespace">std::</span><a class="type" href="../../../include/c++/7/system_error.html#std::error_code" title='std::error_code' data-ref="std::error_code">error_code</a><a class="ref" href="../../../include/c++/7/system_error.html#_ZNSt10error_codeC1Ev" title='std::error_code::error_code' data-ref="_ZNSt10error_codeC1Ev">(</a>);</td></tr>
+<tr><th id="98">98</th><td>  <b>return</b> <a class="ref" href="../../llvm/include/llvm/Support/Error.h.html#_ZN4llvm16errorToErrorCodeENS_5ErrorE" title='llvm::errorToErrorCode' data-ref="_ZN4llvm16errorToErrorCodeENS_5ErrorE">errorToErrorCode</a>(<a class="type" href="../../llvm/include/llvm/Support/FileOutputBuffer.h.html#llvm::FileOutputBuffer" title='llvm::FileOutputBuffer' data-ref="llvm::FileOutputBuffer">FileOutputBuffer</a>::<a class="ref" href="../../llvm/include/llvm/Support/FileOutputBuffer.h.html#_ZN4llvm16FileOutputBuffer6createENS_9StringRefEmj" title='llvm::FileOutputBuffer::create' data-ref="_ZN4llvm16FileOutputBuffer6createENS_9StringRefEmj">create</a>(<a class="ref fake" href="../../llvm/include/llvm/ADT/StringRef.h.html#48" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1ERKS0_"></a><a class="local col9 ref" href="#9Path" title='Path' data-ref="9Path">Path</a>, <var>1</var>).<a class="ref" href="../../llvm/include/llvm/Support/Error.h.html#_ZN4llvm8Expected9takeErrorEv" title='llvm::Expected::takeError' data-ref="_ZN4llvm8Expected9takeErrorEv">takeError</a>());</td></tr>
+<tr><th id="99">99</th><td>}</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

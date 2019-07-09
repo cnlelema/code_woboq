@@ -1,0 +1,64 @@
+<inh f='llvm/clang/include/clang/AST/ExternalASTSource.h' l='62' c='clang::ExternalASTSource'/>
+<def f='llvm/clang/include/clang/AST/ExternalASTMerger.h' l='47' ll='171'/>
+<size>120</size>
+<doc f='llvm/clang/include/clang/AST/ExternalASTMerger.h' l='22'>/// ExternalASTSource implementation that merges information from several
+/// ASTContexts.
+///
+/// ExtermalASTMerger maintains a vector of ASTImporters that it uses to import
+/// (potentially incomplete) Decls and DeclContexts from the source ASTContexts
+/// in response to ExternalASTSource API calls.
+///
+/// When lookup occurs in the resulting imported DeclContexts, the original
+/// DeclContexts need to be queried.  Roughly, there are three cases here:
+///
+/// - The DeclContext of origin can be found by simple name lookup.  In this
+///   case, no additional state is required.
+///
+/// - The DeclContext of origin is different from what would be found by name
+///   lookup.  In this case, Origins contains an entry overriding lookup and
+///   specifying the correct pair of DeclContext/ASTContext.
+///
+/// - The DeclContext of origin was determined by another ExterenalASTMerger.
+///   (This is possible when the source ASTContext for one of the Importers has
+///   its own ExternalASTMerger).  The origin must be properly forwarded in this
+///   case.
+///
+/// ExternalASTMerger&apos;s job is to maintain the data structures necessary to
+/// allow this.  The data structures themselves can be extracted (read-only) and
+/// copied for re-use.</doc>
+<mbr r='clang::ExternalASTMerger::Importers' o='192' t='ImporterVector'/>
+<mbr r='clang::ExternalASTMerger::Origins' o='384' t='OriginMap'/>
+<mbr r='clang::ExternalASTMerger::LogStream' o='768' t='llvm::raw_ostream *'/>
+<mbr r='clang::ExternalASTMerger::Target' o='832' t='clang::ExternalASTMerger::ImporterTarget'/>
+<fun r='_ZN5clang17ExternalASTMergerC1ERKNS0_14ImporterTargetEN4llvm8ArrayRefINS0_14ImporterSourceEEE'/>
+<fun r='_ZN5clang17ExternalASTMerger10AddSourcesEN4llvm8ArrayRefINS0_14ImporterSourceEEE'/>
+<fun r='_ZN5clang17ExternalASTMerger13RemoveSourcesEN4llvm8ArrayRefINS0_14ImporterSourceEEE'/>
+<fun r='_ZN5clang17ExternalASTMerger30FindExternalVisibleDeclsByNameEPKNS_11DeclContextENS_15DeclarationNameE'/>
+<fun r='_ZN5clang17ExternalASTMerger24FindExternalLexicalDeclsEPKNS_11DeclContextEN4llvm12function_refIFbNS_4Decl4KindEEEERNS4_15SmallVectorImplIPS6_EE'/>
+<fun r='_ZN5clang17ExternalASTMerger12CompleteTypeEPNS_7TagDeclE'/>
+<fun r='_ZN5clang17ExternalASTMerger12CompleteTypeEPNS_17ObjCInterfaceDeclE'/>
+<fun r='_ZN5clang17ExternalASTMerger11CanCompleteEPNS_11DeclContextE'/>
+<fun r='_ZN5clang17ExternalASTMerger17MaybeRecordOriginEPKNS_11DeclContextENS0_8DCOriginE'/>
+<fun r='_ZN5clang17ExternalASTMerger17ForceRecordOriginEPKNS_11DeclContextENS0_8DCOriginE'/>
+<fun r='_ZN5clang17ExternalASTMerger10GetOriginsEv'/>
+<fun r='_ZN5clang17ExternalASTMerger20HasImporterForOriginERNS_10ASTContextE'/>
+<fun r='_ZN5clang17ExternalASTMerger17ImporterForOriginERNS_10ASTContextE'/>
+<fun r='_ZN5clang17ExternalASTMerger12SetLogStreamERN4llvm18raw_string_ostreamE'/>
+<fun r='_ZN5clang17ExternalASTMerger16RecordOriginImplEPKNS_11DeclContextENS0_8DCOriginERNS_11ASTImporterE'/>
+<fun r='_ZN5clang17ExternalASTMerger17ForEachMatchingDCEPKNS_11DeclContextET_'/>
+<fun r='_ZN5clang17ExternalASTMerger4logsEv'/>
+<fun r='_ZN5clang17ExternalASTMerger14LoggingEnabledEv'/>
+<fun r='_ZN5clang17ExternalASTMerger17ImporterForOriginERNS_10ASTContextE'/>
+<fun r='_ZN5clang17ExternalASTMerger20HasImporterForOriginERNS_10ASTContextE'/>
+<fun r='_ZN5clang17ExternalASTMerger17ForEachMatchingDCEPKNS_11DeclContextET_'/>
+<fun r='_ZN5clang17ExternalASTMerger12CompleteTypeEPNS_7TagDeclE'/>
+<fun r='_ZN5clang17ExternalASTMerger12CompleteTypeEPNS_17ObjCInterfaceDeclE'/>
+<fun r='_ZN5clang17ExternalASTMerger11CanCompleteEPNS_11DeclContextE'/>
+<fun r='_ZN5clang17ExternalASTMerger17MaybeRecordOriginEPKNS_11DeclContextENS0_8DCOriginE'/>
+<fun r='_ZN5clang17ExternalASTMerger17ForceRecordOriginEPKNS_11DeclContextENS0_8DCOriginE'/>
+<fun r='_ZN5clang17ExternalASTMerger16RecordOriginImplEPKNS_11DeclContextENS0_8DCOriginERNS_11ASTImporterE'/>
+<fun r='_ZN5clang17ExternalASTMergerC1ERKNS0_14ImporterTargetEN4llvm8ArrayRefINS0_14ImporterSourceEEE'/>
+<fun r='_ZN5clang17ExternalASTMerger10AddSourcesEN4llvm8ArrayRefINS0_14ImporterSourceEEE'/>
+<fun r='_ZN5clang17ExternalASTMerger13RemoveSourcesEN4llvm8ArrayRefINS0_14ImporterSourceEEE'/>
+<fun r='_ZN5clang17ExternalASTMerger30FindExternalVisibleDeclsByNameEPKNS_11DeclContextENS_15DeclarationNameE'/>
+<fun r='_ZN5clang17ExternalASTMerger24FindExternalLexicalDeclsEPKNS_11DeclContextEN4llvm12function_refIFbNS_4Decl4KindEEEERNS4_15SmallVectorImplIPS6_EE'/>

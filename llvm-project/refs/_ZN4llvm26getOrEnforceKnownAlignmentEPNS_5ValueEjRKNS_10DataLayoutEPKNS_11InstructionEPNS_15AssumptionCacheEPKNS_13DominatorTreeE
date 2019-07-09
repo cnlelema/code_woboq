@@ -1,0 +1,20 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='260' type='unsigned int llvm::getOrEnforceKnownAlignment(llvm::Value * V, unsigned int PrefAlign, const llvm::DataLayout &amp; DL, const llvm::Instruction * CxtI = nullptr, llvm::AssumptionCache * AC = nullptr, const llvm::DominatorTree * DT = nullptr)'/>
+<use f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='271' u='c' c='_ZN4llvm17getKnownAlignmentEPNS_5ValueERKNS_10DataLayoutEPKNS_11InstructionEPNS_15AssumptionCacheEPKNS_13DominatorTreeE'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='251'>/// Try to ensure that the alignment of \p V is at least \p PrefAlign bytes. If
+/// the owning object can be modified and has an alignment less than \p
+/// PrefAlign, it will be increased and \p PrefAlign returned. If the alignment
+/// cannot be increased, the known alignment of the value is returned.
+///
+/// It is not always possible to modify the alignment of the underlying object,
+/// so if alignment is important, a more reliable approach is to simply align
+/// all global variables and allocation instructions to their preferred
+/// alignment from the beginning.</doc>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='4017' u='c' c='_ZN5clang7CodeGen15CodeGenFunction8EmitCallERKNS0_14CGFunctionInfoERKNS0_8CGCalleeENS0_15ReturnValueSlotERKNS0_11CallArgListEPPN4llvm8CallBaseENS_14SourceLocationE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='403' u='c' c='_ZN4llvm12InstCombiner15visitAllocaInstERNS_10AllocaInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1000' u='c' c='_ZN4llvm12InstCombiner13visitLoadInstERNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1400' u='c' c='_ZN4llvm12InstCombiner14visitStoreInstERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='1377' u='c' c='_ZN4llvm13MemCpyOptPass20processByValArgumentENS_8CallSiteEj'/>
+<use f='llvm/llvm/lib/Transforms/Utils/InlineFunction.cpp' l='1287' u='c' c='_ZL19HandleByValArgumentPN4llvm5ValueEPNS_11InstructionEPKNS_8FunctionERNS_18InlineFunctionInfoEj'/>
+<def f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1200' ll='1227' type='unsigned int llvm::getOrEnforceKnownAlignment(llvm::Value * V, unsigned int PrefAlign, const llvm::DataLayout &amp; DL, const llvm::Instruction * CxtI = nullptr, llvm::AssumptionCache * AC = nullptr, const llvm::DominatorTree * DT = nullptr)'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoadStoreVectorizer.cpp' l='1013' u='c' c='_ZN12_GLOBAL__N_110Vectorizer19vectorizeStoreChainEN4llvm8ArrayRefIPNS1_11InstructionEEEPNS1_11SmallPtrSetIS4_Lj16EEE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoadStoreVectorizer.cpp' l='1155' u='c' c='_ZN12_GLOBAL__N_110Vectorizer18vectorizeLoadChainEN4llvm8ArrayRefIPNS1_11InstructionEEEPNS1_11SmallPtrSetIS4_Lj16EEE'/>

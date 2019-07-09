@@ -1,0 +1,51 @@
+<def f='llvm/clang/include/clang/AST/Type.h' l='1172' ll='1174' type='clang::QualType::DestructionKind clang::QualType::isDestructedType() const'/>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='1168'>/// Returns a nonzero value if objects of this type require
+  /// non-trivial work to clean up after.  Non-zero because it&apos;s
+  /// conceivable that qualifiers (objc_gc(weak)?) could make
+  /// something require destruction.</doc>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='6232' u='c' c='_ZN5clang10ASTContext20BlockRequiresCopyingENS_8QualTypeEPKNS_7VarDeclE'/>
+<use f='llvm/clang/include/clang/AST/NonTrivialTypeVisitor.h' l='23' u='c' c='_ZN5clang21DestructedTypeVisitor5visitENS_8QualTypeEDpOT_'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='2367' u='c' c='_ZNK5clang8QualType26isNonTrivialPrimitiveCTypeERKNS_10ASTContextE'/>
+<use f='llvm/clang/lib/CodeGen/CGBlocks.cpp' l='642' u='c' c='_ZL16computeBlockInfoRN5clang7CodeGen13CodeGenModuleEPNS0_15CodeGenFunctionERNS0_11CGBlockInfoE'/>
+<use f='llvm/clang/lib/CodeGen/CGBlocks.cpp' l='823' u='c' c='_ZL15enterBlockScopeRN5clang7CodeGen15CodeGenFunctionEPNS_9BlockDeclE'/>
+<use f='llvm/clang/lib/CodeGen/CGBlocks.cpp' l='1947' u='c' c='_ZL18pushCaptureCleanupN12_GLOBAL__N_122BlockCaptureEntityKindEN5clang7CodeGen7AddressENS1_8QualTypeENS2_15BlockFieldFlagsEbPNS1_7VarDeclERNS2_15CodeGenFunctionE'/>
+<use f='llvm/clang/lib/CodeGen/CGBlocks.cpp' l='1948' u='c' c='_ZL18pushCaptureCleanupN12_GLOBAL__N_122BlockCaptureEntityKindEN5clang7CodeGen7AddressENS1_8QualTypeENS2_15BlockFieldFlagsEbPNS1_7VarDeclERNS2_15CodeGenFunctionE'/>
+<use f='llvm/clang/lib/CodeGen/CGBlocks.cpp' l='1952' u='c' c='_ZL18pushCaptureCleanupN12_GLOBAL__N_122BlockCaptureEntityKindEN5clang7CodeGen7AddressENS1_8QualTypeENS2_15BlockFieldFlagsEbPNS1_7VarDeclERNS2_15CodeGenFunctionE'/>
+<use f='llvm/clang/lib/CodeGen/CGBlocks.cpp' l='1955' u='c' c='_ZL18pushCaptureCleanupN12_GLOBAL__N_122BlockCaptureEntityKindEN5clang7CodeGen7AddressENS1_8QualTypeENS2_15BlockFieldFlagsEbPNS1_7VarDeclERNS2_15CodeGenFunctionE'/>
+<use f='llvm/clang/lib/CodeGen/CGBlocks.cpp' l='2106' u='c' c='_ZN5clang7CodeGen15CodeGenFunction26GenerateCopyHelperFunctionERKNS0_11CGBlockInfoE'/>
+<use f='llvm/clang/lib/CodeGen/CGBlocks.cpp' l='2160' u='c' c='_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE'/>
+<use f='llvm/clang/lib/CodeGen/CGBlocks.cpp' l='2440' u='c' c='_ZNK12_GLOBAL__N_129NonTrivialCStructByrefHelpers12needsDisposeEv'/>
+<use f='llvm/clang/lib/CodeGen/CGBlocks.cpp' l='2445' u='c' c='_ZN12_GLOBAL__N_129NonTrivialCStructByrefHelpers11emitDisposeERN5clang7CodeGen15CodeGenFunctionENS2_7AddressE'/>
+<use f='llvm/clang/lib/CodeGen/CGBlocks.cpp' l='2649' u='c' c='_ZN5clang7CodeGen15CodeGenFunction17buildByrefHelpersERN4llvm10StructTypeERKNS1_15AutoVarEmissionE'/>
+<use f='llvm/clang/lib/CodeGen/CGCXXABI.cpp' l='191' u='c' c='_ZN5clang7CodeGen8CGCXXABI19requiresArrayCookieEPKNS_13CXXDeleteExprENS_8QualTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGCXXABI.cpp' l='200' u='c' c='_ZN5clang7CodeGen8CGCXXABI19requiresArrayCookieEPKNS_10CXXNewExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='3157' u='c' c='_ZN5clang7CodeGen15CodeGenFunction19EmitDelegateCallArgERNS0_11CallArgListEPKNS_7VarDeclENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='3566' u='c' c='_ZN12_GLOBAL__N_118DestroyUnpassedArg4EmitERN5clang7CodeGen15CodeGenFunctionENS2_12EHScopeStack7Cleanup5FlagsE'/>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='3656' u='c' c='_ZN5clang7CodeGen15CodeGenFunction11EmitCallArgERNS0_11CallArgListEPKNS_4ExprENS_8QualTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGClass.cpp' l='653' u='c' c='_ZL21EmitMemberInitializerRN5clang7CodeGen15CodeGenFunctionEPKNS_13CXXRecordDeclEPNS_18CXXCtorInitializerEPKNS_18CXXConstructorDeclERNS0_15FunctionArgListE'/>
+<use f='llvm/clang/lib/CodeGen/CGClass.cpp' l='696' u='c' c='_ZN5clang7CodeGen15CodeGenFunction23EmitInitializerForFieldEPNS_9FieldDeclENS0_6LValueEPNS_4ExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGClass.cpp' l='1111' u='c' c='_ZN12_GLOBAL__N_121ConstructorMemcpyizer17pushEHDestructorsEv'/>
+<use f='llvm/clang/lib/CodeGen/CGDecl.cpp' l='2418' u='c' c='_ZN5clang7CodeGen15CodeGenFunction12EmitParmDeclERKNS_7VarDeclENS1_10ParamValueEj'/>
+<use f='llvm/clang/lib/CodeGen/CGDeclCXX.cpp' l='84' u='c' c='_ZL15EmitDeclDestroyRN5clang7CodeGen15CodeGenFunctionERKNS_7VarDeclENS0_15ConstantAddressE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='527' u='c' c='_ZN5clang7CodeGen15CodeGenFunction28EmitMaterializeTemporaryExprEPKNS_24MaterializeTemporaryExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprAgg.cpp' l='249' u='c' c='_ZN12_GLOBAL__N_114AggExprEmitter19withReturnValueSlotEPKN5clang4ExprEN4llvm12function_refIFNS1_7CodeGen6RValueENS7_15ReturnValueSlotEEEE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprAgg.cpp' l='289' u='c' c='_ZN12_GLOBAL__N_114AggExprEmitter19withReturnValueSlotEPKN5clang4ExprEN4llvm12function_refIFNS1_7CodeGen6RValueENS7_15ReturnValueSlotEEEE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprAgg.cpp' l='513' u='c' c='_ZN12_GLOBAL__N_114AggExprEmitter13EmitArrayInitEN5clang7CodeGen7AddressEPN4llvm9ArrayTypeENS1_8QualTypeEPNS1_12InitListExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprAgg.cpp' l='1504' u='c' c='_ZN12_GLOBAL__N_114AggExprEmitter17VisitInitListExprEPN5clang12InitListExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprAgg.cpp' l='1655' u='c' c='_ZN12_GLOBAL__N_114AggExprEmitter22VisitArrayInitLoopExprEPKN5clang17ArrayInitLoopExprEPN4llvm5ValueE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprCXX.cpp' l='967' u='c' c='_ZN5clang7CodeGen15CodeGenFunction23EmitNewArrayInitializerEPKNS_10CXXNewExprENS_8QualTypeEPN4llvm4TypeENS0_7AddressEPNS6_5ValueESB_'/>
+<use f='llvm/clang/lib/CodeGen/CGExprCXX.cpp' l='2008' u='c' c='_ZL15EmitArrayDeleteRN5clang7CodeGen15CodeGenFunctionEPKNS_13CXXDeleteExprENS0_7AddressENS_8QualTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGObjC.cpp' l='1550' u='c' c='_ZL21emitCXXDestructMethodRN5clang7CodeGen15CodeGenFunctionEPNS_22ObjCImplementationDeclE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='1074' u='c' c='_ZN5clang7CodeGen16ReductionCodeGen12needCleanupsEj'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='1083' u='c' c='_ZN5clang7CodeGen16ReductionCodeGen12emitCleanupsERNS0_15CodeGenFunctionEjNS0_7AddressE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='2678' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime30emitThreadPrivateVarDefinitionEPKNS_7VarDeclENS0_7AddressENS_14SourceLocationEbPNS0_15CodeGenFunctionE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='2679' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime30emitThreadPrivateVarDefinitionEPKNS_7VarDeclENS0_7AddressENS_14SourceLocationEbPNS0_15CodeGenFunctionE'/>
+<use f='llvm/clang/lib/CodeGen/MicrosoftCXXABI.cpp' l='2213' u='c' c='_ZN12_GLOBAL__N_115MicrosoftCXXABI19requiresArrayCookieEPKN5clang13CXXDeleteExprENS1_8QualTypeE'/>
+<use f='llvm/clang/lib/CodeGen/MicrosoftCXXABI.cpp' l='2219' u='c' c='_ZN12_GLOBAL__N_115MicrosoftCXXABI19requiresArrayCookieEPKN5clang10CXXNewExprE'/>
+<use f='llvm/clang/lib/Sema/JumpDiagnostics.cpp' l='247' u='c' c='_ZN12_GLOBAL__N_116JumpScopeChecker21BuildScopeInformationEPN5clang7VarDeclEPKNS1_9BlockDeclERj'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='16133' u='c' c='_ZN5clang4Sema11ActOnFieldsEPNS_5ScopeENS_14SourceLocationEPNS_4DeclEN4llvm8ArrayRefIS5_EES3_S3_RKNS_20ParsedAttributesViewE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='16241' u='c' c='_ZN5clang4Sema11ActOnFieldsEPNS_5ScopeENS_14SourceLocationEPNS_4DeclEN4llvm8ArrayRefIS5_EES3_S3_RKNS_20ParsedAttributesViewE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='811' u='c' c='_ZN5clang4Sema17isValidVarArgTypeERKNS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='3379' u='c' c='_ZN5clang4Sema14ActOnCXXDeleteENS_14SourceLocationEbbPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='4721' u='c' c='_ZL22EvaluateUnaryTypeTraitRN5clang4SemaENS_9TypeTraitENS_14SourceLocationENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='7757' u='c' c='_ZN5clang22InitializationSequence7PerformERNS_4SemaERKNS_17InitializedEntityERKNS_18InitializationKindEN4llvm15MutableArrayRefIPNS_4ExprEEEPNS_8QualTypeE'/>

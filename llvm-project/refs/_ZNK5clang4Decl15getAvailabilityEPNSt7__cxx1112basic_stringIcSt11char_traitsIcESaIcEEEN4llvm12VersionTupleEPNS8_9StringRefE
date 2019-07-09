@@ -1,0 +1,24 @@
+<dec f='llvm/clang/include/clang/AST/DeclBase.h' l='654' type='clang::AvailabilityResult clang::Decl::getAvailability(std::string * Message = nullptr, llvm::VersionTuple EnclosingVersion = llvm::VersionTuple(), llvm::StringRef * RealizedPlatform = nullptr) const'/>
+<use f='llvm/clang/include/clang/AST/DeclBase.h' l='672' u='c' c='_ZNK5clang4Decl12isDeprecatedEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/clang/include/clang/AST/DeclBase.h' l='681' u='c' c='_ZNK5clang4Decl13isUnavailableEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<doc f='llvm/clang/include/clang/AST/DeclBase.h' l='636'>/// Determine the availability of the given declaration.
+  ///
+  /// This routine will determine the most restrictive availability of
+  /// the given declaration (e.g., preferring &apos;unavailable&apos; to
+  /// &apos;deprecated&apos;).
+  ///
+  /// \param Message If non-NULL and the result is not \c
+  /// AR_Available, will be set to a (possibly empty) message
+  /// describing why the declaration has not been introduced, is
+  /// deprecated, or is unavailable.
+  ///
+  /// \param EnclosingVersion The version to compare with. If empty, assume the
+  /// deployment target version.
+  ///
+  /// \param RealizedPlatform If non-NULL and the availability result is found
+  /// in an available attribute it will set to the platform which is written in
+  /// the available attribute.</doc>
+<def f='llvm/clang/lib/AST/DeclBase.cpp' l='573' ll='623' type='clang::AvailabilityResult clang::Decl::getAvailability(std::string * Message = nullptr, llvm::VersionTuple EnclosingVersion = llvm::VersionTuple(), llvm::StringRef * RealizedPlatform = nullptr) const'/>
+<use f='llvm/clang/lib/Sema/CodeCompleteConsumer.cpp' l='664' u='c' c='_ZL19getDeclAvailabilityPKN5clang4DeclE'/>
+<use f='llvm/clang/lib/Sema/CodeCompleteConsumer.cpp' l='666' u='c' c='_ZL19getDeclAvailabilityPKN5clang4DeclE'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='7753' u='c' c='_ZL28getCursorAvailabilityForDeclPKN5clang4DeclE'/>

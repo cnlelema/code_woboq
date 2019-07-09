@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='986' type='void llvm::MCStreamer::EmitWinCFIFuncletOrFuncEnd(llvm::SMLoc Loc = llvm::SMLoc())'/>
+<doc f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='982'>/// This is used on platforms, such as Windows on ARM64, that require function
+  /// or funclet sizes to be emitted in .xdata before the End marker is emitted
+  /// for the frame.  We cannot use the End marker, as it is not set at the
+  /// point of emitting .xdata, in order to indicate that the frame is active.</doc>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/WinException.cpp' l='115' u='c' c='_ZN4llvm12WinException15markFunctionEndEv'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/WinException.cpp' l='243' u='c' c='_ZN4llvm12WinException10endFuncletEv'/>
+<ovr f='llvm/llvm/lib/MC/MCAsmStreamer.cpp' l='1632' c='_ZN12_GLOBAL__N_113MCAsmStreamer26EmitWinCFIFuncletOrFuncEndEN4llvm5SMLocE'/>
+<def f='llvm/llvm/lib/MC/MCStreamer.cpp' l='722' ll='731' type='void llvm::MCStreamer::EmitWinCFIFuncletOrFuncEnd(llvm::SMLoc Loc = llvm::SMLoc())'/>

@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.h' l='65' type='bool llvm::PPCFrameLowering::twoUniqueScratchRegsRequired(llvm::MachineBasicBlock * MBB) const'/>
+<def f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='693' ll='706' type='bool llvm::PPCFrameLowering::twoUniqueScratchRegsRequired(llvm::MachineBasicBlock * MBB) const'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='712' u='c' c='_ZNK4llvm16PPCFrameLowering16canUseAsPrologueERKNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='853' u='c' c='_ZNK4llvm16PPCFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<doc f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='688'>// We need a scratch register for spilling LR and for spilling CR. By default,
+// we use two scratch registers to hide latency. However, if only one scratch
+// register is available, we can adjust for that by not overlapping the spill
+// code. However, if we need to realign the stack (i.e. have a base pointer)
+// and the stack frame is large, we need two scratch registers.</doc>

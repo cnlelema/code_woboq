@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/Analysis/MemorySSAUpdater.h' l='290' type='void llvm::MemorySSAUpdater::cloneUsesAndDefs(llvm::BasicBlock * BB, llvm::BasicBlock * NewBB, const ValueToValueMapTy &amp; VMap, PhiToDefMap &amp; MPhiMap)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/MemorySSAUpdater.h' l='281'>// Clone all uses and defs from BB to NewBB given a 1:1 map of all
+  // instructions and blocks cloned, and a map of MemoryPhi : Definition
+  // (MemoryAccess Phi or Def). VMap maps old instructions to cloned
+  // instructions and old blocks to cloned blocks. MPhiMap, is created in the
+  // caller of this private method, and maps existing MemoryPhis to new
+  // definitions that new MemoryAccesses must point to. These definitions may
+  // not necessarily be MemoryPhis themselves, they may be MemoryDefs. As such,
+  // the map is between MemoryPhis and MemoryAccesses, where the MemoryAccesses
+  // may be MemoryPhis or MemoryDefs and not MemoryUses.</doc>
+<def f='llvm/llvm/lib/Analysis/MemorySSAUpdater.cpp' l='483' ll='523' type='void llvm::MemorySSAUpdater::cloneUsesAndDefs(llvm::BasicBlock * BB, llvm::BasicBlock * NewBB, const ValueToValueMapTy &amp; VMap, PhiToDefMap &amp; MPhiMap)'/>
+<use f='llvm/llvm/lib/Analysis/MemorySSAUpdater.cpp' l='629' u='c' c='_ZN4llvm16MemorySSAUpdater19updateForClonedLoopERKNS_13LoopBlocksRPOENS_8ArrayRefIPNS_10BasicBlockEEERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS9570303'/>
+<use f='llvm/llvm/lib/Analysis/MemorySSAUpdater.cpp' l='651' u='c' c='_ZN4llvm16MemorySSAUpdater28updateForClonedBlockIntoPredEPNS_10BasicBlockES2_RKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS6_NS_11930024'/>

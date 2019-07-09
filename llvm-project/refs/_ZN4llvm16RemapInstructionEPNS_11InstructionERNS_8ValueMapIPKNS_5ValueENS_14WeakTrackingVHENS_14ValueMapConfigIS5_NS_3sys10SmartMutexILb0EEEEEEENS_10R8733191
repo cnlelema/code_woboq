@@ -1,0 +1,22 @@
+<def f='llvm/llvm/include/llvm/Transforms/Utils/ValueMapper.h' l='250' ll='255' type='void llvm::RemapInstruction(llvm::Instruction * I, ValueToValueMapTy &amp; VM, llvm::RemapFlags Flags = RF_None, llvm::ValueMapTypeRemapper * TypeMapper = nullptr, llvm::ValueMaterializer * Materializer = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/ValueMapper.h' l='242'>/// Convert the instruction operands from referencing the current values into
+/// those specified by VM.
+///
+/// If \a RF_IgnoreMissingLocals is set and an operand can&apos;t be found via \a
+/// MapValue(), use the old value.  Otherwise assert that this doesn&apos;t happen.
+///
+/// Note that \a MapValue() only returns \c nullptr for SSA values missing from
+/// \c VM.</doc>
+<use f='llvm/llvm/lib/CodeGen/WinEHPrepare.cpp' l='802' u='c' c='_ZN12_GLOBAL__N_112WinEHPrepare17cloneCommonBlocksERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/ControlHeightReduction.cpp' l='1786' u='c' c='_ZN12_GLOBAL__N_13CHR16cloneScopeBlocksEPNS_8CHRScopeEPN4llvm10BasicBlockES5_PNS3_6RegionERNS3_8ValueMapIPKNS3_5ValueENS3_14WeakTrackingVHENS3_14Value2739565'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/InductiveRangeCheckElimination.cpp' l='1159' u='c' c='_ZNK12_GLOBAL__N_115LoopConstrainer9cloneLoopERNS0_10ClonedLoopEPKc'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnswitch.cpp' l='1335' u='c' c='_ZN12_GLOBAL__N_112LoopUnswitch27UnswitchNontrivialConditionEPN4llvm5ValueEPNS1_8ConstantEPNS1_4LoopEPNS1_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SimpleLoopUnswitch.cpp' l='1051' u='c' c='_ZL21buildClonedLoopBlocksRN4llvm4LoopEPNS_10BasicBlockES3_NS_8ArrayRefIS3_EES3_S3_S3_RKNS_13SmallDenseMapIS3_S3_Lj16ENS_12DenseMapInfoIS3_EENS_6detai9053684'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CloneFunction.cpp' l='210' u='c' c='_ZN4llvm17CloneFunctionIntoEPNS_8FunctionEPKS0_RNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS7_NS_3sys10SmartMutexILb0EEEEEEEbRNS2172164'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CloneFunction.cpp' l='326' u='c' c='_ZN12_GLOBAL__N_121PruningFunctionCloner10CloneBlockEPKN4llvm10BasicBlockENS1_14ilist_iteratorINS1_12ilist_detail12node_optionsINS1_11InstructionELb1E6837711'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CloneFunction.cpp' l='499' u='c' c='_ZN4llvm25CloneAndPruneIntoFromInstEPNS_8FunctionEPKS0_PKNS_11InstructionERNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigISA_NS_3sys232165'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CloneFunction.cpp' l='728' u='c' c='_ZN4llvm25remapInstructionsInBlocksERKNS_15SmallVectorImplIPNS_10BasicBlockEEERNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS9_NS_3478649'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopRotationUtils.cpp' l='344' u='c' c='_ZN12_GLOBAL__N_110LoopRotate10rotateLoopEPN4llvm4LoopEb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnrollRuntime.cpp' l='887' u='c' c='_ZN4llvm26UnrollRuntimeLoopRemainderEPNS_4LoopEjbbbbPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEbPS1_'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='2726' u='c' c='_ZN4llvm22FoldBranchToCommonDestEPNS_10BranchInstEPNS_16MemorySSAUpdaterEj'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='2745' u='c' c='_ZN4llvm22FoldBranchToCommonDestEPNS_10BranchInstEPNS_16MemorySSAUpdaterEj'/>

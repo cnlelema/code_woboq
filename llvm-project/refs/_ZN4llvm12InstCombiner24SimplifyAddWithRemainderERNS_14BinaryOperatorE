@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='749' type='llvm::Value * llvm::InstCombiner::SimplifyAddWithRemainder(llvm::BinaryOperator &amp; I)'/>
+<def f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAddSub.cpp' l='1023' ll='1052' type='llvm::Value * llvm::InstCombiner::SimplifyAddWithRemainder(llvm::BinaryOperator &amp; I)'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAddSub.cpp' l='1209' u='c' c='_ZN4llvm12InstCombiner8visitAddERNS_14BinaryOperatorE'/>
+<doc f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAddSub.cpp' l='1021'>// Simplifies X % C0 + (( X / C0 ) % C1) * C0 to X % (C0 * C1), where (C0 * C1)
+// does not overflow.</doc>
+<doc f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='744'>/// Tries to simplify add operations using the definition of remainder.
+  ///
+  /// The definition of remainder is X % C = X - (X / C ) * C. The add
+  /// expression X % C0 + (( X / C0 ) % C1) * C0 can be simplified to
+  /// X % (C0 * C1)</doc>

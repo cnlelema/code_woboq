@@ -1,0 +1,36 @@
+<def f='llvm/llvm/include/llvm/CodeGen/MachineBasicBlock.h' l='457' ll='459' type='void llvm::MachineBasicBlock::normalizeSuccProbs()'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineBasicBlock.h' l='452'>/// Normalize probabilities of all successors so that the sum of them becomes
+  /// one. This is usually done when the current update on this MBB is done, and
+  /// the sum of its successors&apos; probabilities is not guaranteed to be one. The
+  /// user is responsible for the correct use of this function.
+  /// MBB::removeSuccessor() has an option to do this automatically.</doc>
+<use f='llvm/llvm/lib/CodeGen/IfConversion.cpp' l='2124' u='c' c='_ZN12_GLOBAL__N_111IfConverter11MergeBlocksERNS0_6BBInfoES2_b'/>
+<use f='llvm/llvm/lib/CodeGen/IfConversion.cpp' l='2205' u='c' c='_ZN12_GLOBAL__N_111IfConverter11MergeBlocksERNS0_6BBInfoES2_b'/>
+<use f='llvm/llvm/lib/CodeGen/MIRParser/MIParser.cpp' l='754' u='c' c='_ZN12_GLOBAL__N_18MIParser25parseBasicBlockSuccessorsERN4llvm17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/MIRParser/MIParser.cpp' l='846' u='c' c='_ZN12_GLOBAL__N_18MIParser15parseBasicBlockERN4llvm17MachineBasicBlockERPS2_'/>
+<use f='llvm/llvm/lib/CodeGen/MIRParser/MIParser.cpp' l='871' u='c' c='_ZN12_GLOBAL__N_18MIParser16parseBasicBlocksEv'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='684' u='c' c='_ZN4llvm17MachineBasicBlock14splitSuccessorEPS0_S1_b'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='703' u='c' c='_ZN4llvm17MachineBasicBlock15removeSuccessorEN9__gnu_cxx17__normal_iteratorIPPS0_St6vectorIS3_SaIS3_EEEEb'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='809' u='c' c='_ZN4llvm17MachineBasicBlock31transferSuccessorsAndUpdatePHIsEPS0_'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='1278' u='c' c='_ZN4llvm17MachineBasicBlock20CorrectExtraCFGEdgesEPS0_S1_b'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='1757' u='c' c='_ZN4llvm19SelectionDAGBuilder15visitCleanupRetERKNS_17CleanupReturnInstE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='2326' u='c' c='_ZN4llvm19SelectionDAGBuilder15visitSwitchCaseERNS_8SwitchCG9CaseBlockEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='2386' u='c' c='_ZN4llvm19SelectionDAGBuilder15visitSwitchCaseERNS_8SwitchCG9CaseBlockEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='2673' u='c' c='_ZN4llvm19SelectionDAGBuilder18visitBitTestHeaderERNS_8SwitchCG12BitTestBlockEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='2733' u='c' c='_ZN4llvm19SelectionDAGBuilder16visitBitTestCaseERNS_8SwitchCG12BitTestBlockEPNS_17MachineBasicBlockENS_17BranchProbabilityEjRNS1_11BitTestCaseES5_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='2825' u='c' c='_ZN4llvm19SelectionDAGBuilder11visitInvokeERKNS_10InvokeInstE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='2854' u='c' c='_ZN4llvm19SelectionDAGBuilder11visitCallBrERKNS_10CallBrInstE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='2944' u='c' c='_ZN4llvm19SelectionDAGBuilder15visitIndirectBrERKNS_14IndirectBrInstE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='10157' u='c' c='_ZN4llvm19SelectionDAGBuilder13lowerWorkItemENS_8SwitchCG18SwitchWorkListItemEPNS_5ValueEPNS_17MachineBasicBlockES6_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='10170' u='c' c='_ZN4llvm19SelectionDAGBuilder13lowerWorkItemENS_8SwitchCG18SwitchWorkListItemEPNS_5ValueEPNS_17MachineBasicBlockES6_'/>
+<use f='llvm/llvm/lib/CodeGen/SwitchLoweringUtils.cpp' l='240' u='c' c='_ZN4llvm8SwitchCG14SwitchLowering14buildJumpTableERKSt6vectorINS0_11CaseClusterESaIS3_EEjjPKNS_10SwitchInstEPNS_17MachineBasicBlockERS3_'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='8687' u='c' c='_ZNK4llvm17ARMTargetLowering21EmitSjLjDispatchBlockERNS_12MachineInstrEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsExpandPseudo.cpp' l='141' u='c' c='_ZN12_GLOBAL__N_116MipsExpandPseudo26expandAtomicCmpSwapSubwordERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsExpandPseudo.cpp' l='144' u='c' c='_ZN12_GLOBAL__N_116MipsExpandPseudo26expandAtomicCmpSwapSubwordERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsExpandPseudo.cpp' l='318' u='c' c='_ZN12_GLOBAL__N_116MipsExpandPseudo19expandAtomicCmpSwapERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_b'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsExpandPseudo.cpp' l='321' u='c' c='_ZN12_GLOBAL__N_116MipsExpandPseudo19expandAtomicCmpSwapERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_b'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsExpandPseudo.cpp' l='473' u='c' c='_ZN12_GLOBAL__N_116MipsExpandPseudo24expandAtomicBinOpSubwordERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsExpandPseudo.cpp' l='737' u='c' c='_ZN12_GLOBAL__N_116MipsExpandPseudo17expandAtomicBinOpERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_jb'/>
+<use f='llvm/llvm/lib/Target/X86/X86CondBrFolding.cpp' l='363' u='c' c='_ZN12_GLOBAL__N_116X86CondBrFolding14optimizeCondBrERN4llvm17MachineBasicBlockERNS1_15SmallVectorImplIPS2_EE'/>
+<use f='llvm/llvm/lib/Target/X86/X86FlagsCopyLowering.cpp' l='291' u='c' c='_ZL10splitBlockRN4llvm17MachineBasicBlockERNS_12MachineInstrERKNS_12X86InstrInfoE'/>
+<use f='llvm/llvm/lib/Target/X86/X86SpeculativeLoadHardening.cpp' l='806' u='c' c='_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE'/>

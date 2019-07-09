@@ -1,0 +1,17 @@
+<dec f='llvm/clang/include/clang/Parse/Parser.h' l='1944' type='bool clang::Parser::ParseParenExprOrCondition(StmtResult * InitStmt, Sema::ConditionResult &amp; CondResult, clang::SourceLocation Loc, Sema::ConditionKind CK)'/>
+<def f='llvm/clang/lib/Parse/ParseStmt.cpp' l='1127' ll='1170' type='bool clang::Parser::ParseParenExprOrCondition(StmtResult * InitStmt, Sema::ConditionResult &amp; Cond, clang::SourceLocation Loc, Sema::ConditionKind CK)'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='1217' u='c' c='_ZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='1360' u='c' c='_ZN5clang6Parser20ParseSwitchStatementEPNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='1448' u='c' c='_ZN5clang6Parser19ParseWhileStatementEPNS_14SourceLocationE'/>
+<doc f='llvm/clang/lib/Parse/ParseStmt.cpp' l='1115'>/// ParseParenExprOrCondition:
+/// [C  ]     &apos;(&apos; expression &apos;)&apos;
+/// [C++]     &apos;(&apos; condition &apos;)&apos;
+/// [C++1z]   &apos;(&apos; init-statement[opt] condition &apos;)&apos;
+///
+/// This function parses and performs error recovery on the specified condition
+/// or expression (depending on whether we&apos;re in C++ or C mode).  This function
+/// goes out of its way to recover well.  It returns true if there was a parser
+/// error (the right paren couldn&apos;t be found), which indicates that the caller
+/// should try to recover harder.  It returns false if the condition is
+/// successfully parsed.  Note that a successful parse can still have semantic
+/// errors in the condition.</doc>

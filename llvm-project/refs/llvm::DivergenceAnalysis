@@ -1,0 +1,61 @@
+<def f='llvm/llvm/include/llvm/Analysis/DivergenceAnalysis.h' l='37' ll='173'/>
+<size>200</size>
+<doc f='llvm/llvm/include/llvm/Analysis/DivergenceAnalysis.h' l='32'>/// \brief Generic divergence analysis for reducible CFGs.
+///
+/// This analysis propagates divergence in a data-parallel context from sources
+/// of divergence to all users. It requires reducible CFGs. All assignments
+/// should be in SSA form.</doc>
+<fun r='_ZN4llvm18DivergenceAnalysisC1ERKNS_8FunctionEPKNS_4LoopERKNS_13DominatorTreeERKNS_8LoopInfoERNS_22SyncDependenceAnalysisEb'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis13getRegionLoopEv'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis11getFunctionEv'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis8inRegionERKNS_10BasicBlockE'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis8inRegionERKNS_11InstructionE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis18addUniformOverrideERKNS_5ValueE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis13markDivergentERKNS_5ValueE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis7computeEv'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis21hasDetectedDivergenceEv'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis15isAlwaysUniformERKNS_5ValueE'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis11isDivergentERKNS_5ValueE'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis5printERNS_11raw_ostreamEPKNS_6ModuleE'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis16updateTerminatorERKNS_11InstructionE'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis13updatePHINodeERKNS_7PHINodeE'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis23updateNormalInstructionERKNS_11InstructionE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis17taintLoopLiveOutsERKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis9pushUsersERKNS_5ValueE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis12pushPHINodesERKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis22markBlockJoinDivergentERKNS_10BasicBlockE'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis19isTemporalDivergentERKNS_10BasicBlockERKNS_5ValueE'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis15isJoinDivergentERKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis23propagateJoinDivergenceERKNS_10BasicBlockEPKNS_4LoopE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis25propagateBranchDivergenceERKNS_11InstructionE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis23propagateLoopDivergenceERKNS_4LoopE'/>
+<mbr r='llvm::DivergenceAnalysis::F' o='0' t='const llvm::Function &amp;'/>
+<mbr r='llvm::DivergenceAnalysis::RegionLoop' o='64' t='const llvm::Loop *'/>
+<mbr r='llvm::DivergenceAnalysis::DT' o='128' t='const llvm::DominatorTree &amp;'/>
+<mbr r='llvm::DivergenceAnalysis::LI' o='192' t='const llvm::LoopInfo &amp;'/>
+<mbr r='llvm::DivergenceAnalysis::DivergentLoops' o='256' t='DenseSet&lt;const llvm::Loop *&gt;'/>
+<mbr r='llvm::DivergenceAnalysis::SDA' o='512' t='llvm::SyncDependenceAnalysis &amp;'/>
+<mbr r='llvm::DivergenceAnalysis::IsLCSSAForm' o='576' t='bool'/>
+<mbr r='llvm::DivergenceAnalysis::UniformOverrides' o='640' t='DenseSet&lt;const llvm::Value *&gt;'/>
+<mbr r='llvm::DivergenceAnalysis::DivergentJoinBlocks' o='896' t='DenseSet&lt;const llvm::BasicBlock *&gt;'/>
+<mbr r='llvm::DivergenceAnalysis::DivergentValues' o='1152' t='DenseSet&lt;const llvm::Value *&gt;'/>
+<mbr r='llvm::DivergenceAnalysis::Worklist' o='1408' t='std::vector&lt;const Instruction *&gt;'/>
+<fun r='_ZN4llvm18DivergenceAnalysisC1ERKNS_8FunctionEPKNS_4LoopERKNS_13DominatorTreeERKNS_8LoopInfoERNS_22SyncDependenceAnalysisEb'/>
+<fun r='_ZN4llvm18DivergenceAnalysis13markDivergentERKNS_5ValueE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis18addUniformOverrideERKNS_5ValueE'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis16updateTerminatorERKNS_11InstructionE'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis23updateNormalInstructionERKNS_11InstructionE'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis19isTemporalDivergentERKNS_10BasicBlockERKNS_5ValueE'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis13updatePHINodeERKNS_7PHINodeE'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis8inRegionERKNS_11InstructionE'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis8inRegionERKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis17taintLoopLiveOutsERKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis12pushPHINodesERKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis9pushUsersERKNS_5ValueE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis23propagateJoinDivergenceERKNS_10BasicBlockEPKNS_4LoopE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis25propagateBranchDivergenceERKNS_11InstructionE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis23propagateLoopDivergenceERKNS_4LoopE'/>
+<fun r='_ZN4llvm18DivergenceAnalysis7computeEv'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis15isAlwaysUniformERKNS_5ValueE'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis11isDivergentERKNS_5ValueE'/>
+<fun r='_ZNK4llvm18DivergenceAnalysis5printERNS_11raw_ostreamEPKNS_6ModuleE'/>

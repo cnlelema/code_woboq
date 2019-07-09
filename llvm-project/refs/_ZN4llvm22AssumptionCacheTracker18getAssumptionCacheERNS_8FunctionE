@@ -1,0 +1,48 @@
+<dec f='llvm/llvm/include/llvm/Analysis/AssumptionCache.h' l='213' type='llvm::AssumptionCache &amp; llvm::AssumptionCacheTracker::getAssumptionCache(llvm::Function &amp; F)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/AssumptionCache.h' l='209'>/// Get the cached assumptions for a function.
+  ///
+  /// If no assumptions are cached, this will scan the function. Otherwise, the
+  /// existing cache will be returned.</doc>
+<def f='llvm/llvm/lib/Analysis/AssumptionCache.cpp' l='243' ll='258' type='llvm::AssumptionCache &amp; llvm::AssumptionCacheTracker::getAssumptionCache(llvm::Function &amp; F)'/>
+<use f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='2057' u='c' c='_ZN4llvm18BasicAAWrapperPass13runOnFunctionERNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='2077' u='c' c='_ZN4llvm27createLegacyPMBasicAAResultERNS_4PassERNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Analysis/DemandedBits.cpp' l='296' u='c' c='_ZN4llvm23DemandedBitsWrapperPass13runOnFunctionERNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Analysis/IVUsers.cpp' l='366' u='c' c='_ZN4llvm18IVUsersWrapperPass9runOnLoopEPNS_4LoopERNS_13LPPassManagerE'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='5343' u='c' c='_ZN4llvm20getBestSimplifyQueryERNS_4PassERNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Analysis/LazyValueInfo.cpp' l='1572' u='c' c='_ZN4llvm24LazyValueInfoWrapperPass13runOnFunctionERNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Analysis/Lint.cpp' l='206' u='c' c='_ZN12_GLOBAL__N_14Lint13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Analysis/MemoryDependenceAnalysis.cpp' l='1815' u='c' c='_ZN4llvm27MemoryDependenceWrapperPass13runOnFunctionERNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='11946' u='c' c='_ZN4llvm26ScalarEvolutionWrapperPass13runOnFunctionERNS_8FunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/HardwareLoops.cpp' l='182' u='c' c='_ZN12_GLOBAL__N_113HardwareLoops13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/SafeStack.cpp' l='883' u='c' c='_ZN12_GLOBAL__N_119SafeStackLegacyPass13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUCodeGenPrepare.cpp' l='898' u='c' c='_ZN12_GLOBAL__N_120AMDGPUCodeGenPrepare13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUInline.cpp' l='214' u='c' c='_ZN12_GLOBAL__N_113AMDGPUInliner13getInlineCostEN4llvm8CallSiteE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/InlineSimple.cpp' l='69' u='c' c='_ZN12_GLOBAL__N_113SimpleInliner13getInlineCostEN4llvm8CallSiteE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/Inliner.cpp' l='762' u='c' c='_ZN4llvm17LegacyInlinerBase11inlineCallsERNS_12CallGraphSCCE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='371' u='c' c='_ZN12_GLOBAL__N_124PartialInlinerLegacyPass11runOnModuleERN4llvm6ModuleE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/SCCP.cpp' l='59' u='c' c='_ZN12_GLOBAL__N_116IPSCCPLegacyPass11runOnModuleERN4llvm6ModuleE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/SCCP.cpp' l='59' u='c' c='_ZN12_GLOBAL__N_116IPSCCPLegacyPass11runOnModuleERN4llvm6ModuleE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/SampleProfile.cpp' l='341' u='c' c='_ZN12_GLOBAL__N_129SampleProfileLoaderLegacyPassC1EN4llvm9StringRefEb'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='3561' u='c' c='_ZN4llvm24InstructionCombiningPass13runOnFunctionERNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/AlignmentFromAssumptions.cpp' l='379' u='c' c='_ZN12_GLOBAL__N_124AlignmentFromAssumptions13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='2573' u='c' c='_ZN4llvm3gvn13GVNLegacyPass13runOnFunctionERNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/InstSimplifyPass.cpp' l='103' u='c' c='_ZN12_GLOBAL__N_122InstSimplifyLegacyPass13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopDataPrefetch.cpp' l='185' u='c' c='_ZN12_GLOBAL__N_126LoopDataPrefetchLegacyPass13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopInstSimplify.cpp' l='192' u='c' c='_ZN12_GLOBAL__N_126LoopInstSimplifyLegacyPass9runOnLoopEPN4llvm4LoopERNS1_13LPPassManagerE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopRotation.cpp' l='96' u='c' c='_ZN12_GLOBAL__N_120LoopRotateLegacyPass9runOnLoopEPN4llvm4LoopERNS1_13LPPassManagerE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnrollAndJamPass.cpp' l='451' u='c' c='_ZN12_GLOBAL__N_116LoopUnrollAndJam9runOnLoopEPN4llvm4LoopERNS1_13LPPassManagerE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnrollPass.cpp' l='1198' u='c' c='_ZN12_GLOBAL__N_110LoopUnroll9runOnLoopEPN4llvm4LoopERNS1_13LPPassManagerE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnswitch.cpp' l='521' u='c' c='_ZN12_GLOBAL__N_112LoopUnswitch9runOnLoopEPN4llvm4LoopERNS1_13LPPassManagerE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='1529' u='c' c='_ZN12_GLOBAL__N_119MemCpyOptLegacyPass13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/NaryReassociate.cpp' l='170' u='c' c='_ZN12_GLOBAL__N_125NaryReassociateLegacyPass13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/NewGVN.cpp' l='4202' u='c' c='_ZN12_GLOBAL__N_116NewGVNLegacyPass13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SROA.cpp' l='4616' u='c' c='_ZN4llvm4sroa14SROALegacyPass13runOnFunctionERNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SimpleLoopUnswitch.cpp' l='2911' u='c' c='_ZN12_GLOBAL__N_128SimpleLoopUnswitchLegacyPass9runOnLoopEPN4llvm4LoopERNS1_13LPPassManagerE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SimplifyCFGPass.cpp' l='267' u='c' c='_ZN12_GLOBAL__N_115CFGSimplifyPass13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CheriLogSetBoundsPass.cpp' l='40' u='c' c='_ZN12_GLOBAL__N_117LogCheriSetBounds13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopSimplify.cpp' l='803' u='c' c='_ZN12_GLOBAL__N_112LoopSimplify13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LowerSwitch.cpp' l='149' u='c' c='_ZN12_GLOBAL__N_111LowerSwitch13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Mem2Reg.cpp' l='89' u='c' c='_ZN12_GLOBAL__N_117PromoteLegacyPass13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/PredicateInfo.cpp' l='774' u='c' c='_ZN4llvm30PredicateInfoPrinterLegacyPass13runOnFunctionERNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='1477' u='c' c='_ZN12_GLOBAL__N_113LoopVectorize13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp' l='4952' u='c' c='_ZN12_GLOBAL__N_113SLPVectorizer13runOnFunctionERN4llvm8FunctionE'/>

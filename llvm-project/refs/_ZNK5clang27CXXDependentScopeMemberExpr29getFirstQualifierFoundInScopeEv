@@ -1,0 +1,15 @@
+<def f='llvm/clang/include/clang/AST/ExprCXX.h' l='3546' ll='3550' type='clang::NamedDecl * clang::CXXDependentScopeMemberExpr::getFirstQualifierFoundInScope() const'/>
+<doc f='llvm/clang/include/clang/AST/ExprCXX.h' l='3535'>/// Retrieve the first part of the nested-name-specifier that was
+  /// found in the scope of the member access expression when the member access
+  /// was initially parsed.
+  ///
+  /// This function only returns a useful result when member access expression
+  /// uses a qualified member name, e.g., &quot;x.Base::f&quot;. Here, the declaration
+  /// returned by this function describes what was found by unqualified name
+  /// lookup for the identifier &quot;Base&quot; within the scope of the member access
+  /// expression itself. At template instantiation time, this information is
+  /// combined with the results of name lookup into the type of the object
+  /// expression itself (the class type of x).</doc>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='7162' u='c' c='_ZN5clang15ASTNodeImporter32VisitCXXDependentScopeMemberExprEPNS_27CXXDependentScopeMemberExprE'/>
+<use f='llvm/clang/lib/Sema/TreeTransform.h' l='11639' u='c' c='_ZN5clang13TreeTransform36TransformCXXDependentScopeMemberExprEPNS_27CXXDependentScopeMemberExprE'/>
+<use f='llvm/clang/lib/Sema/TreeTransform.h' l='11671' u='c' c='_ZN5clang13TreeTransform36TransformCXXDependentScopeMemberExprEPNS_27CXXDependentScopeMemberExprE'/>

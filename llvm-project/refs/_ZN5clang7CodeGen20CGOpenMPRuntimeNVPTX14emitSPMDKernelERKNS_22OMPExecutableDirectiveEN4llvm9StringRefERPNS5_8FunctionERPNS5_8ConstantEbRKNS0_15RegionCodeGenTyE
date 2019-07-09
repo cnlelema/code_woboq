@@ -1,0 +1,14 @@
+<dec f='llvm/clang/lib/CodeGen/CGOpenMPRuntimeNVPTX.h' l='126' type='void clang::CodeGen::CGOpenMPRuntimeNVPTX::emitSPMDKernel(const clang::OMPExecutableDirective &amp; D, llvm::StringRef ParentName, llvm::Function *&amp; OutlinedFn, llvm::Constant *&amp; OutlinedFnID, bool IsOffloadEntry, const clang::CodeGen::RegionCodeGenTy &amp; CodeGen)'/>
+<def f='llvm/clang/lib/CodeGen/CGOpenMPRuntimeNVPTX.cpp' l='1248' ll='1297' type='void clang::CodeGen::CGOpenMPRuntimeNVPTX::emitSPMDKernel(const clang::OMPExecutableDirective &amp; D, llvm::StringRef ParentName, llvm::Function *&amp; OutlinedFn, llvm::Constant *&amp; OutlinedFnID, bool IsOffloadEntry, const clang::CodeGen::RegionCodeGenTy &amp; CodeGen)'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntimeNVPTX.cpp' l='1835' u='c' c='_ZN5clang7CodeGen20CGOpenMPRuntimeNVPTX26emitTargetOutlinedFunctionERKNS_22OMPExecutableDirectiveEN4llvm9StringRefERPNS5_8FunctionERPNS5_8ConstantEbRK14482850'/>
+<doc f='llvm/clang/lib/CodeGen/CGOpenMPRuntimeNVPTX.h' l='115'>/// Emit outlined function specialized for the Single Program
+  /// Multiple Data programming model for applicable target directives on the
+  /// NVPTX device.
+  /// \param D Directive to emit.
+  /// \param ParentName Name of the function that encloses the target region.
+  /// \param OutlinedFn Outlined function value to be defined by this call.
+  /// \param OutlinedFnID Outlined function ID value to be defined by this call.
+  /// \param IsOffloadEntry True if the outlined function is an offload entry.
+  /// \param CodeGen Object containing the target statements.
+  /// An outlined function may not be an entry if, e.g. the if clause always
+  /// evaluates to false.</doc>

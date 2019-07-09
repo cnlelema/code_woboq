@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/IRReader/IRReader.h' l='55' type='std::unique_ptr&lt;Module&gt; llvm::parseIR(llvm::MemoryBufferRef Buffer, llvm::SMDiagnostic &amp; Err, llvm::LLVMContext &amp; Context, bool UpgradeDebugInfo = true, llvm::StringRef DataLayoutString = &quot;&quot;)'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenAction.cpp' l='1013' u='c' c='_ZN5clang13CodeGenAction10loadModuleEN4llvm15MemoryBufferRefE'/>
+<doc f='llvm/llvm/include/llvm/IRReader/IRReader.h' l='48'>/// If the given MemoryBuffer holds a bitcode image, return a Module
+/// for it.  Otherwise, attempt to parse it as LLVM Assembly and return
+/// a Module for it.
+/// \param UpgradeDebugInfo Run UpgradeDebugInfo, which runs the Verifier.
+///                         This option should only be set to false by llvm-as
+///                         for use inside the LLVM testuite!
+/// \param DataLayoutString Override datalayout in the llvm assembly.</doc>
+<use f='llvm/clang/tools/clang-fuzzer/handle-llvm/handle_llvm.cpp' l='98' u='c' c='_ZL7OptLLVMRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm10CodeGenOpt5LevelE'/>
+<use f='llvm/clang/tools/clang-fuzzer/handle-llvm/handle_llvm.cpp' l='147' u='c' c='_ZL19CreateAndRunJITFuncRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm10CodeGenOpt5LevelE'/>
+<def f='llvm/llvm/lib/IRReader/IRReader.cpp' l='68' ll='93' type='std::unique_ptr&lt;Module&gt; llvm::parseIR(llvm::MemoryBufferRef Buffer, llvm::SMDiagnostic &amp; Err, llvm::LLVMContext &amp; Context, bool UpgradeDebugInfo = true, llvm::StringRef DataLayoutString = &quot;&quot;)'/>
+<use f='llvm/llvm/lib/IRReader/IRReader.cpp' l='107' u='c' c='_ZN4llvm11parseIRFileENS_9StringRefERNS_12SMDiagnosticERNS_11LLVMContextEbS0_'/>
+<use f='llvm/llvm/lib/IRReader/IRReader.cpp' l='122' u='c' c='LLVMParseIRInContext'/>

@@ -1,0 +1,29 @@
+<dec f='llvm/clang/include/clang/AST/ASTContext.h' l='1377' type='clang::QualType clang::ASTContext::getVectorType(clang::QualType VectorType, unsigned int NumElts, VectorType::VectorKind VecKind) const'/>
+<doc f='llvm/clang/include/clang/AST/ASTContext.h' l='1373'>/// Return the unique reference to a vector type of the specified
+  /// element type and size.
+  ///
+  /// \pre \p VectorType must be a built-in type.</doc>
+<def f='llvm/clang/lib/AST/ASTContext.cpp' l='3481' ll='3508' type='clang::QualType clang::ASTContext::getVectorType(clang::QualType vecType, unsigned int NumElts, VectorType::VectorKind VecKind) const'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='3497' u='c' c='_ZNK5clang10ASTContext13getVectorTypeENS_8QualTypeEjNS_10VectorType10VectorKindE'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='9386' u='c' c='_ZNK5clang10ASTContext28getCorrespondingUnsignedTypeENS_8QualTypeE'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='9675' u='c' c='_ZL17DecodeTypeFromStrRPKcRKN5clang10ASTContextERNS3_19GetBuiltinTypeErrorERbb'/>
+<doc f='llvm/clang/lib/AST/ASTContext.cpp' l='3479'>/// getVectorType - Return the unique reference to a vector type of
+/// the specified element type and size. VectorType must be a built-in type.</doc>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='1131' u='c' c='_ZN5clang15ASTNodeImporter15VisitVectorTypeEPKNS_10VectorTypeE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='931' u='c' c='_ZN12_GLOBAL__N_122SimpleTransformVisitor15VisitVectorTypeEPKN5clang10VectorTypeE'/>
+<use f='llvm/clang/lib/CodeGen/TargetInfo.cpp' l='4680' u='c' c='_ZNK5clang7CodeGen7ABIInfo22isHomogeneousAggregateENS_8QualTypeERPKNS_4TypeERm'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='5927' u='c' c='_ZN5clang4Sema24SemaBuiltinShuffleVectorEPNS_8CallExprE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='4256' u='c' c='_ZN5clang4Sema11AddModeAttrENS_11SourceRangeEPNS_4DeclEPNS_14IdentifierInfoEjb'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='4268' u='c' c='_ZN5clang4Sema11AddModeAttrENS_11SourceRangeEPNS_4DeclEPNS_14IdentifierInfoEjb'/>
+<use f='llvm/clang/lib/Sema/TreeTransform.h' l='12819' u='c' c='_ZN5clang13TreeTransform17RebuildVectorTypeENS_8QualTypeEjNS_10VectorType10VectorKindE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='8760' u='c' c='_ZL13convertVectorPN5clang4ExprENS_8QualTypeERNS_4SemaE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='11027' u='c' c='_ZN5clang4Sema19GetSignedVectorTypeENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='11030' u='c' c='_ZN5clang4Sema19GetSignedVectorTypeENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='11033' u='c' c='_ZN5clang4Sema19GetSignedVectorTypeENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='11036' u='c' c='_ZN5clang4Sema19GetSignedVectorTypeENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='11040' u='c' c='_ZN5clang4Sema19GetSignedVectorTypeENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='1734' u='c' c='_ZN12_GLOBAL__N_115InitListChecker15CheckVectorTypeERKN5clang17InitializedEntityEPNS1_12InitListExprENS1_8QualTypeERjS6_S8_'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='1676' u='c' c='_ZL21ConvertDeclSpecToTypeRN12_GLOBAL__N_119TypeProcessingStateE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='2420' u='c' c='_ZN5clang4Sema15BuildVectorTypeENS_8QualTypeEPNS_4ExprENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='7352' u='c' c='_ZL24HandleNeonVectorTypeAttrRN5clang8QualTypeERKNS_10ParsedAttrERNS_4SemaENS_10VectorType10VectorKindE'/>
+<use f='llvm/clang/lib/Serialization/ASTReader.cpp' l='6067' u='c' c='_ZN5clang9ASTReader14readTypeRecordEj'/>

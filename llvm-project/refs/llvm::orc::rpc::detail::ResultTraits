@@ -1,0 +1,22 @@
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCUtils.h' l='214' ll='243'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCUtils.h' l='246' ll='275'/>
+<ovr f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCUtils.h' l='281' c='llvm::orc::rpc::detail::ResultTraits'/>
+<inh f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCUtils.h' l='246' c='llvm::orc::rpc::detail::ResultTraits'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCUtils.h' l='281'/>
+<def f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCUtils.h' l='287' ll='288'/>
+<size>1</size>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCUtils.h' l='212'>// ResultTraits provides typedefs and utilities specific to the return type
+// of functions.</doc>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCUtils.h' l='245'>// ResultTraits specialization for void functions.</doc>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCUtils.h' l='277'>// ResultTraits&lt;Error&gt; is equivalent to ResultTraits&lt;void&gt;. This allows
+// handlers for void RPC functions to return either void (in which case they
+// implicitly succeed) or Error (in which case their error return is
+// propagated). See usage in HandlerTraits::runHandlerHelper.</doc>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/RPCUtils.h' l='283'>// ResultTraits&lt;Expected&lt;T&gt;&gt; is equivalent to ResultTraits&lt;T&gt;. This allows
+// handlers for RPC functions returning a T to return either a T (in which
+// case they implicitly succeed) or Expected&lt;T&gt; (in which case their error
+// return is propagated). See usage in HandlerTraits::runHandlerHelper.</doc>
+<fun r='_ZN4llvm3orc3rpc6detail12ResultTraits27createBlankErrorReturnValueEv'/>
+<fun r='_ZN4llvm3orc3rpc6detail12ResultTraits16consumeAbandonedENS_8ExpectedIT_EE'/>
+<fun r='_ZN4llvm3orc3rpc6detail12ResultTraitsIvE27createBlankErrorReturnValueEv'/>
+<fun r='_ZN4llvm3orc3rpc6detail12ResultTraitsIvE16consumeAbandonedENS_5ErrorE'/>

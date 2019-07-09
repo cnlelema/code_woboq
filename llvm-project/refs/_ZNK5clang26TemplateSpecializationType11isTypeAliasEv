@@ -1,0 +1,33 @@
+<def f='llvm/clang/include/clang/AST/Type.h' l='4973' type='bool clang::TemplateSpecializationType::isTypeAlias() const'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='4978' u='c' c='_ZNK5clang26TemplateSpecializationType14getAliasedTypeEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5009' u='c' c='_ZNK5clang26TemplateSpecializationType9isSugaredEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5013' u='c' c='_ZNK5clang26TemplateSpecializationType7desugarEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5018' u='c' c='_ZN5clang26TemplateSpecializationType7ProfileERN4llvm16FoldingSetNodeIDERKNS_10ASTContextE'/>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='4958'>/// Determine if this template specialization type is for a type alias
+  /// template that has been substituted.
+  ///
+  /// Nearly every template specialization type whose template is an alias
+  /// template will be substituted. However, this is not the case when
+  /// the specialization contains a pack expansion but the template alias
+  /// does not have a corresponding parameter pack, e.g.,
+  ///
+  /// \code
+  /// template&lt;typename T, typename U, typename V&gt; struct S;
+  /// template&lt;typename T, typename U&gt; using A = S&lt;T, int, U&gt;;
+  /// template&lt;typename... Ts&gt; struct X {
+  ///   typedef A&lt;Ts...&gt; type; // not a type alias
+  /// };
+  /// \endcode</doc>
+<use f='llvm/clang/lib/AST/ASTDiagnostic.cpp' l='111' u='c' c='_ZL7DesugarRN5clang10ASTContextENS_8QualTypeERb'/>
+<use f='llvm/clang/lib/AST/ASTDiagnostic.cpp' l='1033' u='c' c='_ZN12_GLOBAL__N_112TemplateDiff11TSTiteratorC1ERN5clang10ASTContextEPKNS2_26TemplateSpecializationTypeE'/>
+<use f='llvm/clang/lib/AST/ASTDiagnostic.cpp' l='1357' u='c' c='_ZN12_GLOBAL__N_112TemplateDiff16makeTemplateListERN4llvm15SmallVectorImplIPKN5clang26TemplateSpecializationTypeEEES6_'/>
+<use f='llvm/clang/include/clang/AST/ASTNodeTraverser.h' l='330' u='c' c='_ZN5clang16ASTNodeTraverser31VisitTemplateSpecializationTypeEPKNS_26TemplateSpecializationTypeE'/>
+<use f='llvm/clang/lib/AST/ItaniumMangle.cpp' l='2413' u='c' c='_ZN12_GLOBAL__N_114CXXNameMangler10mangleTypeEN5clang8QualTypeE'/>
+<use f='llvm/clang/lib/AST/TextNodeDumper.cpp' l='1199' u='c' c='_ZN5clang14TextNodeDumper31VisitTemplateSpecializationTypeEPKNS_26TemplateSpecializationTypeE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='3514' u='c' c='_ZN5clang26TemplateSpecializationTypeC1ENS_12TemplateNameEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_8QualTypeES6_'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchersInternal.h' l='823' u='c' c='_ZNK5clang12ast_matchers8internal21HasDeclarationMatcher18matchesSpecializedERKNS_4TypeEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE'/>
+<use f='llvm/clang/lib/ASTMatchers/ASTMatchFinder.cpp' l='801' u='c' c='_ZN5clang12ast_matchers8internal12_GLOBAL__N_1L35getAsCXXRecordDeclOrPrimaryTemplateEPKNS_4TypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='1097' u='c' c='_ZN5clang7CodeGen11CGDebugInfo10CreateTypeEPKNS_26TemplateSpecializationTypeEPN4llvm6DIFileE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='2843' u='c' c='_ZL22UnwrapTypeForDebugInfoN5clang8QualTypeERKNS_10ASTContextE'/>
+<use f='llvm/clang/lib/Index/IndexTypeSourceInfo.cpp' l='159' u='c' c='_ZN12_GLOBAL__N_111TypeIndexer34VisitTemplateSpecializationTypeLocEN5clang29TemplateSpecializationTypeLocE'/>
+<use f='llvm/clang/lib/Serialization/ASTWriter.cpp' l='437' u='c' c='_ZN5clang13ASTTypeWriter31VisitTemplateSpecializationTypeEPKNS_26TemplateSpecializationTypeE'/>

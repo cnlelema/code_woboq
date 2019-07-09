@@ -1,0 +1,43 @@
+<def f='llvm/clang/include/clang/Lex/Preprocessor.h' l='1772' ll='1774' type='clang::SourceLocation clang::Preprocessor::getLocForEndOfToken(clang::SourceLocation Loc, unsigned int Offset = 0)'/>
+<doc f='llvm/clang/include/clang/Lex/Preprocessor.h' l='1757'>/// Computes the source location just past the end of the
+  /// token at this source location.
+  ///
+  /// This routine can be used to produce a source location that
+  /// points just past the end of the token referenced by \p Loc, and
+  /// is generally used when a diagnostic needs to point just after a
+  /// token where it expected something different that it received. If
+  /// the returned source location would not be meaningful (e.g., if
+  /// it points into a macro), this routine returns an invalid
+  /// source location.
+  ///
+  /// \param Offset an offset from the end of the token, where the source
+  /// location should refer to. The default offset (0) produces a source
+  /// location pointing just past the end of the token; an offset of 1 produces
+  /// a source location pointing to the last character in the token, etc.</doc>
+<use f='llvm/clang/lib/Lex/PPMacroExpansion.cpp' l='708' u='c' c='_ZL20GenerateNewArgTokensRN5clang12PreprocessorERN4llvm15SmallVectorImplINS_5TokenEEES6_RjRNS3_INS_11SourceRangeEEESA_'/>
+<use f='llvm/clang/lib/Lex/PPMacroExpansion.cpp' l='726' u='c' c='_ZL20GenerateNewArgTokensRN5clang12PreprocessorERN4llvm15SmallVectorImplINS_5TokenEEES6_RjRNS3_INS_11SourceRangeEEESA_'/>
+<use f='llvm/clang/lib/Lex/PPMacroExpansion.cpp' l='1167' u='c' c='_ZL24EvaluateHasIncludeCommonRN5clang5TokenEPNS_14IdentifierInfoERNS_12PreprocessorEPKNS_15DirectoryLookupEPKNS_9FileEntryE'/>
+<use f='llvm/clang/include/clang/Parse/Parser.h' l='497' u='c' c='_ZN5clang6Parser21getEndOfPreviousTokenEv'/>
+<use f='llvm/clang/lib/Parse/ParseCXXInlineMethods.cpp' l='638' u='c' c='_ZN5clang6Parser27ParseLexedMemberInitializerERNS0_27LateParsedMemberInitializerE'/>
+<use f='llvm/clang/lib/Parse/ParseDecl.cpp' l='2289' u='c' c='_ZN5clang6Parser44ParseDeclarationAfterDeclaratorAndAttributesERNS_10DeclaratorERKNS0_18ParsedTemplateInfoEPNS0_12ForRangeInitE'/>
+<use f='llvm/clang/lib/Parse/ParseDecl.cpp' l='6848' u='c' c='_ZN5clang6Parser31ParseMisplacedBracketDeclaratorERNS_10DeclaratorE'/>
+<use f='llvm/clang/lib/Parse/ParseDecl.cpp' l='6868' u='c' c='_ZN5clang6Parser31ParseMisplacedBracketDeclaratorERNS_10DeclaratorE'/>
+<use f='llvm/clang/lib/Parse/ParseDeclCXX.cpp' l='1855' u='c' c='_ZN5clang6Parser19ParseClassSpecifierENS_3tok9TokenKindENS_14SourceLocationERNS_8DeclSpecERKNS0_18ParsedTemplateInfoENS_15AccessSpecifierEbNS0_15DeclS11386427'/>
+<use f='llvm/clang/lib/Parse/ParseDeclCXX.cpp' l='3255' u='c' c='_ZN5clang6Parser27ParseCXXMemberSpecificationENS_14SourceLocationES1_RNS0_25ParsedAttributesWithRangeEjPNS_4DeclE'/>
+<use f='llvm/clang/lib/Parse/ParseDeclCXX.cpp' l='3382' u='c' c='_ZN5clang6Parser27DiagnoseUnexpectedNamespaceEPNS_9NamedDeclE'/>
+<use f='llvm/clang/lib/Parse/ParseDeclCXX.cpp' l='3443' u='c' c='_ZN5clang6Parser27ParseConstructorInitializerEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='1903' u='c' c='_ZN5clang6Parser34ParseExprAfterUnaryExprOrTypeTraitERKNS_5TokenERbRNS_9OpaquePtrINS_8QualTypeEEERNS_11SourceRangeE'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='1904' u='c' c='_ZN5clang6Parser34ParseExprAfterUnaryExprOrTypeTraitERKNS_5TokenERbRNS_9OpaquePtrINS_8QualTypeEEERNS_11SourceRangeE'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='1993' u='c' c='_ZN5clang6Parser35ParseUnaryExprOrTypeTraitExpressionEv'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='2001' u='c' c='_ZN5clang6Parser35ParseUnaryExprOrTypeTraitExpressionEv'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='2002' u='c' c='_ZN5clang6Parser35ParseUnaryExprOrTypeTraitExpressionEv'/>
+<use f='llvm/clang/lib/Parse/ParseObjc.cpp' l='1462' u='c' c='_ZN5clang6Parser19ParseObjCMethodDeclENS_14SourceLocationENS_3tok9TokenKindENS2_15ObjCKeywordKindEb'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='735' u='c' c='_ZN5clang6Parser18ParseCaseStatementENS0_17ParsedStmtContextEbNS_12ActionResultIPNS_4ExprELb1EEE'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='775' u='c' c='_ZN5clang6Parser18ParseCaseStatementENS0_17ParsedStmtContextEbNS_12ActionResultIPNS_4ExprELb1EEE'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='816' u='c' c='_ZN5clang6Parser21ParseDefaultStatementENS0_17ParsedStmtContextE'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='830' u='c' c='_ZN5clang6Parser21ParseDefaultStatementENS0_17ParsedStmtContextE'/>
+<use f='llvm/clang/lib/Parse/ParseTemplate.cpp' l='276' u='c' c='_ZN5clang6Parser35ParseSingleDeclarationAfterTemplateENS_17DeclaratorContextERKNS0_18ParsedTemplateInfoERNS_21ParsingDeclRAIIObjectERNS_14SourceLocati9492424'/>
+<use f='llvm/clang/lib/Parse/Parser.cpp' l='88' u='c' c='_ZN5clang6Parser18SuggestParenthesesENS_14SourceLocationEjNS_11SourceRangeE'/>
+<use f='llvm/clang/lib/Parse/Parser.cpp' l='136' u='c' c='_ZN5clang6Parser16ExpectAndConsumeENS_3tok9TokenKindEjN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Parse/Parser.cpp' l='1502' u='c' c='_ZN5clang6Parser14ParseSimpleAsmEPNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/Parser.cpp' l='1503' u='c' c='_ZN5clang6Parser14ParseSimpleAsmEPNS_14SourceLocationE'/>

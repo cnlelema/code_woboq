@@ -1,0 +1,43 @@
+<def f='llvm/clang/include/clang/Tooling/CommonOptionsParser.h' l='65' ll='128'/>
+<size>64</size>
+<doc f='llvm/clang/include/clang/Tooling/CommonOptionsParser.h' l='36'>/// A parser for options common to all command-line Clang tools.
+///
+/// Parses a common subset of command-line arguments, locates and loads a
+/// compilation commands database and runs a tool with user-specified action. It
+/// also contains a help message for the common command-line options.
+///
+/// An example of usage:
+/// \code
+/// #include &quot;clang/Frontend/FrontendActions.h&quot;
+/// #include &quot;clang/Tooling/CommonOptionsParser.h&quot;
+/// #include &quot;clang/Tooling/Tooling.h&quot;
+/// #include &quot;llvm/Support/CommandLine.h&quot;
+///
+/// using namespace clang::tooling;
+/// using namespace llvm;
+///
+/// static cl::OptionCategory MyToolCategory(&quot;My tool options&quot;);
+/// static cl::extrahelp CommonHelp(CommonOptionsParser::HelpMessage);
+/// static cl::extrahelp MoreHelp(&quot;\nMore help text...\n&quot;);
+/// static cl::opt&lt;bool&gt; YourOwnOption(...);
+/// ...
+///
+/// int main(int argc, const char **argv) {
+///   CommonOptionsParser OptionsParser(argc, argv, MyToolCategory);
+///   ClangTool Tool(OptionsParser.getCompilations(),
+///                  OptionsParser.getSourcePathList());
+///   return Tool.run(newFrontendActionFactory&lt;SyntaxOnlyAction&gt;().get());
+/// }
+/// \endcode</doc>
+<fun r='_ZN5clang7tooling19CommonOptionsParserC1ERiPPKcRN4llvm2cl14OptionCategoryES4_'/>
+<fun r='_ZN5clang7tooling19CommonOptionsParserC1ERiPPKcRN4llvm2cl14OptionCategoryENS7_18NumOccurrencesFlagES4_'/>
+<fun r='_ZN5clang7tooling19CommonOptionsParser6createERiPPKcRN4llvm2cl14OptionCategoryENS7_18NumOccurrencesFlagES4_'/>
+<fun r='_ZN5clang7tooling19CommonOptionsParser15getCompilationsEv'/>
+<fun r='_ZNK5clang7tooling19CommonOptionsParser17getSourcePathListEv'/>
+<fun r='_ZN5clang7tooling19CommonOptionsParser20getArgumentsAdjusterEv'/>
+<smbr r='clang::tooling::CommonOptionsParser::HelpMessage' t='const char *const'/>
+<fun r='_ZN5clang7tooling19CommonOptionsParserC1Ev'/>
+<fun r='_ZN5clang7tooling19CommonOptionsParser4initERiPPKcRN4llvm2cl14OptionCategoryENS7_18NumOccurrencesFlagES4_'/>
+<mbr r='clang::tooling::CommonOptionsParser::Compilations' o='0' t='std::unique_ptr&lt;CompilationDatabase&gt;'/>
+<mbr r='clang::tooling::CommonOptionsParser::SourcePathList' o='64' t='std::vector&lt;std::string&gt;'/>
+<mbr r='clang::tooling::CommonOptionsParser::Adjuster' o='256' t='ArgumentsAdjuster'/>

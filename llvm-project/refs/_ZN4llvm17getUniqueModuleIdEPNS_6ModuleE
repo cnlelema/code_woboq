@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/ModuleUtils.h' l='109' type='std::string llvm::getUniqueModuleId(llvm::Module * M)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/ModuleUtils.h' l='99'>/// Produce a unique identifier for this module by taking the MD5 sum of
+/// the names of the module&apos;s strong external symbols that are not comdat
+/// members.
+///
+/// This identifier is normally guaranteed to be unique, or the program would
+/// fail to link due to multiply defined symbols.
+///
+/// If the module has no strong external symbols (such a module may still have a
+/// semantic effect if it performs global initialization), we cannot produce a
+/// unique identifier for this module, so we return the empty string.</doc>
+<use f='llvm/llvm/lib/Transforms/IPO/ThinLTOBitcodeWriter.cpp' l='201' u='c' c='_ZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/AddressSanitizer.cpp' l='2377' u='c' c='_ZN12_GLOBAL__N_122ModuleAddressSanitizer17InstrumentGlobalsERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_6ModuleEPb'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/HWAddressSanitizer.cpp' l='350' u='c' c='_ZN12_GLOBAL__N_118HWAddressSanitizer16initializeModuleERN4llvm6ModuleE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/SanitizerCoverage.cpp' l='321' u='c' c='_ZN12_GLOBAL__N_123SanitizerCoverageModule11runOnModuleERN4llvm6ModuleE'/>
+<def f='llvm/llvm/lib/Transforms/Utils/ModuleUtils.cpp' l='262' ll='292' type='std::string llvm::getUniqueModuleId(llvm::Module * M)'/>

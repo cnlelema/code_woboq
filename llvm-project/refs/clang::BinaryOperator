@@ -1,0 +1,79 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<def f='llvm/clang/include/clang/AST/Expr.h' l='3349' ll='3561'/>
+<ovr f='llvm/clang/include/clang/AST/Expr.h' l='3569' c='clang::CompoundAssignOperator'/>
+<size>32</size>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='3331'>/// A builtin binary operation expression such as &quot;x + y&quot; or &quot;x &lt;= y&quot;.
+///
+/// This expression node kind describes a builtin binary operation,
+/// such as &quot;x + y&quot; for integer values &quot;x&quot; and &quot;y&quot;. The operands will
+/// already have been converted to appropriate types (e.g., by
+/// performing promotions or conversions).
+///
+/// In C++, where operators may be overloaded, a different kind of
+/// expression node (CXXOperatorCallExpr) is used to express the
+/// invocation of an overloaded operator with operator syntax. Within
+/// a C++ template, whether BinaryOperator or CXXOperatorCallExpr is
+/// used to store an expression &quot;x + y&quot; depends on the subexpressions
+/// for x and y. If neither x or y is type-dependent, and the &quot;+&quot;
+/// operator resolves to a built-in operation, BinaryOperator will be
+/// used to express the computation (x and y may still be
+/// value-dependent). If either x or y is type-dependent, or if the
+/// &quot;+&quot; resolves to an overloaded operator, CXXOperatorCallExpr will
+/// be used to express the computation.</doc>
+<mbr r='clang::BinaryOperator::SubExprs' o='128' t='clang::Stmt *[2]'/>
+<fun r='_ZN5clang14BinaryOperatorC1EPNS_4ExprES2_NS_18BinaryOperatorKindENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindENS_14SourceLocationENS_9FPOptionsE'/>
+<fun r='_ZN5clang14BinaryOperatorC1ENS_4Stmt10EmptyShellE'/>
+<fun r='_ZNK5clang14BinaryOperator10getExprLocEv'/>
+<fun r='_ZNK5clang14BinaryOperator14getOperatorLocEv'/>
+<fun r='_ZN5clang14BinaryOperator14setOperatorLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang14BinaryOperator9getOpcodeEv'/>
+<fun r='_ZN5clang14BinaryOperator9setOpcodeENS_18BinaryOperatorKindE'/>
+<fun r='_ZNK5clang14BinaryOperator6getLHSEv'/>
+<fun r='_ZN5clang14BinaryOperator6setLHSEPNS_4ExprE'/>
+<fun r='_ZNK5clang14BinaryOperator6getRHSEv'/>
+<fun r='_ZN5clang14BinaryOperator6setRHSEPNS_4ExprE'/>
+<fun r='_ZNK5clang14BinaryOperator11getBeginLocEv'/>
+<fun r='_ZNK5clang14BinaryOperator9getEndLocEv'/>
+<fun r='_ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE'/>
+<fun r='_ZNK5clang14BinaryOperator12getOpcodeStrEv'/>
+<fun r='_ZN5clang14BinaryOperator19getOverloadedOpcodeENS_22OverloadedOperatorKindE'/>
+<fun r='_ZN5clang14BinaryOperator21getOverloadedOperatorENS_18BinaryOperatorKindE'/>
+<fun r='_ZN5clang14BinaryOperator10isPtrMemOpENS_18BinaryOperatorKindE'/>
+<fun r='_ZNK5clang14BinaryOperator10isPtrMemOpEv'/>
+<fun r='_ZN5clang14BinaryOperator18isMultiplicativeOpENS_18BinaryOperatorKindE'/>
+<fun r='_ZNK5clang14BinaryOperator18isMultiplicativeOpEv'/>
+<fun r='_ZN5clang14BinaryOperator12isAdditiveOpENS_18BinaryOperatorKindE'/>
+<fun r='_ZNK5clang14BinaryOperator12isAdditiveOpEv'/>
+<fun r='_ZN5clang14BinaryOperator9isShiftOpENS_18BinaryOperatorKindE'/>
+<fun r='_ZNK5clang14BinaryOperator9isShiftOpEv'/>
+<fun r='_ZN5clang14BinaryOperator11isBitwiseOpENS_18BinaryOperatorKindE'/>
+<fun r='_ZNK5clang14BinaryOperator11isBitwiseOpEv'/>
+<fun r='_ZN5clang14BinaryOperator14isRelationalOpENS_18BinaryOperatorKindE'/>
+<fun r='_ZNK5clang14BinaryOperator14isRelationalOpEv'/>
+<fun r='_ZN5clang14BinaryOperator12isEqualityOpENS_18BinaryOperatorKindE'/>
+<fun r='_ZNK5clang14BinaryOperator12isEqualityOpEv'/>
+<fun r='_ZN5clang14BinaryOperator14isComparisonOpENS_18BinaryOperatorKindE'/>
+<fun r='_ZNK5clang14BinaryOperator14isComparisonOpEv'/>
+<fun r='_ZN5clang14BinaryOperator9isCommaOpENS_18BinaryOperatorKindE'/>
+<fun r='_ZNK5clang14BinaryOperator9isCommaOpEv'/>
+<fun r='_ZN5clang14BinaryOperator18negateComparisonOpENS_18BinaryOperatorKindE'/>
+<fun r='_ZN5clang14BinaryOperator19reverseComparisonOpENS_18BinaryOperatorKindE'/>
+<fun r='_ZN5clang14BinaryOperator11isLogicalOpENS_18BinaryOperatorKindE'/>
+<fun r='_ZNK5clang14BinaryOperator11isLogicalOpEv'/>
+<fun r='_ZN5clang14BinaryOperator14isAssignmentOpENS_18BinaryOperatorKindE'/>
+<fun r='_ZNK5clang14BinaryOperator14isAssignmentOpEv'/>
+<fun r='_ZN5clang14BinaryOperator22isCompoundAssignmentOpENS_18BinaryOperatorKindE'/>
+<fun r='_ZNK5clang14BinaryOperator22isCompoundAssignmentOpEv'/>
+<fun r='_ZN5clang14BinaryOperator26getOpForCompoundAssignmentENS_18BinaryOperatorKindE'/>
+<fun r='_ZN5clang14BinaryOperator15isShiftAssignOpENS_18BinaryOperatorKindE'/>
+<fun r='_ZNK5clang14BinaryOperator15isShiftAssignOpEv'/>
+<fun r='_ZN5clang14BinaryOperator32isNullPointerArithmeticExtensionERNS_10ASTContextENS_18BinaryOperatorKindEPNS_4ExprES5_'/>
+<fun r='_ZN5clang14BinaryOperator7classofEPKNS_4StmtE'/>
+<fun r='_ZN5clang14BinaryOperator8childrenEv'/>
+<fun r='_ZNK5clang14BinaryOperator8childrenEv'/>
+<fun r='_ZN5clang14BinaryOperator13setFPFeaturesENS_9FPOptionsE'/>
+<fun r='_ZNK5clang14BinaryOperator13getFPFeaturesEv'/>
+<fun r='_ZNK5clang14BinaryOperator31isFPContractableWithinStatementEv'/>
+<fun r='_ZNK5clang14BinaryOperator14isFEnvAccessOnEv'/>
+<fun r='_ZN5clang14BinaryOperatorC1EPNS_4ExprES2_NS_18BinaryOperatorKindENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindENS_14SourceLocationENS_9FPOptionsEb'/>
+<fun r='_ZN5clang14BinaryOperatorC1ENS_4Stmt9StmtClassENS1_10EmptyShellE'/>

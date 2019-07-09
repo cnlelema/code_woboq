@@ -1,0 +1,20 @@
+<dec f='llvm/clang/include/clang/AST/Decl.h' l='2186' type='bool clang::FunctionDecl::isReservedGlobalPlacementOperator() const'/>
+<doc f='llvm/clang/include/clang/AST/Decl.h' l='2173'>/// Determines whether this operator new or delete is one
+  /// of the reserved global placement operators:
+  ///    void *operator new(size_t, void *);
+  ///    void *operator new[](size_t, void *);
+  ///    void operator delete(void *, void *);
+  ///    void operator delete[](void *, void *);
+  /// These functions have special behavior under [new.delete.placement]:
+  ///    These functions are reserved, a C++ program may not define
+  ///    functions that displace the versions in the Standard C++ library.
+  ///    The provisions of [basic.stc.dynamic] do not apply to these
+  ///    reserved placement forms of operator new and operator delete.
+  ///
+  /// This function must be an allocation or deallocation function.</doc>
+<def f='llvm/clang/lib/AST/Decl.cpp' l='2875' ll='2896' type='bool clang::FunctionDecl::isReservedGlobalPlacementOperator() const'/>
+<use f='llvm/clang/lib/CodeGen/CGExprCXX.cpp' l='656' u='c' c='_ZL22CalculateCookiePaddingRN5clang7CodeGen15CodeGenFunctionEPKNS_10CXXNewExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprCXX.cpp' l='1556' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitCXXNewExprEPKNS_10CXXNewExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprCXX.cpp' l='1590' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitCXXNewExprEPKNS_10CXXNewExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprCXX.cpp' l='1687' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitCXXNewExprEPKNS_10CXXNewExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprCXX.cpp' l='1711' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitCXXNewExprEPKNS_10CXXNewExprE'/>

@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/RegisterScavenging.h' l='180' type='unsigned int llvm::RegScavenger::scavengeRegisterBackwards(const llvm::TargetRegisterClass &amp; RC, MachineBasicBlock::iterator To, bool RestoreAfter, int SPAdj, bool AllowSpill = true)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/RegisterScavenging.h' l='171'>/// Make a register of the specific register class available from the current
+  /// position backwards to the place before \p To. If \p RestoreAfter is true
+  /// this includes the instruction following the current position.
+  /// SPAdj is the stack adjustment due to call frame, it&apos;s passed along to
+  /// eliminateFrameIndex().
+  /// Returns the scavenged register.
+  ///
+  /// If \p AllowSpill is false, fail if a spill is required to make the
+  /// register available, and return NoRegister.</doc>
+<def f='llvm/llvm/lib/CodeGen/RegisterScavenging.cpp' l='579' ll='616' type='unsigned int llvm::RegScavenger::scavengeRegisterBackwards(const llvm::TargetRegisterClass &amp; RC, MachineBasicBlock::iterator To, bool RestoreAfter, int SPAdj, bool AllowSpill = true)'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterScavenging.cpp' l='667' u='c' c='_ZL12scavengeVRegRN4llvm19MachineRegisterInfoERNS_12RegScavengerEjb'/>

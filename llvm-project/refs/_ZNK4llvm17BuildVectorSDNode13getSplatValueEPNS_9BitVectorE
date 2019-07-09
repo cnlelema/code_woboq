@@ -1,0 +1,20 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='1935' type='llvm::SDValue llvm::BuildVectorSDNode::getSplatValue(llvm::BitVector * UndefElements = nullptr) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='1931'>/// Returns the splatted value or a null value if this is not a splat.
+  ///
+  /// If passed a non-null UndefElements bitvector, it will resize it to match
+  /// the vector width and set the bits where elements are undef.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='17517' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner17visitBUILD_VECTOREPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='18358' u='c' c='_ZL23combineShuffleOfScalarsPN4llvm19ShuffleVectorSDNodeERNS_12SelectionDAGERKNS_14TargetLoweringE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='18359' u='c' c='_ZL23combineShuffleOfScalarsPN4llvm19ShuffleVectorSDNodeERNS_12SelectionDAGERKNS_14TargetLoweringE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='1649' u='c' c='_ZN4llvm12SelectionDAG16getVectorShuffleENS_3EVTERKNS_5SDLocENS_7SDValueES5_NS_8ArrayRefIiEE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='1723' u='c' c='_ZN4llvm12SelectionDAG16getVectorShuffleENS_3EVTERKNS_5SDLocENS_7SDValueES5_NS_8ArrayRefIiEE'/>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='9591' ll='9594' type='llvm::SDValue llvm::BuildVectorSDNode::getSplatValue(llvm::BitVector * UndefElements = nullptr) const'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='9605' u='c' c='_ZNK4llvm17BuildVectorSDNode20getConstantSplatNodeEPNS_9BitVectorE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='9617' u='c' c='_ZNK4llvm17BuildVectorSDNode22getConstantFPSplatNodeEPNS_9BitVectorE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='9624' u='c' c='_ZNK4llvm17BuildVectorSDNode31getConstantFPSplatPow2ToLog2IntEPNS_9BitVectorEj'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonISelLowering.cpp' l='2014' u='c' c='_ZNK4llvm21HexagonTargetLowering19getVectorShiftByIntENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='4820' u='c' c='_ZNK4llvm21SystemZTargetLowering10lowerShiftENS_7SDValueERNS_12SelectionDAGEj'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyISelLowering.cpp' l='1420' u='c' c='_ZNK4llvm25WebAssemblyTargetLowering10LowerShiftENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='7701' u='c' c='_ZL27lowerBuildVectorAsBroadcastPN4llvm17BuildVectorSDNodeERKNS_12X86SubtargetERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='8761' u='c' c='_ZL23lowerBuildVectorToBitOpPN4llvm17BuildVectorSDNodeERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='34456' u='c' c='_ZL20createMMXBuildVectorN4llvm7SDValueERNS_12SelectionDAGERKNS_12X86SubtargetE'/>

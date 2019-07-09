@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PassManagerBuilder.h source code [llvm/llvm/include/llvm-c/Transforms/PassManagerBuilder.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm-c/Transforms/PassManagerBuilder.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm-c</a>/<a href='./'>Transforms</a>/<a href='PassManagerBuilder.h.html'>PassManagerBuilder.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*===-- llvm-c/Transform/PassManagerBuilder.h - PMB C Interface ---*- C -*-===*\</i></td></tr>
+<tr><th id="2">2</th><td><i>|*                                                                            *|</i></td></tr>
+<tr><th id="3">3</th><td><i>|* Part of the LLVM Project, under the Apache License v2.0 with LLVM          *|</i></td></tr>
+<tr><th id="4">4</th><td><i>|* Exceptions.                                                                *|</i></td></tr>
+<tr><th id="5">5</th><td><i>|* See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.                  *|</i></td></tr>
+<tr><th id="6">6</th><td><i>|* SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception                    *|</i></td></tr>
+<tr><th id="7">7</th><td><i>|*                                                                            *|</i></td></tr>
+<tr><th id="8">8</th><td><i>|*===----------------------------------------------------------------------===*|</i></td></tr>
+<tr><th id="9">9</th><td><i>|*                                                                            *|</i></td></tr>
+<tr><th id="10">10</th><td><i>|* This header declares the C interface to the PassManagerBuilder class.      *|</i></td></tr>
+<tr><th id="11">11</th><td><i>|*                                                                            *|</i></td></tr>
+<tr><th id="12">12</th><td><i>\*===----------------------------------------------------------------------===*/</i></td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><u>#<span data-ppcond="14">ifndef</span> <span class="macro" data-ref="_M/LLVM_C_TRANSFORMS_PASSMANAGERBUILDER_H">LLVM_C_TRANSFORMS_PASSMANAGERBUILDER_H</span></u></td></tr>
+<tr><th id="15">15</th><td><u>#define <dfn class="macro" id="_M/LLVM_C_TRANSFORMS_PASSMANAGERBUILDER_H" data-ref="_M/LLVM_C_TRANSFORMS_PASSMANAGERBUILDER_H">LLVM_C_TRANSFORMS_PASSMANAGERBUILDER_H</dfn></u></td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../Types.h.html">"llvm-c/Types.h"</a></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><b>typedef</b> <b>struct</b> <dfn class="type" id="LLVMOpaquePassManagerBuilder" title='LLVMOpaquePassManagerBuilder' data-ref="LLVMOpaquePassManagerBuilder"><a class="type" href="#LLVMOpaquePassManagerBuilder" title='LLVMOpaquePassManagerBuilder' data-ref="LLVMOpaquePassManagerBuilder">LLVMOpaquePassManagerBuilder</a></dfn> *<dfn class="typedef" id="LLVMPassManagerBuilderRef" title='LLVMPassManagerBuilderRef' data-type='struct LLVMOpaquePassManagerBuilder *' data-ref="LLVMPassManagerBuilderRef">LLVMPassManagerBuilderRef</dfn>;</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#<span data-ppcond="21">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="22">22</th><td><b>extern</b> <q>"C"</q> {</td></tr>
+<tr><th id="23">23</th><td><u>#<span data-ppcond="21">endif</span></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="26">26</th><td><i class="doc"> * <span class="command">@defgroup</span> <span class="verb">LLVMCTransformsPassManagerBuilder Pass manager builder</span></i></td></tr>
+<tr><th id="27">27</th><td><i class="doc"> * <span class="command">@ingroup</span> <span class="verb">LLVMCTransforms</span></i></td></tr>
+<tr><th id="28">28</th><td><i class="doc"> *</i></td></tr>
+<tr><th id="29">29</th><td><i class="doc"> * @{</i></td></tr>
+<tr><th id="30">30</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i class="doc">/** See llvm::PassManagerBuilder. */</i></td></tr>
+<tr><th id="33">33</th><td><a class="typedef" href="#LLVMPassManagerBuilderRef" title='LLVMPassManagerBuilderRef' data-type='struct LLVMOpaquePassManagerBuilder *' data-ref="LLVMPassManagerBuilderRef">LLVMPassManagerBuilderRef</a> <a class="decl" href="../../../lib/Transforms/IPO/PassManagerBuilder.cpp.html#LLVMPassManagerBuilderCreate" title='LLVMPassManagerBuilderCreate' data-ref="LLVMPassManagerBuilderCreate" id="LLVMPassManagerBuilderCreate">LLVMPassManagerBuilderCreate</a>(<em>void</em>);</td></tr>
+<tr><th id="34">34</th><td><em>void</em> <a class="decl" href="../../../lib/Transforms/IPO/PassManagerBuilder.cpp.html#LLVMPassManagerBuilderDispose" title='LLVMPassManagerBuilderDispose' data-ref="LLVMPassManagerBuilderDispose" id="LLVMPassManagerBuilderDispose">LLVMPassManagerBuilderDispose</a>(<a class="typedef" href="#LLVMPassManagerBuilderRef" title='LLVMPassManagerBuilderRef' data-type='struct LLVMOpaquePassManagerBuilder *' data-ref="LLVMPassManagerBuilderRef">LLVMPassManagerBuilderRef</a> <dfn class="local col1 decl" id="1PMB" title='PMB' data-type='LLVMPassManagerBuilderRef' data-ref="1PMB">PMB</dfn>);</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><i class="doc">/** See llvm::PassManagerBuilder::OptLevel. */</i></td></tr>
+<tr><th id="37">37</th><td><em>void</em></td></tr>
+<tr><th id="38">38</th><td><a class="decl" href="../../../lib/Transforms/IPO/PassManagerBuilder.cpp.html#LLVMPassManagerBuilderSetOptLevel" title='LLVMPassManagerBuilderSetOptLevel' data-ref="LLVMPassManagerBuilderSetOptLevel" id="LLVMPassManagerBuilderSetOptLevel">LLVMPassManagerBuilderSetOptLevel</a>(<a class="typedef" href="#LLVMPassManagerBuilderRef" title='LLVMPassManagerBuilderRef' data-type='struct LLVMOpaquePassManagerBuilder *' data-ref="LLVMPassManagerBuilderRef">LLVMPassManagerBuilderRef</a> <dfn class="local col2 decl" id="2PMB" title='PMB' data-type='LLVMPassManagerBuilderRef' data-ref="2PMB">PMB</dfn>,</td></tr>
+<tr><th id="39">39</th><td>                                  <em>unsigned</em> <dfn class="local col3 decl" id="3OptLevel" title='OptLevel' data-type='unsigned int' data-ref="3OptLevel">OptLevel</dfn>);</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><i class="doc">/** See llvm::PassManagerBuilder::SizeLevel. */</i></td></tr>
+<tr><th id="42">42</th><td><em>void</em></td></tr>
+<tr><th id="43">43</th><td><a class="decl" href="../../../lib/Transforms/IPO/PassManagerBuilder.cpp.html#LLVMPassManagerBuilderSetSizeLevel" title='LLVMPassManagerBuilderSetSizeLevel' data-ref="LLVMPassManagerBuilderSetSizeLevel" id="LLVMPassManagerBuilderSetSizeLevel">LLVMPassManagerBuilderSetSizeLevel</a>(<a class="typedef" href="#LLVMPassManagerBuilderRef" title='LLVMPassManagerBuilderRef' data-type='struct LLVMOpaquePassManagerBuilder *' data-ref="LLVMPassManagerBuilderRef">LLVMPassManagerBuilderRef</a> <dfn class="local col4 decl" id="4PMB" title='PMB' data-type='LLVMPassManagerBuilderRef' data-ref="4PMB">PMB</dfn>,</td></tr>
+<tr><th id="44">44</th><td>                                   <em>unsigned</em> <dfn class="local col5 decl" id="5SizeLevel" title='SizeLevel' data-type='unsigned int' data-ref="5SizeLevel">SizeLevel</dfn>);</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><i class="doc">/** See llvm::PassManagerBuilder::DisableUnitAtATime. */</i></td></tr>
+<tr><th id="47">47</th><td><em>void</em></td></tr>
+<tr><th id="48">48</th><td><a class="decl" href="../../../lib/Transforms/IPO/PassManagerBuilder.cpp.html#LLVMPassManagerBuilderSetDisableUnitAtATime" title='LLVMPassManagerBuilderSetDisableUnitAtATime' data-ref="LLVMPassManagerBuilderSetDisableUnitAtATime" id="LLVMPassManagerBuilderSetDisableUnitAtATime">LLVMPassManagerBuilderSetDisableUnitAtATime</a>(<a class="typedef" href="#LLVMPassManagerBuilderRef" title='LLVMPassManagerBuilderRef' data-type='struct LLVMOpaquePassManagerBuilder *' data-ref="LLVMPassManagerBuilderRef">LLVMPassManagerBuilderRef</a> <dfn class="local col6 decl" id="6PMB" title='PMB' data-type='LLVMPassManagerBuilderRef' data-ref="6PMB">PMB</dfn>,</td></tr>
+<tr><th id="49">49</th><td>                                            <a class="typedef" href="../Types.h.html#LLVMBool" title='LLVMBool' data-type='int' data-ref="LLVMBool">LLVMBool</a> <dfn class="local col7 decl" id="7Value" title='Value' data-type='LLVMBool' data-ref="7Value">Value</dfn>);</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><i class="doc">/** See llvm::PassManagerBuilder::DisableUnrollLoops. */</i></td></tr>
+<tr><th id="52">52</th><td><em>void</em></td></tr>
+<tr><th id="53">53</th><td><a class="decl" href="../../../lib/Transforms/IPO/PassManagerBuilder.cpp.html#LLVMPassManagerBuilderSetDisableUnrollLoops" title='LLVMPassManagerBuilderSetDisableUnrollLoops' data-ref="LLVMPassManagerBuilderSetDisableUnrollLoops" id="LLVMPassManagerBuilderSetDisableUnrollLoops">LLVMPassManagerBuilderSetDisableUnrollLoops</a>(<a class="typedef" href="#LLVMPassManagerBuilderRef" title='LLVMPassManagerBuilderRef' data-type='struct LLVMOpaquePassManagerBuilder *' data-ref="LLVMPassManagerBuilderRef">LLVMPassManagerBuilderRef</a> <dfn class="local col8 decl" id="8PMB" title='PMB' data-type='LLVMPassManagerBuilderRef' data-ref="8PMB">PMB</dfn>,</td></tr>
+<tr><th id="54">54</th><td>                                            <a class="typedef" href="../Types.h.html#LLVMBool" title='LLVMBool' data-type='int' data-ref="LLVMBool">LLVMBool</a> <dfn class="local col9 decl" id="9Value" title='Value' data-type='LLVMBool' data-ref="9Value">Value</dfn>);</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><i class="doc">/** See llvm::PassManagerBuilder::DisableSimplifyLibCalls */</i></td></tr>
+<tr><th id="57">57</th><td><em>void</em></td></tr>
+<tr><th id="58">58</th><td><a class="decl" href="../../../lib/Transforms/IPO/PassManagerBuilder.cpp.html#LLVMPassManagerBuilderSetDisableSimplifyLibCalls" title='LLVMPassManagerBuilderSetDisableSimplifyLibCalls' data-ref="LLVMPassManagerBuilderSetDisableSimplifyLibCalls" id="LLVMPassManagerBuilderSetDisableSimplifyLibCalls">LLVMPassManagerBuilderSetDisableSimplifyLibCalls</a>(<a class="typedef" href="#LLVMPassManagerBuilderRef" title='LLVMPassManagerBuilderRef' data-type='struct LLVMOpaquePassManagerBuilder *' data-ref="LLVMPassManagerBuilderRef">LLVMPassManagerBuilderRef</a> <dfn class="local col0 decl" id="10PMB" title='PMB' data-type='LLVMPassManagerBuilderRef' data-ref="10PMB">PMB</dfn>,</td></tr>
+<tr><th id="59">59</th><td>                                                 <a class="typedef" href="../Types.h.html#LLVMBool" title='LLVMBool' data-type='int' data-ref="LLVMBool">LLVMBool</a> <dfn class="local col1 decl" id="11Value" title='Value' data-type='LLVMBool' data-ref="11Value">Value</dfn>);</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td><i class="doc">/** See llvm::PassManagerBuilder::Inliner. */</i></td></tr>
+<tr><th id="62">62</th><td><em>void</em></td></tr>
+<tr><th id="63">63</th><td><a class="decl" href="../../../lib/Transforms/IPO/PassManagerBuilder.cpp.html#LLVMPassManagerBuilderUseInlinerWithThreshold" title='LLVMPassManagerBuilderUseInlinerWithThreshold' data-ref="LLVMPassManagerBuilderUseInlinerWithThreshold" id="LLVMPassManagerBuilderUseInlinerWithThreshold">LLVMPassManagerBuilderUseInlinerWithThreshold</a>(<a class="typedef" href="#LLVMPassManagerBuilderRef" title='LLVMPassManagerBuilderRef' data-type='struct LLVMOpaquePassManagerBuilder *' data-ref="LLVMPassManagerBuilderRef">LLVMPassManagerBuilderRef</a> <dfn class="local col2 decl" id="12PMB" title='PMB' data-type='LLVMPassManagerBuilderRef' data-ref="12PMB">PMB</dfn>,</td></tr>
+<tr><th id="64">64</th><td>                                              <em>unsigned</em> <dfn class="local col3 decl" id="13Threshold" title='Threshold' data-type='unsigned int' data-ref="13Threshold">Threshold</dfn>);</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><i class="doc">/** See llvm::PassManagerBuilder::populateFunctionPassManager. */</i></td></tr>
+<tr><th id="67">67</th><td><em>void</em></td></tr>
+<tr><th id="68">68</th><td><a class="decl" href="../../../lib/Transforms/IPO/PassManagerBuilder.cpp.html#LLVMPassManagerBuilderPopulateFunctionPassManager" title='LLVMPassManagerBuilderPopulateFunctionPassManager' data-ref="LLVMPassManagerBuilderPopulateFunctionPassManager" id="LLVMPassManagerBuilderPopulateFunctionPassManager">LLVMPassManagerBuilderPopulateFunctionPassManager</a>(<a class="typedef" href="#LLVMPassManagerBuilderRef" title='LLVMPassManagerBuilderRef' data-type='struct LLVMOpaquePassManagerBuilder *' data-ref="LLVMPassManagerBuilderRef">LLVMPassManagerBuilderRef</a> <dfn class="local col4 decl" id="14PMB" title='PMB' data-type='LLVMPassManagerBuilderRef' data-ref="14PMB">PMB</dfn>,</td></tr>
+<tr><th id="69">69</th><td>                                                  <a class="typedef" href="../Types.h.html#LLVMPassManagerRef" title='LLVMPassManagerRef' data-type='struct LLVMOpaquePassManager *' data-ref="LLVMPassManagerRef">LLVMPassManagerRef</a> <dfn class="local col5 decl" id="15PM" title='PM' data-type='LLVMPassManagerRef' data-ref="15PM">PM</dfn>);</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><i class="doc">/** See llvm::PassManagerBuilder::populateModulePassManager. */</i></td></tr>
+<tr><th id="72">72</th><td><em>void</em></td></tr>
+<tr><th id="73">73</th><td><a class="decl" href="../../../lib/Transforms/IPO/PassManagerBuilder.cpp.html#LLVMPassManagerBuilderPopulateModulePassManager" title='LLVMPassManagerBuilderPopulateModulePassManager' data-ref="LLVMPassManagerBuilderPopulateModulePassManager" id="LLVMPassManagerBuilderPopulateModulePassManager">LLVMPassManagerBuilderPopulateModulePassManager</a>(<a class="typedef" href="#LLVMPassManagerBuilderRef" title='LLVMPassManagerBuilderRef' data-type='struct LLVMOpaquePassManagerBuilder *' data-ref="LLVMPassManagerBuilderRef">LLVMPassManagerBuilderRef</a> <dfn class="local col6 decl" id="16PMB" title='PMB' data-type='LLVMPassManagerBuilderRef' data-ref="16PMB">PMB</dfn>,</td></tr>
+<tr><th id="74">74</th><td>                                                <a class="typedef" href="../Types.h.html#LLVMPassManagerRef" title='LLVMPassManagerRef' data-type='struct LLVMOpaquePassManager *' data-ref="LLVMPassManagerRef">LLVMPassManagerRef</a> <dfn class="local col7 decl" id="17PM" title='PM' data-type='LLVMPassManagerRef' data-ref="17PM">PM</dfn>);</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td><i class="doc">/** See llvm::PassManagerBuilder::populateLTOPassManager. */</i></td></tr>
+<tr><th id="77">77</th><td><em>void</em> <a class="decl" href="../../../lib/Transforms/IPO/PassManagerBuilder.cpp.html#LLVMPassManagerBuilderPopulateLTOPassManager" title='LLVMPassManagerBuilderPopulateLTOPassManager' data-ref="LLVMPassManagerBuilderPopulateLTOPassManager" id="LLVMPassManagerBuilderPopulateLTOPassManager">LLVMPassManagerBuilderPopulateLTOPassManager</a>(<a class="typedef" href="#LLVMPassManagerBuilderRef" title='LLVMPassManagerBuilderRef' data-type='struct LLVMOpaquePassManagerBuilder *' data-ref="LLVMPassManagerBuilderRef">LLVMPassManagerBuilderRef</a> <dfn class="local col8 decl" id="18PMB" title='PMB' data-type='LLVMPassManagerBuilderRef' data-ref="18PMB">PMB</dfn>,</td></tr>
+<tr><th id="78">78</th><td>                                                  <a class="typedef" href="../Types.h.html#LLVMPassManagerRef" title='LLVMPassManagerRef' data-type='struct LLVMOpaquePassManager *' data-ref="LLVMPassManagerRef">LLVMPassManagerRef</a> <dfn class="local col9 decl" id="19PM" title='PM' data-type='LLVMPassManagerRef' data-ref="19PM">PM</dfn>,</td></tr>
+<tr><th id="79">79</th><td>                                                  <a class="typedef" href="../Types.h.html#LLVMBool" title='LLVMBool' data-type='int' data-ref="LLVMBool">LLVMBool</a> <dfn class="local col0 decl" id="20Internalize" title='Internalize' data-type='LLVMBool' data-ref="20Internalize">Internalize</dfn>,</td></tr>
+<tr><th id="80">80</th><td>                                                  <a class="typedef" href="../Types.h.html#LLVMBool" title='LLVMBool' data-type='int' data-ref="LLVMBool">LLVMBool</a> <dfn class="local col1 decl" id="21RunInliner" title='RunInliner' data-type='LLVMBool' data-ref="21RunInliner">RunInliner</dfn>);</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="83">83</th><td><i class="doc"> * @}</i></td></tr>
+<tr><th id="84">84</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><u>#<span data-ppcond="86">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="87">87</th><td>}</td></tr>
+<tr><th id="88">88</th><td><u>#<span data-ppcond="86">endif</span></u></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><u>#<span data-ppcond="14">endif</span></u></td></tr>
+<tr><th id="91">91</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../lib/Transforms/IPO/PassManagerBuilder.cpp.html'>llvm/llvm/lib/Transforms/IPO/PassManagerBuilder.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

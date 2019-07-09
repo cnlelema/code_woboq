@@ -1,0 +1,8 @@
+<dec f='llvm/llvm/include/llvm/Analysis/TargetTransformInfo.h' l='909' type='int llvm::TargetTransformInfo::getIntrinsicInstrCost(Intrinsic::ID ID, llvm::Type * RetTy, ArrayRef&lt;llvm::Value *&gt; Args, llvm::FastMathFlags FMF, unsigned int VF = 1) const'/>
+<doc f='llvm/llvm/include/llvm/Analysis/TargetTransformInfo.h' l='906'>/// \returns The cost of Intrinsic instructions. Analyses the real arguments.
+  /// Three cases are handled: 1. scalar instruction 2. vector instruction
+  /// 3. scalar instruction which is to be vectorized with VF.</doc>
+<def f='llvm/llvm/lib/Analysis/TargetTransformInfo.cpp' l='567' ll='572' type='int llvm::TargetTransformInfo::getIntrinsicInstrCost(Intrinsic::ID ID, llvm::Type * RetTy, ArrayRef&lt;llvm::Value *&gt; Args, llvm::FastMathFlags FMF, unsigned int VF = 1) const'/>
+<use f='llvm/llvm/lib/Analysis/TargetTransformInfo.cpp' l='1198' u='c' c='_ZNK4llvm19TargetTransformInfo24getInstructionThroughputEPKNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='3131' u='c' c='_ZN4llvm26LoopVectorizationCostModel22getVectorIntrinsicCostEPNS_8CallInstEj'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp' l='3017' u='c' c='_ZN4llvm13slpvectorizer7BoUpSLP12getEntryCostEPNS1_9TreeEntryE'/>

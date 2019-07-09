@@ -1,0 +1,41 @@
+<def f='llvm/clang/include/clang/Tooling/Syntax/Tokens.h' l='163' ll='265'/>
+<size>64</size>
+<doc f='llvm/clang/include/clang/Tooling/Syntax/Tokens.h' l='137'>/// A list of tokens obtained by preprocessing a text buffer and operations to
+/// map between the expanded and spelled tokens, i.e. TokenBuffer has
+/// information about two token streams:
+///    1. Expanded tokens: tokens produced by the preprocessor after all macro
+///       replacements,
+///    2. Spelled tokens: corresponding directly to the source code of a file
+///       before any macro replacements occurred.
+/// Here&apos;s an example to illustrate a difference between those two:
+///     #define FOO 10
+///     int a = FOO;
+///
+/// Spelled tokens are {&apos;#&apos;,&apos;define&apos;,&apos;FOO&apos;,&apos;10&apos;,&apos;int&apos;,&apos;a&apos;,&apos;=&apos;,&apos;FOO&apos;,&apos;;&apos;}.
+/// Expanded tokens are {&apos;int&apos;,&apos;a&apos;,&apos;=&apos;,&apos;10&apos;,&apos;;&apos;,&apos;eof&apos;}.
+///
+/// Note that the expanded token stream has a tok::eof token at the end, the
+/// spelled tokens never store a &apos;eof&apos; token.
+///
+/// The full list expanded tokens can be obtained with expandedTokens(). Spelled
+/// tokens for each of the files can be obtained via spelledTokens(FileID).
+///
+/// To map between the expanded and spelled tokens use findSpelledByExpanded().
+///
+/// To build a token buffer use the TokenCollector class. You can also compute
+/// the spelled tokens of a file using the tokenize() helper.
+///
+/// FIXME: allow to map from spelled to expanded tokens when use-case shows up.</doc>
+<fun r='_ZN5clang6syntax11TokenBufferC1ERKNS_13SourceManagerE'/>
+<fun r='_ZNK5clang6syntax11TokenBuffer14expandedTokensEv'/>
+<fun r='_ZNK5clang6syntax11TokenBuffer18spelledForExpandedEN4llvm8ArrayRefINS0_5TokenEEE'/>
+<fun r='_ZNK5clang6syntax11TokenBuffer13spelledTokensENS_6FileIDE'/>
+<fun r='_ZNK5clang6syntax11TokenBuffer12dumpForTestsEv'/>
+<fun r='_ZNK5clang6syntax11TokenBuffer23spelledForExpandedTokenEPKNS0_5TokenE'/>
+<mbr r='clang::syntax::TokenBuffer::ExpandedTokens' o='0' t='std::vector&lt;syntax::Token&gt;'/>
+<mbr r='clang::syntax::TokenBuffer::Files' o='192' t='llvm::DenseMap&lt;FileID, MarkedFile&gt;'/>
+<mbr r='clang::syntax::TokenBuffer::SourceMgr' o='448' t='const clang::SourceManager *'/>
+<fun r='_ZNK5clang6syntax11TokenBuffer23spelledForExpandedTokenEPKNS0_5TokenE'/>
+<fun r='_ZNK5clang6syntax11TokenBuffer13spelledTokensENS_6FileIDE'/>
+<fun r='_ZNK5clang6syntax11TokenBuffer18spelledForExpandedEN4llvm8ArrayRefINS0_5TokenEEE'/>
+<fun r='_ZNK5clang6syntax11TokenBuffer12dumpForTestsEv'/>

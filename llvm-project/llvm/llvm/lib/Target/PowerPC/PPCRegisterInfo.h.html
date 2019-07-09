@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PPCRegisterInfo.h source code [llvm/llvm/lib/Target/PowerPC/PPCRegisterInfo.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::PPCRegisterInfo "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/Target/PowerPC/PPCRegisterInfo.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>lib</a>/<a href='..'>Target</a>/<a href='./'>PowerPC</a>/<a href='PPCRegisterInfo.h.html'>PPCRegisterInfo.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- PPCRegisterInfo.h - PowerPC Register Information Impl ---*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file contains the PowerPC implementation of the TargetRegisterInfo</i></td></tr>
+<tr><th id="10">10</th><td><i>// class.</i></td></tr>
+<tr><th id="11">11</th><td><i>//</i></td></tr>
+<tr><th id="12">12</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><u>#<span data-ppcond="14">ifndef</span> <span class="macro" data-ref="_M/LLVM_LIB_TARGET_POWERPC_PPCREGISTERINFO_H">LLVM_LIB_TARGET_POWERPC_PPCREGISTERINFO_H</span></u></td></tr>
+<tr><th id="15">15</th><td><u>#define <dfn class="macro" id="_M/LLVM_LIB_TARGET_POWERPC_PPCREGISTERINFO_H" data-ref="_M/LLVM_LIB_TARGET_POWERPC_PPCREGISTERINFO_H">LLVM_LIB_TARGET_POWERPC_PPCREGISTERINFO_H</dfn></u></td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="MCTargetDesc/PPCMCTargetDesc.h.html">"MCTargetDesc/PPCMCTargetDesc.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../include/llvm/ADT/DenseMap.h.html">"llvm/ADT/DenseMap.h"</a></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><u>#define <dfn class="macro" id="_M/GET_REGINFO_HEADER" data-ref="_M/GET_REGINFO_HEADER">GET_REGINFO_HEADER</dfn></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <span class='error' title="&apos;PPCGenRegisterInfo.inc&apos; file not found">"PPCGenRegisterInfo.inc"</span></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="24">24</th><td><b>class</b> <dfn class="type" id="llvm::PPCTargetMachine" title='llvm::PPCTargetMachine' data-ref="llvm::PPCTargetMachine">PPCTargetMachine</dfn>;</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><b>inline</b> <em>static</em> <em>unsigned</em> <dfn class="decl def" id="_ZN4llvmL14getCRFromCRBitEj" title='llvm::getCRFromCRBit' data-ref="_ZN4llvmL14getCRFromCRBitEj">getCRFromCRBit</dfn>(<em>unsigned</em> <dfn class="local col6 decl" id="96SrcReg" title='SrcReg' data-type='unsigned int' data-ref="96SrcReg">SrcReg</dfn>) {</td></tr>
+<tr><th id="27">27</th><td>  <em>unsigned</em> <dfn class="local col7 decl" id="97Reg" title='Reg' data-type='unsigned int' data-ref="97Reg">Reg</dfn> = <var>0</var>;</td></tr>
+<tr><th id="28">28</th><td>  <b>if</b> (SrcReg == PPC::CR0LT || SrcReg == PPC::CR0GT ||</td></tr>
+<tr><th id="29">29</th><td>      SrcReg == PPC::CR0EQ || SrcReg == PPC::CR0UN)</td></tr>
+<tr><th id="30">30</th><td>    Reg = PPC::CR0;</td></tr>
+<tr><th id="31">31</th><td>  <b>else</b> <b>if</b> (SrcReg == PPC::CR1LT || SrcReg == PPC::CR1GT ||</td></tr>
+<tr><th id="32">32</th><td>           SrcReg == PPC::CR1EQ || SrcReg == PPC::CR1UN)</td></tr>
+<tr><th id="33">33</th><td>    Reg = PPC::CR1;</td></tr>
+<tr><th id="34">34</th><td>  <b>else</b> <b>if</b> (SrcReg == PPC::CR2LT || SrcReg == PPC::CR2GT ||</td></tr>
+<tr><th id="35">35</th><td>           SrcReg == PPC::CR2EQ || SrcReg == PPC::CR2UN)</td></tr>
+<tr><th id="36">36</th><td>    Reg = PPC::CR2;</td></tr>
+<tr><th id="37">37</th><td>  <b>else</b> <b>if</b> (SrcReg == PPC::CR3LT || SrcReg == PPC::CR3GT ||</td></tr>
+<tr><th id="38">38</th><td>           SrcReg == PPC::CR3EQ || SrcReg == PPC::CR3UN)</td></tr>
+<tr><th id="39">39</th><td>    Reg = PPC::CR3;</td></tr>
+<tr><th id="40">40</th><td>  <b>else</b> <b>if</b> (SrcReg == PPC::CR4LT || SrcReg == PPC::CR4GT ||</td></tr>
+<tr><th id="41">41</th><td>           SrcReg == PPC::CR4EQ || SrcReg == PPC::CR4UN)</td></tr>
+<tr><th id="42">42</th><td>    Reg = PPC::CR4;</td></tr>
+<tr><th id="43">43</th><td>  <b>else</b> <b>if</b> (SrcReg == PPC::CR5LT || SrcReg == PPC::CR5GT ||</td></tr>
+<tr><th id="44">44</th><td>           SrcReg == PPC::CR5EQ || SrcReg == PPC::CR5UN)</td></tr>
+<tr><th id="45">45</th><td>    Reg = PPC::CR5;</td></tr>
+<tr><th id="46">46</th><td>  <b>else</b> <b>if</b> (SrcReg == PPC::CR6LT || SrcReg == PPC::CR6GT ||</td></tr>
+<tr><th id="47">47</th><td>           SrcReg == PPC::CR6EQ || SrcReg == PPC::CR6UN)</td></tr>
+<tr><th id="48">48</th><td>    Reg = PPC::CR6;</td></tr>
+<tr><th id="49">49</th><td>  <b>else</b> <b>if</b> (SrcReg == PPC::CR7LT || SrcReg == PPC::CR7GT ||</td></tr>
+<tr><th id="50">50</th><td>           SrcReg == PPC::CR7EQ || SrcReg == PPC::CR7UN)</td></tr>
+<tr><th id="51">51</th><td>    Reg = PPC::CR7;</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>  <a class="macro" href="../../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (Reg != 0 &amp;&amp; &quot;Invalid CR bit register&quot;) ? void (0) : __assert_fail (&quot;Reg != 0 &amp;&amp; \&quot;Invalid CR bit register\&quot;&quot;, &quot;/root/cheri/llvm-project/llvm/lib/Target/PowerPC/PPCRegisterInfo.h&quot;, 53, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="local col7 ref" href="#97Reg" title='Reg' data-ref="97Reg">Reg</a> != <var>0</var> &amp;&amp; <q>"Invalid CR bit register"</q>);</td></tr>
+<tr><th id="54">54</th><td>  <b>return</b> <a class="local col7 ref" href="#97Reg" title='Reg' data-ref="97Reg">Reg</a>;</td></tr>
+<tr><th id="55">55</th><td>}</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td><b>class</b> <dfn class="type def" id="llvm::PPCRegisterInfo" title='llvm::PPCRegisterInfo' data-ref="llvm::PPCRegisterInfo">PPCRegisterInfo</dfn> : <b>public</b> PPCGenRegisterInfo {</td></tr>
+<tr><th id="58">58</th><td>  DenseMap&lt;<em>unsigned</em>, <em>unsigned</em>&gt; <dfn class="decl" id="llvm::PPCRegisterInfo::ImmToIdxMap" title='llvm::PPCRegisterInfo::ImmToIdxMap' data-ref="llvm::PPCRegisterInfo::ImmToIdxMap">ImmToIdxMap</dfn>;</td></tr>
+<tr><th id="59">59</th><td>  <em>const</em> <a class="type" href="#llvm::PPCTargetMachine" title='llvm::PPCTargetMachine' data-ref="llvm::PPCTargetMachine">PPCTargetMachine</a> &amp;<dfn class="decl" id="llvm::PPCRegisterInfo::TM" title='llvm::PPCRegisterInfo::TM' data-ref="llvm::PPCRegisterInfo::TM">TM</dfn>;</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td><b>public</b>:</td></tr>
+<tr><th id="62">62</th><td>  <dfn class="decl" id="_ZN4llvm15PPCRegisterInfoC1ERKNS_16PPCTargetMachineE" title='llvm::PPCRegisterInfo::PPCRegisterInfo' data-ref="_ZN4llvm15PPCRegisterInfoC1ERKNS_16PPCTargetMachineE">PPCRegisterInfo</dfn>(<em>const</em> <a class="type" href="#llvm::PPCTargetMachine" title='llvm::PPCTargetMachine' data-ref="llvm::PPCTargetMachine">PPCTargetMachine</a> &amp;<dfn class="local col8 decl" id="98TM" title='TM' data-type='const llvm::PPCTargetMachine &amp;' data-ref="98TM">TM</dfn>);</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>  <i class="doc">/// getPointerRegClass - Return the register class to use to hold pointers.</i></td></tr>
+<tr><th id="65">65</th><td><i class="doc">  /// This is used for addressing modes.</i></td></tr>
+<tr><th id="66">66</th><td>  <em>const</em> TargetRegisterClass *</td></tr>
+<tr><th id="67">67</th><td>  <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo18getPointerRegClassERKij" title='llvm::PPCRegisterInfo::getPointerRegClass' data-ref="_ZNK4llvm15PPCRegisterInfo18getPointerRegClassERKij">getPointerRegClass</dfn>(<em>const</em> MachineFunction &amp;MF, <em>unsigned</em> Kind=<var>0</var>) <em>const</em> override;</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td>  <em>unsigned</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo19getRegPressureLimitEPKiRi" title='llvm::PPCRegisterInfo::getRegPressureLimit' data-ref="_ZNK4llvm15PPCRegisterInfo19getRegPressureLimitEPKiRi">getRegPressureLimit</dfn>(<em>const</em> TargetRegisterClass *<dfn class="local col9 decl" id="99RC" title='RC' data-type='const int *' data-ref="99RC">RC</dfn>,</td></tr>
+<tr><th id="70">70</th><td>                               MachineFunction &amp;<dfn class="local col0 decl" id="100MF" title='MF' data-type='int &amp;' data-ref="100MF">MF</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td>  <em>const</em> TargetRegisterClass *</td></tr>
+<tr><th id="73">73</th><td>  <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo25getLargestLegalSuperClassEPKiRS1_" title='llvm::PPCRegisterInfo::getLargestLegalSuperClass' data-ref="_ZNK4llvm15PPCRegisterInfo25getLargestLegalSuperClassEPKiRS1_">getLargestLegalSuperClass</dfn>(<em>const</em> TargetRegisterClass *RC,</td></tr>
+<tr><th id="74">74</th><td>                            <em>const</em> MachineFunction &amp;MF) <em>const</em> override;</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>  <i class="doc">/// Code Generation virtual methods...</i></td></tr>
+<tr><th id="77">77</th><td>  <em>const</em> <a class="typedef" href="../../../include/llvm/MC/MCRegisterInfo.h.html#llvm::MCPhysReg" title='llvm::MCPhysReg' data-type='uint16_t' data-ref="llvm::MCPhysReg">MCPhysReg</a> *<dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo18getCalleeSavedRegsEPKi" title='llvm::PPCRegisterInfo::getCalleeSavedRegs' data-ref="_ZNK4llvm15PPCRegisterInfo18getCalleeSavedRegsEPKi">getCalleeSavedRegs</dfn>(<em>const</em> MachineFunction *<dfn class="local col1 decl" id="101MF" title='MF' data-type='const int *' data-ref="101MF">MF</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="78">78</th><td>  <em>const</em> <a class="typedef" href="../../../include/llvm/MC/MCRegisterInfo.h.html#llvm::MCPhysReg" title='llvm::MCPhysReg' data-type='uint16_t' data-ref="llvm::MCPhysReg">MCPhysReg</a> *<dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo25getCalleeSavedRegsViaCopyEPKi" title='llvm::PPCRegisterInfo::getCalleeSavedRegsViaCopy' data-ref="_ZNK4llvm15PPCRegisterInfo25getCalleeSavedRegsViaCopyEPKi">getCalleeSavedRegsViaCopy</dfn>(<em>const</em> MachineFunction *<dfn class="local col2 decl" id="102MF" title='MF' data-type='const int *' data-ref="102MF">MF</dfn>) <em>const</em>;</td></tr>
+<tr><th id="79">79</th><td>  <em>const</em> <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo20getCallPreservedMaskERKii" title='llvm::PPCRegisterInfo::getCallPreservedMask' data-ref="_ZNK4llvm15PPCRegisterInfo20getCallPreservedMaskERKii">getCallPreservedMask</dfn>(<em>const</em> MachineFunction &amp;<dfn class="local col3 decl" id="103MF" title='MF' data-type='const int &amp;' data-ref="103MF">MF</dfn>,</td></tr>
+<tr><th id="80">80</th><td>                                       CallingConv::ID <dfn class="local col4 decl" id="104CC" title='CC' data-type='int' data-ref="104CC">CC</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="81">81</th><td>  <em>const</em> <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo18getNoPreservedMaskEv" title='llvm::PPCRegisterInfo::getNoPreservedMask' data-ref="_ZNK4llvm15PPCRegisterInfo18getNoPreservedMaskEv">getNoPreservedMask</dfn>() <em>const</em> override;</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo25adjustStackMapLiveOutMaskEPj" title='llvm::PPCRegisterInfo::adjustStackMapLiveOutMask' data-ref="_ZNK4llvm15PPCRegisterInfo25adjustStackMapLiveOutMaskEPj">adjustStackMapLiveOutMask</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col5 decl" id="105Mask" title='Mask' data-type='uint32_t *' data-ref="105Mask">Mask</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td>  BitVector <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo15getReservedRegsERKi" title='llvm::PPCRegisterInfo::getReservedRegs' data-ref="_ZNK4llvm15PPCRegisterInfo15getReservedRegsERKi">getReservedRegs</dfn>(<em>const</em> MachineFunction &amp;MF) <em>const</em> override;</td></tr>
+<tr><th id="86">86</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo24isCallerPreservedPhysRegEjRKi" title='llvm::PPCRegisterInfo::isCallerPreservedPhysReg' data-ref="_ZNK4llvm15PPCRegisterInfo24isCallerPreservedPhysRegEjRKi">isCallerPreservedPhysReg</dfn>(<em>unsigned</em> <dfn class="local col6 decl" id="106PhysReg" title='PhysReg' data-type='unsigned int' data-ref="106PhysReg">PhysReg</dfn>, <em>const</em> MachineFunction &amp;<dfn class="local col7 decl" id="107MF" title='MF' data-type='const int &amp;' data-ref="107MF">MF</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>  <i class="doc">/// We require the register scavenger.</i></td></tr>
+<tr><th id="89">89</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm15PPCRegisterInfo26requiresRegisterScavengingERKi" title='llvm::PPCRegisterInfo::requiresRegisterScavenging' data-ref="_ZNK4llvm15PPCRegisterInfo26requiresRegisterScavengingERKi">requiresRegisterScavenging</dfn>(<em>const</em> MachineFunction &amp;<dfn class="local col8 decl" id="108MF" title='MF' data-type='const int &amp;' data-ref="108MF">MF</dfn>) <em>const</em> override {</td></tr>
+<tr><th id="90">90</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="91">91</th><td>  }</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo28requiresFrameIndexScavengingERKi" title='llvm::PPCRegisterInfo::requiresFrameIndexScavenging' data-ref="_ZNK4llvm15PPCRegisterInfo28requiresFrameIndexScavengingERKi">requiresFrameIndexScavenging</dfn>(<em>const</em> MachineFunction &amp;<dfn class="local col9 decl" id="109MF" title='MF' data-type='const int &amp;' data-ref="109MF">MF</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm15PPCRegisterInfo26trackLivenessAfterRegAllocERKi" title='llvm::PPCRegisterInfo::trackLivenessAfterRegAlloc' data-ref="_ZNK4llvm15PPCRegisterInfo26trackLivenessAfterRegAllocERKi">trackLivenessAfterRegAlloc</dfn>(<em>const</em> MachineFunction &amp;<dfn class="local col0 decl" id="110MF" title='MF' data-type='const int &amp;' data-ref="110MF">MF</dfn>) <em>const</em> override {</td></tr>
+<tr><th id="96">96</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="97">97</th><td>  }</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm15PPCRegisterInfo28requiresVirtualBaseRegistersERKi" title='llvm::PPCRegisterInfo::requiresVirtualBaseRegisters' data-ref="_ZNK4llvm15PPCRegisterInfo28requiresVirtualBaseRegistersERKi">requiresVirtualBaseRegisters</dfn>(<em>const</em> MachineFunction &amp;<dfn class="local col1 decl" id="111MF" title='MF' data-type='const int &amp;' data-ref="111MF">MF</dfn>) <em>const</em> override {</td></tr>
+<tr><th id="100">100</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="101">101</th><td>  }</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo17lowerDynamicAllocEi" title='llvm::PPCRegisterInfo::lowerDynamicAlloc' data-ref="_ZNK4llvm15PPCRegisterInfo17lowerDynamicAllocEi">lowerDynamicAlloc</dfn>(MachineBasicBlock::iterator <dfn class="local col2 decl" id="112II" title='II' data-type='int' data-ref="112II">II</dfn>) <em>const</em>;</td></tr>
+<tr><th id="104">104</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo22lowerDynamicAreaOffsetEi" title='llvm::PPCRegisterInfo::lowerDynamicAreaOffset' data-ref="_ZNK4llvm15PPCRegisterInfo22lowerDynamicAreaOffsetEi">lowerDynamicAreaOffset</dfn>(MachineBasicBlock::iterator <dfn class="local col3 decl" id="113II" title='II' data-type='int' data-ref="113II">II</dfn>) <em>const</em>;</td></tr>
+<tr><th id="105">105</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo15lowerCRSpillingEij" title='llvm::PPCRegisterInfo::lowerCRSpilling' data-ref="_ZNK4llvm15PPCRegisterInfo15lowerCRSpillingEij">lowerCRSpilling</dfn>(MachineBasicBlock::iterator <dfn class="local col4 decl" id="114II" title='II' data-type='int' data-ref="114II">II</dfn>,</td></tr>
+<tr><th id="106">106</th><td>                       <em>unsigned</em> <dfn class="local col5 decl" id="115FrameIndex" title='FrameIndex' data-type='unsigned int' data-ref="115FrameIndex">FrameIndex</dfn>) <em>const</em>;</td></tr>
+<tr><th id="107">107</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo14lowerCRRestoreEij" title='llvm::PPCRegisterInfo::lowerCRRestore' data-ref="_ZNK4llvm15PPCRegisterInfo14lowerCRRestoreEij">lowerCRRestore</dfn>(MachineBasicBlock::iterator <dfn class="local col6 decl" id="116II" title='II' data-type='int' data-ref="116II">II</dfn>,</td></tr>
+<tr><th id="108">108</th><td>                      <em>unsigned</em> <dfn class="local col7 decl" id="117FrameIndex" title='FrameIndex' data-type='unsigned int' data-ref="117FrameIndex">FrameIndex</dfn>) <em>const</em>;</td></tr>
+<tr><th id="109">109</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo18lowerCRBitSpillingEij" title='llvm::PPCRegisterInfo::lowerCRBitSpilling' data-ref="_ZNK4llvm15PPCRegisterInfo18lowerCRBitSpillingEij">lowerCRBitSpilling</dfn>(MachineBasicBlock::iterator <dfn class="local col8 decl" id="118II" title='II' data-type='int' data-ref="118II">II</dfn>,</td></tr>
+<tr><th id="110">110</th><td>                          <em>unsigned</em> <dfn class="local col9 decl" id="119FrameIndex" title='FrameIndex' data-type='unsigned int' data-ref="119FrameIndex">FrameIndex</dfn>) <em>const</em>;</td></tr>
+<tr><th id="111">111</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo17lowerCRBitRestoreEij" title='llvm::PPCRegisterInfo::lowerCRBitRestore' data-ref="_ZNK4llvm15PPCRegisterInfo17lowerCRBitRestoreEij">lowerCRBitRestore</dfn>(MachineBasicBlock::iterator <dfn class="local col0 decl" id="120II" title='II' data-type='int' data-ref="120II">II</dfn>,</td></tr>
+<tr><th id="112">112</th><td>                         <em>unsigned</em> <dfn class="local col1 decl" id="121FrameIndex" title='FrameIndex' data-type='unsigned int' data-ref="121FrameIndex">FrameIndex</dfn>) <em>const</em>;</td></tr>
+<tr><th id="113">113</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo19lowerVRSAVESpillingEij" title='llvm::PPCRegisterInfo::lowerVRSAVESpilling' data-ref="_ZNK4llvm15PPCRegisterInfo19lowerVRSAVESpillingEij">lowerVRSAVESpilling</dfn>(MachineBasicBlock::iterator <dfn class="local col2 decl" id="122II" title='II' data-type='int' data-ref="122II">II</dfn>,</td></tr>
+<tr><th id="114">114</th><td>                           <em>unsigned</em> <dfn class="local col3 decl" id="123FrameIndex" title='FrameIndex' data-type='unsigned int' data-ref="123FrameIndex">FrameIndex</dfn>) <em>const</em>;</td></tr>
+<tr><th id="115">115</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo18lowerVRSAVERestoreEij" title='llvm::PPCRegisterInfo::lowerVRSAVERestore' data-ref="_ZNK4llvm15PPCRegisterInfo18lowerVRSAVERestoreEij">lowerVRSAVERestore</dfn>(MachineBasicBlock::iterator <dfn class="local col4 decl" id="124II" title='II' data-type='int' data-ref="124II">II</dfn>,</td></tr>
+<tr><th id="116">116</th><td>                          <em>unsigned</em> <dfn class="local col5 decl" id="125FrameIndex" title='FrameIndex' data-type='unsigned int' data-ref="125FrameIndex">FrameIndex</dfn>) <em>const</em>;</td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo20hasReservedSpillSlotERKijRi" title='llvm::PPCRegisterInfo::hasReservedSpillSlot' data-ref="_ZNK4llvm15PPCRegisterInfo20hasReservedSpillSlotERKijRi">hasReservedSpillSlot</dfn>(<em>const</em> MachineFunction &amp;<dfn class="local col6 decl" id="126MF" title='MF' data-type='const int &amp;' data-ref="126MF">MF</dfn>, <em>unsigned</em> <dfn class="local col7 decl" id="127Reg" title='Reg' data-type='unsigned int' data-ref="127Reg">Reg</dfn>,</td></tr>
+<tr><th id="119">119</th><td>                            <em>int</em> &amp;<dfn class="local col8 decl" id="128FrameIdx" title='FrameIdx' data-type='int &amp;' data-ref="128FrameIdx">FrameIdx</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="120">120</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo19eliminateFrameIndexEiijPi" title='llvm::PPCRegisterInfo::eliminateFrameIndex' data-ref="_ZNK4llvm15PPCRegisterInfo19eliminateFrameIndexEiijPi">eliminateFrameIndex</dfn>(MachineBasicBlock::iterator <dfn class="local col9 decl" id="129II" title='II' data-type='int' data-ref="129II">II</dfn>, <em>int</em> <dfn class="local col0 decl" id="130SPAdj" title='SPAdj' data-type='int' data-ref="130SPAdj">SPAdj</dfn>,</td></tr>
+<tr><th id="121">121</th><td>                           <em>unsigned</em> <dfn class="local col1 decl" id="131FIOperandNum" title='FIOperandNum' data-type='unsigned int' data-ref="131FIOperandNum">FIOperandNum</dfn>,</td></tr>
+<tr><th id="122">122</th><td>                           RegScavenger *<dfn class="local col2 decl" id="132RS" title='RS' data-type='int *' data-ref="132RS">RS</dfn> = <b>nullptr</b>) <em>const</em> override;</td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td>  <i>// Support for virtual base registers.</i></td></tr>
+<tr><th id="125">125</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo17needsFrameBaseRegEPil" title='llvm::PPCRegisterInfo::needsFrameBaseReg' data-ref="_ZNK4llvm15PPCRegisterInfo17needsFrameBaseRegEPil">needsFrameBaseReg</dfn>(MachineInstr *<dfn class="local col3 decl" id="133MI" title='MI' data-type='int *' data-ref="133MI">MI</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-intn.h.html#int64_t" title='int64_t' data-type='__int64_t' data-ref="int64_t">int64_t</a> <dfn class="local col4 decl" id="134Offset" title='Offset' data-type='int64_t' data-ref="134Offset">Offset</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="126">126</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo28materializeFrameBaseRegisterEPijil" title='llvm::PPCRegisterInfo::materializeFrameBaseRegister' data-ref="_ZNK4llvm15PPCRegisterInfo28materializeFrameBaseRegisterEPijil">materializeFrameBaseRegister</dfn>(MachineBasicBlock *<dfn class="local col5 decl" id="135MBB" title='MBB' data-type='int *' data-ref="135MBB">MBB</dfn>,</td></tr>
+<tr><th id="127">127</th><td>                                    <em>unsigned</em> <dfn class="local col6 decl" id="136BaseReg" title='BaseReg' data-type='unsigned int' data-ref="136BaseReg">BaseReg</dfn>, <em>int</em> <dfn class="local col7 decl" id="137FrameIdx" title='FrameIdx' data-type='int' data-ref="137FrameIdx">FrameIdx</dfn>,</td></tr>
+<tr><th id="128">128</th><td>                                    <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-intn.h.html#int64_t" title='int64_t' data-type='__int64_t' data-ref="int64_t">int64_t</a> <dfn class="local col8 decl" id="138Offset" title='Offset' data-type='int64_t' data-ref="138Offset">Offset</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="129">129</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo17resolveFrameIndexERijl" title='llvm::PPCRegisterInfo::resolveFrameIndex' data-ref="_ZNK4llvm15PPCRegisterInfo17resolveFrameIndexERijl">resolveFrameIndex</dfn>(MachineInstr &amp;<dfn class="local col9 decl" id="139MI" title='MI' data-type='int &amp;' data-ref="139MI">MI</dfn>, <em>unsigned</em> <dfn class="local col0 decl" id="140BaseReg" title='BaseReg' data-type='unsigned int' data-ref="140BaseReg">BaseReg</dfn>,</td></tr>
+<tr><th id="130">130</th><td>                         <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-intn.h.html#int64_t" title='int64_t' data-type='__int64_t' data-ref="int64_t">int64_t</a> <dfn class="local col1 decl" id="141Offset" title='Offset' data-type='int64_t' data-ref="141Offset">Offset</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="131">131</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo18isFrameOffsetLegalEPKijl" title='llvm::PPCRegisterInfo::isFrameOffsetLegal' data-ref="_ZNK4llvm15PPCRegisterInfo18isFrameOffsetLegalEPKijl">isFrameOffsetLegal</dfn>(<em>const</em> MachineInstr *<dfn class="local col2 decl" id="142MI" title='MI' data-type='const int *' data-ref="142MI">MI</dfn>, <em>unsigned</em> <dfn class="local col3 decl" id="143BaseReg" title='BaseReg' data-type='unsigned int' data-ref="143BaseReg">BaseReg</dfn>,</td></tr>
+<tr><th id="132">132</th><td>                          <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-intn.h.html#int64_t" title='int64_t' data-type='__int64_t' data-ref="int64_t">int64_t</a> <dfn class="local col4 decl" id="144Offset" title='Offset' data-type='int64_t' data-ref="144Offset">Offset</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td>  <i>// Debug information queries.</i></td></tr>
+<tr><th id="135">135</th><td>  <em>unsigned</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo16getFrameRegisterERKi" title='llvm::PPCRegisterInfo::getFrameRegister' data-ref="_ZNK4llvm15PPCRegisterInfo16getFrameRegisterERKi">getFrameRegister</dfn>(<em>const</em> MachineFunction &amp;<dfn class="local col5 decl" id="145MF" title='MF' data-type='const int &amp;' data-ref="145MF">MF</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td>  <i>// Base pointer (stack realignment) support.</i></td></tr>
+<tr><th id="138">138</th><td>  <em>unsigned</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo15getBaseRegisterERKi" title='llvm::PPCRegisterInfo::getBaseRegister' data-ref="_ZNK4llvm15PPCRegisterInfo15getBaseRegisterERKi">getBaseRegister</dfn>(<em>const</em> MachineFunction &amp;<dfn class="local col6 decl" id="146MF" title='MF' data-type='const int &amp;' data-ref="146MF">MF</dfn>) <em>const</em>;</td></tr>
+<tr><th id="139">139</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK4llvm15PPCRegisterInfo14hasBasePointerERKi" title='llvm::PPCRegisterInfo::hasBasePointer' data-ref="_ZNK4llvm15PPCRegisterInfo14hasBasePointerERKi">hasBasePointer</dfn>(<em>const</em> MachineFunction &amp;<dfn class="local col7 decl" id="147MF" title='MF' data-type='const int &amp;' data-ref="147MF">MF</dfn>) <em>const</em>;</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td>  <i class="doc">/// stripRegisterPrefix - This method strips the character prefix from a</i></td></tr>
+<tr><th id="142">142</th><td><i class="doc">  /// register name so that only the number is left.  Used by for linux asm.</i></td></tr>
+<tr><th id="143">143</th><td>  <em>static</em> <em>const</em> <em>char</em> *<dfn class="decl def" id="_ZN4llvm15PPCRegisterInfo19stripRegisterPrefixEPKc" title='llvm::PPCRegisterInfo::stripRegisterPrefix' data-ref="_ZN4llvm15PPCRegisterInfo19stripRegisterPrefixEPKc">stripRegisterPrefix</dfn>(<em>const</em> <em>char</em> *<dfn class="local col8 decl" id="148RegName" title='RegName' data-type='const char *' data-ref="148RegName">RegName</dfn>) {</td></tr>
+<tr><th id="144">144</th><td>    <b>switch</b> (<a class="local col8 ref" href="#148RegName" title='RegName' data-ref="148RegName">RegName</a>[<var>0</var>]) {</td></tr>
+<tr><th id="145">145</th><td>      <b>case</b> <kbd>'r'</kbd>:</td></tr>
+<tr><th id="146">146</th><td>      <b>case</b> <kbd>'f'</kbd>:</td></tr>
+<tr><th id="147">147</th><td>      <b>case</b> <kbd>'q'</kbd>: <i>// for QPX</i></td></tr>
+<tr><th id="148">148</th><td>      <b>case</b> <kbd>'v'</kbd>:</td></tr>
+<tr><th id="149">149</th><td>        <b>if</b> (<a class="local col8 ref" href="#148RegName" title='RegName' data-ref="148RegName">RegName</a>[<var>1</var>] == <kbd>'s'</kbd>)</td></tr>
+<tr><th id="150">150</th><td>          <b>return</b> <a class="local col8 ref" href="#148RegName" title='RegName' data-ref="148RegName">RegName</a> + <var>2</var>;</td></tr>
+<tr><th id="151">151</th><td>        <b>return</b> <a class="local col8 ref" href="#148RegName" title='RegName' data-ref="148RegName">RegName</a> + <var>1</var>;</td></tr>
+<tr><th id="152">152</th><td>      <b>case</b> <kbd>'c'</kbd>: <b>if</b> (<a class="local col8 ref" href="#148RegName" title='RegName' data-ref="148RegName">RegName</a>[<var>1</var>] == <kbd>'r'</kbd>) <b>return</b> <a class="local col8 ref" href="#148RegName" title='RegName' data-ref="148RegName">RegName</a> + <var>2</var>;</td></tr>
+<tr><th id="153">153</th><td>    }</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td>    <b>return</b> <a class="local col8 ref" href="#148RegName" title='RegName' data-ref="148RegName">RegName</a>;</td></tr>
+<tr><th id="156">156</th><td>  }</td></tr>
+<tr><th id="157">157</th><td>};</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="160">160</th><td></td></tr>
+<tr><th id="161">161</th><td><u>#<span data-ppcond="14">endif</span></u></td></tr>
+<tr><th id="162">162</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='MCTargetDesc/PPCInstPrinter.cpp.html'>llvm/llvm/lib/Target/PowerPC/MCTargetDesc/PPCInstPrinter.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

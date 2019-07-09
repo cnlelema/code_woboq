@@ -1,0 +1,16 @@
+<def f='llvm/llvm/include/llvm/CodeGen/LivePhysRegs.h' l='106' type='bool llvm::LivePhysRegs::contains(MCPhysReg Reg) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/LivePhysRegs.h' l='101'>/// Returns true if register \p Reg is contained in the set. This also
+  /// works if only the super register of \p Reg has been defined, because
+  /// addReg() always adds all sub-registers to the set as well.
+  /// Note: Returns false if just some sub registers are live, use available()
+  /// when searching a free register.</doc>
+<use f='llvm/llvm/lib/CodeGen/BreakFalseDeps.cpp' l='226' u='c' c='_ZN4llvm14BreakFalseDeps17processUndefReadsEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/LivePhysRegs.cpp' l='268' u='c' c='_ZN4llvm10addLiveInsERNS_17MachineBasicBlockERKNS_12LivePhysRegsE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMLoadStoreOptimizer.cpp' l='588' u='c' c='_ZN12_GLOBAL__N_115ARMLoadStoreOpt11findFreeRegERKN4llvm19TargetRegisterClassE'/>
+<use f='llvm/llvm/lib/Target/ARM/Thumb1FrameLowering.cpp' l='520' u='c' c='_ZL20findTemporariesForLRRKN4llvm9BitVectorES2_RKNS_12LivePhysRegsERjS6_'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZShortenInst.cpp' l='89' u='c' c='_ZN12_GLOBAL__N_118SystemZShortenInst10shortenIIFERN4llvm12MachineInstrEjj'/>
+<use f='llvm/llvm/lib/Target/X86/X86FixupBWInsts.cpp' l='189' u='c' c='_ZNK12_GLOBAL__N_115FixupBWInstPass21getSuperRegDestIfDeadEPN4llvm12MachineInstrERj'/>
+<use f='llvm/llvm/lib/Target/X86/X86FixupBWInsts.cpp' l='197' u='c' c='_ZNK12_GLOBAL__N_115FixupBWInstPass21getSuperRegDestIfDeadEPN4llvm12MachineInstrERj'/>
+<use f='llvm/llvm/lib/Target/X86/X86FixupBWInsts.cpp' l='198' u='c' c='_ZNK12_GLOBAL__N_115FixupBWInstPass21getSuperRegDestIfDeadEPN4llvm12MachineInstrERj'/>
+<use f='llvm/llvm/lib/Target/X86/X86FloatingPoint.cpp' l='1709' u='c' c='_ZNK12_GLOBAL__N_13FPS12setKillFlagsERN4llvm17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/X86/X86FloatingPoint.cpp' l='1716' u='c' c='_ZNK12_GLOBAL__N_13FPS12setKillFlagsERN4llvm17MachineBasicBlockE'/>

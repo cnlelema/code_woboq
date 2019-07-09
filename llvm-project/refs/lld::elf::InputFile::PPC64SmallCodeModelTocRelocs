@@ -1,0 +1,14 @@
+<dec f='llvm/lld/ELF/InputFiles.h' l='134' type='bool'/>
+<offset>1024</offset>
+<doc f='llvm/lld/ELF/InputFiles.h' l='125'>// On PPC64 we need to keep track of which files contain small code model
+  // relocations that access the .toc section. To minimize the chance of a
+  // relocation overflow, files that do contain said relocations should have
+  // their .toc sections sorted closer to the .got section than files that do
+  // not contain any small code model relocations. Thats because the toc-pointer
+  // is defined to point at .got + 0x8000 and the instructions used with small
+  // code model relocations support immediates in the range [-0x8000, 0x7FFC],
+  // making the addressable range relative to the toc pointer
+  // [.got, .got + 0xFFFC].</doc>
+<use f='llvm/lld/ELF/Relocations.cpp' l='1210' u='w' c='_ZL9scanRelocRN3lld3elf16InputSectionBaseERN12_GLOBAL__N_112OffsetGetterERPT0_S7_'/>
+<use f='llvm/lld/ELF/Writer.cpp' l='1448' u='r' c='_ZL11sortSectionPN3lld3elf13OutputSectionERKN4llvm8DenseMapIPKNS0_16InputSectionBaseEiNS3_12DenseMapInfoIS7_EENS3_6detail12DenseMapPairIS7_iEEEE'/>
+<use f='llvm/lld/ELF/Writer.cpp' l='1449' u='r' c='_ZL11sortSectionPN3lld3elf13OutputSectionERKN4llvm8DenseMapIPKNS0_16InputSectionBaseEiNS3_12DenseMapInfoIS7_EENS3_6detail12DenseMapPairIS7_iEEEE'/>

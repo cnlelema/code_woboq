@@ -1,0 +1,19 @@
+<def f='llvm/llvm/include/llvm/Bitcode/BitcodeReader.h' l='239' ll='256' type='bool llvm::SkipBitcodeWrapperHeader(const unsigned char *&amp; BufPtr, const unsigned char *&amp; BufEnd, bool VerifyBufferSize)'/>
+<doc f='llvm/llvm/include/llvm/Bitcode/BitcodeReader.h' l='223'>/// SkipBitcodeWrapperHeader - Some systems wrap bc files with a special
+  /// header for padding or other reasons.  The format of this header is:
+  ///
+  /// struct bc_header {
+  ///   uint32_t Magic;         // 0x0B17C0DE
+  ///   uint32_t Version;       // Version, currently always 0.
+  ///   uint32_t BitcodeOffset; // Offset to traditional bitcode file.
+  ///   uint32_t BitcodeSize;   // Size of traditional bitcode file.
+  ///   ... potentially other gunk ...
+  /// };
+  ///
+  /// This function is called when we find a file with a matching magic number.
+  /// In this case, skip down to the subsection of the file that is actually a
+  /// BC file.
+  /// If &apos;VerifyBufferSize&apos; is true, check that the buffer is large enough to
+  /// contain the whole bitcode file.</doc>
+<use f='llvm/llvm/lib/Bitcode/Reader/BitcodeReader.cpp' l='132' u='c' c='_ZL10initStreamN4llvm15MemoryBufferRefE'/>
+<use f='llvm/llvm/tools/llvm-bcanalyzer/llvm-bcanalyzer.cpp' l='825' u='c' c='_ZL15openBitcodeFileN4llvm9StringRefERSt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EERNS_15BitstreamCursorERN12_GLOBAL__N_117CurStreamTypeTypeE'/>

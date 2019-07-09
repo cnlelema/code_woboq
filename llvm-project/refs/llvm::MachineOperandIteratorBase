@@ -1,0 +1,34 @@
+<def f='llvm/llvm/include/llvm/CodeGen/MachineInstrBundle.h' l='93' ll='218'/>
+<ovr f='llvm/llvm/include/llvm/CodeGen/MachineInstrBundle.h' l='222' c='llvm::MIOperands'/>
+<ovr f='llvm/llvm/include/llvm/CodeGen/MachineInstrBundle.h' l='231' c='llvm::ConstMIOperands'/>
+<ovr f='llvm/llvm/include/llvm/CodeGen/MachineInstrBundle.h' l='242' c='llvm::MIBundleOperands'/>
+<ovr f='llvm/llvm/include/llvm/CodeGen/MachineInstrBundle.h' l='252' c='llvm::ConstMIBundleOperands'/>
+<size>32</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineInstrBundle.h' l='77'>//===----------------------------------------------------------------------===//
+// MachineOperand iterator
+//
+
+/// MachineOperandIteratorBase - Iterator that can visit all operands on a
+/// MachineInstr, or all operands on a bundle of MachineInstrs.  This class is
+/// not intended to be used directly, use one of the sub-classes instead.
+///
+/// Intended use:
+///
+///   for (MIBundleOperands MIO(MI); MIO.isValid(); ++MIO) {
+///     if (!MIO-&gt;isReg())
+///       continue;
+///     ...
+///   }
+///</doc>
+<mbr r='llvm::MachineOperandIteratorBase::InstrI' o='0' t='MachineBasicBlock::instr_iterator'/>
+<mbr r='llvm::MachineOperandIteratorBase::InstrE' o='64' t='MachineBasicBlock::instr_iterator'/>
+<mbr r='llvm::MachineOperandIteratorBase::OpI' o='128' t='MachineInstr::mop_iterator'/>
+<mbr r='llvm::MachineOperandIteratorBase::OpE' o='192' t='MachineInstr::mop_iterator'/>
+<fun r='_ZN4llvm26MachineOperandIteratorBase7advanceEv'/>
+<fun r='_ZN4llvm26MachineOperandIteratorBaseC1ERNS_12MachineInstrEb'/>
+<fun r='_ZNK4llvm26MachineOperandIteratorBase5derefEv'/>
+<fun r='_ZNK4llvm26MachineOperandIteratorBase7isValidEv'/>
+<fun r='_ZN4llvm26MachineOperandIteratorBaseppEv'/>
+<fun r='_ZNK4llvm26MachineOperandIteratorBase12getOperandNoEv'/>
+<fun r='_ZN4llvm26MachineOperandIteratorBase14analyzeVirtRegEjPNS_15SmallVectorImplISt4pairIPNS_12MachineInstrEjEEE'/>
+<fun r='_ZN4llvm26MachineOperandIteratorBase14analyzePhysRegEjPKNS_18TargetRegisterInfoE'/>

@@ -1,0 +1,150 @@
+<def f='llvm/clang/include/clang/Frontend/ASTUnit.h' l='89' ll='899'/>
+<size>2072</size>
+<doc f='llvm/clang/include/clang/Frontend/ASTUnit.h' l='88'>/// Utility class for loading a ASTContext from an AST file.</doc>
+<mbr r='clang::ASTUnit::LangOpts' o='0' t='std::shared_ptr&lt;LangOptions&gt;'/>
+<mbr r='clang::ASTUnit::Diagnostics' o='128' t='IntrusiveRefCntPtr&lt;clang::DiagnosticsEngine&gt;'/>
+<mbr r='clang::ASTUnit::FileMgr' o='192' t='IntrusiveRefCntPtr&lt;clang::FileManager&gt;'/>
+<mbr r='clang::ASTUnit::SourceMgr' o='256' t='IntrusiveRefCntPtr&lt;clang::SourceManager&gt;'/>
+<mbr r='clang::ASTUnit::ModuleCache' o='320' t='IntrusiveRefCntPtr&lt;clang::InMemoryModuleCache&gt;'/>
+<mbr r='clang::ASTUnit::HeaderInfo' o='384' t='std::unique_ptr&lt;HeaderSearch&gt;'/>
+<mbr r='clang::ASTUnit::Target' o='448' t='IntrusiveRefCntPtr&lt;clang::TargetInfo&gt;'/>
+<mbr r='clang::ASTUnit::PP' o='512' t='std::shared_ptr&lt;Preprocessor&gt;'/>
+<mbr r='clang::ASTUnit::Ctx' o='640' t='IntrusiveRefCntPtr&lt;clang::ASTContext&gt;'/>
+<mbr r='clang::ASTUnit::TargetOpts' o='704' t='std::shared_ptr&lt;TargetOptions&gt;'/>
+<mbr r='clang::ASTUnit::HSOpts' o='832' t='std::shared_ptr&lt;HeaderSearchOptions&gt;'/>
+<mbr r='clang::ASTUnit::PPOpts' o='960' t='std::shared_ptr&lt;PreprocessorOptions&gt;'/>
+<mbr r='clang::ASTUnit::Reader' o='1088' t='IntrusiveRefCntPtr&lt;clang::ASTReader&gt;'/>
+<mbr r='clang::ASTUnit::HadModuleLoaderFatalFailure' o='1152' t='bool'/>
+<mbr r='clang::ASTUnit::WriterData' o='1216' t='std::unique_ptr&lt;ASTWriterData&gt;'/>
+<mbr r='clang::ASTUnit::FileSystemOpts' o='1280' t='clang::FileSystemOptions'/>
+<mbr r='clang::ASTUnit::Consumer' o='1536' t='std::unique_ptr&lt;ASTConsumer&gt;'/>
+<mbr r='clang::ASTUnit::TheSema' o='1600' t='std::unique_ptr&lt;Sema&gt;'/>
+<mbr r='clang::ASTUnit::Invocation' o='1664' t='std::shared_ptr&lt;CompilerInvocation&gt;'/>
+<mbr r='clang::ASTUnit::ModuleLoader' o='1792' t='clang::TrivialModuleLoader'/>
+<mbr r='clang::ASTUnit::OnlyLocalDecls' o='1920' t='bool'/>
+<mbr r='clang::ASTUnit::CaptureDiagnostics' o='1952' t='clang::CaptureDiagsKind'/>
+<mbr r='clang::ASTUnit::MainFileIsAST' o='1984' t='bool'/>
+<mbr r='clang::ASTUnit::TUKind' o='2016' t='clang::TranslationUnitKind'/>
+<mbr r='clang::ASTUnit::WantTiming' o='2048' t='bool'/>
+<mbr r='clang::ASTUnit::OwnsRemappedFileBuffers' o='2056' t='bool'/>
+<mbr r='clang::ASTUnit::TopLevelDecls' o='2112' t='std::vector&lt;Decl *&gt;'/>
+<mbr r='clang::ASTUnit::FileDecls' o='2304' t='FileDeclsTy'/>
+<mbr r='clang::ASTUnit::OriginalSourceFile' o='2560' t='std::string'/>
+<mbr r='clang::ASTUnit::PreambleDiagnostics' o='2816' t='SmallVector&lt;clang::ASTUnit::StandaloneDiagnostic, 4&gt;'/>
+<mbr r='clang::ASTUnit::StoredDiagnostics' o='7040' t='SmallVector&lt;clang::StoredDiagnostic, 4&gt;'/>
+<mbr r='clang::ASTUnit::FailedParseDiagnostics' o='10496' t='SmallVector&lt;clang::StoredDiagnostic, 4&gt;'/>
+<mbr r='clang::ASTUnit::NumStoredDiagnosticsFromDriver' o='13952' t='unsigned int'/>
+<mbr r='clang::ASTUnit::PreambleRebuildCountdown' o='13984' t='unsigned int'/>
+<mbr r='clang::ASTUnit::PreambleCounter' o='14016' t='unsigned int'/>
+<mbr r='clang::ASTUnit::PreambleSrcLocCache' o='14080' t='llvm::StringMap&lt;SourceLocation&gt;'/>
+<mbr r='clang::ASTUnit::Preamble' o='14336' t='llvm::Optional&lt;PrecompiledPreamble&gt;'/>
+<mbr r='clang::ASTUnit::SavedMainFileBuffer' o='15296' t='std::unique_ptr&lt;llvm::MemoryBuffer&gt;'/>
+<mbr r='clang::ASTUnit::NumWarningsInPreamble' o='15360' t='unsigned int'/>
+<mbr r='clang::ASTUnit::TopLevelDeclsInPreamble' o='15424' t='std::vector&lt;serialization::DeclID&gt;'/>
+<mbr r='clang::ASTUnit::ShouldCacheCodeCompletionResults' o='15616' t='bool'/>
+<mbr r='clang::ASTUnit::IncludeBriefCommentsInCodeCompletion' o='15617' t='bool'/>
+<mbr r='clang::ASTUnit::UserFilesAreVolatile' o='15618' t='bool'/>
+<fun r='_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE'/>
+<fun r='_ZN5clang7ASTUnit26TranslateStoredDiagnosticsERNS_11FileManagerERNS_13SourceManagerERKN4llvm15SmallVectorImplINS0_20StandaloneDiagnosticEEERNS6_INS_16StoredDiagnosticEEE'/>
+<fun r='_ZN5clang7ASTUnit19clearFileLevelDeclsEv'/>
+<fun r='_ZN5clang7ASTUnit24getCachedCompletionTypesEv'/>
+<fun r='_ZN5clang7ASTUnit28getCachedCompletionAllocatorEv'/>
+<fun r='_ZN5clang7ASTUnit23getCodeCompletionTUInfoEv'/>
+<mbr r='clang::ASTUnit::CachedCompletionAllocator' o='15680' t='std::shared_ptr&lt;GlobalCodeCompletionAllocator&gt;'/>
+<mbr r='clang::ASTUnit::CCTUInfo' o='15808' t='std::unique_ptr&lt;CodeCompletionTUInfo&gt;'/>
+<mbr r='clang::ASTUnit::CachedCompletionResults' o='15872' t='std::vector&lt;CachedCodeCompletionResult&gt;'/>
+<mbr r='clang::ASTUnit::CachedCompletionTypes' o='16064' t='llvm::StringMap&lt;unsigned int&gt;'/>
+<mbr r='clang::ASTUnit::CompletionCacheTopLevelHashValue' o='16320' t='unsigned int'/>
+<mbr r='clang::ASTUnit::PreambleTopLevelHashValue' o='16352' t='unsigned int'/>
+<mbr r='clang::ASTUnit::CurrentTopLevelHashValue' o='16384' t='unsigned int'/>
+<mbr r='clang::ASTUnit::UnsafeToFree' o='16416' t='unsigned int'/>
+<mbr r='clang::ASTUnit::SkipFunctionBodies' o='16448' t='clang::SkipFunctionBodiesScope'/>
+<fun r='_ZN5clang7ASTUnit26CacheCodeCompletionResultsEv'/>
+<fun r='_ZN5clang7ASTUnit28ClearCachedCompletionResultsEv'/>
+<fun r='_ZN5clang7ASTUnitC1Eb'/>
+<fun r='_ZN5clang7ASTUnit5ParseESt10shared_ptrINS_22PCHContainerOperationsEESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS6_EENS5_18IntrusiveRefCntP13048862'/>
+<fun r='_ZN5clang7ASTUnit36getMainBufferWithPrecompiledPreambleESt10shared_ptrINS_22PCHContainerOperationsEERNS_18CompilerInvocationEN4llvm18IntrusiveRefCntPt15414099'/>
+<fun r='_ZN5clang7ASTUnit32RealizeTopLevelDeclsFromPreambleEv'/>
+<fun r='_ZN5clang7ASTUnit35transferASTDataFromCompilerInstanceERNS_16CompilerInstanceE'/>
+<mbr r='clang::ASTUnit::ConcurrencyCheckValue' o='16512' t='clang::ASTUnit::ConcurrencyState'/>
+<fun r='_ZN5clang7ASTUnitC1ERKS0_'/>
+<fun r='_ZN5clang7ASTUnitaSERKS0_'/>
+<fun r='_ZN5clang7ASTUnitD1Ev'/>
+<fun r='_ZNK5clang7ASTUnit13isMainFileASTEv'/>
+<fun r='_ZNK5clang7ASTUnit14isUnsafeToFreeEv'/>
+<fun r='_ZN5clang7ASTUnit15setUnsafeToFreeEb'/>
+<fun r='_ZNK5clang7ASTUnit14getDiagnosticsEv'/>
+<fun r='_ZN5clang7ASTUnit14getDiagnosticsEv'/>
+<fun r='_ZNK5clang7ASTUnit16getSourceManagerEv'/>
+<fun r='_ZN5clang7ASTUnit16getSourceManagerEv'/>
+<fun r='_ZNK5clang7ASTUnit15getPreprocessorEv'/>
+<fun r='_ZN5clang7ASTUnit15getPreprocessorEv'/>
+<fun r='_ZNK5clang7ASTUnit18getPreprocessorPtrEv'/>
+<fun r='_ZNK5clang7ASTUnit13getASTContextEv'/>
+<fun r='_ZN5clang7ASTUnit13getASTContextEv'/>
+<fun r='_ZN5clang7ASTUnit13setASTContextEPNS_10ASTContextE'/>
+<fun r='_ZN5clang7ASTUnit15setPreprocessorESt10shared_ptrINS_12PreprocessorEE'/>
+<fun r='_ZN5clang7ASTUnit27enableSourceFileDiagnosticsEv'/>
+<fun r='_ZNK5clang7ASTUnit7hasSemaEv'/>
+<fun r='_ZNK5clang7ASTUnit7getSemaEv'/>
+<fun r='_ZNK5clang7ASTUnit11getLangOptsEv'/>
+<fun r='_ZNK5clang7ASTUnit19getHeaderSearchOptsEv'/>
+<fun r='_ZNK5clang7ASTUnit19getPreprocessorOptsEv'/>
+<fun r='_ZNK5clang7ASTUnit14getFileManagerEv'/>
+<fun r='_ZN5clang7ASTUnit14getFileManagerEv'/>
+<fun r='_ZNK5clang7ASTUnit17getFileSystemOptsEv'/>
+<fun r='_ZNK5clang7ASTUnit12getASTReaderEv'/>
+<fun r='_ZNK5clang7ASTUnit25getOriginalSourceFileNameEv'/>
+<fun r='_ZN5clang7ASTUnit22getASTMutationListenerEv'/>
+<fun r='_ZN5clang7ASTUnit26getDeserializationListenerEv'/>
+<fun r='_ZNK5clang7ASTUnit17getOnlyLocalDeclsEv'/>
+<fun r='_ZNK5clang7ASTUnit26getOwnsRemappedFileBuffersEv'/>
+<fun r='_ZN5clang7ASTUnit26setOwnsRemappedFileBuffersEb'/>
+<fun r='_ZNK5clang7ASTUnit15getMainFileNameEv'/>
+<fun r='_ZNK5clang7ASTUnit14getASTFileNameEv'/>
+<fun r='_ZN5clang7ASTUnit15top_level_beginEv'/>
+<fun r='_ZN5clang7ASTUnit13top_level_endEv'/>
+<fun r='_ZNK5clang7ASTUnit14top_level_sizeEv'/>
+<fun r='_ZNK5clang7ASTUnit15top_level_emptyEv'/>
+<fun r='_ZN5clang7ASTUnit15addTopLevelDeclEPNS_4DeclE'/>
+<fun r='_ZN5clang7ASTUnit16addFileLevelDeclEPNS_4DeclE'/>
+<fun r='_ZN5clang7ASTUnit19findFileRegionDeclsENS_6FileIDEjjRN4llvm15SmallVectorImplIPNS_4DeclEEE'/>
+<fun r='_ZN5clang7ASTUnit27getCurrentTopLevelHashValueEv'/>
+<fun r='_ZNK5clang7ASTUnit11getLocationEPKNS_9FileEntryEjj'/>
+<fun r='_ZNK5clang7ASTUnit11getLocationEPKNS_9FileEntryEj'/>
+<fun r='_ZNK5clang7ASTUnit23mapLocationFromPreambleENS_14SourceLocationE'/>
+<fun r='_ZNK5clang7ASTUnit21mapLocationToPreambleENS_14SourceLocationE'/>
+<fun r='_ZNK5clang7ASTUnit18isInPreambleFileIDENS_14SourceLocationE'/>
+<fun r='_ZNK5clang7ASTUnit14isInMainFileIDENS_14SourceLocationE'/>
+<fun r='_ZNK5clang7ASTUnit20getStartOfMainFileIDEv'/>
+<fun r='_ZNK5clang7ASTUnit22getEndOfPreambleFileIDEv'/>
+<fun r='_ZNK5clang7ASTUnit20mapRangeFromPreambleENS_11SourceRangeE'/>
+<fun r='_ZNK5clang7ASTUnit18mapRangeToPreambleENS_11SourceRangeE'/>
+<fun r='_ZNK5clang7ASTUnit26getPreambleCounterForTestsEv'/>
+<fun r='_ZNK5clang7ASTUnit17stored_diag_beginEv'/>
+<fun r='_ZN5clang7ASTUnit17stored_diag_beginEv'/>
+<fun r='_ZNK5clang7ASTUnit15stored_diag_endEv'/>
+<fun r='_ZN5clang7ASTUnit15stored_diag_endEv'/>
+<fun r='_ZNK5clang7ASTUnit16stored_diag_sizeEv'/>
+<fun r='_ZN5clang7ASTUnit29stored_diag_afterDriver_beginEv'/>
+<fun r='_ZN5clang7ASTUnit23cached_completion_beginEv'/>
+<fun r='_ZN5clang7ASTUnit21cached_completion_endEv'/>
+<fun r='_ZNK5clang7ASTUnit22cached_completion_sizeEv'/>
+<fun r='_ZNK5clang7ASTUnit29getLocalPreprocessingEntitiesEv'/>
+<fun r='_ZN5clang7ASTUnit23visitLocalTopLevelDeclsEPvPFbS1_PKNS_4DeclEE'/>
+<fun r='_ZN5clang7ASTUnit10getPCHFileEv'/>
+<fun r='_ZNK5clang7ASTUnit12isModuleFileEv'/>
+<fun r='_ZN5clang7ASTUnit16getBufferForFileEN4llvm9StringRefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZNK5clang7ASTUnit22getTranslationUnitKindEv'/>
+<fun r='_ZNK5clang7ASTUnit12getInputKindEv'/>
+<fun r='_ZN5clang7ASTUnit6createESt10shared_ptrINS_18CompilerInvocationEEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEENS_16CaptureDiagsKindEb'/>
+<fun r='_ZN5clang7ASTUnit15LoadFromASTFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_18PCHContainerReaderENS0_10WhatToLoadEN4llvm18IntrusiveR3316945'/>
+<fun r='_ZN5clang7ASTUnit26LoadFromCompilerInvocationESt10shared_ptrINS_22PCHContainerOperationsEEjN4llvm18IntrusiveRefCntPtrINS4_3vfs10FileSystemEEE'/>
+<fun r='_ZN5clang7ASTUnit32LoadFromCompilerInvocationActionESt10shared_ptrINS_18CompilerInvocationEES1_INS_22PCHContainerOperationsEEN4llvm18IntrusiveRefCntPt3597150'/>
+<fun r='_ZN5clang7ASTUnit26LoadFromCompilerInvocationESt10shared_ptrINS_18CompilerInvocationEES1_INS_22PCHContainerOperationsEEN4llvm18IntrusiveRefCntPtrINS_110347204'/>
+<fun r='_ZN5clang7ASTUnit19LoadFromCommandLineEPPKcS3_St10shared_ptrINS_22PCHContainerOperationsEEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEENS7_9Str13471008'/>
+<fun r='_ZN5clang7ASTUnit7ReparseESt10shared_ptrINS_22PCHContainerOperationsEEN4llvm8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS410104740'/>
+<fun r='_ZN5clang7ASTUnit13ResetForParseEv'/>
+<fun r='_ZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbb5253603'/>
+<fun r='_ZN5clang7ASTUnit4SaveEN4llvm9StringRefE'/>
+<fun r='_ZN5clang7ASTUnit9serializeERN4llvm11raw_ostreamE'/>

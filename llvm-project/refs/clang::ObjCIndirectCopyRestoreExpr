@@ -1,0 +1,38 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<def f='llvm/clang/include/clang/AST/ExprObjC.h' l='1577' ll='1630'/>
+<size>24</size>
+<doc f='llvm/clang/include/clang/AST/ExprObjC.h' l='1555'>/// ObjCIndirectCopyRestoreExpr - Represents the passing of a function
+/// argument by indirect copy-restore in ARC.  This is used to support
+/// passing indirect arguments with the wrong lifetime, e.g. when
+/// passing the address of a __strong local variable to an &apos;out&apos;
+/// parameter.  This expression kind is only valid in an &quot;argument&quot;
+/// position to some sort of call expression.
+///
+/// The parameter must have type &apos;pointer to T&apos;, and the argument must
+/// have type &apos;pointer to U&apos;, where T and U agree except possibly in
+/// qualification.  If the argument value is null, then a null pointer
+/// is passed;  otherwise it points to an object A, and:
+/// 1. A temporary object B of type T is initialized, either by
+///    zero-initialization (used when initializing an &apos;out&apos; parameter)
+///    or copy-initialization (used when initializing an &apos;inout&apos;
+///    parameter).
+/// 2. The address of the temporary is passed to the function.
+/// 3. If the call completes normally, A is move-assigned from B.
+/// 4. Finally, A is destroyed immediately.
+///
+/// Currently &apos;T&apos; must be a retainable object lifetime and must be
+/// __autoreleasing;  this qualifier is ignored when initializing
+/// the value.</doc>
+<mbr r='clang::ObjCIndirectCopyRestoreExpr::Operand' o='128' t='clang::Stmt *'/>
+<fun r='_ZN5clang27ObjCIndirectCopyRestoreExprC1ENS_4Stmt10EmptyShellE'/>
+<fun r='_ZN5clang27ObjCIndirectCopyRestoreExpr13setShouldCopyEb'/>
+<fun r='_ZN5clang27ObjCIndirectCopyRestoreExprC1EPNS_4ExprENS_8QualTypeEb'/>
+<fun r='_ZN5clang27ObjCIndirectCopyRestoreExpr10getSubExprEv'/>
+<fun r='_ZNK5clang27ObjCIndirectCopyRestoreExpr10getSubExprEv'/>
+<fun r='_ZNK5clang27ObjCIndirectCopyRestoreExpr10shouldCopyEv'/>
+<fun r='_ZN5clang27ObjCIndirectCopyRestoreExpr8childrenEv'/>
+<fun r='_ZNK5clang27ObjCIndirectCopyRestoreExpr8childrenEv'/>
+<fun r='_ZNK5clang27ObjCIndirectCopyRestoreExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang27ObjCIndirectCopyRestoreExpr9getEndLocEv'/>
+<fun r='_ZNK5clang27ObjCIndirectCopyRestoreExpr10getExprLocEv'/>
+<fun r='_ZN5clang27ObjCIndirectCopyRestoreExpr7classofEPKNS_4StmtE'/>

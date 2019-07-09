@@ -1,0 +1,40 @@
+<def f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='2255' type='bool llvm::StoreSDNode::isTruncatingStore() const'/>
+<use f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='2590' u='c' c='_ZN4llvm3ISD13isNormalStoreEPKNS_6SDNodeE'/>
+<use f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='2596' u='c' c='_ZN4llvm3ISD16isNON_TRUNCStoreEPKNS_6SDNodeE'/>
+<use f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='2601' u='c' c='_ZN4llvm3ISD12isTRUNCStoreEPKNS_6SDNodeE'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='2252'>/// Return true if the op does a truncation before store.
+  /// For integers this is the same as doing a TRUNCATE and storing the result.
+  /// For floats, it is the same as doing an FP_ROUND and storing the result.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='14718' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner22ReduceLoadOpStoreWidthEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='15214' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner23getStoreMergeCandidatesEPN4llvm11StoreSDNodeERNS1_15SmallVectorImplINS0_9MemOpLinkEEERPNS1_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='15867' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner17replaceStoreChainEPN4llvm11StoreSDNodeENS1_7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='16043' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner10visitSTOREEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='16105' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner10visitSTOREEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='20631' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner24parallelizeChainedStoresEPN4llvm11StoreSDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeDAG.cpp' l='484' u='c' c='_ZN12_GLOBAL__N_120SelectionDAGLegalize16LegalizeStoreOpsEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeDAG.cpp' l='1312' u='c' c='_ZN12_GLOBAL__N_120SelectionDAGLegalize35ExpandExtractFromVectorThroughStackEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeFloatTypes.cpp' l='1034' u='c' c='_ZN4llvm16DAGTypeLegalizer19SoftenFloatOp_STOREEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='276' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='750' u='c' c='_ZN4llvm16DAGTypeLegalizer20ScalarizeVecOp_STOREEPNS_11StoreSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2430' u='c' c='_ZN4llvm16DAGTypeLegalizer16SplitVecOp_STOREEPNS_11StoreSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='4360' u='c' c='_ZN4llvm16DAGTypeLegalizer16WidenVecOp_STOREEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='7131' u='c' c='_ZN4llvm12SelectionDAG15getIndexedStoreENS_7SDValueERKNS_5SDLocES1_S1_NS_3ISD14MemIndexedModeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGDumper.cpp' l='661' u='c' c='_ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='2849' u='c' c='_ZNK4llvm21AArch64TargetLowering10LowerSTOREENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='10260' u='c' c='_ZL15splitStoreSplatRN4llvm12SelectionDAGERNS_11StoreSDNodeENS_7SDValueEj'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='10337' u='c' c='_ZL22replaceZeroVectorStoreRN4llvm12SelectionDAGERNS_11StoreSDNodeE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='10392' u='c' c='_ZL23replaceSplatVectorStoreRN4llvm12SelectionDAGERNS_11StoreSDNodeE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/R600ISelLowering.cpp' l='1144' u='c' c='_ZNK4llvm18R600TargetLowering22lowerPrivateTruncStoreEPNS_11StoreSDNodeERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/R600ISelLowering.cpp' l='1245' u='c' c='_ZNK4llvm18R600TargetLowering10LowerSTOREENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='12016' u='c' c='_ZL19PerformSTORECombinePN4llvm6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='13666' u='c' c='_ZNK4llvm17ARMTargetLowering26getPostIndexedAddressPartsEPNS_6SDNodeES2_RNS_7SDValueES4_RNS_3ISD14MemIndexedModeERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonISelDAGToDAG.cpp' l='518' u='c' c='_ZN4llvm19HexagonDAGToDAGISel18SelectIndexedStoreEPNS_11StoreSDNodeERKNS_5SDLocE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsISelLowering.cpp' l='3422' u='c' c='_ZL22lowerUnalignedIntStorePN4llvm11StoreSDNodeERNS_12SelectionDAGEbb'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsISelLowering.cpp' l='3464' u='c' c='_ZNK4llvm18MipsTargetLowering10lowerSTOREENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='13007' u='c' c='_ZNK4llvm17PPCTargetLowering19combineStoreFPToIntEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='5492' u='c' c='_ZNK4llvm21SystemZTargetLowering12combineSTOREEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='5504' u='c' c='_ZNK4llvm21SystemZTargetLowering12combineSTOREEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='21093' u='c' c='_ZL10LowerStoreN4llvm7SDValueERKNS_12X86SubtargetERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='21108' u='c' c='_ZL10LowerStoreN4llvm7SDValueERKNS_12X86SubtargetERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='39510' u='c' c='_ZL12combineStorePN4llvm6SDNodeERNS_12SelectionDAGERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/XCore/XCoreISelLowering.cpp' l='486' u='c' c='_ZNK4llvm19XCoreTargetLowering10LowerSTOREENS_7SDValueERNS_12SelectionDAGE'/>

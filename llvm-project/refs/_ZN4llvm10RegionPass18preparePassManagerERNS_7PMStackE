@@ -1,0 +1,18 @@
+<dec f='llvm/llvm/include/llvm/Analysis/RegionPass.h' l='71' type='void llvm::RegionPass::preparePassManager(llvm::PMStack &amp; PMS)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/RegionPass.h' l='65'>//@}
+
+  //===--------------------------------------------------------------------===//
+  /// @name PassManager API
+  ///
+  //@{</doc>
+<inh f='llvm/llvm/include/llvm/Pass.h' l='132' c='_ZN4llvm4Pass18preparePassManagerERNS_7PMStackE'/>
+<def f='llvm/llvm/lib/Analysis/RegionPass.cpp' l='222' ll='236' type='void llvm::RegionPass::preparePassManager(llvm::PMStack &amp; PMS)'/>
+<doc f='llvm/llvm/lib/Analysis/RegionPass.cpp' l='213'>//===----------------------------------------------------------------------===//
+// RegionPass
+
+// Check if this pass is suitable for the current RGPassManager, if
+// available. This pass P is not suitable for a RGPassManager if P
+// is not preserving higher level analysis info used by other
+// RGPassManager passes. In such case, pop RGPassManager from the
+// stack. This will force assignPassManager() to create new
+// LPPassManger as expected.</doc>

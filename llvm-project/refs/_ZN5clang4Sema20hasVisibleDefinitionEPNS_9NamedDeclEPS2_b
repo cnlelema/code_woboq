@@ -1,0 +1,16 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='1702' type='bool clang::Sema::hasVisibleDefinition(clang::NamedDecl * D, clang::NamedDecl ** Suggested, bool OnlyNeedComplete = false)'/>
+<use f='llvm/clang/include/clang/Sema/Sema.h' l='1706' u='c' c='_ZN5clang4Sema20hasVisibleDefinitionEPKNS_9NamedDeclE'/>
+<doc f='llvm/clang/include/clang/Sema/Sema.h' l='1700'>/// Determine if \p D has a visible definition. If not, suggest a declaration
+  /// that should be made visible to expose the definition.</doc>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='745' u='c' c='_ZN5clang4Sema30DiagnoseUninstantiableTemplateENS_14SourceLocationEPNS_9NamedDeclEbPKS2_S5_NS_26TemplateSpecializationKindEb'/>
+<def f='llvm/clang/lib/Sema/SemaType.cpp' l='8061' ll='8139' type='bool clang::Sema::hasVisibleDefinition(clang::NamedDecl * D, clang::NamedDecl ** Suggested, bool OnlyNeedComplete = false)'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='8214' u='c' c='_ZN5clang4Sema23RequireCompleteTypeImplENS_14SourceLocationENS_8QualTypeEPNS0_13TypeDiagnoserE'/>
+<doc f='llvm/clang/lib/Sema/SemaType.cpp' l='8052'>/// Determine whether there is any declaration of \p D that was ever a
+///        definition (perhaps before module merging) and is currently visible.
+/// \param D The definition of the entity.
+/// \param Suggested Filled in with the declaration that should be made visible
+///        in order to provide a definition of this entity.
+/// \param OnlyNeedComplete If \c true, we only need the type to be complete,
+///        not defined. This only matters for enums with a fixed underlying
+///        type, since in all other cases, a type is complete if and only if it
+///        is defined.</doc>

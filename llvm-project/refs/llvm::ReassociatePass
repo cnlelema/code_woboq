@@ -1,0 +1,30 @@
+<inh f='llvm/llvm/include/llvm/IR/PassManager.h' l='372' c='llvm::PassInfoMixin'/>
+<def f='llvm/llvm/include/llvm/Transforms/Scalar/Reassociate.h' l='71' ll='127'/>
+<size>760</size>
+<doc f='llvm/llvm/include/llvm/Transforms/Scalar/Reassociate.h' l='70'>/// Reassociate commutative expressions.</doc>
+<mbr r='llvm::ReassociatePass::RankMap' o='0' t='DenseMap&lt;llvm::BasicBlock *, unsigned int&gt;'/>
+<mbr r='llvm::ReassociatePass::ValueRankMap' o='256' t='DenseMap&lt;AssertingVH&lt;llvm::Value&gt;, unsigned int&gt;'/>
+<mbr r='llvm::ReassociatePass::RedoInsts' o='512' t='OrderedSet'/>
+<smbr r='llvm::ReassociatePass::GlobalReassociateLimit' t='const unsigned int'/>
+<smbr r='llvm::ReassociatePass::NumBinaryOps' t='const unsigned int'/>
+<mbr r='llvm::ReassociatePass::PairMap' o='1408' t='DenseMap&lt;std::pair&lt;Value *, Value *&gt;, llvm::ReassociatePass::PairMapValue&gt; [18]'/>
+<mbr r='llvm::ReassociatePass::MadeChange' o='6016' t='bool'/>
+<fun r='_ZN4llvm15ReassociatePass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE'/>
+<fun r='_ZN4llvm15ReassociatePass12BuildRankMapERNS_8FunctionERNS_25ReversePostOrderTraversalIPS1_NS_11GraphTraitsIS4_EEEE'/>
+<fun r='_ZN4llvm15ReassociatePass7getRankEPNS_5ValueE'/>
+<fun r='_ZN4llvm15ReassociatePass20canonicalizeOperandsEPNS_11InstructionE'/>
+<fun r='_ZN4llvm15ReassociatePass21ReassociateExpressionEPNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm15ReassociatePass15RewriteExprTreeEPNS_14BinaryOperatorERNS_15SmallVectorImplINS_11reassociate10ValueEntryEEE'/>
+<fun r='_ZN4llvm15ReassociatePass18OptimizeExpressionEPNS_14BinaryOperatorERNS_15SmallVectorImplINS_11reassociate10ValueEntryEEE'/>
+<fun r='_ZN4llvm15ReassociatePass11OptimizeAddEPNS_11InstructionERNS_15SmallVectorImplINS_11reassociate10ValueEntryEEE'/>
+<fun r='_ZN4llvm15ReassociatePass11OptimizeXorEPNS_11InstructionERNS_15SmallVectorImplINS_11reassociate10ValueEntryEEE'/>
+<fun r='_ZN4llvm15ReassociatePass14CombineXorOpndEPNS_11InstructionEPNS_11reassociate7XorOpndERNS_5APIntERPNS_5ValueE'/>
+<fun r='_ZN4llvm15ReassociatePass14CombineXorOpndEPNS_11InstructionEPNS_11reassociate7XorOpndES5_RNS_5APIntERPNS_5ValueE'/>
+<fun r='_ZN4llvm15ReassociatePass23buildMinimalMultiplyDAGERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS_15SmallVectorImplINS_11reassociate6FactorEEE'/>
+<fun r='_ZN4llvm15ReassociatePass11OptimizeMulEPNS_14BinaryOperatorERNS_15SmallVectorImplINS_11reassociate10ValueEntryEEE'/>
+<fun r='_ZN4llvm15ReassociatePass26RemoveFactorFromExpressionEPNS_5ValueES2_'/>
+<fun r='_ZN4llvm15ReassociatePass9EraseInstEPNS_11InstructionE'/>
+<fun r='_ZN4llvm15ReassociatePass25RecursivelyEraseDeadInstsEPNS_11InstructionERNS_9SetVectorINS_11AssertingVHIS1_EESt5dequeIS5_SaIS5_EENS_8DenseSetIS5_NS_12D3946457'/>
+<fun r='_ZN4llvm15ReassociatePass12OptimizeInstEPNS_11InstructionE'/>
+<fun r='_ZN4llvm15ReassociatePass24canonicalizeNegConstExprEPNS_11InstructionE'/>
+<fun r='_ZN4llvm15ReassociatePass12BuildPairMapERNS_25ReversePostOrderTraversalIPNS_8FunctionENS_11GraphTraitsIS3_EEEE'/>

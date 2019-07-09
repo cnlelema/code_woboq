@@ -1,0 +1,96 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/ISDOpcodes.h' l='160' type='45'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/ISDOpcodes.h' l='154'>/// RESULT,OUTCHAIN = INTRINSIC_W_CHAIN(INCHAIN, INTRINSICID, arg1, ...)
+    /// This node represents a target intrinsic function with side effects that
+    /// returns a result.  The first operand is a chain pointer.  The second is
+    /// the ID number of the intrinsic from the llvm::Intrinsic namespace.  The
+    /// operands to the intrinsic follow.  The node has two results, the result
+    /// of the intrinsic and an output chain.</doc>
+<use f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='673' u='r' c='_ZNK4llvm6SDNode14isMemIntrinsicEv'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeDAG.cpp' l='978' c='_ZN12_GLOBAL__N_120SelectionDAGLegalize10LegalizeOpEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeDAG.cpp' l='3743' c='_ZN12_GLOBAL__N_120SelectionDAGLegalize10ExpandNodeEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='3364' c='_ZNK4llvm12SelectionDAG16computeKnownBitsENS_7SDValueERKNS_5APIntEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='3970' u='r' c='_ZNK4llvm12SelectionDAG18ComputeNumSignBitsENS_7SDValueERKNS_5APIntEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='4128' u='r' c='_ZNK4llvm12SelectionDAG15isKnownNeverNaNENS_7SDValueEbj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='6766' u='r' c='_ZN4llvm12SelectionDAG19getMemIntrinsicNodeEjRKNS_5SDLocENS_8SDVTListENS_8ArrayRefINS_7SDValueEEENS_3EVTEPNS_17MachineMemOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='4763' u='r' c='_ZN4llvm19SelectionDAGBuilder20visitTargetIntrinsicERKNS_8CallInstEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='4792' u='r' c='_ZN4llvm19SelectionDAGBuilder20visitTargetIntrinsicERKNS_8CallInstEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGDumper.cpp' l='146' c='_ZNK4llvm6SDNode16getOperationNameEPKNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGISel.cpp' l='3650' u='r' c='_ZN4llvm16SelectionDAGISel15CannotYetSelectEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2297' u='r' c='_ZNK4llvm14TargetLowering29computeKnownBitsForTargetNodeENS_7SDValueERNS_9KnownBitsERKNS_5APIntERKNS_12SelectionDAGEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2325' u='r' c='_ZNK4llvm14TargetLowering31ComputeNumSignBitsForTargetNodeENS_7SDValueERKNS_5APIntERKNS_12SelectionDAGEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2337' u='r' c='_ZNK4llvm14TargetLowering39SimplifyDemandedVectorEltsForTargetNodeENS_7SDValueERKNS_5APIntERS2_S5_RNS0_17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2349' u='r' c='_ZNK4llvm14TargetLowering33SimplifyDemandedBitsForTargetNodeENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS0_17TargetLoweringOptEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='2367' u='r' c='_ZNK4llvm14TargetLowering28isKnownNeverNaNForTargetNodeENS_7SDValueERKNS_12SelectionDAGEbj'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelDAGToDAG.cpp' l='2929' c='_ZN12_GLOBAL__N_119AArch64DAGToDAGISel6SelectEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='590' u='r' c='_ZN4llvm21AArch64TargetLoweringC1ERKNS_13TargetMachineERKNS_16AArch64SubtargetE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='1026' c='_ZNK4llvm21AArch64TargetLowering29computeKnownBitsForTargetNodeENS_7SDValueERNS_9KnownBitsERKNS_5APIntERKNS_12SelectionDAGEj'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='11411' c='_ZNK4llvm21AArch64TargetLowering17PerformDAGCombineEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUISelDAGToDAG.cpp' l='827' c='_ZN12_GLOBAL__N_118AMDGPUDAGToDAGISel6SelectEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='224' u='r' c='_ZN4llvm16SITargetLoweringC1ERKNS_13TargetMachineERKNS_12GCNSubtargetE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='225' u='r' c='_ZN4llvm16SITargetLoweringC1ERKNS_13TargetMachineERKNS_12GCNSubtargetE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='226' u='r' c='_ZN4llvm16SITargetLoweringC1ERKNS_13TargetMachineERKNS_12GCNSubtargetE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='227' u='r' c='_ZN4llvm16SITargetLoweringC1ERKNS_13TargetMachineERKNS_12GCNSubtargetE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='228' u='r' c='_ZN4llvm16SITargetLoweringC1ERKNS_13TargetMachineERKNS_12GCNSubtargetE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='229' u='r' c='_ZN4llvm16SITargetLoweringC1ERKNS_13TargetMachineERKNS_12GCNSubtargetE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='904' u='r' c='_ZNK4llvm16SITargetLowering18getTgtMemIntrinsicERNS_18TargetLoweringBase13IntrinsicInfoERKNS_8CallInstERNS_15MachineFunctionEj'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='918' u='r' c='_ZNK4llvm16SITargetLowering18getTgtMemIntrinsicERNS_18TargetLoweringBase13IntrinsicInfoERKNS_8CallInstERNS_15MachineFunctionEj'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='3731' c='_ZNK4llvm16SITargetLowering14LowerOperationENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='3821' u='r' c='_ZNK4llvm16SITargetLowering19adjustLoadValueTypeEjPNS_9MemSDNodeERNS_12SelectionDAGENS_8ArrayRefINS_7SDValueEEEb'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='3946' c='_ZNK4llvm16SITargetLowering18ReplaceNodeResultsEPNS_6SDNodeERNS_15SmallVectorImplINS_7SDValueEEERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='4025' u='r' c='_ZNK4llvm16SITargetLowering13isCFIntrinsicEPKNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='4103' u='r' c='_ZNK4llvm16SITargetLowering11LowerBRCONDENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='10161' c='_ZNK4llvm16SITargetLowering26isSDNodeSourceOfDivergenceEPKNS_6SDNodeEPNS_20FunctionLoweringInfoEPNS_24LegacyDivergenceAnalysisE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp' l='3420' c='_ZN12_GLOBAL__N_115ARMDAGToDAGISel6SelectEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='707' u='r' c='_ZN4llvm17ARMTargetLoweringC1ERKNS_13TargetMachineERKNS_12ARMSubtargetE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='11633' u='r' c='_ZL17CombineBaseUpdatePN4llvm6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='11866' u='r' c='_ZL13CombineVLDDUPPN4llvm6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='13005' c='_ZNK4llvm17ARMTargetLowering17PerformDAGCombineEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='13749' c='_ZNK4llvm17ARMTargetLowering29computeKnownBitsForTargetNodeENS_7SDValueERNS_9KnownBitsERKNS_5APIntERKNS_12SelectionDAGEj'/>
+<use f='llvm/llvm/lib/Target/BPF/BPFISelDAGToDAG.cpp' l='212' c='_ZN12_GLOBAL__N_115BPFDAGToDAGISel6SelectEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/BPF/BPFISelDAGToDAG.cpp' l='538' u='r' c='_ZN12_GLOBAL__N_115BPFDAGToDAGISel15PreprocessTruncEPN4llvm6SDNodeERNS1_14ilist_iteratorINS1_12ilist_detail12node_optionsIS2_Lb1ELb0EvEELb0ELb0EEE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonISelDAGToDAG.cpp' l='186' u='r' c='_ZN4llvm19HexagonDAGToDAGISel25LoadInstrForLoadIntrinsicEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonISelDAGToDAG.cpp' l='274' u='r' c='_ZN4llvm19HexagonDAGToDAGISel22tryLoadOfLoadIntrinsicEPNS_10LoadSDNodeE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonISelDAGToDAG.cpp' l='319' u='r' c='_ZN4llvm19HexagonDAGToDAGISel21SelectBrevLdIntrinsicEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonISelDAGToDAG.cpp' l='360' u='r' c='_ZN4llvm19HexagonDAGToDAGISel22SelectNewCircIntrinsicEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonISelDAGToDAG.cpp' l='886' c='_ZN4llvm19HexagonDAGToDAGISel6SelectEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsSEISelDAGToDAG.cpp' l='942' c='_ZN4llvm18MipsSEDAGToDAGISel9trySelectEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsSEISelLowering.cpp' l='227' u='r' c='_ZN4llvm20MipsSETargetLoweringC1ERKNS_17MipsTargetMachineERKNS_13MipsSubtargetE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsSEISelLowering.cpp' l='238' u='r' c='_ZN4llvm20MipsSETargetLoweringC1ERKNS_17MipsTargetMachineERKNS_13MipsSubtargetE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsSEISelLowering.cpp' l='501' c='_ZNK4llvm20MipsSETargetLowering14LowerOperationENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXISelDAGToDAG.cpp' l='143' c='_ZN4llvm17NVPTXDAGToDAGISel6SelectEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXISelDAGToDAG.cpp' l='1239' u='r' c='_ZN4llvm17NVPTXDAGToDAGISel9tryLDGLDUEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXISelDAGToDAG.cpp' l='1296' c='_ZN4llvm17NVPTXDAGToDAGISel9tryLDGLDUEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXISelDAGToDAG.cpp' l='1372' c='_ZN4llvm17NVPTXDAGToDAGISel9tryLDGLDUEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXISelDAGToDAG.cpp' l='1442' c='_ZN4llvm17NVPTXDAGToDAGISel9tryLDGLDUEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXISelDAGToDAG.cpp' l='1518' c='_ZN4llvm17NVPTXDAGToDAGISel9tryLDGLDUEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXISelDAGToDAG.cpp' l='1588' c='_ZN4llvm17NVPTXDAGToDAGISel9tryLDGLDUEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXISelLowering.cpp' l='446' u='r' c='_ZN4llvm19NVPTXTargetLoweringC1ERKNS_18NVPTXTargetMachineERKNS_14NVPTXSubtargetE'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXISelLowering.cpp' l='487' u='r' c='_ZN4llvm19NVPTXTargetLoweringC1ERKNS_18NVPTXTargetMachineERKNS_14NVPTXSubtargetE'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXISelLowering.cpp' l='492' u='r' c='_ZN4llvm19NVPTXTargetLoweringC1ERKNS_18NVPTXTargetMachineERKNS_14NVPTXSubtargetE'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXISelLowering.cpp' l='2180' c='_ZNK4llvm19NVPTXTargetLowering14LowerOperationENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXISelLowering.cpp' l='5055' c='_ZNK4llvm19NVPTXTargetLowering18ReplaceNodeResultsEPNS_6SDNodeERNS_15SmallVectorImplINS_7SDValueEEERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='472' u='r' c='_ZN4llvm17PPCTargetLoweringC1ERKNS_16PPCTargetMachineERKNS_12PPCSubtargetE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='1108' u='r' c='_ZN4llvm17PPCTargetLoweringC1ERKNS_16PPCTargetMachineERKNS_12PPCSubtargetE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='9908' c='_ZNK4llvm17PPCTargetLowering14LowerOperationENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='9944' c='_ZNK4llvm17PPCTargetLowering18ReplaceNodeResultsEPNS_6SDNodeERNS_15SmallVectorImplINS_7SDValueEEERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='11501' u='r' c='_ZL15isConsecutiveLSPN4llvm6SDNodeEPNS_12LSBaseSDNodeEjiRNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='12873' c='_ZNK4llvm17PPCTargetLowering18expandVSXLoadForLEEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='13364' u='r' c='_ZNK4llvm17PPCTargetLowering17PerformDAGCombineEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='13394' u='r' c='_ZNK4llvm17PPCTargetLowering17PerformDAGCombineEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='13518' c='_ZNK4llvm17PPCTargetLowering17PerformDAGCombineEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='589' u='r' c='_ZN4llvm21SystemZTargetLoweringC1ERKNS_13TargetMachineERKNS_16SystemZSubtargetE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='2438' u='r' c='_ZL6getCmpRN4llvm12SelectionDAGENS_7SDValueES2_NS_3ISD8CondCodeERKNS_5SDLocE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='2492' c='_ZL7emitCmpRN4llvm12SelectionDAGERKNS_5SDLocERN12_GLOBAL__N_110ComparisonE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='4941' c='_ZNK4llvm21SystemZTargetLowering14LowerOperationENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyISelLowering.cpp' l='956' c='_ZNK4llvm25WebAssemblyTargetLowering14LowerOperationENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyISelLowering.cpp' l='1152' c='_ZNK4llvm25WebAssemblyTargetLowering14LowerIntrinsicENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelDAGToDAG.cpp' l='2142' u='r' c='_ZN12_GLOBAL__N_115X86DAGToDAGISel10selectAddrEPN4llvm6SDNodeENS1_7SDValueERS4_S5_S5_S5_S5_'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='1787' u='r' c='_ZN4llvm17X86TargetLoweringC1ERKNS_16X86TargetMachineERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='1790' u='r' c='_ZN4llvm17X86TargetLoweringC1ERKNS_16X86TargetMachineERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='4755' u='r' c='_ZNK4llvm17X86TargetLowering18getTgtMemIntrinsicERNS_18TargetLoweringBase13IntrinsicInfoERKNS_8CallInstERNS_15MachineFunctionEj'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='27047' c='_ZNK4llvm17X86TargetLowering14LowerOperationENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='27667' c='_ZNK4llvm17X86TargetLowering18ReplaceNodeResultsEPNS_6SDNodeERNS_15SmallVectorImplINS_7SDValueEEERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='30931' u='r' c='_ZNK4llvm17X86TargetLowering29computeKnownBitsForTargetNodeENS_7SDValueERNS_9KnownBitsERKNS_5APIntERKNS_12SelectionDAGEj'/>
+<use f='llvm/llvm/lib/Target/XCore/XCoreISelDAGToDAG.cpp' l='242' u='r' c='_ZN12_GLOBAL__N_117XCoreDAGToDAGISel8tryBRINDEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/XCore/XCoreISelLowering.cpp' l='172' u='r' c='_ZN4llvm19XCoreTargetLoweringC1ERKNS_13TargetMachineERKNS_14XCoreSubtargetE'/>
+<use f='llvm/llvm/lib/Target/XCore/XCoreISelLowering.cpp' l='1828' c='_ZNK4llvm19XCoreTargetLowering29computeKnownBitsForTargetNodeENS_7SDValueERNS_9KnownBitsERKNS_5APIntERKNS_12SelectionDAGEj'/>

@@ -1,0 +1,18 @@
+<def f='llvm/clang/include/clang/AST/Type.h' l='5322' ll='5324' type='const clang::IdentifierInfo * clang::DependentNameType::getIdentifier() const'/>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='5317'>/// Retrieve the type named by the typename specifier as an identifier.
+  ///
+  /// This routine will return a non-NULL identifier pointer when the
+  /// form of the original typename was terminated by an identifier,
+  /// e.g., &quot;typename T::type&quot;.</doc>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='5549' u='c' c='_ZNK5clang10ASTContext31getCanonicalNestedNameSpecifierEPNS_19NestedNameSpecifierE'/>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='1446' u='c' c='_ZN5clang15ASTNodeImporter22VisitDependentNameTypeEPKNS_17DependentNameTypeE'/>
+<use f='llvm/clang/lib/AST/ASTStructuralEquivalence.cpp' l='776' u='c' c='_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_'/>
+<use f='llvm/clang/lib/AST/ASTStructuralEquivalence.cpp' l='777' u='c' c='_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_'/>
+<use f='llvm/clang/lib/AST/ItaniumMangle.cpp' l='2066' u='c' c='_ZN12_GLOBAL__N_114CXXNameMangler30mangleUnresolvedTypeOrSimpleIdEN5clang8QualTypeEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/AST/ItaniumMangle.cpp' l='3311' u='c' c='_ZN12_GLOBAL__N_114CXXNameMangler10mangleTypeEPKN5clang17DependentNameTypeE'/>
+<use f='llvm/clang/lib/AST/ODRHash.cpp' l='1012' u='c' c='_ZN12_GLOBAL__N_114ODRTypeVisitor22VisitDependentNameTypeEPKN5clang17DependentNameTypeE'/>
+<use f='llvm/clang/lib/AST/TypePrinter.cpp' l='1392' u='c' c='_ZN12_GLOBAL__N_111TypePrinter24printDependentNameBeforeEPKN5clang17DependentNameTypeERN4llvm11raw_ostreamE'/>
+<use f='llvm/clang/lib/Index/IndexTypeSourceInfo.cpp' l='192' u='c' c='_ZN12_GLOBAL__N_111TypeIndexer25VisitDependentNameTypeLocEN5clang20DependentNameTypeLocE'/>
+<use f='llvm/clang/lib/Index/USRGeneration.cpp' l='857' u='c' c='_ZN12_GLOBAL__N_112USRGenerator9VisitTypeEN5clang8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/TreeTransform.h' l='6270' u='c' c='_ZN5clang13TreeTransform26TransformDependentNameTypeERNS_14TypeLocBuilderENS_20DependentNameTypeLocEb'/>
+<use f='llvm/clang/lib/Serialization/ASTWriter.cpp' l='491' u='c' c='_ZN5clang13ASTTypeWriter22VisitDependentNameTypeEPKNS_17DependentNameTypeE'/>

@@ -1,0 +1,32 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='4412' type='CXCursor clang_getCursorDefinition(CXCursor )'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='4384'>/**
+ *  For a cursor that is either a reference to or a declaration
+ *  of some entity, retrieve a cursor that describes the definition of
+ *  that entity.
+ *
+ *  Some entities can be declared multiple times within a translation
+ *  unit, but only one of those declarations can also be a
+ *  definition. For example, given:
+ *
+ *  \code
+ *  int f(int, int);
+ *  int g(int x, int y) { return f(x, y); }
+ *  int f(int a, int b) { return a + b; }
+ *  int f(int, int);
+ *  \endcode
+ *
+ *  there are three declarations of the function &quot;f&quot;, but only the
+ *  second one is a definition. The clang_getCursorDefinition()
+ *  function will take any cursor pointing to a declaration of &quot;f&quot;
+ *  (the first or fourth lines of the example) or a cursor referenced
+ *  that uses &quot;f&quot; (the call to &quot;f&apos; inside &quot;g&quot;) and will return a
+ *  declaration cursor pointing to the definition (the second &quot;f&quot;
+ *  declaration).
+ *
+ *  If given a cursor for which there is no corresponding definition,
+ *  e.g., because there is no definition of that entity within this
+ *  translation unit, returns a NULL cursor.
+ */</doc>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='5668' u='c' c='clang_getCursor'/>
+<def f='llvm/clang/tools/libclang/CIndex.cpp' l='6204' ll='6423' type='CXCursor clang_getCursorDefinition(CXCursor C)'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='6429' u='c' c='clang_isCursorDefinition'/>

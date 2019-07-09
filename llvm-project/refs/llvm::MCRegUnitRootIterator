@@ -1,0 +1,19 @@
+<def f='llvm/llvm/include/llvm/MC/MCRegisterInfo.h' l='637' ll='666'/>
+<size>4</size>
+<doc f='llvm/llvm/include/llvm/MC/MCRegisterInfo.h' l='627'>// Each register unit has one or two root registers. The complete set of
+// registers containing a register unit is the union of the roots and their
+// super-registers. All registers aliasing Unit can be visited like this:
+//
+//   for (MCRegUnitRootIterator RI(Unit, MCRI); RI.isValid(); ++RI) {
+//     for (MCSuperRegIterator SI(*RI, MCRI, true); SI.isValid(); ++SI)
+//       visit(*SI);
+//    }
+
+/// MCRegUnitRootIterator enumerates the root registers of a register unit.</doc>
+<mbr r='llvm::MCRegUnitRootIterator::Reg0' o='0' t='uint16_t'/>
+<mbr r='llvm::MCRegUnitRootIterator::Reg1' o='16' t='uint16_t'/>
+<fun r='_ZN4llvm21MCRegUnitRootIteratorC1Ev'/>
+<fun r='_ZN4llvm21MCRegUnitRootIteratorC1EjPKNS_14MCRegisterInfoE'/>
+<fun r='_ZNK4llvm21MCRegUnitRootIteratordeEv'/>
+<fun r='_ZNK4llvm21MCRegUnitRootIterator7isValidEv'/>
+<fun r='_ZN4llvm21MCRegUnitRootIteratorppEv'/>

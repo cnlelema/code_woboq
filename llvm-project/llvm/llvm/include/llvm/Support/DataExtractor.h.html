@@ -1,0 +1,446 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>DataExtractor.h source code [llvm/llvm/include/llvm/Support/DataExtractor.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::DataExtractor,llvm::Uint24 "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/Support/DataExtractor.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>Support</a>/<a href='DataExtractor.h.html'>DataExtractor.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- DataExtractor.h -----------------------------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLVM_SUPPORT_DATAEXTRACTOR_H">LLVM_SUPPORT_DATAEXTRACTOR_H</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLVM_SUPPORT_DATAEXTRACTOR_H" data-ref="_M/LLVM_SUPPORT_DATAEXTRACTOR_H">LLVM_SUPPORT_DATAEXTRACTOR_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="../ADT/StringRef.h.html">"llvm/ADT/StringRef.h"</a></u></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="DataTypes.h.html">"llvm/Support/DataTypes.h"</a></u></td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><i class="doc">/// An auxiliary type to facilitate extraction of 3-byte entities.</i></td></tr>
+<tr><th id="18">18</th><td><b>struct</b> <dfn class="type def" id="llvm::Uint24" title='llvm::Uint24' data-ref="llvm::Uint24">Uint24</dfn> {</td></tr>
+<tr><th id="19">19</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="decl" id="llvm::Uint24::Bytes" title='llvm::Uint24::Bytes' data-ref="llvm::Uint24::Bytes">Bytes</dfn>[<var>3</var>];</td></tr>
+<tr><th id="20">20</th><td>  <dfn class="decl def" id="_ZN4llvm6Uint24C1Eh" title='llvm::Uint24::Uint24' data-ref="_ZN4llvm6Uint24C1Eh">Uint24</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col7 decl" id="237U" title='U' data-type='uint8_t' data-ref="237U">U</dfn>) {</td></tr>
+<tr><th id="21">21</th><td>    <a class="member" href="#llvm::Uint24::Bytes" title='llvm::Uint24::Bytes' data-ref="llvm::Uint24::Bytes">Bytes</a>[<var>0</var>] = <a class="member" href="#llvm::Uint24::Bytes" title='llvm::Uint24::Bytes' data-ref="llvm::Uint24::Bytes">Bytes</a>[<var>1</var>] = <a class="member" href="#llvm::Uint24::Bytes" title='llvm::Uint24::Bytes' data-ref="llvm::Uint24::Bytes">Bytes</a>[<var>2</var>] = <a class="local col7 ref" href="#237U" title='U' data-ref="237U">U</a>;</td></tr>
+<tr><th id="22">22</th><td>  }</td></tr>
+<tr><th id="23">23</th><td>  <dfn class="decl def" id="_ZN4llvm6Uint24C1Ehhh" title='llvm::Uint24::Uint24' data-ref="_ZN4llvm6Uint24C1Ehhh">Uint24</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col8 decl" id="238U0" title='U0' data-type='uint8_t' data-ref="238U0">U0</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col9 decl" id="239U1" title='U1' data-type='uint8_t' data-ref="239U1">U1</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col0 decl" id="240U2" title='U2' data-type='uint8_t' data-ref="240U2">U2</dfn>) {</td></tr>
+<tr><th id="24">24</th><td>    <a class="member" href="#llvm::Uint24::Bytes" title='llvm::Uint24::Bytes' data-ref="llvm::Uint24::Bytes">Bytes</a>[<var>0</var>] = <a class="local col8 ref" href="#238U0" title='U0' data-ref="238U0">U0</a>; <a class="member" href="#llvm::Uint24::Bytes" title='llvm::Uint24::Bytes' data-ref="llvm::Uint24::Bytes">Bytes</a>[<var>1</var>] = <a class="local col9 ref" href="#239U1" title='U1' data-ref="239U1">U1</a>; <a class="member" href="#llvm::Uint24::Bytes" title='llvm::Uint24::Bytes' data-ref="llvm::Uint24::Bytes">Bytes</a>[<var>2</var>] = <a class="local col0 ref" href="#240U2" title='U2' data-ref="240U2">U2</a>;</td></tr>
+<tr><th id="25">25</th><td>  }</td></tr>
+<tr><th id="26">26</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="decl def" id="_ZNK4llvm6Uint2411getAsUint32Eb" title='llvm::Uint24::getAsUint32' data-ref="_ZNK4llvm6Uint2411getAsUint32Eb">getAsUint32</dfn>(<em>bool</em> <dfn class="local col1 decl" id="241IsLittleEndian" title='IsLittleEndian' data-type='bool' data-ref="241IsLittleEndian">IsLittleEndian</dfn>) <em>const</em> {</td></tr>
+<tr><th id="27">27</th><td>    <em>int</em> <dfn class="local col2 decl" id="242LoIx" title='LoIx' data-type='int' data-ref="242LoIx">LoIx</dfn> = <a class="local col1 ref" href="#241IsLittleEndian" title='IsLittleEndian' data-ref="241IsLittleEndian">IsLittleEndian</a> ? <var>0</var> : <var>2</var>;</td></tr>
+<tr><th id="28">28</th><td>    <b>return</b> <a class="member" href="#llvm::Uint24::Bytes" title='llvm::Uint24::Bytes' data-ref="llvm::Uint24::Bytes">Bytes</a>[<a class="local col2 ref" href="#242LoIx" title='LoIx' data-ref="242LoIx">LoIx</a>] + (<a class="member" href="#llvm::Uint24::Bytes" title='llvm::Uint24::Bytes' data-ref="llvm::Uint24::Bytes">Bytes</a>[<var>1</var>] &lt;&lt; <var>8</var>) + (<a class="member" href="#llvm::Uint24::Bytes" title='llvm::Uint24::Bytes' data-ref="llvm::Uint24::Bytes">Bytes</a>[<var>2</var>-<a class="local col2 ref" href="#242LoIx" title='LoIx' data-ref="242LoIx">LoIx</a>] &lt;&lt; <var>16</var>);</td></tr>
+<tr><th id="29">29</th><td>  }</td></tr>
+<tr><th id="30">30</th><td>};</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><b>using</b> <dfn class="typedef" id="llvm::uint24_t" title='llvm::uint24_t' data-type='llvm::Uint24' data-ref="llvm::uint24_t">uint24_t</dfn> = <a class="type" href="#llvm::Uint24" title='llvm::Uint24' data-ref="llvm::Uint24">Uint24</a>;</td></tr>
+<tr><th id="33">33</th><td><b>static_assert</b>(<b>sizeof</b>(<a class="typedef" href="#llvm::uint24_t" title='llvm::uint24_t' data-type='llvm::Uint24' data-ref="llvm::uint24_t">uint24_t</a>) == <var>3</var>, <q>"sizeof(uint24_t) != 3"</q>);</td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><i class="doc">/// Needed by swapByteOrder().</i></td></tr>
+<tr><th id="36">36</th><td><b>inline</b> <a class="typedef" href="#llvm::uint24_t" title='llvm::uint24_t' data-type='llvm::Uint24' data-ref="llvm::uint24_t">uint24_t</a> <dfn class="decl def" id="_ZN4llvm15getSwappedBytesENS_6Uint24E" title='llvm::getSwappedBytes' data-ref="_ZN4llvm15getSwappedBytesENS_6Uint24E">getSwappedBytes</dfn>(<a class="typedef" href="#llvm::uint24_t" title='llvm::uint24_t' data-type='llvm::Uint24' data-ref="llvm::uint24_t">uint24_t</a> <dfn class="local col3 decl" id="243C" title='C' data-type='uint24_t' data-ref="243C">C</dfn>) {</td></tr>
+<tr><th id="37">37</th><td>  <b>return</b> <a class="typedef" href="#llvm::uint24_t" title='llvm::uint24_t' data-type='llvm::Uint24' data-ref="llvm::uint24_t">uint24_t</a><a class="ref" href="#_ZN4llvm6Uint24C1Ehhh" title='llvm::Uint24::Uint24' data-ref="_ZN4llvm6Uint24C1Ehhh">(</a><a class="local col3 ref" href="#243C" title='C' data-ref="243C">C</a>.<a class="ref" href="#llvm::Uint24::Bytes" title='llvm::Uint24::Bytes' data-ref="llvm::Uint24::Bytes">Bytes</a>[<var>2</var>], <a class="local col3 ref" href="#243C" title='C' data-ref="243C">C</a>.<a class="ref" href="#llvm::Uint24::Bytes" title='llvm::Uint24::Bytes' data-ref="llvm::Uint24::Bytes">Bytes</a>[<var>1</var>], <a class="local col3 ref" href="#243C" title='C' data-ref="243C">C</a>.<a class="ref" href="#llvm::Uint24::Bytes" title='llvm::Uint24::Bytes' data-ref="llvm::Uint24::Bytes">Bytes</a>[<var>0</var>]);</td></tr>
+<tr><th id="38">38</th><td>}</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>class</b> <dfn class="type def" id="llvm::DataExtractor" title='llvm::DataExtractor' data-ref="llvm::DataExtractor">DataExtractor</dfn> {</td></tr>
+<tr><th id="41">41</th><td>  <a class="type" href="../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="decl" id="llvm::DataExtractor::Data" title='llvm::DataExtractor::Data' data-ref="llvm::DataExtractor::Data">Data</dfn>;</td></tr>
+<tr><th id="42">42</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="decl" id="llvm::DataExtractor::IsLittleEndian" title='llvm::DataExtractor::IsLittleEndian' data-ref="llvm::DataExtractor::IsLittleEndian">IsLittleEndian</dfn>;</td></tr>
+<tr><th id="43">43</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="decl" id="llvm::DataExtractor::AddressSize" title='llvm::DataExtractor::AddressSize' data-ref="llvm::DataExtractor::AddressSize">AddressSize</dfn>;</td></tr>
+<tr><th id="44">44</th><td><b>public</b>:</td></tr>
+<tr><th id="45">45</th><td>  <i class="doc">/// Construct with a buffer that is owned by the caller.</i></td></tr>
+<tr><th id="46">46</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="47">47</th><td><i class="doc">  /// This constructor allows us to use data that is owned by the</i></td></tr>
+<tr><th id="48">48</th><td><i class="doc">  /// caller. The data must stay around as long as this object is</i></td></tr>
+<tr><th id="49">49</th><td><i class="doc">  /// valid.</i></td></tr>
+<tr><th id="50">50</th><td>  <dfn class="decl def" id="_ZN4llvm13DataExtractorC1ENS_9StringRefEbh" title='llvm::DataExtractor::DataExtractor' data-ref="_ZN4llvm13DataExtractorC1ENS_9StringRefEbh">DataExtractor</dfn>(<a class="type" href="../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col4 decl" id="244Data" title='Data' data-type='llvm::StringRef' data-ref="244Data">Data</dfn>, <em>bool</em> <dfn class="local col5 decl" id="245IsLittleEndian" title='IsLittleEndian' data-type='bool' data-ref="245IsLittleEndian">IsLittleEndian</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col6 decl" id="246AddressSize" title='AddressSize' data-type='uint8_t' data-ref="246AddressSize">AddressSize</dfn>)</td></tr>
+<tr><th id="51">51</th><td>    : <a class="member" href="#llvm::DataExtractor::Data" title='llvm::DataExtractor::Data' data-ref="llvm::DataExtractor::Data">Data</a><a class="ref" href="../ADT/StringRef.h.html#48" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1ERKS0_">(</a><a class="local col4 ref" href="#244Data" title='Data' data-ref="244Data">Data</a>), <a class="member" href="#llvm::DataExtractor::IsLittleEndian" title='llvm::DataExtractor::IsLittleEndian' data-ref="llvm::DataExtractor::IsLittleEndian">IsLittleEndian</a>(<a class="local col5 ref" href="#245IsLittleEndian" title='IsLittleEndian' data-ref="245IsLittleEndian">IsLittleEndian</a>), <a class="member" href="#llvm::DataExtractor::AddressSize" title='llvm::DataExtractor::AddressSize' data-ref="llvm::DataExtractor::AddressSize">AddressSize</a>(<a class="local col6 ref" href="#246AddressSize" title='AddressSize' data-ref="246AddressSize">AddressSize</a>) {}</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>  <i class="doc">/// Get the data pointed to by this extractor.</i></td></tr>
+<tr><th id="54">54</th><td>  <a class="type" href="../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="decl def" id="_ZNK4llvm13DataExtractor7getDataEv" title='llvm::DataExtractor::getData' data-ref="_ZNK4llvm13DataExtractor7getDataEv">getData</dfn>() <em>const</em> { <b>return</b> <a class="ref fake" href="../ADT/StringRef.h.html#48" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1ERKS0_"></a><a class="member" href="#llvm::DataExtractor::Data" title='llvm::DataExtractor::Data' data-ref="llvm::DataExtractor::Data">Data</a>; }</td></tr>
+<tr><th id="55">55</th><td>  <i class="doc">/// Get the endianness for this extractor.</i></td></tr>
+<tr><th id="56">56</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm13DataExtractor14isLittleEndianEv" title='llvm::DataExtractor::isLittleEndian' data-ref="_ZNK4llvm13DataExtractor14isLittleEndianEv">isLittleEndian</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::DataExtractor::IsLittleEndian" title='llvm::DataExtractor::IsLittleEndian' data-ref="llvm::DataExtractor::IsLittleEndian">IsLittleEndian</a>; }</td></tr>
+<tr><th id="57">57</th><td>  <i class="doc">/// Get the address size for this extractor.</i></td></tr>
+<tr><th id="58">58</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="decl def" id="_ZNK4llvm13DataExtractor14getAddressSizeEv" title='llvm::DataExtractor::getAddressSize' data-ref="_ZNK4llvm13DataExtractor14getAddressSizeEv">getAddressSize</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::DataExtractor::AddressSize" title='llvm::DataExtractor::AddressSize' data-ref="llvm::DataExtractor::AddressSize">AddressSize</a>; }</td></tr>
+<tr><th id="59">59</th><td>  <i class="doc">/// Set the address size for this extractor.</i></td></tr>
+<tr><th id="60">60</th><td>  <em>void</em> <dfn class="decl def" id="_ZN4llvm13DataExtractor14setAddressSizeEh" title='llvm::DataExtractor::setAddressSize' data-ref="_ZN4llvm13DataExtractor14setAddressSizeEh">setAddressSize</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col7 decl" id="247Size" title='Size' data-type='uint8_t' data-ref="247Size">Size</dfn>) { <a class="member" href="#llvm::DataExtractor::AddressSize" title='llvm::DataExtractor::AddressSize' data-ref="llvm::DataExtractor::AddressSize">AddressSize</a> = <a class="local col7 ref" href="#247Size" title='Size' data-ref="247Size">Size</a>; }</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>  <i class="doc">/// Extract a C string from<span class="command"> \a</span> <span class="arg">*offset_ptr.</span></i></td></tr>
+<tr><th id="63">63</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="64">64</th><td><i class="doc">  /// Returns a pointer to a C String from the data at the offset</i></td></tr>
+<tr><th id="65">65</th><td><i class="doc">  /// pointed to by<span class="command"> \a</span> <span class="arg">offset_ptr.</span> A variable length NULL terminated C</i></td></tr>
+<tr><th id="66">66</th><td><i class="doc">  /// string will be extracted and the<span class="command"> \a</span> <span class="arg">offset_ptr</span> will be</i></td></tr>
+<tr><th id="67">67</th><td><i class="doc">  /// updated with the offset of the byte that follows the NULL</i></td></tr>
+<tr><th id="68">68</th><td><i class="doc">  /// terminator byte.</i></td></tr>
+<tr><th id="69">69</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="70">70</th><td><i class="doc">  /// <span class="command">@param</span>[in,out] <span class="arg">offset_ptr</span></i></td></tr>
+<tr><th id="71">71</th><td><i class="doc">  ///     A pointer to an offset within the data that will be advanced</i></td></tr>
+<tr><th id="72">72</th><td><i class="doc">  ///     by the appropriate number of bytes if the value is extracted</i></td></tr>
+<tr><th id="73">73</th><td><i class="doc">  ///     correctly. If the offset is out of bounds or there are not</i></td></tr>
+<tr><th id="74">74</th><td><i class="doc">  ///     enough bytes to extract this value, the offset will be left</i></td></tr>
+<tr><th id="75">75</th><td><i class="doc">  ///     unmodified.</i></td></tr>
+<tr><th id="76">76</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="77">77</th><td><i class="doc">  /// <span class="command">@return</span></i></td></tr>
+<tr><th id="78">78</th><td><i class="doc">  ///     A pointer to the C string value in the data. If the offset</i></td></tr>
+<tr><th id="79">79</th><td><i class="doc">  ///     pointed to by<span class="command"> \a</span> <span class="arg">offset_ptr</span> is out of bounds, or if the</i></td></tr>
+<tr><th id="80">80</th><td><i class="doc">  ///     offset plus the length of the C string is out of bounds,</i></td></tr>
+<tr><th id="81">81</th><td><i class="doc">  ///     NULL will be returned.</i></td></tr>
+<tr><th id="82">82</th><td>  <em>const</em> <em>char</em> *<dfn class="decl" id="_ZNK4llvm13DataExtractor7getCStrEPj" title='llvm::DataExtractor::getCStr' data-ref="_ZNK4llvm13DataExtractor7getCStrEPj">getCStr</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col8 decl" id="248offset_ptr" title='offset_ptr' data-type='uint32_t *' data-ref="248offset_ptr">offset_ptr</dfn>) <em>const</em>;</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>  <i class="doc">/// Extract a C string from<span class="command"> \a</span> <span class="arg">*OffsetPtr.</span></i></td></tr>
+<tr><th id="85">85</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="86">86</th><td><i class="doc">  /// Returns a StringRef for the C String from the data at the offset</i></td></tr>
+<tr><th id="87">87</th><td><i class="doc">  /// pointed to by<span class="command"> \a</span> <span class="arg">OffsetPtr.</span> A variable length NULL terminated C</i></td></tr>
+<tr><th id="88">88</th><td><i class="doc">  /// string will be extracted and the<span class="command"> \a</span> <span class="arg">OffsetPtr</span> will be</i></td></tr>
+<tr><th id="89">89</th><td><i class="doc">  /// updated with the offset of the byte that follows the NULL</i></td></tr>
+<tr><th id="90">90</th><td><i class="doc">  /// terminator byte.</i></td></tr>
+<tr><th id="91">91</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="92">92</th><td><i class="doc">  /// <span class="command">\param</span>[in,out] <span class="arg">OffsetPtr</span></i></td></tr>
+<tr><th id="93">93</th><td><i class="doc">  ///     A pointer to an offset within the data that will be advanced</i></td></tr>
+<tr><th id="94">94</th><td><i class="doc">  ///     by the appropriate number of bytes if the value is extracted</i></td></tr>
+<tr><th id="95">95</th><td><i class="doc">  ///     correctly. If the offset is out of bounds or there are not</i></td></tr>
+<tr><th id="96">96</th><td><i class="doc">  ///     enough bytes to extract this value, the offset will be left</i></td></tr>
+<tr><th id="97">97</th><td><i class="doc">  ///     unmodified.</i></td></tr>
+<tr><th id="98">98</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="99">99</th><td><i class="doc">  /// <span class="command">\return</span></i></td></tr>
+<tr><th id="100">100</th><td><i class="doc">  ///     A StringRef for the C string value in the data. If the offset</i></td></tr>
+<tr><th id="101">101</th><td><i class="doc">  ///     pointed to by<span class="command"> \a</span> <span class="arg">OffsetPtr</span> is out of bounds, or if the</i></td></tr>
+<tr><th id="102">102</th><td><i class="doc">  ///     offset plus the length of the C string is out of bounds,</i></td></tr>
+<tr><th id="103">103</th><td><i class="doc">  ///     a default-initialized StringRef will be returned.</i></td></tr>
+<tr><th id="104">104</th><td>  <a class="type" href="../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="decl" id="_ZNK4llvm13DataExtractor10getCStrRefEPj" title='llvm::DataExtractor::getCStrRef' data-ref="_ZNK4llvm13DataExtractor10getCStrRefEPj">getCStrRef</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col9 decl" id="249OffsetPtr" title='OffsetPtr' data-type='uint32_t *' data-ref="249OffsetPtr">OffsetPtr</dfn>) <em>const</em>;</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td>  <i class="doc">/// Extract an unsigned integer of size<span class="command"> \a</span> <span class="arg">byte_size</span> from<span class="command"> \a</span></i></td></tr>
+<tr><th id="107">107</th><td><i class="doc">  /// <span class="arg">*offset_ptr.</span></i></td></tr>
+<tr><th id="108">108</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="109">109</th><td><i class="doc">  /// Extract a single unsigned integer value and update the offset</i></td></tr>
+<tr><th id="110">110</th><td><i class="doc">  /// pointed to by<span class="command"> \a</span> <span class="arg">offset_ptr.</span> The size of the extracted integer</i></td></tr>
+<tr><th id="111">111</th><td><i class="doc">  /// is specified by the<span class="command"> \a</span> <span class="arg">byte_size</span> argument.<span class="command"> \a</span> <span class="arg">byte_size</span> should</i></td></tr>
+<tr><th id="112">112</th><td><i class="doc">  /// have a value greater than or equal to one and less than or equal</i></td></tr>
+<tr><th id="113">113</th><td><i class="doc">  /// to eight since the return value is 64 bits wide. Any</i></td></tr>
+<tr><th id="114">114</th><td><i class="doc">  ///<span class="command"> \a</span> <span class="arg">byte_size</span> values less than 1 or greater than 8 will result in</i></td></tr>
+<tr><th id="115">115</th><td><i class="doc">  /// nothing being extracted, and zero being returned.</i></td></tr>
+<tr><th id="116">116</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="117">117</th><td><i class="doc">  /// <span class="command">@param</span>[in,out] <span class="arg">offset_ptr</span></i></td></tr>
+<tr><th id="118">118</th><td><i class="doc">  ///     A pointer to an offset within the data that will be advanced</i></td></tr>
+<tr><th id="119">119</th><td><i class="doc">  ///     by the appropriate number of bytes if the value is extracted</i></td></tr>
+<tr><th id="120">120</th><td><i class="doc">  ///     correctly. If the offset is out of bounds or there are not</i></td></tr>
+<tr><th id="121">121</th><td><i class="doc">  ///     enough bytes to extract this value, the offset will be left</i></td></tr>
+<tr><th id="122">122</th><td><i class="doc">  ///     unmodified.</i></td></tr>
+<tr><th id="123">123</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="124">124</th><td><i class="doc">  /// <span class="command">@param</span>[in] <span class="arg">byte_size</span></i></td></tr>
+<tr><th id="125">125</th><td><i class="doc">  ///     The size in byte of the integer to extract.</i></td></tr>
+<tr><th id="126">126</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="127">127</th><td><i class="doc">  /// <span class="command">@return</span></i></td></tr>
+<tr><th id="128">128</th><td><i class="doc">  ///     The unsigned integer value that was extracted, or zero on</i></td></tr>
+<tr><th id="129">129</th><td><i class="doc">  ///     failure.</i></td></tr>
+<tr><th id="130">130</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="decl" id="_ZNK4llvm13DataExtractor11getUnsignedEPjj" title='llvm::DataExtractor::getUnsigned' data-ref="_ZNK4llvm13DataExtractor11getUnsignedEPjj">getUnsigned</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col0 decl" id="250offset_ptr" title='offset_ptr' data-type='uint32_t *' data-ref="250offset_ptr">offset_ptr</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col1 decl" id="251byte_size" title='byte_size' data-type='uint32_t' data-ref="251byte_size">byte_size</dfn>) <em>const</em>;</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td>  <i class="doc">/// Extract an signed integer of size<span class="command"> \a</span> <span class="arg">byte_size</span> from<span class="command"> \a</span> <span class="arg">*offset_ptr.</span></i></td></tr>
+<tr><th id="133">133</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="134">134</th><td><i class="doc">  /// Extract a single signed integer value (sign extending if required)</i></td></tr>
+<tr><th id="135">135</th><td><i class="doc">  /// and update the offset pointed to by<span class="command"> \a</span> <span class="arg">offset_ptr.</span> The size of</i></td></tr>
+<tr><th id="136">136</th><td><i class="doc">  /// the extracted integer is specified by the<span class="command"> \a</span> <span class="arg">byte_size</span> argument.</i></td></tr>
+<tr><th id="137">137</th><td><i class="doc">  ///<span class="command"> \a</span> <span class="arg">byte_size</span> should have a value greater than or equal to one</i></td></tr>
+<tr><th id="138">138</th><td><i class="doc">  /// and less than or equal to eight since the return value is 64</i></td></tr>
+<tr><th id="139">139</th><td><i class="doc">  /// bits wide. Any<span class="command"> \a</span> <span class="arg">byte_size</span> values less than 1 or greater than</i></td></tr>
+<tr><th id="140">140</th><td><i class="doc">  /// 8 will result in nothing being extracted, and zero being returned.</i></td></tr>
+<tr><th id="141">141</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="142">142</th><td><i class="doc">  /// <span class="command">@param</span>[in,out] <span class="arg">offset_ptr</span></i></td></tr>
+<tr><th id="143">143</th><td><i class="doc">  ///     A pointer to an offset within the data that will be advanced</i></td></tr>
+<tr><th id="144">144</th><td><i class="doc">  ///     by the appropriate number of bytes if the value is extracted</i></td></tr>
+<tr><th id="145">145</th><td><i class="doc">  ///     correctly. If the offset is out of bounds or there are not</i></td></tr>
+<tr><th id="146">146</th><td><i class="doc">  ///     enough bytes to extract this value, the offset will be left</i></td></tr>
+<tr><th id="147">147</th><td><i class="doc">  ///     unmodified.</i></td></tr>
+<tr><th id="148">148</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="149">149</th><td><i class="doc">  /// <span class="command">@param</span>[in] <span class="arg">size</span></i></td></tr>
+<tr><th id="150">150</th><td><i class="doc">  ///     The size in bytes of the integer to extract.</i></td></tr>
+<tr><th id="151">151</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="152">152</th><td><i class="doc">  /// <span class="command">@return</span></i></td></tr>
+<tr><th id="153">153</th><td><i class="doc">  ///     The sign extended signed integer value that was extracted,</i></td></tr>
+<tr><th id="154">154</th><td><i class="doc">  ///     or zero on failure.</i></td></tr>
+<tr><th id="155">155</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-intn.h.html#int64_t" title='int64_t' data-type='__int64_t' data-ref="int64_t">int64_t</a> <dfn class="decl" id="_ZNK4llvm13DataExtractor9getSignedEPjj" title='llvm::DataExtractor::getSigned' data-ref="_ZNK4llvm13DataExtractor9getSignedEPjj">getSigned</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col2 decl" id="252offset_ptr" title='offset_ptr' data-type='uint32_t *' data-ref="252offset_ptr">offset_ptr</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col3 decl" id="253size" title='size' data-type='uint32_t' data-ref="253size">size</dfn>) <em>const</em>;</td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td>  <i>//------------------------------------------------------------------</i></td></tr>
+<tr><th id="158">158</th><td><i>  /// Extract an pointer from \a *offset_ptr.</i></td></tr>
+<tr><th id="159">159</th><td><i>  ///</i></td></tr>
+<tr><th id="160">160</th><td><i>  /// Extract a single pointer from the data and update the offset</i></td></tr>
+<tr><th id="161">161</th><td><i>  /// pointed to by \a offset_ptr. The size of the extracted pointer</i></td></tr>
+<tr><th id="162">162</th><td><i>  /// is \a getAddressSize(), so the address size has to be</i></td></tr>
+<tr><th id="163">163</th><td><i>  /// set correctly prior to extracting any pointer values.</i></td></tr>
+<tr><th id="164">164</th><td><i>  ///</i></td></tr>
+<tr><th id="165">165</th><td><i>  /// @param[in,out] offset_ptr</i></td></tr>
+<tr><th id="166">166</th><td><i>  ///     A pointer to an offset within the data that will be advanced</i></td></tr>
+<tr><th id="167">167</th><td><i>  ///     by the appropriate number of bytes if the value is extracted</i></td></tr>
+<tr><th id="168">168</th><td><i>  ///     correctly. If the offset is out of bounds or there are not</i></td></tr>
+<tr><th id="169">169</th><td><i>  ///     enough bytes to extract this value, the offset will be left</i></td></tr>
+<tr><th id="170">170</th><td><i>  ///     unmodified.</i></td></tr>
+<tr><th id="171">171</th><td><i>  ///</i></td></tr>
+<tr><th id="172">172</th><td><i>  /// @return</i></td></tr>
+<tr><th id="173">173</th><td><i>  ///     The extracted pointer value as a 64 integer.</i></td></tr>
+<tr><th id="174">174</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="decl def" id="_ZNK4llvm13DataExtractor10getAddressEPj" title='llvm::DataExtractor::getAddress' data-ref="_ZNK4llvm13DataExtractor10getAddressEPj">getAddress</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col4 decl" id="254offset_ptr" title='offset_ptr' data-type='uint32_t *' data-ref="254offset_ptr">offset_ptr</dfn>) <em>const</em> {</td></tr>
+<tr><th id="175">175</th><td>    <b>return</b> <a class="member" href="#_ZNK4llvm13DataExtractor11getUnsignedEPjj" title='llvm::DataExtractor::getUnsigned' data-ref="_ZNK4llvm13DataExtractor11getUnsignedEPjj">getUnsigned</a>(<a class="local col4 ref" href="#254offset_ptr" title='offset_ptr' data-ref="254offset_ptr">offset_ptr</a>, <a class="member" href="#llvm::DataExtractor::AddressSize" title='llvm::DataExtractor::AddressSize' data-ref="llvm::DataExtractor::AddressSize">AddressSize</a>);</td></tr>
+<tr><th id="176">176</th><td>  }</td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td>  <i class="doc">/// Extract a uint8_t value from<span class="command"> \a</span> <span class="arg">*offset_ptr.</span></i></td></tr>
+<tr><th id="179">179</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="180">180</th><td><i class="doc">  /// Extract a single uint8_t from the binary data at the offset</i></td></tr>
+<tr><th id="181">181</th><td><i class="doc">  /// pointed to by<span class="command"> \a</span> <span class="arg">offset_ptr,</span> and advance the offset on success.</i></td></tr>
+<tr><th id="182">182</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="183">183</th><td><i class="doc">  /// <span class="command">@param</span>[in,out] <span class="arg">offset_ptr</span></i></td></tr>
+<tr><th id="184">184</th><td><i class="doc">  ///     A pointer to an offset within the data that will be advanced</i></td></tr>
+<tr><th id="185">185</th><td><i class="doc">  ///     by the appropriate number of bytes if the value is extracted</i></td></tr>
+<tr><th id="186">186</th><td><i class="doc">  ///     correctly. If the offset is out of bounds or there are not</i></td></tr>
+<tr><th id="187">187</th><td><i class="doc">  ///     enough bytes to extract this value, the offset will be left</i></td></tr>
+<tr><th id="188">188</th><td><i class="doc">  ///     unmodified.</i></td></tr>
+<tr><th id="189">189</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="190">190</th><td><i class="doc">  /// <span class="command">@return</span></i></td></tr>
+<tr><th id="191">191</th><td><i class="doc">  ///     The extracted uint8_t value.</i></td></tr>
+<tr><th id="192">192</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="decl" id="_ZNK4llvm13DataExtractor5getU8EPj" title='llvm::DataExtractor::getU8' data-ref="_ZNK4llvm13DataExtractor5getU8EPj">getU8</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col5 decl" id="255offset_ptr" title='offset_ptr' data-type='uint32_t *' data-ref="255offset_ptr">offset_ptr</dfn>) <em>const</em>;</td></tr>
+<tr><th id="193">193</th><td></td></tr>
+<tr><th id="194">194</th><td>  <i class="doc">/// Extract<span class="command"> \a</span> <span class="arg">count</span> uint8_t values from<span class="command"> \a</span> <span class="arg">*offset_ptr.</span></i></td></tr>
+<tr><th id="195">195</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="196">196</th><td><i class="doc">  /// Extract<span class="command"> \a</span> <span class="arg">count</span> uint8_t values from the binary data at the</i></td></tr>
+<tr><th id="197">197</th><td><i class="doc">  /// offset pointed to by<span class="command"> \a</span> <span class="arg">offset_ptr,</span> and advance the offset on</i></td></tr>
+<tr><th id="198">198</th><td><i class="doc">  /// success. The extracted values are copied into<span class="command"> \a</span> <span class="arg">dst.</span></i></td></tr>
+<tr><th id="199">199</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="200">200</th><td><i class="doc">  /// <span class="command">@param</span>[in,out] <span class="arg">offset_ptr</span></i></td></tr>
+<tr><th id="201">201</th><td><i class="doc">  ///     A pointer to an offset within the data that will be advanced</i></td></tr>
+<tr><th id="202">202</th><td><i class="doc">  ///     by the appropriate number of bytes if the value is extracted</i></td></tr>
+<tr><th id="203">203</th><td><i class="doc">  ///     correctly. If the offset is out of bounds or there are not</i></td></tr>
+<tr><th id="204">204</th><td><i class="doc">  ///     enough bytes to extract this value, the offset will be left</i></td></tr>
+<tr><th id="205">205</th><td><i class="doc">  ///     unmodified.</i></td></tr>
+<tr><th id="206">206</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="207">207</th><td><i class="doc">  /// <span class="command">@param</span>[out] <span class="arg">dst</span></i></td></tr>
+<tr><th id="208">208</th><td><i class="doc">  ///     A buffer to copy<span class="command"> \a</span> <span class="arg">count</span> uint8_t values into.<span class="command"> \a</span> <span class="arg">dst</span> must</i></td></tr>
+<tr><th id="209">209</th><td><i class="doc">  ///     be large enough to hold all requested data.</i></td></tr>
+<tr><th id="210">210</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="211">211</th><td><i class="doc">  /// <span class="command">@param</span>[in] <span class="arg">count</span></i></td></tr>
+<tr><th id="212">212</th><td><i class="doc">  ///     The number of uint8_t values to extract.</i></td></tr>
+<tr><th id="213">213</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="214">214</th><td><i class="doc">  /// <span class="command">@return</span></i></td></tr>
+<tr><th id="215">215</th><td><i class="doc">  ///    <span class="command"> \a</span> <span class="arg">dst</span> if all values were properly extracted and copied,</i></td></tr>
+<tr><th id="216">216</th><td><i class="doc">  ///     NULL otherise.</i></td></tr>
+<tr><th id="217">217</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="decl" id="_ZNK4llvm13DataExtractor5getU8EPjPhj" title='llvm::DataExtractor::getU8' data-ref="_ZNK4llvm13DataExtractor5getU8EPjPhj">getU8</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col6 decl" id="256offset_ptr" title='offset_ptr' data-type='uint32_t *' data-ref="256offset_ptr">offset_ptr</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col7 decl" id="257dst" title='dst' data-type='uint8_t *' data-ref="257dst">dst</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col8 decl" id="258count" title='count' data-type='uint32_t' data-ref="258count">count</dfn>) <em>const</em>;</td></tr>
+<tr><th id="218">218</th><td></td></tr>
+<tr><th id="219">219</th><td>  <i>//------------------------------------------------------------------</i></td></tr>
+<tr><th id="220">220</th><td><i>  /// Extract a uint16_t value from \a *offset_ptr.</i></td></tr>
+<tr><th id="221">221</th><td><i>  ///</i></td></tr>
+<tr><th id="222">222</th><td><i>  /// Extract a single uint16_t from the binary data at the offset</i></td></tr>
+<tr><th id="223">223</th><td><i>  /// pointed to by \a offset_ptr, and update the offset on success.</i></td></tr>
+<tr><th id="224">224</th><td><i>  ///</i></td></tr>
+<tr><th id="225">225</th><td><i>  /// @param[in,out] offset_ptr</i></td></tr>
+<tr><th id="226">226</th><td><i>  ///     A pointer to an offset within the data that will be advanced</i></td></tr>
+<tr><th id="227">227</th><td><i>  ///     by the appropriate number of bytes if the value is extracted</i></td></tr>
+<tr><th id="228">228</th><td><i>  ///     correctly. If the offset is out of bounds or there are not</i></td></tr>
+<tr><th id="229">229</th><td><i>  ///     enough bytes to extract this value, the offset will be left</i></td></tr>
+<tr><th id="230">230</th><td><i>  ///     unmodified.</i></td></tr>
+<tr><th id="231">231</th><td><i>  ///</i></td></tr>
+<tr><th id="232">232</th><td><i>  /// @return</i></td></tr>
+<tr><th id="233">233</th><td><i>  ///     The extracted uint16_t value.</i></td></tr>
+<tr><th id="234">234</th><td><i>  //------------------------------------------------------------------</i></td></tr>
+<tr><th id="235">235</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint16_t" title='uint16_t' data-type='__uint16_t' data-ref="uint16_t">uint16_t</a> <dfn class="decl" id="_ZNK4llvm13DataExtractor6getU16EPj" title='llvm::DataExtractor::getU16' data-ref="_ZNK4llvm13DataExtractor6getU16EPj">getU16</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col9 decl" id="259offset_ptr" title='offset_ptr' data-type='uint32_t *' data-ref="259offset_ptr">offset_ptr</dfn>) <em>const</em>;</td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td>  <i class="doc">/// Extract<span class="command"> \a</span> <span class="arg">count</span> uint16_t values from<span class="command"> \a</span> <span class="arg">*offset_ptr.</span></i></td></tr>
+<tr><th id="238">238</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="239">239</th><td><i class="doc">  /// Extract<span class="command"> \a</span> <span class="arg">count</span> uint16_t values from the binary data at the</i></td></tr>
+<tr><th id="240">240</th><td><i class="doc">  /// offset pointed to by<span class="command"> \a</span> <span class="arg">offset_ptr,</span> and advance the offset on</i></td></tr>
+<tr><th id="241">241</th><td><i class="doc">  /// success. The extracted values are copied into<span class="command"> \a</span> <span class="arg">dst.</span></i></td></tr>
+<tr><th id="242">242</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="243">243</th><td><i class="doc">  /// <span class="command">@param</span>[in,out] <span class="arg">offset_ptr</span></i></td></tr>
+<tr><th id="244">244</th><td><i class="doc">  ///     A pointer to an offset within the data that will be advanced</i></td></tr>
+<tr><th id="245">245</th><td><i class="doc">  ///     by the appropriate number of bytes if the value is extracted</i></td></tr>
+<tr><th id="246">246</th><td><i class="doc">  ///     correctly. If the offset is out of bounds or there are not</i></td></tr>
+<tr><th id="247">247</th><td><i class="doc">  ///     enough bytes to extract this value, the offset will be left</i></td></tr>
+<tr><th id="248">248</th><td><i class="doc">  ///     unmodified.</i></td></tr>
+<tr><th id="249">249</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="250">250</th><td><i class="doc">  /// <span class="command">@param</span>[out] <span class="arg">dst</span></i></td></tr>
+<tr><th id="251">251</th><td><i class="doc">  ///     A buffer to copy<span class="command"> \a</span> <span class="arg">count</span> uint16_t values into.<span class="command"> \a</span> <span class="arg">dst</span> must</i></td></tr>
+<tr><th id="252">252</th><td><i class="doc">  ///     be large enough to hold all requested data.</i></td></tr>
+<tr><th id="253">253</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="254">254</th><td><i class="doc">  /// <span class="command">@param</span>[in] <span class="arg">count</span></i></td></tr>
+<tr><th id="255">255</th><td><i class="doc">  ///     The number of uint16_t values to extract.</i></td></tr>
+<tr><th id="256">256</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="257">257</th><td><i class="doc">  /// <span class="command">@return</span></i></td></tr>
+<tr><th id="258">258</th><td><i class="doc">  ///    <span class="command"> \a</span> <span class="arg">dst</span> if all values were properly extracted and copied,</i></td></tr>
+<tr><th id="259">259</th><td><i class="doc">  ///     NULL otherise.</i></td></tr>
+<tr><th id="260">260</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint16_t" title='uint16_t' data-type='__uint16_t' data-ref="uint16_t">uint16_t</a> *<dfn class="decl" id="_ZNK4llvm13DataExtractor6getU16EPjPtj" title='llvm::DataExtractor::getU16' data-ref="_ZNK4llvm13DataExtractor6getU16EPjPtj">getU16</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col0 decl" id="260offset_ptr" title='offset_ptr' data-type='uint32_t *' data-ref="260offset_ptr">offset_ptr</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint16_t" title='uint16_t' data-type='__uint16_t' data-ref="uint16_t">uint16_t</a> *<dfn class="local col1 decl" id="261dst" title='dst' data-type='uint16_t *' data-ref="261dst">dst</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col2 decl" id="262count" title='count' data-type='uint32_t' data-ref="262count">count</dfn>) <em>const</em>;</td></tr>
+<tr><th id="261">261</th><td></td></tr>
+<tr><th id="262">262</th><td>  <i class="doc">/// Extract a 24-bit unsigned value from<span class="command"> \a</span> <span class="arg">*offset_ptr</span> and return it</i></td></tr>
+<tr><th id="263">263</th><td><i class="doc">  /// in a uint32_t.</i></td></tr>
+<tr><th id="264">264</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="265">265</th><td><i class="doc">  /// Extract 3 bytes from the binary data at the offset pointed to by</i></td></tr>
+<tr><th id="266">266</th><td><i class="doc">  ///<span class="command"> \a</span> <span class="arg">offset_ptr,</span> construct a uint32_t from them and update the offset</i></td></tr>
+<tr><th id="267">267</th><td><i class="doc">  /// on success.</i></td></tr>
+<tr><th id="268">268</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="269">269</th><td><i class="doc">  /// <span class="command">@param</span>[in,out] <span class="arg">offset_ptr</span></i></td></tr>
+<tr><th id="270">270</th><td><i class="doc">  ///     A pointer to an offset within the data that will be advanced</i></td></tr>
+<tr><th id="271">271</th><td><i class="doc">  ///     by the 3 bytes if the value is extracted correctly. If the offset</i></td></tr>
+<tr><th id="272">272</th><td><i class="doc">  ///     is out of bounds or there are not enough bytes to extract this value,</i></td></tr>
+<tr><th id="273">273</th><td><i class="doc">  ///     the offset will be left unmodified.</i></td></tr>
+<tr><th id="274">274</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="275">275</th><td><i class="doc">  /// <span class="command">@return</span></i></td></tr>
+<tr><th id="276">276</th><td><i class="doc">  ///     The extracted 24-bit value represented in a uint32_t.</i></td></tr>
+<tr><th id="277">277</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="decl" id="_ZNK4llvm13DataExtractor6getU24EPj" title='llvm::DataExtractor::getU24' data-ref="_ZNK4llvm13DataExtractor6getU24EPj">getU24</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col3 decl" id="263offset_ptr" title='offset_ptr' data-type='uint32_t *' data-ref="263offset_ptr">offset_ptr</dfn>) <em>const</em>;</td></tr>
+<tr><th id="278">278</th><td></td></tr>
+<tr><th id="279">279</th><td>  <i class="doc">/// Extract a uint32_t value from<span class="command"> \a</span> <span class="arg">*offset_ptr.</span></i></td></tr>
+<tr><th id="280">280</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="281">281</th><td><i class="doc">  /// Extract a single uint32_t from the binary data at the offset</i></td></tr>
+<tr><th id="282">282</th><td><i class="doc">  /// pointed to by<span class="command"> \a</span> <span class="arg">offset_ptr,</span> and update the offset on success.</i></td></tr>
+<tr><th id="283">283</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="284">284</th><td><i class="doc">  /// <span class="command">@param</span>[in,out] <span class="arg">offset_ptr</span></i></td></tr>
+<tr><th id="285">285</th><td><i class="doc">  ///     A pointer to an offset within the data that will be advanced</i></td></tr>
+<tr><th id="286">286</th><td><i class="doc">  ///     by the appropriate number of bytes if the value is extracted</i></td></tr>
+<tr><th id="287">287</th><td><i class="doc">  ///     correctly. If the offset is out of bounds or there are not</i></td></tr>
+<tr><th id="288">288</th><td><i class="doc">  ///     enough bytes to extract this value, the offset will be left</i></td></tr>
+<tr><th id="289">289</th><td><i class="doc">  ///     unmodified.</i></td></tr>
+<tr><th id="290">290</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="291">291</th><td><i class="doc">  /// <span class="command">@return</span></i></td></tr>
+<tr><th id="292">292</th><td><i class="doc">  ///     The extracted uint32_t value.</i></td></tr>
+<tr><th id="293">293</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="decl" id="_ZNK4llvm13DataExtractor6getU32EPj" title='llvm::DataExtractor::getU32' data-ref="_ZNK4llvm13DataExtractor6getU32EPj">getU32</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col4 decl" id="264offset_ptr" title='offset_ptr' data-type='uint32_t *' data-ref="264offset_ptr">offset_ptr</dfn>) <em>const</em>;</td></tr>
+<tr><th id="294">294</th><td></td></tr>
+<tr><th id="295">295</th><td>  <i class="doc">/// Extract<span class="command"> \a</span> <span class="arg">count</span> uint32_t values from<span class="command"> \a</span> <span class="arg">*offset_ptr.</span></i></td></tr>
+<tr><th id="296">296</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="297">297</th><td><i class="doc">  /// Extract<span class="command"> \a</span> <span class="arg">count</span> uint32_t values from the binary data at the</i></td></tr>
+<tr><th id="298">298</th><td><i class="doc">  /// offset pointed to by<span class="command"> \a</span> <span class="arg">offset_ptr,</span> and advance the offset on</i></td></tr>
+<tr><th id="299">299</th><td><i class="doc">  /// success. The extracted values are copied into<span class="command"> \a</span> <span class="arg">dst.</span></i></td></tr>
+<tr><th id="300">300</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="301">301</th><td><i class="doc">  /// <span class="command">@param</span>[in,out] <span class="arg">offset_ptr</span></i></td></tr>
+<tr><th id="302">302</th><td><i class="doc">  ///     A pointer to an offset within the data that will be advanced</i></td></tr>
+<tr><th id="303">303</th><td><i class="doc">  ///     by the appropriate number of bytes if the value is extracted</i></td></tr>
+<tr><th id="304">304</th><td><i class="doc">  ///     correctly. If the offset is out of bounds or there are not</i></td></tr>
+<tr><th id="305">305</th><td><i class="doc">  ///     enough bytes to extract this value, the offset will be left</i></td></tr>
+<tr><th id="306">306</th><td><i class="doc">  ///     unmodified.</i></td></tr>
+<tr><th id="307">307</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="308">308</th><td><i class="doc">  /// <span class="command">@param</span>[out] <span class="arg">dst</span></i></td></tr>
+<tr><th id="309">309</th><td><i class="doc">  ///     A buffer to copy<span class="command"> \a</span> <span class="arg">count</span> uint32_t values into.<span class="command"> \a</span> <span class="arg">dst</span> must</i></td></tr>
+<tr><th id="310">310</th><td><i class="doc">  ///     be large enough to hold all requested data.</i></td></tr>
+<tr><th id="311">311</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="312">312</th><td><i class="doc">  /// <span class="command">@param</span>[in] <span class="arg">count</span></i></td></tr>
+<tr><th id="313">313</th><td><i class="doc">  ///     The number of uint32_t values to extract.</i></td></tr>
+<tr><th id="314">314</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="315">315</th><td><i class="doc">  /// <span class="command">@return</span></i></td></tr>
+<tr><th id="316">316</th><td><i class="doc">  ///    <span class="command"> \a</span> <span class="arg">dst</span> if all values were properly extracted and copied,</i></td></tr>
+<tr><th id="317">317</th><td><i class="doc">  ///     NULL otherise.</i></td></tr>
+<tr><th id="318">318</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="decl" id="_ZNK4llvm13DataExtractor6getU32EPjS1_j" title='llvm::DataExtractor::getU32' data-ref="_ZNK4llvm13DataExtractor6getU32EPjS1_j">getU32</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col5 decl" id="265offset_ptr" title='offset_ptr' data-type='uint32_t *' data-ref="265offset_ptr">offset_ptr</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col6 decl" id="266dst" title='dst' data-type='uint32_t *' data-ref="266dst">dst</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col7 decl" id="267count" title='count' data-type='uint32_t' data-ref="267count">count</dfn>) <em>const</em>;</td></tr>
+<tr><th id="319">319</th><td></td></tr>
+<tr><th id="320">320</th><td>  <i class="doc">/// Extract a uint64_t value from<span class="command"> \a</span> <span class="arg">*offset_ptr.</span></i></td></tr>
+<tr><th id="321">321</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="322">322</th><td><i class="doc">  /// Extract a single uint64_t from the binary data at the offset</i></td></tr>
+<tr><th id="323">323</th><td><i class="doc">  /// pointed to by<span class="command"> \a</span> <span class="arg">offset_ptr,</span> and update the offset on success.</i></td></tr>
+<tr><th id="324">324</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="325">325</th><td><i class="doc">  /// <span class="command">@param</span>[in,out] <span class="arg">offset_ptr</span></i></td></tr>
+<tr><th id="326">326</th><td><i class="doc">  ///     A pointer to an offset within the data that will be advanced</i></td></tr>
+<tr><th id="327">327</th><td><i class="doc">  ///     by the appropriate number of bytes if the value is extracted</i></td></tr>
+<tr><th id="328">328</th><td><i class="doc">  ///     correctly. If the offset is out of bounds or there are not</i></td></tr>
+<tr><th id="329">329</th><td><i class="doc">  ///     enough bytes to extract this value, the offset will be left</i></td></tr>
+<tr><th id="330">330</th><td><i class="doc">  ///     unmodified.</i></td></tr>
+<tr><th id="331">331</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="332">332</th><td><i class="doc">  /// <span class="command">@return</span></i></td></tr>
+<tr><th id="333">333</th><td><i class="doc">  ///     The extracted uint64_t value.</i></td></tr>
+<tr><th id="334">334</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="decl" id="_ZNK4llvm13DataExtractor6getU64EPj" title='llvm::DataExtractor::getU64' data-ref="_ZNK4llvm13DataExtractor6getU64EPj">getU64</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col8 decl" id="268offset_ptr" title='offset_ptr' data-type='uint32_t *' data-ref="268offset_ptr">offset_ptr</dfn>) <em>const</em>;</td></tr>
+<tr><th id="335">335</th><td></td></tr>
+<tr><th id="336">336</th><td>  <i class="doc">/// Extract<span class="command"> \a</span> <span class="arg">count</span> uint64_t values from<span class="command"> \a</span> <span class="arg">*offset_ptr.</span></i></td></tr>
+<tr><th id="337">337</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="338">338</th><td><i class="doc">  /// Extract<span class="command"> \a</span> <span class="arg">count</span> uint64_t values from the binary data at the</i></td></tr>
+<tr><th id="339">339</th><td><i class="doc">  /// offset pointed to by<span class="command"> \a</span> <span class="arg">offset_ptr,</span> and advance the offset on</i></td></tr>
+<tr><th id="340">340</th><td><i class="doc">  /// success. The extracted values are copied into<span class="command"> \a</span> <span class="arg">dst.</span></i></td></tr>
+<tr><th id="341">341</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="342">342</th><td><i class="doc">  /// <span class="command">@param</span>[in,out] <span class="arg">offset_ptr</span></i></td></tr>
+<tr><th id="343">343</th><td><i class="doc">  ///     A pointer to an offset within the data that will be advanced</i></td></tr>
+<tr><th id="344">344</th><td><i class="doc">  ///     by the appropriate number of bytes if the value is extracted</i></td></tr>
+<tr><th id="345">345</th><td><i class="doc">  ///     correctly. If the offset is out of bounds or there are not</i></td></tr>
+<tr><th id="346">346</th><td><i class="doc">  ///     enough bytes to extract this value, the offset will be left</i></td></tr>
+<tr><th id="347">347</th><td><i class="doc">  ///     unmodified.</i></td></tr>
+<tr><th id="348">348</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="349">349</th><td><i class="doc">  /// <span class="command">@param</span>[out] <span class="arg">dst</span></i></td></tr>
+<tr><th id="350">350</th><td><i class="doc">  ///     A buffer to copy<span class="command"> \a</span> <span class="arg">count</span> uint64_t values into.<span class="command"> \a</span> <span class="arg">dst</span> must</i></td></tr>
+<tr><th id="351">351</th><td><i class="doc">  ///     be large enough to hold all requested data.</i></td></tr>
+<tr><th id="352">352</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="353">353</th><td><i class="doc">  /// <span class="command">@param</span>[in] <span class="arg">count</span></i></td></tr>
+<tr><th id="354">354</th><td><i class="doc">  ///     The number of uint64_t values to extract.</i></td></tr>
+<tr><th id="355">355</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="356">356</th><td><i class="doc">  /// <span class="command">@return</span></i></td></tr>
+<tr><th id="357">357</th><td><i class="doc">  ///    <span class="command"> \a</span> <span class="arg">dst</span> if all values were properly extracted and copied,</i></td></tr>
+<tr><th id="358">358</th><td><i class="doc">  ///     NULL otherise.</i></td></tr>
+<tr><th id="359">359</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> *<dfn class="decl" id="_ZNK4llvm13DataExtractor6getU64EPjPmj" title='llvm::DataExtractor::getU64' data-ref="_ZNK4llvm13DataExtractor6getU64EPjPmj">getU64</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col9 decl" id="269offset_ptr" title='offset_ptr' data-type='uint32_t *' data-ref="269offset_ptr">offset_ptr</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> *<dfn class="local col0 decl" id="270dst" title='dst' data-type='uint64_t *' data-ref="270dst">dst</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col1 decl" id="271count" title='count' data-type='uint32_t' data-ref="271count">count</dfn>) <em>const</em>;</td></tr>
+<tr><th id="360">360</th><td></td></tr>
+<tr><th id="361">361</th><td>  <i class="doc">/// Extract a signed LEB128 value from<span class="command"> \a</span> <span class="arg">*offset_ptr.</span></i></td></tr>
+<tr><th id="362">362</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="363">363</th><td><i class="doc">  /// Extracts an signed LEB128 number from this object's data</i></td></tr>
+<tr><th id="364">364</th><td><i class="doc">  /// starting at the offset pointed to by<span class="command"> \a</span> <span class="arg">offset_ptr.</span> The offset</i></td></tr>
+<tr><th id="365">365</th><td><i class="doc">  /// pointed to by<span class="command"> \a</span> <span class="arg">offset_ptr</span> will be updated with the offset of</i></td></tr>
+<tr><th id="366">366</th><td><i class="doc">  /// the byte following the last extracted byte.</i></td></tr>
+<tr><th id="367">367</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="368">368</th><td><i class="doc">  /// <span class="command">@param</span>[in,out] <span class="arg">offset_ptr</span></i></td></tr>
+<tr><th id="369">369</th><td><i class="doc">  ///     A pointer to an offset within the data that will be advanced</i></td></tr>
+<tr><th id="370">370</th><td><i class="doc">  ///     by the appropriate number of bytes if the value is extracted</i></td></tr>
+<tr><th id="371">371</th><td><i class="doc">  ///     correctly. If the offset is out of bounds or there are not</i></td></tr>
+<tr><th id="372">372</th><td><i class="doc">  ///     enough bytes to extract this value, the offset will be left</i></td></tr>
+<tr><th id="373">373</th><td><i class="doc">  ///     unmodified.</i></td></tr>
+<tr><th id="374">374</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="375">375</th><td><i class="doc">  /// <span class="command">@return</span></i></td></tr>
+<tr><th id="376">376</th><td><i class="doc">  ///     The extracted signed integer value.</i></td></tr>
+<tr><th id="377">377</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-intn.h.html#int64_t" title='int64_t' data-type='__int64_t' data-ref="int64_t">int64_t</a> <dfn class="decl" id="_ZNK4llvm13DataExtractor10getSLEB128EPj" title='llvm::DataExtractor::getSLEB128' data-ref="_ZNK4llvm13DataExtractor10getSLEB128EPj">getSLEB128</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col2 decl" id="272offset_ptr" title='offset_ptr' data-type='uint32_t *' data-ref="272offset_ptr">offset_ptr</dfn>) <em>const</em>;</td></tr>
+<tr><th id="378">378</th><td></td></tr>
+<tr><th id="379">379</th><td>  <i class="doc">/// Extract a unsigned LEB128 value from<span class="command"> \a</span> <span class="arg">*offset_ptr.</span></i></td></tr>
+<tr><th id="380">380</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="381">381</th><td><i class="doc">  /// Extracts an unsigned LEB128 number from this object's data</i></td></tr>
+<tr><th id="382">382</th><td><i class="doc">  /// starting at the offset pointed to by<span class="command"> \a</span> <span class="arg">offset_ptr.</span> The offset</i></td></tr>
+<tr><th id="383">383</th><td><i class="doc">  /// pointed to by<span class="command"> \a</span> <span class="arg">offset_ptr</span> will be updated with the offset of</i></td></tr>
+<tr><th id="384">384</th><td><i class="doc">  /// the byte following the last extracted byte.</i></td></tr>
+<tr><th id="385">385</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="386">386</th><td><i class="doc">  /// <span class="command">@param</span>[in,out] <span class="arg">offset_ptr</span></i></td></tr>
+<tr><th id="387">387</th><td><i class="doc">  ///     A pointer to an offset within the data that will be advanced</i></td></tr>
+<tr><th id="388">388</th><td><i class="doc">  ///     by the appropriate number of bytes if the value is extracted</i></td></tr>
+<tr><th id="389">389</th><td><i class="doc">  ///     correctly. If the offset is out of bounds or there are not</i></td></tr>
+<tr><th id="390">390</th><td><i class="doc">  ///     enough bytes to extract this value, the offset will be left</i></td></tr>
+<tr><th id="391">391</th><td><i class="doc">  ///     unmodified.</i></td></tr>
+<tr><th id="392">392</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="393">393</th><td><i class="doc">  /// <span class="command">@return</span></i></td></tr>
+<tr><th id="394">394</th><td><i class="doc">  ///     The extracted unsigned integer value.</i></td></tr>
+<tr><th id="395">395</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="decl" id="_ZNK4llvm13DataExtractor10getULEB128EPj" title='llvm::DataExtractor::getULEB128' data-ref="_ZNK4llvm13DataExtractor10getULEB128EPj">getULEB128</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col3 decl" id="273offset_ptr" title='offset_ptr' data-type='uint32_t *' data-ref="273offset_ptr">offset_ptr</dfn>) <em>const</em>;</td></tr>
+<tr><th id="396">396</th><td></td></tr>
+<tr><th id="397">397</th><td>  <i class="doc">/// Test the validity of<span class="command"> \a</span> <span class="arg">offset.</span></i></td></tr>
+<tr><th id="398">398</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="399">399</th><td><i class="doc">  /// <span class="command">@return</span></i></td></tr>
+<tr><th id="400">400</th><td><i class="doc">  ///    <span class="command"> \b</span> <span class="arg">true</span> if<span class="command"> \a</span> <span class="arg">offset</span> is a valid offset into the data in this</i></td></tr>
+<tr><th id="401">401</th><td><i class="doc">  ///     object,<span class="command"> \b</span> <span class="arg">false</span> otherwise.</i></td></tr>
+<tr><th id="402">402</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm13DataExtractor13isValidOffsetEj" title='llvm::DataExtractor::isValidOffset' data-ref="_ZNK4llvm13DataExtractor13isValidOffsetEj">isValidOffset</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col4 decl" id="274offset" title='offset' data-type='uint32_t' data-ref="274offset">offset</dfn>) <em>const</em> { <b>return</b> <a class="member" href="#llvm::DataExtractor::Data" title='llvm::DataExtractor::Data' data-ref="llvm::DataExtractor::Data">Data</a>.<a class="ref" href="../ADT/StringRef.h.html#_ZNK4llvm9StringRef4sizeEv" title='llvm::StringRef::size' data-ref="_ZNK4llvm9StringRef4sizeEv">size</a>() &gt; <a class="local col4 ref" href="#274offset" title='offset' data-ref="274offset">offset</a>; }</td></tr>
+<tr><th id="403">403</th><td></td></tr>
+<tr><th id="404">404</th><td>  <i class="doc">/// Test the availability of<span class="command"> \a</span> <span class="arg">length</span> bytes of data from<span class="command"> \a</span> <span class="arg">offset.</span></i></td></tr>
+<tr><th id="405">405</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="406">406</th><td><i class="doc">  /// <span class="command">@return</span></i></td></tr>
+<tr><th id="407">407</th><td><i class="doc">  ///    <span class="command"> \b</span> <span class="arg">true</span> if<span class="command"> \a</span> <span class="arg">offset</span> is a valid offset and there are<span class="command"> \a</span></i></td></tr>
+<tr><th id="408">408</th><td><i class="doc">  ///     <span class="arg">length</span> bytes available at that offset,<span class="command"> \b</span> <span class="arg">false</span> otherwise.</i></td></tr>
+<tr><th id="409">409</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm13DataExtractor26isValidOffsetForDataOfSizeEjj" title='llvm::DataExtractor::isValidOffsetForDataOfSize' data-ref="_ZNK4llvm13DataExtractor26isValidOffsetForDataOfSizeEjj">isValidOffsetForDataOfSize</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col5 decl" id="275offset" title='offset' data-type='uint32_t' data-ref="275offset">offset</dfn>, <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col6 decl" id="276length" title='length' data-type='uint32_t' data-ref="276length">length</dfn>) <em>const</em> {</td></tr>
+<tr><th id="410">410</th><td>    <b>return</b> <a class="local col5 ref" href="#275offset" title='offset' data-ref="275offset">offset</a> + <a class="local col6 ref" href="#276length" title='length' data-ref="276length">length</a> &gt;= <a class="local col5 ref" href="#275offset" title='offset' data-ref="275offset">offset</a> &amp;&amp; <a class="member" href="#_ZNK4llvm13DataExtractor13isValidOffsetEj" title='llvm::DataExtractor::isValidOffset' data-ref="_ZNK4llvm13DataExtractor13isValidOffsetEj">isValidOffset</a>(<a class="local col5 ref" href="#275offset" title='offset' data-ref="275offset">offset</a> + <a class="local col6 ref" href="#276length" title='length' data-ref="276length">length</a> - <var>1</var>);</td></tr>
+<tr><th id="411">411</th><td>  }</td></tr>
+<tr><th id="412">412</th><td></td></tr>
+<tr><th id="413">413</th><td>  <i class="doc">/// Test the availability of enough bytes of data for a pointer from</i></td></tr>
+<tr><th id="414">414</th><td><i class="doc">  ///<span class="command"> \a</span> <span class="arg">offset.</span> The size of a pointer is<span class="command"> \a</span> <span class="arg">getAddressSize().</span></i></td></tr>
+<tr><th id="415">415</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="416">416</th><td><i class="doc">  /// <span class="command">@return</span></i></td></tr>
+<tr><th id="417">417</th><td><i class="doc">  ///    <span class="command"> \b</span> <span class="arg">true</span> if<span class="command"> \a</span> <span class="arg">offset</span> is a valid offset and there are enough</i></td></tr>
+<tr><th id="418">418</th><td><i class="doc">  ///     bytes for a pointer available at that offset,<span class="command"> \b</span> <span class="arg">false</span></i></td></tr>
+<tr><th id="419">419</th><td><i class="doc">  ///     otherwise.</i></td></tr>
+<tr><th id="420">420</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm13DataExtractor23isValidOffsetForAddressEj" title='llvm::DataExtractor::isValidOffsetForAddress' data-ref="_ZNK4llvm13DataExtractor23isValidOffsetForAddressEj">isValidOffsetForAddress</dfn>(<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col7 decl" id="277offset" title='offset' data-type='uint32_t' data-ref="277offset">offset</dfn>) <em>const</em> {</td></tr>
+<tr><th id="421">421</th><td>    <b>return</b> <a class="member" href="#_ZNK4llvm13DataExtractor26isValidOffsetForDataOfSizeEjj" title='llvm::DataExtractor::isValidOffsetForDataOfSize' data-ref="_ZNK4llvm13DataExtractor26isValidOffsetForDataOfSizeEjj">isValidOffsetForDataOfSize</a>(<a class="local col7 ref" href="#277offset" title='offset' data-ref="277offset">offset</a>, <a class="member" href="#llvm::DataExtractor::AddressSize" title='llvm::DataExtractor::AddressSize' data-ref="llvm::DataExtractor::AddressSize">AddressSize</a>);</td></tr>
+<tr><th id="422">422</th><td>  }</td></tr>
+<tr><th id="423">423</th><td>};</td></tr>
+<tr><th id="424">424</th><td></td></tr>
+<tr><th id="425">425</th><td>} <i>// namespace llvm</i></td></tr>
+<tr><th id="426">426</th><td></td></tr>
+<tr><th id="427">427</th><td><u>#<span data-ppcond="9">endif</span></u></td></tr>
+<tr><th id="428">428</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../clang/lib/CodeGen/ObjectFilePCHContainerOperations.cpp.html'>llvm/clang/lib/CodeGen/ObjectFilePCHContainerOperations.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,50 @@
+<def f='llvm/clang/lib/CodeGen/CodeGenFunction.h' l='924' type='bool clang::CodeGen::CodeGenFunction::OMPPrivateScope::Privatize()'/>
+<doc f='llvm/clang/lib/CodeGen/CodeGenFunction.h' l='916'>/// Privatizes local variables previously registered as private.
+    /// Registration is separate from the actual privatization to allow
+    /// initializers use values of the original variables, not the private one.
+    /// This is important, for example, if the private variable is a class
+    /// variable initialized by a constructor that references other private
+    /// variables. But at initialization original variables must be used, not
+    /// private copies.
+    /// \return true if at least one variable was privatized, false otherwise.</doc>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='364' u='c' c='_ZN12_GLOBAL__N_121CGOpenMPInnerExprInfoC1ERN5clang7CodeGen15CodeGenFunctionERKNS1_12CapturedStmtE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='810' u='c' c='_ZL32emitInitWithReductionInitializerRN5clang7CodeGen15CodeGenFunctionEPKNS_23OMPDeclareReductionDeclEPKNS_4ExprENS0_7AddressES9_NS_8QualTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='1323' u='c' c='_ZL25emitCombinerOrInitializerRN5clang7CodeGen13CodeGenModuleENS_8QualTypeEPKNS_4ExprEPKNS_7VarDeclES9_b'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='4818' u='c' c='_ZL16emitPrivatesInitRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveENS0_7AddressENS0_6LValueEPKNS_10RecordDeclENS_8QualTypeESB_RKNS0_14046478'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='4832' u='c' c='_ZL16emitPrivatesInitRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveENS0_7AddressENS0_6LValueEPKNS_10RecordDeclENS_8QualTypeESB_RKNS0_14046478'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='5495' u='c' c='_ZL25EmitOMPAggregateReductionRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeEPKNS_7VarDeclES6_RKN4llvm12function_refIFvS2_PKNS_4ExprESB_SB_EEESB_SB_SB_'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='5601' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime21emitReductionFunctionENS_14SourceLocationEPN4llvm4TypeENS3_8ArrayRefIPKNS_4ExprEEESA_SA_SA_'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='5888' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime13emitReductionERNS0_15CodeGenFunctionENS_14SourceLocationEN4llvm8ArrayRefIPKNS_4ExprEEESA_SA_SA_NS1_18ReductionOptionsTyE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='6105' u='c' c='_ZL22emitReduceCombFunctionRN5clang7CodeGen13CodeGenModuleENS_14SourceLocationERNS0_16ReductionCodeGenEjPKNS_4ExprES8_S8_S8_'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='83' u='c' c='_ZN12_GLOBAL__N_115OMPLexicalScopeC1ERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveEN4llvm8OptionalINS1_19OpenMPDirectiveKindEEEb'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='205' u='c' c='_ZN12_GLOBAL__N_119OMPSimdLexicalScopeC1ERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='552' u='c' c='_ZN5clang7CodeGen15CodeGenFunction34GenerateOpenMPCapturedStmtFunctionERKNS_12CapturedStmtE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='688' u='c' c='_ZN5clang7CodeGen15CodeGenFunction11EmitOMPCopyENS_8QualTypeENS0_7AddressES3_PKNS_7VarDeclES6_PKNS_4ExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='697' u='c' c='_ZN5clang7CodeGen15CodeGenFunction11EmitOMPCopyENS_8QualTypeENS0_7AddressES3_PKNS_7VarDeclES6_PKNS_4ExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='1298' u='c' c='_ZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS_20OMPParallelDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='1447' u='c' c='_ZN5clang7CodeGen15CodeGenFunction24EmitOMPLinearClauseFinalERKNS_16OMPLoopDirectiveEN4llvm12function_refIFPNS5_5ValueERS1_EEE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='1550' u='c' c='_ZL11emitPreCondRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEPKNS_4ExprEPN4llvm10BasicBlockESB_m'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='1751' u='c' c='_ZL17emitOMPSimdRegionRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveERNS0_15PrePostActionTyE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='2311' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_2192858'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='2608' u='c' c='_ZN5clang7CodeGen15CodeGenFunction12EmitSectionsERKNS_22OMPExecutableDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='2714' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitOMPSingleDirectiveERKNS_18OMPSingleDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='2990' u='c' c='_ZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveENS_19OpenMPDirectiveKindERKNS0_15RegionCodeGenTyERKN4llvm14681919'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='3040' u='c' c='_ZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveENS_19OpenMPDirectiveKindERKNS0_15RegionCodeGenTyERKN4llvm14681919'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='3134' u='c' c='_ZN5clang7CodeGen15CodeGenFunction31EmitOMPTargetTaskBasedDirectiveERKNS_22OMPExecutableDirectiveERKNS0_15RegionCodeGenTyERNS1_17OMPTargetDataInfoE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='3173' u='c' c='_ZN5clang7CodeGen15CodeGenFunction31EmitOMPTargetTaskBasedDirectiveERKNS_22OMPExecutableDirectiveERKNS0_15RegionCodeGenTyERNS1_17OMPTargetDataInfoE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='3369' u='c' c='_ZN5clang7CodeGen15CodeGenFunction21EmitOMPDistributeLoopERKNS_16OMPLoopDirectiveERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEEPNS_4ExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='4114' u='c' c='_ZL16emitTargetRegionRN5clang7CodeGen15CodeGenFunctionERKNS_18OMPTargetDirectiveERNS0_15PrePostActionTyE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='4176' u='c' c='_ZN5clang7CodeGen15CodeGenFunction21EmitOMPTeamsDirectiveERKNS_17OMPTeamsDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='4196' u='c' c='_ZL21emitTargetTeamsRegionRN5clang7CodeGen15CodeGenFunctionERNS0_15PrePostActionTyERKNS_23OMPTargetTeamsDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='4243' u='c' c='_ZL31emitTargetTeamsDistributeRegionRN5clang7CodeGen15CodeGenFunctionERNS0_15PrePostActionTyERKNS_33OMPTargetTeamsDistributeDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='4289' u='c' c='_ZL35emitTargetTeamsDistributeSimdRegionRN5clang7CodeGen15CodeGenFunctionERNS0_15PrePostActionTyERKNS_37OMPTargetTeamsDistributeSimdDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='4334' u='c' c='_ZN5clang7CodeGen15CodeGenFunction31EmitOMPTeamsDistributeDirectiveERKNS_27OMPTeamsDistributeDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='4356' u='c' c='_ZN5clang7CodeGen15CodeGenFunction35EmitOMPTeamsDistributeSimdDirectiveERKNS_31OMPTeamsDistributeSimdDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='4379' u='c' c='_ZN5clang7CodeGen15CodeGenFunction42EmitOMPTeamsDistributeParallelForDirectiveERKNS_38OMPTeamsDistributeParallelForDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='4402' u='c' c='_ZN5clang7CodeGen15CodeGenFunction46EmitOMPTeamsDistributeParallelForSimdDirectiveERKNS_42OMPTeamsDistributeParallelForSimdDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='4427' u='c' c='_ZL42emitTargetTeamsDistributeParallelForRegionRN5clang7CodeGen15CodeGenFunctionERKNS_44OMPTargetTeamsDistributeParallelForDirectiveERNS0_15PrePostActionTyE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='4479' u='c' c='_ZL46emitTargetTeamsDistributeParallelForSimdRegionRN5clang7CodeGen15CodeGenFunctionERKNS_48OMPTargetTeamsDistributeParallelForSimdDirectiveERNS0_15PrePostActionTyE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='4656' u='c' c='_ZN5clang7CodeGen15CodeGenFunction26EmitOMPTargetDataDirectiveERKNS_22OMPTargetDataDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='4756' u='c' c='_ZL24emitTargetParallelRegionRN5clang7CodeGen15CodeGenFunctionERKNS_26OMPTargetParallelDirectiveERNS0_15PrePostActionTyE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='4955' u='c' c='_ZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='5089' u='c' c='_ZN5clang7CodeGen15CodeGenFunction32EmitSimpleOMPExecutableDirectiveERKNS_22OMPExecutableDirectiveE'/>

@@ -1,0 +1,21 @@
+<dec f='llvm/clang/include/clang/ASTMatchers/ASTMatchFinder.h' l='172' type='bool clang::ast_matchers::MatchFinder::addDynamicMatcher(const internal::DynTypedMatcher &amp; NodeMatch, clang::ast_matchers::MatchFinder::MatchCallback * Action)'/>
+<def f='llvm/clang/lib/ASTMatchers/ASTMatchFinder.cpp' l='990' ll='1015' type='bool clang::ast_matchers::MatchFinder::addDynamicMatcher(const internal::DynTypedMatcher &amp; NodeMatch, clang::ast_matchers::MatchFinder::MatchCallback * Action)'/>
+<doc f='llvm/clang/include/clang/ASTMatchers/ASTMatchFinder.h' l='162'>/// @}
+
+  /// Adds a matcher to execute when running over the AST.
+  ///
+  /// This is similar to \c addMatcher(), but it uses the dynamic interface. It
+  /// is more flexible, but the lost type information enables a caller to pass
+  /// a matcher that cannot match anything.
+  ///
+  /// \returns \c true if the matcher is a valid top-level matcher, \c false
+  ///   otherwise.</doc>
+<use f='llvm/clang/lib/Tooling/Refactoring/Transformer.cpp' l='205' u='c' c='_ZN5clang7tooling11Transformer16registerMatchersEPNS_12ast_matchers11MatchFinderE'/>
+<use f='llvm/clang/lib/Tooling/RefactoringCallbacks.cpp' l='34' u='c' c='_ZN5clang7tooling18ASTMatchRefactorer17addDynamicMatcherERKNS_12ast_matchers8internal15DynTypedMatcherEPNS0_19RefactoringCallbackE'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTest.h' l='71' u='c' c='_ZN5clang12ast_matchers20matchesConditionallyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_bN4llvm8ArrayRefINSC_9StringRefEEERKSt6vectorI11413336'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTest.h' l='195' u='c' c='_ZN5clang12ast_matchers28matchesConditionallyWithCudaERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_bN4llvm9StringRefE'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='23' u='c' c='_ZN5clang12ast_matchers42Finder_DynamicOnlyAcceptsSomeMatchers_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='24' u='c' c='_ZN5clang12ast_matchers42Finder_DynamicOnlyAcceptsSomeMatchers_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='25' u='c' c='_ZN5clang12ast_matchers42Finder_DynamicOnlyAcceptsSomeMatchers_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='29' u='c' c='_ZN5clang12ast_matchers42Finder_DynamicOnlyAcceptsSomeMatchers_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNodeTest.cpp' l='30' u='c' c='_ZN5clang12ast_matchers42Finder_DynamicOnlyAcceptsSomeMatchers_Test8TestBodyEv'/>

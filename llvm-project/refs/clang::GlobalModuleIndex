@@ -1,0 +1,33 @@
+<def f='llvm/clang/include/clang/Serialization/GlobalModuleIndex.h' l='55' ll='200'/>
+<size>1512</size>
+<doc f='llvm/clang/include/clang/Serialization/GlobalModuleIndex.h' l='44'>/// A global index for a set of module files, providing information about
+/// the identifiers within those module files.
+///
+/// The global index is an aid for name lookup into modules, offering a central
+/// place where one can look for identifiers determine which
+/// module files contain any information about that identifier. This
+/// allows the client to restrict the search to only those module files known
+/// to have a information about that identifier, improving performance. Moreover,
+/// the global module index may know about module files that have not been
+/// imported, and can be queried to determine which modules the current
+/// translation could or should load to fix a problem.</doc>
+<mbr r='clang::GlobalModuleIndex::Buffer' o='0' t='std::unique_ptr&lt;llvm::MemoryBuffer&gt;'/>
+<mbr r='clang::GlobalModuleIndex::IdentifierIndex' o='64' t='void *'/>
+<mbr r='clang::GlobalModuleIndex::Modules' o='128' t='llvm::SmallVector&lt;ModuleInfo, 16&gt;'/>
+<mbr r='clang::GlobalModuleIndex::ModulesByFile' o='11520' t='llvm::DenseMap&lt;ModuleFile *, unsigned int&gt;'/>
+<mbr r='clang::GlobalModuleIndex::UnresolvedModules' o='11776' t='llvm::StringMap&lt;unsigned int&gt;'/>
+<mbr r='clang::GlobalModuleIndex::NumIdentifierLookups' o='12032' t='unsigned int'/>
+<mbr r='clang::GlobalModuleIndex::NumIdentifierLookupHits' o='12064' t='unsigned int'/>
+<fun r='_ZN5clang17GlobalModuleIndexC1ESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS3_EENS2_15BitstreamCursorE'/>
+<fun r='_ZN5clang17GlobalModuleIndexC1ERKS0_'/>
+<fun r='_ZN5clang17GlobalModuleIndexaSERKS0_'/>
+<fun r='_ZN5clang17GlobalModuleIndexD1Ev'/>
+<fun r='_ZN5clang17GlobalModuleIndex9readIndexEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang17GlobalModuleIndex24createIdentifierIteratorEv'/>
+<fun r='_ZN5clang17GlobalModuleIndex15getKnownModulesERN4llvm15SmallVectorImplIPNS_13serialization10ModuleFileEEE'/>
+<fun r='_ZN5clang17GlobalModuleIndex21getModuleDependenciesEPNS_13serialization10ModuleFileERN4llvm15SmallVectorImplIS3_EE'/>
+<fun r='_ZN5clang17GlobalModuleIndex16lookupIdentifierEN4llvm9StringRefERNS1_11SmallPtrSetIPNS_13serialization10ModuleFileELj4EEE'/>
+<fun r='_ZN5clang17GlobalModuleIndex16loadedModuleFileEPNS_13serialization10ModuleFileE'/>
+<fun r='_ZN5clang17GlobalModuleIndex10printStatsEv'/>
+<fun r='_ZN5clang17GlobalModuleIndex4dumpEv'/>
+<fun r='_ZN5clang17GlobalModuleIndex10writeIndexERNS_11FileManagerERKNS_18PCHContainerReaderEN4llvm9StringRefE'/>

@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/lib/AsmParser/LLParser.h' l='297' type='bool llvm::LLParser::ParseIndexList(SmallVectorImpl&lt;unsigned int&gt; &amp; Indices, bool &amp; AteExtraComma)'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.h' l='301' u='c' c='_ZN4llvm8LLParser14ParseIndexListERNS_15SmallVectorImplIjEE'/>
+<def f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='2286' ll='2305' type='bool llvm::LLParser::ParseIndexList(SmallVectorImpl&lt;unsigned int&gt; &amp; Indices, bool &amp; AteExtraComma)'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='7213' u='c' c='_ZN4llvm8LLParser17ParseExtractValueERPNS_11InstructionERNS0_16PerFunctionStateE'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='7234' u='c' c='_ZN4llvm8LLParser16ParseInsertValueERPNS_11InstructionERNS0_16PerFunctionStateE'/>
+<doc f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='2277'>/// ParseIndexList - This parses the index list for an insert/extractvalue
+/// instruction.  This sets AteExtraComma in the case where we eat an extra
+/// comma at the end of the line and find that it is followed by metadata.
+/// Clients that don&apos;t allow metadata can call the version of this function that
+/// only takes one argument.
+///
+/// ParseIndexList
+///    ::=  (&apos;,&apos; uint32)+
+///</doc>

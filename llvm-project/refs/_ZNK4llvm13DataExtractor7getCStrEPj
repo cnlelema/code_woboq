@@ -1,0 +1,53 @@
+<dec f='llvm/llvm/include/llvm/Support/DataExtractor.h' l='82' type='const char * llvm::DataExtractor::getCStr(uint32_t * offset_ptr) const'/>
+<use f='llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFAcceleratorTable.h' l='376' u='c' c='_ZNK4llvm15DWARFDebugNames14NameTableEntry9getStringEv'/>
+<doc f='llvm/llvm/include/llvm/Support/DataExtractor.h' l='62'>/// Extract a C string from \a *offset_ptr.
+  ///
+  /// Returns a pointer to a C String from the data at the offset
+  /// pointed to by \a offset_ptr. A variable length NULL terminated C
+  /// string will be extracted and the \a offset_ptr will be
+  /// updated with the offset of the byte that follows the NULL
+  /// terminator byte.
+  ///
+  /// @param[in,out] offset_ptr
+  ///     A pointer to an offset within the data that will be advanced
+  ///     by the appropriate number of bytes if the value is extracted
+  ///     correctly. If the offset is out of bounds or there are not
+  ///     enough bytes to extract this value, the offset will be left
+  ///     unmodified.
+  ///
+  /// @return
+  ///     A pointer to the C string value in the data. If the offset
+  ///     pointed to by \a offset_ptr is out of bounds, or if the
+  ///     offset plus the length of the C string is out of bounds,
+  ///     NULL will be returned.</doc>
+<use f='llvm/lld/lib/ReaderWriter/MachO/MachONormalizedFileToAtoms.cpp' l='858' u='c' c='_ZN3lld6mach_o12_GLOBAL__N_1L16getIndexedStringERKNS0_10normalized14NormalizedFileEN4llvm5dwarf4FormENS6_13DataExtractorERjRKNS2_7SectionE'/>
+<use f='llvm/lld/lib/ReaderWriter/MachO/MachONormalizedFileToAtoms.cpp' l='865' u='c' c='_ZN3lld6mach_o12_GLOBAL__N_1L16getIndexedStringERKNS0_10normalized14NormalizedFileEN4llvm5dwarf4FormENS6_13DataExtractorERjRKNS2_7SectionE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAcceleratorTable.cpp' l='179' u='c' c='_ZNK4llvm21AppleAcceleratorTable8dumpNameERNS_13ScopedPrinterERNS_15SmallVectorImplINS_14DWARFFormValueEEEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFAcceleratorTable.cpp' l='359' u='c' c='_ZNK4llvm21AppleAcceleratorTable11equal_rangeENS_9StringRefE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFContext.cpp' l='192' u='c' c='_ZL31dumpDWARFv5StringOffsetsSectionRN4llvm11raw_ostreamENS_9StringRefERKNS_11DWARFObjectERKNS_12DWARFSectionES2_NS_14iterator_rangeIPSt10unique_ptrIN12358600'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFContext.cpp' l='240' u='c' c='_ZL24dumpStringOffsetsSectionRN4llvm11raw_ostreamENS_9StringRefERKNS_11DWARFObjectERKNS_12DWARFSectionES2_NS_14iterator_rangeIPSt10unique_ptrINS_9DWAR14224868'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFContext.cpp' l='480' u='c' c='_ZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayINS_8OptionalImEELm28EE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFContext.cpp' l='490' u='c' c='_ZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayINS_8OptionalImEELm28EE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFContext.cpp' l='500' u='c' c='_ZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayINS_8OptionalImEELm28EE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugFrame.cpp' l='391' u='c' c='_ZN4llvm15DWARFDebugFrame5parseENS_18DWARFDataExtractorE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='601' u='c' c='_ZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPjRKNS_12DWARFContextEPKNS_9DWARFUnitESt8functionIFvNS_5ErrorEEEPNS_11raw_ostreamE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugMacro.cpp' l='80' u='c' c='_ZN4llvm15DWARFDebugMacro5parseENS_13DataExtractorE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugMacro.cpp' l='94' u='c' c='_ZN4llvm15DWARFDebugMacro5parseENS_13DataExtractorE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFFormValue.cpp' l='140' u='c' c='_ZN4llvm14DWARFFormValue9skipValueENS_5dwarf4FormENS_13DataExtractorEPjNS1_10FormParamsE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFFormValue.cpp' l='318' u='c' c='_ZN4llvm14DWARFFormValue12extractValueERKNS_18DWARFDataExtractorEPjNS_5dwarf10FormParamsEPKNS_12DWARFContextEPKNS_9DWARFUnitE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFFormValue.cpp' l='596' u='c' c='_ZNK4llvm14DWARFFormValue12getAsCStringEv'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFFormValue.cpp' l='613' u='c' c='_ZNK4llvm14DWARFFormValue12getAsCStringEv'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFFormValue.cpp' l='617' u='c' c='_ZNK4llvm14DWARFFormValue12getAsCStringEv'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFVerifier.cpp' l='879' u='c' c='_ZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS_12DWARFSectionEPNS_13DataExtractorEPKc'/>
+<use f='llvm/llvm/lib/DebugInfo/Symbolize/Symbolize.cpp' l='229' u='c' c='_ZN4llvm9symbolize12_GLOBAL__N_123getGNUDebuglinkContentsEPKNS_6object10ObjectFileERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERj'/>
+<def f='llvm/llvm/lib/Support/DataExtractor.cpp' l='127' ll='135' type='const char * llvm::DataExtractor::getCStr(uint32_t * offset_ptr) const'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfStreamer.cpp' l='627' u='c' c='_ZN4llvm8dsymutil13DwarfStreamer18translateLineTableENS_13DataExtractorEj'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfStreamer.cpp' l='639' u='c' c='_ZN4llvm8dsymutil13DwarfStreamer18translateLineTableENS_13DataExtractorEj'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='78' u='c' c='_ZL22writeStringsAndOffsetsRN4llvm10MCStreamerERNS_13DWPStringPoolEPNS_9MCSectionENS_9StringRefES6_'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='123' u='c' c='_ZL16getIndexedStringN4llvm5dwarf4FormENS_13DataExtractorERjNS_9StringRefES4_'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='132' u='c' c='_ZL16getIndexedStringN4llvm5dwarf4FormENS_13DataExtractorERjNS_9StringRefES4_'/>
+<use f='llvm/llvm/tools/obj2yaml/dwarf2yaml.cpp' l='96' u='c' c='_Z14dumpPubSectionRN4llvm12DWARFContextERNS_9DWARFYAML10PubSectionENS_12DWARFSectionE'/>
+<use f='llvm/llvm/tools/obj2yaml/dwarf2yaml.cpp' l='231' u='c' c='_Z13dumpFileEntryRN4llvm13DataExtractorERjRNS_9DWARFYAML4FileE'/>
+<use f='llvm/llvm/tools/obj2yaml/dwarf2yaml.cpp' l='272' u='c' c='_Z14dumpDebugLinesRN4llvm12DWARFContextERNS_9DWARFYAML4DataE'/>
+<use f='llvm/llvm/unittests/Support/DataExtractorTest.cpp' l='94' u='c' c='_ZN12_GLOBAL__N_130DataExtractorTest_Strings_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/DataExtractorTest.cpp' l='96' u='c' c='_ZN12_GLOBAL__N_130DataExtractorTest_Strings_Test8TestBodyEv'/>

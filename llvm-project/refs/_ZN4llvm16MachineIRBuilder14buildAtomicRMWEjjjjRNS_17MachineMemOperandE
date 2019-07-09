@@ -1,0 +1,27 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='950' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildAtomicRMW(unsigned int Opcode, unsigned int OldValRes, unsigned int Addr, unsigned int Val, llvm::MachineMemOperand &amp; MMO)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='937'>/// Build and insert `OldValRes&lt;def&gt; = G_ATOMICRMW_&lt;Opcode&gt; Addr, Val, MMO`.
+  ///
+  /// Atomically read-modify-update the value at \p Addr with \p Val. Puts the
+  /// original value from \p Addr in \p OldValRes. The modification is
+  /// determined by the opcode.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p OldValRes must be a generic virtual register.
+  /// \pre \p Addr must be a generic virtual register with pointer type.
+  /// \pre \p OldValRes, and \p Val must be generic virtual registers of the
+  ///      same type.
+  ///
+  /// \return a MachineInstrBuilder for the newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='1658' u='c' c='_ZN4llvm12IRTranslator18translateAtomicRMWERKNS_4UserERNS_16MachineIRBuilderE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='752' ll='772' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildAtomicRMW(unsigned int Opcode, unsigned int OldValRes, unsigned int Addr, unsigned int Val, llvm::MachineMemOperand &amp; MMO)'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='777' u='c' c='_ZN4llvm16MachineIRBuilder18buildAtomicRMWXchgEjjjRNS_17MachineMemOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='783' u='c' c='_ZN4llvm16MachineIRBuilder17buildAtomicRMWAddEjjjRNS_17MachineMemOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='789' u='c' c='_ZN4llvm16MachineIRBuilder17buildAtomicRMWSubEjjjRNS_17MachineMemOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='795' u='c' c='_ZN4llvm16MachineIRBuilder17buildAtomicRMWAndEjjjRNS_17MachineMemOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='801' u='c' c='_ZN4llvm16MachineIRBuilder18buildAtomicRMWNandEjjjRNS_17MachineMemOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='808' u='c' c='_ZN4llvm16MachineIRBuilder16buildAtomicRMWOrEjjjRNS_17MachineMemOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='814' u='c' c='_ZN4llvm16MachineIRBuilder17buildAtomicRMWXorEjjjRNS_17MachineMemOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='820' u='c' c='_ZN4llvm16MachineIRBuilder17buildAtomicRMWMaxEjjjRNS_17MachineMemOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='826' u='c' c='_ZN4llvm16MachineIRBuilder17buildAtomicRMWMinEjjjRNS_17MachineMemOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='832' u='c' c='_ZN4llvm16MachineIRBuilder18buildAtomicRMWUmaxEjjjRNS_17MachineMemOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='838' u='c' c='_ZN4llvm16MachineIRBuilder18buildAtomicRMWUminEjjjRNS_17MachineMemOperandE'/>

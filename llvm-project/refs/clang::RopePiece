@@ -1,0 +1,22 @@
+<def f='llvm/clang/include/clang/Rewrite/Core/RewriteRope.h' l='58' ll='76'/>
+<size>16</size>
+<doc f='llvm/clang/include/clang/Rewrite/Core/RewriteRope.h' l='46'>//===--------------------------------------------------------------------===//
+  // RopePiece Class
+  //===--------------------------------------------------------------------===//
+
+  /// RopePiece - This class represents a view into a RopeRefCountString object.
+  /// This allows references to string data to be efficiently chopped up and
+  /// moved around without having to push around the string data itself.
+  ///
+  /// For example, we could have a 1M RopePiece and want to insert something
+  /// into the middle of it.  To do this, we split it into two RopePiece objects
+  /// that both refer to the same underlying RopeRefCountString (just with
+  /// different offsets) which is a nice constant time operation.</doc>
+<mbr r='clang::RopePiece::StrData' o='0' t='llvm::IntrusiveRefCntPtr&lt;RopeRefCountString&gt;'/>
+<mbr r='clang::RopePiece::StartOffs' o='64' t='unsigned int'/>
+<mbr r='clang::RopePiece::EndOffs' o='96' t='unsigned int'/>
+<fun r='_ZN5clang9RopePieceC1Ev'/>
+<fun r='_ZN5clang9RopePieceC1EN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEEjj'/>
+<fun r='_ZNK5clang9RopePieceixEj'/>
+<fun r='_ZN5clang9RopePieceixEj'/>
+<fun r='_ZNK5clang9RopePiece4sizeEv'/>

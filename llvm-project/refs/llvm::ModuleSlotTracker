@@ -1,0 +1,24 @@
+<def f='llvm/llvm/include/llvm/IR/ModuleSlotTracker.h' l='29' ll='75'/>
+<size>40</size>
+<doc f='llvm/llvm/include/llvm/IR/ModuleSlotTracker.h' l='21'>/// Manage lifetime of a slot tracker for printing IR.
+///
+/// Wrapper around the \a SlotTracker used internally by \a AsmWriter.  This
+/// class allows callers to share the cost of incorporating the metadata in a
+/// module or a function.
+///
+/// If the IR changes from underneath \a ModuleSlotTracker, strings like
+/// &quot;&lt;badref&gt;&quot; will be printed, or, worse, the wrong slots entirely.</doc>
+<mbr r='llvm::ModuleSlotTracker::MachineStorage' o='0' t='std::unique_ptr&lt;SlotTracker&gt;'/>
+<mbr r='llvm::ModuleSlotTracker::ShouldCreateStorage' o='64' t='bool'/>
+<mbr r='llvm::ModuleSlotTracker::ShouldInitializeAllMetadata' o='72' t='bool'/>
+<mbr r='llvm::ModuleSlotTracker::M' o='128' t='const llvm::Module *'/>
+<mbr r='llvm::ModuleSlotTracker::F' o='192' t='const llvm::Function *'/>
+<mbr r='llvm::ModuleSlotTracker::Machine' o='256' t='llvm::SlotTracker *'/>
+<fun r='_ZN4llvm17ModuleSlotTrackerC1ERNS_11SlotTrackerEPKNS_6ModuleEPKNS_8FunctionE'/>
+<fun r='_ZN4llvm17ModuleSlotTrackerC1EPKNS_6ModuleEb'/>
+<fun r='_ZN4llvm17ModuleSlotTrackerD1Ev'/>
+<fun r='_ZN4llvm17ModuleSlotTracker10getMachineEv'/>
+<fun r='_ZNK4llvm17ModuleSlotTracker9getModuleEv'/>
+<fun r='_ZNK4llvm17ModuleSlotTracker18getCurrentFunctionEv'/>
+<fun r='_ZN4llvm17ModuleSlotTracker19incorporateFunctionERKNS_8FunctionE'/>
+<fun r='_ZN4llvm17ModuleSlotTracker12getLocalSlotEPKNS_5ValueE'/>

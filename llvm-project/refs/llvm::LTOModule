@@ -1,0 +1,58 @@
+<def f='llvm/llvm/include/llvm/LTO/legacy/LTOModule.h' l='38' ll='216'/>
+<size>400</size>
+<doc f='llvm/llvm/include/llvm/LTO/legacy/LTOModule.h' l='35'>//===----------------------------------------------------------------------===//
+/// C++ class which implements the opaque lto_module_t type.
+///</doc>
+<mbr r='llvm::LTOModule::OwnedContext' o='0' t='std::unique_ptr&lt;LLVMContext&gt;'/>
+<mbr r='llvm::LTOModule::LinkerOpts' o='64' t='std::string'/>
+<mbr r='llvm::LTOModule::DependentLibraries' o='320' t='std::string'/>
+<mbr r='llvm::LTOModule::Mod' o='576' t='std::unique_ptr&lt;Module&gt;'/>
+<mbr r='llvm::LTOModule::MBRef' o='640' t='llvm::MemoryBufferRef'/>
+<mbr r='llvm::LTOModule::SymTab' o='896' t='llvm::ModuleSymbolTable'/>
+<mbr r='llvm::LTOModule::_target' o='2240' t='std::unique_ptr&lt;TargetMachine&gt;'/>
+<mbr r='llvm::LTOModule::_symbols' o='2304' t='std::vector&lt;NameAndAttributes&gt;'/>
+<mbr r='llvm::LTOModule::_defines' o='2496' t='StringSet&lt;&gt;'/>
+<mbr r='llvm::LTOModule::_undefines' o='2752' t='StringMap&lt;llvm::LTOModule::NameAndAttributes&gt;'/>
+<mbr r='llvm::LTOModule::_asm_undefines' o='3008' t='std::vector&lt;StringRef&gt;'/>
+<fun r='_ZN4llvm9LTOModuleC1ESt10unique_ptrINS_6ModuleESt14default_deleteIS2_EENS_15MemoryBufferRefEPNS_13TargetMachineE'/>
+<fun r='_ZN4llvm9LTOModuleD1Ev'/>
+<fun r='_ZN4llvm9LTOModule13isBitcodeFileEPKvm'/>
+<fun r='_ZN4llvm9LTOModule13isBitcodeFileENS_9StringRefE'/>
+<fun r='_ZN4llvm9LTOModule9isThinLTOEv'/>
+<fun r='_ZN4llvm9LTOModule18isBitcodeForTargetEPNS_12MemoryBufferENS_9StringRefE'/>
+<fun r='_ZN4llvm9LTOModule17getProducerStringEPNS_12MemoryBufferE'/>
+<fun r='_ZN4llvm9LTOModule10makeBufferEPKvmNS_9StringRefE'/>
+<fun r='_ZN4llvm9LTOModule14createFromFileERNS_11LLVMContextENS_9StringRefERKNS_13TargetOptionsE'/>
+<fun r='_ZN4llvm9LTOModule18createFromOpenFileERNS_11LLVMContextEiNS_9StringRefEmRKNS_13TargetOptionsE'/>
+<fun r='_ZN4llvm9LTOModule23createFromOpenFileSliceERNS_11LLVMContextEiNS_9StringRefEmlRKNS_13TargetOptionsE'/>
+<fun r='_ZN4llvm9LTOModule16createFromBufferERNS_11LLVMContextEPKvmRKNS_13TargetOptionsENS_9StringRefE'/>
+<fun r='_ZN4llvm9LTOModule20createInLocalContextESt10unique_ptrINS_11LLVMContextESt14default_deleteIS2_EEPKvmRKNS_13TargetOptionsENS_9StringRefE'/>
+<fun r='_ZNK4llvm9LTOModule9getModuleEv'/>
+<fun r='_ZN4llvm9LTOModule9getModuleEv'/>
+<fun r='_ZN4llvm9LTOModule10takeModuleEv'/>
+<fun r='_ZN4llvm9LTOModule15getTargetTripleEv'/>
+<fun r='_ZN4llvm9LTOModule15setTargetTripleENS_9StringRefE'/>
+<fun r='_ZN4llvm9LTOModule14getSymbolCountEv'/>
+<fun r='_ZN4llvm9LTOModule19getSymbolAttributesEj'/>
+<fun r='_ZN4llvm9LTOModule13getSymbolNameEj'/>
+<fun r='_ZN4llvm9LTOModule11getSymbolGVEj'/>
+<fun r='_ZN4llvm9LTOModule13getLinkerOptsEv'/>
+<fun r='_ZN4llvm9LTOModule19getAsmUndefinedRefsEv'/>
+<fun r='_ZN4llvm9LTOModule15createInputFileEPKvmPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN4llvm9LTOModule24getDependentLibraryCountEPNS_3lto9InputFileE'/>
+<fun r='_ZN4llvm9LTOModule19getDependentLibraryEPNS_3lto9InputFileEmPm'/>
+<fun r='_ZN4llvm9LTOModule13parseMetadataEv'/>
+<fun r='_ZN4llvm9LTOModule12parseSymbolsEv'/>
+<fun r='_ZN4llvm9LTOModule27addPotentialUndefinedSymbolENS_12PointerUnionIJPNS_11GlobalValueEPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEEb'/>
+<fun r='_ZN4llvm9LTOModule16addDefinedSymbolENS_9StringRefEPKNS_11GlobalValueEb'/>
+<fun r='_ZN4llvm9LTOModule20addDefinedDataSymbolENS_12PointerUnionIJPNS_11GlobalValueEPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEE'/>
+<fun r='_ZN4llvm9LTOModule20addDefinedDataSymbolENS_9StringRefEPKNS_11GlobalValueE'/>
+<fun r='_ZN4llvm9LTOModule24addDefinedFunctionSymbolENS_12PointerUnionIJPNS_11GlobalValueEPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEE'/>
+<fun r='_ZN4llvm9LTOModule24addDefinedFunctionSymbolENS_9StringRefEPKNS_8FunctionE'/>
+<fun r='_ZN4llvm9LTOModule18addAsmGlobalSymbolENS_9StringRefE21lto_symbol_attributes'/>
+<fun r='_ZN4llvm9LTOModule23addAsmGlobalSymbolUndefENS_9StringRefE'/>
+<fun r='_ZN4llvm9LTOModule12addObjCClassEPKNS_14GlobalVariableE'/>
+<fun r='_ZN4llvm9LTOModule15addObjCCategoryEPKNS_14GlobalVariableE'/>
+<fun r='_ZN4llvm9LTOModule15addObjCClassRefEPKNS_14GlobalVariableE'/>
+<fun r='_ZN4llvm9LTOModule27objcClassNameFromExpressionEPKNS_8ConstantERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN4llvm9LTOModule13makeLTOModuleENS_15MemoryBufferRefERKNS_13TargetOptionsERNS_11LLVMContextEb'/>

@@ -1,0 +1,21 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/RegisterBankInfo.h' l='566' type='static void llvm::RegisterBankInfo::applyDefaultMapping(const llvm::RegisterBankInfo::OperandsMapper &amp; OpdMapper)'/>
+<use f='llvm/llvm/include/llvm/CodeGen/GlobalISel/RegisterBankInfo.h' l='713' u='c' c='_ZNK4llvm16RegisterBankInfo12applyMappingERKNS0_14OperandsMapperE'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/RegisterBankInfo.h' l='551'>/// Helper method to apply something that is like the default mapping.
+  /// Basically, that means that \p OpdMapper.getMI() is left untouched
+  /// aside from the reassignment of the register operand that have been
+  /// remapped.
+  ///
+  /// The type of all the new registers that have been created by the
+  /// mapper are properly remapped to the type of the original registers
+  /// they replace. In other words, the semantic of the instruction does
+  /// not change, only the register banks.
+  ///
+  /// If the mapping of one of the operand spans several registers, this
+  /// method will abort as this is not like a default mapping anymore.
+  ///
+  /// \pre For OpIdx in {0..\p OpdMapper.getMI().getNumOperands())
+  ///        the range OpdMapper.getVRegs(OpIdx) is empty or of size 1.</doc>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/RegisterBankInfo.cpp' l='415' ll='468' type='static void llvm::RegisterBankInfo::applyDefaultMapping(const llvm::RegisterBankInfo::OperandsMapper &amp; OpdMapper)'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64RegisterBankInfo.cpp' l='379' u='c' c='_ZNK4llvm23AArch64RegisterBankInfo16applyMappingImplERKNS_16RegisterBankInfo14OperandsMapperE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPURegisterBankInfo.cpp' l='853' u='c' c='_ZNK4llvm22AMDGPURegisterBankInfo16applyMappingImplERKNS_16RegisterBankInfo14OperandsMapperE'/>
+<use f='llvm/llvm/lib/Target/X86/X86RegisterBankInfo.cpp' l='271' u='c' c='_ZNK4llvm19X86RegisterBankInfo16applyMappingImplERKNS_16RegisterBankInfo14OperandsMapperE'/>

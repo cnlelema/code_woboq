@@ -1,0 +1,30 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='7770' type='Optional&lt;sema::TemplateDeductionInfo *&gt; clang::Sema::isSFINAEContext() const'/>
+<use f='llvm/clang/include/clang/Sema/Sema.h' l='7799' u='c' c='_ZN5clang4Sema10SFINAETrapC1ERS0_b'/>
+<doc f='llvm/clang/include/clang/Sema/Sema.h' l='7762'>/// Determines whether we are currently in a context where
+  /// template argument substitution failures are not considered
+  /// errors.
+  ///
+  /// \returns An empty \c Optional if we&apos;re not in a SFINAE context.
+  /// Otherwise, contains a pointer that, if non-NULL, contains the nearest
+  /// template-deduction context object, which can be used to capture
+  /// diagnostics that will be suppressed.</doc>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='1369' u='c' c='_ZN5clang4Sema21EmitCurrentDiagnosticEj'/>
+<use f='llvm/clang/lib/Sema/SemaCXXScopeSpec.cpp' l='122' u='c' c='_ZN5clang4Sema18computeDeclContextERKNS_12CXXScopeSpecEb'/>
+<use f='llvm/clang/lib/Sema/SemaCXXScopeSpec.cpp' l='243' u='c' c='_ZN5clang4Sema26RequireCompleteDeclContextERNS_12CXXScopeSpecEPNS_11DeclContextE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='10670' u='c' c='_ZN5clang4Sema20CheckCompareOperandsERNS_12ActionResultIPNS_4ExprELb1EEES5_NS_14SourceLocationENS_18BinaryOperatorKindE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='10672' u='c' c='_ZN5clang4Sema20CheckCompareOperandsERNS_12ActionResultIPNS_4ExprELb1EEES5_NS_14SourceLocationENS_18BinaryOperatorKindE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='12192' u='c' c='_ZN5clang4Sema21CheckAddressOfOperandERNS_12ActionResultIPNS_4ExprELb1EEENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='3303' u='c' c='_ZN5clang4Sema14ActOnCXXDeleteENS_14SourceLocationEbbPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='6860' u='c' c='_ZL10CheckArrowRN5clang4SemaERNS_8QualTypeERPNS_4ExprERNS_3tok9TokenKindENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='7059' u='c' c='_ZN5clang4Sema25ActOnPseudoDestructorExprEPNS_5ScopeEPNS_4ExprENS_14SourceLocationENS_3tok9TokenKindERNS_12CXXScopeSpecERNS_13UnqualifiedIdES5_S5_SB_'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='7112' u='c' c='_ZN5clang4Sema25ActOnPseudoDestructorExprEPNS_5ScopeEPNS_4ExprENS_14SourceLocationENS_3tok9TokenKindERNS_12CXXScopeSpecERNS_13UnqualifiedIdES5_S5_SB_'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='6114' u='c' c='_ZL10CopyObjectRN5clang4SemaENS_8QualTypeERKNS_17InitializedEntityENS_12ActionResultIPNS_4ExprELb1EEEb'/>
+<use f='llvm/clang/lib/Sema/SemaModule.cpp' l='505' u='c' c='_ZN5clang4Sema42createImplicitModuleImportForErrorRecoveryENS_14SourceLocationEPNS_6ModuleE'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='5679' u='c' c='_ZL26diagnoseNoViableConversionRN5clang4SemaENS_14SourceLocationERPNS_4ExprERNS0_27ContextualImplicitConverterENS_8QualTypeEbRNS_17UnresolvedSetImplE'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='5705' u='c' c='_ZL16recordConversionRN5clang4SemaENS_14SourceLocationERPNS_4ExprERNS0_27ContextualImplicitConverterENS_8QualTypeEbRNS_14DeclAccessPairE'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='12121' u='c' c='_ZN5clang4Sema22buildOverloadedCallSetEPNS_5ScopeEPNS_4ExprEPNS_20UnresolvedLookupExprEN4llvm15MutableArrayRefIS4_EENS_14SourceLocationEPNS_20Overload179389'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='748' u='c' c='_ZN5clang4Sema30DiagnoseUninstantiableTemplateENS_14SourceLocationEPNS_9NamedDeclEbPKS2_S5_NS_26TemplateSpecializationKindEb'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='3274' u='c' c='_ZN5clang4Sema19CheckTemplateIdTypeENS_12TemplateNameENS_14SourceLocationERNS_24TemplateArgumentListInfoE'/>
+<def f='llvm/clang/lib/Sema/SemaTemplateInstantiate.cpp' l='665' ll='725' type='Optional&lt;clang::sema::TemplateDeductionInfo *&gt; clang::Sema::isSFINAEContext() const'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='2339' u='c' c='_ZN5clang4Sema14BuildArrayTypeENS_8QualTypeENS_9ArrayType17ArraySizeModifierEPNS_4ExprEjNS_11SourceRangeENS_15DeclarationNameE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='8217' u='c' c='_ZN5clang4Sema23RequireCompleteTypeImplENS_14SourceLocationENS_8QualTypeEPNS0_13TypeDiagnoserE'/>

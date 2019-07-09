@@ -1,0 +1,83 @@
+<inh f='llvm/llvm/include/llvm/Analysis/ScalarEvolutionExpressions.h' l='512' c='llvm::SCEVVisitor'/>
+<def f='llvm/llvm/include/llvm/Analysis/ScalarEvolutionExpander.h' l='45' ll='400'/>
+<size>424</size>
+<doc f='llvm/llvm/include/llvm/Analysis/ScalarEvolutionExpander.h' l='39'>/// This class uses information about analyze scalars to rewrite expressions
+  /// in canonical form.
+  ///
+  /// Clients should create an instance of this class when rewriting is needed,
+  /// and destroy it when finished to allow the release of the associated
+  /// memory.</doc>
+<mbr r='llvm::SCEVExpander::SE' o='0' t='llvm::ScalarEvolution &amp;'/>
+<mbr r='llvm::SCEVExpander::DL' o='64' t='const llvm::DataLayout &amp;'/>
+<mbr r='llvm::SCEVExpander::IVName' o='128' t='const char *'/>
+<mbr r='llvm::SCEVExpander::InsertedExpressions' o='192' t='DenseMap&lt;std::pair&lt;const SCEV *, Instruction *&gt;, TrackingVH&lt;llvm::Value&gt; &gt;'/>
+<mbr r='llvm::SCEVExpander::InsertedValues' o='448' t='DenseSet&lt;AssertingVH&lt;llvm::Value&gt; &gt;'/>
+<mbr r='llvm::SCEVExpander::InsertedPostIncValues' o='704' t='DenseSet&lt;AssertingVH&lt;llvm::Value&gt; &gt;'/>
+<mbr r='llvm::SCEVExpander::RelevantLoops' o='960' t='DenseMap&lt;const llvm::SCEV *, const llvm::Loop *&gt;'/>
+<mbr r='llvm::SCEVExpander::PostIncLoops' o='1216' t='PostIncLoopSet'/>
+<mbr r='llvm::SCEVExpander::IVIncInsertLoop' o='1664' t='const llvm::Loop *'/>
+<mbr r='llvm::SCEVExpander::IVIncInsertPos' o='1728' t='llvm::Instruction *'/>
+<mbr r='llvm::SCEVExpander::ChainedPhis' o='1792' t='DenseSet&lt;AssertingVH&lt;llvm::PHINode&gt; &gt;'/>
+<mbr r='llvm::SCEVExpander::CanonicalMode' o='2048' t='bool'/>
+<mbr r='llvm::SCEVExpander::LSRMode' o='2056' t='bool'/>
+<mbr r='llvm::SCEVExpander::Builder' o='2112' t='BuilderType'/>
+<mbr r='llvm::SCEVExpander::InsertPointGuards' o='2688' t='SmallVector&lt;llvm::SCEVExpander::SCEVInsertPointGuard *, 8&gt;'/>
+<mbr r='llvm::SCEVExpander::DebugType' o='3328' t='const char *'/>
+<fun r='_ZN4llvm12SCEVExpanderC1ERNS_15ScalarEvolutionERKNS_10DataLayoutEPKc'/>
+<fun r='_ZN4llvm12SCEVExpanderD1Ev'/>
+<fun r='_ZN4llvm12SCEVExpander12setDebugTypeEPKc'/>
+<fun r='_ZN4llvm12SCEVExpander5clearEv'/>
+<fun r='_ZN4llvm12SCEVExpander19isHighCostExpansionEPKNS_4SCEVEPNS_4LoopEPKNS_11InstructionE'/>
+<fun r='_ZN4llvm12SCEVExpander37getOrInsertCanonicalInductionVariableEPKNS_4LoopEPNS_4TypeE'/>
+<fun r='_ZN4llvm12SCEVExpander15getIVIncOperandEPNS_11InstructionES2_b'/>
+<fun r='_ZN4llvm12SCEVExpander10hoistIVIncEPNS_11InstructionES2_'/>
+<fun r='_ZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoE'/>
+<fun r='_ZN4llvm12SCEVExpander13expandCodeForEPKNS_4SCEVEPNS_4TypeEPNS_11InstructionE'/>
+<fun r='_ZN4llvm12SCEVExpander13expandCodeForEPKNS_4SCEVEPNS_4TypeE'/>
+<fun r='_ZN4llvm12SCEVExpander22expandCodeForPredicateEPKNS_13SCEVPredicateEPNS_11InstructionE'/>
+<fun r='_ZN4llvm12SCEVExpander20expandEqualPredicateEPKNS_18SCEVEqualPredicateEPNS_11InstructionE'/>
+<fun r='_ZN4llvm12SCEVExpander21generateOverflowCheckEPKNS_14SCEVAddRecExprEPNS_11InstructionEb'/>
+<fun r='_ZN4llvm12SCEVExpander19expandWrapPredicateEPKNS_17SCEVWrapPredicateEPNS_11InstructionE'/>
+<fun r='_ZN4llvm12SCEVExpander20expandUnionPredicateEPKNS_18SCEVUnionPredicateEPNS_11InstructionE'/>
+<fun r='_ZN4llvm12SCEVExpander17setIVIncInsertPosEPKNS_4LoopEPNS_11InstructionE'/>
+<fun r='_ZN4llvm12SCEVExpander10setPostIncERKNS_11SmallPtrSetIPKNS_4LoopELj2EEE'/>
+<fun r='_ZN4llvm12SCEVExpander12clearPostIncEv'/>
+<fun r='_ZN4llvm12SCEVExpander20disableCanonicalModeEv'/>
+<fun r='_ZN4llvm12SCEVExpander13enableLSRModeEv'/>
+<fun r='_ZN4llvm12SCEVExpander14setInsertPointEPNS_11InstructionE'/>
+<fun r='_ZN4llvm12SCEVExpander16clearInsertPointEv'/>
+<fun r='_ZNK4llvm12SCEVExpander21isInsertedInstructionEPNS_11InstructionE'/>
+<fun r='_ZN4llvm12SCEVExpander13setChainedPhiEPNS_7PHINodeE'/>
+<fun r='_ZN4llvm12SCEVExpander25getExactExistingExpansionEPKNS_4SCEVEPKNS_11InstructionEPNS_4LoopE'/>
+<fun r='_ZN4llvm12SCEVExpander27getRelatedExistingExpansionEPKNS_4SCEVEPKNS_11InstructionEPNS_4LoopE'/>
+<fun r='_ZNK4llvm12SCEVExpander10getContextEv'/>
+<fun r='_ZN4llvm12SCEVExpander25isHighCostExpansionHelperEPKNS_4SCEVEPNS_4LoopEPKNS_11InstructionERNS_15SmallPtrSetImplIS3_EE'/>
+<fun r='_ZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEb'/>
+<fun r='_ZN4llvm12SCEVExpander17ReuseOrCreateCastEPNS_5ValueEPNS_4TypeENS_11Instruction7CastOpsENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS5_Lb1ELb0EvEELb0ELb0EEE'/>
+<fun r='_ZN4llvm12SCEVExpander18InsertNoopCastOfToEPNS_5ValueEPNS_4TypeE'/>
+<fun r='_ZN4llvm12SCEVExpander14expandAddToGEPEPKPKNS_4SCEVES5_PNS_11PointerTypeEPNS_4TypeEPNS_5ValueE'/>
+<fun r='_ZN4llvm12SCEVExpander14expandAddToGEPEPKNS_4SCEVEPNS_11PointerTypeEPNS_4TypeEPNS_5ValueE'/>
+<fun r='_ZN4llvm12SCEVExpander23FindValueInExprValueMapEPKNS_4SCEVEPKNS_11InstructionE'/>
+<fun r='_ZN4llvm12SCEVExpander6expandEPKNS_4SCEVE'/>
+<fun r='_ZN4llvm12SCEVExpander15getRelevantLoopEPKNS_4SCEVE'/>
+<fun r='_ZN4llvm12SCEVExpander13visitConstantEPKNS_12SCEVConstantE'/>
+<fun r='_ZN4llvm12SCEVExpander17visitTruncateExprEPKNS_16SCEVTruncateExprE'/>
+<fun r='_ZN4llvm12SCEVExpander19visitZeroExtendExprEPKNS_18SCEVZeroExtendExprE'/>
+<fun r='_ZN4llvm12SCEVExpander19visitSignExtendExprEPKNS_18SCEVSignExtendExprE'/>
+<fun r='_ZN4llvm12SCEVExpander12visitAddExprEPKNS_11SCEVAddExprE'/>
+<fun r='_ZN4llvm12SCEVExpander12visitMulExprEPKNS_11SCEVMulExprE'/>
+<fun r='_ZN4llvm12SCEVExpander13visitUDivExprEPKNS_12SCEVUDivExprE'/>
+<fun r='_ZN4llvm12SCEVExpander15visitAddRecExprEPKNS_14SCEVAddRecExprE'/>
+<fun r='_ZN4llvm12SCEVExpander13visitSMaxExprEPKNS_12SCEVSMaxExprE'/>
+<fun r='_ZN4llvm12SCEVExpander13visitUMaxExprEPKNS_12SCEVUMaxExprE'/>
+<fun r='_ZN4llvm12SCEVExpander13visitSMinExprEPKNS_12SCEVSMinExprE'/>
+<fun r='_ZN4llvm12SCEVExpander13visitUMinExprEPKNS_12SCEVUMinExprE'/>
+<fun r='_ZN4llvm12SCEVExpander12visitUnknownEPKNS_11SCEVUnknownE'/>
+<fun r='_ZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueE'/>
+<fun r='_ZN4llvm12SCEVExpander21isNormalAddRecExprPHIEPNS_7PHINodeEPNS_11InstructionEPKNS_4LoopE'/>
+<fun r='_ZN4llvm12SCEVExpander23isExpandedAddRecExprPHIEPNS_7PHINodeEPNS_11InstructionEPKNS_4LoopE'/>
+<fun r='_ZN4llvm12SCEVExpander25expandAddRecExprLiterallyEPKNS_14SCEVAddRecExprE'/>
+<fun r='_ZN4llvm12SCEVExpander25getAddRecExprPHILiterallyEPKNS_14SCEVAddRecExprEPKNS_4LoopEPNS_4TypeES8_RS8_Rb'/>
+<fun r='_ZN4llvm12SCEVExpander11expandIVIncEPNS_7PHINodeEPNS_5ValueEPKNS_4LoopEPNS_4TypeES9_b'/>
+<fun r='_ZN4llvm12SCEVExpander14hoistBeforePosEPNS_13DominatorTreeEPNS_11InstructionES4_PNS_7PHINodeE'/>
+<fun r='_ZN4llvm12SCEVExpander17fixupInsertPointsEPNS_11InstructionE'/>

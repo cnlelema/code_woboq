@@ -1,0 +1,19 @@
+<def f='llvm/clang/include/clang/AST/Expr.h' l='5621' type='clang::Expr ** clang::PseudoObjectExpr::getSubExprsBuffer()'/>
+<use f='llvm/clang/include/clang/AST/Expr.h' l='5651' u='c' c='_ZN5clang16PseudoObjectExpr16getSyntacticFormEv'/>
+<use f='llvm/clang/include/clang/AST/Expr.h' l='5665' u='c' c='_ZN5clang16PseudoObjectExpr13getResultExprEv'/>
+<use f='llvm/clang/include/clang/AST/Expr.h' l='5676' u='c' c='_ZN5clang16PseudoObjectExpr15semantics_beginEv'/>
+<use f='llvm/clang/include/clang/AST/Expr.h' l='5682' u='c' c='_ZN5clang16PseudoObjectExpr13semantics_endEv'/>
+<use f='llvm/clang/include/clang/AST/Expr.h' l='5697' u='c' c='_ZN5clang16PseudoObjectExpr15getSemanticExprEj'/>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='5610'>// PseudoObjectExprBits.NumSubExprs - The number of sub-expressions.
+  // Always at least two, because the first sub-expression is the
+  // syntactic form.
+
+  // PseudoObjectExprBits.ResultIndex - The index of the
+  // sub-expression holding the result.  0 means the result is void,
+  // which is unambiguous because it&apos;s the index of the syntactic
+  // form.  Note that this is therefore 1 higher than the value passed
+  // in to Create, which is an index within the semantic forms.
+  // Note also that ASTStmtWriter assumes this encoding.</doc>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='4322' u='c' c='_ZN5clang16PseudoObjectExprC1ENS_8QualTypeENS_13ExprValueKindEPNS_4ExprEN4llvm8ArrayRefIS4_EEj'/>
+<use f='llvm/clang/lib/Serialization/ASTReaderStmt.cpp' l='1108' u='c' c='_ZN5clang13ASTStmtReader21VisitPseudoObjectExprEPNS_16PseudoObjectExprE'/>
+<use f='llvm/clang/lib/Serialization/ASTReaderStmt.cpp' l='1113' u='c' c='_ZN5clang13ASTStmtReader21VisitPseudoObjectExprEPNS_16PseudoObjectExprE'/>

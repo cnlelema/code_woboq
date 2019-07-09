@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TargetMachine.h source code [llvm/llvm/include/llvm-c/TargetMachine.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm-c/TargetMachine.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>llvm</a>/<a href='../..'>llvm</a>/<a href='..'>include</a>/<a href='./'>llvm-c</a>/<a href='TargetMachine.h.html'>TargetMachine.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*===-- llvm-c/TargetMachine.h - Target Machine Library C Interface - C++ -*-=*\</i></td></tr>
+<tr><th id="2">2</th><td><i>|*                                                                            *|</i></td></tr>
+<tr><th id="3">3</th><td><i>|* Part of the LLVM Project, under the Apache License v2.0 with LLVM          *|</i></td></tr>
+<tr><th id="4">4</th><td><i>|* Exceptions.                                                                *|</i></td></tr>
+<tr><th id="5">5</th><td><i>|* See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.                  *|</i></td></tr>
+<tr><th id="6">6</th><td><i>|* SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception                    *|</i></td></tr>
+<tr><th id="7">7</th><td><i>|*                                                                            *|</i></td></tr>
+<tr><th id="8">8</th><td><i>|*===----------------------------------------------------------------------===*|</i></td></tr>
+<tr><th id="9">9</th><td><i>|*                                                                            *|</i></td></tr>
+<tr><th id="10">10</th><td><i>|* This header declares the C interface to the Target and TargetMachine       *|</i></td></tr>
+<tr><th id="11">11</th><td><i>|* classes, which can be used to generate assembly or object files.           *|</i></td></tr>
+<tr><th id="12">12</th><td><i>|*                                                                            *|</i></td></tr>
+<tr><th id="13">13</th><td><i>|* Many exotic languages can interoperate with C code but have a harder time  *|</i></td></tr>
+<tr><th id="14">14</th><td><i>|* with C++ due to name mangling. So in addition to C, this interface enables *|</i></td></tr>
+<tr><th id="15">15</th><td><i>|* tools written in such languages.                                           *|</i></td></tr>
+<tr><th id="16">16</th><td><i>|*                                                                            *|</i></td></tr>
+<tr><th id="17">17</th><td><i>\*===----------------------------------------------------------------------===*/</i></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#<span data-ppcond="19">ifndef</span> <span class="macro" data-ref="_M/LLVM_C_TARGETMACHINE_H">LLVM_C_TARGETMACHINE_H</span></u></td></tr>
+<tr><th id="20">20</th><td><u>#define <dfn class="macro" id="_M/LLVM_C_TARGETMACHINE_H" data-ref="_M/LLVM_C_TARGETMACHINE_H">LLVM_C_TARGETMACHINE_H</dfn></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="Target.h.html">"llvm-c/Target.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="Types.h.html">"llvm-c/Types.h"</a></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><u>#<span data-ppcond="25">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="26">26</th><td><b>extern</b> <q>"C"</q> {</td></tr>
+<tr><th id="27">27</th><td><u>#<span data-ppcond="25">endif</span></u></td></tr>
+<tr><th id="28">28</th><td><b>typedef</b> <b>struct</b> <dfn class="type" id="LLVMOpaqueTargetMachine" title='LLVMOpaqueTargetMachine' data-ref="LLVMOpaqueTargetMachine"><a class="type" href="#LLVMOpaqueTargetMachine" title='LLVMOpaqueTargetMachine' data-ref="LLVMOpaqueTargetMachine">LLVMOpaqueTargetMachine</a></dfn> *<dfn class="typedef" id="LLVMTargetMachineRef" title='LLVMTargetMachineRef' data-type='struct LLVMOpaqueTargetMachine *' data-ref="LLVMTargetMachineRef">LLVMTargetMachineRef</dfn>;</td></tr>
+<tr><th id="29">29</th><td><b>typedef</b> <b>struct</b> <dfn class="type" id="LLVMTarget" title='LLVMTarget' data-ref="LLVMTarget"><a class="type" href="#LLVMTarget" title='LLVMTarget' data-ref="LLVMTarget">LLVMTarget</a></dfn> *<dfn class="typedef" id="LLVMTargetRef" title='LLVMTargetRef' data-type='struct LLVMTarget *' data-ref="LLVMTargetRef">LLVMTargetRef</dfn>;</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="32">32</th><td>    <dfn class="enum" id="LLVMCodeGenLevelNone" title='LLVMCodeGenLevelNone' data-ref="LLVMCodeGenLevelNone">LLVMCodeGenLevelNone</dfn>,</td></tr>
+<tr><th id="33">33</th><td>    <dfn class="enum" id="LLVMCodeGenLevelLess" title='LLVMCodeGenLevelLess' data-ref="LLVMCodeGenLevelLess">LLVMCodeGenLevelLess</dfn>,</td></tr>
+<tr><th id="34">34</th><td>    <dfn class="enum" id="LLVMCodeGenLevelDefault" title='LLVMCodeGenLevelDefault' data-ref="LLVMCodeGenLevelDefault">LLVMCodeGenLevelDefault</dfn>,</td></tr>
+<tr><th id="35">35</th><td>    <dfn class="enum" id="LLVMCodeGenLevelAggressive" title='LLVMCodeGenLevelAggressive' data-ref="LLVMCodeGenLevelAggressive">LLVMCodeGenLevelAggressive</dfn></td></tr>
+<tr><th id="36">36</th><td>} <dfn class="typedef" id="LLVMCodeGenOptLevel" title='LLVMCodeGenOptLevel' data-type='enum LLVMCodeGenOptLevel' data-ref="LLVMCodeGenOptLevel">LLVMCodeGenOptLevel</dfn>;</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="39">39</th><td>    <dfn class="enum" id="LLVMRelocDefault" title='LLVMRelocDefault' data-ref="LLVMRelocDefault">LLVMRelocDefault</dfn>,</td></tr>
+<tr><th id="40">40</th><td>    <dfn class="enum" id="LLVMRelocStatic" title='LLVMRelocStatic' data-ref="LLVMRelocStatic">LLVMRelocStatic</dfn>,</td></tr>
+<tr><th id="41">41</th><td>    <dfn class="enum" id="LLVMRelocPIC" title='LLVMRelocPIC' data-ref="LLVMRelocPIC">LLVMRelocPIC</dfn>,</td></tr>
+<tr><th id="42">42</th><td>    <dfn class="enum" id="LLVMRelocDynamicNoPic" title='LLVMRelocDynamicNoPic' data-ref="LLVMRelocDynamicNoPic">LLVMRelocDynamicNoPic</dfn>,</td></tr>
+<tr><th id="43">43</th><td>    <dfn class="enum" id="LLVMRelocROPI" title='LLVMRelocROPI' data-ref="LLVMRelocROPI">LLVMRelocROPI</dfn>,</td></tr>
+<tr><th id="44">44</th><td>    <dfn class="enum" id="LLVMRelocRWPI" title='LLVMRelocRWPI' data-ref="LLVMRelocRWPI">LLVMRelocRWPI</dfn>,</td></tr>
+<tr><th id="45">45</th><td>    <dfn class="enum" id="LLVMRelocROPI_RWPI" title='LLVMRelocROPI_RWPI' data-ref="LLVMRelocROPI_RWPI">LLVMRelocROPI_RWPI</dfn></td></tr>
+<tr><th id="46">46</th><td>} <dfn class="typedef" id="LLVMRelocMode" title='LLVMRelocMode' data-type='enum LLVMRelocMode' data-ref="LLVMRelocMode">LLVMRelocMode</dfn>;</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="49">49</th><td>    <dfn class="enum" id="LLVMCodeModelDefault" title='LLVMCodeModelDefault' data-ref="LLVMCodeModelDefault">LLVMCodeModelDefault</dfn>,</td></tr>
+<tr><th id="50">50</th><td>    <dfn class="enum" id="LLVMCodeModelJITDefault" title='LLVMCodeModelJITDefault' data-ref="LLVMCodeModelJITDefault">LLVMCodeModelJITDefault</dfn>,</td></tr>
+<tr><th id="51">51</th><td>    <dfn class="enum" id="LLVMCodeModelTiny" title='LLVMCodeModelTiny' data-ref="LLVMCodeModelTiny">LLVMCodeModelTiny</dfn>,</td></tr>
+<tr><th id="52">52</th><td>    <dfn class="enum" id="LLVMCodeModelSmall" title='LLVMCodeModelSmall' data-ref="LLVMCodeModelSmall">LLVMCodeModelSmall</dfn>,</td></tr>
+<tr><th id="53">53</th><td>    <dfn class="enum" id="LLVMCodeModelKernel" title='LLVMCodeModelKernel' data-ref="LLVMCodeModelKernel">LLVMCodeModelKernel</dfn>,</td></tr>
+<tr><th id="54">54</th><td>    <dfn class="enum" id="LLVMCodeModelMedium" title='LLVMCodeModelMedium' data-ref="LLVMCodeModelMedium">LLVMCodeModelMedium</dfn>,</td></tr>
+<tr><th id="55">55</th><td>    <dfn class="enum" id="LLVMCodeModelLarge" title='LLVMCodeModelLarge' data-ref="LLVMCodeModelLarge">LLVMCodeModelLarge</dfn></td></tr>
+<tr><th id="56">56</th><td>} <dfn class="typedef" id="LLVMCodeModel" title='LLVMCodeModel' data-type='enum LLVMCodeModel' data-ref="LLVMCodeModel">LLVMCodeModel</dfn>;</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="59">59</th><td>    <dfn class="enum" id="LLVMAssemblyFile" title='LLVMAssemblyFile' data-ref="LLVMAssemblyFile">LLVMAssemblyFile</dfn>,</td></tr>
+<tr><th id="60">60</th><td>    <dfn class="enum" id="LLVMObjectFile" title='LLVMObjectFile' data-ref="LLVMObjectFile">LLVMObjectFile</dfn></td></tr>
+<tr><th id="61">61</th><td>} <dfn class="typedef" id="LLVMCodeGenFileType" title='LLVMCodeGenFileType' data-type='enum LLVMCodeGenFileType' data-ref="LLVMCodeGenFileType">LLVMCodeGenFileType</dfn>;</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><i class="doc">/** Returns the first llvm::Target in the registered targets list. */</i></td></tr>
+<tr><th id="64">64</th><td><a class="typedef" href="#LLVMTargetRef" title='LLVMTargetRef' data-type='struct LLVMTarget *' data-ref="LLVMTargetRef">LLVMTargetRef</a> <dfn class="decl" id="LLVMGetFirstTarget" title='LLVMGetFirstTarget' data-ref="LLVMGetFirstTarget">LLVMGetFirstTarget</dfn>(<em>void</em>);</td></tr>
+<tr><th id="65">65</th><td><i class="doc">/** Returns the next llvm::Target given a previous one (or null if there's none) */</i></td></tr>
+<tr><th id="66">66</th><td><a class="typedef" href="#LLVMTargetRef" title='LLVMTargetRef' data-type='struct LLVMTarget *' data-ref="LLVMTargetRef">LLVMTargetRef</a> <dfn class="decl" id="LLVMGetNextTarget" title='LLVMGetNextTarget' data-ref="LLVMGetNextTarget">LLVMGetNextTarget</dfn>(<a class="typedef" href="#LLVMTargetRef" title='LLVMTargetRef' data-type='struct LLVMTarget *' data-ref="LLVMTargetRef">LLVMTargetRef</a> <dfn class="local col9 decl" id="779T" title='T' data-type='LLVMTargetRef' data-ref="779T">T</dfn>);</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><i>/*===-- Target ------------------------------------------------------------===*/</i></td></tr>
+<tr><th id="69">69</th><td><i class="doc">/** Finds the target corresponding to the given name and stores it in<span class="command"> \p</span> <span class="arg">T.</span></i></td></tr>
+<tr><th id="70">70</th><td><i class="doc">  Returns 0 on success. */</i></td></tr>
+<tr><th id="71">71</th><td><a class="typedef" href="#LLVMTargetRef" title='LLVMTargetRef' data-type='struct LLVMTarget *' data-ref="LLVMTargetRef">LLVMTargetRef</a> <dfn class="decl" id="LLVMGetTargetFromName" title='LLVMGetTargetFromName' data-ref="LLVMGetTargetFromName">LLVMGetTargetFromName</dfn>(<em>const</em> <em>char</em> *<dfn class="local col0 decl" id="780Name" title='Name' data-type='const char *' data-ref="780Name">Name</dfn>);</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><i class="doc">/** Finds the target corresponding to the given triple and stores it in<span class="command"> \p</span> <span class="arg">T.</span></i></td></tr>
+<tr><th id="74">74</th><td><i class="doc">  Returns 0 on success. Optionally returns any error in ErrorMessage.</i></td></tr>
+<tr><th id="75">75</th><td><i class="doc">  Use LLVMDisposeMessage to dispose the message. */</i></td></tr>
+<tr><th id="76">76</th><td><a class="typedef" href="Types.h.html#LLVMBool" title='LLVMBool' data-type='int' data-ref="LLVMBool">LLVMBool</a> <dfn class="decl" id="LLVMGetTargetFromTriple" title='LLVMGetTargetFromTriple' data-ref="LLVMGetTargetFromTriple">LLVMGetTargetFromTriple</dfn>(<em>const</em> <em>char</em>* <dfn class="local col1 decl" id="781Triple" title='Triple' data-type='const char *' data-ref="781Triple">Triple</dfn>, <a class="typedef" href="#LLVMTargetRef" title='LLVMTargetRef' data-type='struct LLVMTarget *' data-ref="LLVMTargetRef">LLVMTargetRef</a> *<dfn class="local col2 decl" id="782T" title='T' data-type='LLVMTargetRef *' data-ref="782T">T</dfn>,</td></tr>
+<tr><th id="77">77</th><td>                                 <em>char</em> **<dfn class="local col3 decl" id="783ErrorMessage" title='ErrorMessage' data-type='char **' data-ref="783ErrorMessage">ErrorMessage</dfn>);</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td><i class="doc">/** Returns the name of a target. See llvm::Target::getName */</i></td></tr>
+<tr><th id="80">80</th><td><em>const</em> <em>char</em> *<dfn class="decl" id="LLVMGetTargetName" title='LLVMGetTargetName' data-ref="LLVMGetTargetName">LLVMGetTargetName</dfn>(<a class="typedef" href="#LLVMTargetRef" title='LLVMTargetRef' data-type='struct LLVMTarget *' data-ref="LLVMTargetRef">LLVMTargetRef</a> <dfn class="local col4 decl" id="784T" title='T' data-type='LLVMTargetRef' data-ref="784T">T</dfn>);</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td><i class="doc">/** Returns the description  of a target. See llvm::Target::getDescription */</i></td></tr>
+<tr><th id="83">83</th><td><em>const</em> <em>char</em> *<dfn class="decl" id="LLVMGetTargetDescription" title='LLVMGetTargetDescription' data-ref="LLVMGetTargetDescription">LLVMGetTargetDescription</dfn>(<a class="typedef" href="#LLVMTargetRef" title='LLVMTargetRef' data-type='struct LLVMTarget *' data-ref="LLVMTargetRef">LLVMTargetRef</a> <dfn class="local col5 decl" id="785T" title='T' data-type='LLVMTargetRef' data-ref="785T">T</dfn>);</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td><i class="doc">/** Returns if the target has a JIT */</i></td></tr>
+<tr><th id="86">86</th><td><a class="typedef" href="Types.h.html#LLVMBool" title='LLVMBool' data-type='int' data-ref="LLVMBool">LLVMBool</a> <dfn class="decl" id="LLVMTargetHasJIT" title='LLVMTargetHasJIT' data-ref="LLVMTargetHasJIT">LLVMTargetHasJIT</dfn>(<a class="typedef" href="#LLVMTargetRef" title='LLVMTargetRef' data-type='struct LLVMTarget *' data-ref="LLVMTargetRef">LLVMTargetRef</a> <dfn class="local col6 decl" id="786T" title='T' data-type='LLVMTargetRef' data-ref="786T">T</dfn>);</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><i class="doc">/** Returns if the target has a TargetMachine associated */</i></td></tr>
+<tr><th id="89">89</th><td><a class="typedef" href="Types.h.html#LLVMBool" title='LLVMBool' data-type='int' data-ref="LLVMBool">LLVMBool</a> <dfn class="decl" id="LLVMTargetHasTargetMachine" title='LLVMTargetHasTargetMachine' data-ref="LLVMTargetHasTargetMachine">LLVMTargetHasTargetMachine</dfn>(<a class="typedef" href="#LLVMTargetRef" title='LLVMTargetRef' data-type='struct LLVMTarget *' data-ref="LLVMTargetRef">LLVMTargetRef</a> <dfn class="local col7 decl" id="787T" title='T' data-type='LLVMTargetRef' data-ref="787T">T</dfn>);</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td><i class="doc">/** Returns if the target as an ASM backend (required for emitting output) */</i></td></tr>
+<tr><th id="92">92</th><td><a class="typedef" href="Types.h.html#LLVMBool" title='LLVMBool' data-type='int' data-ref="LLVMBool">LLVMBool</a> <dfn class="decl" id="LLVMTargetHasAsmBackend" title='LLVMTargetHasAsmBackend' data-ref="LLVMTargetHasAsmBackend">LLVMTargetHasAsmBackend</dfn>(<a class="typedef" href="#LLVMTargetRef" title='LLVMTargetRef' data-type='struct LLVMTarget *' data-ref="LLVMTargetRef">LLVMTargetRef</a> <dfn class="local col8 decl" id="788T" title='T' data-type='LLVMTargetRef' data-ref="788T">T</dfn>);</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td><i>/*===-- Target Machine ----------------------------------------------------===*/</i></td></tr>
+<tr><th id="95">95</th><td><i class="doc">/** Creates a new llvm::TargetMachine. See llvm::Target::createTargetMachine */</i></td></tr>
+<tr><th id="96">96</th><td><a class="typedef" href="#LLVMTargetMachineRef" title='LLVMTargetMachineRef' data-type='struct LLVMOpaqueTargetMachine *' data-ref="LLVMTargetMachineRef">LLVMTargetMachineRef</a> <dfn class="decl" id="LLVMCreateTargetMachine" title='LLVMCreateTargetMachine' data-ref="LLVMCreateTargetMachine">LLVMCreateTargetMachine</dfn>(<a class="typedef" href="#LLVMTargetRef" title='LLVMTargetRef' data-type='struct LLVMTarget *' data-ref="LLVMTargetRef">LLVMTargetRef</a> <dfn class="local col9 decl" id="789T" title='T' data-type='LLVMTargetRef' data-ref="789T">T</dfn>,</td></tr>
+<tr><th id="97">97</th><td>  <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="790Triple" title='Triple' data-type='const char *' data-ref="790Triple">Triple</dfn>, <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="791CPU" title='CPU' data-type='const char *' data-ref="791CPU">CPU</dfn>, <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="792Features" title='Features' data-type='const char *' data-ref="792Features">Features</dfn>,</td></tr>
+<tr><th id="98">98</th><td>  <a class="typedef" href="#LLVMCodeGenOptLevel" title='LLVMCodeGenOptLevel' data-type='enum LLVMCodeGenOptLevel' data-ref="LLVMCodeGenOptLevel">LLVMCodeGenOptLevel</a> <dfn class="local col3 decl" id="793Level" title='Level' data-type='LLVMCodeGenOptLevel' data-ref="793Level">Level</dfn>, <a class="typedef" href="#LLVMRelocMode" title='LLVMRelocMode' data-type='enum LLVMRelocMode' data-ref="LLVMRelocMode">LLVMRelocMode</a> <dfn class="local col4 decl" id="794Reloc" title='Reloc' data-type='LLVMRelocMode' data-ref="794Reloc">Reloc</dfn>, <a class="typedef" href="#LLVMCodeModel" title='LLVMCodeModel' data-type='enum LLVMCodeModel' data-ref="LLVMCodeModel">LLVMCodeModel</a> <dfn class="local col5 decl" id="795CodeModel" title='CodeModel' data-type='LLVMCodeModel' data-ref="795CodeModel">CodeModel</dfn>);</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td><i class="doc">/** Dispose the LLVMTargetMachineRef instance generated by</i></td></tr>
+<tr><th id="101">101</th><td><i class="doc">  LLVMCreateTargetMachine. */</i></td></tr>
+<tr><th id="102">102</th><td><em>void</em> <dfn class="decl" id="LLVMDisposeTargetMachine" title='LLVMDisposeTargetMachine' data-ref="LLVMDisposeTargetMachine">LLVMDisposeTargetMachine</dfn>(<a class="typedef" href="#LLVMTargetMachineRef" title='LLVMTargetMachineRef' data-type='struct LLVMOpaqueTargetMachine *' data-ref="LLVMTargetMachineRef">LLVMTargetMachineRef</a> <dfn class="local col6 decl" id="796T" title='T' data-type='LLVMTargetMachineRef' data-ref="796T">T</dfn>);</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td><i class="doc">/** Returns the Target used in a TargetMachine */</i></td></tr>
+<tr><th id="105">105</th><td><a class="typedef" href="#LLVMTargetRef" title='LLVMTargetRef' data-type='struct LLVMTarget *' data-ref="LLVMTargetRef">LLVMTargetRef</a> <dfn class="decl" id="LLVMGetTargetMachineTarget" title='LLVMGetTargetMachineTarget' data-ref="LLVMGetTargetMachineTarget">LLVMGetTargetMachineTarget</dfn>(<a class="typedef" href="#LLVMTargetMachineRef" title='LLVMTargetMachineRef' data-type='struct LLVMOpaqueTargetMachine *' data-ref="LLVMTargetMachineRef">LLVMTargetMachineRef</a> <dfn class="local col7 decl" id="797T" title='T' data-type='LLVMTargetMachineRef' data-ref="797T">T</dfn>);</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td><i class="doc">/** Returns the triple used creating this target machine. See</i></td></tr>
+<tr><th id="108">108</th><td><i class="doc">  llvm::TargetMachine::getTriple. The result needs to be disposed with</i></td></tr>
+<tr><th id="109">109</th><td><i class="doc">  LLVMDisposeMessage. */</i></td></tr>
+<tr><th id="110">110</th><td><em>char</em> *<dfn class="decl" id="LLVMGetTargetMachineTriple" title='LLVMGetTargetMachineTriple' data-ref="LLVMGetTargetMachineTriple">LLVMGetTargetMachineTriple</dfn>(<a class="typedef" href="#LLVMTargetMachineRef" title='LLVMTargetMachineRef' data-type='struct LLVMOpaqueTargetMachine *' data-ref="LLVMTargetMachineRef">LLVMTargetMachineRef</a> <dfn class="local col8 decl" id="798T" title='T' data-type='LLVMTargetMachineRef' data-ref="798T">T</dfn>);</td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td><i class="doc">/** Returns the cpu used creating this target machine. See</i></td></tr>
+<tr><th id="113">113</th><td><i class="doc">  llvm::TargetMachine::getCPU. The result needs to be disposed with</i></td></tr>
+<tr><th id="114">114</th><td><i class="doc">  LLVMDisposeMessage. */</i></td></tr>
+<tr><th id="115">115</th><td><em>char</em> *<dfn class="decl" id="LLVMGetTargetMachineCPU" title='LLVMGetTargetMachineCPU' data-ref="LLVMGetTargetMachineCPU">LLVMGetTargetMachineCPU</dfn>(<a class="typedef" href="#LLVMTargetMachineRef" title='LLVMTargetMachineRef' data-type='struct LLVMOpaqueTargetMachine *' data-ref="LLVMTargetMachineRef">LLVMTargetMachineRef</a> <dfn class="local col9 decl" id="799T" title='T' data-type='LLVMTargetMachineRef' data-ref="799T">T</dfn>);</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td><i class="doc">/** Returns the feature string used creating this target machine. See</i></td></tr>
+<tr><th id="118">118</th><td><i class="doc">  llvm::TargetMachine::getFeatureString. The result needs to be disposed with</i></td></tr>
+<tr><th id="119">119</th><td><i class="doc">  LLVMDisposeMessage. */</i></td></tr>
+<tr><th id="120">120</th><td><em>char</em> *<dfn class="decl" id="LLVMGetTargetMachineFeatureString" title='LLVMGetTargetMachineFeatureString' data-ref="LLVMGetTargetMachineFeatureString">LLVMGetTargetMachineFeatureString</dfn>(<a class="typedef" href="#LLVMTargetMachineRef" title='LLVMTargetMachineRef' data-type='struct LLVMOpaqueTargetMachine *' data-ref="LLVMTargetMachineRef">LLVMTargetMachineRef</a> <dfn class="local col0 decl" id="800T" title='T' data-type='LLVMTargetMachineRef' data-ref="800T">T</dfn>);</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td><i class="doc">/** Create a DataLayout based on the targetMachine. */</i></td></tr>
+<tr><th id="123">123</th><td><a class="typedef" href="../llvm/IR/DataLayout.h.html#LLVMTargetDataRef" title='LLVMTargetDataRef' data-type='struct LLVMOpaqueTargetData *' data-ref="LLVMTargetDataRef">LLVMTargetDataRef</a> <dfn class="decl" id="LLVMCreateTargetDataLayout" title='LLVMCreateTargetDataLayout' data-ref="LLVMCreateTargetDataLayout">LLVMCreateTargetDataLayout</dfn>(<a class="typedef" href="#LLVMTargetMachineRef" title='LLVMTargetMachineRef' data-type='struct LLVMOpaqueTargetMachine *' data-ref="LLVMTargetMachineRef">LLVMTargetMachineRef</a> <dfn class="local col1 decl" id="801T" title='T' data-type='LLVMTargetMachineRef' data-ref="801T">T</dfn>);</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td><i class="doc">/** Set the target machine's ASM verbosity. */</i></td></tr>
+<tr><th id="126">126</th><td><em>void</em> <dfn class="decl" id="LLVMSetTargetMachineAsmVerbosity" title='LLVMSetTargetMachineAsmVerbosity' data-ref="LLVMSetTargetMachineAsmVerbosity">LLVMSetTargetMachineAsmVerbosity</dfn>(<a class="typedef" href="#LLVMTargetMachineRef" title='LLVMTargetMachineRef' data-type='struct LLVMOpaqueTargetMachine *' data-ref="LLVMTargetMachineRef">LLVMTargetMachineRef</a> <dfn class="local col2 decl" id="802T" title='T' data-type='LLVMTargetMachineRef' data-ref="802T">T</dfn>,</td></tr>
+<tr><th id="127">127</th><td>                                      <a class="typedef" href="Types.h.html#LLVMBool" title='LLVMBool' data-type='int' data-ref="LLVMBool">LLVMBool</a> <dfn class="local col3 decl" id="803VerboseAsm" title='VerboseAsm' data-type='LLVMBool' data-ref="803VerboseAsm">VerboseAsm</dfn>);</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td><i class="doc">/** Emits an asm or object file for the given module to the filename. This</i></td></tr>
+<tr><th id="130">130</th><td><i class="doc">  wraps several c++ only classes (among them a file stream). Returns any</i></td></tr>
+<tr><th id="131">131</th><td><i class="doc">  error in ErrorMessage. Use LLVMDisposeMessage to dispose the message. */</i></td></tr>
+<tr><th id="132">132</th><td><a class="typedef" href="Types.h.html#LLVMBool" title='LLVMBool' data-type='int' data-ref="LLVMBool">LLVMBool</a> <dfn class="decl" id="LLVMTargetMachineEmitToFile" title='LLVMTargetMachineEmitToFile' data-ref="LLVMTargetMachineEmitToFile">LLVMTargetMachineEmitToFile</dfn>(<a class="typedef" href="#LLVMTargetMachineRef" title='LLVMTargetMachineRef' data-type='struct LLVMOpaqueTargetMachine *' data-ref="LLVMTargetMachineRef">LLVMTargetMachineRef</a> <dfn class="local col4 decl" id="804T" title='T' data-type='LLVMTargetMachineRef' data-ref="804T">T</dfn>, <a class="typedef" href="Types.h.html#LLVMModuleRef" title='LLVMModuleRef' data-type='struct LLVMOpaqueModule *' data-ref="LLVMModuleRef">LLVMModuleRef</a> <dfn class="local col5 decl" id="805M" title='M' data-type='LLVMModuleRef' data-ref="805M">M</dfn>,</td></tr>
+<tr><th id="133">133</th><td>  <em>char</em> *<dfn class="local col6 decl" id="806Filename" title='Filename' data-type='char *' data-ref="806Filename">Filename</dfn>, <a class="typedef" href="#LLVMCodeGenFileType" title='LLVMCodeGenFileType' data-type='enum LLVMCodeGenFileType' data-ref="LLVMCodeGenFileType">LLVMCodeGenFileType</a> <dfn class="local col7 decl" id="807codegen" title='codegen' data-type='LLVMCodeGenFileType' data-ref="807codegen">codegen</dfn>, <em>char</em> **<dfn class="local col8 decl" id="808ErrorMessage" title='ErrorMessage' data-type='char **' data-ref="808ErrorMessage">ErrorMessage</dfn>);</td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td><i class="doc">/** Compile the LLVM IR stored in<span class="command"> \p</span> <span class="arg">M</span> and store the result in<span class="command"> \p</span> <span class="arg">OutMemBuf.</span> */</i></td></tr>
+<tr><th id="136">136</th><td><a class="typedef" href="Types.h.html#LLVMBool" title='LLVMBool' data-type='int' data-ref="LLVMBool">LLVMBool</a> <dfn class="decl" id="LLVMTargetMachineEmitToMemoryBuffer" title='LLVMTargetMachineEmitToMemoryBuffer' data-ref="LLVMTargetMachineEmitToMemoryBuffer">LLVMTargetMachineEmitToMemoryBuffer</dfn>(<a class="typedef" href="#LLVMTargetMachineRef" title='LLVMTargetMachineRef' data-type='struct LLVMOpaqueTargetMachine *' data-ref="LLVMTargetMachineRef">LLVMTargetMachineRef</a> <dfn class="local col9 decl" id="809T" title='T' data-type='LLVMTargetMachineRef' data-ref="809T">T</dfn>, <a class="typedef" href="Types.h.html#LLVMModuleRef" title='LLVMModuleRef' data-type='struct LLVMOpaqueModule *' data-ref="LLVMModuleRef">LLVMModuleRef</a> <dfn class="local col0 decl" id="810M" title='M' data-type='LLVMModuleRef' data-ref="810M">M</dfn>,</td></tr>
+<tr><th id="137">137</th><td>  <a class="typedef" href="#LLVMCodeGenFileType" title='LLVMCodeGenFileType' data-type='enum LLVMCodeGenFileType' data-ref="LLVMCodeGenFileType">LLVMCodeGenFileType</a> <dfn class="local col1 decl" id="811codegen" title='codegen' data-type='LLVMCodeGenFileType' data-ref="811codegen">codegen</dfn>, <em>char</em>** <dfn class="local col2 decl" id="812ErrorMessage" title='ErrorMessage' data-type='char **' data-ref="812ErrorMessage">ErrorMessage</dfn>, <a class="typedef" href="Types.h.html#LLVMMemoryBufferRef" title='LLVMMemoryBufferRef' data-type='struct LLVMOpaqueMemoryBuffer *' data-ref="LLVMMemoryBufferRef">LLVMMemoryBufferRef</a> *<dfn class="local col3 decl" id="813OutMemBuf" title='OutMemBuf' data-type='LLVMMemoryBufferRef *' data-ref="813OutMemBuf">OutMemBuf</dfn>);</td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td><i>/*===-- Triple ------------------------------------------------------------===*/</i></td></tr>
+<tr><th id="140">140</th><td><i class="doc">/** Get a triple for the host machine as a string. The result needs to be</i></td></tr>
+<tr><th id="141">141</th><td><i class="doc">  disposed with LLVMDisposeMessage. */</i></td></tr>
+<tr><th id="142">142</th><td><em>char</em>* <dfn class="decl" id="LLVMGetDefaultTargetTriple" title='LLVMGetDefaultTargetTriple' data-ref="LLVMGetDefaultTargetTriple">LLVMGetDefaultTargetTriple</dfn>(<em>void</em>);</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><i class="doc">/** Normalize a target triple. The result needs to be disposed with</i></td></tr>
+<tr><th id="145">145</th><td><i class="doc">  LLVMDisposeMessage. */</i></td></tr>
+<tr><th id="146">146</th><td><em>char</em>* <dfn class="decl" id="LLVMNormalizeTargetTriple" title='LLVMNormalizeTargetTriple' data-ref="LLVMNormalizeTargetTriple">LLVMNormalizeTargetTriple</dfn>(<em>const</em> <em>char</em>* <dfn class="local col4 decl" id="814triple" title='triple' data-type='const char *' data-ref="814triple">triple</dfn>);</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td><i class="doc">/** Get the host CPU as a string. The result needs to be disposed with</i></td></tr>
+<tr><th id="149">149</th><td><i class="doc">  LLVMDisposeMessage. */</i></td></tr>
+<tr><th id="150">150</th><td><em>char</em>* <dfn class="decl" id="LLVMGetHostCPUName" title='LLVMGetHostCPUName' data-ref="LLVMGetHostCPUName">LLVMGetHostCPUName</dfn>(<em>void</em>);</td></tr>
+<tr><th id="151">151</th><td></td></tr>
+<tr><th id="152">152</th><td><i class="doc">/** Get the host CPU's features as a string. The result needs to be disposed</i></td></tr>
+<tr><th id="153">153</th><td><i class="doc">  with LLVMDisposeMessage. */</i></td></tr>
+<tr><th id="154">154</th><td><em>char</em>* <dfn class="decl" id="LLVMGetHostCPUFeatures" title='LLVMGetHostCPUFeatures' data-ref="LLVMGetHostCPUFeatures">LLVMGetHostCPUFeatures</dfn>(<em>void</em>);</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td><i class="doc">/** Adds the target-specific analysis passes to the pass manager. */</i></td></tr>
+<tr><th id="157">157</th><td><em>void</em> <dfn class="decl" id="LLVMAddAnalysisPasses" title='LLVMAddAnalysisPasses' data-ref="LLVMAddAnalysisPasses">LLVMAddAnalysisPasses</dfn>(<a class="typedef" href="#LLVMTargetMachineRef" title='LLVMTargetMachineRef' data-type='struct LLVMOpaqueTargetMachine *' data-ref="LLVMTargetMachineRef">LLVMTargetMachineRef</a> <dfn class="local col5 decl" id="815T" title='T' data-type='LLVMTargetMachineRef' data-ref="815T">T</dfn>, <a class="typedef" href="Types.h.html#LLVMPassManagerRef" title='LLVMPassManagerRef' data-type='struct LLVMOpaquePassManager *' data-ref="LLVMPassManagerRef">LLVMPassManagerRef</a> <dfn class="local col6 decl" id="816PM" title='PM' data-type='LLVMPassManagerRef' data-ref="816PM">PM</dfn>);</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td><u>#<span data-ppcond="159">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="160">160</th><td>}</td></tr>
+<tr><th id="161">161</th><td><u>#<span data-ppcond="159">endif</span></u></td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td><u>#<span data-ppcond="19">endif</span></u></td></tr>
+<tr><th id="164">164</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../clang/examples/clang-interpreter/main.cpp.html'>llvm/clang/examples/clang-interpreter/main.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

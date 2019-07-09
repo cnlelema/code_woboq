@@ -1,0 +1,25 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='385' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildGEP(unsigned int Res, unsigned int Op0, unsigned int Op1)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='374'>/// Build and insert \p Res = G_GEP \p Op0, \p Op1
+  ///
+  /// G_GEP adds \p Op1 bytes to the pointer specified by \p Op0,
+  /// storing the resulting pointer in \p Res.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Res and \p Op0 must be generic virtual registers with pointer
+  ///      type.
+  /// \pre \p Op1 must be a generic virtual register with scalar type.
+  ///
+  /// \return a MachineInstrBuilder for the newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='687' u='c' c='_ZN4llvm12IRTranslator22translateGetElementPtrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='712' u='c' c='_ZN4llvm12IRTranslator22translateGetElementPtrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='720' u='c' c='_ZN4llvm12IRTranslator22translateGetElementPtrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='1452' u='c' c='_ZN4llvm12IRTranslator15translateAllocaERKNS_4UserERNS_16MachineIRBuilderE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='200' ll='210' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildGEP(unsigned int Res, unsigned int Op0, unsigned int Op1)'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='225' u='c' c='_ZN4llvm16MachineIRBuilder14materializeGEPERjjRKNS_3LLTEm'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64CallLowering.cpp' l='147' u='c' c='_ZN12_GLOBAL__N_118OutgoingArgHandler15getStackAddressEmlRN4llvm18MachinePointerInfoE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64LegalizerInfo.cpp' l='666' u='c' c='_ZNK4llvm20AArch64LegalizerInfo13legalizeVaArgERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64LegalizerInfo.cpp' l='682' u='c' c='_ZNK4llvm20AArch64LegalizerInfo13legalizeVaArgERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUCallLowering.cpp' l='133' u='c' c='_ZNK4llvm18AMDGPUCallLowering17lowerParameterPtrERNS_16MachineIRBuilderEPNS_4TypeEm'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMCallLowering.cpp' l='107' u='c' c='_ZN12_GLOBAL__N_120OutgoingValueHandler15getStackAddressEmlRN4llvm18MachinePointerInfoE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsCallLowering.cpp' l='298' u='c' c='_ZN12_GLOBAL__N_120OutgoingValueHandler15getStackAddressERKN4llvm11CCValAssignERPNS1_17MachineMemOperandE'/>
+<use f='llvm/llvm/lib/Target/X86/X86CallLowering.cpp' l='115' u='c' c='_ZN12_GLOBAL__N_120OutgoingValueHandler15getStackAddressEmlRN4llvm18MachinePointerInfoE'/>

@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/lib/Transforms/Vectorize/VPRecipeBuilder.h' l='68' type='llvm::VPInterleaveRecipe * llvm::VPRecipeBuilder::tryToInterleaveMemory(llvm::Instruction * I, llvm::VFRange &amp; Range, VPlanPtr &amp; Plan)'/>
+<def f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='6463' ll='6492' type='llvm::VPInterleaveRecipe * llvm::VPRecipeBuilder::tryToInterleaveMemory(llvm::Instruction * I, llvm::VFRange &amp; Range, VPlanPtr &amp; Plan)'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='6760' u='c' c='_ZN4llvm15VPRecipeBuilder17tryToCreateRecipeEPNS_11InstructionERNS_7VFRangeERSt10unique_ptrINS_5VPlanESt14default_deleteIS6_EEPNS_12VPBasicBlockE'/>
+<doc f='llvm/llvm/lib/Transforms/Vectorize/VPRecipeBuilder.h' l='60'>/// Check if \I belongs to an Interleave Group within the given VF \p Range,
+  /// \return true in the first returned value if so and false otherwise.
+  /// Build a new VPInterleaveGroup Recipe if \I is the primary member of an IG
+  /// for \p Range.Start, and provide it as the second returned value.
+  /// Note that if \I is an adjunct member of an IG for \p Range.Start, the
+  /// \return value is &lt;true, nullptr&gt;, as it is handled by another recipe.
+  /// \p Range.End may be decreased to ensure same decision from \p Range.Start
+  /// to \p Range.End.</doc>

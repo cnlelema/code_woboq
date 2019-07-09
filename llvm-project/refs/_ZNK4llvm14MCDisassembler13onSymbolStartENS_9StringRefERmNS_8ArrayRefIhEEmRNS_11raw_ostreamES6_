@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/MC/MCDisassembler/MCDisassembler.h' l='95' type='llvm::MCDisassembler::DecodeStatus llvm::MCDisassembler::onSymbolStart(llvm::StringRef Name, uint64_t &amp; Size, ArrayRef&lt;uint8_t&gt; Bytes, uint64_t Address, llvm::raw_ostream &amp; VStream, llvm::raw_ostream &amp; CStream) const'/>
+<doc f='llvm/llvm/include/llvm/MC/MCDisassembler/MCDisassembler.h' l='83'>/// May parse any prelude that precedes instructions after the start of a
+  /// symbol. Needed for some targets, e.g. WebAssembly.
+  ///
+  /// \param Name     - The name of the symbol.
+  /// \param Size     - The number of bytes consumed.
+  /// \param Address  - The address, in the memory space of region, of the first
+  ///                   byte of the symbol.
+  /// \param Bytes    - A reference to the actual bytes at the symbol location.
+  /// \param VStream  - The stream to print warnings and diagnostic messages on.
+  /// \param CStream  - The stream to print comments and annotations on.
+  /// \return         - MCDisassembler::Success if the bytes are valid,
+  ///                   MCDisassembler::Fail if the bytes were invalid.</doc>
+<def f='llvm/llvm/lib/MC/MCDisassembler/MCDisassembler.cpp' l='19' ll='24' type='MCDisassembler::DecodeStatus llvm::MCDisassembler::onSymbolStart(llvm::StringRef Name, uint64_t &amp; Size, ArrayRef&lt;uint8_t&gt; Bytes, uint64_t Address, llvm::raw_ostream &amp; VStream, llvm::raw_ostream &amp; CStream) const'/>
+<ovr f='llvm/llvm/lib/Target/WebAssembly/Disassembler/WebAssemblyDisassembler.cpp' l='123' c='_ZNK12_GLOBAL__N_123WebAssemblyDisassembler13onSymbolStartEN4llvm9StringRefERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamES7_'/>
+<use f='llvm/llvm/tools/llvm-objdump/llvm-objdump.cpp' l='1267' u='c' c='_ZN4llvmL17disassembleObjectEPKNS_6TargetEPKNS_6object10ObjectFileERNS_9MCContextEPNS_14MCDisassemblerEPKNS_15MCInstrAnalysisEPNS_13MCInstPrinterEPKNS16771654'/>

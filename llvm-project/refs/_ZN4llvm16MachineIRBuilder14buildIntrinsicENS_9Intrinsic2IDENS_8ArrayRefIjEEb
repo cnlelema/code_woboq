@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='798' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildIntrinsic(Intrinsic::ID ID, ArrayRef&lt;unsigned int&gt; Res, bool HasSideEffects)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='788'>/// Build and insert either a G_INTRINSIC (if \p HasSideEffects is false) or
+  /// G_INTRINSIC_W_SIDE_EFFECTS instruction. Its first operand will be the
+  /// result register definition unless \p Reg is NoReg (== 0). The second
+  /// operand will be the intrinsic&apos;s ID.
+  ///
+  /// Callers are expected to add the required definitions and uses afterwards.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  ///
+  /// \return a MachineInstrBuilder for the newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='1244' u='c' c='_ZN4llvm12IRTranslator13translateCallERKNS_4UserERNS_16MachineIRBuilderE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='631' ll='641' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildIntrinsic(Intrinsic::ID ID, ArrayRef&lt;unsigned int&gt; ResultRegs, bool HasSideEffects)'/>

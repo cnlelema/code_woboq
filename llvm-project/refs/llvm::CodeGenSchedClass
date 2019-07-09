@@ -1,0 +1,39 @@
+<def f='llvm/llvm/utils/TableGen/CodeGenSchedule.h' l='125' ll='159'/>
+<size>168</size>
+<doc f='llvm/llvm/utils/TableGen/CodeGenSchedule.h' l='101'>/// Scheduling class.
+///
+/// Each instruction description will be mapped to a scheduling class. There are
+/// four types of classes:
+///
+/// 1) An explicitly defined itinerary class with ItinClassDef set.
+/// Writes and ReadDefs are empty. ProcIndices contains 0 for any processor.
+///
+/// 2) An implied class with a list of SchedWrites and SchedReads that are
+/// defined in an instruction definition and which are common across all
+/// subtargets. ProcIndices contains 0 for any processor.
+///
+/// 3) An implied class with a list of InstRW records that map instructions to
+/// SchedWrites and SchedReads per-processor. InstrClassMap should map the same
+/// instructions to this class. ProcIndices contains all the processors that
+/// provided InstrRW records for this class. ItinClassDef or Writes/Reads may
+/// still be defined for processors with no InstRW entry.
+///
+/// 4) An inferred class represents a variant of another class that may be
+/// resolved at runtime. ProcIndices contains the set of processors that may
+/// require the class. ProcIndices are propagated through SchedClasses as
+/// variants are expanded. Multiple SchedClasses may be inferred from an
+/// itinerary class. Each inherits the processor index from the ItinRW record
+/// that mapped the itinerary class to the variant Writes or Reads.</doc>
+<mbr r='llvm::CodeGenSchedClass::Index' o='0' t='unsigned int'/>
+<mbr r='llvm::CodeGenSchedClass::Name' o='64' t='std::string'/>
+<mbr r='llvm::CodeGenSchedClass::ItinClassDef' o='320' t='llvm::Record *'/>
+<mbr r='llvm::CodeGenSchedClass::Writes' o='384' t='IdxVec'/>
+<mbr r='llvm::CodeGenSchedClass::Reads' o='576' t='IdxVec'/>
+<mbr r='llvm::CodeGenSchedClass::ProcIndices' o='768' t='IdxVec'/>
+<mbr r='llvm::CodeGenSchedClass::Transitions' o='960' t='std::vector&lt;CodeGenSchedTransition&gt;'/>
+<mbr r='llvm::CodeGenSchedClass::InstRWs' o='1152' t='RecVec'/>
+<fun r='_ZN4llvm17CodeGenSchedClassC1EjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6RecordE'/>
+<fun r='_ZNK4llvm17CodeGenSchedClass10isKeyEqualEPNS_6RecordENS_8ArrayRefIjEES4_'/>
+<fun r='_ZNK4llvm17CodeGenSchedClass10isInferredEv'/>
+<fun r='_ZNK4llvm17CodeGenSchedClass4dumpEPKNS_18CodeGenSchedModelsE'/>
+<fun r='_ZNK4llvm17CodeGenSchedClass4dumpEPKNS_18CodeGenSchedModelsE'/>

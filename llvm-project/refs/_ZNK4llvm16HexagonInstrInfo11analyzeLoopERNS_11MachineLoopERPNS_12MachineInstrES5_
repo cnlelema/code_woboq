@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.h' l='135' type='bool llvm::HexagonInstrInfo::analyzeLoop(llvm::MachineLoop &amp; L, llvm::MachineInstr *&amp; IndVarInst, llvm::MachineInstr *&amp; CmpInst) const'/>
+<doc f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.h' l='132'>/// Analyze the loop code, return true if it cannot be understood. Upon
+  /// success, this function returns false and returns information about the
+  /// induction variable and compare instruction used at the end.</doc>
+<def f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='682' ll='695' type='bool llvm::HexagonInstrInfo::analyzeLoop(llvm::MachineLoop &amp; L, llvm::MachineInstr *&amp; IndVarInst, llvm::MachineInstr *&amp; CmpInst) const'/>
+<doc f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='677'>/// Analyze the loop code to find the loop induction variable and compare used
+/// to compute the number of iterations. Currently, we analyze loop that are
+/// controlled using hardware loops.  In this case, the induction variable
+/// instruction is null.  For all other cases, this function returns true, which
+/// means we&apos;re unable to analyze it.</doc>

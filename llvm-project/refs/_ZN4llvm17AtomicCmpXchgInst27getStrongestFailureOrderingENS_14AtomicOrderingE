@@ -1,0 +1,19 @@
+<def f='llvm/llvm/include/llvm/IR/Instructions.h' l='639' ll='653' type='static llvm::AtomicOrdering llvm::AtomicCmpXchgInst::getStrongestFailureOrdering(llvm::AtomicOrdering SuccessOrdering)'/>
+<doc f='llvm/llvm/include/llvm/IR/Instructions.h' l='632'>/// Returns the strongest permitted ordering on failure, given the
+  /// desired ordering on success.
+  ///
+  /// If the comparison in a cmpxchg operation fails, there is no atomic store
+  /// so release semantics cannot be provided. So this function drops explicit
+  /// Release requests from the AtomicOrdering. A SequentiallyConsistent
+  /// operation would remain SequentiallyConsistent.</doc>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='463' u='c' c='_ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh'/>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='1735' u='c' c='_ZN12_GLOBAL__N_110AtomicInfo25EmitAtomicCompareExchangeEN5clang7CodeGen6RValueES3_N4llvm14AtomicOrderingES5_b'/>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='1821' u='c' c='_ZN12_GLOBAL__N_110AtomicInfo23EmitAtomicUpdateLibcallEN4llvm14AtomicOrderingERKNS1_12function_refIFN5clang7CodeGen6RValueES6_EEEb'/>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='1850' u='c' c='_ZN12_GLOBAL__N_110AtomicInfo18EmitAtomicUpdateOpEN4llvm14AtomicOrderingERKNS1_12function_refIFN5clang7CodeGen6RValueES6_EEEb'/>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='1907' u='c' c='_ZN12_GLOBAL__N_110AtomicInfo23EmitAtomicUpdateLibcallEN4llvm14AtomicOrderingEN5clang7CodeGen6RValueEb'/>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='1932' u='c' c='_ZN12_GLOBAL__N_110AtomicInfo18EmitAtomicUpdateOpEN4llvm14AtomicOrderingEN5clang7CodeGen6RValueEb'/>
+<use f='llvm/llvm/lib/Bitcode/Reader/BitcodeReader.cpp' l='4647' u='c' c='_ZN12_GLOBAL__N_113BitcodeReader17parseFunctionBodyEPN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/AtomicExpandPass.cpp' l='442' u='c' c='_ZN12_GLOBAL__N_112AtomicExpand25expandAtomicLoadToCmpXchgEPN4llvm8LoadInstE'/>
+<use f='llvm/llvm/lib/CodeGen/AtomicExpandPass.cpp' l='515' u='c' c='_ZL20createCmpXchgInstFunRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_S6_NS_14AtomicOrderingERS6_S8_'/>
+<use f='llvm/llvm/lib/CodeGen/AtomicExpandPass.cpp' l='1593' u='c' c='_ZN12_GLOBAL__N_112AtomicExpand24expandAtomicRMWToLibcallEPN4llvm13AtomicRMWInstE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='25887' u='c' c='_ZNK4llvm17X86TargetLowering32lowerIdempotentRMWIntoFencedLoadEPNS_13AtomicRMWInstE'/>

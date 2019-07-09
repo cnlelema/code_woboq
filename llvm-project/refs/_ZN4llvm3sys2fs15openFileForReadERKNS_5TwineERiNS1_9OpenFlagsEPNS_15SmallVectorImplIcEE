@@ -1,0 +1,40 @@
+<dec f='llvm/llvm/include/llvm/Support/FileSystem.h' l='1053' type='std::error_code llvm::sys::fs::openFileForRead(const llvm::Twine &amp; Name, int &amp; ResultFD, llvm::sys::fs::OpenFlags Flags = OF_None, SmallVectorImpl&lt;char&gt; * RealPath = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Support/FileSystem.h' l='1039'>/// @brief Opens the file with the given name in a read-only mode, returning
+/// its open file descriptor.
+///
+/// The caller is responsible for closing the file descriptor once they are
+/// finished with it.
+///
+/// @param Name The path of the file to open, relative or absolute.
+/// @param ResultFD If the file could be opened successfully, its descriptor
+///                 is stored in this location. Otherwise, this is set to -1.
+/// @param RealPath If nonnull, extra work is done to determine the real path
+///                 of the opened file, and that path is stored in this
+///                 location.
+/// @returns errc::success if \a Name has been opened, otherwise a
+///          platform-specific error_code.</doc>
+<use f='llvm/lld/Common/Filesystem.cpp' l='55' u='c' c='_ZN3lld11unlinkAsyncEN4llvm9StringRefE'/>
+<use f='llvm/llvm/lib/LTO/Caching.cpp' l='43' u='c' c='_ZN4llvm3lto10localCacheENS_9StringRefESt8functionIFvjSt10unique_ptrINS_12MemoryBufferESt14default_deleteIS4_EEEE'/>
+<use f='llvm/llvm/lib/LTO/ThinLTOCodeGenerator.cpp' l='352' u='c' c='_ZN12_GLOBAL__N_116ModuleCacheEntry16tryLoadingBufferEv'/>
+<use f='llvm/llvm/lib/Object/ArchiveWriter.cpp' l='78' u='c' c='_ZN4llvm16NewArchiveMember7getFileENS_9StringRefEb'/>
+<use f='llvm/llvm/lib/Support/MemoryBuffer.cpp' l='246' u='c' c='_ZL10getFileAuxRKN4llvm5TwineElmmbb'/>
+<use f='llvm/llvm/lib/Support/MemoryBuffer.cpp' l='520' u='c' c='_ZN4llvm12MemoryBuffer15getFileAsStreamERKNS_5TwineE'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='966' u='c' c='_ZN4llvm3sys2fs9copy_fileERKNS_5TwineES4_'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='985' u='c' c='_ZN4llvm3sys2fs9copy_fileERKNS_5TwineEi'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='1017' u='c' c='_ZN4llvm3sys2fs12md5_contentsERKNS_5TwineE'/>
+<def f='llvm/llvm/lib/Support/Unix/Path.inc' l='931' ll='967' type='std::error_code llvm::sys::fs::openFileForRead(const llvm::Twine &amp; Name, int &amp; ResultFD, llvm::sys::fs::OpenFlags Flags = OF_None, SmallVectorImpl&lt;char&gt; * RealPath = nullptr)'/>
+<use f='llvm/llvm/lib/Support/Unix/Path.inc' l='972' u='c' c='_ZN4llvm3sys2fs21openNativeFileForReadERKNS_5TwineENS1_9OpenFlagsEPNS_15SmallVectorImplIcEE'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='298' u='c' c='_ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE'/>
+<use f='llvm/llvm/lib/XRay/InstrumentationMap.cpp' l='218' u='c' c='_ZN4llvm4xray22loadInstrumentationMapENS_9StringRefE'/>
+<use f='llvm/llvm/lib/XRay/Profile.cpp' l='264' u='c' c='_ZN4llvm4xray11loadProfileENS_9StringRefE'/>
+<use f='llvm/llvm/lib/XRay/Trace.cpp' l='375' u='c' c='_ZN4llvm4xray13loadTraceFileENS_9StringRefEb'/>
+<use f='llvm/llvm/tools/llvm-xray/xray-fdr-dump.cpp' l='39' u='c'/>
+<use f='llvm/llvm/unittests/Support/MemoryBufferTest.cpp' l='149' u='c' c='_ZN12_GLOBAL__N_116MemoryBufferTest20testGetOpenFileSliceEb'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1111' u='c' c='_ZN12_GLOBAL__N_131FileSystemTest_FileMapping_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1267' u='c' c='_ZN12_GLOBAL__N_135FileSystemTest_OpenFileForRead_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1485' u='c' c='_ZN12_GLOBAL__N_141FileSystemTest_ReadOnlyFileCantWrite_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/ProgramTest.cpp' l='318' u='c' c='_ZN12_GLOBAL__N_144ProgramTest_TestWriteWithSystemEncoding_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/ReplaceFileTest.cpp' l='62' u='c' c='_ZN12_GLOBAL__N_114FileHasContentEN4llvm9StringRefES1_'/>
+<use f='llvm/llvm/unittests/Support/ReplaceFileTest.cpp' l='88' u='c' c='_ZN12_GLOBAL__N_145rename_FileOpenedForReadingCanBeReplaced_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/ReplaceFileTest.cpp' l='147' u='c' c='_ZN12_GLOBAL__N_124rename_ExistingTemp_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/raw_pwrite_stream_test.cpp' l='62' u='c' c='_ZN12_GLOBAL__N_134raw_pwrite_ostreamTest_TestFD_Test8TestBodyEv'/>

@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyFrameLowering.h' l='57' type='bool llvm::WebAssemblyFrameLowering::hasBP(const llvm::MachineFunction &amp; MF) const'/>
+<def f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyFrameLowering.cpp' l='45' ll='49' type='bool llvm::WebAssemblyFrameLowering::hasBP(const llvm::MachineFunction &amp; MF) const'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyFrameLowering.cpp' l='63' u='c' c='_ZNK4llvm24WebAssemblyFrameLowering5hasFPERKNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyFrameLowering.cpp' l='141' u='c' c='_ZNK4llvm24WebAssemblyFrameLowering29eliminateCallFramePseudoInstrERNS_15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyFrameLowering.cpp' l='182' u='c' c='_ZNK4llvm24WebAssemblyFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyFrameLowering.cpp' l='240' u='c' c='_ZNK4llvm24WebAssemblyFrameLowering12emitEpilogueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<doc f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyFrameLowering.cpp' l='38'>// TODO: wasm64
+// TODO: Emit TargetOpcode::CFI_INSTRUCTION instructions
+
+/// We need a base pointer in the case of having items on the stack that
+/// require stricter alignment than the stack pointer itself.  Because we need
+/// to shift the stack pointer by some unknown amount to force the alignment,
+/// we need to record the value of the stack pointer on entry to the function.</doc>

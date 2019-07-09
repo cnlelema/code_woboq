@@ -1,0 +1,9 @@
+<def f='llvm/clang/include/clang/Sema/Sema.h' l='1320' type='void clang::Sema::SemaDiagnosticBuilder::SemaDiagnosticBuilder(const clang::Sema::SemaDiagnosticBuilder &amp; )'/>
+<doc f='llvm/clang/include/clang/Sema/Sema.h' l='1314'>// This is a cunning lie. DiagnosticBuilder actually performs move
+    // construction in its copy constructor (but due to varied uses, it&apos;s not
+    // possible to conveniently express this as actual move construction). So
+    // the default copy ctor here is fine, because the base class disables the
+    // source anyway, so the user-defined ~SemaDiagnosticBuilder is a safe no-op
+    // in that case anwyay.</doc>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='1461' u='c' c='_ZN5clang4Sema4DiagENS_14SourceLocationERKNS_17PartialDiagnosticE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='8698' u='c' c='_ZN12_GLOBAL__N_121BadSpecifierDiagnoserC1ERN5clang4SemaENS1_14SourceLocationEj'/>

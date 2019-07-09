@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFDie.h' l='202' type='Optional&lt;uint64_t&gt; llvm::DWARFDie::getHighPC(uint64_t LowPC) const'/>
+<doc f='llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFDie.h' l='192'>/// Get the DW_AT_high_pc attribute value as an address.
+  ///
+  /// In DWARF version 4 and later the high PC can be encoded as an offset from
+  /// the DW_AT_low_pc. This function takes care of extracting the value as an
+  /// address or offset and adds it to the low PC if needed and returns the
+  /// value as an optional in case the DIE doesn&apos;t have a DW_AT_high_pc
+  /// attribute.
+  ///
+  /// \param LowPC the low PC that might be needed to calculate the high PC.
+  /// \returns an optional address value for the attribute.</doc>
+<def f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDie.cpp' l='445' ll='457' type='Optional&lt;uint64_t&gt; llvm::DWARFDie::getHighPC(uint64_t LowPC) const'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDie.cpp' l='465' u='c' c='_ZNK4llvm8DWARFDie15getLowAndHighPCERmS1_S1_'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfLinker.cpp' l='709' u='c' c='_ZN4llvm8dsymutil11DwarfLinker23shouldKeepSubprogramDIEERNS1_17RelocationManagerERSt3mapImNS0_19DebugMapObjectRangeESt4lessImESaISt4pairIKmS5_EEERKNS_2761808'/>
+<use f='llvm/llvm/unittests/DebugInfo/DWARF/DWARFDebugInfoTest.cpp' l='909' u='c' c='_ZN12_GLOBAL__N_113TestAddressesEv'/>
+<use f='llvm/llvm/unittests/DebugInfo/DWARF/DWARFDebugInfoTest.cpp' l='926' u='c' c='_ZN12_GLOBAL__N_113TestAddressesEv'/>
+<use f='llvm/llvm/unittests/DebugInfo/DWARF/DWARFDebugInfoTest.cpp' l='958' u='c' c='_ZN12_GLOBAL__N_113TestAddressesEv'/>

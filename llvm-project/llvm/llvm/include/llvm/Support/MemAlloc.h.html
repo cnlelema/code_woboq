@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MemAlloc.h source code [llvm/llvm/include/llvm/Support/MemAlloc.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/Support/MemAlloc.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>Support</a>/<a href='MemAlloc.h.html'>MemAlloc.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- MemAlloc.h - Memory allocation functions -----------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>/// \file</i></td></tr>
+<tr><th id="9">9</th><td><i>///</i></td></tr>
+<tr><th id="10">10</th><td><i>/// This file defines counterparts of C library allocation functions defined in</i></td></tr>
+<tr><th id="11">11</th><td><i>/// the namespace 'std'. The new allocation functions crash on allocation</i></td></tr>
+<tr><th id="12">12</th><td><i>/// failure instead of returning null pointer.</i></td></tr>
+<tr><th id="13">13</th><td><i>///</i></td></tr>
+<tr><th id="14">14</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/LLVM_SUPPORT_MEMALLOC_H">LLVM_SUPPORT_MEMALLOC_H</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/LLVM_SUPPORT_MEMALLOC_H" data-ref="_M/LLVM_SUPPORT_MEMALLOC_H">LLVM_SUPPORT_MEMALLOC_H</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="Compiler.h.html">"llvm/Support/Compiler.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="ErrorHandling.h.html">"llvm/Support/ErrorHandling.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../../../include/c++/7/cstdlib.html">&lt;cstdlib&gt;</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><a class="macro" href="Compiler.h.html#225" title="__attribute__((returns_nonnull))" data-ref="_M/LLVM_ATTRIBUTE_RETURNS_NONNULL">LLVM_ATTRIBUTE_RETURNS_NONNULL</a> <b>inline</b> <em>void</em> *<dfn class="decl def" id="_ZN4llvm11safe_mallocEm" title='llvm::safe_malloc' data-ref="_ZN4llvm11safe_mallocEm">safe_malloc</dfn>(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col3 decl" id="9313Sz" title='Sz' data-type='size_t' data-ref="9313Sz">Sz</dfn>) {</td></tr>
+<tr><th id="26">26</th><td>  <em>void</em> *<dfn class="local col4 decl" id="9314Result" title='Result' data-type='void *' data-ref="9314Result">Result</dfn> = <span class="namespace">std::</span><a class="ref" href="../../../../../include/stdlib.h.html#malloc" title='malloc' data-ref="malloc">malloc</a>(<a class="local col3 ref" href="#9313Sz" title='Sz' data-ref="9313Sz">Sz</a>);</td></tr>
+<tr><th id="27">27</th><td>  <b>if</b> (<a class="local col4 ref" href="#9314Result" title='Result' data-ref="9314Result">Result</a> == <b>nullptr</b>)</td></tr>
+<tr><th id="28">28</th><td>    <a class="ref" href="ErrorHandling.h.html#_ZN4llvm22report_bad_alloc_errorEPKcb" title='llvm::report_bad_alloc_error' data-ref="_ZN4llvm22report_bad_alloc_errorEPKcb">report_bad_alloc_error</a>(<q>"Allocation failed"</q>);</td></tr>
+<tr><th id="29">29</th><td>  <b>return</b> <a class="local col4 ref" href="#9314Result" title='Result' data-ref="9314Result">Result</a>;</td></tr>
+<tr><th id="30">30</th><td>}</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><a class="macro" href="Compiler.h.html#225" title="__attribute__((returns_nonnull))" data-ref="_M/LLVM_ATTRIBUTE_RETURNS_NONNULL">LLVM_ATTRIBUTE_RETURNS_NONNULL</a> <b>inline</b> <em>void</em> *<dfn class="decl def" id="_ZN4llvm11safe_callocEmm" title='llvm::safe_calloc' data-ref="_ZN4llvm11safe_callocEmm">safe_calloc</dfn>(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col5 decl" id="9315Count" title='Count' data-type='size_t' data-ref="9315Count">Count</dfn>,</td></tr>
+<tr><th id="33">33</th><td>                                                        <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col6 decl" id="9316Sz" title='Sz' data-type='size_t' data-ref="9316Sz">Sz</dfn>) {</td></tr>
+<tr><th id="34">34</th><td>  <em>void</em> *<dfn class="local col7 decl" id="9317Result" title='Result' data-type='void *' data-ref="9317Result">Result</dfn> = <span class="namespace">std::</span><a class="ref" href="../../../../../include/stdlib.h.html#calloc" title='calloc' data-ref="calloc">calloc</a>(<a class="local col5 ref" href="#9315Count" title='Count' data-ref="9315Count">Count</a>, <a class="local col6 ref" href="#9316Sz" title='Sz' data-ref="9316Sz">Sz</a>);</td></tr>
+<tr><th id="35">35</th><td>  <b>if</b> (<a class="local col7 ref" href="#9317Result" title='Result' data-ref="9317Result">Result</a> == <b>nullptr</b>)</td></tr>
+<tr><th id="36">36</th><td>    <a class="ref" href="ErrorHandling.h.html#_ZN4llvm22report_bad_alloc_errorEPKcb" title='llvm::report_bad_alloc_error' data-ref="_ZN4llvm22report_bad_alloc_errorEPKcb">report_bad_alloc_error</a>(<q>"Allocation failed"</q>);</td></tr>
+<tr><th id="37">37</th><td>  <b>return</b> <a class="local col7 ref" href="#9317Result" title='Result' data-ref="9317Result">Result</a>;</td></tr>
+<tr><th id="38">38</th><td>}</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><a class="macro" href="Compiler.h.html#225" title="__attribute__((returns_nonnull))" data-ref="_M/LLVM_ATTRIBUTE_RETURNS_NONNULL">LLVM_ATTRIBUTE_RETURNS_NONNULL</a> <b>inline</b> <em>void</em> *<dfn class="decl def" id="_ZN4llvm12safe_reallocEPvm" title='llvm::safe_realloc' data-ref="_ZN4llvm12safe_reallocEPvm">safe_realloc</dfn>(<em>void</em> *<dfn class="local col8 decl" id="9318Ptr" title='Ptr' data-type='void *' data-ref="9318Ptr">Ptr</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col9 decl" id="9319Sz" title='Sz' data-type='size_t' data-ref="9319Sz">Sz</dfn>) {</td></tr>
+<tr><th id="41">41</th><td>  <em>void</em> *<dfn class="local col0 decl" id="9320Result" title='Result' data-type='void *' data-ref="9320Result">Result</dfn> = <span class="namespace">std::</span><a class="ref" href="../../../../../include/stdlib.h.html#realloc" title='realloc' data-ref="realloc">realloc</a>(<a class="local col8 ref" href="#9318Ptr" title='Ptr' data-ref="9318Ptr">Ptr</a>, <a class="local col9 ref" href="#9319Sz" title='Sz' data-ref="9319Sz">Sz</a>);</td></tr>
+<tr><th id="42">42</th><td>  <b>if</b> (<a class="local col0 ref" href="#9320Result" title='Result' data-ref="9320Result">Result</a> == <b>nullptr</b>)</td></tr>
+<tr><th id="43">43</th><td>    <a class="ref" href="ErrorHandling.h.html#_ZN4llvm22report_bad_alloc_errorEPKcb" title='llvm::report_bad_alloc_error' data-ref="_ZN4llvm22report_bad_alloc_errorEPKcb">report_bad_alloc_error</a>(<q>"Allocation failed"</q>);</td></tr>
+<tr><th id="44">44</th><td>  <b>return</b> <a class="local col0 ref" href="#9320Result" title='Result' data-ref="9320Result">Result</a>;</td></tr>
+<tr><th id="45">45</th><td>}</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td>}</td></tr>
+<tr><th id="48">48</th><td><u>#<span data-ppcond="16">endif</span></u></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../clang/examples/AnnotateFunctions/AnnotateFunctions.cpp.html'>llvm/clang/examples/AnnotateFunctions/AnnotateFunctions.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,8 @@
+<dec f='llvm/llvm/lib/Target/SystemZ/SystemZInstrInfo.h' l='155' type='void llvm::SystemZInstrInfo::expandRIPseudo(llvm::MachineInstr &amp; MI, unsigned int LowOpcode, unsigned int HighOpcode, bool ConvertHigh) const'/>
+<def f='llvm/llvm/lib/Target/SystemZ/SystemZInstrInfo.cpp' l='147' ll='155' type='void llvm::SystemZInstrInfo::expandRIPseudo(llvm::MachineInstr &amp; MI, unsigned int LowOpcode, unsigned int HighOpcode, bool ConvertHigh) const'/>
+<doc f='llvm/llvm/lib/Target/SystemZ/SystemZInstrInfo.cpp' l='141'>// MI is an RI-style pseudo instruction.  Replace it with LowOpcode
+// if the first operand is a low GR32 and HighOpcode if the first operand
+// is a high GR32.  ConvertHigh is true if LowOpcode takes a signed operand
+// and HighOpcode takes an unsigned 32-bit operand.  In those cases,
+// MI has the same kind of operand as LowOpcode, so needs to be converted
+// if HighOpcode is used.</doc>

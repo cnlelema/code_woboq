@@ -1,0 +1,19 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/BasicBlockUtils.h' l='315' type='void llvm::SplitBlockAndInsertIfThenElse(llvm::Value * Cond, llvm::Instruction * SplitBefore, llvm::Instruction ** ThenTerm, llvm::Instruction ** ElseTerm, llvm::MDNode * BranchWeights = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/BasicBlockUtils.h' l='301'>/// SplitBlockAndInsertIfThenElse is similar to SplitBlockAndInsertIfThen,
+/// but also creates the ElseBlock.
+/// Before:
+///   Head
+///   SplitBefore
+///   Tail
+/// After:
+///   Head
+///   if (Cond)
+///     ThenBlock
+///   else
+///     ElseBlock
+///   SplitBefore
+///   Tail</doc>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/AddressSanitizer.cpp' l='3189' u='c' c='_ZN12_GLOBAL__N_121FunctionStackPoisoner20processStaticAllocasEv'/>
+<def f='llvm/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp' l='818' ll='836' type='void llvm::SplitBlockAndInsertIfThenElse(llvm::Value * Cond, llvm::Instruction * SplitBefore, llvm::Instruction ** ThenTerm, llvm::Instruction ** ElseTerm, llvm::MDNode * BranchWeights = nullptr)'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CallPromotionUtils.cpp' l='274' u='c' c='_ZL15versionCallSiteN4llvm8CallSiteEPNS_5ValueEPNS_6MDNodeE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LowerMemIntrinsics.cpp' l='306' u='c' c='_ZL17createMemMoveLoopPN4llvm11InstructionEPNS_5ValueES3_S3_jjbb'/>

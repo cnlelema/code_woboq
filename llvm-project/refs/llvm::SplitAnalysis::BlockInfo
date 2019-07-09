@@ -1,0 +1,26 @@
+<def f='llvm/llvm/lib/CodeGen/SplitKit.h' l='120' ll='133'/>
+<size>40</size>
+<doc f='llvm/llvm/lib/CodeGen/SplitKit.h' l='103'>/// Additional information about basic blocks where the current variable is
+  /// live. Such a block will look like one of these templates:
+  ///
+  ///  1. |   o---x   | Internal to block. Variable is only live in this block.
+  ///  2. |---x       | Live-in, kill.
+  ///  3. |       o---| Def, live-out.
+  ///  4. |---x   o---| Live-in, kill, def, live-out. Counted by NumGapBlocks.
+  ///  5. |---o---o---| Live-through with uses or defs.
+  ///  6. |-----------| Live-through without uses. Counted by NumThroughBlocks.
+  ///
+  /// Two BlockInfo entries are created for template 4. One for the live-in
+  /// segment, and one for the live-out segment. These entries look as if the
+  /// block were split in the middle where the live range isn&apos;t live.
+  ///
+  /// Live-through blocks without any uses don&apos;t get BlockInfo entries. They
+  /// are simply listed in ThroughBlocks instead.
+  ///</doc>
+<mbr r='llvm::SplitAnalysis::BlockInfo::MBB' o='0' t='llvm::MachineBasicBlock *'/>
+<mbr r='llvm::SplitAnalysis::BlockInfo::FirstInstr' o='64' t='llvm::SlotIndex'/>
+<mbr r='llvm::SplitAnalysis::BlockInfo::LastInstr' o='128' t='llvm::SlotIndex'/>
+<mbr r='llvm::SplitAnalysis::BlockInfo::FirstDef' o='192' t='llvm::SlotIndex'/>
+<mbr r='llvm::SplitAnalysis::BlockInfo::LiveIn' o='256' t='bool'/>
+<mbr r='llvm::SplitAnalysis::BlockInfo::LiveOut' o='264' t='bool'/>
+<fun r='_ZNK4llvm13SplitAnalysis9BlockInfo10isOneInstrEv'/>

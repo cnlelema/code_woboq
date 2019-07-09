@@ -1,0 +1,32 @@
+<def f='llvm/clang/include/clang/Parse/RAIIObjectsForParser.h' l='44' ll='84'/>
+<size>1</size>
+<doc f='llvm/clang/include/clang/Parse/RAIIObjectsForParser.h' l='24'>// TODO: move ParsingClassDefinition here.
+  // TODO: move TentativeParsingAction here.
+
+  /// A RAII object used to temporarily suppress access-like
+  /// checking.  Access-like checks are those associated with
+  /// controlling the use of a declaration, like C++ access control
+  /// errors and deprecation warnings.  They are contextually
+  /// dependent, in that they can only be resolved with full
+  /// information about what&apos;s being declared.  They are also
+  /// suppressed in certain contexts, like the template arguments of
+  /// an explicit instantiation.  However, those suppression contexts
+  /// cannot necessarily be fully determined in advance;  for
+  /// example, something starting like this:
+  ///   template &lt;&gt; class std::vector&lt;A::PrivateType&gt;
+  /// might be the entirety of an explicit instantiation:
+  ///   template &lt;&gt; class std::vector&lt;A::PrivateType&gt;;
+  /// or just an elaborated type specifier:
+  ///   template &lt;&gt; class std::vector&lt;A::PrivateType&gt; make_vector&lt;&gt;();
+  /// Therefore this class collects all the diagnostics and permits
+  /// them to be re-delayed in a new context.</doc>
+<mbr r='clang::SuppressAccessChecks::S' t='clang::Sema &amp;'/>
+<mbr r='clang::SuppressAccessChecks::DiagnosticPool' t='sema::DelayedDiagnosticPool'/>
+<mbr r='clang::SuppressAccessChecks::State' t='Sema::ParsingDeclState'/>
+<mbr r='clang::SuppressAccessChecks::Active' t='bool'/>
+<fun r='_ZN5clang20SuppressAccessChecksC1ERNS_6ParserEb'/>
+<fun r='_ZN5clang20SuppressAccessChecksC1EOS0_'/>
+<fun r='_ZN5clang20SuppressAccessChecksaSEOS0_'/>
+<fun r='_ZN5clang20SuppressAccessChecks4doneEv'/>
+<fun r='_ZN5clang20SuppressAccessChecks7redelayEv'/>
+<fun r='_ZN5clang20SuppressAccessChecksD1Ev'/>

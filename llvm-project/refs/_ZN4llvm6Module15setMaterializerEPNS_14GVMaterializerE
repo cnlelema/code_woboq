@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/IR/Module.h' l='505' type='void llvm::Module::setMaterializer(llvm::GVMaterializer * GVM)'/>
+<doc f='llvm/llvm/include/llvm/IR/Module.h' l='494'>/// @}
+/// @name Materialization
+/// @{
+
+  /// Sets the GVMaterializer to GVM. This module must not yet have a
+  /// Materializer. To reset the materializer for a module that already has one,
+  /// call materializeAll first. Destroying this module will destroy
+  /// its materializer without materializing any more GlobalValues. Without
+  /// destroying the Module, there is no way to detach or destroy a materializer
+  /// without materializing all the GVs it controls, to avoid leaving orphan
+  /// unmaterialized GVs.</doc>
+<use f='llvm/llvm/lib/Bitcode/Reader/BitcodeReader.cpp' l='6029' u='c' c='_ZN4llvm13BitcodeModule13getModuleImplERNS_11LLVMContextEbbb'/>
+<def f='llvm/llvm/lib/IR/Module.cpp' l='387' ll='392' type='void llvm::Module::setMaterializer(llvm::GVMaterializer * GVM)'/>
+<doc f='llvm/llvm/lib/IR/Module.cpp' l='384'>//===----------------------------------------------------------------------===//
+// Methods to control the materialization of GlobalValues in the Module.
+//</doc>

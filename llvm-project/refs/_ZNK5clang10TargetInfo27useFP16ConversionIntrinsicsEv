@@ -1,0 +1,16 @@
+<def f='llvm/clang/include/clang/Basic/TargetInfo.h' l='790' ll='792' type='bool clang::TargetInfo::useFP16ConversionIntrinsics() const'/>
+<doc f='llvm/clang/include/clang/Basic/TargetInfo.h' l='786'>/// Check whether llvm intrinsics such as llvm.convert.to.fp16 should be used
+  /// to convert to and from __fp16.
+  /// FIXME: This function should be removed once all targets stop using the
+  /// conversion intrinsics.</doc>
+<ovr f='llvm/clang/lib/Basic/Targets/AArch64.h' l='54' c='_ZNK5clang7targets17AArch64TargetInfo27useFP16ConversionIntrinsicsEv'/>
+<ovr f='llvm/clang/lib/Basic/Targets/ARM.h' l='139' c='_ZNK5clang7targets13ARMTargetInfo27useFP16ConversionIntrinsicsEv'/>
+<ovr f='llvm/clang/lib/Basic/Targets/SPIR.h' l='65' c='_ZNK5clang7targets14SPIRTargetInfo27useFP16ConversionIntrinsicsEv'/>
+<ovr f='llvm/clang/lib/Basic/Targets/X86.h' l='236' c='_ZNK5clang7targets13X86TargetInfo27useFP16ConversionIntrinsicsEv'/>
+<use f='llvm/clang/lib/CodeGen/CGExprConstant.cpp' l='1960' u='c' c='_ZN5clang7CodeGen15ConstantEmitter14tryEmitPrivateERKNS_7APValueENS_8QualTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprScalar.cpp' l='1413' u='c' c='_ZN12_GLOBAL__N_117ScalarExprEmitter20EmitScalarConversionEPN4llvm5ValueEN5clang8QualTypeES5_NS4_14SourceLocationENS0_20ScalarConversionOptsE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprScalar.cpp' l='1603' u='c' c='_ZN12_GLOBAL__N_117ScalarExprEmitter20EmitScalarConversionEPN4llvm5ValueEN5clang8QualTypeES5_NS4_14SourceLocationENS0_20ScalarConversionOptsE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprScalar.cpp' l='2926' u='c' c='_ZN12_GLOBAL__N_117ScalarExprEmitter23EmitScalarPrePostIncDecEPKN5clang13UnaryOperatorENS1_7CodeGen6LValueEbb'/>
+<use f='llvm/clang/lib/CodeGen/CGExprScalar.cpp' l='2961' u='c' c='_ZN12_GLOBAL__N_117ScalarExprEmitter23EmitScalarPrePostIncDecEPKN5clang13UnaryOperatorENS1_7CodeGen6LValueEbb'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenTypes.cpp' l='489' u='c' c='_ZN5clang7CodeGen12CodeGenTypes11ConvertTypeENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='12624' u='c' c='_ZL24needsConversionOfHalfVecbRN5clang10ASTContextENS_8QualTypeE'/>

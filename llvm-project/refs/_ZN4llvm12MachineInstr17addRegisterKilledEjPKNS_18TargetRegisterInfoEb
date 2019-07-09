@@ -1,0 +1,26 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1349' type='bool llvm::MachineInstr::addRegisterKilled(unsigned int IncomingReg, const llvm::TargetRegisterInfo * RegInfo, bool AddIfNotFound = false)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1345'>/// We have determined MI kills a register. Look for the
+  /// operand that uses it and mark it as IsKill. If AddIfNotFound is true,
+  /// add a implicit operand if it&apos;s not found. Returns true if the operand
+  /// exists / is added.</doc>
+<use f='llvm/llvm/include/llvm/CodeGen/LiveVariables.h' l='202' u='c' c='_ZN4llvm13LiveVariables24addVirtualRegisterKilledEjRNS_12MachineInstrEb'/>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='805' u='c' c='_ZN4llvm13LiveIntervals12addKillFlagsEPKNS_10VirtRegMapE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveVariables.cpp' l='386' u='c' c='_ZN4llvm13LiveVariables17HandlePhysRegKillEjPNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveVariables.cpp' l='388' u='c' c='_ZN4llvm13LiveVariables17HandlePhysRegKillEjPNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveVariables.cpp' l='417' u='c' c='_ZN4llvm13LiveVariables17HandlePhysRegKillEjPNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveVariables.cpp' l='662' u='c' c='_ZN4llvm13LiveVariables20runOnMachineFunctionERNS_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='1001' u='c' c='_ZN4llvm17MachineBasicBlock17SplitCriticalEdgeEPS0_RNS_4PassE'/>
+<def f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='1783' ll='1848' type='bool llvm::MachineInstr::addRegisterKilled(unsigned int IncomingReg, const llvm::TargetRegisterInfo * RegInfo, bool AddIfNotFound = false)'/>
+<use f='llvm/llvm/lib/CodeGen/RegAllocFast.cpp' l='502' u='c' c='_ZN12_GLOBAL__N_112RegAllocFast10usePhysRegERN4llvm14MachineOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/RegAllocFast.cpp' l='876' u='c' c='_ZN12_GLOBAL__N_112RegAllocFast10setPhysRegERN4llvm12MachineInstrERNS1_14MachineOperandEt'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterScavenging.cpp' l='708' u='c' c='_ZL31scavengeFrameVirtualRegsInBlockRN4llvm19MachineRegisterInfoERNS_12RegScavengerERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/TwoAddressInstructionPass.cpp' l='1377' u='c' c='_ZN12_GLOBAL__N_125TwoAddressInstructionPass23tryInstructionTransformERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES5_jjjb'/>
+<use f='llvm/llvm/lib/CodeGen/VirtRegMap.cpp' l='577' u='c' c='_ZN12_GLOBAL__N_115VirtRegRewriter7rewriteEv'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='5088' u='c' c='_ZNK4llvm16ARMBaseInstrInfo25breakPartialRegDependencyERNS_12MachineInstrEjPKNS_18TargetRegisterInfoE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMExpandPseudoInsts.cpp' l='644' u='c' c='_ZN12_GLOBAL__N_115ARMExpandPseudo9ExpandVSTERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonCopyToCombine.cpp' l='318' u='c' c='_ZN12_GLOBAL__N_120HexagonCopyToCombine20isSafeToMoveTogetherERN4llvm12MachineInstrES3_jjRb'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonCopyToCombine.cpp' l='382' u='c' c='_ZN12_GLOBAL__N_120HexagonCopyToCombine20isSafeToMoveTogetherERN4llvm12MachineInstrES3_jjRb'/>
+<use f='llvm/llvm/lib/Target/X86/X86InstrInfo.cpp' l='4382' u='c' c='_ZNK4llvm12X86InstrInfo25breakPartialRegDependencyERNS_12MachineInstrEjPKNS_18TargetRegisterInfoE'/>
+<use f='llvm/llvm/lib/Target/X86/X86InstrInfo.cpp' l='4391' u='c' c='_ZNK4llvm12X86InstrInfo25breakPartialRegDependencyERNS_12MachineInstrEjPKNS_18TargetRegisterInfoE'/>
+<use f='llvm/llvm/lib/Target/X86/X86InstrInfo.cpp' l='4400' u='c' c='_ZNK4llvm12X86InstrInfo25breakPartialRegDependencyERNS_12MachineInstrEjPKNS_18TargetRegisterInfoE'/>
+<use f='llvm/llvm/lib/Target/X86/X86InstrInfo.cpp' l='4405' u='c' c='_ZNK4llvm12X86InstrInfo25breakPartialRegDependencyERNS_12MachineInstrEjPKNS_18TargetRegisterInfoE'/>

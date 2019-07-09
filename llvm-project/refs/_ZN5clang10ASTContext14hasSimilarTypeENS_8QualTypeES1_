@@ -1,0 +1,10 @@
+<dec f='llvm/clang/include/clang/AST/ASTContext.h' l='2440' type='bool clang::ASTContext::hasSimilarType(clang::QualType T1, clang::QualType T2)'/>
+<doc f='llvm/clang/include/clang/AST/ASTContext.h' l='2433'>/// Determine if two types are similar, according to the C++ rules. That is,
+  /// determine if they are the same other than qualifiers on the initial
+  /// sequence of pointer / pointer-to-member / array (and in Clang, object
+  /// pointer) types and their element types.
+  ///
+  /// Clang offers a number of qualifiers in addition to the C++ qualifiers;
+  /// those qualifiers are also ignored in the &apos;similarity&apos; check.</doc>
+<def f='llvm/clang/lib/AST/ASTContext.cpp' l='5318' ll='5328' type='bool clang::ASTContext::hasSimilarType(clang::QualType T1, clang::QualType T2)'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='3728' u='c' c='_ZL32compareStandardConversionSubsetsRN5clang10ASTContextERKNS_26StandardConversionSequenceES4_'/>

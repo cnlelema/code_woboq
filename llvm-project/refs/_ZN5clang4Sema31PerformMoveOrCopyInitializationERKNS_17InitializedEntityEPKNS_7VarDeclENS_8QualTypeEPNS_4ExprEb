@@ -1,0 +1,14 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='2729' type='ExprResult clang::Sema::PerformMoveOrCopyInitialization(const clang::InitializedEntity &amp; Entity, const clang::VarDecl * NRVOCandidate, clang::QualType ResultType, clang::Expr * Value, bool AllowNRVO = true)'/>
+<use f='llvm/clang/lib/Sema/SemaCoroutine.cpp' l='882' u='c' c='_ZN5clang4Sema17BuildCoreturnStmtENS_14SourceLocationEPNS_4ExprEb'/>
+<use f='llvm/clang/lib/Sema/SemaCoroutine.cpp' l='1451' u='c' c='_ZN5clang20CoroutineStmtBuilder24makeGroDeclAndReturnStmtEv'/>
+<use f='llvm/clang/lib/Sema/SemaCoroutine.cpp' l='1466' u='c' c='_ZN5clang20CoroutineStmtBuilder24makeGroDeclAndReturnStmtEv'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='793' u='c' c='_ZN5clang4Sema13BuildCXXThrowENS_14SourceLocationEPNS_4ExprEb'/>
+<def f='llvm/clang/lib/Sema/SemaStmt.cpp' l='3079' ll='3183' type='ExprResult clang::Sema::PerformMoveOrCopyInitialization(const clang::InitializedEntity &amp; Entity, const clang::VarDecl * NRVOCandidate, clang::QualType ResultType, clang::Expr * Value, bool AllowNRVO = true)'/>
+<use f='llvm/clang/lib/Sema/SemaStmt.cpp' l='3325' u='c' c='_ZN5clang4Sema23ActOnCapScopeReturnStmtENS_14SourceLocationEPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaStmt.cpp' l='3721' u='c' c='_ZN5clang4Sema15BuildReturnStmtENS_14SourceLocationEPNS_4ExprE'/>
+<doc f='llvm/clang/lib/Sema/SemaStmt.cpp' l='3073'>/// Perform the initialization of a potentially-movable value, which
+/// is the result of return value.
+///
+/// This routine implements C++14 [class.copy]p32, which attempts to treat
+/// returned lvalues as rvalues in certain cases (to prefer move construction),
+/// then falls back to treating them as lvalues if that failed.</doc>

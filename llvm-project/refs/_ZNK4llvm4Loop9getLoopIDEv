@@ -1,0 +1,37 @@
+<dec f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='726' type='llvm::MDNode * llvm::Loop::getLoopID() const'/>
+<doc f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='720'>/// Return the llvm.loop loop id metadata node for this loop if it is present.
+  ///
+  /// If this loop contains the same llvm.loop metadata on each branch to the
+  /// header then the node is returned. If any latch instruction does not
+  /// contain llvm.loop or if multiple latches contain different nodes then
+  /// 0 is returned.</doc>
+<def f='llvm/llvm/lib/Analysis/LoopInfo.cpp' l='447' ll='469' type='llvm::MDNode * llvm::Loop::getLoopID() const'/>
+<use f='llvm/llvm/lib/Analysis/LoopInfo.cpp' l='488' u='c' c='_ZN4llvm4Loop22setLoopAlreadyUnrolledEv'/>
+<use f='llvm/llvm/lib/Analysis/LoopInfo.cpp' l='495' u='c' c='_ZNK4llvm4Loop19isAnnotatedParallelEv'/>
+<use f='llvm/llvm/lib/Analysis/LoopInfo.cpp' l='573' u='c' c='_ZNK4llvm4Loop11getLocRangeEv'/>
+<use f='llvm/llvm/lib/Analysis/LoopInfo.cpp' l='961' u='c' c='_ZN4llvm19findOptionMDForLoopEPKNS_4LoopENS_9StringRefE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopDistribute.cpp' l='458' u='c' c='_ZN12_GLOBAL__N_122InstPartitionContainer10cloneLoopsEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopDistribute.cpp' l='812' u='c' c='_ZN12_GLOBAL__N_121LoopDistributeForLoop11processLoopERSt8functionIFRKN4llvm14LoopAccessInfoERNS2_4LoopEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnrollAndJamPass.cpp' l='94' u='c' c='_ZL24GetUnrollMetadataForLoopPKN4llvm4LoopENS_9StringRefE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnrollAndJamPass.cpp' l='102' u='c' c='_ZL18HasAnyUnrollPragmaPKN4llvm4LoopENS_9StringRefE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnrollAndJamPass.cpp' l='360' u='c' c='_ZL21tryToUnrollAndJamLoopPN4llvm4LoopERNS_13DominatorTreeEPNS_8LoopInfoERNS_15ScalarEvolutionERKNS_19TargetTransformInfoERNS_15AssumptionCacheERNS_147069670'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnrollAndJamPass.cpp' l='361' u='c' c='_ZL21tryToUnrollAndJamLoopPN4llvm4LoopERNS_13DominatorTreeEPNS_8LoopInfoERNS_15ScalarEvolutionERKNS_19TargetTransformInfoERNS_15AssumptionCacheERNS_147069670'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnrollPass.cpp' l='660' u='c' c='_ZL24GetUnrollMetadataForLoopPKN4llvm4LoopENS_9StringRefE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnrollPass.cpp' l='1103' u='c' c='_ZL15tryToUnrollLoopPN4llvm4LoopERNS_13DominatorTreeEPNS_8LoopInfoERNS_15ScalarEvolutionERKNS_19TargetTransformInfoERNS_15AssumptionCacheERNS_25Optimi6926510'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopVersioningLICM.cpp' l='129' u='c' c='_ZN4llvm23addStringMetadataToLoopEPNS_4LoopEPKcj'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopRotationUtils.cpp' l='648' u='c' c='_ZN12_GLOBAL__N_110LoopRotate11processLoopEPN4llvm4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnrollRuntime.cpp' l='400' u='c' c='_ZL15CloneLoopBlocksPN4llvm4LoopEPNS_5ValueEbbbPNS_10BasicBlockES5_S5_RSt6vectorIS5_SaIS5_EERNS_13LoopBlocksDFSERNS_8ValueMapIPKS2_NS_14WeakTrackingVH13680398'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorizationLegality.cpp' l='126' u='c' c='_ZN4llvm18LoopVectorizeHints20setAlreadyVectorizedEv'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorizationLegality.cpp' l='208' u='c' c='_ZN4llvm18LoopVectorizeHints20getHintsFromMetadataEv'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='2774' u='c' c='_ZN4llvm19InnerLoopVectorizer28createVectorizedLoopSkeletonEv'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='2949' u='c' c='_ZN4llvm19InnerLoopVectorizer28createVectorizedLoopSkeletonEv'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='6335' u='c' c='_ZL31AddRuntimeUnrollDisableMetaDataPN4llvm4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='7500' u='c' c='_ZN4llvm17LoopVectorizePass11processLoopEPNS_4LoopE'/>
+<use f='llvm/llvm/unittests/Analysis/LoopInfoTest.cpp' l='97' u='c' c='_ZN37LoopInfoTest_LoopWithSingleLatch_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/LoopInfoTest.cpp' l='146' u='c' c='_ZN41LoopInfoTest_LoopWithMultipleLatches_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/LoopInfoTest.cpp' l='154' u='c' c='_ZN41LoopInfoTest_LoopWithMultipleLatches_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/LoopInfoTest.cpp' l='154' u='c' c='_ZN41LoopInfoTest_LoopWithMultipleLatches_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/LoopInfoTest.cpp' l='155' u='c' c='_ZN41LoopInfoTest_LoopWithMultipleLatches_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/LoopInfoTest.cpp' l='158' u='c' c='_ZN41LoopInfoTest_LoopWithMultipleLatches_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/LoopInfoTest.cpp' l='158' u='c' c='_ZN41LoopInfoTest_LoopWithMultipleLatches_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/LoopInfoTest.cpp' l='159' u='c' c='_ZN41LoopInfoTest_LoopWithMultipleLatches_Test8TestBodyEv'/>

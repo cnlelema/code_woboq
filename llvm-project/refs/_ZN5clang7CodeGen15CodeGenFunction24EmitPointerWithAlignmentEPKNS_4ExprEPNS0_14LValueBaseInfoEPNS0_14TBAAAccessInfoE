@@ -1,0 +1,95 @@
+<dec f='llvm/clang/lib/CodeGen/CodeGenFunction.h' l='4413' type='clang::CodeGen::Address clang::CodeGen::CodeGenFunction::EmitPointerWithAlignment(const clang::Expr * Addr, clang::CodeGen::LValueBaseInfo * BaseInfo = nullptr, clang::CodeGen::TBAAAccessInfo * TBAAInfo = nullptr)'/>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='792' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='841' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='845' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='849' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='850' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='859' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGAtomic.cpp' l='861' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprE'/>
+<doc f='llvm/clang/lib/CodeGen/CodeGenFunction.h' l='4396'>/// EmitPointerWithAlignment - Given an expression with a pointer type,
+  /// emit the value and compute our best estimate of the alignment of the
+  /// pointee.
+  ///
+  /// \param BaseInfo - If non-null, this will be initialized with
+  /// information about the source of the alignment and the may-alias
+  /// attribute.  Note that this function will conservatively fall back on
+  /// the type when it doesn&apos;t recognize the expression and may-alias will
+  /// be set to false.
+  ///
+  /// One reasonable way to use this information is when there&apos;s a language
+  /// guarantee that the pointer must be aligned to some stricter value, and
+  /// we&apos;re simply trying to ensure that sufficiently obvious uses of under-
+  /// aligned objects don&apos;t get miscompiled; for example, a placement new
+  /// into the address of a local variable.  In such a case, it&apos;s quite
+  /// reasonable to just ignore the returned alignment when it isn&apos;t from an
+  /// explicit source.</doc>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='940' u='c' c='_ZN5clang7CodeGen15CodeGenFunction19EmitMSVCBuiltinExprENS1_10MSVCIntrinEPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='1231' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22emitBuiltinOSLogFormatERKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='1335' u='c' c='_ZL28EmitCheckedMixedSignMultiplyRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprEN12_GLOBAL__N_118WidthAndSignednessES5_S7_S5_NS_8QualTypeES7_'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='1953' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='2475' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='2484' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='2485' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='2516' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='2517' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='2525' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='2526' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='2550' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='2551' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='2560' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='2561' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='2573' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='2592' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='2770' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='3097' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='3291' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='3381' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='3439' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='4234' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='4239' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='4244' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='12310' u='c' c='_ZN5clang7CodeGen15CodeGenFunction18EmitX86BuiltinExprEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='12985' u='c' c='_ZN5clang7CodeGen15CodeGenFunction21EmitAMDGPUBuiltinExprEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='13157' u='c' c='_ZL26EmitSystemZIntrinsicWithCCRN5clang7CodeGen15CodeGenFunctionEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='13983' u='c' c='_ZN5clang7CodeGen15CodeGenFunction20EmitNVPTXBuiltinExprEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='14034' u='c' c='_ZN5clang7CodeGen15CodeGenFunction20EmitNVPTXBuiltinExprEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='14079' u='c' c='_ZN5clang7CodeGen15CodeGenFunction20EmitNVPTXBuiltinExprEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='14127' u='c' c='_ZN5clang7CodeGen15CodeGenFunction20EmitNVPTXBuiltinExprEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='14128' u='c' c='_ZN5clang7CodeGen15CodeGenFunction20EmitNVPTXBuiltinExprEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='14129' u='c' c='_ZN5clang7CodeGen15CodeGenFunction20EmitNVPTXBuiltinExprEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='14130' u='c' c='_ZN5clang7CodeGen15CodeGenFunction20EmitNVPTXBuiltinExprEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='14548' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitHexagonBuiltinExprEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='14564' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitHexagonBuiltinExprEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='14573' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitHexagonBuiltinExprEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='14588' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitHexagonBuiltinExprEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='14607' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitHexagonBuiltinExprEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='14636' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitHexagonBuiltinExprEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='14658' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitHexagonBuiltinExprEjPKNS_8CallExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='3278' u='c' c='_ZL16emitWritebackArgRN5clang7CodeGen15CodeGenFunctionERNS0_11CallArgListEPKNS_27ObjCIndirectCopyRestoreExprE'/>
+<def f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='1902' ll='2009' type='clang::CodeGen::Address clang::CodeGen::CodeGenFunction::EmitPointerWithAlignment(const clang::Expr * E, clang::CodeGen::LValueBaseInfo * BaseInfo = nullptr, clang::CodeGen::TBAAAccessInfo * TBAAInfo = nullptr)'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='1926' u='c' c='_ZN5clang7CodeGen15CodeGenFunction24EmitPointerWithAlignmentEPKNS_4ExprEPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='1977' u='c' c='_ZN5clang7CodeGen15CodeGenFunction24EmitPointerWithAlignmentEPKNS_4ExprEPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='2868' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitStoreThroughLValueENS0_6RValueENS0_6LValueEb'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='3547' u='c' c='_ZN5clang7CodeGen15CodeGenFunction17EmitUnaryOpLValueEPKNS_13UnaryOperatorE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='4393' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitArraySubscriptExprEPKNS_18ArraySubscriptExprEb'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='4417' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitArraySubscriptExprEPKNS_18ArraySubscriptExprEb'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='4467' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitArraySubscriptExprEPKNS_18ArraySubscriptExprEb'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='4520' u='c' c='_ZL23emitOMPArraySectionBaseRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprERNS0_14LValueBaseInfoERNS0_14TBAAAccessInfoENS_8QualTypeESA_b'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='4687' u='c' c='_ZN5clang7CodeGen15CodeGenFunction24EmitExtVectorElementExprEPKNS_20ExtVectorElementExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='4746' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitMemberExprEPKNS_10MemberExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='5897' u='c' c='_ZN5clang7CodeGen15CodeGenFunction33EmitPointerToDataMemberBinaryExprEPKNS_14BinaryOperatorE'/>
+<doc f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='1896'>//===----------------------------------------------------------------------===//
+//                         LValue Expression Emission
+//===----------------------------------------------------------------------===//
+
+/// EmitPointerWithAlignment - Given an expression of pointer type, try to
+/// derive a more accurate bound on the alignment of the pointer.</doc>
+<use f='llvm/clang/lib/CodeGen/CGExprCXX.cpp' l='117' u='c' c='_ZN5clang7CodeGen15CodeGenFunction27EmitCXXPseudoDestructorExprEPKNS_23CXXPseudoDestructorExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprCXX.cpp' l='247' u='c' c='_ZN5clang7CodeGen15CodeGenFunction37EmitCXXMemberOrOperatorMemberCallExprEPKNS_8CallExprEPKNS_13CXXMethodDeclENS0_15ReturnValueSlotEbPNS_19NestedNameS2216372'/>
+<use f='llvm/clang/lib/CodeGen/CGExprCXX.cpp' l='418' u='c' c='_ZN5clang7CodeGen15CodeGenFunction28EmitCXXMemberPointerCallExprEPKNS_17CXXMemberCallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprCXX.cpp' l='1562' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitCXXNewExprEPKNS_10CXXNewExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprCXX.cpp' l='2034' u='c' c='_ZN5clang7CodeGen15CodeGenFunction17EmitCXXDeleteExprEPKNS_13CXXDeleteExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprScalar.cpp' l='2409' u='c' c='_ZN12_GLOBAL__N_117ScalarExprEmitter13VisitCastExprEPN5clang8CastExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprScalar.cpp' l='2433' u='c' c='_ZN12_GLOBAL__N_117ScalarExprEmitter13VisitCastExprEPN5clang8CastExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprScalar.cpp' l='2437' u='c' c='_ZN12_GLOBAL__N_117ScalarExprEmitter13VisitCastExprEPN5clang8CastExprE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenFunction.cpp' l='2032' u='c' c='_ZN5clang7CodeGen15CodeGenFunction13EmitVAListRefEPKNS_4ExprE'/>

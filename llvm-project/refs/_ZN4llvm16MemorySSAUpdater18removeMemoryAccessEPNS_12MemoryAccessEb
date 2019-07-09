@@ -1,0 +1,29 @@
+<dec f='llvm/llvm/include/llvm/Analysis/MemorySSAUpdater.h' l='229' type='void llvm::MemorySSAUpdater::removeMemoryAccess(llvm::MemoryAccess * , bool OptimizePhis = false)'/>
+<use f='llvm/llvm/include/llvm/Analysis/MemorySSAUpdater.h' l='236' u='c' c='_ZN4llvm16MemorySSAUpdater18removeMemoryAccessEPKNS_11InstructionEb'/>
+<doc f='llvm/llvm/include/llvm/Analysis/MemorySSAUpdater.h' l='223'>/// Remove a MemoryAccess from MemorySSA, including updating all
+  /// definitions and uses.
+  /// This should be called when a memory instruction that has a MemoryAccess
+  /// associated with it is erased from the program.  For example, if a store or
+  /// load is simply erased (not replaced), removeMemoryAccess should be called
+  /// on the MemoryAccess for that store/load.</doc>
+<use f='llvm/llvm/lib/Analysis/MemorySSAUpdater.cpp' l='213' u='c' c='_ZN4llvm16MemorySSAUpdater19tryRemoveTrivialPhiEPNS_9MemoryPhiERT_'/>
+<use f='llvm/llvm/lib/Analysis/MemorySSAUpdater.cpp' l='462' u='c' c='_ZN4llvm16MemorySSAUpdater10removeEdgeEPNS_10BasicBlockES2_'/>
+<use f='llvm/llvm/lib/Analysis/MemorySSAUpdater.cpp' l='479' u='c' c='_ZN4llvm16MemorySSAUpdater30removeDuplicatePhiEdgesBetweenEPKNS_10BasicBlockES3_'/>
+<use f='llvm/llvm/lib/Analysis/MemorySSAUpdater.cpp' l='562' u='c' c='_ZN4llvm16MemorySSAUpdater42updatePhisWhenInsertingUniqueBackedgeBlockEPNS_10BasicBlockES2_S2_'/>
+<use f='llvm/llvm/lib/Analysis/MemorySSAUpdater.cpp' l='922' u='c' c='_ZN4llvm16MemorySSAUpdater18applyInsertUpdatesENS_8ArrayRefINS_3cfg6UpdateIPNS_10BasicBlockEEEEERNS_13DominatorTreeEPKNS_9GraphDiffIS5_Lb0EEE'/>
+<use f='llvm/llvm/lib/Analysis/MemorySSAUpdater.cpp' l='1156' u='c' c='_ZN4llvm16MemorySSAUpdater44wireOldPredecessorsToNewImmediatePredecessorEPNS_10BasicBlockES2_NS_8ArrayRefIS2_EEb'/>
+<def f='llvm/llvm/lib/Analysis/MemorySSAUpdater.cpp' l='1160' ll='1226' type='void llvm::MemorySSAUpdater::removeMemoryAccess(llvm::MemoryAccess * MA, bool OptimizePhis = false)'/>
+<use f='llvm/llvm/lib/Analysis/MemorySSAUpdater.cpp' l='1239' u='c' c='_ZN4llvm16MemorySSAUpdater12removeBlocksERKNS_15SmallPtrSetImplIPNS_10BasicBlockEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVNHoist.cpp' l='923' u='c' c='_ZN4llvm8GVNHoist4rauwERKNS_11SmallVectorIPNS_11InstructionELj4EEES3_PNS_14MemoryUseOrDefE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVNHoist.cpp' l='948' u='c' c='_ZN4llvm8GVNHoist8raMPHIuwEPNS_14MemoryUseOrDefE'/>
+<use f='llvm/llvm/unittests/Analysis/MemorySSATest.cpp' l='288' u='c' c='_ZN27MemorySSATest_SinkLoad_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/MemorySSATest.cpp' l='324' u='c' c='_ZN29MemorySSATest_MoveAStore_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/MemorySSATest.cpp' l='366' u='c' c='_ZN36MemorySSATest_MoveAStoreUpdater_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/MemorySSATest.cpp' l='505' u='c' c='_ZN29MemorySSATest_RemoveAPhi_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/MemorySSATest.cpp' l='515' u='c' c='_ZN29MemorySSATest_RemoveAPhi_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/MemorySSATest.cpp' l='554' u='c' c='_ZN37MemorySSATest_RemoveMemoryAccess_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/MemorySSATest.cpp' l='578' u='c' c='_ZN37MemorySSATest_RemoveMemoryAccess_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/MemorySSATest.cpp' l='736' u='c' c='_ZN45MemorySSATest_PartialWalkerCacheWithPhis_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/MemorySSATest.cpp' l='814' u='c' c='_ZN30MemorySSATest_WalkerReopt_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/MemorySSATest.cpp' l='944' u='c' c='_ZN58MemorySSATest_MoveToBeforeLiveOnEntryInvalidatesCache_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/MemorySSATest.cpp' l='993' u='c' c='_ZN46MemorySSATest_RemovingDefInvalidatesCache_Test8TestBodyEv'/>

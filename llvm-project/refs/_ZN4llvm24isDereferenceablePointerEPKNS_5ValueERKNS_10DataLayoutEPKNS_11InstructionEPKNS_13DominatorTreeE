@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/include/llvm/Analysis/Loads.h' l='28' type='bool llvm::isDereferenceablePointer(const llvm::Value * V, const llvm::DataLayout &amp; DL, const llvm::Instruction * CtxI = nullptr, const llvm::DominatorTree * DT = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/Loads.h' l='25'>/// Return true if this is always a dereferenceable pointer. If the context
+/// instruction is specified perform context-sensitive analysis and return true
+/// if the pointer is dereferenceable at the specified instruction.</doc>
+<def f='llvm/llvm/lib/Analysis/Loads.cpp' l='152' ll='156' type='bool llvm::isDereferenceablePointer(const llvm::Value * V, const llvm::DataLayout &amp; DL, const llvm::Instruction * CtxI = nullptr, const llvm::DominatorTree * DT = nullptr)'/>
+<use f='llvm/llvm/lib/Analysis/MemDerefPrinter.cpp' l='56' u='c' c='_ZN12_GLOBAL__N_115MemDerefPrinter13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='4046' u='c' c='_ZN4llvm19SelectionDAGBuilder9visitLoadERKNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='4668' u='c' c='_ZN4llvm19SelectionDAGBuilder15visitAtomicLoadERKNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/ArgumentPromotion.cpp' l='496' u='c' c='_ZL39allCallersPassInValidPointerForArgumentPN4llvm8ArgumentE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MergeICmps.cpp' l='165' u='c' c='_ZN12_GLOBAL__N_120visitICmpLoadOperandEPN4llvm5ValueERNS_14BaseIdentifierE'/>

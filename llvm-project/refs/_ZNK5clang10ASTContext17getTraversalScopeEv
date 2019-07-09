@@ -1,0 +1,9 @@
+<def f='llvm/clang/include/clang/AST/ASTContext.h' l='634' type='std::vector&lt;Decl *&gt; clang::ASTContext::getTraversalScope() const'/>
+<doc f='llvm/clang/include/clang/AST/ASTContext.h' l='627'>// A traversal scope limits the parts of the AST visible to certain analyses.
+  // RecursiveASTVisitor::TraverseAST will only visit reachable nodes, and
+  // getParents() will only observe reachable parent edges.
+  //
+  // The scope is defined by a set of &quot;top-level&quot; declarations.
+  // Initially, it is the entire TU: {getTranslationUnitDecl()}.
+  // Changing the scope clears the parent cache, which is expensive to rebuild.</doc>
+<use f='llvm/clang/lib/ASTMatchers/ASTMatchFinder.cpp' l='677' u='c' c='_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor28matchesAncestorOfRecursivelyERKNS_15ast_type_traits12DynTypedNodeERKNS1_15DynTypedMat5995234'/>

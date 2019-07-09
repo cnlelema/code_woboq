@@ -1,0 +1,22 @@
+<def f='llvm/clang/lib/Format/SortJavaScriptImports.cpp' l='71' ll='91'/>
+<size>104</size>
+<doc f='llvm/clang/lib/Format/SortJavaScriptImports.cpp' l='51'>// An ES6 module reference.
+//
+// ES6 implements a module system, where individual modules (~= source files)
+// can reference other modules, either importing symbols from them, or exporting
+// symbols from them:
+//   import {foo} from &apos;foo&apos;;
+//   export {foo};
+//   export {bar} from &apos;bar&apos;;
+//
+// `export`s with URLs are syntactic sugar for an import of the symbol from the
+// URL, followed by an export of the symbol, allowing this code to treat both
+// statements more or less identically, with the exception being that `export`s
+// are sorted last.
+//
+// imports and exports support individual symbols, but also a wildcard syntax:
+//   import * as prefix from &apos;foo&apos;;
+//   export * from &apos;bar&apos;;
+//
+// This struct represents both exports and imports to build up the information
+// required for sorting module references.</doc>

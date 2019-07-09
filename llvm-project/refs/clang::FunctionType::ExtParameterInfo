@@ -1,0 +1,35 @@
+<def f='llvm/clang/include/clang/AST/Type.h' l='3427' ll='3490'/>
+<size>1</size>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='3406'>/// Interesting information about a specific parameter that can&apos;t simply
+  /// be reflected in parameter&apos;s type. This is only used by FunctionProtoType
+  /// but is in FunctionType to make this class available during the
+  /// specification of the bases of FunctionProtoType.
+  ///
+  /// It makes sense to model language features this way when there&apos;s some
+  /// sort of parameter-specific override (such as an attribute) that
+  /// affects how the function is called.  For example, the ARC ns_consumed
+  /// attribute changes whether a parameter is passed at +0 (the default)
+  /// or +1 (ns_consumed).  This must be reflected in the function type,
+  /// but isn&apos;t really a change to the parameter type.
+  ///
+  /// One serious disadvantage of modelling language features this way is
+  /// that they generally do not work with language features that attempt
+  /// to destructure types.  For example, template argument deduction will
+  /// not be able to match a parameter declared as
+  ///   T (*)(U)
+  /// against an argument of type
+  ///   void (*)(__attribute__((ns_consumed)) id)
+  /// because the substitution of T=void, U=id into the former will
+  /// not produce the latter.</doc>
+<mbr r='clang::FunctionType::ExtParameterInfo::Data' o='0' t='unsigned char'/>
+<fun r='_ZN5clang12FunctionType16ExtParameterInfoC1Ev'/>
+<fun r='_ZNK5clang12FunctionType16ExtParameterInfo6getABIEv'/>
+<fun r='_ZNK5clang12FunctionType16ExtParameterInfo7withABIENS_12ParameterABIE'/>
+<fun r='_ZNK5clang12FunctionType16ExtParameterInfo10isConsumedEv'/>
+<fun r='_ZNK5clang12FunctionType16ExtParameterInfo14withIsConsumedEb'/>
+<fun r='_ZNK5clang12FunctionType16ExtParameterInfo17hasPassObjectSizeEv'/>
+<fun r='_ZNK5clang12FunctionType16ExtParameterInfo21withHasPassObjectSizeEv'/>
+<fun r='_ZNK5clang12FunctionType16ExtParameterInfo10isNoEscapeEv'/>
+<fun r='_ZNK5clang12FunctionType16ExtParameterInfo14withIsNoEscapeEb'/>
+<fun r='_ZNK5clang12FunctionType16ExtParameterInfo14getOpaqueValueEv'/>
+<fun r='_ZN5clang12FunctionType16ExtParameterInfo18getFromOpaqueValueEh'/>

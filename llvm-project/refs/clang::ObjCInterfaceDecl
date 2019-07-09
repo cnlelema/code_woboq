@@ -1,0 +1,141 @@
+<inh f='llvm/clang/include/clang/AST/DeclObjC.h' l='968' c='clang::ObjCContainerDecl'/>
+<inh f='llvm/clang/include/clang/AST/Redeclarable.h' l='84' c='clang::Redeclarable'/>
+<def f='llvm/clang/include/clang/AST/DeclObjC.h' l='1171' ll='1927'/>
+<size>1</size>
+<doc f='llvm/clang/include/clang/AST/DeclObjC.h' l='1146'>/// Represents an ObjC class declaration.
+///
+/// For example:
+///
+/// \code
+///   // MostPrimitive declares no super class (not particularly useful).
+///   \@interface MostPrimitive
+///     // no instance variables or methods.
+///   \@end
+///
+///   // NSResponder inherits from NSObject &amp; implements NSCoding (a protocol).
+///   \@interface NSResponder : NSObject \&lt;NSCoding&gt;
+///   { // instance variables are represented by ObjCIvarDecl.
+///     id nextResponder; // nextResponder instance variable.
+///   }
+///   - (NSResponder *)nextResponder; // return a pointer to NSResponder.
+///   - (void)mouseMoved:(NSEvent *)theEvent; // return void, takes a pointer
+///   \@end                                    // to an NSEvent.
+/// \endcode
+///
+///   Unlike C/C++, forward class declarations are accomplished with \@class.
+///   Unlike C/C++, \@class allows for a list of classes to be forward declared.
+///   Unlike C++, ObjC is a single-rooted class model. In Cocoa, classes
+///   typically inherit from NSObject (an exception is NSProxy).
+///</doc>
+<mbr r='clang::ObjCInterfaceDecl::TypeForDecl' t='const clang::Type *'/>
+<mbr r='clang::ObjCInterfaceDecl::TypeParamList' t='clang::ObjCTypeParamList *'/>
+<mbr r='clang::ObjCInterfaceDecl::Data' t='llvm::PointerIntPair&lt;DefinitionData *, 1, bool&gt;'/>
+<fun r='_ZN5clang17ObjCInterfaceDeclC1ERKNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationEPNS_14IdentifierInfoEPNS_17ObjCTypeParamListES6_PS0_b'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl6anchorEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl22LoadExternalDefinitionEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl4dataEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl22allocateDefinitionDataEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl24getNextRedeclarationImplEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl19getPreviousDeclImplEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl21getMostRecentDeclImplEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl6CreateERKNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationEPNS_14IdentifierInfoEPNS_17ObjCTypeParamListEPS0_S6_b'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl18CreateDeserializedERKNS_10ASTContextEj'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl16getTypeParamListEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl16setTypeParamListEPNS_17ObjCTypeParamListE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl25getTypeParamListAsWrittenEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl14getSourceRangeEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl22setExternallyCompletedEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl28setHasDesignatedInitializersEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl25hasDesignatedInitializersEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl40declaresOrInheritsDesignatedInitializersEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl22getReferencedProtocolsEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl17getImplementationEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl17setImplementationEPNS_22ObjCImplementationDeclE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl23FindCategoryDeclarationEPNS_14IdentifierInfoE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl25getCategoryInstanceMethodENS_8SelectorE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl22getCategoryClassMethodENS_8SelectorE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl17getCategoryMethodENS_8SelectorEb'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl9protocolsEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl14protocol_beginEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl12protocol_endEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl13protocol_locsEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl18protocol_loc_beginEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl16protocol_loc_endEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl24all_referenced_protocolsEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl29all_referenced_protocol_beginEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl27all_referenced_protocol_endEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl5ivarsEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl10ivar_beginEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl8ivar_endEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl9ivar_sizeEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl10ivar_emptyEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl23all_declared_ivar_beginEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl23all_declared_ivar_beginEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl11setIvarListEPNS_12ObjCIvarDeclE'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl15setProtocolListEPKPNS_16ObjCProtocolDeclEjPKNS_14SourceLocationERNS_10ASTContextE'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl31mergeClassExtensionProtocolListEPKPNS_16ObjCProtocolDeclEjRNS_10ASTContextE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl26getObjCRuntimeNameAsStringEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl25getDesignatedInitializersERN4llvm15SmallVectorImplIPKNS_14ObjCMethodDeclEEE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl23isDesignatedInitializerENS_8SelectorEPPKNS_14ObjCMethodDeclE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl28isThisDeclarationADefinitionEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl13getDefinitionEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl15startDefinitionEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl17getSuperClassTypeEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl13setSuperClassEPNS_14TypeSourceInfoE'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl17isVisibleCategoryEPNS_16ObjCCategoryDeclE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl18visible_categoriesEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl24visible_categories_beginEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl22visible_categories_endEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl24visible_categories_emptyEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl15isKnownCategoryEPNS_16ObjCCategoryDeclE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl16known_categoriesEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl22known_categories_beginEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl20known_categories_endEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl22known_categories_emptyEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl18isVisibleExtensionEPNS_16ObjCCategoryDeclE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl18visible_extensionsEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl24visible_extensions_beginEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl22visible_extensions_endEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl24visible_extensions_emptyEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl16known_extensionsEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl22known_extensions_beginEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl20known_extensions_endEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl22known_extensions_emptyEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl18setCategoryListRawEPNS_16ObjCCategoryDeclE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl33FindPropertyVisibleInPrimaryClassEPNS_14IdentifierInfoENS_21ObjCPropertyQueryKindE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl28collectPropertiesToImplementERN4llvm8DenseMapISt4pairIPNS_14IdentifierInfoEjEPNS_16ObjCPropertyDeclENS1_12DenseMapInfoI4485840'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl14isSuperClassOfEPKS0_'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl23isArcWeakrefUnavailableEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl26isObjCRequiresPropertyDefsEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl22lookupInstanceVariableEPNS_14IdentifierInfoERPS0_'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl22lookupInstanceVariableEPNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl20lookupNestedProtocolEPNS_14IdentifierInfoE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl12lookupMethodENS_8SelectorEbbbPKNS_16ObjCCategoryDeclE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl20lookupInstanceMethodENS_8SelectorE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl17lookupClassMethodENS_8SelectorE'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl20lookupInheritedClassEPKNS_14IdentifierInfoE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl19lookupPrivateMethodERKNS_8SelectorEb'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl24lookupPrivateClassMethodERKNS_8SelectorE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl22lookupPropertyAccessorENS_8SelectorEPKNS_16ObjCCategoryDeclEb'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl21getEndOfDefinitionLocEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl21setEndOfDefinitionLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl16getSuperClassLocEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl23isImplicitInterfaceDeclEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl23ClassImplementsProtocolEPNS_16ObjCProtocolDeclEbb'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl16getCanonicalDeclEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl16getCanonicalDeclEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl14getTypeForDeclEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl14setTypeForDeclEPKNS_4TypeE'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl7classofEPKNS_4DeclE'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl11classofKindENS_4Decl4KindE'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl39findInterfaceWithDesignatedInitializersEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceDecl30inheritsDesignatedInitializersEv'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl17isVisibleCategoryEPNS_16ObjCCategoryDeclE'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl18isVisibleExtensionEPNS_16ObjCCategoryDeclE'/>
+<fun r='_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE'/>

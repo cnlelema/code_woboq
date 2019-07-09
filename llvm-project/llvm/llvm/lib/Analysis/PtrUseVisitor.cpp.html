@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PtrUseVisitor.cpp source code [llvm/llvm/lib/Analysis/PtrUseVisitor.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/Analysis/PtrUseVisitor.cpp'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>llvm</a>/<a href='../..'>llvm</a>/<a href='..'>lib</a>/<a href='./'>Analysis</a>/<a href='PtrUseVisitor.cpp.html'>PtrUseVisitor.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- PtrUseVisitor.cpp - InstVisitors over a pointers uses --------------===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>/// \file</i></td></tr>
+<tr><th id="10">10</th><td><i>/// Implementation of the pointer use visitors.</i></td></tr>
+<tr><th id="11">11</th><td><i>//</i></td></tr>
+<tr><th id="12">12</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="../../include/llvm/Analysis/PtrUseVisitor.h.html">"llvm/Analysis/PtrUseVisitor.h"</a></u></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="../../include/llvm/IR/Instruction.h.html">"llvm/IR/Instruction.h"</a></u></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="../../include/llvm/IR/Instructions.h.html">"llvm/IR/Instructions.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../../../include/c++/7/algorithm.html">&lt;algorithm&gt;</a></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><b>using</b> <b>namespace</b> <span class="namespace">llvm</span>;</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><em>void</em> <span class="namespace">detail::</span><a class="type" href="../../include/llvm/Analysis/PtrUseVisitor.h.html#llvm::detail::PtrUseVisitorBase" title='llvm::detail::PtrUseVisitorBase' data-ref="llvm::detail::PtrUseVisitorBase">PtrUseVisitorBase</a>::<dfn class="decl def" id="_ZN4llvm6detail17PtrUseVisitorBase12enqueueUsersERNS_11InstructionE" title='llvm::detail::PtrUseVisitorBase::enqueueUsers' data-ref="_ZN4llvm6detail17PtrUseVisitorBase12enqueueUsersERNS_11InstructionE">enqueueUsers</dfn>(<a class="type" href="../../include/llvm/IR/Instruction.h.html#llvm::Instruction" title='llvm::Instruction' data-ref="llvm::Instruction">Instruction</a> &amp;<dfn class="local col0 decl" id="20I" title='I' data-type='llvm::Instruction &amp;' data-ref="20I">I</dfn>) {</td></tr>
+<tr><th id="22">22</th><td>  <b>for</b> (<a class="type" href="../../include/llvm/IR/Use.h.html#llvm::Use" title='llvm::Use' data-ref="llvm::Use">Use</a> &amp;<dfn class="local col1 decl" id="21U" title='U' data-type='llvm::Use &amp;' data-ref="21U">U</dfn> : <a class="local col0 ref" href="#20I" title='I' data-ref="20I">I</a>.<a class="ref" href="../../include/llvm/IR/Value.h.html#_ZN4llvm5Value4usesEv" title='llvm::Value::uses' data-ref="_ZN4llvm5Value4usesEv">uses</a>()) {</td></tr>
+<tr><th id="23">23</th><td>    <b>if</b> (<a class="member" href="../../include/llvm/Analysis/PtrUseVisitor.h.html#llvm::detail::PtrUseVisitorBase::VisitedUses" title='llvm::detail::PtrUseVisitorBase::VisitedUses' data-ref="llvm::detail::PtrUseVisitorBase::VisitedUses">VisitedUses</a>.<a class="ref" href="../../include/llvm/ADT/SmallPtrSet.h.html#_ZN4llvm15SmallPtrSetImpl6insertET_" title='llvm::SmallPtrSetImpl::insert' data-ref="_ZN4llvm15SmallPtrSetImpl6insertET_">insert</a>(&amp;<a class="local col1 ref" href="#21U" title='U' data-ref="21U">U</a>).<a class="ref" href="../../../../include/c++/7/bits/stl_pair.h.html#std::pair::second" title='std::pair&lt;llvm::SmallPtrSetIterator&lt;llvm::Use *&gt;, bool&gt;::second' data-ref="std::pair::second">second</a>) {</td></tr>
+<tr><th id="24">24</th><td>      <a class="type" href="../../include/llvm/Analysis/PtrUseVisitor.h.html#llvm::detail::PtrUseVisitorBase::UseToVisit" title='llvm::detail::PtrUseVisitorBase::UseToVisit' data-ref="llvm::detail::PtrUseVisitorBase::UseToVisit">UseToVisit</a> <dfn class="local col2 decl" id="22NewU" title='NewU' data-type='llvm::detail::PtrUseVisitorBase::UseToVisit' data-ref="22NewU">NewU</dfn> = {</td></tr>
+<tr><th id="25">25</th><td>        <a class="type" href="../../include/llvm/Analysis/PtrUseVisitor.h.html#llvm::detail::PtrUseVisitorBase::UseToVisit" title='llvm::detail::PtrUseVisitorBase::UseToVisit' data-ref="llvm::detail::PtrUseVisitorBase::UseToVisit">UseToVisit</a>::<a class="typedef" href="../../include/llvm/Analysis/PtrUseVisitor.h.html#llvm::detail::PtrUseVisitorBase::UseToVisit::UseAndIsOffsetKnownPair" title='llvm::detail::PtrUseVisitorBase::UseToVisit::UseAndIsOffsetKnownPair' data-type='PointerIntPair&lt;llvm::Use *, 1, bool&gt;' data-ref="llvm::detail::PtrUseVisitorBase::UseToVisit::UseAndIsOffsetKnownPair">UseAndIsOffsetKnownPair</a><a class="ref" href="../../include/llvm/ADT/PointerIntPair.h.html#_ZN4llvm14PointerIntPairC1ET_T1_" title='llvm::PointerIntPair::PointerIntPair&lt;PointerTy, IntBits, IntType, PtrTraits, Info&gt;' data-ref="_ZN4llvm14PointerIntPairC1ET_T1_">(</a>&amp;<a class="local col1 ref" href="#21U" title='U' data-ref="21U">U</a>, <a class="member" href="../../include/llvm/Analysis/PtrUseVisitor.h.html#llvm::detail::PtrUseVisitorBase::IsOffsetKnown" title='llvm::detail::PtrUseVisitorBase::IsOffsetKnown' data-ref="llvm::detail::PtrUseVisitorBase::IsOffsetKnown">IsOffsetKnown</a>),</td></tr>
+<tr><th id="26">26</th><td>        <a class="ref fake" href="../../include/llvm/ADT/APInt.h.html#_ZN4llvm5APIntC1ERKS0_" title='llvm::APInt::APInt' data-ref="_ZN4llvm5APIntC1ERKS0_"></a><a class="member" href="../../include/llvm/Analysis/PtrUseVisitor.h.html#llvm::detail::PtrUseVisitorBase::Offset" title='llvm::detail::PtrUseVisitorBase::Offset' data-ref="llvm::detail::PtrUseVisitorBase::Offset">Offset</a></td></tr>
+<tr><th id="27">27</th><td>      };</td></tr>
+<tr><th id="28">28</th><td>      <a class="member" href="../../include/llvm/Analysis/PtrUseVisitor.h.html#llvm::detail::PtrUseVisitorBase::Worklist" title='llvm::detail::PtrUseVisitorBase::Worklist' data-ref="llvm::detail::PtrUseVisitorBase::Worklist">Worklist</a>.<a class="ref" href="../../include/llvm/ADT/SmallVector.h.html#_ZN4llvm23SmallVectorTemplateBase9push_backEOT_" title='llvm::SmallVectorTemplateBase::push_back' data-ref="_ZN4llvm23SmallVectorTemplateBase9push_backEOT_">push_back</a>(<span class="namespace">std::</span><a class="ref" href="../../../../include/c++/7/bits/move.h.html#_ZSt4moveOT_" title='std::move' data-ref="_ZSt4moveOT_">move</a>(<span class='refarg'><a class="local col2 ref" href="#22NewU" title='NewU' data-ref="22NewU">NewU</a></span>));</td></tr>
+<tr><th id="29">29</th><td>    }</td></tr>
+<tr><th id="30">30</th><td>  }</td></tr>
+<tr><th id="31">31</th><td>}</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><em>bool</em> <span class="namespace">detail::</span><a class="type" href="../../include/llvm/Analysis/PtrUseVisitor.h.html#llvm::detail::PtrUseVisitorBase" title='llvm::detail::PtrUseVisitorBase' data-ref="llvm::detail::PtrUseVisitorBase">PtrUseVisitorBase</a>::<dfn class="decl def" id="_ZN4llvm6detail17PtrUseVisitorBase18adjustOffsetForGEPERNS_17GetElementPtrInstE" title='llvm::detail::PtrUseVisitorBase::adjustOffsetForGEP' data-ref="_ZN4llvm6detail17PtrUseVisitorBase18adjustOffsetForGEPERNS_17GetElementPtrInstE">adjustOffsetForGEP</dfn>(<a class="type" href="../../include/llvm/IR/Instructions.h.html#llvm::GetElementPtrInst" title='llvm::GetElementPtrInst' data-ref="llvm::GetElementPtrInst">GetElementPtrInst</a> &amp;<dfn class="local col3 decl" id="23GEPI" title='GEPI' data-type='llvm::GetElementPtrInst &amp;' data-ref="23GEPI">GEPI</dfn>) {</td></tr>
+<tr><th id="34">34</th><td>  <b>if</b> (!<a class="member" href="../../include/llvm/Analysis/PtrUseVisitor.h.html#llvm::detail::PtrUseVisitorBase::IsOffsetKnown" title='llvm::detail::PtrUseVisitorBase::IsOffsetKnown' data-ref="llvm::detail::PtrUseVisitorBase::IsOffsetKnown">IsOffsetKnown</a>)</td></tr>
+<tr><th id="35">35</th><td>    <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td>  <b>return</b> <a class="local col3 ref" href="#23GEPI" title='GEPI' data-ref="23GEPI">GEPI</a>.<a class="ref" href="../../include/llvm/IR/Instructions.h.html#_ZNK4llvm17GetElementPtrInst24accumulateConstantOffsetERKNS_10DataLayoutERNS_5APIntE" title='llvm::GetElementPtrInst::accumulateConstantOffset' data-ref="_ZNK4llvm17GetElementPtrInst24accumulateConstantOffsetERKNS_10DataLayoutERNS_5APIntE">accumulateConstantOffset</a>(<a class="member" href="../../include/llvm/Analysis/PtrUseVisitor.h.html#llvm::detail::PtrUseVisitorBase::DL" title='llvm::detail::PtrUseVisitorBase::DL' data-ref="llvm::detail::PtrUseVisitorBase::DL">DL</a>, <span class='refarg'><a class="member" href="../../include/llvm/Analysis/PtrUseVisitor.h.html#llvm::detail::PtrUseVisitorBase::Offset" title='llvm::detail::PtrUseVisitorBase::Offset' data-ref="llvm::detail::PtrUseVisitorBase::Offset">Offset</a></span>);</td></tr>
+<tr><th id="38">38</th><td>}</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

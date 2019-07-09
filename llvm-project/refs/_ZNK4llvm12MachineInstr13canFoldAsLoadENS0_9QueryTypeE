@@ -1,0 +1,14 @@
+<def f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='754' ll='756' type='bool llvm::MachineInstr::canFoldAsLoad(llvm::MachineInstr::QueryType Type = IgnoreBundle) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='746'>/// Return true for instructions that can be folded as
+  /// memory operands in other instructions. The most common use for this
+  /// is instructions that are simple loads from memory that don&apos;t modify
+  /// the loaded value in any way, but it can also be used for instructions
+  /// that can be expressed as constant-pool loads, such as V_SETALLONES
+  /// on x86, to allow them to be folded when it is beneficial.
+  /// This should only be set on instructions that return a value in their
+  /// only virtual register definition.</doc>
+<use f='llvm/llvm/lib/CodeGen/InlineSpiller.cpp' l='601' u='c' c='_ZN12_GLOBAL__N_113InlineSpiller16reMaterializeForERN4llvm12LiveIntervalERNS1_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeEdit.cpp' l='195' u='c' c='_ZN4llvm13LiveRangeEdit10foldAsLoadEPNS_12LiveIntervalERNS_15SmallVectorImplIPNS_12MachineInstrEEE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineLICM.cpp' l='1286' u='c' c='_ZN12_GLOBAL__N_115MachineLICMBase20ExtractHoistableLoadEPN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/PeepholeOptimizer.cpp' l='1312' u='c' c='_ZN12_GLOBAL__N_117PeepholeOptimizer14isLoadFoldableERN4llvm12MachineInstrERNS1_8SmallSetIjLj16ESt4lessIjEEE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='617' u='c' c='_ZNK4llvm15TargetInstrInfo17foldMemoryOperandERNS_12MachineInstrENS_8ArrayRefIjEES2_PNS_13LiveIntervalsE'/>

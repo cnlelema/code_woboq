@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Scalar/GVN.h' l='285' type='bool llvm::GVN::propagateEquality(llvm::Value * LHS, llvm::Value * RHS, const llvm::BasicBlockEdge &amp; Root, bool DominatesByEdge)'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1427' u='c' c='_ZN4llvm3GVN22processAssumeIntrinsicEPNS_13IntrinsicInstE'/>
+<def f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1691' ll='1851' type='bool llvm::GVN::propagateEquality(llvm::Value * LHS, llvm::Value * RHS, const llvm::BasicBlockEdge &amp; Root, bool DominatesByEdge)'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1917' u='c' c='_ZN4llvm3GVN18processInstructionEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1921' u='c' c='_ZN4llvm3GVN18processInstructionEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1943' u='c' c='_ZN4llvm3GVN18processInstructionEPNS_11InstructionE'/>
+<doc f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1686'>/// The given values are known to be equal in every block
+/// dominated by &apos;Root&apos;.  Exploit this, for example by replacing &apos;LHS&apos; with
+/// &apos;RHS&apos; everywhere in the scope.  Returns whether a change was made.
+/// If DominatesByEdge is false, then it means that we will propagate the RHS
+/// value starting from the end of Root.Start.</doc>

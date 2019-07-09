@@ -1,0 +1,107 @@
+<inh f='llvm/clang/include/clang/Lex/PreprocessorLexer.h' l='29' c='clang::PreprocessorLexer'/>
+<def f='llvm/clang/include/clang/Lex/Lexer.h' l='76' ll='750'/>
+<size>680</size>
+<doc f='llvm/clang/include/clang/Lex/Lexer.h' l='72'>/// Lexer - This provides a simple interface that turns a text buffer into a
+/// stream of tokens.  This provides no support for file reading or buffering,
+/// or buffering/seeking of tokens, only forward lexing is supported.  It relies
+/// on the specified Preprocessor object to handle preprocessor directives, etc.</doc>
+<fun r='_ZN5clang5Lexer6anchorEv'/>
+<mbr r='clang::Lexer::BufferStart' o='896' t='const char *'/>
+<mbr r='clang::Lexer::BufferEnd' o='960' t='const char *'/>
+<mbr r='clang::Lexer::FileLoc' o='1024' t='clang::SourceLocation'/>
+<mbr r='clang::Lexer::LangOpts' o='1088' t='clang::LangOptions'/>
+<mbr r='clang::Lexer::Is_PragmaLexer' o='5248' t='bool'/>
+<mbr r='clang::Lexer::ExtendedTokenMode' o='5256' t='unsigned char'/>
+<mbr r='clang::Lexer::BufferPtr' o='5312' t='const char *'/>
+<mbr r='clang::Lexer::IsAtStartOfLine' o='5376' t='bool'/>
+<mbr r='clang::Lexer::IsAtPhysicalStartOfLine' o='5384' t='bool'/>
+<mbr r='clang::Lexer::HasLeadingSpace' o='5392' t='bool'/>
+<mbr r='clang::Lexer::HasLeadingEmptyMacro' o='5400' t='bool'/>
+<mbr r='clang::Lexer::CurrentConflictMarkerState' o='5408' t='clang::ConflictMarkerKind'/>
+<fun r='_ZN5clang5Lexer9InitLexerEPKcS2_S2_'/>
+<fun r='_ZN5clang5LexerC1ENS_6FileIDEPKN4llvm12MemoryBufferERNS_12PreprocessorE'/>
+<fun r='_ZN5clang5LexerC1ENS_14SourceLocationERKNS_11LangOptionsEPKcS6_S6_'/>
+<fun r='_ZN5clang5LexerC1ENS_6FileIDEPKN4llvm12MemoryBufferERKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<fun r='_ZN5clang5LexerC1ERKS0_'/>
+<fun r='_ZN5clang5LexeraSERKS0_'/>
+<fun r='_ZN5clang5Lexer18Create_PragmaLexerENS_14SourceLocationES1_S1_jRNS_12PreprocessorE'/>
+<fun r='_ZNK5clang5Lexer11getLangOptsEv'/>
+<fun r='_ZNK5clang5Lexer10getFileLocEv'/>
+<fun r='_ZN5clang5Lexer3LexERNS_5TokenE'/>
+<fun r='_ZNK5clang5Lexer13isPragmaLexerEv'/>
+<fun r='_ZN5clang5Lexer11IndirectLexERNS_5TokenE'/>
+<fun r='_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE'/>
+<fun r='_ZNK5clang5Lexer20isKeepWhitespaceModeEv'/>
+<fun r='_ZN5clang5Lexer21SetKeepWhitespaceModeEb'/>
+<fun r='_ZNK5clang5Lexer17inKeepCommentModeEv'/>
+<fun r='_ZN5clang5Lexer24SetCommentRetentionStateEb'/>
+<fun r='_ZN5clang5Lexer22resetExtendedTokenModeEv'/>
+<fun r='_ZNK5clang5Lexer9getBufferEv'/>
+<fun r='_ZN5clang5Lexer15ReadToEndOfLineEPN4llvm15SmallVectorImplIcEE'/>
+<fun r='_ZNK5clang5Lexer4DiagEPKcj'/>
+<fun r='_ZNK5clang5Lexer17getSourceLocationEPKcj'/>
+<fun r='_ZN5clang5Lexer17getSourceLocationEv'/>
+<fun r='_ZNK5clang5Lexer17getBufferLocationEv'/>
+<fun r='_ZN5clang5Lexer9StringifyEN4llvm9StringRefEb'/>
+<fun r='_ZN5clang5Lexer9StringifyERN4llvm15SmallVectorImplIcEE'/>
+<fun r='_ZN5clang5Lexer11getSpellingERKNS_5TokenERPKcRKNS_13SourceManagerERKNS_11LangOptionsEPb'/>
+<fun r='_ZN5clang5Lexer11getSpellingERKNS_5TokenERKNS_13SourceManagerERKNS_11LangOptionsEPb'/>
+<fun r='_ZN5clang5Lexer11getSpellingENS_14SourceLocationERN4llvm15SmallVectorImplIcEERKNS_13SourceManagerERKNS_11LangOptionsEPb'/>
+<fun r='_ZN5clang5Lexer18MeasureTokenLengthENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<fun r='_ZN5clang5Lexer11getRawTokenENS_14SourceLocationERNS_5TokenERKNS_13SourceManagerERKNS_11LangOptionsEb'/>
+<fun r='_ZN5clang5Lexer19GetBeginningOfTokenENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<fun r='_ZN5clang5Lexer20getTokenPrefixLengthENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<fun r='_ZN5clang5Lexer23AdvanceToTokenCharacterENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<fun r='_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<fun r='_ZN5clang5Lexer14getAsCharRangeENS_11SourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<fun r='_ZN5clang5Lexer14getAsCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<fun r='_ZN5clang5Lexer25isAtStartOfMacroExpansionENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsEPS1_'/>
+<fun r='_ZN5clang5Lexer23isAtEndOfMacroExpansionENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsEPS1_'/>
+<fun r='_ZN5clang5Lexer17makeFileCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<fun r='_ZN5clang5Lexer13getSourceTextENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsEPb'/>
+<fun r='_ZN5clang5Lexer21getImmediateMacroNameENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<fun r='_ZN5clang5Lexer35getImmediateMacroNameForDiagnosticsENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<fun r='_ZN5clang5Lexer15ComputePreambleEN4llvm9StringRefERKNS_11LangOptionsEj'/>
+<fun r='_ZN5clang5Lexer13findNextTokenENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<fun r='_ZN5clang5Lexer22findLocationAfterTokenENS_14SourceLocationENS_3tok9TokenKindERKNS_13SourceManagerERKNS_11LangOptionsEb'/>
+<fun r='_ZN5clang5Lexer20isIdentifierBodyCharEcRKNS_11LangOptionsE'/>
+<fun r='_ZN5clang5Lexer16isNewLineEscapedEPKcS2_'/>
+<fun r='_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRjRKNS_11LangOptionsE'/>
+<fun r='_ZN5clang5Lexer21getIndentationForLineENS_14SourceLocationERKNS_13SourceManagerE'/>
+<fun r='_ZN5clang5Lexer16LexTokenInternalERNS_5TokenEb'/>
+<fun r='_ZN5clang5Lexer22CheckUnicodeWhitespaceERNS_5TokenEjPKc'/>
+<fun r='_ZN5clang5Lexer10LexUnicodeERNS_5TokenEjPKc'/>
+<fun r='_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE'/>
+<fun r='_ZN5clang5Lexer19isNextPPTokenLParenEv'/>
+<fun r='_ZN5clang5Lexer26isObviouslySimpleCharacterEc'/>
+<fun r='_ZN5clang5Lexer17getAndAdvanceCharERPKcRNS_5TokenE'/>
+<fun r='_ZN5clang5Lexer11ConsumeCharEPKcjRNS_5TokenE'/>
+<fun r='_ZN5clang5Lexer14getCharAndSizeEPKcRj'/>
+<fun r='_ZN5clang5Lexer18getCharAndSizeSlowEPKcRjPNS_5TokenE'/>
+<fun r='_ZN5clang5Lexer21getEscapedNewLineSizeEPKc'/>
+<fun r='_ZN5clang5Lexer19SkipEscapedNewLinesEPKc'/>
+<fun r='_ZN5clang5Lexer24getCharAndSizeSlowNoWarnEPKcRjRKNS_11LangOptionsE'/>
+<fun r='_ZN5clang5Lexer13SetByteOffsetEjb'/>
+<fun r='_ZN5clang5Lexer34PropagateLineStartLeadingSpaceInfoERNS_5TokenE'/>
+<fun r='_ZN5clang5Lexer11LexUDSuffixERNS_5TokenEPKcb'/>
+<fun r='_ZN5clang5Lexer13LexIdentifierERNS_5TokenEPKc'/>
+<fun r='_ZN5clang5Lexer18LexNumericConstantERNS_5TokenEPKc'/>
+<fun r='_ZN5clang5Lexer16LexStringLiteralERNS_5TokenEPKcNS_3tok9TokenKindE'/>
+<fun r='_ZN5clang5Lexer19LexRawStringLiteralERNS_5TokenEPKcNS_3tok9TokenKindE'/>
+<fun r='_ZN5clang5Lexer22LexAngledStringLiteralERNS_5TokenEPKc'/>
+<fun r='_ZN5clang5Lexer15LexCharConstantERNS_5TokenEPKcNS_3tok9TokenKindE'/>
+<fun r='_ZN5clang5Lexer12LexEndOfFileERNS_5TokenEPKc'/>
+<fun r='_ZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRb'/>
+<fun r='_ZN5clang5Lexer15SkipLineCommentERNS_5TokenEPKcRb'/>
+<fun r='_ZN5clang5Lexer16SkipBlockCommentERNS_5TokenEPKcRb'/>
+<fun r='_ZN5clang5Lexer15SaveLineCommentERNS_5TokenEPKc'/>
+<fun r='_ZN5clang5Lexer23IsStartOfConflictMarkerEPKc'/>
+<fun r='_ZN5clang5Lexer25HandleEndOfConflictMarkerEPKc'/>
+<fun r='_ZN5clang5Lexer20lexEditorPlaceholderERNS_5TokenEPKc'/>
+<fun r='_ZNK5clang5Lexer21isCodeCompletionPointEPKc'/>
+<fun r='_ZN5clang5Lexer12cutOffLexingEv'/>
+<fun r='_ZN5clang5Lexer13isHexaLiteralEPKcRKNS_11LangOptionsE'/>
+<fun r='_ZN5clang5Lexer24codeCompleteIncludedFileEPKcS2_b'/>
+<fun r='_ZN5clang5Lexer10tryReadUCNERPKcS2_PNS_5TokenE'/>
+<fun r='_ZN5clang5Lexer23tryConsumeIdentifierUCNERPKcjRNS_5TokenE'/>
+<fun r='_ZN5clang5Lexer28tryConsumeIdentifierUTF8CharERPKc'/>

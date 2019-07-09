@@ -1,0 +1,42 @@
+<def f='llvm/llvm/include/llvm/Analysis/ProfileSummaryInfo.h' l='43' ll='133'/>
+<size>56</size>
+<doc f='llvm/llvm/include/llvm/Analysis/ProfileSummaryInfo.h' l='33'>/// Analysis providing profile information.
+///
+/// This is an immutable analysis pass that provides ability to query global
+/// (program-level) profile information. The main APIs are isHotCount and
+/// isColdCount that tells whether a given profile count is considered hot/cold
+/// based on the profile summary. This also provides convenience methods to
+/// check whether a function is hot or cold.
+
+// FIXME: Provide convenience methods to determine hotness/coldness of other IR
+// units. This would require making this depend on BFI.</doc>
+<mbr r='llvm::ProfileSummaryInfo::M' o='0' t='llvm::Module &amp;'/>
+<mbr r='llvm::ProfileSummaryInfo::Summary' o='64' t='std::unique_ptr&lt;ProfileSummary&gt;'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo14computeSummaryEv'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo17computeThresholdsEv'/>
+<mbr r='llvm::ProfileSummaryInfo::HotCountThreshold' o='128' t='Optional&lt;uint64_t&gt;'/>
+<mbr r='llvm::ProfileSummaryInfo::ColdCountThreshold' o='256' t='Optional&lt;uint64_t&gt;'/>
+<mbr r='llvm::ProfileSummaryInfo::HasHugeWorkingSetSize' o='384' t='Optional&lt;bool&gt;'/>
+<fun r='_ZN4llvm18ProfileSummaryInfoC1ERNS_6ModuleE'/>
+<fun r='_ZN4llvm18ProfileSummaryInfoC1EOS0_'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo17hasProfileSummaryEv'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo16hasSampleProfileEv'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo27hasCSInstrumentationProfileEv'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo10invalidateERNS_6ModuleERKNS_17PreservedAnalysesERNS_15AnalysisManagerIS1_JEE11InvalidatorE'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo15getProfileCountEPKNS_11InstructionEPNS_18BlockFrequencyInfoEb'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo21hasHugeWorkingSetSizeEv'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo18isFunctionEntryHotEPKNS_8FunctionE'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo24isFunctionHotInCallGraphEPKNS_8FunctionERNS_18BlockFrequencyInfoE'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo19isFunctionEntryColdEPKNS_8FunctionE'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphEPKNS_8FunctionERNS_18BlockFrequencyInfoE'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo10isHotCountEm'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo11isColdCountEm'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo10isHotBlockEPKNS_10BasicBlockEPNS_18BlockFrequencyInfoE'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo11isColdBlockEPKNS_10BasicBlockEPNS_18BlockFrequencyInfoE'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo13isHotCallSiteERKNS_8CallSiteEPNS_18BlockFrequencyInfoE'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo14isColdCallSiteERKNS_8CallSiteEPNS_18BlockFrequencyInfoE'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo26getOrCompHotCountThresholdEv'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo27getOrCompColdCountThresholdEv'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo20getHotCountThresholdEv'/>
+<fun r='_ZN4llvm18ProfileSummaryInfo21getColdCountThresholdEv'/>

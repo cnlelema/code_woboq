@@ -1,0 +1,42 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ScalarEvolution.h' l='764' type='const llvm::SCEV * llvm::ScalarEvolution::getBackedgeTakenCount(const llvm::Loop * L)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ScalarEvolution.h' l='754'>/// If the specified loop has a predictable backedge-taken count, return it,
+  /// otherwise return a SCEVCouldNotCompute object. The backedge-taken count is
+  /// the number of times the loop header will be branched to from within the
+  /// loop, assuming there are no abnormal exists like exception throws. This is
+  /// one less than the trip count of the loop, since it doesn&apos;t count the first
+  /// iteration, when the header is branched to from outside the loop.
+  ///
+  /// Note that it is not valid to call this method on a loop without a
+  /// loop-invariant backedge-taken count (see
+  /// hasLoopInvariantBackedgeTakenCount).</doc>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='889' u='c' c='_ZN4llvm14DependenceInfo17checkSrcSubscriptEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='914' u='c' c='_ZN4llvm14DependenceInfo17checkDstSubscriptEPKNS_4SCEVEPKNS_4LoopERNS_14SmallBitVectorE'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='1029' u='c' c='_ZNK4llvm14DependenceInfo15isKnownLessThanEPKNS_4SCEVES3_'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='1072' u='c' c='_ZNK4llvm14DependenceInfo17collectUpperBoundEPKNS_4LoopEPNS_4TypeE'/>
+<use f='llvm/llvm/lib/Analysis/IVUsers.cpp' l='322' u='c' c='_ZNK4llvm7IVUsers5printERNS_11raw_ostreamEPKNS_6ModuleE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='1472' u='c' c='_ZL20getPreStartForExtendPKN4llvm14SCEVAddRecExprEPNS_4TypeEPNS_15ScalarEvolutionEj'/>
+<def f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='6588' ll='6590' type='const llvm::SCEV * llvm::ScalarEvolution::getBackedgeTakenCount(const llvm::Loop * L)'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='8116' u='c' c='_ZN4llvm15ScalarEvolution18computeSCEVAtScopeEPKNS_4SCEVEPKNS_4LoopE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='8286' u='c' c='_ZN4llvm15ScalarEvolution18computeSCEVAtScopeEPKNS_4SCEVEPKNS_4LoopE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='11391' u='c' c='_ZN4llvm15ScalarEvolution34hasLoopInvariantBackedgeTakenCountEPKNS_4LoopE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='11410' u='c' c='_ZL13PrintLoopInfoRN4llvm11raw_ostreamEPNS_15ScalarEvolutionEPKNS_4LoopE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='11857' u='c' c='_ZNK4llvm15ScalarEvolution6verifyEv'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='11858' u='c' c='_ZNK4llvm15ScalarEvolution6verifyEv'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMTargetTransformInfo.cpp' l='713' u='c' c='_ZN4llvm10ARMTTIImpl24isHardwareLoopProfitableEPNS_4LoopERNS_15ScalarEvolutionERNS_15AssumptionCacheEPNS_17TargetLibraryInfoERNS_19TargetTransformInfo16HardwareLoopInfoE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonLoopIdiomRecognition.cpp' l='1782' u='c' c='_ZN12_GLOBAL__N_127PolynomialMultiplyRecognize9recognizeEv'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonLoopIdiomRecognition.cpp' l='2386' u='c' c='_ZN12_GLOBAL__N_125HexagonLoopIdiomRecognize18runOnCountableLoopEPN4llvm4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='2594' u='c' c='_ZN12_GLOBAL__N_114IndVarSimplify3runEPN4llvm4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='2709' u='c' c='_ZN12_GLOBAL__N_114IndVarSimplify3runEPN4llvm4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopFuse.cpp' l='612' u='c' c='_ZNK9LoopFuser19identicalTripCountsERK15FusionCandidateS2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopFuse.cpp' l='619' u='c' c='_ZNK9LoopFuser19identicalTripCountsERK15FusionCandidateS2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopIdiomRecognize.cpp' l='321' u='c' c='_ZN12_GLOBAL__N_118LoopIdiomRecognize18runOnCountableLoopEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopInterchange.cpp' l='469' u='c' c='_ZN12_GLOBAL__N_115LoopInterchange20isComputableLoopNestEN4llvm11SmallVectorIPNS1_4LoopELj8EEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopRerollPass.cpp' l='1663' u='c' c='_ZN12_GLOBAL__N_110LoopReroll9runOnLoopEPN4llvm4LoopERNS1_13LPPassManagerE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='2066' u='c' c='_ZN12_GLOBAL__N_111LSRInstance16OptimizeShadowIVEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='2251' u='c' c='_ZN12_GLOBAL__N_111LSRInstance11OptimizeMaxEPN4llvm8ICmpInstERPNS1_11IVStrideUseE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopVersioningLICM.cpp' l='286' u='c' c='_ZN12_GLOBAL__N_118LoopVersioningLICM18legalLoopStructureEv'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='7304' u='c' c='_ZN4llvm17LoopVectorizePass11processLoopEPNS_4LoopE'/>
+<use f='llvm/llvm/unittests/Analysis/ScalarEvolutionTest.cpp' l='856' u='c' c='_ZN4llvm12_GLOBAL__N_149ScalarEvolutionsTest_SCEVExitLimitForgetLoop_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/ScalarEvolutionTest.cpp' l='880' u='c' c='_ZN4llvm12_GLOBAL__N_149ScalarEvolutionsTest_SCEVExitLimitForgetLoop_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/ScalarEvolutionTest.cpp' l='956' u='c' c='_ZN4llvm12_GLOBAL__N_150ScalarEvolutionsTest_SCEVExitLimitForgetValue_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/ScalarEvolutionTest.cpp' l='969' u='c' c='_ZN4llvm12_GLOBAL__N_150ScalarEvolutionsTest_SCEVExitLimitForgetValue_Test8TestBodyEv'/>

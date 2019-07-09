@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/IR/IRBuilder.h' l='607' type='llvm::CallInst * llvm::IRBuilderBase::CreateMaskedScatter(llvm::Value * Val, llvm::Value * Ptrs, unsigned int Align, llvm::Value * Mask = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/IR/IRBuilder.h' l='606'>/// Create a call to Masked Scatter intrinsic</doc>
+<def f='llvm/llvm/lib/IR/IRBuilder.cpp' l='569' ll='592' type='llvm::CallInst * llvm::IRBuilderBase::CreateMaskedScatter(llvm::Value * Data, llvm::Value * Ptrs, unsigned int Align, llvm::Value * Mask = nullptr)'/>
+<doc f='llvm/llvm/lib/IR/IRBuilder.cpp' l='562'>/// Create a call to a Masked Scatter intrinsic.
+/// \p Data  - data to be stored,
+/// \p Ptrs  - the vector of pointers, where the \p Data elements should be
+///            stored
+/// \p Align - alignment for one element
+/// \p Mask  - vector of booleans which indicates what vector lanes should
+///            be accessed in memory</doc>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='2301' u='c' c='_ZN4llvm19InnerLoopVectorizer26vectorizeMemoryInstructionEPNS_11InstructionEPNS_11SmallVectorIPNS_5ValueELj2EEE'/>

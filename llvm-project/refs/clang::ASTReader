@@ -1,0 +1,403 @@
+<inh f='llvm/clang/include/clang/Lex/ExternalPreprocessorSource.h' l='26' c='clang::ExternalPreprocessorSource'/>
+<inh f='llvm/clang/include/clang/Lex/PreprocessingRecord.h' l='279' c='clang::ExternalPreprocessingRecordSource'/>
+<inh f='llvm/clang/include/clang/Lex/HeaderSearch.h' l='133' c='clang::ExternalHeaderFileInfoSource'/>
+<inh f='llvm/clang/include/clang/Sema/ExternalSemaSource.h' l='52' c='clang::ExternalSemaSource'/>
+<inh f='llvm/clang/include/clang/Basic/IdentifierTable.h' l='456' c='clang::IdentifierInfoLookup'/>
+<inh f='llvm/clang/include/clang/Basic/SourceManager.h' l='474' c='clang::ExternalSLocEntrySource'/>
+<def f='llvm/clang/include/clang/Serialization/ASTReader.h' l='354' ll='2359'/>
+<size>14816</size>
+<doc f='llvm/clang/include/clang/Serialization/ASTReader.h' l='342'>/// Reads an AST files chain containing the contents of a translation
+/// unit.
+///
+/// The ASTReader class reads bitstreams (produced by the ASTWriter
+/// class) containing the serialized representation of a given
+/// abstract syntax tree and its supporting data structures. An
+/// instance of the ASTReader can be attached to an ASTContext object,
+/// which will provide access to the contents of the AST files.
+///
+/// The AST reader provides lazy de-serialization of declarations, as
+/// required when traversing the AST. Only those AST nodes that are
+/// actually required will be de-serialized.</doc>
+<mbr r='clang::ASTReader::Listener' o='512' t='std::unique_ptr&lt;ASTReaderListener&gt;'/>
+<mbr r='clang::ASTReader::DeserializationListener' o='576' t='clang::ASTDeserializationListener *'/>
+<mbr r='clang::ASTReader::OwnsDeserializationListener' o='640' t='bool'/>
+<mbr r='clang::ASTReader::SourceMgr' o='704' t='clang::SourceManager &amp;'/>
+<mbr r='clang::ASTReader::FileMgr' o='768' t='clang::FileManager &amp;'/>
+<mbr r='clang::ASTReader::PCHContainerRdr' o='832' t='const clang::PCHContainerReader &amp;'/>
+<mbr r='clang::ASTReader::Diags' o='896' t='clang::DiagnosticsEngine &amp;'/>
+<mbr r='clang::ASTReader::SemaObj' o='960' t='clang::Sema *'/>
+<mbr r='clang::ASTReader::PP' o='1024' t='clang::Preprocessor &amp;'/>
+<mbr r='clang::ASTReader::ContextObj' o='1088' t='clang::ASTContext *'/>
+<mbr r='clang::ASTReader::Consumer' o='1152' t='clang::ASTConsumer *'/>
+<mbr r='clang::ASTReader::ModuleMgr' o='1216' t='ModuleManager'/>
+<mbr r='clang::ASTReader::DummyIdResolver' o='3648' t='clang::IdentifierResolver'/>
+<mbr r='clang::ASTReader::ModuleFileExtensions' o='3840' t='llvm::StringMap&lt;std::shared_ptr&lt;ModuleFileExtension&gt; &gt;'/>
+<mbr r='clang::ASTReader::ReadTimer' o='4096' t='std::unique_ptr&lt;llvm::Timer&gt;'/>
+<mbr r='clang::ASTReader::CurrentImportLoc' o='4160' t='clang::SourceLocation'/>
+<mbr r='clang::ASTReader::GlobalIndex' o='4224' t='std::unique_ptr&lt;GlobalModuleIndex&gt;'/>
+<mbr r='clang::ASTReader::GlobalBitOffsetsMap' o='4288' t='ContinuousRangeMap&lt;uint64_t, ModuleFile *, 4&gt;'/>
+<mbr r='clang::ASTReader::GlobalSLocEntryMap' o='4928' t='ContinuousRangeMap&lt;unsigned int, ModuleFile *, 64&gt;'/>
+<mbr r='clang::ASTReader::GlobalSLocOffsetMap' o='13248' t='GlobalSLocOffsetMapType'/>
+<mbr r='clang::ASTReader::TypesLoaded' o='21568' t='std::vector&lt;QualType&gt;'/>
+<mbr r='clang::ASTReader::GlobalTypeMap' o='21760' t='GlobalTypeMapType'/>
+<mbr r='clang::ASTReader::DeclsLoaded' o='22400' t='std::vector&lt;Decl *&gt;'/>
+<mbr r='clang::ASTReader::GlobalDeclMap' o='22592' t='GlobalDeclMapType'/>
+<mbr r='clang::ASTReader::DeclUpdateOffsets' o='23232' t='DeclUpdateOffsetsMap'/>
+<mbr r='clang::ASTReader::PendingUpdateRecords' o='23488' t='llvm::SmallVector&lt;PendingUpdateRecord, 16&gt;'/>
+<mbr r='clang::ASTReader::PendingFakeDefinitionData' o='25664' t='llvm::DenseMap&lt;void *, PendingFakeDefinitionKind&gt;'/>
+<mbr r='clang::ASTReader::PendingExceptionSpecUpdates' o='25920' t='llvm::SmallMapVector&lt;Decl *, FunctionDecl *, 4&gt;'/>
+<mbr r='clang::ASTReader::PendingDeducedTypeUpdates' o='27200' t='llvm::SmallMapVector&lt;FunctionDecl *, QualType, 4&gt;'/>
+<mbr r='clang::ASTReader::ImportedTypedefNamesForLinkage' o='28480' t='llvm::DenseMap&lt;std::pair&lt;DeclContext *, IdentifierInfo *&gt;, NamedDecl *&gt;'/>
+<mbr r='clang::ASTReader::AnonymousDeclarationsForMerging' o='28736' t='llvm::DenseMap&lt;Decl *, llvm::SmallVector&lt;NamedDecl *, 2&gt; &gt;'/>
+<mbr r='clang::ASTReader::FileDeclIDs' o='28992' t='llvm::DenseMap&lt;FileID, FileDeclsInfo&gt;'/>
+<mbr r='clang::ASTReader::LexicalDecls' o='29248' t='llvm::DenseMap&lt;const DeclContext *, std::pair&lt;ModuleFile *, LexicalContents&gt; &gt;'/>
+<mbr r='clang::ASTReader::TULexicalDecls' o='29504' t='std::vector&lt;std::pair&lt;ModuleFile *, LexicalContents&gt; &gt;'/>
+<mbr r='clang::ASTReader::Lookups' o='29696' t='llvm::DenseMap&lt;const DeclContext *, serialization::reader::DeclContextLookupTable&gt;'/>
+<mbr r='clang::ASTReader::PendingVisibleUpdates' o='29952' t='llvm::DenseMap&lt;serialization::DeclID, DeclContextVisibleUpdates&gt;'/>
+<mbr r='clang::ASTReader::PendingDefinitions' o='30208' t='llvm::SmallPtrSet&lt;Decl *, 4&gt;'/>
+<mbr r='clang::ASTReader::PendingBodies' o='30784' t='PendingBodiesMap'/>
+<mbr r='clang::ASTReader::PendingMergedDefinitionsToDeduplicate' o='32064' t='llvm::SetVector&lt;NamedDecl *&gt;'/>
+<fun r='_ZN5clang9ASTReader29ReadLexicalDeclContextStorageERNS_13serialization10ModuleFileERN4llvm15BitstreamCursorEmPNS_11DeclContextE'/>
+<fun r='_ZN5clang9ASTReader29ReadVisibleDeclContextStorageERNS_13serialization10ModuleFileERN4llvm15BitstreamCursorEmj'/>
+<mbr r='clang::ASTReader::IdentifiersLoaded' o='32512' t='std::vector&lt;IdentifierInfo *&gt;'/>
+<mbr r='clang::ASTReader::GlobalIdentifierMap' o='32704' t='GlobalIdentifierMapType'/>
+<mbr r='clang::ASTReader::MacrosLoaded' o='33344' t='std::vector&lt;MacroInfo *&gt;'/>
+<mbr r='clang::ASTReader::LoadedUndefs' o='33536' t='llvm::DenseSet&lt;LoadedMacroInfo&gt;'/>
+<mbr r='clang::ASTReader::GlobalMacroMap' o='33792' t='GlobalMacroMapType'/>
+<mbr r='clang::ASTReader::SubmodulesLoaded' o='34432' t='SmallVector&lt;clang::Module *, 2&gt;'/>
+<mbr r='clang::ASTReader::GlobalSubmoduleMap' o='34688' t='GlobalSubmoduleMapType'/>
+<mbr r='clang::ASTReader::HiddenNamesMap' o='35328' t='HiddenNamesMapType'/>
+<mbr r='clang::ASTReader::UnresolvedModuleRefs' o='35584' t='SmallVector&lt;clang::ASTReader::UnresolvedModuleRef, 2&gt;'/>
+<mbr r='clang::ASTReader::SelectorsLoaded' o='36480' t='SmallVector&lt;clang::Selector, 16&gt;'/>
+<mbr r='clang::ASTReader::GlobalSelectorMap' o='37632' t='GlobalSelectorMapType'/>
+<mbr r='clang::ASTReader::SelectorGeneration' o='38272' t='llvm::DenseMap&lt;Selector, unsigned int&gt;'/>
+<mbr r='clang::ASTReader::SelectorOutOfDate' o='38528' t='llvm::DenseMap&lt;Selector, bool&gt;'/>
+<mbr r='clang::ASTReader::PendingMacroIDs' o='38784' t='PendingMacroIDsMap'/>
+<mbr r='clang::ASTReader::GlobalPreprocessedEntityMap' o='39232' t='GlobalPreprocessedEntityMapType'/>
+<mbr r='clang::ASTReader::GlobalSkippedRangeMap' o='39872' t='GlobalSkippedRangeMapType'/>
+<mbr r='clang::ASTReader::EagerlyDeserializedDecls' o='40512' t='SmallVector&lt;uint64_t, 16&gt;'/>
+<mbr r='clang::ASTReader::TentativeDefinitions' o='41664' t='SmallVector&lt;uint64_t, 16&gt;'/>
+<mbr r='clang::ASTReader::VTableUses' o='42816' t='SmallVector&lt;uint64_t, 64&gt;'/>
+<mbr r='clang::ASTReader::PendingInstantiations' o='47040' t='SmallVector&lt;uint64_t, 64&gt;'/>
+<mbr r='clang::ASTReader::UnusedFileScopedDecls' o='51264' t='SmallVector&lt;uint64_t, 16&gt;'/>
+<mbr r='clang::ASTReader::DelegatingCtorDecls' o='52416' t='SmallVector&lt;uint64_t, 4&gt;'/>
+<mbr r='clang::ASTReader::ReferencedSelectorsData' o='52800' t='SmallVector&lt;uint64_t, 64&gt;'/>
+<mbr r='clang::ASTReader::WeakUndeclaredIdentifiers' o='57024' t='SmallVector&lt;uint64_t, 64&gt;'/>
+<mbr r='clang::ASTReader::ExtVectorDecls' o='61248' t='SmallVector&lt;uint64_t, 4&gt;'/>
+<mbr r='clang::ASTReader::UnusedLocalTypedefNameCandidates' o='61632' t='SmallVector&lt;uint64_t, 16&gt;'/>
+<mbr r='clang::ASTReader::ForceCUDAHostDeviceDepth' o='62784' t='unsigned int'/>
+<mbr r='clang::ASTReader::SemaDeclRefs' o='62848' t='SmallVector&lt;uint64_t, 4&gt;'/>
+<mbr r='clang::ASTReader::SpecialTypes' o='63232' t='SmallVector&lt;uint64_t, 16&gt;'/>
+<mbr r='clang::ASTReader::CUDASpecialDeclRefs' o='64384' t='SmallVector&lt;uint64_t, 2&gt;'/>
+<mbr r='clang::ASTReader::FPPragmaOptions' o='64640' t='SmallVector&lt;uint64_t, 1&gt;'/>
+<mbr r='clang::ASTReader::OptimizeOffPragmaLocation' o='64832' t='clang::SourceLocation'/>
+<mbr r='clang::ASTReader::PragmaMSStructState' o='64864' t='int'/>
+<mbr r='clang::ASTReader::PragmaMSPointersToMembersState' o='64896' t='int'/>
+<mbr r='clang::ASTReader::PointersToMembersPragmaLocation' o='64928' t='clang::SourceLocation'/>
+<mbr r='clang::ASTReader::PragmaPackCurrentValue' o='64960' t='Optional&lt;unsigned int&gt;'/>
+<mbr r='clang::ASTReader::PragmaPackCurrentLocation' o='65024' t='clang::SourceLocation'/>
+<mbr r='clang::ASTReader::PragmaPackStack' o='65088' t='llvm::SmallVector&lt;PragmaPackStackEntry, 2&gt;'/>
+<mbr r='clang::ASTReader::PragmaPackStrings' o='65728' t='llvm::SmallVector&lt;std::string, 2&gt;'/>
+<mbr r='clang::ASTReader::OpenCLExtensions' o='66368' t='clang::OpenCLOptions'/>
+<mbr r='clang::ASTReader::OpenCLTypeExtMap' o='66624' t='llvm::DenseMap&lt;const Type *, std::set&lt;std::string&gt; &gt;'/>
+<mbr r='clang::ASTReader::OpenCLDeclExtMap' o='66880' t='llvm::DenseMap&lt;const Decl *, std::set&lt;std::string&gt; &gt;'/>
+<mbr r='clang::ASTReader::KnownNamespaces' o='67136' t='SmallVector&lt;uint64_t, 4&gt;'/>
+<mbr r='clang::ASTReader::UndefinedButUsed' o='67520' t='SmallVector&lt;uint64_t, 8&gt;'/>
+<mbr r='clang::ASTReader::DelayedDeleteExprs' o='68160' t='SmallVector&lt;uint64_t, 8&gt;'/>
+<mbr r='clang::ASTReader::LateParsedTemplates' o='68800' t='SmallVector&lt;uint64_t, 1&gt;'/>
+<mbr r='clang::ASTReader::ImportedModules' o='68992' t='SmallVector&lt;clang::ASTReader::ImportedSubmodule, 2&gt;'/>
+<mbr r='clang::ASTReader::isysroot' o='69248' t='std::string'/>
+<mbr r='clang::ASTReader::DisableValidation' o='69504' t='bool'/>
+<mbr r='clang::ASTReader::AllowASTWithCompilerErrors' o='69512' t='bool'/>
+<mbr r='clang::ASTReader::AllowConfigurationMismatch' o='69520' t='bool'/>
+<mbr r='clang::ASTReader::ValidateSystemInputs' o='69528' t='bool'/>
+<mbr r='clang::ASTReader::UseGlobalIndex' o='69536' t='bool'/>
+<mbr r='clang::ASTReader::TriedLoadingGlobalIndex' o='69544' t='bool'/>
+<mbr r='clang::ASTReader::ProcessingUpdateRecords' o='69552' t='bool'/>
+<mbr r='clang::ASTReader::SwitchCaseStmts' o='69568' t='SwitchCaseMapTy'/>
+<mbr r='clang::ASTReader::CurrSwitchCaseStmts' o='69824' t='SwitchCaseMapTy *'/>
+<mbr r='clang::ASTReader::NumSLocEntriesRead' o='69888' t='unsigned int'/>
+<mbr r='clang::ASTReader::TotalNumSLocEntries' o='69920' t='unsigned int'/>
+<mbr r='clang::ASTReader::NumStatementsRead' o='69952' t='unsigned int'/>
+<mbr r='clang::ASTReader::TotalNumStatements' o='69984' t='unsigned int'/>
+<mbr r='clang::ASTReader::NumMacrosRead' o='70016' t='unsigned int'/>
+<mbr r='clang::ASTReader::TotalNumMacros' o='70048' t='unsigned int'/>
+<mbr r='clang::ASTReader::NumIdentifierLookups' o='70080' t='unsigned int'/>
+<mbr r='clang::ASTReader::NumIdentifierLookupHits' o='70112' t='unsigned int'/>
+<mbr r='clang::ASTReader::NumSelectorsRead' o='70144' t='unsigned int'/>
+<mbr r='clang::ASTReader::NumMethodPoolEntriesRead' o='70176' t='unsigned int'/>
+<mbr r='clang::ASTReader::NumMethodPoolLookups' o='70208' t='unsigned int'/>
+<mbr r='clang::ASTReader::NumMethodPoolHits' o='70240' t='unsigned int'/>
+<mbr r='clang::ASTReader::NumMethodPoolTableLookups' o='70272' t='unsigned int'/>
+<mbr r='clang::ASTReader::NumMethodPoolTableHits' o='70304' t='unsigned int'/>
+<mbr r='clang::ASTReader::TotalNumMethodPoolEntries' o='70336' t='unsigned int'/>
+<mbr r='clang::ASTReader::NumLexicalDeclContextsRead' o='70368' t='unsigned int'/>
+<mbr r='clang::ASTReader::TotalLexicalDeclContexts' o='70400' t='unsigned int'/>
+<mbr r='clang::ASTReader::NumVisibleDeclContextsRead' o='70432' t='unsigned int'/>
+<mbr r='clang::ASTReader::TotalVisibleDeclContexts' o='70464' t='unsigned int'/>
+<mbr r='clang::ASTReader::TotalModulesSizeInBits' o='70528' t='uint64_t'/>
+<mbr r='clang::ASTReader::NumCurrentElementsDeserializing' o='70592' t='unsigned int'/>
+<mbr r='clang::ASTReader::PassingDeclsToConsumer' o='70624' t='bool'/>
+<mbr r='clang::ASTReader::PendingIdentifierInfos' o='70656' t='llvm::MapVector&lt;IdentifierInfo *, SmallVector&lt;uint32_t, 4&gt; &gt;'/>
+<mbr r='clang::ASTReader::PendingFakeLookupResults' o='71104' t='llvm::SmallMapVector&lt;IdentifierInfo *, SmallVector&lt;NamedDecl *, 2&gt;, 16&gt;'/>
+<mbr r='clang::ASTReader::IdentifierGeneration' o='78528' t='llvm::DenseMap&lt;IdentifierInfo *, unsigned int&gt;'/>
+<mbr r='clang::ASTReader::PotentiallyInterestingDecls' o='78784' t='std::deque&lt;InterestingDecl&gt;'/>
+<mbr r='clang::ASTReader::PendingFunctionTypes' o='79424' t='SmallVector&lt;std::pair&lt;FunctionDecl *, serialization::TypeID&gt;, 16&gt;'/>
+<mbr r='clang::ASTReader::PendingDeclChains' o='81600' t='SmallVector&lt;std::pair&lt;Decl *, uint64_t&gt;, 16&gt;'/>
+<mbr r='clang::ASTReader::PendingIncompleteDeclChains' o='83776' t='SmallVector&lt;clang::Decl *, 16&gt;'/>
+<mbr r='clang::ASTReader::PendingDeclContextInfos' o='84928' t='std::deque&lt;PendingDeclContextInfo&gt;'/>
+<mbr r='clang::ASTReader::PendingOdrMergeChecks' o='85568' t='llvm::SmallVector&lt;NamedDecl *, 16&gt;'/>
+<mbr r='clang::ASTReader::PendingOdrMergeFailures' o='86720' t='llvm::SmallDenseMap&lt;CXXRecordDecl *, llvm::SmallVector&lt;DataPointers, 2&gt;, 2&gt;'/>
+<mbr r='clang::ASTReader::PendingFunctionOdrMergeFailures' o='87744' t='llvm::SmallDenseMap&lt;FunctionDecl *, llvm::SmallVector&lt;FunctionDecl *, 2&gt;, 2&gt;'/>
+<mbr r='clang::ASTReader::PendingEnumOdrMergeFailures' o='88512' t='llvm::SmallDenseMap&lt;EnumDecl *, llvm::SmallVector&lt;EnumDecl *, 2&gt;, 2&gt;'/>
+<mbr r='clang::ASTReader::DiagnosedOdrMergeFailures' o='89280' t='llvm::SmallPtrSet&lt;DeclContext *, 2&gt;'/>
+<mbr r='clang::ASTReader::CategoriesDeserialized' o='89728' t='llvm::SmallPtrSet&lt;ObjCCategoryDecl *, 16&gt;'/>
+<mbr r='clang::ASTReader::ObjCClassesLoaded' o='91072' t='SmallVector&lt;clang::ObjCInterfaceDecl *, 16&gt;'/>
+<mbr r='clang::ASTReader::KeyDecls' o='92224' t='KeyDeclsMap'/>
+<mbr r='clang::ASTReader::MergedDeclContexts' o='92480' t='llvm::DenseMap&lt;DeclContext *, DeclContext *&gt;'/>
+<mbr r='clang::ASTReader::EnumDefinitions' o='92736' t='llvm::DenseMap&lt;EnumDecl *, EnumDecl *&gt;'/>
+<mbr r='clang::ASTReader::StmtStack' o='92992' t='SmallVector&lt;clang::Stmt *, 16&gt;'/>
+<mbr r='clang::ASTReader::ReadingKind' o='94144' t='clang::ASTReader::ReadingKind'/>
+<mbr r='clang::ASTReader::SuggestedPredefines' o='94208' t='std::string'/>
+<mbr r='clang::ASTReader::DefinitionSource' o='94464' t='llvm::DenseMap&lt;const Decl *, bool&gt;'/>
+<fun r='_ZN5clang9ASTReader18ReadStmtFromStreamERNS_13serialization10ModuleFileE'/>
+<fun r='_ZN5clang9ASTReader17readInputFileInfoERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZN5clang9ASTReader12getInputFileERNS_13serialization10ModuleFileEjb'/>
+<fun r='_ZN5clang9ASTReader19ResolveImportedPathERNS_13serialization10ModuleFileERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN5clang9ASTReader19ResolveImportedPathERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm9StringRefE'/>
+<fun r='_ZN5clang9ASTReader17getKeyDeclarationEPNS_4DeclE'/>
+<fun r='_ZN5clang9ASTReader17getKeyDeclarationEPKNS_4DeclE'/>
+<fun r='_ZN5clang9ASTReader22forEachImportedKeyDeclEPKNS_4DeclET_'/>
+<fun r='_ZNK5clang9ASTReader21getLoadedLookupTablesEPNS_11DeclContextE'/>
+<fun r='_ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14Im12428606'/>
+<fun r='_ZN5clang9ASTReader16ReadControlBlockERNS_13serialization10ModuleFileERN4llvm15SmallVectorImplINS0_14ImportedModuleEEEPKS2_j'/>
+<fun r='_ZN5clang9ASTReader16ReadOptionsBlockERN4llvm15BitstreamCursorEjbRNS_17ASTReaderListenerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN5clang9ASTReader24readUnhashedControlBlockERNS_13serialization10ModuleFileEbj'/>
+<fun r='_ZN5clang9ASTReader28readUnhashedControlBlockImplEPNS_13serialization10ModuleFileEN4llvm9StringRefEjbPNS_17ASTReaderListenerEb'/>
+<fun r='_ZN5clang9ASTReader12ReadASTBlockERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZN5clang9ASTReader18ReadExtensionBlockERNS_13serialization10ModuleFileE'/>
+<fun r='_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE'/>
+<fun r='_ZN5clang9ASTReader14ParseLineTableERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEE'/>
+<fun r='_ZN5clang9ASTReader22ReadSourceManagerBlockERNS_13serialization10ModuleFileE'/>
+<fun r='_ZN5clang9ASTReader15SLocCursorForIDEi'/>
+<fun r='_ZN5clang9ASTReader17getImportLocationEPNS_13serialization10ModuleFileE'/>
+<fun r='_ZN5clang9ASTReader22ReadModuleMapFileBlockERN4llvm11SmallVectorImLj64EEERNS_13serialization10ModuleFileEPKS6_j'/>
+<fun r='_ZN5clang9ASTReader18ReadSubmoduleBlockERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZN5clang9ASTReader20ParseLanguageOptionsERKN4llvm11SmallVectorImLj64EEEbRNS_17ASTReaderListenerEb'/>
+<fun r='_ZN5clang9ASTReader18ParseTargetOptionsERKN4llvm11SmallVectorImLj64EEEbRNS_17ASTReaderListenerEb'/>
+<fun r='_ZN5clang9ASTReader22ParseDiagnosticOptionsERKN4llvm11SmallVectorImLj64EEEbRNS_17ASTReaderListenerE'/>
+<fun r='_ZN5clang9ASTReader22ParseFileSystemOptionsERKN4llvm11SmallVectorImLj64EEEbRNS_17ASTReaderListenerE'/>
+<fun r='_ZN5clang9ASTReader24ParseHeaderSearchOptionsERKN4llvm11SmallVectorImLj64EEEbRNS_17ASTReaderListenerE'/>
+<fun r='_ZN5clang9ASTReader24ParsePreprocessorOptionsERKN4llvm11SmallVectorImLj64EEEbRNS_17ASTReaderListenerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN5clang9ASTReader14readTypeRecordEj'/>
+<fun r='_ZN5clang9ASTReader17readExceptionSpecERNS_13serialization10ModuleFileERN4llvm15SmallVectorImplINS_8QualTypeEEERNS_17FunctionProtoType17ExceptionSpecI9854445'/>
+<fun r='_ZN5clang9ASTReader18TypeCursorForIndexEj'/>
+<fun r='_ZN5clang9ASTReader10LoadedDeclEjPNS_4DeclE'/>
+<fun r='_ZN5clang9ASTReader14ReadDeclRecordEj'/>
+<fun r='_ZN5clang9ASTReader23markIncompleteDeclChainEPNS_4DeclE'/>
+<fun r='_ZN5clang9ASTReader25getMostRecentExistingDeclEPNS_4DeclE'/>
+<fun r='_ZN5clang9ASTReader15DeclCursorForIDEjRNS_14SourceLocationE'/>
+<fun r='_ZN5clang9ASTReader21loadDeclUpdateRecordsERNS0_19PendingUpdateRecordE'/>
+<fun r='_ZN5clang9ASTReader20loadPendingDeclChainEPNS_4DeclEm'/>
+<fun r='_ZN5clang9ASTReader18loadObjCCategoriesEjPNS_17ObjCInterfaceDeclEj'/>
+<fun r='_ZN5clang9ASTReader17getLocalBitOffsetEm'/>
+<fun r='_ZN5clang9ASTReader18getGlobalBitOffsetERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZNK5clang9ASTReader22findPreprocessedEntityENS_14SourceLocationEb'/>
+<fun r='_ZNK5clang9ASTReader26findNextPreprocessedEntityEPKSt4pairIjPNS_13serialization10ModuleFileEE'/>
+<fun r='_ZN5clang9ASTReader27getModulePreprocessedEntityEj'/>
+<fun r='_ZNK5clang9ASTReader29getModulePreprocessedEntitiesERNS_13serialization10ModuleFileE'/>
+<fun r='_ZN5clang9ASTReader23getModuleFileLevelDeclsERNS_13serialization10ModuleFileE'/>
+<fun r='_ZN5clang9ASTReader30PassInterestingDeclsToConsumerEv'/>
+<fun r='_ZN5clang9ASTReader29PassInterestingDeclToConsumerEPNS_4DeclE'/>
+<fun r='_ZN5clang9ASTReader20finishPendingActionsEv'/>
+<fun r='_ZN5clang9ASTReader21diagnoseOdrViolationsEv'/>
+<fun r='_ZN5clang9ASTReader25pushExternalDeclIntoScopeEPNS_9NamedDeclENS_15DeclarationNameE'/>
+<fun r='_ZN5clang9ASTReader25addPendingDeclContextInfoEPNS_4DeclEjj'/>
+<fun r='_ZNK5clang9ASTReader5ErrorEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang9ASTReader5ErrorEjN4llvm9StringRefES2_'/>
+<fun r='_ZN5clang9ASTReaderC1ERNS_12PreprocessorERNS_19InMemoryModuleCacheEPNS_10ASTContextERKNS_18PCHContainerReaderEN4llvm8ArrayRefISt10shared_ptrINS_19Modu15295487'/>
+<fun r='_ZN5clang9ASTReaderC1ERKS0_'/>
+<fun r='_ZN5clang9ASTReaderaSERKS0_'/>
+<fun r='_ZN5clang9ASTReaderD1Ev'/>
+<fun r='_ZNK5clang9ASTReader16getSourceManagerEv'/>
+<fun r='_ZNK5clang9ASTReader14getFileManagerEv'/>
+<fun r='_ZNK5clang9ASTReader8getDiagsEv'/>
+<fun r='_ZN5clang9ASTReader7ReadASTEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEjPNS1_15SmallVectorImplINS0_17ImportedSubmoduleEEE'/>
+<fun r='_ZN5clang9ASTReader17makeModuleVisibleEPNS_6ModuleENS1_18NameVisibilityKindENS_14SourceLocationE'/>
+<fun r='_ZN5clang9ASTReader16makeNamesVisibleERKN4llvm11SmallVectorIPNS_4DeclELj2EEEPNS_6ModuleE'/>
+<fun r='_ZN5clang9ASTReader25mergeDefinitionVisibilityEPNS_9NamedDeclES2_'/>
+<fun r='_ZN5clang9ASTReader12takeListenerEv'/>
+<fun r='_ZN5clang9ASTReader11setListenerESt10unique_ptrINS_17ASTReaderListenerESt14default_deleteIS2_EE'/>
+<fun r='_ZN5clang9ASTReader11addListenerESt10unique_ptrINS_17ASTReaderListenerESt14default_deleteIS2_EE'/>
+<fun r='_ZN5clang9ASTReader26setDeserializationListenerEPNS_26ASTDeserializationListenerEb'/>
+<fun r='_ZN5clang9ASTReader26getDeserializationListenerEv'/>
+<fun r='_ZNK5clang9ASTReader14hasGlobalIndexEv'/>
+<fun r='_ZN5clang9ASTReader14getGlobalIndexEv'/>
+<fun r='_ZN5clang9ASTReader14resetForReloadEv'/>
+<fun r='_ZN5clang9ASTReader15loadGlobalIndexEv'/>
+<fun r='_ZNK5clang9ASTReader24isGlobalIndexUnavailableEv'/>
+<fun r='_ZN5clang9ASTReader17InitializeContextEv'/>
+<fun r='_ZN5clang9ASTReader10UpdateSemaEv'/>
+<fun r='_ZN5clang9ASTReader17addInMemoryBufferERN4llvm9StringRefESt10unique_ptrINS1_12MemoryBufferESt14default_deleteIS5_EE'/>
+<fun r='_ZN5clang9ASTReader18finalizeForWritingEv'/>
+<fun r='_ZN5clang9ASTReader16getModuleManagerEv'/>
+<fun r='_ZNK5clang9ASTReader15getPreprocessorEv'/>
+<fun r='_ZN5clang9ASTReader21getOriginalSourceFileEv'/>
+<fun r='_ZN5clang9ASTReader21getOriginalSourceFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11FileManagerERKNS_18PCHContainerReaderERNS_17DiagnosticsEngineE'/>
+<fun r='_ZN5clang9ASTReader23readASTFileControlBlockEN4llvm9StringRefERNS_11FileManagerERKNS_18PCHContainerReaderEbRNS_17ASTReaderListenerEb'/>
+<fun r='_ZN5clang9ASTReader19isAcceptableASTFileEN4llvm9StringRefERNS_11FileManagerERKNS_18PCHContainerReaderERKNS_11LangOptionsERKNS_13TargetOptionsERKNS_19P8055909'/>
+<fun r='_ZN5clang9ASTReader22getSuggestedPredefinesEv'/>
+<fun r='_ZN5clang9ASTReader22ReadPreprocessedEntityEj'/>
+<fun r='_ZN5clang9ASTReader31findPreprocessedEntitiesInRangeENS_11SourceRangeE'/>
+<fun r='_ZN5clang9ASTReader28isPreprocessedEntityInFileIDEjNS_6FileIDE'/>
+<fun r='_ZN5clang9ASTReader16ReadSkippedRangeEj'/>
+<fun r='_ZN5clang9ASTReader17GetHeaderFileInfoEPKNS_9FileEntryE'/>
+<fun r='_ZN5clang9ASTReader28ReadPragmaDiagnosticMappingsERNS_17DiagnosticsEngineE'/>
+<fun r='_ZNK5clang9ASTReader16getTotalNumSLocsEv'/>
+<fun r='_ZNK5clang9ASTReader22getTotalNumIdentifiersEv'/>
+<fun r='_ZNK5clang9ASTReader17getTotalNumMacrosEv'/>
+<fun r='_ZNK5clang9ASTReader16getTotalNumTypesEv'/>
+<fun r='_ZNK5clang9ASTReader16getTotalNumDeclsEv'/>
+<fun r='_ZNK5clang9ASTReader21getTotalNumSubmodulesEv'/>
+<fun r='_ZNK5clang9ASTReader20getTotalNumSelectorsEv'/>
+<fun r='_ZNK5clang9ASTReader31getTotalNumPreprocessedEntitiesEv'/>
+<fun r='_ZN5clang9ASTReader26GetTemplateArgumentLocInfoERNS_13serialization10ModuleFileENS_16TemplateArgument7ArgKindERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader23ReadTemplateArgumentLocERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader31ReadASTTemplateArgumentListInfoERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader17GetTypeSourceInfoERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader11ReadTypeLocERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjNS_7TypeLocE'/>
+<fun r='_ZN5clang9ASTReader7GetTypeEj'/>
+<fun r='_ZN5clang9ASTReader12getLocalTypeERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZNK5clang9ASTReader15getGlobalTypeIDERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZN5clang9ASTReader8readTypeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZNK5clang9ASTReader15getGlobalDeclIDERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZNK5clang9ASTReader18isDeclIDFromModuleEjRNS_13serialization10ModuleFileE'/>
+<fun r='_ZN5clang9ASTReader19getOwningModuleFileEPKNS_4DeclE'/>
+<fun r='_ZN5clang9ASTReader32getOwningModuleNameForDiagnosticEPKNS_4DeclE'/>
+<fun r='_ZN5clang9ASTReader26getSourceLocationForDeclIDEj'/>
+<fun r='_ZN5clang9ASTReader7GetDeclEj'/>
+<fun r='_ZN5clang9ASTReader15GetExternalDeclEj'/>
+<fun r='_ZN5clang9ASTReader15GetExistingDeclEj'/>
+<fun r='_ZN5clang9ASTReader12GetLocalDeclERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZN5clang9ASTReader14GetLocalDeclAsERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZN5clang9ASTReader31mapGlobalIDToModuleFileGlobalIDERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZN5clang9ASTReader10ReadDeclIDERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader8ReadDeclERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader10ReadDeclAsERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader19CompleteRedeclChainEPKNS_4DeclE'/>
+<fun r='_ZN5clang9ASTReader28GetExternalCXXBaseSpecifiersEm'/>
+<fun r='_ZN5clang9ASTReader19GetExternalDeclStmtEm'/>
+<fun r='_ZN5clang9ASTReader16ReadBlockAbbrevsERN4llvm15BitstreamCursorEj'/>
+<fun r='_ZN5clang9ASTReader30FindExternalVisibleDeclsByNameEPKNS_11DeclContextENS_15DeclarationNameE'/>
+<fun r='_ZN5clang9ASTReader24FindExternalLexicalDeclsEPKNS_11DeclContextEN4llvm12function_refIFbNS_4Decl4KindEEEERNS4_15SmallVectorImplIPS6_EE'/>
+<fun r='_ZN5clang9ASTReader19FindFileRegionDeclsENS_6FileIDEjjRN4llvm15SmallVectorImplIPNS_4DeclEEE'/>
+<fun r='_ZN5clang9ASTReader20StartedDeserializingEv'/>
+<fun r='_ZN5clang9ASTReader21FinishedDeserializingEv'/>
+<fun r='_ZN5clang9ASTReader20StartTranslationUnitEPNS_11ASTConsumerE'/>
+<fun r='_ZN5clang9ASTReader10PrintStatsEv'/>
+<fun r='_ZN5clang9ASTReader4dumpEv'/>
+<fun r='_ZNK5clang9ASTReader20getMemoryBufferSizesERNS_17ExternalASTSource17MemoryBufferSizesE'/>
+<fun r='_ZN5clang9ASTReader14InitializeSemaERNS_4SemaE'/>
+<fun r='_ZN5clang9ASTReader10ForgetSemaEv'/>
+<fun r='_ZN5clang9ASTReader3getEN4llvm9StringRefE'/>
+<fun r='_ZN5clang9ASTReader14getIdentifiersEv'/>
+<fun r='_ZN5clang9ASTReader14ReadMethodPoolENS_8SelectorE'/>
+<fun r='_ZN5clang9ASTReader23updateOutOfDateSelectorENS_8SelectorE'/>
+<fun r='_ZN5clang9ASTReader19ReadKnownNamespacesERN4llvm15SmallVectorImplIPNS_13NamespaceDeclEEE'/>
+<fun r='_ZN5clang9ASTReader20ReadUndefinedButUsedERN4llvm9MapVectorIPNS_9NamedDeclENS_14SourceLocationENS1_8DenseMapIS4_jNS1_12DenseMapInfoIS4_EENS1_6detail124641959'/>
+<fun r='_ZN5clang9ASTReader32ReadMismatchingDeleteExpressionsERN4llvm9MapVectorIPNS_9FieldDeclENS1_11SmallVectorISt4pairINS_14SourceLocationEbELj4EEENS1_8Dens6285650'/>
+<fun r='_ZN5clang9ASTReader24ReadTentativeDefinitionsERN4llvm15SmallVectorImplIPNS_7VarDeclEEE'/>
+<fun r='_ZN5clang9ASTReader25ReadUnusedFileScopedDeclsERN4llvm15SmallVectorImplIPKNS_14DeclaratorDeclEEE'/>
+<fun r='_ZN5clang9ASTReader26ReadDelegatingConstructorsERN4llvm15SmallVectorImplIPNS_18CXXConstructorDeclEEE'/>
+<fun r='_ZN5clang9ASTReader18ReadExtVectorDeclsERN4llvm15SmallVectorImplIPNS_15TypedefNameDeclEEE'/>
+<fun r='_ZN5clang9ASTReader36ReadUnusedLocalTypedefNameCandidatesERN4llvm14SmallSetVectorIPKNS_15TypedefNameDeclELj4EEE'/>
+<fun r='_ZN5clang9ASTReader23ReadReferencedSelectorsERN4llvm15SmallVectorImplISt4pairINS_8SelectorENS_14SourceLocationEEEE'/>
+<fun r='_ZN5clang9ASTReader29ReadWeakUndeclaredIdentifiersERN4llvm15SmallVectorImplISt4pairIPNS_14IdentifierInfoENS_8WeakInfoEEEE'/>
+<fun r='_ZN5clang9ASTReader15ReadUsedVTablesERN4llvm15SmallVectorImplINS_17ExternalVTableUseEEE'/>
+<fun r='_ZN5clang9ASTReader25ReadPendingInstantiationsERN4llvm15SmallVectorImplISt4pairIPNS_9ValueDeclENS_14SourceLocationEEEE'/>
+<fun r='_ZN5clang9ASTReader23ReadLateParsedTemplatesERN4llvm9MapVectorIPKNS_12FunctionDeclESt10unique_ptrINS_18LateParsedTemplateESt14default_deleteIS7_EENS1_1319681'/>
+<fun r='_ZN5clang9ASTReader12LoadSelectorENS_8SelectorE'/>
+<fun r='_ZN5clang9ASTReader17SetIdentifierInfoEjPNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang9ASTReader23SetGloballyVisibleDeclsEPNS_14IdentifierInfoERKN4llvm15SmallVectorImplIjEEPNS4_IPNS_4DeclEEE'/>
+<fun r='_ZNK5clang9ASTReader4DiagEj'/>
+<fun r='_ZNK5clang9ASTReader4DiagENS_14SourceLocationEj'/>
+<fun r='_ZN5clang9ASTReader20DecodeIdentifierInfoEj'/>
+<fun r='_ZN5clang9ASTReader17GetIdentifierInfoERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader13GetIdentifierEj'/>
+<fun r='_ZN5clang9ASTReader18getLocalIdentifierERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZN5clang9ASTReader21getGlobalIdentifierIDERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZN5clang9ASTReader19resolvePendingMacroEPNS_14IdentifierInfoERKNS0_16PendingMacroInfoE'/>
+<fun r='_ZN5clang9ASTReader8getMacroEj'/>
+<fun r='_ZN5clang9ASTReader16getGlobalMacroIDERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZN5clang9ASTReader13ReadSLocEntryEi'/>
+<fun r='_ZN5clang9ASTReader18getModuleImportLocEi'/>
+<fun r='_ZN5clang9ASTReader20getGlobalSubmoduleIDERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZN5clang9ASTReader12getSubmoduleEj'/>
+<fun r='_ZN5clang9ASTReader9getModuleEj'/>
+<fun r='_ZN5clang9ASTReader27DeclIsFromPCHWithObjectFileEPKNS_4DeclE'/>
+<fun r='_ZN5clang9ASTReader18getLocalModuleFileERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZN5clang9ASTReader15getModuleFileIDEPNS_13serialization10ModuleFileE'/>
+<fun r='_ZN5clang9ASTReader19getSourceDescriptorEj'/>
+<fun r='_ZN5clang9ASTReader22hasExternalDefinitionsEPKNS_4DeclE'/>
+<fun r='_ZN5clang9ASTReader16getLocalSelectorERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZN5clang9ASTReader14DecodeSelectorEj'/>
+<fun r='_ZN5clang9ASTReader19GetExternalSelectorEj'/>
+<fun r='_ZN5clang9ASTReader23GetNumExternalSelectorsEv'/>
+<fun r='_ZN5clang9ASTReader12ReadSelectorERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZNK5clang9ASTReader19getGlobalSelectorIDERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZN5clang9ASTReader19ReadDeclarationNameERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader22ReadDeclarationNameLocERNS_13serialization10ModuleFileERNS_18DeclarationNameLocENS_15DeclarationNameERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader23ReadDeclarationNameInfoERNS_13serialization10ModuleFileERNS_19DeclarationNameInfoERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader17ReadQualifierInfoERNS_13serialization10ModuleFileERNS_13QualifierInfoERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader23ReadNestedNameSpecifierERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader26ReadNestedNameSpecifierLocERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader16ReadTemplateNameERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader20ReadTemplateArgumentERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjb'/>
+<fun r='_ZN5clang9ASTReader25ReadTemplateParameterListERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader24ReadTemplateArgumentListERN4llvm15SmallVectorImplINS_16TemplateArgumentEEERNS_13serialization10ModuleFileERKNS1_11SmallVectorImLj64EEERjb'/>
+<fun r='_ZN5clang9ASTReader17ReadUnresolvedSetERNS_13serialization10ModuleFileERNS_20LazyASTUnresolvedSetERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader20ReadCXXBaseSpecifierERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader23ReadCXXCtorInitializersERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader30GetExternalCXXCtorInitializersEm'/>
+<fun r='_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEj'/>
+<fun r='_ZNK5clang9ASTReader18ReadSourceLocationERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZNK5clang9ASTReader23TranslateSourceLocationERNS_13serialization10ModuleFileENS_14SourceLocationE'/>
+<fun r='_ZN5clang9ASTReader18ReadSourceLocationERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj'/>
+<fun r='_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader9ReadAPIntERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader10ReadAPSIntERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader11ReadAPFloatERKN4llvm11SmallVectorImLj64EEERKNS1_12fltSemanticsERj'/>
+<fun r='_ZN5clang9ASTReader10ReadStringERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader10SkipStringERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader8ReadPathERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader8ReadPathEN4llvm9StringRefERKNS1_11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader8SkipPathERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader16ReadVersionTupleERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader16ReadCXXTemporaryERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader8ReadAttrERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<fun r='_ZN5clang9ASTReader14ReadAttributesERNS_15ASTRecordReaderERN4llvm11SmallVectorIPNS_4AttrELj4EEE'/>
+<fun r='_ZN5clang9ASTReader8ReadStmtERNS_13serialization10ModuleFileE'/>
+<fun r='_ZN5clang9ASTReader8ReadExprERNS_13serialization10ModuleFileE'/>
+<fun r='_ZN5clang9ASTReader11ReadSubStmtEv'/>
+<fun r='_ZN5clang9ASTReader11ReadSubExprEv'/>
+<fun r='_ZN5clang9ASTReader9ReadTokenERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj'/>
+<fun r='_ZN5clang9ASTReader15ReadMacroRecordERNS_13serialization10ModuleFileEm'/>
+<fun r='_ZNK5clang9ASTReader29getGlobalPreprocessedEntityIDERNS_13serialization10ModuleFileEj'/>
+<fun r='_ZN5clang9ASTReader15addPendingMacroEPNS_14IdentifierInfoEPNS_13serialization10ModuleFileEm'/>
+<fun r='_ZN5clang9ASTReader17ReadDefinedMacrosEv'/>
+<fun r='_ZN5clang9ASTReader25updateOutOfDateIdentifierERNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang9ASTReader22markIdentifierUpToDateEPNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang9ASTReader23completeVisibleDeclsMapEPKNS_11DeclContextE'/>
+<fun r='_ZN5clang9ASTReader10getContextEv'/>
+<mbr r='clang::ASTReader::PreloadedDeclIDs' o='94720' t='SmallVector&lt;uint64_t, 16&gt;'/>
+<fun r='_ZN5clang9ASTReader7getSemaEv'/>
+<fun r='_ZN5clang9ASTReader13getIdResolverEv'/>
+<fun r='_ZN5clang9ASTReader18getIdentifierTableEv'/>
+<fun r='_ZN5clang9ASTReader18RecordSwitchCaseIDEPNS_10SwitchCaseEj'/>
+<fun r='_ZN5clang9ASTReader19getSwitchCaseWithIDEj'/>
+<fun r='_ZN5clang9ASTReader18ClearSwitchCaseIDsEv'/>
+<mbr r='clang::ASTReader::CommentsCursors' o='95872' t='SmallVector&lt;std::pair&lt;llvm::BitstreamCursor, serialization::ModuleFile *&gt;, 8&gt;'/>
+<fun r='_ZN5clang9ASTReader12ReadCommentsEv'/>
+<fun r='_ZN5clang9ASTReader15visitInputFilesERNS_13serialization10ModuleFileEbbN4llvm12function_refIFvRKNS1_9InputFileEbEEE'/>
+<fun r='_ZN5clang9ASTReader23visitTopLevelModuleMapsERNS_13serialization10ModuleFileEN4llvm12function_refIFvPKNS_9FileEntryEEEE'/>
+<fun r='_ZN5clang9ASTReader25isProcessingUpdateRecordsEv'/>

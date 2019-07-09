@@ -1,0 +1,16 @@
+<dec f='llvm/clang/include/clang/Tooling/Core/Lookup.h' l='41' type='std::string clang::tooling::replaceNestedName(const clang::NestedNameSpecifier * Use, clang::SourceLocation UseLoc, const clang::DeclContext * UseContext, const clang::NamedDecl * FromDecl, llvm::StringRef ReplacementString)'/>
+<doc f='llvm/clang/include/clang/Tooling/Core/Lookup.h' l='28'>/// Emulate a lookup to replace one nested name specifier with another using as
+/// few additional namespace qualifications as possible.
+///
+/// This does not perform a full C++ lookup so ADL will not work.
+///
+/// \param Use The nested name to be replaced.
+/// \param UseLoc The location of name to be replaced.
+/// \param UseContext The context in which the nested name is contained. This
+///                   will be used to minimize namespace qualifications.
+/// \param FromDecl The declaration to which the nested name points.
+/// \param ReplacementString The replacement nested name. Must be fully
+///                          qualified including a leading &quot;::&quot;.
+/// \returns The new name to be inserted in place of the current nested name.</doc>
+<def f='llvm/clang/lib/Tooling/Core/Lookup.cpp' l='183' ll='221' type='std::string clang::tooling::replaceNestedName(const clang::NestedNameSpecifier * Use, clang::SourceLocation UseLoc, const clang::DeclContext * UseContext, const clang::NamedDecl * FromDecl, llvm::StringRef ReplacementString)'/>
+<use f='llvm/clang/lib/Tooling/Refactoring/Rename/USRLocFinder.cpp' l='544' u='c' c='_ZN5clang7tooling25createRenameAtomicChangesEN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_9StringRefEPNS_4DeclE'/>

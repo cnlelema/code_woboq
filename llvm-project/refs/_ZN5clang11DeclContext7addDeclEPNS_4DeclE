@@ -1,0 +1,18 @@
+<dec f='llvm/clang/include/clang/AST/DeclBase.h' l='2193' type='void clang::DeclContext::addDecl(clang::Decl * D)'/>
+<doc f='llvm/clang/include/clang/AST/DeclBase.h' l='2181'>/// Add the declaration D into this context.
+  ///
+  /// This routine should be invoked when the declaration D has first
+  /// been declared, to place D into the context where it was
+  /// (lexically) defined. Every declaration must be added to one
+  /// (and only one!) context, where it can be visited via
+  /// [decls_begin(), decls_end()). Once a declaration has been added
+  /// to its lexical context, the corresponding DeclContext owns the
+  /// declaration.
+  ///
+  /// If D is also a NamedDecl, it will be made visible within its
+  /// semantic context via makeDeclVisibleInContext.</doc>
+<def f='llvm/clang/lib/AST/DeclBase.cpp' l='1513' ll='1519' type='void clang::DeclContext::addDecl(clang::Decl * D)'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='14340' u='c' c='_ZN5clang4Sema19ActOnFriendTypeDeclEPNS_5ScopeERKNS_8DeclSpecEN4llvm15MutableArrayRefIPNS_21TemplateParameterListEEE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateInstantiateDecl.cpp' l='722' u='c' c='_ZN5clang24TemplateDeclInstantiator16VisitTypedefDeclEPNS_11TypedefDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateInstantiateDecl.cpp' l='729' u='c' c='_ZN5clang24TemplateDeclInstantiator18VisitTypeAliasDeclEPNS_13TypeAliasDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateInstantiateDecl.cpp' l='3159' u='c' c='_ZN5clang24TemplateDeclInstantiator26VisitCXXDeductionGuideDeclEPNS_21CXXDeductionGuideDeclE'/>

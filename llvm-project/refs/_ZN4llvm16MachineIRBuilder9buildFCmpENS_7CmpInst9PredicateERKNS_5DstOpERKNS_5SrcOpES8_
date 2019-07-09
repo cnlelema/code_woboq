@@ -1,0 +1,18 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='855' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildFCmp(CmpInst::Predicate Pred, const llvm::DstOp &amp; Res, const llvm::SrcOp &amp; Op0, const llvm::SrcOp &amp; Op1)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='843'>/// Build and insert a \p Res = G_FCMP \p Pred\p Op0, \p Op1
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+
+  /// \pre \p Res must be a generic virtual register with scalar or
+  ///      vector type. Typically this starts as s1 or &lt;N x s1&gt;.
+  /// \pre \p Op0 and Op1 must be generic virtual registers with the
+  ///      same number of elements as \p Res (or scalar, if \p Res is
+  ///      scalar).
+  /// \pre \p Pred must be a floating-point predicate.
+  ///
+  /// \return a MachineInstrBuilder for the newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1939' u='c' c='_ZN4llvm15LegalizerHelper22fewerElementsVectorCmpERNS_12MachineInstrEjNS_3LLTE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='672' ll='678' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildFCmp(CmpInst::Predicate Pred, const llvm::DstOp &amp; Res, const llvm::SrcOp &amp; Op0, const llvm::SrcOp &amp; Op1)'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULegalizerInfo.cpp' l='904' u='c' c='_ZNK4llvm19AMDGPULegalizerInfo13legalizeFrintERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULegalizerInfo.cpp' l='928' u='c' c='_ZNK4llvm19AMDGPULegalizerInfo13legalizeFceilERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULegalizerInfo.cpp' l='929' u='c' c='_ZNK4llvm19AMDGPULegalizerInfo13legalizeFceilERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>

@@ -1,0 +1,55 @@
+<def f='llvm/lld/include/lld/Core/File.h' l='41' ll='239'/>
+<ovr f='llvm/lld/include/lld/Core/File.h' l='246' c='lld::ErrorFile'/>
+<size>296</size>
+<doc f='llvm/lld/include/lld/Core/File.h' l='29'>/// Every Atom is owned by some File. A common scenario is for a single
+/// object file (.o) to be parsed by some reader and produce a single
+/// File object that represents the content of that object file.
+///
+/// To iterate through the Atoms in a File there are four methods that
+/// return collections.  For instance to iterate through all the DefinedAtoms
+/// in a File object use:
+///      for (const DefinedAtoms *atom : file-&gt;defined()) {
+///      }
+///
+/// The Atom objects in a File are owned by the File object.  The Atom objects
+/// are destroyed when the File object is destroyed.</doc>
+<fun r='_ZN3lld4FileD1Ev'/>
+<fun r='_ZNK3lld4File4kindEv'/>
+<fun r='_ZNK3lld4File4pathEv'/>
+<fun r='_ZNK3lld4File11archivePathEv'/>
+<fun r='_ZN3lld4File14setArchivePathEN4llvm9StringRefE'/>
+<fun r='_ZNK3lld4File10memberPathEv'/>
+<fun r='_ZNK3lld4File7ordinalEv'/>
+<fun r='_ZNK3lld4File10hasOrdinalEv'/>
+<fun r='_ZNK3lld4File10setOrdinalEm'/>
+<fun r='_ZNK3lld4File30getNextAtomOrdinalAndIncrementEv'/>
+<fun r='_ZNK3lld4File9allocatorEv'/>
+<fun r='_ZNK3lld4File7definedEv'/>
+<fun r='_ZNK3lld4File9undefinedEv'/>
+<fun r='_ZNK3lld4File13sharedLibraryEv'/>
+<fun r='_ZNK3lld4File8absoluteEv'/>
+<fun r='_ZN3lld4File10clearAtomsEv'/>
+<fun r='_ZN3lld4File12setLastErrorESt10error_code'/>
+<fun r='_ZN3lld4File5parseEv'/>
+<fun r='_ZN3lld4File21setSharedMemoryBufferESt10shared_ptrIN4llvm12MemoryBufferEE'/>
+<fun r='_ZN3lld4FileC1EN4llvm9StringRefENS0_4KindE'/>
+<fun r='_ZN3lld4File7doParseEv'/>
+<smbr r='lld::File::_noDefinedAtoms' t='AtomVector&lt;lld::DefinedAtom&gt;'/>
+<smbr r='lld::File::_noUndefinedAtoms' t='AtomVector&lt;lld::UndefinedAtom&gt;'/>
+<smbr r='lld::File::_noSharedLibraryAtoms' t='AtomVector&lt;lld::SharedLibraryAtom&gt;'/>
+<smbr r='lld::File::_noAbsoluteAtoms' t='AtomVector&lt;lld::AbsoluteAtom&gt;'/>
+<mbr r='lld::File::_allocator' o='64' t='llvm::BumpPtrAllocator'/>
+<mbr r='lld::File::_path' o='896' t='llvm::StringRef'/>
+<mbr r='lld::File::_archivePath' o='1024' t='std::string'/>
+<mbr r='lld::File::_archiveMemberPath' o='1280' t='std::string'/>
+<mbr r='lld::File::_kind' o='1536' t='lld::File::Kind'/>
+<mbr r='lld::File::_ordinal' o='1600' t='uint64_t'/>
+<mbr r='lld::File::_nextAtomOrdinal' o='1664' t='uint64_t'/>
+<mbr r='lld::File::_sharedMemoryBuffer' o='1728' t='std::shared_ptr&lt;MemoryBuffer&gt;'/>
+<mbr r='lld::File::_lastError' o='1856' t='llvm::Optional&lt;std::error_code&gt;'/>
+<mbr r='lld::File::_parseMutex' o='2048' t='std::mutex'/>
+<ovr f='llvm/lld/include/lld/Core/Simple.h' l='38' c='lld::SimpleFile'/>
+<ovr f='llvm/lld/include/lld/Core/ArchiveLibraryFile.h' l='26' c='lld::ArchiveLibraryFile'/>
+<ovr f='llvm/lld/include/lld/Core/SharedLibraryFile.h' l='20' c='lld::SharedLibraryFile'/>
+<ovr f='llvm/lld/lib/ReaderWriter/MachO/SectCreateFile.h' l='23' c='lld::mach_o::SectCreateFile'/>
+<ovr f='llvm/lld/lib/ReaderWriter/YAML/ReaderWriterYAML.cpp' l='624' c='llvm::yaml::MappingTraits{constlld::File*}::NormalizedFile'/>

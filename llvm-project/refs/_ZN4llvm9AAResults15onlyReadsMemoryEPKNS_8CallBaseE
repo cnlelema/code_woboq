@@ -1,0 +1,14 @@
+<def f='llvm/llvm/include/llvm/Analysis/AliasAnalysis.h' l='458' ll='460' type='bool llvm::AAResults::onlyReadsMemory(const llvm::CallBase * Call)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/AliasAnalysis.h' l='449'>/// Checks if the specified call is known to only read from non-volatile
+  /// memory (or not access memory at all).
+  ///
+  /// Calls that unwind the stack are legal for this predicate.
+  ///
+  /// This property allows many common optimizations to be performed in the
+  /// absence of interfering store instructions, such as CSE of strlen calls.
+  ///
+  /// This property corresponds to the GCC &apos;pure&apos; attribute.</doc>
+<use f='llvm/llvm/lib/Analysis/MemoryDependenceAnalysis.cpp' l='757' u='c' c='_ZN4llvm23MemoryDependenceResults13getDependencyEPNS_11InstructionEPNS_17OrderedBasicBlockE'/>
+<use f='llvm/llvm/lib/Analysis/MemoryDependenceAnalysis.cpp' l='826' u='c' c='_ZN4llvm23MemoryDependenceResults25getNonLocalCallDependencyEPNS_8CallBaseE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='380' u='c' c='_ZN4llvm3GVN10ValueTable15lookupOrAddCallEPNS_8CallInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/NewGVN.cpp' l='1640' u='c' c='_ZNK12_GLOBAL__N_16NewGVN29performSymbolicCallEvaluationEPN4llvm11InstructionE'/>

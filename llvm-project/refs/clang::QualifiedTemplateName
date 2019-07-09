@@ -1,0 +1,23 @@
+<inh f='llvm/llvm/include/llvm/ADT/FoldingSet.h' l='135' c='llvm::FoldingSetBase::Node'/>
+<def f='llvm/clang/include/clang/AST/TemplateName.h' l='386' ll='432'/>
+<size>24</size>
+<doc f='llvm/clang/include/clang/AST/TemplateName.h' l='375'>/// Represents a template name that was expressed as a
+/// qualified name.
+///
+/// This kind of template name refers to a template name that was
+/// preceded by a nested name specifier, e.g., \c std::vector. Here,
+/// the nested name specifier is &quot;std::&quot; and the template name is the
+/// declaration for &quot;vector&quot;. The QualifiedTemplateName class is only
+/// used to provide &quot;sugar&quot; for template names that were expressed
+/// with a qualified name, and has no semantic meaning. In this
+/// manner, it is to TemplateName what ElaboratedType is to Type,
+/// providing extra syntactic sugar for downstream clients.</doc>
+<mbr r='clang::QualifiedTemplateName::Qualifier' o='64' t='llvm::PointerIntPair&lt;NestedNameSpecifier *, 1&gt;'/>
+<mbr r='clang::QualifiedTemplateName::Template' o='128' t='clang::TemplateDecl *'/>
+<fun r='_ZN5clang21QualifiedTemplateNameC1EPNS_19NestedNameSpecifierEbPNS_12TemplateDeclE'/>
+<fun r='_ZNK5clang21QualifiedTemplateName12getQualifierEv'/>
+<fun r='_ZNK5clang21QualifiedTemplateName18hasTemplateKeywordEv'/>
+<fun r='_ZNK5clang21QualifiedTemplateName7getDeclEv'/>
+<fun r='_ZNK5clang21QualifiedTemplateName15getTemplateDeclEv'/>
+<fun r='_ZN5clang21QualifiedTemplateName7ProfileERN4llvm16FoldingSetNodeIDE'/>
+<fun r='_ZN5clang21QualifiedTemplateName7ProfileERN4llvm16FoldingSetNodeIDEPNS_19NestedNameSpecifierEbPNS_12TemplateDeclE'/>

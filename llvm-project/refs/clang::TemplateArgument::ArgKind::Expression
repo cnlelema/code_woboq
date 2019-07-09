@@ -1,0 +1,75 @@
+<dec f='llvm/clang/include/clang/AST/TemplateBase.h' l='86' type='7'/>
+<use f='llvm/clang/include/clang/AST/TemplateBase.h' l='210' u='r' c='_ZN5clang16TemplateArgumentC1EPNS_4ExprE'/>
+<use f='llvm/clang/include/clang/AST/TemplateBase.h' l='330' u='r' c='_ZNK5clang16TemplateArgument9getAsExprEv'/>
+<use f='llvm/clang/include/clang/AST/TemplateBase.h' l='473' u='r' c='_ZN5clang19TemplateArgumentLocC1ERKNS_16TemplateArgumentEPNS_4ExprE'/>
+<use f='llvm/clang/include/clang/AST/TemplateBase.h' l='512' u='r' c='_ZNK5clang19TemplateArgumentLoc19getSourceExpressionEv'/>
+<doc f='llvm/clang/include/clang/AST/TemplateBase.h' l='81'>/// The template argument is an expression, and we&apos;ve not resolved it to one
+    /// of the other forms yet, either because it&apos;s dependent or because we&apos;re
+    /// representing a non-canonical template argument (for instance, in a
+    /// TemplateSpecializationType). Also used to represent a non-dependent
+    /// __uuidof expression (a Microsoft extension).</doc>
+<use f='llvm/clang/include/clang/AST/RecursiveASTVisitor.h' l='844' c='_ZN5clang19RecursiveASTVisitor24TraverseTemplateArgumentERKNS_16TemplateArgumentE'/>
+<use f='llvm/clang/include/clang/AST/RecursiveASTVisitor.h' l='885' c='_ZN5clang19RecursiveASTVisitor27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='5466' c='_ZNK5clang10ASTContext28getCanonicalTemplateArgumentERKNS_16TemplateArgumentE'/>
+<use f='llvm/clang/lib/AST/ASTDiagnostic.cpp' l='1194' c='_ZN12_GLOBAL__N_112TemplateDiff30InitializeNonTypeDiffVariablesERN5clang10ASTContextERKNS0_11TSTiteratorEPNS1_23NonTypeTemplateParmDeclERN4llvm6APSInt11308079'/>
+<use f='llvm/clang/lib/AST/ASTDiagnostic.cpp' l='1224' c='_ZN12_GLOBAL__N_112TemplateDiff30InitializeNonTypeDiffVariablesERN5clang10ASTContextERKNS0_11TSTiteratorEPNS1_23NonTypeTemplateParmDeclERN4llvm6APSInt11308079'/>
+<use f='llvm/clang/include/clang/AST/TemplateArgumentVisitor.h' l='42' c='_ZN5clang23templateargumentvisitor4Base5VisitENT_INS_16TemplateArgumentEE4typeEDpT2_'/>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='785' c='_ZN5clang15ASTNodeImporter6importERKT_'/>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='817' u='r' c='_ZN5clang15ASTNodeImporter6importERKT_'/>
+<use f='llvm/clang/lib/AST/ASTStructuralEquivalence.cpp' l='270' c='_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextERKNS_16TemplateArgumentES4_'/>
+<use f='llvm/clang/lib/AST/Decl.cpp' l='326' c='_ZN5clang15LinkageComputer28getLVForTemplateArgumentListEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_17LVComputationKindE'/>
+<use f='llvm/clang/lib/AST/DeclPrinter.cpp' l='1100' u='r' c='_ZN12_GLOBAL__N_111DeclPrinter22printTemplateArgumentsERKN5clang20TemplateArgumentListEPKNS1_21TemplateParameterListE'/>
+<use f='llvm/clang/lib/AST/ItaniumMangle.cpp' l='4497' c='_ZN12_GLOBAL__N_114CXXNameMangler17mangleTemplateArgEN5clang16TemplateArgumentE'/>
+<use f='llvm/clang/lib/AST/MicrosoftMangle.cpp' l='1512' c='_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler17mangleTemplateArgEPKN5clang12TemplateDeclERKNS1_16TemplateArgumentEPKNS1_9NamedDeclE'/>
+<use f='llvm/clang/lib/AST/ODRHash.cpp' l='172' c='_ZN5clang7ODRHash19AddTemplateArgumentENS_16TemplateArgumentE'/>
+<use f='llvm/clang/lib/AST/StmtProfile.cpp' l='2018' c='_ZN12_GLOBAL__N_112StmtProfiler21VisitTemplateArgumentERKN5clang16TemplateArgumentE'/>
+<use f='llvm/clang/lib/AST/TemplateBase.cpp' l='141' c='_ZNK5clang16TemplateArgument11isDependentEv'/>
+<use f='llvm/clang/lib/AST/TemplateBase.cpp' l='181' c='_ZNK5clang16TemplateArgument24isInstantiationDependentEv'/>
+<use f='llvm/clang/lib/AST/TemplateBase.cpp' l='210' c='_ZNK5clang16TemplateArgument15isPackExpansionEv'/>
+<use f='llvm/clang/lib/AST/TemplateBase.cpp' l='236' c='_ZNK5clang16TemplateArgument31containsUnexpandedParameterPackEv'/>
+<use f='llvm/clang/lib/AST/TemplateBase.cpp' l='272' c='_ZNK5clang16TemplateArgument30getNonTypeTemplateArgumentTypeEv'/>
+<use f='llvm/clang/lib/AST/TemplateBase.cpp' l='327' c='_ZNK5clang16TemplateArgument7ProfileERN4llvm16FoldingSetNodeIDERKNS_10ASTContextE'/>
+<use f='llvm/clang/lib/AST/TemplateBase.cpp' l='344' c='_ZNK5clang16TemplateArgument18structurallyEqualsERKS0_'/>
+<use f='llvm/clang/lib/AST/TemplateBase.cpp' l='375' c='_ZNK5clang16TemplateArgument23getPackExpansionPatternEv'/>
+<use f='llvm/clang/lib/AST/TemplateBase.cpp' l='436' c='_ZNK5clang16TemplateArgument5printERKNS_14PrintingPolicyERN4llvm11raw_ostreamE'/>
+<use f='llvm/clang/lib/AST/TemplateBase.cpp' l='471' c='_ZNK5clang19TemplateArgumentLoc14getSourceRangeEv'/>
+<use f='llvm/clang/lib/AST/TemplateBase.cpp' l='535' c='_ZN5clanglsERKNS_17DiagnosticBuilderERKNS_16TemplateArgumentE'/>
+<use f='llvm/clang/lib/AST/TypeLoc.cpp' l='539' c='_ZN5clang29TemplateSpecializationTypeLoc17initializeArgLocsERNS_10ASTContextEjPKNS_16TemplateArgumentEPNS_23TemplateArgumentLocInfoENS_14SourceLocationE'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='996' u='r' c='_ZNK5clang12ast_matchers8internal22matcher_isExpr0Matcher7matchesERKNS_16TemplateArgumentEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='1816' c='_ZN5clang7CodeGen11CGDebugInfo21CollectTemplateParamsEPKNS_21TemplateParameterListEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS5_6DIFileE'/>
+<use f='llvm/clang/lib/Index/IndexDecl.cpp' l='59' c='_ZN12_GLOBAL__N_119IndexingDeclVisitor25handleTemplateArgumentLocERKN5clang19TemplateArgumentLocEPKNS1_9NamedDeclEPKNS1_11DeclContextE'/>
+<use f='llvm/clang/lib/Index/USRGeneration.cpp' l='962' c='_ZN12_GLOBAL__N_112USRGenerator21VisitTemplateArgumentERKN5clang16TemplateArgumentE'/>
+<use f='llvm/clang/lib/Sema/TreeTransform.h' l='3227' c='_ZN5clang13TreeTransform20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationEN4llvm8OptionalIjEE'/>
+<use f='llvm/clang/lib/Sema/TreeTransform.h' l='3931' c='_ZN5clang13TreeTransform25InventTemplateArgumentLocERKNS_16TemplateArgumentERNS_19TemplateArgumentLocE'/>
+<use f='llvm/clang/lib/Sema/TreeTransform.h' l='3997' c='_ZN5clang13TreeTransform25TransformTemplateArgumentERKNS_19TemplateArgumentLocERS1_b'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='16767' u='r' c='_ZN12_GLOBAL__N_119MarkReferencedDecls24TraverseTemplateArgumentERKN5clang16TemplateArgumentE'/>
+<use f='llvm/clang/lib/Sema/SemaLookup.cpp' l='2621' c='_ZL33addAssociatedClassesAndNamespacesRN12_GLOBAL__N_116AssociatedLookupERKN5clang16TemplateArgumentE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='3674' c='_ZL35isTemplateArgumentTemplateParameterRKN5clang16TemplateArgumentEjj'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='4463' c='_ZN5clang4Sema25CheckTemplateTypeArgumentEPNS_20TemplateTypeParmDeclERNS_19TemplateArgumentLocERN4llvm15SmallVectorImplINS_16TemplateArgumentEEE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='4900' c='_ZN5clang4Sema21CheckTemplateArgumentEPNS_9NamedDeclERNS_19TemplateArgumentLocES2_NS_14SourceLocationES5_jRN4llvm15SmallVectorImplINS_16TemplateArgume15467567'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='5062' c='_ZN5clang4Sema21CheckTemplateArgumentEPNS_9NamedDeclERNS_19TemplateArgumentLocES2_NS_14SourceLocationES5_jRN4llvm15SmallVectorImplINS_16TemplateArgume15467567'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='7460' u='r' c='_ZL45CheckNonTypeTemplatePartialSpecializationArgsRN5clang4SemaENS_14SourceLocationEPNS_23NonTypeTemplateParmDeclEPKNS_16TemplateArgumentEjb'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='9795' u='r' c='_ZL10isEnableIfN5clang22NestedNameSpecifierLocERKNS_14IdentifierInfoERNS_11SourceRangeERPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='258' u='r' c='_ZL29checkDeducedTemplateArgumentsRN5clang10ASTContextERKNS_23DeducedTemplateArgumentES4_'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='284' c='_ZL29checkDeducedTemplateArgumentsRN5clang10ASTContextERKNS_23DeducedTemplateArgumentES4_'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='285' u='r' c='_ZL29checkDeducedTemplateArgumentsRN5clang10ASTContextERKNS_23DeducedTemplateArgumentES4_'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='304' u='r' c='_ZL29checkDeducedTemplateArgumentsRN5clang10ASTContextERKNS_23DeducedTemplateArgumentES4_'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='329' u='r' c='_ZL29checkDeducedTemplateArgumentsRN5clang10ASTContextERKNS_23DeducedTemplateArgumentES4_'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='2183' u='r' c='_ZL23DeduceTemplateArgumentsRN5clang4SemaEPNS_21TemplateParameterListERKNS_16TemplateArgumentES4_RNS_4sema21TemplateDeductionInfoERN4llvm15SmallVector5874903'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='2193' c='_ZL23DeduceTemplateArgumentsRN5clang4SemaEPNS_21TemplateParameterListERKNS_16TemplateArgumentES4_RNS_4sema21TemplateDeductionInfoERN4llvm15SmallVector5874903'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='2206' u='r' c='_ZL23DeduceTemplateArgumentsRN5clang4SemaEPNS_21TemplateParameterListERKNS_16TemplateArgumentES4_RNS_4sema21TemplateDeductionInfoERN4llvm15SmallVector5874903'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='2405' c='_ZL17isSameTemplateArgRN5clang10ASTContextENS_16TemplateArgumentERKS2_b'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='2494' c='_ZN5clang4Sema29getTrivialTemplateArgumentLocERKNS_16TemplateArgumentENS_8QualTypeENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='5629' c='_ZL26MarkUsedTemplateParametersRN5clang10ASTContextERKNS_16TemplateArgumentEbjRN4llvm14SmallBitVectorE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateInstantiate.cpp' l='1211' u='r' c='_ZN12_GLOBAL__N_120TemplateInstantiator28TransformTemplateParmRefExprEPN5clang11DeclRefExprEPNS1_23NonTypeTemplateParmDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateInstantiate.cpp' l='1269' u='r' c='_ZN12_GLOBAL__N_120TemplateInstantiator31transformNonTypeTemplateParmRefEPN5clang23NonTypeTemplateParmDeclENS1_14SourceLocationENS1_16TemplateArgumentE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateVariadic.cpp' l='1041' c='_ZNK5clang4Sema39getTemplateArgumentPackExpansionPatternENS_19TemplateArgumentLocERNS_14SourceLocationERN4llvm8OptionalIjEE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateVariadic.cpp' l='1086' c='_ZN5clang4Sema24getFullyPackExpandedSizeENS_16TemplateArgumentE'/>
+<use f='llvm/clang/lib/Serialization/ASTReader.cpp' l='7133' c='_ZN5clang9ASTReader26GetTemplateArgumentLocInfoERNS_13serialization10ModuleFileENS_16TemplateArgument7ArgKindERKN4llvm11SmallVectorImLj64EEERj'/>
+<use f='llvm/clang/lib/Serialization/ASTReader.cpp' l='7168' u='r' c='_ZN5clang9ASTReader23ReadTemplateArgumentLocERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERj'/>
+<use f='llvm/clang/lib/Serialization/ASTReader.cpp' l='8882' c='_ZN5clang9ASTReader20ReadTemplateArgumentERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjb'/>
+<use f='llvm/clang/lib/Serialization/ASTWriter.cpp' l='5479' c='_ZN5clang15ASTRecordWriter26AddTemplateArgumentLocInfoENS_16TemplateArgument7ArgKindERKNS_23TemplateArgumentLocInfoE'/>
+<use f='llvm/clang/lib/Serialization/ASTWriter.cpp' l='5507' u='r' c='_ZN5clang15ASTRecordWriter22AddTemplateArgumentLocERKNS_19TemplateArgumentLocE'/>
+<use f='llvm/clang/lib/Serialization/ASTWriter.cpp' l='5957' c='_ZN5clang15ASTRecordWriter19AddTemplateArgumentERKNS_16TemplateArgumentE'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='1483' c='_ZN5clang8cxcursor13CursorVisitor24VisitTemplateArgumentLocERKNS_19TemplateArgumentLocE'/>
+<use f='llvm/clang/tools/libclang/CXCursor.cpp' l='1297' c='clang_Cursor_getTemplateArgumentKind'/>

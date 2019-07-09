@@ -1,0 +1,18 @@
+<dec f='llvm/llvm/lib/AsmParser/LLParser.h' l='328' type='bool llvm::LLParser::parseIndirectSymbol(const std::string &amp; Name, LocTy NameLoc, unsigned int L, unsigned int Visibility, unsigned int DLLStorageClass, bool DSOLocal, GlobalVariable::ThreadLocalMode TLM, GlobalVariable::UnnamedAddr UnnamedAddr)'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='580' u='c' c='_ZN4llvm8LLParser18ParseUnnamedGlobalEv'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='610' u='c' c='_ZN4llvm8LLParser16ParseNamedGlobalEv'/>
+<def f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='869' ll='1008' type='bool llvm::LLParser::parseIndirectSymbol(const std::string &amp; Name, LocTy NameLoc, unsigned int L, unsigned int Visibility, unsigned int DLLStorageClass, bool DSOLocal, GlobalVariable::ThreadLocalMode TLM, GlobalVariable::UnnamedAddr UnnamedAddr)'/>
+<doc f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='855'>/// parseIndirectSymbol:
+///   ::= GlobalVar &apos;=&apos; OptionalLinkage OptionalPreemptionSpecifier
+///                     OptionalVisibility OptionalDLLStorageClass
+///                     OptionalThreadLocal OptionalUnnamedAddr
+///                     &apos;alias|ifunc&apos; IndirectSymbol IndirectSymbolAttr*
+///
+/// IndirectSymbol
+///   ::= TypeAndValue
+///
+/// IndirectSymbolAttr
+///   ::= &apos;,&apos; &apos;partition&apos; StringConstant
+///
+/// Everything through OptionalUnnamedAddr has already been parsed.
+///</doc>

@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='114' type='bool llvm::isKnownNegation(const llvm::Value * X, const llvm::Value * Y, bool NeedNSW = false)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='110'>/// Return true if the two given values are negation.
+  /// Currently can recoginze Value pair:
+  /// 1: &lt;X, Y&gt; if X = sub (0, Y) or Y = sub (0, X)
+  /// 2: &lt;X, Y&gt; if X = sub (A, B) and Y = sub (B, A)</doc>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='591' u='c' c='_ZL15SimplifyAddInstPN4llvm5ValueES1_bbRKNS_13SimplifyQueryEj'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='1135' u='c' c='_ZL16SimplifySDivInstPN4llvm5ValueES1_RKNS_13SimplifyQueryEj'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='1167' u='c' c='_ZL16SimplifySRemInstPN4llvm5ValueES1_RKNS_13SimplifyQueryEj'/>
+<def f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4890' ll='4909' type='bool llvm::isKnownNegation(const llvm::Value * X, const llvm::Value * Y, bool NeedNSW = false)'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='5031' u='c' c='_ZL18matchSelectPatternN4llvm7CmpInst9PredicateENS_13FastMathFlagsEPNS_5ValueES4_S4_S4_RS4_S5_j'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineSelect.cpp' l='964' u='c' c='_ZL19canonicalizeAbsNabsRN4llvm10SelectInstERNS_8ICmpInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE'/>

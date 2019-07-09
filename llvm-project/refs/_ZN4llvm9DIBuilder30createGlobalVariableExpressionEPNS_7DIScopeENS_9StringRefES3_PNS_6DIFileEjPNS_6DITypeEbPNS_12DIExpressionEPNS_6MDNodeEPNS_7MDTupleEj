@@ -1,0 +1,20 @@
+<dec f='llvm/llvm/include/llvm/IR/DIBuilder.h' l='582' type='llvm::DIGlobalVariableExpression * llvm::DIBuilder::createGlobalVariableExpression(llvm::DIScope * Context, llvm::StringRef Name, llvm::StringRef LinkageName, llvm::DIFile * File, unsigned int LineNo, llvm::DIType * Ty, bool isLocalToUnit, llvm::DIExpression * Expr = nullptr, llvm::MDNode * Decl = nullptr, llvm::MDTuple * templateParams = nullptr, uint32_t AlignInBits = 0)'/>
+<doc f='llvm/llvm/include/llvm/IR/DIBuilder.h' l='568'>/// Create a new descriptor for the specified variable.
+    /// \param Context     Variable scope.
+    /// \param Name        Name of the variable.
+    /// \param LinkageName Mangled  name of the variable.
+    /// \param File        File where this variable is defined.
+    /// \param LineNo      Line number.
+    /// \param Ty          Variable Type.
+    /// \param isLocalToUnit Boolean flag indicate whether this variable is
+    ///                      externally visible or not.
+    /// \param Expr        The location of the global relative to the attached
+    ///                    GlobalVariable.
+    /// \param Decl        Reference to the corresponding declaration.
+    /// \param AlignInBits Variable alignment(or 0 if no alignment attr was
+    ///                    specified)</doc>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='4294' u='c' c='_ZN5clang7CodeGen11CGDebugInfo22CollectAnonRecordDeclsEPKNS_10RecordDeclEPN4llvm6DIFileEjNS5_9StringRefEPNS5_14GlobalVariableEPNS5_7DIScopeE'/>
+<def f='llvm/llvm/lib/IR/DIBuilder.cpp' l='639' ll='654' type='llvm::DIGlobalVariableExpression * llvm::DIBuilder::createGlobalVariableExpression(llvm::DIScope * Context, llvm::StringRef Name, llvm::StringRef LinkageName, llvm::DIFile * F, unsigned int LineNumber, llvm::DIType * Ty, bool isLocalToUnit, llvm::DIExpression * Expr = nullptr, llvm::MDNode * Decl = nullptr, llvm::MDTuple * templateParams = nullptr, uint32_t AlignInBits = 0)'/>
+<use f='llvm/llvm/lib/IR/DebugInfo.cpp' l='1270' u='c' c='LLVMDIBuilderCreateGlobalVariableExpression'/>
+<use f='llvm/llvm/unittests/Transforms/Utils/CloningTest.cpp' l='614' u='c' c='_ZN12_GLOBAL__N_111CloneModule15CreateOldModuleEv'/>
+<use f='llvm/llvm/unittests/Transforms/Utils/CloningTest.cpp' l='622' u='c' c='_ZN12_GLOBAL__N_111CloneModule15CreateOldModuleEv'/>

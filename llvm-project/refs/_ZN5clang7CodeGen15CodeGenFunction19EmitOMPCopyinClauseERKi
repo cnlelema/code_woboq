@@ -1,0 +1,12 @@
+<dec f='llvm/clang/lib/CodeGen/CodeGenFunction.h' l='3063' type='bool clang::CodeGen::CodeGenFunction::EmitOMPCopyinClause(const int &amp; D)'/>
+<doc f='llvm/clang/lib/CodeGen/CodeGenFunction.h' l='3052'>/// Emit code for copyin clause in \a D directive. The next code is
+  /// generated at the start of outlined functions for directives:
+  /// \code
+  /// threadprivate_var1 = master_threadprivate_var1;
+  /// operator=(threadprivate_var2, master_threadprivate_var2);
+  /// ...
+  /// __kmpc_barrier(&amp;loc, global_tid);
+  /// \endcode
+  ///
+  /// \param D OpenMP directive possibly with &apos;copyin&apos; clause(s).
+  /// \returns true if at least one copyin variable is found, false otherwise.</doc>

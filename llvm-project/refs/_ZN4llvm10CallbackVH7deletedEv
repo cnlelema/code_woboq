@@ -1,0 +1,39 @@
+<def f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='409' type='void llvm::CallbackVH::deleted()'/>
+<ovr f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='464' c='_ZN4llvm11PoisoningVH7deletedEv'/>
+<ovr f='llvm/llvm/include/llvm/IR/ValueMap.h' l='265' c='_ZN4llvm18ValueMapCallbackVH7deletedEv'/>
+<doc f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='398'>/// Callback for Value destruction.
+  ///
+  /// Called when this-&gt;getValPtr() is destroyed, inside ~Value(), so you
+  /// may call any non-virtual Value method on getValPtr(), but no subclass
+  /// methods.  If WeakTrackingVH were implemented as a CallbackVH, it would use
+  /// this
+  /// method to call setValPtr(NULL).  AssertingVH would use this method to
+  /// cause an assertion failure.
+  ///
+  /// All implementations must remove the reference from this object to the
+  /// Value that&apos;s being destroyed.</doc>
+<ovr f='llvm/llvm/include/llvm/Analysis/DomTreeUpdater.h' l='254' c='_ZN4llvm14DomTreeUpdater18CallBackOnDeletion7deletedEv'/>
+<use f='llvm/llvm/include/llvm/Analysis/DomTreeUpdater.h' l='256' u='c' c='_ZN4llvm14DomTreeUpdater18CallBackOnDeletion7deletedEv'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/CFLAliasAnalysisUtils.h' l='30' c='_ZN4llvm5cflaa14FunctionHandle7deletedEv'/>
+<ovr f='llvm/llvm/lib/Analysis/AliasSetTracker.cpp' l='709' c='_ZN4llvm15AliasSetTracker13ASTCallbackVH7deletedEv'/>
+<ovr f='llvm/llvm/lib/Analysis/AssumptionCache.cpp' l='136' c='_ZN4llvm15AssumptionCache23AffectedValueCallbackVH7deletedEv'/>
+<ovr f='llvm/llvm/lib/Analysis/AssumptionCache.cpp' l='236' c='_ZN4llvm22AssumptionCacheTracker18FunctionCallbackVH7deletedEv'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/BranchProbabilityInfo.h' l='154' c='_ZN4llvm21BranchProbabilityInfo20BasicBlockCallbackVH7deletedEv'/>
+<ovr f='llvm/llvm/lib/Analysis/GlobalsModRef.cpp' l='209' c='_ZN4llvm15GlobalsAAResult22DeletionCallbackHandle7deletedEv'/>
+<ovr f='llvm/llvm/lib/Analysis/IVUsers.cpp' l='421' c='_ZN4llvm11IVStrideUse7deletedEv'/>
+<ovr f='llvm/llvm/lib/Analysis/LazyValueInfo.cpp' l='269' c='_ZN12_GLOBAL__N_114LVIValueHandle7deletedEv'/>
+<ovr f='llvm/llvm/lib/Analysis/PhiValues.cpp' l='16' c='_ZN4llvm9PhiValues19PhiValuesCallbackVH7deletedEv'/>
+<ovr f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='462' c='_ZN4llvm11SCEVUnknown7deletedEv'/>
+<ovr f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='11269' c='_ZN4llvm15ScalarEvolution14SCEVCallbackVH7deletedEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/MachineModuleInfo.cpp' l='188' c='_ZN4llvm26MMIAddrLabelMapCallbackPtr7deletedEv'/>
+<ovr f='llvm/llvm/lib/ExecutionEngine/ExecutionEngine.cpp' l='116' c='_ZN12_GLOBAL__N_113GVMemoryBlock7deletedEv'/>
+<use f='llvm/llvm/lib/IR/Value.cpp' l='881' u='c' c='_ZN4llvm15ValueHandleBase14ValueIsDeletedEPNS_5ValueE'/>
+<ovr f='llvm/llvm/unittests/IR/ValueHandleTest.cpp' l='264' c='_ZZN12_GLOBAL__N_146ValueHandle_CallbackVH_CallbackOnDeletion_Test8TestBodyEvEN11RecordingVH7deletedEv'/>
+<use f='llvm/llvm/unittests/IR/ValueHandleTest.cpp' l='266' u='c' c='_ZZN12_GLOBAL__N_146ValueHandle_CallbackVH_CallbackOnDeletion_Test8TestBodyEvEN11RecordingVH7deletedEv'/>
+<ovr f='llvm/llvm/unittests/IR/ValueHandleTest.cpp' l='291' c='_ZZN12_GLOBAL__N_142ValueHandle_CallbackVH_CallbackOnRAUW_Test8TestBodyEvEN11RecordingVH7deletedEv'/>
+<use f='llvm/llvm/unittests/IR/ValueHandleTest.cpp' l='293' u='c' c='_ZZN12_GLOBAL__N_142ValueHandle_CallbackVH_CallbackOnRAUW_Test8TestBodyEvEN11RecordingVH7deletedEv'/>
+<ovr f='llvm/llvm/unittests/IR/ValueHandleTest.cpp' l='325' c='_ZZN12_GLOBAL__N_143ValueHandle_CallbackVH_DeletionCanRAUW_Test8TestBodyEvEN12RecoveringVH7deletedEv'/>
+<ovr f='llvm/llvm/unittests/IR/ValueHandleTest.cpp' l='369' c='_ZZN12_GLOBAL__N_165ValueHandle_DestroyingOtherVHOnSameValueDoesntBreakIteration_Test8TestBodyEvEN12DestroyingVH7deletedEv'/>
+<use f='llvm/llvm/unittests/IR/ValueHandleTest.cpp' l='372' u='c' c='_ZZN12_GLOBAL__N_165ValueHandle_DestroyingOtherVHOnSameValueDoesntBreakIteration_Test8TestBodyEvEN12DestroyingVH7deletedEv'/>
+<ovr f='llvm/llvm/unittests/IR/ValueHandleTest.cpp' l='416' c='_ZZN12_GLOBAL__N_139ValueHandle_AssertingVHCheckedLast_Test8TestBodyEvEN10ClearingVH7deletedEv'/>
+<use f='llvm/llvm/unittests/IR/ValueHandleTest.cpp' l='419' u='c' c='_ZZN12_GLOBAL__N_139ValueHandle_AssertingVHCheckedLast_Test8TestBodyEvEN10ClearingVH7deletedEv'/>

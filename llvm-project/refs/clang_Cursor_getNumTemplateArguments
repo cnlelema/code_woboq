@@ -1,0 +1,19 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='3489' type='int clang_Cursor_getNumTemplateArguments(CXCursor C)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='3473'>/**
+ *Returns the number of template args of a function decl representing a
+ * template specialization.
+ *
+ * If the argument cursor cannot be converted into a template function
+ * declaration, -1 is returned.
+ *
+ * For example, for the following declaration and specialization:
+ *   template &lt;typename T, int kInt, bool kBool&gt;
+ *   void foo() { ... }
+ *
+ *   template &lt;&gt;
+ *   void foo&lt;float, -7, true&gt;();
+ *
+ * The value 3 would be returned from this call.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='1001' u='c' c='PrintCursor'/>
+<def f='llvm/clang/tools/libclang/CXCursor.cpp' l='1217' ll='1235' type='int clang_Cursor_getNumTemplateArguments(CXCursor C)'/>

@@ -1,0 +1,117 @@
+<def f='llvm/llvm/tools/llvm-xray/xray-stacks.cpp' l='258' ll='261'/>
+<size>96</size>
+<doc f='llvm/llvm/tools/llvm-xray/xray-stacks.cpp' l='142'>/// The stack command will take a set of XRay traces as arguments, and collects
+/// information about the stacks of instrumented functions that appear in the
+/// traces. We track the following pieces of information:
+///
+///   - Total time: amount of time/cycles accounted for in the traces.
+///   - Stack count: number of times a specific stack appears in the
+///     traces. Only instrumented functions show up in stacks.
+///   - Cumulative stack time: amount of time spent in a stack accumulated
+///     across the invocations in the traces.
+///   - Cumulative local time: amount of time spent in each instrumented
+///     function showing up in a specific stack, accumulated across the traces.
+///
+/// Example output for the kind of data we&apos;d like to provide looks like the
+/// following:
+///
+///   Total time: 3.33234 s
+///   Stack ID: ...
+///   Stack Count: 2093
+///   #     Function                  Local Time     (%)      Stack Time     (%)
+///   0     main                         2.34 ms   0.07%      3.33234  s    100%
+///   1     foo()                     3.30000  s  99.02%         3.33  s  99.92%
+///   2     bar()                          30 ms   0.90%           30 ms   0.90%
+///
+/// We can also show distributions of the function call durations with
+/// statistics at each level of the stack. This works by doing the following
+/// algorithm:
+///
+///   1. When unwinding, record the duration of each unwound function associated
+///   with the path up to which the unwinding stops. For example:
+///
+///        Step                         Duration (? means has start time)
+///
+///        push a &lt;start time&gt;           a = ?
+///        push b &lt;start time&gt;           a = ?, a-&gt;b = ?
+///        push c &lt;start time&gt;           a = ?, a-&gt;b = ?, a-&gt;b-&gt;c = ?
+///        pop  c &lt;end time&gt;             a = ?, a-&gt;b = ?, emit duration(a-&gt;b-&gt;c)
+///        pop  b &lt;end time&gt;             a = ?, emit duration(a-&gt;b)
+///        push c &lt;start time&gt;           a = ?, a-&gt;c = ?
+///        pop  c &lt;end time&gt;             a = ?, emit duration(a-&gt;c)
+///        pop  a &lt;end time&gt;             emit duration(a)
+///
+///   2. We then account for the various stacks we&apos;ve collected, and for each of
+///      them will have measurements that look like the following (continuing
+///      with the above simple example):
+///
+///        c : [&lt;id(&quot;a-&gt;b-&gt;c&quot;), [durations]&gt;, &lt;id(&quot;a-&gt;c&quot;), [durations]&gt;]
+///        b : [&lt;id(&quot;a-&gt;b&quot;), [durations]&gt;]
+///        a : [&lt;id(&quot;a&quot;), [durations]&gt;]
+///
+///      This allows us to compute, for each stack id, and each function that
+///      shows up in the stack,  some important statistics like:
+///
+///        - median
+///        - 99th percentile
+///        - mean + stddev
+///        - count
+///
+///   3. For cases where we don&apos;t have durations for some of the higher levels
+///   of the stack (perhaps instrumentation wasn&apos;t activated when the stack was
+///   entered), we can mark them appropriately.
+///
+///  Computing this data also allows us to implement lookup by call stack nodes,
+///  so that we can find functions that show up in multiple stack traces and
+///  show the statistical properties of that function in various contexts. We
+///  can compute information similar to the following:
+///
+///    Function: &apos;c&apos;
+///    Stacks: 2 / 2
+///    Stack ID: ...
+///    Stack Count: ...
+///    #     Function  ...
+///    0     a         ...
+///    1     b         ...
+///    2     c         ...
+///
+///    Stack ID: ...
+///    Stack Count: ...
+///    #     Function  ...
+///    0     a         ...
+///    1     c         ...
+///    ----------------...
+///
+///    Function: &apos;b&apos;
+///    Stacks:  1 / 2
+///    Stack ID: ...
+///    Stack Count: ...
+///    #     Function  ...
+///    0     a         ...
+///    1     b         ...
+///    2     c         ...
+///
+///
+/// To do this we require a Trie data structure that will allow us to represent
+/// all the call stacks of instrumented functions in an easily traversible
+/// manner when we do the aggregations and lookups. For instrumented call
+/// sequences like the following:
+///
+///   a()
+///    b()
+///     c()
+///     d()
+///    c()
+///
+/// We will have a representation like so:
+///
+///   a -&gt; b -&gt; c
+///   |    |
+///   |    +--&gt; d
+///   |
+///   +--&gt; c
+///
+/// We maintain a sequence of durations on the leaves and in the internal nodes
+/// as we go through and process every record from the XRay trace. We also
+/// maintain an index of unique functions, and provide a means of iterating
+/// through all the instrumented call stacks which we know about.</doc>

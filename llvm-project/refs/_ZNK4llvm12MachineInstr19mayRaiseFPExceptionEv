@@ -1,0 +1,17 @@
+<def f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='841' ll='844' type='bool llvm::MachineInstr::mayRaiseFPException() const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='835'>/// Return true if this instruction could possibly raise a floating-point
+  /// exception.  This is the case if the instruction is a floating-point
+  /// instruction that can in principle raise an exception, as indicated
+  /// by the MCID::MayRaiseFPException property, *and* at the same time,
+  /// the instruction is used in a context where we expect floating-point
+  /// exceptions might be enabled, as indicated by the FPExcept MI flag.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/InstructionSelector.cpp' l='81' u='c' c='_ZNK4llvm19InstructionSelector21isObviouslySafeToFoldERNS_12MachineInstrES2_'/>
+<use f='llvm/llvm/lib/CodeGen/ImplicitNullChecks.cpp' l='232' u='c' c='_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineCSE.cpp' l='395' u='c' c='_ZN12_GLOBAL__N_110MachineCSE14isCSECandidateEPN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='1181' u='c' c='_ZNK4llvm12MachineInstr12isSafeToMoveEPNS_9AAResultsERb'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='585' u='c' c='_ZL19isDependenceBarrierRN4llvm12MachineInstrEPNS_9AAResultsE'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='3250' u='c' c='_ZN4llvm17SwingSchedulerDAG16isLoopCarriedDepEPNS_5SUnitERKNS_4SDepEb'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='3250' u='c' c='_ZN4llvm17SwingSchedulerDAG16isLoopCarriedDepEPNS_5SUnitERKNS_4SDepEb'/>
+<use f='llvm/llvm/lib/CodeGen/PeepholeOptimizer.cpp' l='1828' u='c' c='_ZN12_GLOBAL__N_112ValueTracker24getNextSourceFromBitcastEv'/>
+<use f='llvm/llvm/lib/CodeGen/ScheduleDAGInstrs.cpp' l='884' u='c' c='_ZN4llvm17ScheduleDAGInstrs15buildSchedGraphEPNS_9AAResultsEPNS_18RegPressureTrackerEPNS_13PressureDiffsEPNS_13LiveIntervalsEb'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='903' u='c' c='_ZNK4llvm15TargetInstrInfo40isReallyTriviallyReMaterializableGenericERKNS_12MachineInstrEPNS_9AAResultsE'/>

@@ -1,0 +1,33 @@
+<def f='llvm/clang/include/clang/Lex/MacroInfo.h' l='290' ll='403'/>
+<ovr f='llvm/clang/include/clang/Lex/MacroInfo.h' l='406' c='clang::DefMacroDirective'/>
+<ovr f='llvm/clang/include/clang/Lex/MacroInfo.h' l='429' c='clang::UndefMacroDirective'/>
+<ovr f='llvm/clang/include/clang/Lex/MacroInfo.h' l='444' c='clang::VisibilityMacroDirective'/>
+<size>16</size>
+<doc f='llvm/clang/include/clang/Lex/MacroInfo.h' l='283'>/// Encapsulates changes to the &quot;macros namespace&quot; (the location where
+/// the macro name became active, the location where it was undefined, etc.).
+///
+/// MacroDirectives, associated with an identifier, are used to model the macro
+/// history. Usually a macro definition (MacroInfo) is where a macro name
+/// becomes active (MacroDirective) but #pragma push_macro / pop_macro can
+/// create additional DefMacroDirectives for the same MacroInfo.</doc>
+<mbr r='clang::MacroDirective::Previous' o='0' t='clang::MacroDirective *'/>
+<mbr r='clang::MacroDirective::Loc' o='64' t='clang::SourceLocation'/>
+<mbr r='clang::MacroDirective::MDKind' o='96' t='unsigned int'/>
+<mbr r='clang::MacroDirective::IsFromPCH' o='98' t='unsigned int'/>
+<mbr r='clang::MacroDirective::IsPublic' o='99' t='unsigned int'/>
+<fun r='_ZN5clang14MacroDirectiveC1ENS0_4KindENS_14SourceLocationE'/>
+<fun r='_ZNK5clang14MacroDirective7getKindEv'/>
+<fun r='_ZNK5clang14MacroDirective11getLocationEv'/>
+<fun r='_ZN5clang14MacroDirective11setPreviousEPS0_'/>
+<fun r='_ZNK5clang14MacroDirective11getPreviousEv'/>
+<fun r='_ZN5clang14MacroDirective11getPreviousEv'/>
+<fun r='_ZNK5clang14MacroDirective9isFromPCHEv'/>
+<fun r='_ZN5clang14MacroDirective12setIsFromPCHEv'/>
+<fun r='_ZN5clang14MacroDirective13getDefinitionEv'/>
+<fun r='_ZNK5clang14MacroDirective13getDefinitionEv'/>
+<fun r='_ZNK5clang14MacroDirective9isDefinedEv'/>
+<fun r='_ZNK5clang14MacroDirective12getMacroInfoEv'/>
+<fun r='_ZN5clang14MacroDirective12getMacroInfoEv'/>
+<fun r='_ZNK5clang14MacroDirective18findDirectiveAtLocENS_14SourceLocationERKNS_13SourceManagerE'/>
+<fun r='_ZNK5clang14MacroDirective4dumpEv'/>
+<fun r='_ZN5clang14MacroDirective7classofEPKS0_'/>

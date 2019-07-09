@@ -1,0 +1,32 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<def f='llvm/clang/include/clang/AST/ExprCXX.h' l='841' ll='898'/>
+<size>40</size>
+<doc f='llvm/clang/include/clang/AST/ExprCXX.h' l='830'>/// MS property subscript expression.
+/// MSVC supports &apos;property&apos; attribute and allows to apply it to the
+/// declaration of an empty array in a class or structure definition.
+/// For example:
+/// \code
+/// __declspec(property(get=GetX, put=PutX)) int x[];
+/// \endcode
+/// The above statement indicates that x[] can be used with one or more array
+/// indices. In this case, i=p-&gt;x[a][b] will be turned into i=p-&gt;GetX(a, b), and
+/// p-&gt;x[a][b] = i will be turned into p-&gt;PutX(a, b, i).
+/// This is a syntactic pseudo-object expression.</doc>
+<mbr r='clang::MSPropertySubscriptExpr::SubExprs' o='128' t='clang::Stmt *[2]'/>
+<mbr r='clang::MSPropertySubscriptExpr::RBracketLoc' o='256' t='clang::SourceLocation'/>
+<fun r='_ZN5clang23MSPropertySubscriptExpr7setBaseEPNS_4ExprE'/>
+<fun r='_ZN5clang23MSPropertySubscriptExpr6setIdxEPNS_4ExprE'/>
+<fun r='_ZN5clang23MSPropertySubscriptExprC1EPNS_4ExprES2_NS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindENS_14SourceLocationE'/>
+<fun r='_ZN5clang23MSPropertySubscriptExprC1ENS_4Stmt10EmptyShellE'/>
+<fun r='_ZN5clang23MSPropertySubscriptExpr7getBaseEv'/>
+<fun r='_ZNK5clang23MSPropertySubscriptExpr7getBaseEv'/>
+<fun r='_ZN5clang23MSPropertySubscriptExpr6getIdxEv'/>
+<fun r='_ZNK5clang23MSPropertySubscriptExpr6getIdxEv'/>
+<fun r='_ZNK5clang23MSPropertySubscriptExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang23MSPropertySubscriptExpr9getEndLocEv'/>
+<fun r='_ZNK5clang23MSPropertySubscriptExpr14getRBracketLocEv'/>
+<fun r='_ZN5clang23MSPropertySubscriptExpr14setRBracketLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang23MSPropertySubscriptExpr10getExprLocEv'/>
+<fun r='_ZN5clang23MSPropertySubscriptExpr7classofEPKNS_4StmtE'/>
+<fun r='_ZN5clang23MSPropertySubscriptExpr8childrenEv'/>
+<fun r='_ZNK5clang23MSPropertySubscriptExpr8childrenEv'/>

@@ -1,0 +1,19 @@
+<dec f='llvm/clang/include/clang/AST/DeclObjC.h' l='1840' type='clang::ObjCMethodDecl * clang::ObjCInterfaceDecl::lookupMethod(clang::Selector Sel, bool isInstance, bool shallowCategoryLookup = false, bool followSuper = true, const clang::ObjCCategoryDecl * C = nullptr) const'/>
+<use f='llvm/clang/include/clang/AST/DeclObjC.h' l='1847' u='c' c='_ZNK5clang17ObjCInterfaceDecl20lookupInstanceMethodENS_8SelectorE'/>
+<use f='llvm/clang/include/clang/AST/DeclObjC.h' l='1852' u='c' c='_ZNK5clang17ObjCInterfaceDecl17lookupClassMethodENS_8SelectorE'/>
+<use f='llvm/clang/include/clang/AST/DeclObjC.h' l='1871' u='c' c='_ZNK5clang17ObjCInterfaceDecl22lookupPropertyAccessorENS_8SelectorEPKNS_16ObjCCategoryDeclEb'/>
+<doc f='llvm/clang/include/clang/AST/DeclObjC.h' l='1838'>// Lookup a method. First, we search locally. If a method isn&apos;t
+  // found, we search referenced protocols and class categories.</doc>
+<def f='llvm/clang/lib/AST/DeclObjC.cpp' l='682' ll='734' type='clang::ObjCMethodDecl * clang::ObjCInterfaceDecl::lookupMethod(clang::Selector Sel, bool isInstance, bool shallowCategoryLookup = false, bool followSuper = true, const clang::ObjCCategoryDecl * C = nullptr) const'/>
+<doc f='llvm/clang/lib/AST/DeclObjC.cpp' l='678'>/// lookupMethod - This method returns an instance/class method by looking in
+/// the class, its categories, and its super classes (using a linear search).
+/// When argument category &quot;C&quot; is specified, any implicit method found
+/// in this category is ignored.</doc>
+<use f='llvm/clang/lib/Sema/SemaDeclObjC.cpp' l='438' u='c' c='_ZN5clang4Sema25ActOnStartOfObjCMethodDefEPNS_5ScopeEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclObjC.cpp' l='489' u='c' c='_ZN5clang4Sema25ActOnStartOfObjCMethodDefEPNS_5ScopeEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclObjC.cpp' l='4674' u='c' c='_ZN5clang4Sema22ActOnMethodDeclarationEPNS_5ScopeENS_14SourceLocationES3_NS_3tok9TokenKindERNS_12ObjCDeclSpecENS_9OpaquePtrINS_8QualTypeEEEN4llvm8Arra4883727'/>
+<use f='llvm/clang/lib/Sema/SemaDeclObjC.cpp' l='4998' u='c' c='_ZNK5clang4Sema30GetIvarBackingPropertyAccessorEPKNS_14ObjCMethodDeclERPKNS_16ObjCPropertyDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaExprObjC.cpp' l='1782' u='c' c='_ZN5clang4Sema24LookupMethodInObjectTypeENS_8SelectorENS_8QualTypeEb'/>
+<use f='llvm/clang/lib/Sema/SemaExprObjC.cpp' l='4070' u='c' c='_ZN5clang4Sema32checkObjCBridgeRelatedComponentsENS_14SourceLocationENS_8QualTypeES2_RPNS_17ObjCInterfaceDeclERPNS_14ObjCMethodDeclES8_RPNS_15TypedefNameDeclEbb'/>
+<use f='llvm/clang/lib/Sema/SemaExprObjC.cpp' l='4084' u='c' c='_ZN5clang4Sema32checkObjCBridgeRelatedComponentsENS_14SourceLocationENS_8QualTypeES2_RPNS_17ObjCInterfaceDeclERPNS_14ObjCMethodDeclES8_RPNS_15TypedefNameDeclEbb'/>
+<use f='llvm/clang/lib/Sema/SemaObjCProperty.cpp' l='1786' u='c' c='_ZN5clang4Sema30IvarBacksCurrentMethodAccessorEPNS_17ObjCInterfaceDeclEPNS_14ObjCMethodDeclEPNS_12ObjCIvarDeclE'/>

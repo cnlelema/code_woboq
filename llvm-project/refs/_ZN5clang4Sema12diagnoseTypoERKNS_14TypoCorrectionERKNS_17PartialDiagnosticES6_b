@@ -1,0 +1,16 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='3455' type='void clang::Sema::diagnoseTypo(const clang::TypoCorrection &amp; Correction, const clang::PartialDiagnostic &amp; TypoDiag, const clang::PartialDiagnostic &amp; PrevNote, bool ErrorRecovery = true)'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='1917' u='c' c='_ZL29emitEmptyLookupTypoDiagnosticRKN5clang14TypoCorrectionERNS_4SemaERKNS_12CXXScopeSpecENS_15DeclarationNameENS_14SourceLocationEN4llvm8ArrayRefIPNS_4ExprEEEjj'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='2102' u='c' c='_ZN5clang4Sema19DiagnoseEmptyLookupEPNS_5ScopeERNS_12CXXScopeSpecERNS_12LookupResultERNS_27CorrectionCandidateCallbackEPNS_24TemplateArgumentListInfoE5867693'/>
+<def f='llvm/clang/lib/Sema/SemaLookup.cpp' l='5314' ll='5345' type='void clang::Sema::diagnoseTypo(const clang::TypoCorrection &amp; Correction, const clang::PartialDiagnostic &amp; TypoDiag, const clang::PartialDiagnostic &amp; PrevNote, bool ErrorRecovery = true)'/>
+<doc f='llvm/clang/lib/Sema/SemaLookup.cpp' l='5302'>/// Diagnose a successfully-corrected typo. Separated from the correction
+/// itself to allow external validation of the result, etc.
+///
+/// \param Correction The result of performing typo correction.
+/// \param TypoDiag The diagnostic to produce. This will have the corrected
+///        string added to it (and usually also a fixit).
+/// \param PrevNote A note to use when indicating the location of the entity to
+///        which we are correcting. Will have the correction string added to it.
+/// \param ErrorRecovery If \c true (the default), the caller is going to
+///        recover from the typo as if the corrected string had been typed.
+///        In this case, \c PDiag must be an error, and we will attach a fixit
+///        to it.</doc>

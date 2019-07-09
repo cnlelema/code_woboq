@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/IR/InstVisitor.h' l='26'/>
+<dec f='llvm/llvm/include/llvm/IR/InstVisitor.h' l='124'/>
+<dec f='llvm/llvm/include/llvm/IR/InstVisitor.h' l='156'/>
+<doc f='llvm/llvm/include/llvm/IR/InstVisitor.h' l='23'>// We operate on opaque instruction classes, so forward declare all instruction
+// types now...
+//</doc>
+<doc f='llvm/llvm/include/llvm/IR/InstVisitor.h' l='123'>// Build the switch statement using the Instruction.def file...</doc>
+<doc f='llvm/llvm/include/llvm/IR/InstVisitor.h' l='147'>// Define instruction specific visitor functions that can be overridden to
+  // handle SPECIFIC instructions.  These functions automatically define
+  // visitMul to proxy to visitBinaryOperator for instance in case the user does
+  // not need this generality.
+  //
+  // These functions can also implement fan-out, when a single opcode and
+  // instruction have multiple more specific Instruction subclasses. The Call
+  // instruction currently supports this. We implement that by redirecting that
+  // instruction to a special delegation helper.</doc>

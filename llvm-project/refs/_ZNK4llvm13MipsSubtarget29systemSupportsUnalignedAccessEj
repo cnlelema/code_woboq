@@ -1,0 +1,13 @@
+<def f='llvm/llvm/lib/Target/Mips/MipsSubtarget.h' l='420' ll='422' type='bool llvm::MipsSubtarget::systemSupportsUnalignedAccess(unsigned int AS = 0) const'/>
+<doc f='llvm/llvm/lib/Target/Mips/MipsSubtarget.h' l='412'>/// Does the system support unaligned memory access.
+  ///
+  /// MIPS32r6/MIPS64r6 require full unaligned access support but does not
+  /// specify which component of the system provides it. Hardware, software, and
+  /// hybrid implementations are all valid.
+  /// CHERI is not MIPSr6, but provides a hybrid implementation where
+  /// in-cache-line unaligned accesses are handled in software and ones
+  /// spanning cache lines are emulated in the OS.</doc>
+<use f='llvm/llvm/lib/Target/Mips/MipsISelDAGToDAG.cpp' l='255' u='c' c='_ZN4llvm16MipsDAGToDAGISel6SelectEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsISelLowering.cpp' l='3298' u='c' c='_ZNK4llvm18MipsTargetLowering9lowerLOADENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsISelLowering.cpp' l='3474' u='c' c='_ZNK4llvm18MipsTargetLowering10lowerSTOREENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsSEISelLowering.cpp' l='460' u='c' c='_ZNK4llvm20MipsSETargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjjNS_17MachineMemOperand5FlagsEPb'/>

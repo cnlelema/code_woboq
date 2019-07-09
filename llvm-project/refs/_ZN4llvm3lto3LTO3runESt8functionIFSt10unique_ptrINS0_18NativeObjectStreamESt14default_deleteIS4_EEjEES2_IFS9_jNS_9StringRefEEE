@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/LTO/LTO.h' l='296' type='llvm::Error llvm::lto::LTO::run(AddStreamFn AddStream, NativeObjectCache Cache = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/LTO/LTO.h' l='288'>/// Runs the LTO pipeline. This function calls the supplied AddStream
+  /// function to add native object files to the link.
+  ///
+  /// The Cache parameter is optional. If supplied, it will be used to cache
+  /// native object files and add them to the link.
+  ///
+  /// The client will receive at most one callback (via either AddStream or
+  /// Cache) for each task identifier.</doc>
+<use f='llvm/lld/COFF/LTO.cpp' l='125' u='c' c='_ZN3lld4coff15BitcodeCompiler7compileEv'/>
+<use f='llvm/lld/ELF/LTO.cpp' l='249' u='c' c='_ZN3lld3elf15BitcodeCompiler7compileEv'/>
+<use f='llvm/lld/wasm/LTO.cpp' l='138' u='c' c='_ZN3lld4wasm15BitcodeCompiler7compileEv'/>
+<def f='llvm/llvm/lib/LTO/LTO.cpp' l='885' ll='940' type='llvm::Error llvm::lto::LTO::run(AddStreamFn AddStream, NativeObjectCache Cache = nullptr)'/>
+<use f='llvm/llvm/tools/llvm-lto2/llvm-lto2.cpp' l='334' u='c' c='_ZL3runiPPc'/>

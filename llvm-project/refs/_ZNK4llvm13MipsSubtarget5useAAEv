@@ -1,0 +1,10 @@
+<def f='llvm/llvm/lib/Target/Mips/MipsSubtarget.h' l='371' type='bool llvm::MipsSubtarget::useAA() const'/>
+<doc f='llvm/llvm/lib/Target/Mips/MipsSubtarget.h' l='362'>/// This is a very ugly hack.  CodeGenPrepare can sink pointer arithmetic to
+  /// appear closer to load and store operations (because SelectionDAG only
+  /// looks at one basic block at a time).  Unfortunately, it defaults to using
+  /// ptrtoint / inttoptr pairs, which means that SelectionDAG doesn&apos;t generate
+  /// pointer addition nodes and instead just ends up producing CToPtr /
+  /// CFromPtr instruction pairs.  There is a command-line flag for preferring
+  /// to sink GEPs instead, but no way for the subtarget to set this flag.
+  /// Claiming that you use AA also enables the GEP-sinking mode, so we claim
+  /// this for CHERI.</doc>

@@ -1,0 +1,19 @@
+<dec f='llvm/llvm/include/llvm/Transforms/InstCombine/InstCombine.h' l='70' type='llvm::FunctionPass * llvm::createInstructionCombiningPass(bool ExpensiveCombines = true)'/>
+<use f='llvm/clang/lib/CodeGen/BackendUtil.cpp' l='311' u='c' c='_ZL32addGeneralOptsForMemorySanitizerRKN4llvm18PassManagerBuilderERNS_6legacy15PassManagerBaseEb'/>
+<doc f='llvm/llvm/include/llvm/Transforms/InstCombine/InstCombine.h' l='58'>//===----------------------------------------------------------------------===//
+//
+// InstructionCombining - Combine instructions to form fewer, simple
+// instructions. This pass does not modify the CFG, and has a tendency to make
+// instructions dead, so a subsequent DCE pass is useful.
+//
+// This pass combines things like:
+//    %Y = add int 1, %X
+//    %Z = add int 1, %Y
+// into:
+//    %Z = add int 2, %X
+//</doc>
+<use f='llvm/llvm/include/llvm/LinkAllPasses.h' l='123' u='c' c='_ZN12_GLOBAL__N_116ForcePassLinkingC1Ev'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PassManagerBuilder.cpp' l='246' u='c' c='_ZNK4llvm18PassManagerBuilder27addInstructionCombiningPassERNS_6legacy15PassManagerBaseE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PassManagerBuilder.cpp' l='296' u='c' c='_ZN4llvm18PassManagerBuilder17addPGOInstrPassesERNS_6legacy15PassManagerBaseEb'/>
+<def f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='3604' ll='3606' type='llvm::FunctionPass * llvm::createInstructionCombiningPass(bool ExpensiveCombines = true)'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='3609' u='c' c='LLVMAddInstructionCombiningPass'/>

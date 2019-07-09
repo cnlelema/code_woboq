@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/Analysis/BlockFrequencyInfoImpl.h' l='908' type='bool llvm::BlockFrequencyInfoImpl::computeMassInLoop(llvm::BlockFrequencyInfoImplBase::LoopData &amp; Loop)'/>
+<use f='llvm/llvm/include/llvm/Analysis/BlockFrequencyInfoImpl.h' l='1142' u='c' c='_ZN4llvm22BlockFrequencyInfoImpl18computeMassInLoopsEv'/>
+<use f='llvm/llvm/include/llvm/Analysis/BlockFrequencyInfoImpl.h' l='1147' u='c' c='_ZN4llvm22BlockFrequencyInfoImpl18computeMassInLoopsEv'/>
+<def f='llvm/llvm/include/llvm/Analysis/BlockFrequencyInfoImpl.h' l='1153' ll='1225' type='bool llvm::BlockFrequencyInfoImpl::computeMassInLoop(llvm::BlockFrequencyInfoImplBase::LoopData &amp; Loop)'/>
+<use f='llvm/llvm/include/llvm/Analysis/BlockFrequencyInfoImpl.h' l='1295' u='c' c='_ZN4llvm22BlockFrequencyInfoImpl22computeIrreducibleMassEPNS_26BlockFrequencyInfoImplBase8LoopDataESt14_List_iteratorIS2_E'/>
+<doc f='llvm/llvm/include/llvm/Analysis/BlockFrequencyInfoImpl.h' l='900'>/// Compute mass in a particular loop.
+  ///
+  /// Assign mass to \c Loop&apos;s header, and then for each block in \c Loop in
+  /// reverse post-order, distribute mass to its successors.  Only visits nodes
+  /// that have not been packaged into sub-loops.
+  ///
+  /// \pre \a computeMassInLoop() has been called for each subloop of \c Loop.
+  /// \return \c true unless there&apos;s an irreducible backedge.</doc>

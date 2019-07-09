@@ -1,0 +1,19 @@
+<def f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='1178' ll='1182' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildMul(const llvm::DstOp &amp; Dst, const llvm::SrcOp &amp; Src0, const llvm::SrcOp &amp; Src1, Optional&lt;unsigned int&gt; Flags = None)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='1168'>/// Build and insert \p Res = G_MUL \p Op0, \p Op1
+  ///
+  /// G_MUL sets \p Res to the sum of integer parameters \p Op0 and \p Op1,
+  /// truncated to their width.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Res, \p Op0 and \p Op1 must be generic virtual registers
+  ///      with the same (scalar or vector) type).
+  ///
+  /// \return a MachineInstrBuilder for the newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='707' u='c' c='_ZN4llvm12IRTranslator22translateGetElementPtrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='1442' u='c' c='_ZN4llvm12IRTranslator15translateAllocaERKNS_4UserERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1390' u='c' c='_ZN4llvm15LegalizerHelper5lowerERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1405' u='c' c='_ZN4llvm15LegalizerHelper5lowerERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2569' u='c' c='_ZN4llvm15LegalizerHelper17multiplyRegistersERNS_15SmallVectorImplIjEENS_8ArrayRefIjEES5_NS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2580' u='c' c='_ZN4llvm15LegalizerHelper17multiplyRegistersERNS_15SmallVectorImplIjEENS_8ArrayRefIjEES5_NS_3LLTE'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/PatternMatchTest.cpp' l='172' u='c' c='_ZN12_GLOBAL__N_136PatternMatchInstr_MatchBinaryOp_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/PatternMatchTest.cpp' l='190' u='c' c='_ZN12_GLOBAL__N_136PatternMatchInstr_MatchBinaryOp_Test8TestBodyEv'/>

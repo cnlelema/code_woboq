@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='424' type='void llvm::combineMetadataForCSE(llvm::Instruction * K, const llvm::Instruction * J, bool DoesKMove)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='418'>/// Combine the metadata of two instructions so that K can replace J. This
+/// specifically handles the case of CSE-like transformations. Some
+/// metadata can only be kept if K dominates J. For this to be correct,
+/// K cannot be hoisted.
+///
+/// Unknown metadata is removed.</doc>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1028' u='c' c='_ZN4llvm12InstCombiner13visitLoadInstERNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVNSink.cpp' l='858' u='c' c='_ZN12_GLOBAL__N_17GVNSink19sinkLastInstructionEN4llvm8ArrayRefIPNS1_10BasicBlockEEES4_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='1310' u='c' c='_ZN4llvm17JumpThreadingPass30SimplifyPartiallyRedundantLoadEPNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='1502' u='c' c='_ZN4llvm17JumpThreadingPass30SimplifyPartiallyRedundantLoadEPNS_8LoadInstE'/>
+<def f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='2381' ll='2392' type='void llvm::combineMetadataForCSE(llvm::Instruction * K, const llvm::Instruction * J, bool KDominatesJ)'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='1619' u='c' c='_ZL19sinkLastInstructionN4llvm8ArrayRefIPNS_10BasicBlockEEE'/>

@@ -1,0 +1,21 @@
+<def f='llvm/llvm/include/llvm/MC/MCDisassembler/MCSymbolizer.h' l='38' ll='78'/>
+<size>24</size>
+<doc f='llvm/llvm/include/llvm/MC/MCDisassembler/MCSymbolizer.h' l='29'>/// Symbolize and annotate disassembled instructions.
+///
+/// For now this mimics the old symbolization logic (from both ARM and x86), that
+/// relied on user-provided (C API) callbacks to do the actual symbol lookup in
+/// the object file. This was moved to MCExternalSymbolizer.
+/// A better API would not rely on actually calling the two methods here from
+/// inside each disassembler, but would use the instr info to determine what
+/// operands are actually symbolizable, and in what way. I don&apos;t think this
+/// information exists right now.</doc>
+<mbr r='llvm::MCSymbolizer::Ctx' o='64' t='llvm::MCContext &amp;'/>
+<mbr r='llvm::MCSymbolizer::RelInfo' o='128' t='std::unique_ptr&lt;MCRelocationInfo&gt;'/>
+<fun r='_ZN4llvm12MCSymbolizerC1ERNS_9MCContextESt10unique_ptrINS_16MCRelocationInfoESt14default_deleteIS4_EE'/>
+<fun r='_ZN4llvm12MCSymbolizerC1ERKS0_'/>
+<fun r='_ZN4llvm12MCSymbolizeraSERKS0_'/>
+<fun r='_ZN4llvm12MCSymbolizerD1Ev'/>
+<fun r='_ZN4llvm12MCSymbolizer24tryAddingSymbolicOperandERNS_6MCInstERNS_11raw_ostreamElmbmm'/>
+<fun r='_ZN4llvm12MCSymbolizer31tryAddingPcLoadReferenceCommentERNS_11raw_ostreamElm'/>
+<ovr f='llvm/llvm/include/llvm/MC/MCDisassembler/MCExternalSymbolizer.h' l='27' c='llvm::MCExternalSymbolizer'/>
+<ovr f='llvm/llvm/lib/Target/AMDGPU/Disassembler/AMDGPUDisassembler.h' l='137' c='llvm::AMDGPUSymbolizer'/>

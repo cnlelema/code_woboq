@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/lib/ExecutionEngine/JITLink/JITLinkGeneric.h' l='245' type='void llvm::jitlink::prune(llvm::jitlink::AtomGraph &amp; G)'/>
+<use f='llvm/llvm/lib/ExecutionEngine/JITLink/JITLinkGeneric.cpp' l='44' u='c' c='_ZN4llvm7jitlink13JITLinkerBase10linkPhase1ESt10unique_ptrIS1_St14default_deleteIS1_EE'/>
+<def f='llvm/llvm/lib/ExecutionEngine/JITLink/JITLinkGeneric.cpp' l='387' ll='478' type='void llvm::jitlink::prune(llvm::jitlink::AtomGraph &amp; G)'/>
+<doc f='llvm/llvm/lib/ExecutionEngine/JITLink/JITLinkGeneric.h' l='238'>/// Dead strips and replaces discarded definitions with external atoms.
+///
+/// Finds the set of nodes reachable from any node initially marked live
+/// (nodes marked should-discard are treated as not live, even if they are
+/// reachable). All nodes not marked as live at the end of this process,
+/// are deleted. Nodes that are live, but marked should-discard are replaced
+/// with external atoms and all edges to them are re-written.</doc>

@@ -1,0 +1,21 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/LiveInterval.h' l='797' type='void llvm::LiveInterval::refineSubRanges(BumpPtrAllocator &amp; Allocator, llvm::LaneBitmask LaneMask, std::function&lt;void (LiveInterval::SubRange &amp;)&gt; Apply, const llvm::SlotIndexes &amp; Indexes, const llvm::TargetRegisterInfo &amp; TRI)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/LiveInterval.h' l='782'>/// Refines the subranges to support \p LaneMask. This may only be called
+    /// for LI.hasSubrange()==true. Subregister ranges are split or created
+    /// until \p LaneMask can be matched exactly. \p Mod is executed on the
+    /// matching subranges.
+    ///
+    /// Example:
+    ///    Given an interval with subranges with lanemasks L0F00, L00F0 and
+    ///    L000F, refining for mask L0018. Will split the L00F0 lane into
+    ///    L00E0 and L0010 and the L000F lane into L0007 and L0008. The Mod
+    ///    function will be applied to the L0010 and L0008 subranges.
+    ///
+    /// \p Indexes and \p TRI are required to clean up the VNIs that
+    /// don&apos;t defne the related lane masks after they get shrunk. E.g.,
+    /// when L000F gets split into L0007 and L0008 maybe only a subset
+    /// of the VNIs that defined L000F defines L0007.</doc>
+<def f='llvm/llvm/lib/CodeGen/LiveInterval.cpp' l='923' ll='957' type='void llvm::LiveInterval::refineSubRanges(BumpPtrAllocator &amp; Allocator, llvm::LaneBitmask LaneMask, std::function&lt;void (LiveInterval::SubRange &amp;)&gt; Apply, const llvm::SlotIndexes &amp; Indexes, const llvm::TargetRegisterInfo &amp; TRI)'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='97' u='c' c='_ZN4llvm13LiveRangeCalc9calculateERNS_12LiveIntervalEb'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterCoalescer.cpp' l='933' u='c' c='_ZN12_GLOBAL__N_117RegisterCoalescer24removeCopyByCommutingDefERKN4llvm13CoalescerPairEPNS1_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterCoalescer.cpp' l='3270' u='c' c='_ZN12_GLOBAL__N_117RegisterCoalescer17mergeSubRangeIntoERN4llvm12LiveIntervalERKNS1_9LiveRangeENS1_11LaneBitmaskERNS1_13CoalescerPairE'/>
+<use f='llvm/llvm/lib/CodeGen/SplitKit.cpp' l='530' u='c' c='_ZN4llvm11SplitEditor21buildSingleSubRegCopyEjjRNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEjRNS_12LiveIntervalEbNS_9SlotIndexE'/>

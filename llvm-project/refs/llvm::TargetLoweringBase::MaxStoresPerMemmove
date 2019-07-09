@@ -1,0 +1,28 @@
+<use f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='1434' u='r' c='_ZNK4llvm18TargetLoweringBase22getMaxStoresPerMemmoveEb'/>
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='2884' type='unsigned int'/>
+<offset>750208</offset>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='2874'>/// Specify maximum bytes of store instructions per memmove call.
+  ///
+  /// When lowering \@llvm.memmove this field specifies the maximum number of
+  /// store instructions that may be substituted for a call to memmove. Targets
+  /// must set this value based on the cost threshold for that target. Targets
+  /// should assume that the memmove will be done using as many of the largest
+  /// store operations first, followed by smaller ones, if necessary, per
+  /// alignment restrictions. For example, moving 9 bytes on a 32-bit machine
+  /// with 8-bit alignment would result in nine 1-byte stores.  This only
+  /// applies to copying a constant array of constant size.</doc>
+<use f='llvm/llvm/lib/CodeGen/TargetLoweringBase.cpp' l='536' u='w' c='_ZN4llvm18TargetLoweringBaseC1ERKNS_13TargetMachineE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='605' u='w' c='_ZN4llvm21AArch64TargetLoweringC1ERKNS_13TargetMachineERKNS_16AArch64SubtargetE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUISelLowering.cpp' l='544' u='w' c='_ZN4llvm20AMDGPUTargetLoweringC1ERKNS_13TargetMachineERKNS_15AMDGPUSubtargetE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='1215' u='w' c='_ZN4llvm17ARMTargetLoweringC1ERKNS_13TargetMachineERKNS_12ARMSubtargetE'/>
+<use f='llvm/llvm/lib/Target/BPF/BPFISelLowering.cpp' l='153' u='w' c='_ZN4llvm17BPFTargetLoweringC1ERKNS_13TargetMachineERKNS_12BPFSubtargetE'/>
+<use f='llvm/llvm/lib/Target/BPF/BPFISelLowering.cpp' l='161' u='w' c='_ZN4llvm17BPFTargetLoweringC1ERKNS_13TargetMachineERKNS_12BPFSubtargetE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonISelLowering.cpp' l='1252' u='w' c='_ZN4llvm21HexagonTargetLoweringC1ERKNS_13TargetMachineERKNS_16HexagonSubtargetE'/>
+<use f='llvm/llvm/lib/Target/Lanai/LanaiISelLowering.cpp' l='168' u='w' c='_ZN4llvm19LanaiTargetLoweringC1ERKNS_13TargetMachineERKNS_14LanaiSubtargetE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsISelLowering.cpp' l='613' u='w' c='_ZN4llvm18MipsTargetLoweringC1ERKNS_17MipsTargetMachineERKNS_13MipsSubtargetE'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXISelLowering.cpp' l='351' u='w' c='_ZN4llvm19NVPTXTargetLoweringC1ERKNS_18NVPTXTargetMachineERKNS_14NVPTXSubtargetE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='1209' u='w' c='_ZN4llvm17PPCTargetLoweringC1ERKNS_16PPCTargetMachineERKNS_12PPCSubtargetE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='1217' u='w' c='_ZN4llvm17PPCTargetLoweringC1ERKNS_16PPCTargetMachineERKNS_12PPCSubtargetE'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyISelLowering.cpp' l='266' u='w' c='_ZN4llvm25WebAssemblyTargetLoweringC1ERKNS_13TargetMachineERKNS_20WebAssemblySubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='1900' u='w' c='_ZN4llvm17X86TargetLoweringC1ERKNS_16X86TargetMachineERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/XCore/XCoreISelLowering.cpp' l='165' u='w' c='_ZN4llvm19XCoreTargetLoweringC1ERKNS_13TargetMachineERKNS_14XCoreSubtargetE'/>

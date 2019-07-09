@@ -1,0 +1,22 @@
+<dec f='llvm/llvm/include/llvm/MC/MCSchedule.h' l='49' type='int'/>
+<use f='llvm/llvm/include/llvm/MC/MCSchedule.h' l='58' u='r' c='_ZNK4llvm18MCProcResourceDesceqERKS0_'/>
+<use f='llvm/llvm/include/llvm/MC/MCSchedule.h' l='58' u='r' c='_ZNK4llvm18MCProcResourceDesceqERKS0_'/>
+<offset>128</offset>
+<doc f='llvm/llvm/include/llvm/MC/MCSchedule.h' l='37'>// Number of resources that may be buffered.
+  //
+  // Buffered resources (BufferSize != 0) may be consumed at some indeterminate
+  // cycle after dispatch. This should be used for out-of-order cpus when
+  // instructions that use this resource can be buffered in a reservaton
+  // station.
+  //
+  // Unbuffered resources (BufferSize == 0) always consume their resource some
+  // fixed number of cycles after dispatch. If a resource is unbuffered, then
+  // the scheduler will avoid scheduling instructions with conflicting resources
+  // in the same cycle. This is for in-order cpus, or the in-order portion of
+  // an out-of-order cpus.</doc>
+<use f='llvm/llvm/include/llvm/CodeGen/TargetSchedule.h' l='162' u='r' c='_ZNK4llvm16TargetSchedModel21getResourceBufferSizeEj'/>
+<use f='llvm/llvm/lib/CodeGen/MachineScheduler.cpp' l='2278' u='r' c='_ZN4llvm13SchedBoundary8bumpNodeEPNS_5SUnitE'/>
+<use f='llvm/llvm/lib/CodeGen/ScheduleDAGInstrs.cpp' l='574' u='r' c='_ZN4llvm17ScheduleDAGInstrs10initSUnitsEv'/>
+<use f='llvm/llvm/lib/CodeGen/TargetSchedule.cpp' l='316' u='r' c='_ZNK4llvm16TargetSchedModel20computeOutputLatencyEPKNS_12MachineInstrEjS3_'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZHazardRecognizer.cpp' l='300' u='r' c='_ZN4llvm23SystemZHazardRecognizer15EmitInstructionEPNS_5SUnitE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZHazardRecognizer.cpp' l='422' u='r' c='_ZN4llvm23SystemZHazardRecognizer15emitInstructionEPNS_12MachineInstrEb'/>

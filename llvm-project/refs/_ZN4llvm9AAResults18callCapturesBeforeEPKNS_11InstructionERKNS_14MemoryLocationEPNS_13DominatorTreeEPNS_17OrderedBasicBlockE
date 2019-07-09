@@ -1,0 +1,18 @@
+<dec f='llvm/llvm/include/llvm/Analysis/AliasAnalysis.h' l='650' type='llvm::ModRefInfo llvm::AAResults::callCapturesBefore(const llvm::Instruction * I, const llvm::MemoryLocation &amp; MemLoc, llvm::DominatorTree * DT, llvm::OrderedBasicBlock * OBB = nullptr)'/>
+<use f='llvm/llvm/include/llvm/Analysis/AliasAnalysis.h' l='658' u='c' c='_ZN4llvm9AAResults18callCapturesBeforeEPKNS_11InstructionEPKNS_5ValueENS_12LocationSizeEPNS_13DominatorTreeEPNS_17OrderedBasicBlockE'/>
+<doc f='llvm/llvm/include/llvm/Analysis/AliasAnalysis.h' l='644'>/// Return information about whether a particular call site modifies
+  /// or reads the specified memory location \p MemLoc before instruction \p I
+  /// in a BasicBlock. An ordered basic block \p OBB can be used to speed up
+  /// instruction ordering queries inside the BasicBlock containing \p I.
+  /// Early exits in callCapturesBefore may lead to ModRefInfo::Must not being
+  /// set.</doc>
+<def f='llvm/llvm/lib/Analysis/AliasAnalysis.cpp' l='639' ll='695' type='llvm::ModRefInfo llvm::AAResults::callCapturesBefore(const llvm::Instruction * I, const llvm::MemoryLocation &amp; MemLoc, llvm::DominatorTree * DT, llvm::OrderedBasicBlock * OBB = nullptr)'/>
+<doc f='llvm/llvm/lib/Analysis/AliasAnalysis.cpp' l='631'>/// Return information about whether a particular call site modifies
+/// or reads the specified memory location \p MemLoc before instruction \p I
+/// in a BasicBlock. An ordered basic block \p OBB can be used to speed up
+/// instruction-ordering queries inside the BasicBlock containing \p I.
+/// FIXME: this is really just shoring-up a deficiency in alias analysis.
+/// BasicAA isn&apos;t willing to spend linear time determining whether an alloca
+/// was captured before or after this particular call, while we are. However,
+/// with a smarter AA in place, this test is just wasting compile time.</doc>
+<use f='llvm/llvm/lib/Analysis/MemoryDependenceAnalysis.cpp' l='688' u='c' c='_ZN4llvm23MemoryDependenceResults30getSimplePointerDependencyFromERKNS_14MemoryLocationEbNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11Inst11097096'/>

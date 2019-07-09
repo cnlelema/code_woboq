@@ -1,0 +1,19 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='6683' type='int clang_indexTranslationUnit(CXIndexAction , CXClientData client_data, IndexerCallbacks * index_callbacks, unsigned int index_callbacks_size, unsigned int index_options, CXTranslationUnit )'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='6667'>/**
+ * Index the given translation unit via callbacks implemented through
+ * #IndexerCallbacks.
+ *
+ * The order of callback invocations is not guaranteed to be the same as
+ * when indexing a source file. The high level order will be:
+ *
+ *   -Preprocessor callbacks invocations
+ *   -Declaration/reference callbacks invocations
+ *   -Diagnostic callback invocations
+ *
+ * The parameters are the same as #clang_indexSourceFile.
+ *
+ * \returns If there is a failure from which there is no recovery, returns
+ * non-zero, otherwise returns 0.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='3865' u='c' c='index_ast_file'/>
+<def f='llvm/clang/tools/libclang/Indexing.cpp' l='918' ll='944' type='int clang_indexTranslationUnit(CXIndexAction idxAction, CXClientData client_data, IndexerCallbacks * index_callbacks, unsigned int index_callbacks_size, unsigned int index_options, CXTranslationUnit TU)'/>

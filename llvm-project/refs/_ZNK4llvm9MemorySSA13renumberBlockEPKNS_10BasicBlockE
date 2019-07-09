@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/include/llvm/Analysis/MemorySSA.h' l='868' type='void llvm::MemorySSA::renumberBlock(const llvm::BasicBlock * ) const'/>
+<def f='llvm/llvm/lib/Analysis/MemorySSA.cpp' l='2038' ll='2046' type='void llvm::MemorySSA::renumberBlock(const llvm::BasicBlock * B) const'/>
+<use f='llvm/llvm/lib/Analysis/MemorySSA.cpp' l='2072' u='c' c='_ZNK4llvm9MemorySSA16locallyDominatesEPKNS_12MemoryAccessES3_'/>
+<doc f='llvm/llvm/lib/Analysis/MemorySSA.cpp' l='2032'>/// Perform a local numbering on blocks so that instruction ordering can be
+/// determined in constant time.
+/// TODO: We currently just number in order.  If we numbered by N, we could
+/// allow at least N-1 sequences of insertBefore or insertAfter (and at least
+/// log2(N) sequences of mixed before and after) without needing to invalidate
+/// the numbering.</doc>

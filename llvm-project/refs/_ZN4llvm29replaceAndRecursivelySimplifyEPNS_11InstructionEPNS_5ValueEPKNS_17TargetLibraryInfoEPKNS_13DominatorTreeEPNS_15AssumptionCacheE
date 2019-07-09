@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/include/llvm/Analysis/InstructionSimplify.h' l='277' type='bool llvm::replaceAndRecursivelySimplify(llvm::Instruction * I, llvm::Value * SimpleV, const llvm::TargetLibraryInfo * TLI = nullptr, const llvm::DominatorTree * DT = nullptr, llvm::AssumptionCache * AC = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/InstructionSimplify.h' l='270'>/// Replace all uses of &apos;I&apos; with &apos;SimpleV&apos; and simplify the uses recursively.
+///
+/// This first performs a normal RAUW of I with SimpleV. It then recursively
+/// attempts to simplify those users updated by the operation. The &apos;I&apos;
+/// instruction must not be equal to the simplified value &apos;SimpleV&apos;.
+///
+/// The function returns true if any simplifications were performed.</doc>
+<def f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='5327' ll='5334' type='bool llvm::replaceAndRecursivelySimplify(llvm::Instruction * I, llvm::Value * SimpleV, const llvm::TargetLibraryInfo * TLI = nullptr, const llvm::DominatorTree * DT = nullptr, llvm::AssumptionCache * AC = nullptr)'/>
+<use f='llvm/llvm/lib/Transforms/Coroutines/CoroElide.cpp' l='64' u='c' c='_ZL19replaceWithConstantPN4llvm8ConstantERNS_15SmallVectorImplIPNS_13CoroSubFnInstEEE'/>

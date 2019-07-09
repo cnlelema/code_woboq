@@ -1,0 +1,14 @@
+<dec f='llvm/clang/include/clang/Basic/SourceManager.h' l='905' type='void clang::SourceManager::overrideFileContents(const clang::FileEntry * SourceFile, llvm::MemoryBuffer * Buffer, bool DoNotFree)'/>
+<use f='llvm/clang/include/clang/Basic/SourceManager.h' l='909' u='c' c='_ZN5clang13SourceManager20overrideFileContentsEPKNS_9FileEntryESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS6_EE'/>
+<doc f='llvm/clang/include/clang/Basic/SourceManager.h' l='895'>/// Override the contents of the given source file by providing an
+  /// already-allocated buffer.
+  ///
+  /// \param SourceFile the source file whose contents will be overridden.
+  ///
+  /// \param Buffer the memory buffer whose contents will be used as the
+  /// data in the given source file.
+  ///
+  /// \param DoNotFree If true, then the buffer will not be freed when the
+  /// source manager is destroyed.</doc>
+<def f='llvm/clang/lib/Basic/SourceManager.cpp' l='628' ll='638' type='void clang::SourceManager::overrideFileContents(const clang::FileEntry * SourceFile, llvm::MemoryBuffer * Buffer, bool DoNotFree)'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='338' u='c' c='_ZL23InitializeFileRemappingRN5clang17DiagnosticsEngineERNS_13SourceManagerERNS_11FileManagerERKNS_19PreprocessorOptionsE'/>

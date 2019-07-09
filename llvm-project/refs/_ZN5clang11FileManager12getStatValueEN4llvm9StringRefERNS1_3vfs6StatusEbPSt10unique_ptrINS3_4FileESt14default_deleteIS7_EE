@@ -1,0 +1,10 @@
+<dec f='llvm/clang/include/clang/Basic/FileManager.h' l='167' type='bool clang::FileManager::getStatValue(llvm::StringRef Path, llvm::vfs::Status &amp; Status, bool isFile, std::unique_ptr&lt;llvm::vfs::File&gt; * F)'/>
+<use f='llvm/clang/lib/Basic/FileManager.cpp' l='148' u='c' c='_ZN5clang11FileManager12getDirectoryEN4llvm9StringRefEb'/>
+<use f='llvm/clang/lib/Basic/FileManager.cpp' l='209' u='c' c='_ZN5clang11FileManager7getFileEN4llvm9StringRefEbb'/>
+<use f='llvm/clang/lib/Basic/FileManager.cpp' l='303' u='c' c='_ZN5clang11FileManager14getVirtualFileEN4llvm9StringRefEll'/>
+<def f='llvm/clang/lib/Basic/FileManager.cpp' l='426' ll='440' type='bool clang::FileManager::getStatValue(llvm::StringRef Path, llvm::vfs::Status &amp; Status, bool isFile, std::unique_ptr&lt;llvm::vfs::File&gt; * F)'/>
+<doc f='llvm/clang/lib/Basic/FileManager.cpp' l='421'>/// getStatValue - Get the &apos;stat&apos; information for the specified path,
+/// using the cache to accelerate it if possible.  This returns true
+/// if the path points to a virtual file or does not exist, or returns
+/// false if it&apos;s an existent real file.  If FileDescriptor is NULL,
+/// do directory look-up instead of file look-up.</doc>

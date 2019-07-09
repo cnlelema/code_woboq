@@ -1,0 +1,23 @@
+<dec f='llvm/llvm/lib/CodeGen/LiveRangeCalc.h' l='194' type='void llvm::LiveRangeCalc::reset(const llvm::MachineFunction * mf, llvm::SlotIndexes * SI, llvm::MachineDominatorTree * MDT, VNInfo::Allocator * VNIA)'/>
+<doc f='llvm/llvm/lib/CodeGen/LiveRangeCalc.h' l='182'>//===--------------------------------------------------------------------===//
+  // High-level interface.
+  //===--------------------------------------------------------------------===//
+  //
+  // Calculate live ranges from scratch.
+  //
+
+  /// reset - Prepare caches for a new set of non-overlapping live ranges.  The
+  /// caches must be reset before attempting calculations with a live range
+  /// that may overlap a previously computed live range, and before the first
+  /// live range in a function.  If live ranges are not known to be
+  /// non-overlapping, call reset before each.</doc>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='197' u='c' c='_ZN4llvm13LiveIntervals22computeVirtRegIntervalERNS_12LiveIntervalE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='265' u='c' c='_ZN4llvm13LiveIntervals19computeRegUnitRangeERNS_9LiveRangeEj'/>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='616' u='c' c='_ZN4llvm13LiveIntervals15extendToIndicesERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEES5_'/>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='1656' u='c' c='_ZN4llvm13LiveIntervals31constructMainRangeFromSubrangesERNS_12LiveIntervalE'/>
+<def f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='51' ll='62' type='void llvm::LiveRangeCalc::reset(const llvm::MachineFunction * mf, llvm::SlotIndexes * SI, llvm::MachineDominatorTree * MDT, VNInfo::Allocator * VNIA)'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='120' u='c' c='_ZN4llvm13LiveRangeCalc9calculateERNS_12LiveIntervalEb'/>
+<use f='llvm/llvm/lib/CodeGen/SplitKit.cpp' l='383' u='c' c='_ZN4llvm11SplitEditor5resetERNS_13LiveRangeEditENS0_19ComplementSpillModeE'/>
+<use f='llvm/llvm/lib/CodeGen/SplitKit.cpp' l='386' u='c' c='_ZN4llvm11SplitEditor5resetERNS_13LiveRangeEditENS0_19ComplementSpillModeE'/>
+<use f='llvm/llvm/lib/CodeGen/SplitKit.cpp' l='1293' u='c' c='_ZN4llvm11SplitEditor19extendPHIKillRangesEv'/>
+<use f='llvm/llvm/lib/CodeGen/SplitKit.cpp' l='1389' u='c' c='_ZN4llvm11SplitEditor15rewriteAssignedEb'/>

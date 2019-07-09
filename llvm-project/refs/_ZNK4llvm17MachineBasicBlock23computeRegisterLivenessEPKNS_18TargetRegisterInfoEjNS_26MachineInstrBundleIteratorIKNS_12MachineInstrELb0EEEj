@@ -1,0 +1,18 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/MachineBasicBlock.h' l='769' type='llvm::MachineBasicBlock::LivenessQueryResult llvm::MachineBasicBlock::computeRegisterLiveness(const llvm::TargetRegisterInfo * TRI, unsigned int Reg, const_iterator Before, unsigned int Neighborhood = 10) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineBasicBlock.h' l='761'>/// Return whether (physical) register \p Reg has been defined and not
+  /// killed as of just before \p Before.
+  ///
+  /// Search is localised to a neighborhood of \p Neighborhood instructions
+  /// before (searching for defs or kills) and \p Neighborhood instructions
+  /// after (searching just for defs) \p Before.
+  ///
+  /// \p Reg must be a physical register.</doc>
+<def f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='1378' ll='1471' type='MachineBasicBlock::LivenessQueryResult llvm::MachineBasicBlock::computeRegisterLiveness(const llvm::TargetRegisterInfo * TRI, unsigned int Reg, const_iterator Before, unsigned int Neighborhood = 10) const'/>
+<doc f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='1372'>/// Return whether (physical) register &quot;Reg&quot; has been &lt;def&gt;ined and not &lt;kill&gt;ed
+/// as of just before &quot;MI&quot;.
+///
+/// Search is localised to a neighborhood of
+/// Neighborhood instructions before (searching for defs or kills) and N
+/// instructions after (searching just for defs) MI.</doc>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='2354' u='c' c='_ZN4llvm26tryFoldSPUpdateIntoPushPopERKNS_12ARMSubtargetERNS_15MachineFunctionEPNS_12MachineInstrEj'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='4775' u='c' c='_ZL26getImplicitSPRUseForDPRUsePKN4llvm18TargetRegisterInfoERNS_12MachineInstrEjjRj'/>

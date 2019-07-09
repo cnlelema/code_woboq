@@ -1,0 +1,15 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='10399' type='llvm::DenseMap&lt;CanonicalDeclPtr&lt;FunctionDecl&gt;, llvm::MapVector&lt;CanonicalDeclPtr&lt;FunctionDecl&gt;, SourceLocation&gt; &gt;'/>
+<doc f='llvm/clang/include/clang/Sema/Sema.h' l='10389'>/// A partial call graph maintained during CUDA/OpenMP device code compilation
+  /// to support deferred diagnostics.
+  ///
+  /// Functions are only added here if, at the time they&apos;re considered, they are
+  /// not known-emitted.  As soon as we discover that a function is
+  /// known-emitted, we remove it and everything it transitively calls from this
+  /// set and add those functions to DeviceKnownEmittedFns.</doc>
+<doc f='llvm/clang/include/clang/Sema/Sema.h' l='10396'>/* Caller = */</doc>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='1585' u='m' c='_ZN5clang4Sema16markKnownEmittedERS0_PNS_12FunctionDeclES3_NS_14SourceLocationEN4llvm12function_refIFbS1_S3_EEE'/>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='1620' u='m' c='_ZN5clang4Sema16markKnownEmittedERS0_PNS_12FunctionDeclES3_NS_14SourceLocationEN4llvm12function_refIFbS1_S3_EEE'/>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='1621' u='m' c='_ZN5clang4Sema16markKnownEmittedERS0_PNS_12FunctionDeclES3_NS_14SourceLocationEN4llvm12function_refIFbS1_S3_EEE'/>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='1637' u='m' c='_ZN5clang4Sema16markKnownEmittedERS0_PNS_12FunctionDeclES3_NS_14SourceLocationEN4llvm12function_refIFbS1_S3_EEE'/>
+<use f='llvm/clang/lib/Sema/SemaCUDA.cpp' l='705' u='m' c='_ZN5clang4Sema13CheckCUDACallENS_14SourceLocationEPNS_12FunctionDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='1571' u='m' c='_ZN5clang4Sema25checkOpenMPDeviceFunctionENS_14SourceLocationEPNS_12FunctionDeclE'/>

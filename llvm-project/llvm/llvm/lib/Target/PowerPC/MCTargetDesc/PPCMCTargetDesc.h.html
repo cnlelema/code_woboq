@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PPCMCTargetDesc.h source code [llvm/llvm/lib/Target/PowerPC/MCTargetDesc/PPCMCTargetDesc.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/Target/PowerPC/MCTargetDesc/PPCMCTargetDesc.h'; var root_path = '../../../../../..'; var data_path = '../../../../../../../data';</script>
+<script src='../../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>llvm</a>/<a href='../../../..'>llvm</a>/<a href='../../..'>lib</a>/<a href='../..'>Target</a>/<a href='..'>PowerPC</a>/<a href='./'>MCTargetDesc</a>/<a href='PPCMCTargetDesc.h.html'>PPCMCTargetDesc.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- PPCMCTargetDesc.h - PowerPC Target Descriptions ---------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file provides PowerPC specific target descriptions.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#<span data-ppcond="13">ifndef</span> <span class="macro" data-ref="_M/LLVM_LIB_TARGET_POWERPC_MCTARGETDESC_PPCMCTARGETDESC_H">LLVM_LIB_TARGET_POWERPC_MCTARGETDESC_PPCMCTARGETDESC_H</span></u></td></tr>
+<tr><th id="14">14</th><td><u>#define <dfn class="macro" id="_M/LLVM_LIB_TARGET_POWERPC_MCTARGETDESC_PPCMCTARGETDESC_H" data-ref="_M/LLVM_LIB_TARGET_POWERPC_MCTARGETDESC_PPCMCTARGETDESC_H">LLVM_LIB_TARGET_POWERPC_MCTARGETDESC_PPCMCTARGETDESC_H</dfn></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><i>// GCC #defines PPC on Linux but we use it as our namespace name</i></td></tr>
+<tr><th id="17">17</th><td><u>#undef <span class="macro" data-ref="_M/PPC">PPC</span></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../include/llvm/MC/MCRegisterInfo.h.html">"llvm/MC/MCRegisterInfo.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../include/llvm/Support/MathExtras.h.html">"llvm/Support/MathExtras.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../../../../include/c++/7/cstdint.html">&lt;cstdint&gt;</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../../../../include/c++/7/memory.html">&lt;memory&gt;</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><b>class</b> <dfn class="type" id="llvm::MCAsmBackend" title='llvm::MCAsmBackend' data-ref="llvm::MCAsmBackend">MCAsmBackend</dfn>;</td></tr>
+<tr><th id="27">27</th><td><b>class</b> <dfn class="type" id="llvm::MCCodeEmitter" title='llvm::MCCodeEmitter' data-ref="llvm::MCCodeEmitter">MCCodeEmitter</dfn>;</td></tr>
+<tr><th id="28">28</th><td><b>class</b> <a class="type" href="../../../../include/llvm/MC/MCContext.h.html#llvm::MCContext" title='llvm::MCContext' data-ref="llvm::MCContext" id="llvm::MCContext">MCContext</a>;</td></tr>
+<tr><th id="29">29</th><td><b>class</b> <a class="type" href="../../../../include/llvm/MC/MCInstrInfo.h.html#llvm::MCInstrInfo" title='llvm::MCInstrInfo' data-ref="llvm::MCInstrInfo" id="llvm::MCInstrInfo">MCInstrInfo</a>;</td></tr>
+<tr><th id="30">30</th><td><b>class</b> <dfn class="type" id="llvm::MCObjectTargetWriter" title='llvm::MCObjectTargetWriter' data-ref="llvm::MCObjectTargetWriter">MCObjectTargetWriter</dfn>;</td></tr>
+<tr><th id="31">31</th><td><b>class</b> <a class="type" href="../../../../include/llvm/MC/MCRegisterInfo.h.html#llvm::MCRegisterInfo" title='llvm::MCRegisterInfo' data-ref="llvm::MCRegisterInfo" id="llvm::MCRegisterInfo">MCRegisterInfo</a>;</td></tr>
+<tr><th id="32">32</th><td><b>class</b> <a class="type" href="../../../../include/llvm/MC/MCSubtargetInfo.h.html#llvm::MCSubtargetInfo" title='llvm::MCSubtargetInfo' data-ref="llvm::MCSubtargetInfo" id="llvm::MCSubtargetInfo">MCSubtargetInfo</a>;</td></tr>
+<tr><th id="33">33</th><td><b>class</b> <a class="type" href="../../../../include/llvm/MC/MCTargetOptions.h.html#llvm::MCTargetOptions" title='llvm::MCTargetOptions' data-ref="llvm::MCTargetOptions" id="llvm::MCTargetOptions">MCTargetOptions</a>;</td></tr>
+<tr><th id="34">34</th><td><b>class</b> <a class="type" href="../../../../include/llvm/Support/TargetRegistry.h.html#llvm::Target" title='llvm::Target' data-ref="llvm::Target" id="llvm::Target">Target</a>;</td></tr>
+<tr><th id="35">35</th><td><b>class</b> <a class="type" href="../../../../include/llvm/ADT/Triple.h.html#llvm::Triple" title='llvm::Triple' data-ref="llvm::Triple" id="llvm::Triple">Triple</a>;</td></tr>
+<tr><th id="36">36</th><td><b>class</b> <a class="type" href="../../../../include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef" id="llvm::StringRef">StringRef</a>;</td></tr>
+<tr><th id="37">37</th><td><b>class</b> <a class="type" href="../../../../include/llvm/Support/raw_ostream.h.html#llvm::raw_pwrite_stream" title='llvm::raw_pwrite_stream' data-ref="llvm::raw_pwrite_stream" id="llvm::raw_pwrite_stream">raw_pwrite_stream</a>;</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><a class="type" href="#llvm::MCCodeEmitter" title='llvm::MCCodeEmitter' data-ref="llvm::MCCodeEmitter">MCCodeEmitter</a> *<dfn class="decl" id="_ZN4llvm22createPPCMCCodeEmitterERKNS_11MCInstrInfoERKNS_14MCRegisterInfoERNS_9MCContextE" title='llvm::createPPCMCCodeEmitter' data-ref="_ZN4llvm22createPPCMCCodeEmitterERKNS_11MCInstrInfoERKNS_14MCRegisterInfoERNS_9MCContextE">createPPCMCCodeEmitter</dfn>(<em>const</em> <a class="type" href="../../../../include/llvm/MC/MCInstrInfo.h.html#llvm::MCInstrInfo" title='llvm::MCInstrInfo' data-ref="llvm::MCInstrInfo">MCInstrInfo</a> &amp;<dfn class="local col7 decl" id="27MCII" title='MCII' data-type='const llvm::MCInstrInfo &amp;' data-ref="27MCII">MCII</dfn>,</td></tr>
+<tr><th id="40">40</th><td>                                      <em>const</em> <a class="type" href="../../../../include/llvm/MC/MCRegisterInfo.h.html#llvm::MCRegisterInfo" title='llvm::MCRegisterInfo' data-ref="llvm::MCRegisterInfo">MCRegisterInfo</a> &amp;<dfn class="local col8 decl" id="28MRI" title='MRI' data-type='const llvm::MCRegisterInfo &amp;' data-ref="28MRI">MRI</dfn>,</td></tr>
+<tr><th id="41">41</th><td>                                      <a class="type" href="../../../../include/llvm/MC/MCContext.h.html#llvm::MCContext" title='llvm::MCContext' data-ref="llvm::MCContext">MCContext</a> &amp;<dfn class="local col9 decl" id="29Ctx" title='Ctx' data-type='llvm::MCContext &amp;' data-ref="29Ctx">Ctx</dfn>);</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><a class="type" href="#llvm::MCAsmBackend" title='llvm::MCAsmBackend' data-ref="llvm::MCAsmBackend">MCAsmBackend</a> *<dfn class="decl" id="_ZN4llvm19createPPCAsmBackendERKNS_6TargetERKNS_15MCSubtargetInfoERKNS_14MCRegisterInfoERKNS_15MCTargetOptionsE" title='llvm::createPPCAsmBackend' data-ref="_ZN4llvm19createPPCAsmBackendERKNS_6TargetERKNS_15MCSubtargetInfoERKNS_14MCRegisterInfoERKNS_15MCTargetOptionsE">createPPCAsmBackend</dfn>(<em>const</em> <a class="type" href="../../../../include/llvm/Support/TargetRegistry.h.html#llvm::Target" title='llvm::Target' data-ref="llvm::Target">Target</a> &amp;<dfn class="local col0 decl" id="30T" title='T' data-type='const llvm::Target &amp;' data-ref="30T">T</dfn>, <em>const</em> <a class="type" href="../../../../include/llvm/MC/MCSubtargetInfo.h.html#llvm::MCSubtargetInfo" title='llvm::MCSubtargetInfo' data-ref="llvm::MCSubtargetInfo">MCSubtargetInfo</a> &amp;<dfn class="local col1 decl" id="31STI" title='STI' data-type='const llvm::MCSubtargetInfo &amp;' data-ref="31STI">STI</dfn>,</td></tr>
+<tr><th id="44">44</th><td>                                  <em>const</em> <a class="type" href="../../../../include/llvm/MC/MCRegisterInfo.h.html#llvm::MCRegisterInfo" title='llvm::MCRegisterInfo' data-ref="llvm::MCRegisterInfo">MCRegisterInfo</a> &amp;<dfn class="local col2 decl" id="32MRI" title='MRI' data-type='const llvm::MCRegisterInfo &amp;' data-ref="32MRI">MRI</dfn>,</td></tr>
+<tr><th id="45">45</th><td>                                  <em>const</em> <a class="type" href="../../../../include/llvm/MC/MCTargetOptions.h.html#llvm::MCTargetOptions" title='llvm::MCTargetOptions' data-ref="llvm::MCTargetOptions">MCTargetOptions</a> &amp;<dfn class="local col3 decl" id="33Options" title='Options' data-type='const llvm::MCTargetOptions &amp;' data-ref="33Options">Options</dfn>);</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><i class="doc">/// Construct an PPC ELF object writer.</i></td></tr>
+<tr><th id="48">48</th><td><span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/7/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="#llvm::MCObjectTargetWriter" title='llvm::MCObjectTargetWriter' data-ref="llvm::MCObjectTargetWriter">MCObjectTargetWriter</a>&gt; <dfn class="decl" id="_ZN4llvm24createPPCELFObjectWriterEbh" title='llvm::createPPCELFObjectWriter' data-ref="_ZN4llvm24createPPCELFObjectWriterEbh">createPPCELFObjectWriter</dfn>(<em>bool</em> <dfn class="local col4 decl" id="34Is64Bit" title='Is64Bit' data-type='bool' data-ref="34Is64Bit">Is64Bit</dfn>,</td></tr>
+<tr><th id="49">49</th><td>                                                               <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col5 decl" id="35OSABI" title='OSABI' data-type='uint8_t' data-ref="35OSABI">OSABI</dfn>);</td></tr>
+<tr><th id="50">50</th><td><i class="doc">/// Construct a PPC Mach-O object writer.</i></td></tr>
+<tr><th id="51">51</th><td><span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/7/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="#llvm::MCObjectTargetWriter" title='llvm::MCObjectTargetWriter' data-ref="llvm::MCObjectTargetWriter">MCObjectTargetWriter</a>&gt;</td></tr>
+<tr><th id="52">52</th><td><dfn class="decl" id="_ZN4llvm25createPPCMachObjectWriterEbjj" title='llvm::createPPCMachObjectWriter' data-ref="_ZN4llvm25createPPCMachObjectWriterEbjj">createPPCMachObjectWriter</dfn>(<em>bool</em> <dfn class="local col6 decl" id="36Is64Bit" title='Is64Bit' data-type='bool' data-ref="36Is64Bit">Is64Bit</dfn>, <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col7 decl" id="37CPUType" title='CPUType' data-type='uint32_t' data-ref="37CPUType">CPUType</dfn>, <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col8 decl" id="38CPUSubtype" title='CPUSubtype' data-type='uint32_t' data-ref="38CPUSubtype">CPUSubtype</dfn>);</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><i class="doc">/// Returns true iff Val consists of one contiguous run of 1s with any number of</i></td></tr>
+<tr><th id="55">55</th><td><i class="doc">/// 0s on either side.  The 1s are allowed to wrap from LSB to MSB, so</i></td></tr>
+<tr><th id="56">56</th><td><i class="doc">/// 0x000FFF0, 0x0000FFFF, and 0xFF0000FF are all runs.  0x0F0F0000 is not,</i></td></tr>
+<tr><th id="57">57</th><td><i class="doc">/// since all 1s are not contiguous.</i></td></tr>
+<tr><th id="58">58</th><td><em>static</em> <b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN4llvmL11isRunOfOnesEjRjS0_" title='llvm::isRunOfOnes' data-ref="_ZN4llvmL11isRunOfOnesEjRjS0_">isRunOfOnes</dfn>(<em>unsigned</em> <dfn class="local col9 decl" id="39Val" title='Val' data-type='unsigned int' data-ref="39Val">Val</dfn>, <em>unsigned</em> &amp;<dfn class="local col0 decl" id="40MB" title='MB' data-type='unsigned int &amp;' data-ref="40MB">MB</dfn>, <em>unsigned</em> &amp;<dfn class="local col1 decl" id="41ME" title='ME' data-type='unsigned int &amp;' data-ref="41ME">ME</dfn>) {</td></tr>
+<tr><th id="59">59</th><td>  <b>if</b> (!<a class="local col9 ref" href="#39Val" title='Val' data-ref="39Val">Val</a>)</td></tr>
+<tr><th id="60">60</th><td>    <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>  <b>if</b> (<a class="ref" href="../../../../include/llvm/Support/MathExtras.h.html#_ZN4llvm16isShiftedMask_32Ej" title='llvm::isShiftedMask_32' data-ref="_ZN4llvm16isShiftedMask_32Ej">isShiftedMask_32</a>(<a class="local col9 ref" href="#39Val" title='Val' data-ref="39Val">Val</a>)) {</td></tr>
+<tr><th id="63">63</th><td>    <i>// look for the first non-zero bit</i></td></tr>
+<tr><th id="64">64</th><td>    <a class="local col0 ref" href="#40MB" title='MB' data-ref="40MB">MB</a> = <a class="ref" href="../../../../include/llvm/Support/MathExtras.h.html#_ZN4llvm17countLeadingZerosET_NS_12ZeroBehaviorE" title='llvm::countLeadingZeros' data-ref="_ZN4llvm17countLeadingZerosET_NS_12ZeroBehaviorE">countLeadingZeros</a>(<a class="local col9 ref" href="#39Val" title='Val' data-ref="39Val">Val</a>);</td></tr>
+<tr><th id="65">65</th><td>    <i>// look for the first zero bit after the run of ones</i></td></tr>
+<tr><th id="66">66</th><td>    <a class="local col1 ref" href="#41ME" title='ME' data-ref="41ME">ME</a> = <a class="ref" href="../../../../include/llvm/Support/MathExtras.h.html#_ZN4llvm17countLeadingZerosET_NS_12ZeroBehaviorE" title='llvm::countLeadingZeros' data-ref="_ZN4llvm17countLeadingZerosET_NS_12ZeroBehaviorE">countLeadingZeros</a>((<a class="local col9 ref" href="#39Val" title='Val' data-ref="39Val">Val</a> - <var>1</var>) ^ <a class="local col9 ref" href="#39Val" title='Val' data-ref="39Val">Val</a>);</td></tr>
+<tr><th id="67">67</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="68">68</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="69">69</th><td>    <a class="local col9 ref" href="#39Val" title='Val' data-ref="39Val">Val</a> = ~<a class="local col9 ref" href="#39Val" title='Val' data-ref="39Val">Val</a>; <i>// invert mask</i></td></tr>
+<tr><th id="70">70</th><td>    <b>if</b> (<a class="ref" href="../../../../include/llvm/Support/MathExtras.h.html#_ZN4llvm16isShiftedMask_32Ej" title='llvm::isShiftedMask_32' data-ref="_ZN4llvm16isShiftedMask_32Ej">isShiftedMask_32</a>(<a class="local col9 ref" href="#39Val" title='Val' data-ref="39Val">Val</a>)) {</td></tr>
+<tr><th id="71">71</th><td>      <i>// effectively look for the first zero bit</i></td></tr>
+<tr><th id="72">72</th><td>      <a class="local col1 ref" href="#41ME" title='ME' data-ref="41ME">ME</a> = <a class="ref" href="../../../../include/llvm/Support/MathExtras.h.html#_ZN4llvm17countLeadingZerosET_NS_12ZeroBehaviorE" title='llvm::countLeadingZeros' data-ref="_ZN4llvm17countLeadingZerosET_NS_12ZeroBehaviorE">countLeadingZeros</a>(<a class="local col9 ref" href="#39Val" title='Val' data-ref="39Val">Val</a>) - <var>1</var>;</td></tr>
+<tr><th id="73">73</th><td>      <i>// effectively look for the first one bit after the run of zeros</i></td></tr>
+<tr><th id="74">74</th><td>      <a class="local col0 ref" href="#40MB" title='MB' data-ref="40MB">MB</a> = <a class="ref" href="../../../../include/llvm/Support/MathExtras.h.html#_ZN4llvm17countLeadingZerosET_NS_12ZeroBehaviorE" title='llvm::countLeadingZeros' data-ref="_ZN4llvm17countLeadingZerosET_NS_12ZeroBehaviorE">countLeadingZeros</a>((<a class="local col9 ref" href="#39Val" title='Val' data-ref="39Val">Val</a> - <var>1</var>) ^ <a class="local col9 ref" href="#39Val" title='Val' data-ref="39Val">Val</a>) + <var>1</var>;</td></tr>
+<tr><th id="75">75</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="76">76</th><td>    }</td></tr>
+<tr><th id="77">77</th><td>  }</td></tr>
+<tr><th id="78">78</th><td>  <i>// no run present</i></td></tr>
+<tr><th id="79">79</th><td>  <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="80">80</th><td>}</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><i>// Generated files will use "namespace PPC". To avoid symbol clash,</i></td></tr>
+<tr><th id="85">85</th><td><i>// undefine PPC here. PPC may be predefined on some hosts.</i></td></tr>
+<tr><th id="86">86</th><td><u>#undef <span class="macro" data-ref="_M/PPC">PPC</span></u></td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><i>// Defines symbolic names for PowerPC registers.  This defines a mapping from</i></td></tr>
+<tr><th id="89">89</th><td><i>// register name to register number.</i></td></tr>
+<tr><th id="90">90</th><td><i>//</i></td></tr>
+<tr><th id="91">91</th><td><u>#define <dfn class="macro" id="_M/GET_REGINFO_ENUM" data-ref="_M/GET_REGINFO_ENUM">GET_REGINFO_ENUM</dfn></u></td></tr>
+<tr><th id="92">92</th><td><u>#include <span class='error' title="&apos;PPCGenRegisterInfo.inc&apos; file not found">"PPCGenRegisterInfo.inc"</span></u></td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td><i>// Defines symbolic names for the PowerPC instructions.</i></td></tr>
+<tr><th id="95">95</th><td><i>//</i></td></tr>
+<tr><th id="96">96</th><td><u>#define <dfn class="macro" id="_M/GET_INSTRINFO_ENUM" data-ref="_M/GET_INSTRINFO_ENUM">GET_INSTRINFO_ENUM</dfn></u></td></tr>
+<tr><th id="97">97</th><td><u>#define <dfn class="macro" id="_M/GET_INSTRINFO_SCHED_ENUM" data-ref="_M/GET_INSTRINFO_SCHED_ENUM">GET_INSTRINFO_SCHED_ENUM</dfn></u></td></tr>
+<tr><th id="98">98</th><td><u>#include "PPCGenInstrInfo.inc"</u></td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td><u>#define <dfn class="macro" id="_M/GET_SUBTARGETINFO_ENUM" data-ref="_M/GET_SUBTARGETINFO_ENUM">GET_SUBTARGETINFO_ENUM</dfn></u></td></tr>
+<tr><th id="101">101</th><td><u>#include "PPCGenSubtargetInfo.inc"</u></td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td><u>#define <dfn class="macro" id="_M/PPC_REGS0_31" data-ref="_M/PPC_REGS0_31">PPC_REGS0_31</dfn>(X)                                                        \</u></td></tr>
+<tr><th id="104">104</th><td><u>  {                                                                            \</u></td></tr>
+<tr><th id="105">105</th><td><u>    X##0, X##1, X##2, X##3, X##4, X##5, X##6, X##7, X##8, X##9, X##10, X##11,  \</u></td></tr>
+<tr><th id="106">106</th><td><u>        X##12, X##13, X##14, X##15, X##16, X##17, X##18, X##19, X##20, X##21,  \</u></td></tr>
+<tr><th id="107">107</th><td><u>        X##22, X##23, X##24, X##25, X##26, X##27, X##28, X##29, X##30, X##31   \</u></td></tr>
+<tr><th id="108">108</th><td><u>  }</u></td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td><u>#define <dfn class="macro" id="_M/PPC_REGS_NO0_31" data-ref="_M/PPC_REGS_NO0_31">PPC_REGS_NO0_31</dfn>(Z, X)                                                  \</u></td></tr>
+<tr><th id="111">111</th><td><u>  {                                                                            \</u></td></tr>
+<tr><th id="112">112</th><td><u>    Z, X##1, X##2, X##3, X##4, X##5, X##6, X##7, X##8, X##9, X##10, X##11,     \</u></td></tr>
+<tr><th id="113">113</th><td><u>        X##12, X##13, X##14, X##15, X##16, X##17, X##18, X##19, X##20, X##21,  \</u></td></tr>
+<tr><th id="114">114</th><td><u>        X##22, X##23, X##24, X##25, X##26, X##27, X##28, X##29, X##30, X##31   \</u></td></tr>
+<tr><th id="115">115</th><td><u>  }</u></td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td><u>#define <dfn class="macro" id="_M/PPC_REGS_LO_HI" data-ref="_M/PPC_REGS_LO_HI">PPC_REGS_LO_HI</dfn>(LO, HI)                                                 \</u></td></tr>
+<tr><th id="118">118</th><td><u>  {                                                                            \</u></td></tr>
+<tr><th id="119">119</th><td><u>    LO##0, LO##1, LO##2, LO##3, LO##4, LO##5, LO##6, LO##7, LO##8, LO##9,      \</u></td></tr>
+<tr><th id="120">120</th><td><u>        LO##10, LO##11, LO##12, LO##13, LO##14, LO##15, LO##16, LO##17,        \</u></td></tr>
+<tr><th id="121">121</th><td><u>        LO##18, LO##19, LO##20, LO##21, LO##22, LO##23, LO##24, LO##25,        \</u></td></tr>
+<tr><th id="122">122</th><td><u>        LO##26, LO##27, LO##28, LO##29, LO##30, LO##31, HI##0, HI##1, HI##2,   \</u></td></tr>
+<tr><th id="123">123</th><td><u>        HI##3, HI##4, HI##5, HI##6, HI##7, HI##8, HI##9, HI##10, HI##11,       \</u></td></tr>
+<tr><th id="124">124</th><td><u>        HI##12, HI##13, HI##14, HI##15, HI##16, HI##17, HI##18, HI##19,        \</u></td></tr>
+<tr><th id="125">125</th><td><u>        HI##20, HI##21, HI##22, HI##23, HI##24, HI##25, HI##26, HI##27,        \</u></td></tr>
+<tr><th id="126">126</th><td><u>        HI##28, HI##29, HI##30, HI##31                                         \</u></td></tr>
+<tr><th id="127">127</th><td><u>  }</u></td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td><b>using</b> <span class="namespace">llvm::</span>MCPhysReg;</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td><u>#define <dfn class="macro" id="_M/DEFINE_PPC_REGCLASSES" data-ref="_M/DEFINE_PPC_REGCLASSES">DEFINE_PPC_REGCLASSES</dfn> \</u></td></tr>
+<tr><th id="132">132</th><td><u>  static const MCPhysReg RRegs[32] = PPC_REGS0_31(<span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::R); \</u></td></tr>
+<tr><th id="133">133</th><td><u>  static const MCPhysReg XRegs[32] = PPC_REGS0_31(<span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::X); \</u></td></tr>
+<tr><th id="134">134</th><td><u>  static const MCPhysReg FRegs[32] = PPC_REGS0_31(<span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::F); \</u></td></tr>
+<tr><th id="135">135</th><td><u>  static const MCPhysReg SPERegs[32] = PPC_REGS0_31(<span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::S); \</u></td></tr>
+<tr><th id="136">136</th><td><u>  static const MCPhysReg VFRegs[32] = PPC_REGS0_31(<span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::VF); \</u></td></tr>
+<tr><th id="137">137</th><td><u>  static const MCPhysReg VRegs[32] = PPC_REGS0_31(<span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::V); \</u></td></tr>
+<tr><th id="138">138</th><td><u>  static const MCPhysReg QFRegs[32] = PPC_REGS0_31(<span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::QF); \</u></td></tr>
+<tr><th id="139">139</th><td><u>  static const MCPhysReg RRegsNoR0[32] = \</u></td></tr>
+<tr><th id="140">140</th><td><u>    PPC_REGS_NO0_31(<span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::ZERO, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::R); \</u></td></tr>
+<tr><th id="141">141</th><td><u>  static const MCPhysReg XRegsNoX0[32] = \</u></td></tr>
+<tr><th id="142">142</th><td><u>    PPC_REGS_NO0_31(<span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::ZERO8, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::X); \</u></td></tr>
+<tr><th id="143">143</th><td><u>  static const MCPhysReg VSRegs[64] = \</u></td></tr>
+<tr><th id="144">144</th><td><u>    PPC_REGS_LO_HI(<span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::VSL, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::V); \</u></td></tr>
+<tr><th id="145">145</th><td><u>  static const MCPhysReg VSFRegs[64] = \</u></td></tr>
+<tr><th id="146">146</th><td><u>    PPC_REGS_LO_HI(<span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::F, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::VF); \</u></td></tr>
+<tr><th id="147">147</th><td><u>  static const MCPhysReg VSSRegs[64] = \</u></td></tr>
+<tr><th id="148">148</th><td><u>    PPC_REGS_LO_HI(<span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::F, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::VF); \</u></td></tr>
+<tr><th id="149">149</th><td><u>  static const MCPhysReg CRBITRegs[32] = { \</u></td></tr>
+<tr><th id="150">150</th><td><u>    <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR0LT, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR0GT, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR0EQ, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR0UN, \</u></td></tr>
+<tr><th id="151">151</th><td><u>    <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR1LT, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR1GT, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR1EQ, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR1UN, \</u></td></tr>
+<tr><th id="152">152</th><td><u>    <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR2LT, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR2GT, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR2EQ, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR2UN, \</u></td></tr>
+<tr><th id="153">153</th><td><u>    <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR3LT, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR3GT, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR3EQ, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR3UN, \</u></td></tr>
+<tr><th id="154">154</th><td><u>    <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR4LT, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR4GT, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR4EQ, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR4UN, \</u></td></tr>
+<tr><th id="155">155</th><td><u>    <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR5LT, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR5GT, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR5EQ, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR5UN, \</u></td></tr>
+<tr><th id="156">156</th><td><u>    <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR6LT, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR6GT, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR6EQ, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR6UN, \</u></td></tr>
+<tr><th id="157">157</th><td><u>    <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR7LT, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR7GT, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR7EQ, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR7UN}; \</u></td></tr>
+<tr><th id="158">158</th><td><u>  static const MCPhysReg CRRegs[8] = { \</u></td></tr>
+<tr><th id="159">159</th><td><u>    <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR0, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR1, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR2, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR3, \</u></td></tr>
+<tr><th id="160">160</th><td><u>    <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR4, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR5, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR6, <span class='error' title="use of undeclared identifier &apos;PPC&apos;">PPC</span>::CR7}</u></td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td><u>#<span data-ppcond="13">endif</span> // LLVM_LIB_TARGET_POWERPC_MCTARGETDESC_PPCMCTARGETDESC_H</u></td></tr>
+<tr><th id="163">163</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../AsmParser/PPCAsmParser.cpp.html'>llvm/llvm/lib/Target/PowerPC/AsmParser/PPCAsmParser.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

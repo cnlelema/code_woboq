@@ -1,0 +1,8 @@
+<dec f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='452' type='llvm::Instruction * llvm::InstCombiner::simplifyMaskedScatter(llvm::IntrinsicInst &amp; II)'/>
+<def f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1136' ll='1160' type='llvm::Instruction * llvm::InstCombiner::simplifyMaskedScatter(llvm::IntrinsicInst &amp; II)'/>
+<doc f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1130'>// TODO, Obvious Missing Transforms:
+// * Single constant active lane -&gt; store
+// * Adjacent vector addresses -&gt; masked.store
+// * Narrow store width by halfs excluding zero/undef lanes
+// * Vector splat address w/known mask -&gt; scalar store
+// * Vector incrementing address -&gt; vector masked store</doc>

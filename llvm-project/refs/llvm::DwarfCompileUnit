@@ -1,0 +1,91 @@
+<inh f='llvm/llvm/lib/CodeGen/AsmPrinter/DwarfUnit.h' l='40' c='llvm::DwarfUnit'/>
+<def f='llvm/llvm/lib/CodeGen/AsmPrinter/DwarfCompileUnit.h' l='43' ll='338'/>
+<size>632</size>
+<mbr r='llvm::DwarfCompileUnit::UniqueID' o='2752' t='unsigned int'/>
+<mbr r='llvm::DwarfCompileUnit::HasRangeLists' o='2784' t='bool'/>
+<mbr r='llvm::DwarfCompileUnit::StmtListValue' o='2816' t='DIE::value_iterator'/>
+<mbr r='llvm::DwarfCompileUnit::Skeleton' o='2880' t='llvm::DwarfCompileUnit *'/>
+<mbr r='llvm::DwarfCompileUnit::LabelBegin' o='2944' t='llvm::MCSymbol *'/>
+<mbr r='llvm::DwarfCompileUnit::MacroLabelBegin' o='3008' t='llvm::MCSymbol *'/>
+<mbr r='llvm::DwarfCompileUnit::ImportedEntities' o='3072' t='ImportedEntityMap'/>
+<mbr r='llvm::DwarfCompileUnit::GlobalNames' o='3328' t='StringMap&lt;const llvm::DIE *&gt;'/>
+<mbr r='llvm::DwarfCompileUnit::GlobalTypes' o='3584' t='StringMap&lt;const llvm::DIE *&gt;'/>
+<mbr r='llvm::DwarfCompileUnit::CURanges' o='3840' t='SmallVector&lt;llvm::RangeSpan, 2&gt;'/>
+<mbr r='llvm::DwarfCompileUnit::BaseAddress' o='4224' t='const llvm::MCSymbol *'/>
+<mbr r='llvm::DwarfCompileUnit::AbstractSPDies' o='4288' t='DenseMap&lt;const llvm::MDNode *, llvm::DIE *&gt;'/>
+<mbr r='llvm::DwarfCompileUnit::AbstractEntities' o='4544' t='DenseMap&lt;const llvm::DINode *, std::unique_ptr&lt;DbgEntity&gt; &gt;'/>
+<mbr r='llvm::DwarfCompileUnit::DWOId' o='4800' t='uint64_t'/>
+<fun r='_ZN4llvm16DwarfCompileUnit24constructVariableDIEImplERKNS_11DbgVariableEb'/>
+<fun r='_ZNK4llvm16DwarfCompileUnit9isDwoUnitEv'/>
+<fun r='_ZN4llvm16DwarfCompileUnit17getAbstractSPDiesEv'/>
+<fun r='_ZN4llvm16DwarfCompileUnit19getAbstractEntitiesEv'/>
+<fun r='_ZN4llvm16DwarfCompileUnit20finishNonUnitTypeDIEERNS_3DIEEPKNS_15DICompositeTypeE'/>
+<fun r='_ZN4llvm16DwarfCompileUnitC1EjPKNS_13DICompileUnitEPNS_10AsmPrinterEPNS_10DwarfDebugEPNS_9DwarfFileE'/>
+<fun r='_ZNK4llvm16DwarfCompileUnit13hasRangeListsEv'/>
+<fun r='_ZNK4llvm16DwarfCompileUnit11getUniqueIDEv'/>
+<fun r='_ZNK4llvm16DwarfCompileUnit11getSkeletonEv'/>
+<fun r='_ZNK4llvm16DwarfCompileUnit26includeMinimalInlineScopesEv'/>
+<fun r='_ZN4llvm16DwarfCompileUnit12initStmtListEv'/>
+<fun r='_ZN4llvm16DwarfCompileUnit13applyStmtListERNS_3DIEE'/>
+<mbr r='llvm::DwarfCompileUnit::ExprRefedBaseTypes' o='4864' t='std::vector&lt;BaseTypeRef&gt;'/>
+<fun r='_ZN4llvm16DwarfCompileUnit28getOrCreateGlobalVariableDIEEPKNS_16DIGlobalVariableENS_8ArrayRefINS0_10GlobalExprEEE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit22getOrCreateCommonBlockEPKNS_13DICommonBlockENS_8ArrayRefINS0_10GlobalExprEEE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit20addLocationAttributeEPNS_3DIEEPKNS_16DIGlobalVariableENS_8ArrayRefINS0_10GlobalExprEEE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit15addLabelAddressERNS_3DIEENS_5dwarf9AttributeEPKNS_8MCSymbolE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit20addLocalLabelAddressERNS_3DIEENS_5dwarf9AttributeEPKNS_8MCSymbolE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit5getCUEv'/>
+<fun r='_ZN4llvm16DwarfCompileUnit19getOrCreateSourceIDEPKNS_6DIFileE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit17addImportedEntityEPKNS_16DIImportedEntityE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit8addRangeENS_9RangeSpanE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit15attachLowHighPCERNS_3DIEEPKNS_8MCSymbolES5_'/>
+<fun r='_ZN4llvm16DwarfCompileUnit24updateSubprogramScopeDIEEPKNS_12DISubprogramE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit17constructScopeDIEEPNS_12LexicalScopeERNS_15SmallVectorImplIPNS_3DIEEEE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit17addScopeRangeListERNS_3DIEENS_11SmallVectorINS_9RangeSpanELj2EEE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit23attachRangesOrLowHighPCERNS_3DIEENS_11SmallVectorINS_9RangeSpanELj2EEE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit23attachRangesOrLowHighPCERNS_3DIEERKNS_15SmallVectorImplISt4pairIPKNS_12MachineInstrES7_EEE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit24constructInlinedScopeDIEEPNS_12LexicalScopeE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit24constructLexicalScopeDIEEPNS_12LexicalScopeE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit20constructVariableDIEERNS_11DbgVariableEb'/>
+<fun r='_ZN4llvm16DwarfCompileUnit20constructVariableDIEERNS_11DbgVariableERKNS_12LexicalScopeERPNS_3DIEE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit17constructLabelDIEERNS_8DbgLabelERKNS_12LexicalScopeE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit22createScopeChildrenDIEEPNS_12LexicalScopeERNS_15SmallVectorImplIPNS_3DIEEEEPb'/>
+<fun r='_ZN4llvm16DwarfCompileUnit18createBaseTypeDIEsEv'/>
+<fun r='_ZN4llvm16DwarfCompileUnit27constructSubprogramScopeDIEEPKNS_12DISubprogramEPNS_12LexicalScopeE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit25createAndAddScopeChildrenEPNS_12LexicalScopeERNS_3DIEE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit35constructAbstractSubprogramScopeDIEEPNS_12LexicalScopeE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit25constructCallSiteEntryDIEERNS_3DIEERKNS_12DISubprogramEbPKNS_6MCExprE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit26constructImportedEntityDIEEPKNS_16DIImportedEntityE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit26finishSubprogramDefinitionEPKNS_12DISubprogramE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit22finishEntityDefinitionEPKNS_9DbgEntityE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit25getExistingAbstractEntityEPKNS_6DINodeE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit20createAbstractEntityEPKNS_6DINodeEPNS_12LexicalScopeE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit11setSkeletonERS0_'/>
+<fun r='_ZNK4llvm16DwarfCompileUnit13getHeaderSizeEv'/>
+<fun r='_ZN4llvm16DwarfCompileUnit9getLengthEv'/>
+<fun r='_ZN4llvm16DwarfCompileUnit10emitHeaderEb'/>
+<fun r='_ZN4llvm16DwarfCompileUnit16addAddrTableBaseEv'/>
+<fun r='_ZNK4llvm16DwarfCompileUnit13getLabelBeginEv'/>
+<fun r='_ZNK4llvm16DwarfCompileUnit18getMacroLabelBeginEv'/>
+<fun r='_ZN4llvm16DwarfCompileUnit13addGlobalNameENS_9StringRefERKNS_3DIEEPKNS_7DIScopeE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit24addGlobalNameForTypeUnitENS_9StringRefEPKNS_7DIScopeE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit13addGlobalTypeEPKNS_6DITypeERKNS_3DIEEPKNS_7DIScopeE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit21addGlobalTypeUnitTypeEPKNS_6DITypeEPKNS_7DIScopeE'/>
+<fun r='_ZNK4llvm16DwarfCompileUnit14getGlobalNamesEv'/>
+<fun r='_ZNK4llvm16DwarfCompileUnit14getGlobalTypesEv'/>
+<fun r='_ZN4llvm16DwarfCompileUnit18addVariableAddressERKNS_11DbgVariableERNS_3DIEENS_15MachineLocationE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit10addAddressERNS_3DIEENS_5dwarf9AttributeERKNS_15MachineLocationE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit17addComplexAddressERKNS_11DbgVariableERNS_3DIEENS_5dwarf9AttributeERKNS_15MachineLocationE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit15addLocationListERNS_3DIEENS_5dwarf9AttributeEj'/>
+<fun r='_ZN4llvm16DwarfCompileUnit23applyVariableAttributesERKNS_11DbgVariableERNS_3DIEE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit7addExprERNS_6DIELocENS_5dwarf4FormEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit14addAddressExprERNS_3DIEENS_5dwarf9AttributeEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit37applySubprogramAttributesToDefinitionEPKNS_12DISubprogramERNS_3DIEE'/>
+<fun r='_ZN4llvm16DwarfCompileUnit20applyLabelAttributesERKNS_8DbgLabelERNS_3DIEE'/>
+<fun r='_ZNK4llvm16DwarfCompileUnit9getRangesEv'/>
+<fun r='_ZN4llvm16DwarfCompileUnit10takeRangesEv'/>
+<fun r='_ZN4llvm16DwarfCompileUnit14setBaseAddressEPKNS_8MCSymbolE'/>
+<fun r='_ZNK4llvm16DwarfCompileUnit14getBaseAddressEv'/>
+<fun r='_ZNK4llvm16DwarfCompileUnit8getDWOIdEv'/>
+<fun r='_ZN4llvm16DwarfCompileUnit8setDWOIdEm'/>
+<fun r='_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv'/>
+<fun r='_ZN4llvm16DwarfCompileUnit14addBaseTypeRefERNS_12DIEValueListEl'/>

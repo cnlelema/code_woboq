@@ -1,0 +1,26 @@
+<dec f='llvm/clang/include/clang/Tooling/CompilationDatabase.h' l='128' type='std::vector&lt;CompileCommand&gt; clang::tooling::CompilationDatabase::getCompileCommands(llvm::StringRef FilePath) const'/>
+<doc f='llvm/clang/include/clang/Tooling/CompilationDatabase.h' l='119'>/// Returns all compile commands in which the specified file was
+  /// compiled.
+  ///
+  /// This includes compile commands that span multiple source files.
+  /// For example, consider a project with the following compilations:
+  /// $ clang++ -o test a.cc b.cc t.cc
+  /// $ clang++ -o production a.cc b.cc -DPRODUCTION
+  /// A compilation database representing the project would return both command
+  /// lines for a.cc and b.cc and only the first command line for t.cc.</doc>
+<ovr f='llvm/clang/lib/Tooling/CommonOptionsParser.cpp' l='60' c='_ZNK5clang7tooling30ArgumentsAdjustingCompilations18getCompileCommandsEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Tooling/CommonOptionsParser.cpp' l='62' u='c' c='_ZNK5clang7tooling30ArgumentsAdjustingCompilations18getCompileCommandsEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Tooling/CompilationDatabase.cpp' l='137' u='c' c='_ZNK5clang7tooling19CompilationDatabase21getAllCompileCommandsEv'/>
+<ovr f='llvm/clang/lib/Tooling/CompilationDatabase.cpp' l='388' c='_ZNK5clang7tooling24FixedCompilationDatabase18getCompileCommandsEN4llvm9StringRefE'/>
+<ovr f='llvm/clang/lib/Tooling/InterpolatingCompilationDatabase.cpp' l='514' c='_ZNK5clang7tooling12_GLOBAL__N_132InterpolatingCompilationDatabase18getCompileCommandsEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Tooling/InterpolatingCompilationDatabase.cpp' l='515' u='c' c='_ZNK5clang7tooling12_GLOBAL__N_132InterpolatingCompilationDatabase18getCompileCommandsEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Tooling/InterpolatingCompilationDatabase.cpp' l='523' u='c' c='_ZNK5clang7tooling12_GLOBAL__N_132InterpolatingCompilationDatabase18getCompileCommandsEN4llvm9StringRefE'/>
+<ovr f='llvm/clang/lib/Tooling/JSONCompilationDatabase.cpp' l='223' c='_ZNK5clang7tooling23JSONCompilationDatabase18getCompileCommandsEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Tooling/Tooling.cpp' l='467' u='c' c='_ZN5clang7tooling9ClangTool3runEPNS0_10ToolActionE'/>
+<use f='llvm/clang/tools/libclang/CXCompilationDatabase.cpp' l='50' u='c' c='clang_CompilationDatabase_getCompileCommands'/>
+<use f='llvm/clang/unittests/Tooling/CompilationDatabaseTest.cpp' l='180' u='c' c='_ZN5clang7toolingL29findCompileArgsInJsonDatabaseEN4llvm9StringRefES2_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/clang/unittests/Tooling/CompilationDatabaseTest.cpp' l='591' u='c' c='_ZN5clang7tooling66ParseFixedCompilationDatabase_HandlesPositionalArgsSyntaxOnly_Test8TestBodyEv'/>
+<ovr f='llvm/clang/unittests/Tooling/CompilationDatabaseTest.cpp' l='622' c='_ZNK5clang7tooling6MemCDB18getCompileCommandsEN4llvm9StringRefE'/>
+<use f='llvm/clang/unittests/Tooling/CompilationDatabaseTest.cpp' l='666' u='c' c='_ZN5clang7tooling15InterpolateTest10getCommandEN4llvm9StringRefE'/>
+<use f='llvm/clang/unittests/Tooling/CompilationDatabaseTest.cpp' l='680' u='c' c='_ZN5clang7tooling15InterpolateTest8getProxyEN4llvm9StringRefE'/>
+<ovr f='llvm/clang/unittests/Tooling/ExecutionTest.cpp' l='236' c='_ZNK5clang7tooling33FixedCompilationDatabaseWithFiles18getCompileCommandsEN4llvm9StringRefE'/>

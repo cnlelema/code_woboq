@@ -1,0 +1,13 @@
+<dec f='llvm/clang/include/clang/AST/Expr.h' l='914' type='clang::QualType clang::Expr::getRealReferenceType(clang::ASTContext &amp; C, bool LValuesAsReferences = true) const'/>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='910'>/// XXXAR: Expr-&gt;getType() returns int for the initializers expression in
+  /// `void x(int&amp; __capability arg) { int&amp; a = arg }`
+  /// DeclRefExpr 0x7ffb54000590 &apos;int&apos; lvalue ParmVar 0x7ffb53873eb8 &apos;arg&apos; &apos;int &amp; __capability&apos;
+  /// We need to also check the underlying type and return that</doc>
+<def f='llvm/clang/lib/AST/Expr.cpp' l='4625' ll='4672' type='clang::QualType clang::Expr::getRealReferenceType(clang::ASTContext &amp; Ctx, bool LValuesAsReferences = true) const'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='1208' u='c' c='_ZN5clang7CodeGen15CodeGenFunction21canTightenCheriBoundsEPN4llvm5ValueENS_8QualTypeEPKNS_4ExprENS0_19SubObjectBoundsKindE'/>
+<use f='llvm/clang/lib/Sema/SemaCast.cpp' l='697' u='c' c='_ZL23IsBadCheriReferenceCastPKN5clang13ReferenceTypeEPNS_4ExprERNS_10ASTContextE'/>
+<use f='llvm/clang/lib/Sema/SemaCast.cpp' l='1926' u='c' c='_ZL27DiagnoseCapabilityToIntCastRN5clang4SemaENS_11SourceRangeEPKNS_4ExprENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaCast.cpp' l='3035' u='c' c='_ZN5clang4Sema21BuildCheriToOrFromCapENS_14SourceLocationES1_bNS_8QualTypeEPNS_14TypeSourceInfoES1_PNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaCast.cpp' l='3168' u='c' c='_ZN5clang4Sema25BuildCheriOffsetOrAddressENS_14SourceLocationES1_bNS_8QualTypeEPNS_14TypeSourceInfoES1_PNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='1441' u='c' c='_ZN12_GLOBAL__N_115InitListChecker14isCapNarrowingEPN5clang4ExprENS1_8QualTypeEPjS5_'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='4643' u='c' c='_ZL23CheckReferenceInitCHERIRN5clang4SemaERKNS_17InitializedEntityEPNS_4ExprERNS_22InitializationSequenceE'/>

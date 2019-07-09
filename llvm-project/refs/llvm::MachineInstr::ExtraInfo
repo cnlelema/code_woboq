@@ -1,0 +1,25 @@
+<inh f='llvm/llvm/include/llvm/Support/TrailingObjects.h' l='233' c='llvm::TrailingObjects'/>
+<def f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='138' ll='205'/>
+<size>8</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='126'>// the AsmPrinter to emit helpful
+                                        // comments.  This is *not* semantic
+                                        // information.  Do not use this for
+                                        // anything other than to convey comment
+                                        // information to AsmPrinter.
+
+  /// Internal implementation detail class that provides out-of-line storage for
+  /// extra info used by the machine instruction when this info cannot be stored
+  /// in-line within the instruction itself.
+  ///
+  /// This has to be defined eagerly due to the implementation constraints of
+  /// `PointerSumType` where it is used.</doc>
+<fun r='_ZN4llvm12MachineInstr9ExtraInfo6createERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEENS_8ArrayRefIPNS_17MachineMemOperandEEEPNS_8MCSymbolESB_'/>
+<fun r='_ZNK4llvm12MachineInstr9ExtraInfo7getMMOsEv'/>
+<fun r='_ZNK4llvm12MachineInstr9ExtraInfo17getPreInstrSymbolEv'/>
+<fun r='_ZNK4llvm12MachineInstr9ExtraInfo18getPostInstrSymbolEv'/>
+<mbr r='llvm::MachineInstr::ExtraInfo::NumMMOs' o='0' t='const int'/>
+<mbr r='llvm::MachineInstr::ExtraInfo::HasPreInstrSymbol' o='32' t='const bool'/>
+<mbr r='llvm::MachineInstr::ExtraInfo::HasPostInstrSymbol' o='40' t='const bool'/>
+<fun r='_ZNK4llvm12MachineInstr9ExtraInfo18numTrailingObjectsENS_25trailing_objects_internal19TrailingObjectsBase13OverloadTokenIPNS_17MachineMemOperandEEE'/>
+<fun r='_ZNK4llvm12MachineInstr9ExtraInfo18numTrailingObjectsENS_25trailing_objects_internal19TrailingObjectsBase13OverloadTokenIPNS_8MCSymbolEEE'/>
+<fun r='_ZN4llvm12MachineInstr9ExtraInfoC1Eibb'/>

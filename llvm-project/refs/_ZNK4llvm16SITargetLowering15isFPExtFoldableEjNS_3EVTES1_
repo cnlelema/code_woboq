@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.h' l='216' type='bool llvm::SITargetLowering::isFPExtFoldable(unsigned int Opcode, llvm::EVT DestVT, llvm::EVT SrcVT) const'/>
+<inh f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='2485' c='_ZNK4llvm18TargetLoweringBase15isFPExtFoldableEjNS_3EVTES1_'/>
+<def f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='745' ll='751' type='bool llvm::SITargetLowering::isFPExtFoldable(unsigned int Opcode, llvm::EVT DestVT, llvm::EVT SrcVT) const'/>
+<doc f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='737'>//===----------------------------------------------------------------------===//
+// TargetLowering queries
+//===----------------------------------------------------------------------===//
+
+// v_mad_mix* support a conversion from f16 to f32.
+//
+// There is only one special case when denormals are enabled we don&apos;t currently,
+// where this is OK to use.</doc>

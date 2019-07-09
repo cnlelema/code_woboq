@@ -1,0 +1,8 @@
+<dec f='llvm/llvm/include/llvm/Analysis/VectorUtils.h' l='244' type='llvm::APInt llvm::possiblyDemandedEltsInMask(llvm::Value * Mask)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/VectorUtils.h' l='242'>/// Given a mask vector of the form &lt;Y x i1&gt;, return an APInt (of bitwidth Y)
+/// for each lane which may be active.</doc>
+<def f='llvm/llvm/lib/Analysis/VectorUtils.cpp' l='783' ll='792' type='llvm::APInt llvm::possiblyDemandedEltsInMask(llvm::Value * Mask)'/>
+<doc f='llvm/llvm/lib/Analysis/VectorUtils.cpp' l='781'>/// TODO: This is a lot like known bits, but for
+/// vectors.  Is there something we can common this with?</doc>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1108' u='c' c='_ZN4llvm12InstCombiner19simplifyMaskedStoreERNS_13IntrinsicInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1146' u='c' c='_ZN4llvm12InstCombiner21simplifyMaskedScatterERNS_13IntrinsicInstE'/>

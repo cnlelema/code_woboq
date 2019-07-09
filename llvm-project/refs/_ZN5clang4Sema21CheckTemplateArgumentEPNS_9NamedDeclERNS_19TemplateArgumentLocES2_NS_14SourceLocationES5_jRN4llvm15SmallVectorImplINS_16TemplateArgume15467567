@@ -1,0 +1,28 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='6636' type='bool clang::Sema::CheckTemplateArgument(clang::NamedDecl * Param, clang::TemplateArgumentLoc &amp; Arg, clang::NamedDecl * Template, clang::SourceLocation TemplateLoc, clang::SourceLocation RAngleLoc, unsigned int ArgumentPackIndex, SmallVectorImpl&lt;clang::TemplateArgument&gt; &amp; Converted, clang::Sema::CheckTemplateArgumentKind CTAK = CTAK_Specified)'/>
+<def f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='4848' ll='5082' type='bool clang::Sema::CheckTemplateArgument(clang::NamedDecl * Param, clang::TemplateArgumentLoc &amp; Arg, clang::NamedDecl * Template, clang::SourceLocation TemplateLoc, clang::SourceLocation RAngleLoc, unsigned int ArgumentPackIndex, SmallVectorImpl&lt;clang::TemplateArgument&gt; &amp; Converted, clang::Sema::CheckTemplateArgumentKind CTAK = CTAK_Specified)'/>
+<doc f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='4822'>/// Check that the given template argument corresponds to the given
+/// template parameter.
+///
+/// \param Param The template parameter against which the argument will be
+/// checked.
+///
+/// \param Arg The template argument, which may be updated due to conversions.
+///
+/// \param Template The template in which the template argument resides.
+///
+/// \param TemplateLoc The location of the template name for the template
+/// whose argument list we&apos;re matching.
+///
+/// \param RAngleLoc The location of the right angle bracket (&apos;&gt;&apos;) that closes
+/// the template argument list.
+///
+/// \param ArgumentPackIndex The index into the argument pack where this
+/// argument will be placed. Only valid if the parameter is a parameter pack.
+///
+/// \param Converted The checked, converted argument will be added to the
+/// end of this small vector.
+///
+/// \param CTAK Describes how we arrived at this particular template argument:
+/// explicitly written, deduced, etc.
+///
+/// \returns true on error, false otherwise.</doc>

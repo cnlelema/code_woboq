@@ -1,0 +1,29 @@
+<def f='llvm/llvm/include/llvm/CodeGen/ExecutionDomainFix.h' l='52' ll='105'/>
+<size>96</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/ExecutionDomainFix.h' l='37'>/// A DomainValue is a bit like LiveIntervals&apos; ValNo, but it also keeps track
+/// of execution domains.
+///
+/// An open DomainValue represents a set of instructions that can still switch
+/// execution domain. Multiple registers may refer to the same open
+/// DomainValue - they will eventually be collapsed to the same execution
+/// domain.
+///
+/// A collapsed DomainValue represents a single register that has been forced
+/// into one of more execution domains. There is a separate collapsed
+/// DomainValue for each register, but it may contain multiple execution
+/// domains. A register value is initially created in a single execution
+/// domain, but if we were forced to pay the penalty of a domain crossing, we
+/// keep track of the fact that the register is now available in multiple
+/// domains.</doc>
+<mbr r='llvm::DomainValue::Refs' o='0' t='unsigned int'/>
+<mbr r='llvm::DomainValue::AvailableDomains' o='32' t='unsigned int'/>
+<mbr r='llvm::DomainValue::Next' o='64' t='llvm::DomainValue *'/>
+<mbr r='llvm::DomainValue::Instrs' o='128' t='SmallVector&lt;llvm::MachineInstr *, 8&gt;'/>
+<fun r='_ZN4llvm11DomainValueC1Ev'/>
+<fun r='_ZNK4llvm11DomainValue11isCollapsedEv'/>
+<fun r='_ZNK4llvm11DomainValue9hasDomainEj'/>
+<fun r='_ZN4llvm11DomainValue9addDomainEj'/>
+<fun r='_ZN4llvm11DomainValue15setSingleDomainEj'/>
+<fun r='_ZNK4llvm11DomainValue16getCommonDomainsEj'/>
+<fun r='_ZNK4llvm11DomainValue14getFirstDomainEv'/>
+<fun r='_ZN4llvm11DomainValue5clearEv'/>

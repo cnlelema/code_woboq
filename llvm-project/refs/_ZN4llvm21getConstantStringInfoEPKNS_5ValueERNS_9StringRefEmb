@@ -1,0 +1,38 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='292' type='bool llvm::getConstantStringInfo(const llvm::Value * V, llvm::StringRef &amp; Str, uint64_t Offset = 0, bool TrimAtNul = true)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='286'>/// This function computes the length of a null-terminated C string pointed to
+  /// by V. If successful, it returns true and returns the string in Str. If
+  /// unsuccessful, it returns false. This does not include the trailing null
+  /// character by default. If TrimAtNul is set to false, then this returns any
+  /// trailing null characters as well as any other characters that come after
+  /// it.</doc>
+<use f='llvm/llvm/lib/Analysis/ConstantFolding.cpp' l='638' u='c' c='_ZN4llvm28ConstantFoldLoadFromConstPtrEPNS_8ConstantEPNS_4TypeERKNS_10DataLayoutE'/>
+<def f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='3698' ll='3730' type='bool llvm::getConstantStringInfo(const llvm::Value * V, llvm::StringRef &amp; Str, uint64_t Offset = 0, bool TrimAtNul = true)'/>
+<doc f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='3695'>/// This function computes the length of a null-terminated C string pointed to
+/// by V. If successful, it returns true and returns the string in Str.
+/// If unsuccessful, it returns false.</doc>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='285' u='c' c='_ZN4llvm17LibCallSimplifier14optimizeStrChrEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='313' u='c' c='_ZN4llvm17LibCallSimplifier15optimizeStrRChrEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='337' u='c' c='_ZN4llvm17LibCallSimplifier14optimizeStrCmpEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='338' u='c' c='_ZN4llvm17LibCallSimplifier14optimizeStrCmpEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='399' u='c' c='_ZN4llvm17LibCallSimplifier15optimizeStrNCmpEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='400' u='c' c='_ZN4llvm17LibCallSimplifier15optimizeStrNCmpEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='626' u='c' c='_ZN4llvm17LibCallSimplifier15optimizeStrPBrkEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='627' u='c' c='_ZN4llvm17LibCallSimplifier15optimizeStrPBrkEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='664' u='c' c='_ZN4llvm17LibCallSimplifier14optimizeStrSpnEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='665' u='c' c='_ZN4llvm17LibCallSimplifier14optimizeStrSpnEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='685' u='c' c='_ZN4llvm17LibCallSimplifier15optimizeStrCSpnEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='686' u='c' c='_ZN4llvm17LibCallSimplifier15optimizeStrCSpnEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='733' u='c' c='_ZN4llvm17LibCallSimplifier14optimizeStrStrEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='734' u='c' c='_ZN4llvm17LibCallSimplifier14optimizeStrStrEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='773' u='c' c='_ZN4llvm17LibCallSimplifier14optimizeMemChrEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='907' u='c' c='_ZL26optimizeMemCmpConstantSizePN4llvm8CallInstEPNS_5ValueES3_mRNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='908' u='c' c='_ZL26optimizeMemCmpConstantSizePN4llvm8CallInstEPNS_5ValueES3_mRNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='1948' u='c' c='_ZN4llvm17LibCallSimplifier12optimizeAtoiEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='1956' u='c' c='_ZN4llvm17LibCallSimplifier14optimizeStrtolEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='2018' u='c' c='_ZN4llvm17LibCallSimplifier20optimizePrintFStringEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='2038' u='c' c='_ZN4llvm17LibCallSimplifier20optimizePrintFStringEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='2110' u='c' c='_ZN4llvm17LibCallSimplifier21optimizeSPrintFStringEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='2204' u='c' c='_ZN4llvm17LibCallSimplifier22optimizeSnPrintFStringEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='2262' u='c' c='_ZN4llvm17LibCallSimplifier22optimizeSnPrintFStringEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='2293' u='c' c='_ZN4llvm17LibCallSimplifier21optimizeFPrintFStringEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='2476' u='c' c='_ZN4llvm17LibCallSimplifier12optimizePutsEPNS_8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>

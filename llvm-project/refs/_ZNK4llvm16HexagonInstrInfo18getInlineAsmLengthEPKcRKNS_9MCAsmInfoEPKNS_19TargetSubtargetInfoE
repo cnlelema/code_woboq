@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.h' l='267' type='unsigned int llvm::HexagonInstrInfo::getInlineAsmLength(const char * Str, const llvm::MCAsmInfo &amp; MAI, const llvm::TargetSubtargetInfo * STI = nullptr) const'/>
+<doc f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.h' l='265'>/// Measure the specified inline asm to determine an approximation of its
+  /// length.</doc>
+<def f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='1714' ll='1739' type='unsigned int llvm::HexagonInstrInfo::getInlineAsmLength(const char * Str, const llvm::MCAsmInfo &amp; MAI, const llvm::TargetSubtargetInfo * STI = nullptr) const'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='4310' u='c' c='_ZNK4llvm16HexagonInstrInfo7getSizeERKNS_12MachineInstrE'/>
+<doc f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='1704'>/// Measure the specified inline asm to determine an approximation of its
+/// length.
+/// Comments (which run till the next SeparatorString or newline) do not
+/// count as an instruction.
+/// Any other non-whitespace text is considered an instruction, with
+/// multiple instructions separated by SeparatorString or newlines.
+/// Variable-length instructions are not handled here; this function
+/// may be overloaded in the target code to do that.
+/// Hexagon counts the number of ##&apos;s and adjust for that many
+/// constant exenders.</doc>

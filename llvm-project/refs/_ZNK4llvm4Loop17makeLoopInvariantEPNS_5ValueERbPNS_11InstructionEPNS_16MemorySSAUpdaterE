@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='503' type='bool llvm::Loop::makeLoopInvariant(llvm::Value * V, bool &amp; Changed, llvm::Instruction * InsertPt = nullptr, llvm::MemorySSAUpdater * MSSAU = nullptr) const'/>
+<doc f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='495'>/// If the given value is an instruction inside of the loop and it can be
+  /// hoisted, do so to make it trivially loop-invariant.
+  /// Return true if the value after any hoisting is loop invariant. This
+  /// function can be used as a slightly more aggressive replacement for
+  /// isLoopInvariant.
+  ///
+  /// If InsertPt is specified, it is the point to hoist instructions to.
+  /// If null, the terminator of the loop preheader is used.</doc>
+<def f='llvm/llvm/lib/Analysis/LoopInfo.cpp' l='71' ll='76' type='bool llvm::Loop::makeLoopInvariant(llvm::Value * V, bool &amp; Changed, llvm::Instruction * InsertPt = nullptr, llvm::MemorySSAUpdater * MSSAU = nullptr) const'/>
+<use f='llvm/llvm/lib/Analysis/LoopInfo.cpp' l='101' u='c' c='_ZNK4llvm4Loop17makeLoopInvariantEPNS_11InstructionERbS2_PNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnswitch.cpp' l='441' u='c' c='_ZL20FindLIVLoopConditionPN4llvm5ValueEPNS_4LoopERbR13OperatorChainRNS_8DenseMapIS1_S1_NS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S1_EEEE'/>

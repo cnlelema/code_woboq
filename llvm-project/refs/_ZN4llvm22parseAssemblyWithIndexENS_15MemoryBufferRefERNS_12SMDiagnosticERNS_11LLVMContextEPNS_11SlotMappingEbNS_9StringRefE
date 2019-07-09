@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/include/llvm/AsmParser/Parser.h' l='138' type='llvm::ParsedModuleAndIndex llvm::parseAssemblyWithIndex(llvm::MemoryBufferRef F, llvm::SMDiagnostic &amp; Err, llvm::LLVMContext &amp; Context, llvm::SlotMapping * Slots = nullptr, bool UpgradeDebugInfo = true, llvm::StringRef DataLayoutString = &quot;&quot;)'/>
+<def f='llvm/llvm/lib/AsmParser/Parser.cpp' l='70' ll='83' type='llvm::ParsedModuleAndIndex llvm::parseAssemblyWithIndex(llvm::MemoryBufferRef F, llvm::SMDiagnostic &amp; Err, llvm::LLVMContext &amp; Context, llvm::SlotMapping * Slots = nullptr, bool UpgradeDebugInfo = true, llvm::StringRef DataLayoutString = &quot;&quot;)'/>
+<use f='llvm/llvm/lib/AsmParser/Parser.cpp' l='96' u='c' c='_ZN4llvm26parseAssemblyFileWithIndexENS_9StringRefERNS_12SMDiagnosticERNS_11LLVMContextEPNS_11SlotMappingEbS0_'/>
+<doc f='llvm/llvm/include/llvm/AsmParser/Parser.h' l='126'>/// Parse LLVM Assembly including the summary index from a MemoryBuffer.
+///
+/// \param F The MemoryBuffer containing assembly with summary
+/// \param Err Error result info.
+/// \param Slots The optional slot mapping that will be initialized during
+///              parsing.
+/// \param UpgradeDebugInfo Run UpgradeDebugInfo, which runs the Verifier.
+///                         This option should only be set to false by llvm-as
+///                         for use inside the LLVM testuite!
+/// \param DataLayoutString Override datalayout in the llvm assembly.
+///
+/// parseAssemblyFileWithIndex is a wrapper around this function.</doc>

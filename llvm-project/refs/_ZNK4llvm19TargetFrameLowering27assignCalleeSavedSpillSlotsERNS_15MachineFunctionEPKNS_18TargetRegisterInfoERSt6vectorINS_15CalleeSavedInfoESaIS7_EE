@@ -1,0 +1,12 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetFrameLowering.h' l='119' ll='124' type='bool llvm::TargetFrameLowering::assignCalleeSavedSpillSlots(llvm::MachineFunction &amp; MF, const llvm::TargetRegisterInfo * TRI, std::vector&lt;CalleeSavedInfo&gt; &amp; CSI) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetFrameLowering.h' l='113'>/// assignCalleeSavedSpillSlots - Allows target to override spill slot
+  /// assignment logic.  If implemented, assignCalleeSavedSpillSlots() should
+  /// assign frame slots to all CSI entries and return true.  If this method
+  /// returns false, spill slots will be assigned using generic implementation.
+  /// assignCalleeSavedSpillSlots() may add, delete or rearrange elements of
+  /// CSI.</doc>
+<use f='llvm/llvm/lib/CodeGen/PrologEpilogInserter.cpp' l='398' u='c' c='_ZL27assignCalleeSavedSpillSlotsRN4llvm15MachineFunctionERKNS_9BitVectorERjS5_'/>
+<ovr f='llvm/llvm/lib/Target/Hexagon/HexagonFrameLowering.cpp' l='1427' c='_ZNK4llvm20HexagonFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaIS7_EE'/>
+<ovr f='llvm/llvm/lib/Target/Mips/MipsSEFrameLowering.cpp' l='788' c='_ZNK4llvm19MipsSEFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaIS7_EE'/>
+<ovr f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='2098' c='_ZNK4llvm16PPCFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaIS7_EE'/>
+<ovr f='llvm/llvm/lib/Target/X86/X86FrameLowering.cpp' l='1945' c='_ZNK4llvm16X86FrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaIS7_EE'/>

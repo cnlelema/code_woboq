@@ -1,0 +1,24 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetPassConfig.h' l='52' ll='76'/>
+<size>16</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetPassConfig.h' l='38'>/// Discriminated union of Pass ID types.
+///
+/// The PassConfig API prefers dealing with IDs because they are safer and more
+/// efficient. IDs decouple configuration from instantiation. This way, when a
+/// pass is overriden, it isn&apos;t unnecessarily instantiated. It is also unsafe to
+/// refer to a Pass pointer after adding it to a pass manager, which deletes
+/// redundant pass instances.
+///
+/// However, it is convient to directly instantiate target passes with
+/// non-default ctors. These often don&apos;t have a registered PassInfo. Rather than
+/// force all target passes to implement the pass registry boilerplate, allow
+/// the PassConfig API to handle either type.
+///
+/// AnalysisID is sadly char*, so PointerIntPair won&apos;t work.</doc>
+<mbr r='llvm::IdentifyingPassPtr::IsInstance' o='64' t='bool'/>
+<fun r='_ZN4llvm18IdentifyingPassPtrC1Ev'/>
+<fun r='_ZN4llvm18IdentifyingPassPtrC1EPKv'/>
+<fun r='_ZN4llvm18IdentifyingPassPtrC1EPNS_4PassE'/>
+<fun r='_ZNK4llvm18IdentifyingPassPtr7isValidEv'/>
+<fun r='_ZNK4llvm18IdentifyingPassPtr10isInstanceEv'/>
+<fun r='_ZNK4llvm18IdentifyingPassPtr5getIDEv'/>
+<fun r='_ZNK4llvm18IdentifyingPassPtr11getInstanceEv'/>

@@ -1,0 +1,13 @@
+<def f='llvm/llvm/include/llvm/CodeGen/GlobalISel/LegalizerInfo.h' l='984' ll='989' type='static SizeAndActionsVec llvm::LegalizerInfo::unsupportedForDifferentSizes(const SizeAndActionsVec &amp; v)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/LegalizerInfo.h' l='975'>/// A SizeChangeStrategy for the common case where legalization for a
+  /// particular operation consists of only supporting a specific set of type
+  /// sizes. E.g.
+  ///   setAction ({G_DIV, 0, LLT::scalar(32)}, Legal);
+  ///   setAction ({G_DIV, 0, LLT::scalar(64)}, Legal);
+  ///   setLegalizeScalarToDifferentSizeStrategy(
+  ///     G_DIV, 0, unsupportedForDifferentSizes);
+  /// will result in getAction({G_DIV, 0, T}) to return Legal for s32 and s64,
+  /// and Unsupported for all other scalar types T.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerInfo.cpp' l='295' u='a' c='_ZN4llvm13LegalizerInfo13computeTablesEv'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerInfo.cpp' l='312' u='c' c='_ZN4llvm13LegalizerInfo13computeTablesEv'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerInfo.cpp' l='338' u='a' c='_ZN4llvm13LegalizerInfo13computeTablesEv'/>

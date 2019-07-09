@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/include/llvm/ExecutionEngine/RuntimeDyld.h' l='103' type='uint8_t * llvm::RuntimeDyld::MemoryManager::allocateCodeSection(uintptr_t Size, unsigned int Alignment, unsigned int SectionID, llvm::StringRef SectionName)'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/RuntimeDyld.h' l='99'>/// Allocate a memory block of (at least) the given size suitable for
+    /// executable code. The SectionID is a unique identifier assigned by the
+    /// RuntimeDyld instance, and optionally recorded by the memory manager to
+    /// access a loaded section.</doc>
+<ovr f='llvm/llvm/lib/ExecutionEngine/ExecutionEngineBindings.cpp' l='361' c='_ZN12_GLOBAL__N_126SimpleBindingMemoryManager19allocateCodeSectionEmjjN4llvm9StringRefE'/>
+<ovr f='llvm/llvm/lib/ExecutionEngine/Orc/OrcMCJITReplacement.h' l='67' c='_ZN4llvm3orc19OrcMCJITReplacement22MCJITReplacementMemMgr19allocateCodeSectionEmjjNS_9StringRefE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/OrcMCJITReplacement.h' l='71' u='c' c='_ZN4llvm3orc19OrcMCJITReplacement22MCJITReplacementMemMgr19allocateCodeSectionEmjjNS_9StringRefE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyld.cpp' l='823' u='c' c='_ZN4llvm15RuntimeDyldImpl11emitSectionERKNS_6object10ObjectFileERKNS1_10SectionRefEb'/>
+<ovr f='llvm/llvm/lib/ExecutionEngine/SectionMemoryManager.cpp' l='33' c='_ZN4llvm20SectionMemoryManager19allocateCodeSectionEmjjNS_9StringRefE'/>
+<ovr f='llvm/llvm/tools/lli/RemoteJITUtils.h' l='90' c='_ZN4llvm23ForwardingMemoryManager19allocateCodeSectionEmjjNS_9StringRefE'/>
+<use f='llvm/llvm/tools/lli/RemoteJITUtils.h' l='93' u='c' c='_ZN4llvm23ForwardingMemoryManager19allocateCodeSectionEmjjNS_9StringRefE'/>
+<ovr f='llvm/llvm/include/llvm/ExecutionEngine/Orc/OrcRemoteTargetClient.h' l='74' c='_ZN4llvm3orc6remote21OrcRemoteTargetClient25RemoteRTDyldMemoryManager19allocateCodeSectionEmjjNS_9StringRefE'/>
+<ovr f='llvm/llvm/tools/llvm-rtdyld/llvm-rtdyld.cpp' l='270' c='_ZN20TrivialMemoryManager19allocateCodeSectionEmjjN4llvm9StringRefE'/>
+<ovr f='llvm/llvm/unittests/ExecutionEngine/Orc/ObjectTransformLayerTest.cpp' l='270' c='_ZZN12_GLOBAL__N_140LegacyObjectTransformLayerTest_Main_Test8TestBodyEvEN11NullManager19allocateCodeSectionEmjjN4llvm9StringRefE'/>

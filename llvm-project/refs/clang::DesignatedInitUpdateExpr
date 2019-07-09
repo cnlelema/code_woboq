@@ -1,0 +1,26 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<def f='llvm/clang/include/clang/AST/Expr.h' l='4879' ll='4915'/>
+<size>32</size>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='4868'>// In cases like:
+//   struct Q { int a, b, c; };
+//   Q *getQ();
+//   void foo() {
+//     struct A { Q q; } a = { *getQ(), .q.b = 3 };
+//   }
+//
+// We will have an InitListExpr for a, with type A, and then a
+// DesignatedInitUpdateExpr for &quot;a.q&quot; with type Q. The &quot;base&quot; for this DIUE
+// is the call expression *getQ(); the &quot;updater&quot; for the DIUE is &quot;.q.b = 3&quot;
+//</doc>
+<mbr r='clang::DesignatedInitUpdateExpr::BaseAndUpdaterExprs' o='128' t='clang::Stmt *[2]'/>
+<fun r='_ZN5clang24DesignatedInitUpdateExprC1ERKNS_10ASTContextENS_14SourceLocationEPNS_4ExprES4_'/>
+<fun r='_ZN5clang24DesignatedInitUpdateExprC1ENS_4Stmt10EmptyShellE'/>
+<fun r='_ZNK5clang24DesignatedInitUpdateExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang24DesignatedInitUpdateExpr9getEndLocEv'/>
+<fun r='_ZN5clang24DesignatedInitUpdateExpr7classofEPKNS_4StmtE'/>
+<fun r='_ZNK5clang24DesignatedInitUpdateExpr7getBaseEv'/>
+<fun r='_ZN5clang24DesignatedInitUpdateExpr7setBaseEPNS_4ExprE'/>
+<fun r='_ZNK5clang24DesignatedInitUpdateExpr10getUpdaterEv'/>
+<fun r='_ZN5clang24DesignatedInitUpdateExpr10setUpdaterEPNS_4ExprE'/>
+<fun r='_ZN5clang24DesignatedInitUpdateExpr8childrenEv'/>
+<fun r='_ZNK5clang24DesignatedInitUpdateExpr8childrenEv'/>

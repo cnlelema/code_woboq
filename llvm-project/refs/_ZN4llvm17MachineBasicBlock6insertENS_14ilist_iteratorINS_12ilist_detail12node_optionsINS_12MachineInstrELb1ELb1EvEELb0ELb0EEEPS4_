@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/MachineBasicBlock.h' l='611' type='instr_iterator llvm::MachineBasicBlock::insert(instr_iterator I, llvm::MachineInstr * M)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineBasicBlock.h' l='605'>/// Insert MI into the instruction list before I, possibly inside a bundle.
+  ///
+  /// If the insertion point is inside a bundle, MI will be added to the bundle,
+  /// otherwise MI will not be added to any bundle. That means this function
+  /// alone can&apos;t be used to prepend or append instructions to bundles. See
+  /// MIBundleBuilder::insert() for a more reliable way of doing that.</doc>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstrBuilder.h' l='349' u='c' c='_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvEELb0ELb0EEERKNS_8DebugLocERKNS_11MCInstrDescEj'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstrBuilder.h' l='388' u='c' c='_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvEELb0ELb0EEERKNS_8DebugLocERKNS_11MCInstrDescE'/>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstrBuilder.h' l='557' u='c' c='_ZN4llvm15MIBundleBuilder6insertENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvEELb0ELb0EEEPS4_'/>
+<def f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='1171' ll='1181' type='MachineBasicBlock::instr_iterator llvm::MachineBasicBlock::insert(instr_iterator I, llvm::MachineInstr * MI)'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/FastISel.cpp' l='319' u='c' c='_ZN4llvm8FastISel29sinkLocalValueMaterializationERNS_12MachineInstrEjRNS0_12InstOrderMapE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/FastISel.cpp' l='326' u='c' c='_ZN4llvm8FastISel29sinkLocalValueMaterializationERNS_12MachineInstrEjRNS0_12InstOrderMapE'/>
+<use f='llvm/llvm/lib/Target/X86/X86InsertPrefetch.cpp' l='243' u='c' c='_ZN12_GLOBAL__N_117X86InsertPrefetch20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/X86/X86InstrInfo.cpp' l='1204' u='c' c='_ZNK4llvm12X86InstrInfo21convertToThreeAddressERNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_17MachineBasicBlockELb1ELb0EvEELb0ELb0EEERNS_124127112'/>

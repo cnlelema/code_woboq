@@ -1,0 +1,15 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='1558' ll='1567' type='bool llvm::TargetInstrInfo::areMemAccessesTriviallyDisjoint(const llvm::MachineInstr &amp; MIa, const llvm::MachineInstr &amp; MIb, AliasAnalysis * AA = nullptr) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='1547'>/// Sometimes, it is possible for the target
+  /// to tell, even without aliasing information, that two MIs access different
+  /// memory addresses. This function returns true if two MIs access different
+  /// memory addresses and false otherwise.
+  ///
+  /// Assumes any physical registers used to compute addresses have the same
+  /// value for both instructions. (This is the most useful assumption for
+  /// post-RA scheduling.)
+  ///
+  /// See also MachineInstr::mayAlias, which is implemented on top of this
+  /// function.</doc>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='1209' u='c' c='_ZNK4llvm12MachineInstr8mayAliasEPNS_9AAResultsERKS0_b'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='656' u='c' c='_ZN4llvm17SwingSchedulerDAG25addLoopCarriedDependencesEPNS_9AAResultsE'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='3178' u='c' c='_ZN4llvm17SwingSchedulerDAG21canUseLastOffsetValueEPNS_12MachineInstrERjS3_S3_Rl'/>

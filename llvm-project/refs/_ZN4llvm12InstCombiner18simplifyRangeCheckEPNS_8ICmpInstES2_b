@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='335' type='llvm::Value * llvm::InstCombiner::simplifyRangeCheck(llvm::ICmpInst * Cmp0, llvm::ICmpInst * Cmp1, bool Inverted)'/>
+<def f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='754' ll='803' type='llvm::Value * llvm::InstCombiner::simplifyRangeCheck(llvm::ICmpInst * Cmp0, llvm::ICmpInst * Cmp1, bool Inverted)'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='1053' u='c' c='_ZN4llvm12InstCombiner14foldAndOfICmpsEPNS_8ICmpInstES2_RNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='1057' u='c' c='_ZN4llvm12InstCombiner14foldAndOfICmpsEPNS_8ICmpInstES2_RNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='2139' u='c' c='_ZN4llvm12InstCombiner13foldOrOfICmpsEPNS_8ICmpInstES2_RNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='2143' u='c' c='_ZN4llvm12InstCombiner13foldOrOfICmpsEPNS_8ICmpInstES2_RNS_11InstructionE'/>
+<doc f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='750'>/// Try to fold a signed range checked with lower bound 0 to an unsigned icmp.
+/// Example: (icmp sge x, 0) &amp; (icmp slt x, n) --&gt; icmp ult x, n
+/// If \p Inverted is true then the check is for the inverted range, e.g.
+/// (icmp slt x, 0) | (icmp sgt x, n) --&gt; icmp ugt x, n</doc>

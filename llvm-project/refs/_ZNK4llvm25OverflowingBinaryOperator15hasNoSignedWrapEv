@@ -1,0 +1,33 @@
+<def f='llvm/llvm/include/llvm/IR/Operator.h' l='95' ll='97' type='bool llvm::OverflowingBinaryOperator::hasNoSignedWrap() const'/>
+<doc f='llvm/llvm/include/llvm/IR/Operator.h' l='93'>/// Test whether this operation is known to never
+  /// undergo signed overflow, aka the nsw property.</doc>
+<use f='llvm/llvm/lib/Analysis/DemandedBits.cpp' l='192' u='c' c='_ZN4llvm12DemandedBits24determineLiveOperandBitsEPKNS_11InstructionEPKNS_5ValueEjRKNS_5APIntERS7_RNS_9KnownBitsESC_Rb'/>
+<use f='llvm/llvm/lib/Analysis/LoopAccessAnalysis.cpp' l='976' u='c' c='_ZL14isNoWrapAddRecPN4llvm5ValueEPKNS_14SCEVAddRecExprERNS_25PredicatedScalarEvolutionEPKNS_4LoopE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='4481' u='c' c='_ZN12_GLOBAL__N_18BinaryOpC1EPN4llvm8OperatorE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4232' u='c' c='_ZL27computeOverflowForSignedAddPKN4llvm5ValueES2_PKNS_11AddOperatorERKNS_10DataLayoutEPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeE'/>
+<use f='llvm/llvm/lib/Bitcode/Writer/BitcodeWriter.cpp' l='1383' u='c' c='_ZL20getOptimizationFlagsPKN4llvm5ValueE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='540' u='c' c='_ZN4llvm12MachineInstr24copyFlagsFromInstructionERKNS_11InstructionE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='3124' u='c' c='_ZN4llvm19SelectionDAGBuilder11visitBinaryERKNS_4UserEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='3180' u='c' c='_ZN4llvm19SelectionDAGBuilder10visitShiftERKNS_4UserEj'/>
+<use f='llvm/llvm/lib/IR/AsmWriter.cpp' l='1272' u='c' c='_ZL21WriteOptimizationInfoRN4llvm11raw_ostreamEPKNS_4UserE'/>
+<use f='llvm/llvm/lib/IR/Instruction.cpp' l='117' u='c' c='_ZNK4llvm11Instruction15hasNoSignedWrapEv'/>
+<use f='llvm/llvm/lib/IR/Instruction.cpp' l='245' u='c' c='_ZN4llvm11Instruction11copyIRFlagsEPKNS_5ValueEb'/>
+<use f='llvm/llvm/lib/IR/Instruction.cpp' l='268' u='c' c='_ZN4llvm11Instruction10andIRFlagsEPKNS_5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp' l='41' u='c' c='_ZL25decomposeSimpleLinearExprPN4llvm5ValueERjRm'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='240' u='c' c='_ZN4llvm12InstCombiner8visitMulERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='241' u='c' c='_ZN4llvm12InstCombiner8visitMulERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='296' u='c' c='_ZN4llvm12InstCombiner8visitMulERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='299' u='c' c='_ZN4llvm12InstCombiner8visitMulERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='686' u='c' c='_ZN4llvm12InstCombiner20commonIDivTransformsERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='712' u='c' c='_ZN4llvm12InstCombiner20commonIDivTransformsERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineMulDivRem.cpp' l='758' u='c' c='_ZN4llvm12InstCombiner20commonIDivTransformsERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineSimplifyDemanded.cpp' l='480' u='c' c='_ZN4llvm12InstCombiner23SimplifyDemandedUseBitsEPNS_5ValueENS_5APIntERNS_9KnownBitsEjPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='205' u='c' c='_ZL20MaintainNoSignedWrapRN4llvm14BinaryOperatorEPNS_5ValueES3_'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='584' u='c' c='_ZN4llvm12InstCombiner16tryFactorizationERNS_14BinaryOperatorENS_11Instruction9BinaryOpsEPNS_5ValueES6_S6_S6_'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='587' u='c' c='_ZN4llvm12InstCombiner16tryFactorizationERNS_14BinaryOperatorENS_11Instruction9BinaryOpsEPNS_5ValueES6_S6_S6_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='1240' u='c' c='_ZN12_GLOBAL__N_17WidenIV28getExtendedOperandRecurrenceENS_14NarrowIVDefUseE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='1404' u='c' c='_ZN12_GLOBAL__N_17WidenIV23widenWithVariantLoadUseENS_14NarrowIVDefUseE'/>
+<use f='llvm/llvm/unittests/IR/IRBuilderTest.cpp' l='443' u='c' c='_ZN12_GLOBAL__N_128IRBuilderTest_WrapFlags_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/IRBuilderTest.cpp' l='445' u='c' c='_ZN12_GLOBAL__N_128IRBuilderTest_WrapFlags_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/IRBuilderTest.cpp' l='447' u='c' c='_ZN12_GLOBAL__N_128IRBuilderTest_WrapFlags_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/IRBuilderTest.cpp' l='450' u='c' c='_ZN12_GLOBAL__N_128IRBuilderTest_WrapFlags_Test8TestBodyEv'/>

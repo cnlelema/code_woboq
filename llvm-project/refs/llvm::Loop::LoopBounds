@@ -1,0 +1,51 @@
+<def f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='569' ll='659'/>
+<size>48</size>
+<doc f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='534'>/// Below are some utilities to get loop bounds and induction variable, and
+  /// check if a given phinode is an auxiliary induction variable, as well as
+  /// checking if the loop is canonical.
+  ///
+  /// Here is an example:
+  /// \code
+  /// for (int i = lb; i &lt; ub; i+=step)
+  ///   &lt;loop body&gt;
+  /// --- pseudo LLVMIR ---
+  /// beforeloop:
+  ///   guardcmp = (lb &lt; ub)
+  ///   if (guardcmp) goto preheader; else goto afterloop
+  /// preheader:
+  /// loop:
+  ///   i_1 = phi[{lb, preheader}, {i_2, latch}]
+  ///   &lt;loop body&gt;
+  ///   i_2 = i_1 + step
+  /// latch:
+  ///   cmp = (i_2 &lt; ub)
+  ///   if (cmp) goto loop
+  /// exit:
+  /// afterloop:
+  /// \endcode
+  ///
+  /// - getBounds
+  ///   - getInitialIVValue      --&gt; lb
+  ///   - getStepInst            --&gt; i_2 = i_1 + step
+  ///   - getStepValue           --&gt; step
+  ///   - getFinalIVValue        --&gt; ub
+  ///   - getCanonicalPredicate  --&gt; &apos;&lt;&apos;
+  ///   - getDirection           --&gt; Increasing
+  ///
+  /// - getInductionVariable            --&gt; i_1
+  /// - isAuxiliaryInductionVariable(x) --&gt; true if x == i_1
+  /// - isCanonical                     --&gt; false</doc>
+<fun r='_ZN4llvm4Loop10LoopBounds9getBoundsERKS0_RNS_7PHINodeERNS_15ScalarEvolutionE'/>
+<fun r='_ZNK4llvm4Loop10LoopBounds17getInitialIVValueEv'/>
+<fun r='_ZNK4llvm4Loop10LoopBounds11getStepInstEv'/>
+<fun r='_ZNK4llvm4Loop10LoopBounds12getStepValueEv'/>
+<fun r='_ZNK4llvm4Loop10LoopBounds15getFinalIVValueEv'/>
+<fun r='_ZNK4llvm4Loop10LoopBounds21getCanonicalPredicateEv'/>
+<fun r='_ZNK4llvm4Loop10LoopBounds12getDirectionEv'/>
+<fun r='_ZN4llvm4Loop10LoopBoundsC1ERKS0_RNS_5ValueERNS_11InstructionEPS4_S5_RNS_15ScalarEvolutionE'/>
+<mbr r='llvm::Loop::LoopBounds::L' o='0' t='const llvm::Loop &amp;'/>
+<mbr r='llvm::Loop::LoopBounds::InitialIVValue' o='64' t='llvm::Value &amp;'/>
+<mbr r='llvm::Loop::LoopBounds::StepInst' o='128' t='llvm::Instruction &amp;'/>
+<mbr r='llvm::Loop::LoopBounds::StepValue' o='192' t='llvm::Value *'/>
+<mbr r='llvm::Loop::LoopBounds::FinalIVValue' o='256' t='llvm::Value &amp;'/>
+<mbr r='llvm::Loop::LoopBounds::SE' o='320' t='llvm::ScalarEvolution &amp;'/>

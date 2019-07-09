@@ -1,0 +1,59 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ScalarEvolution.h' l='512' type='bool llvm::ScalarEvolution::isSCEVable(llvm::Type * Ty) const'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ScalarEvolution.h' l='508'>/// Test if values of the given type are analyzable within the SCEV
+  /// framework. This primarily includes integer types, and it can optionally
+  /// include pointer types if the ScalarEvolution class has access to
+  /// target-specific information.</doc>
+<use f='llvm/llvm/lib/Analysis/IVUsers.cpp' l='176' u='c' c='_ZN4llvm7IVUsers12AddUsersImplEPNS_11InstructionERNS_15SmallPtrSetImplIPNS_4LoopEEE'/>
+<use f='llvm/llvm/lib/Analysis/LoopAccessAnalysis.cpp' l='2092' u='c' c='_ZNK4llvm14LoopAccessInfo9isUniformEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/LoopUnrollAnalyzer.cpp' l='28' u='c' c='_ZN4llvm20UnrolledInstAnalyzer20simplifyInstWithSCEVEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='1254' u='c' c='_ZN4llvm15ScalarEvolution15getTruncateExprEPKNS_4SCEVEPNS_4TypeEj'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='1637' u='c' c='_ZN4llvm15ScalarEvolution17getZeroExtendExprEPKNS_4SCEVEPNS_4TypeEj'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='1943' u='c' c='_ZN4llvm15ScalarEvolution17getSignExtendExprEPKNS_4SCEVEPNS_4TypeEj'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='2197' u='c' c='_ZN4llvm15ScalarEvolution16getAnyExtendExprEPKNS_4SCEVEPNS_4TypeE'/>
+<def f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='3762' ll='3765' type='bool llvm::ScalarEvolution::isSCEVable(llvm::Type * Ty) const'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='3770' u='c' c='_ZNK4llvm15ScalarEvolution17getTypeSizeInBitsEPNS_4TypeE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='3780' u='c' c='_ZNK4llvm15ScalarEvolution20getEffectiveSCEVTypeEPNS_4TypeE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='3896' u='c' c='_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='3928' u='c' c='_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='5987' u='c' c='_ZN4llvm15ScalarEvolution21isSCEVExprNeverPoisonEPKNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='6107' u='c' c='_ZN4llvm15ScalarEvolution10createSCEVEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='6445' u='c' c='_ZN4llvm15ScalarEvolution10createSCEVEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='6445' u='c' c='_ZN4llvm15ScalarEvolution10createSCEVEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='8174' u='c' c='_ZN4llvm15ScalarEvolution18computeSCEVAtScopeEPKNS_4SCEVEPKNS_4LoopE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='11477' u='c' c='_ZNK4llvm15ScalarEvolution5printERNS_11raw_ostreamE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='12399' u='c' c='_ZNK4llvm25PredicatedScalarEvolution5printERNS_11raw_ostreamEj'/>
+<doc f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='3754'>//===----------------------------------------------------------------------===//
+//            Basic SCEV Analysis and PHI Idiom Recognition Code
+//
+
+/// Test if values of the given type are analyzable within the SCEV
+/// framework. This primarily includes integer types, and it can optionally
+/// include pointer types if the ScalarEvolution class has access to
+/// target-specific information.</doc>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1183' u='c' c='_ZN4llvm12SCEVExpander25getAddRecExprPHILiterallyEPKNS_14SCEVAddRecExprEPKNS_4LoopEPNS_4TypeES8_RS8_Rb'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1964' u='c' c='_ZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='1985' u='c' c='_ZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoE'/>
+<use f='llvm/llvm/lib/Analysis/StackSafetyAnalysis.cpp' l='235' u='c' c='_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis16offsetFromAllocaEPN4llvm5ValueEPKS2_'/>
+<use f='llvm/llvm/lib/Analysis/StackSafetyAnalysis.cpp' l='248' u='c' c='_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis14getAccessRangeEPN4llvm5ValueEPKS2_m'/>
+<use f='llvm/llvm/lib/Target/Mips/CheriLoopPointerDecanonicalize.cpp' l='40' u='c' c='_ZN12_GLOBAL__N_130CheriLoopPointerDecanonicalize13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCLoopPreIncPrep.cpp' l='204' u='c' c='_ZN12_GLOBAL__N_117PPCLoopPreIncPrep15alreadyPreparedEPN4llvm4LoopEPNS1_11InstructionEPKNS1_4SCEVEPKNS1_12SCEVConstantE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='599' u='c' c='_ZN12_GLOBAL__N_114IndVarSimplify21rewriteLoopExitValuesEPN4llvm4LoopERNS1_12SCEVExpanderE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='1276' u='c' c='_ZN12_GLOBAL__N_17WidenIV17getWideRecurrenceENS_14NarrowIVDefUseE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='2144' u='c' c='_ZL13isLoopCounterPN4llvm7PHINodeEPNS_4LoopEPNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopFuse.cpp' l='1048' u='c' c='_ZN9LoopFuser13performFusionERK15FusionCandidateS2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='885' u='c' c='_ZL13isExistingPhiPKN4llvm14SCEVAddRecExprERNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='947' u='c' c='_ZL19isHighCostExpansionPKN4llvm4SCEVERNS_15SmallPtrSetImplIS2_EERNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='2717' u='c' c='_ZL13findIVOperandPN4llvm3UseES1_PNS_4LoopERNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='2997' u='c' c='_ZN12_GLOBAL__N_111LSRInstance16ChainInstructionEPN4llvm11InstructionES3_RNS1_15SmallVectorImplINS_10ChainUsersEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='3054' u='c' c='_ZN12_GLOBAL__N_111LSRInstance13CollectChainsEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='3076' u='c' c='_ZN12_GLOBAL__N_111LSRInstance13CollectChainsEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='3425' u='c' c='_ZN12_GLOBAL__N_111LSRInstance37CollectLoopInvariantFixupsAndFormulaeEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/NaryReassociate.cpp' l='236' u='c' c='_ZN4llvm19NaryReassociatePass14doOneIterationERNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SeparateConstOffsetFromGEP.cpp' l='1163' u='c' c='_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP11reuniteExtsEPN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyIndVar.cpp' l='131' u='c' c='_ZN12_GLOBAL__N_114SimplifyIndvar10foldIVUserEPN4llvm11InstructionES3_'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyIndVar.cpp' l='151' u='c' c='_ZN12_GLOBAL__N_114SimplifyIndvar10foldIVUserEPN4llvm11InstructionES3_'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyIndVar.cpp' l='636' u='c' c='_ZN12_GLOBAL__N_114SimplifyIndvar30replaceIVUserWithLoopInvariantEPN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyIndVar.cpp' l='664' u='c' c='_ZN12_GLOBAL__N_114SimplifyIndvar21eliminateIdentitySCEVEPN4llvm11InstructionES3_'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyIndVar.cpp' l='802' u='c' c='_ZL14isSimpleIVUserPN4llvm11InstructionEPKNS_4LoopEPNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyIndVar.cpp' l='829' u='c' c='_ZN12_GLOBAL__N_114SimplifyIndvar13simplifyUsersEPN4llvm7PHINodeEPNS1_9IVVisitorE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='1695' u='c' c='_ZN4llvm19InnerLoopVectorizer21widenIntOrFpInductionEPNS_7PHINodeEPNS_9TruncInstE'/>

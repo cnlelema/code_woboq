@@ -1,0 +1,18 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Vectorize/LoopVectorizationLegality.h' l='291' type='int llvm::LoopVectorizationLegality::isConsecutivePtr(llvm::Value * Ptr)'/>
+<def f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorizationLegality.cpp' l='434' ll='442' type='int llvm::LoopVectorizationLegality::isConsecutivePtr(llvm::Value * Ptr)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Vectorize/LoopVectorizationLegality.h' l='281'>/// Check if this pointer is consecutive when vectorizing. This happens
+  /// when the last index of the GEP is the induction variable, or that the
+  /// pointer itself is an induction variable.
+  /// This check allows us to vectorize A[idx] into a wide load/store.
+  /// Returns:
+  /// 0 - Stride is unknown or non-consecutive.
+  /// 1 - Address is consecutive.
+  /// -1 - Address is consecutive, and decreasing.
+  /// NOTE: This method must only be used before modifying the original scalar
+  /// loop. Do not use after invoking &apos;createVectorizedLoopSkeleton&apos; (PR34965).</doc>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='1084' u='c' c='_ZN4llvm26LoopVectorizationCostModel18isLegalMaskedStoreEPNS_4TypeEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='1090' u='c' c='_ZN4llvm26LoopVectorizationCostModel17isLegalMaskedLoadEPNS_4TypeEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='4446' u='c' c='_ZN4llvm26LoopVectorizationCostModel29memoryInstructionCanBeWidenedEPNS_11InstructionEj'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='5530' u='c' c='_ZN4llvm26LoopVectorizationCostModel23getConsecutiveMemOpCostEPNS_11InstructionEj'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='5722' u='c' c='_ZN4llvm26LoopVectorizationCostModel28setCostBasedWideningDecisionEj'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='6103' u='c' c='_ZN4llvm26LoopVectorizationCostModel24isConsecutiveLoadOrStoreEPNS_11InstructionE'/>

@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/ADT/APFloat.h' l='279' type='llvm::APFloatBase::opStatus llvm::detail::IEEEFloat::convertToInteger(MutableArrayRef&lt;integerPart&gt; , unsigned int , bool , llvm::APFloatBase::roundingMode , bool * ) const'/>
+<use f='llvm/llvm/include/llvm/ADT/APFloat.h' l='1072' u='c' c='_ZNK4llvm7APFloat16convertToIntegerENS_15MutableArrayRefImEEjbNS_11APFloatBase12roundingModeEPb'/>
+<use f='llvm/llvm/lib/Support/APFloat.cpp' l='1721' u='c' c='_ZN4llvm6detail9IEEEFloat9remainderERKS1_'/>
+<def f='llvm/llvm/lib/Support/APFloat.cpp' l='2149' ll='2177' type='IEEEFloat::opStatus llvm::detail::IEEEFloat::convertToInteger(MutableArrayRef&lt;integerPart&gt; parts, unsigned int width, bool isSigned, llvm::APFloatBase::roundingMode rounding_mode, bool * isExact) const'/>
+<doc f='llvm/llvm/lib/Support/APFloat.cpp' l='2140'>/* Same as convertToSignExtendedInteger, except we provide
+   deterministic values in case of an invalid operation exception,
+   namely zero for NaNs and the minimal or maximal value respectively
+   for underflow or overflow.
+   The *isExact output tells whether the result is exact, in the sense
+   that converting it back to the original floating point type produces
+   the original value.  This is almost equivalent to result==opOK,
+   except for negative zeroes.
+*/</doc>

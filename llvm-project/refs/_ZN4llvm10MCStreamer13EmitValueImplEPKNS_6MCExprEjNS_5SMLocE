@@ -1,0 +1,18 @@
+<dec f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='685' type='void llvm::MCStreamer::EmitValueImpl(const llvm::MCExpr * Value, unsigned int Size, llvm::SMLoc Loc = llvm::SMLoc())'/>
+<doc f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='675'>/// Emit the expression \p Value into the output as a native
+  /// integer of the given \p Size bytes.
+  ///
+  /// This is used to implement assembler directives such as .word, .quad,
+  /// etc.
+  ///
+  /// \param Value - The value to emit.
+  /// \param Size - The size of the integer (in bytes) to emit. This must
+  /// match a native machine width.
+  /// \param Loc - The location of the expression for error reporting.</doc>
+<ovr f='llvm/llvm/lib/MC/MCAsmStreamer.cpp' l='930' c='_ZN12_GLOBAL__N_113MCAsmStreamer13EmitValueImplEPKN4llvm6MCExprEjNS1_5SMLocE'/>
+<ovr f='llvm/llvm/lib/MC/MCObjectStreamer.cpp' l='190' c='_ZN4llvm16MCObjectStreamer13EmitValueImplEPKNS_6MCExprEjNS_5SMLocE'/>
+<use f='llvm/llvm/lib/MC/MCObjectStreamer.cpp' l='192' u='c' c='_ZN4llvm16MCObjectStreamer13EmitValueImplEPKNS_6MCExprEjNS_5SMLocE'/>
+<use f='llvm/llvm/lib/MC/MCStreamer.cpp' l='177' u='c' c='_ZN4llvm10MCStreamer9EmitValueEPKNS_6MCExprEjNS_5SMLocE'/>
+<use f='llvm/llvm/lib/MC/MCStreamer.cpp' l='186' u='c' c='_ZN4llvm10MCStreamer15EmitSymbolValueEPKNS_8MCSymbolEjb'/>
+<def f='llvm/llvm/lib/MC/MCStreamer.cpp' l='1131' ll='1133' type='void llvm::MCStreamer::EmitValueImpl(const llvm::MCExpr * Value, unsigned int Size, llvm::SMLoc Loc = llvm::SMLoc())'/>
+<use f='llvm/llvm/lib/Target/Mips/MCTargetDesc/MipsTargetStreamer.cpp' l='1061' u='c' c='_ZN4llvm21MipsTargetELFStreamer16emitDirectiveEndENS_9StringRefE'/>

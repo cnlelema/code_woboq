@@ -1,0 +1,53 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<def f='llvm/clang/include/clang/AST/ExprOpenMP.h' l='44' ll='129'/>
+<size>48</size>
+<doc f='llvm/clang/include/clang/AST/ExprOpenMP.h' l='19'>/// OpenMP 4.0 [2.4, Array Sections].
+/// To specify an array section in an OpenMP construct, array subscript
+/// expressions are extended with the following syntax:
+/// \code
+/// [ lower-bound : length ]
+/// [ lower-bound : ]
+/// [ : length ]
+/// [ : ]
+/// \endcode
+/// The array section must be a subset of the original array.
+/// Array sections are allowed on multidimensional arrays. Base language array
+/// subscript expressions can be used to specify length-one dimensions of
+/// multidimensional array sections.
+/// The lower-bound and length are integral type expressions. When evaluated
+/// they represent a set of integer values as follows:
+/// \code
+/// { lower-bound, lower-bound + 1, lower-bound + 2,... , lower-bound + length -
+/// 1 }
+/// \endcode
+/// The lower-bound and length must evaluate to non-negative integers.
+/// When the size of the array dimension is not known, the length must be
+/// specified explicitly.
+/// When the length is absent, it defaults to the size of the array dimension
+/// minus the lower-bound.
+/// When the lower-bound is absent it defaults to 0.</doc>
+<mbr r='clang::OMPArraySectionExpr::SubExprs' o='128' t='clang::Stmt *[3]'/>
+<mbr r='clang::OMPArraySectionExpr::ColonLoc' o='320' t='clang::SourceLocation'/>
+<mbr r='clang::OMPArraySectionExpr::RBracketLoc' o='352' t='clang::SourceLocation'/>
+<fun r='_ZN5clang19OMPArraySectionExprC1EPNS_4ExprES2_S2_NS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindENS_14SourceLocationES6_'/>
+<fun r='_ZN5clang19OMPArraySectionExprC1ENS_4Stmt10EmptyShellE'/>
+<fun r='_ZN5clang19OMPArraySectionExpr7getBaseEv'/>
+<fun r='_ZNK5clang19OMPArraySectionExpr7getBaseEv'/>
+<fun r='_ZN5clang19OMPArraySectionExpr7setBaseEPNS_4ExprE'/>
+<fun r='_ZN5clang19OMPArraySectionExpr19getBaseOriginalTypeEPKNS_4ExprE'/>
+<fun r='_ZN5clang19OMPArraySectionExpr13getLowerBoundEv'/>
+<fun r='_ZNK5clang19OMPArraySectionExpr13getLowerBoundEv'/>
+<fun r='_ZN5clang19OMPArraySectionExpr13setLowerBoundEPNS_4ExprE'/>
+<fun r='_ZN5clang19OMPArraySectionExpr9getLengthEv'/>
+<fun r='_ZNK5clang19OMPArraySectionExpr9getLengthEv'/>
+<fun r='_ZN5clang19OMPArraySectionExpr9setLengthEPNS_4ExprE'/>
+<fun r='_ZNK5clang19OMPArraySectionExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang19OMPArraySectionExpr9getEndLocEv'/>
+<fun r='_ZNK5clang19OMPArraySectionExpr11getColonLocEv'/>
+<fun r='_ZN5clang19OMPArraySectionExpr11setColonLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang19OMPArraySectionExpr14getRBracketLocEv'/>
+<fun r='_ZN5clang19OMPArraySectionExpr14setRBracketLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang19OMPArraySectionExpr10getExprLocEv'/>
+<fun r='_ZN5clang19OMPArraySectionExpr7classofEPKNS_4StmtE'/>
+<fun r='_ZN5clang19OMPArraySectionExpr8childrenEv'/>
+<fun r='_ZNK5clang19OMPArraySectionExpr8childrenEv'/>

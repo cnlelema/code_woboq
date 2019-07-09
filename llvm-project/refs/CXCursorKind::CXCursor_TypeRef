@@ -1,0 +1,26 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='1844' type='43'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='1829'>/**
+   * A reference to a type declaration.
+   *
+   * A type reference occurs anywhere where a type is named but not
+   * declared. For example, given:
+   *
+   * \code
+   * typedef unsigned size_type;
+   * size_type size;
+   * \endcode
+   *
+   * The typedef is a declaration of size_type (CXCursor_TypedefDecl),
+   * while the type of the variable &quot;size&quot; is referenced. The cursor
+   * referenced by the type of size is the typedef for size_type.
+   */</doc>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='4487' c='clang_getCursorSpelling'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='5083' c='clang_getCursorKindSpelling'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='5612' u='r' c='_Z16GetCursorVisitor8CXCursorS_Pv'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='5798' c='clang_getCursorLocation'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='5955' c='_ZL18getRawCursorExtent8CXCursor'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='6166' c='clang_getCursorReferenced'/>
+<use f='llvm/clang/tools/libclang/CXCursor.cpp' l='780' u='r' c='_ZN5clang8cxcursor17MakeCursorTypeRefEPKNS_8TypeDeclENS_14SourceLocationEP21CXTranslationUnitImpl'/>
+<use f='llvm/clang/tools/libclang/CXCursor.cpp' l='780' u='r' c='_ZN5clang8cxcursor17MakeCursorTypeRefEPKNS_8TypeDeclENS_14SourceLocationEP21CXTranslationUnitImpl'/>
+<use f='llvm/clang/tools/libclang/CXCursor.cpp' l='786' u='r' c='_ZN5clang8cxcursor16getCursorTypeRefE8CXCursor'/>
+<use f='llvm/clang/tools/libclang/CXType.cpp' l='261' c='clang_getCursorType'/>

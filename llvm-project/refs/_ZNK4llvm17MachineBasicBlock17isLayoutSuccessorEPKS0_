@@ -1,0 +1,59 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/MachineBasicBlock.h' l='518' type='bool llvm::MachineBasicBlock::isLayoutSuccessor(const llvm::MachineBasicBlock * MBB) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineBasicBlock.h' l='513'>/// Return true if the specified MBB will be emitted immediately after this
+  /// block, such that if this block exits by falling through, control will
+  /// transfer to the specified MBB. Note that MBB need not be a successor at
+  /// all, for example if this block ends with an unconditional branch to some
+  /// other block.</doc>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/AsmPrinter.cpp' l='3126' u='c' c='_ZNK4llvm10AsmPrinter33isBlockOnlyReachableByFallthroughEPKNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='682' u='c' c='_ZL17ProfitableToMergePN4llvm17MachineBasicBlockES1_jRjRNS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES6_S1_S1_RNS_8DenseMapIPKS0_iNS_12Dens11428772'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='684' u='c' c='_ZL17ProfitableToMergePN4llvm17MachineBasicBlockES1_jRjRNS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES6_S1_S1_RNS_8DenseMapIPKS0_iNS_12Dens11428772'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='1004' u='c' c='_ZN4llvm12BranchFolder18TryTailMergeBlocksEPNS_17MachineBasicBlockES2_j'/>
+<use f='llvm/llvm/lib/CodeGen/BranchFolding.cpp' l='1008' u='c' c='_ZN4llvm12BranchFolder18TryTailMergeBlocksEPNS_17MachineBasicBlockES2_j'/>
+<use f='llvm/llvm/lib/CodeGen/EarlyIfConversion.cpp' l='571' u='c' c='_ZN12_GLOBAL__N_19SSAIfConv9convertIfERN4llvm15SmallVectorImplIPNS1_17MachineBasicBlockEEE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='385' u='c' c='_ZN4llvm12IRTranslator11translateBrERKNS_4UserERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='542' u='c' c='_ZN4llvm17MachineBasicBlock16updateTerminatorEv'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='562' u='c' c='_ZN4llvm17MachineBasicBlock16updateTerminatorEv'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='572' u='c' c='_ZN4llvm17MachineBasicBlock16updateTerminatorEv'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='577' u='c' c='_ZN4llvm17MachineBasicBlock16updateTerminatorEv'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='605' u='c' c='_ZN4llvm17MachineBasicBlock16updateTerminatorEv'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='620' u='c' c='_ZN4llvm17MachineBasicBlock16updateTerminatorEv'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='629' u='c' c='_ZN4llvm17MachineBasicBlock16updateTerminatorEv'/>
+<def f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='820' ll='823' type='bool llvm::MachineBasicBlock::isLayoutSuccessor(const llvm::MachineBasicBlock * MBB) const'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='966' u='c' c='_ZN4llvm17MachineBasicBlock17SplitCriticalEdgeEPS0_RNS_4PassE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBlockPlacement.cpp' l='1843' u='c' c='_ZN12_GLOBAL__N_121MachineBlockPlacement15findBestLoopTopERKN4llvm11MachineLoopERKNS1_14SmallSetVectorIPKNS1_17MachineBasicBlockELj16EEE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBlockPlacement.cpp' l='1949' u='c' c='_ZN12_GLOBAL__N_121MachineBlockPlacement16findBestLoopExitERKN4llvm11MachineLoopERKNS1_14SmallSetVectorIPKNS1_17MachineBasicBlockELj16EEE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBlockPlacement.cpp' l='2965' u='c' c='_ZN12_GLOBAL__N_126MachineBlockPlacementStats20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/FastISel.cpp' l='1683' u='c' c='_ZN4llvm8FastISel14fastEmitBranchEPNS_17MachineBasicBlockERKNS_8DebugLocE'/>
+<use f='llvm/llvm/lib/CodeGen/TailDuplicator.cpp' l='827' u='c' c='_ZN4llvm14TailDuplicator13tailDuplicateEbPNS_17MachineBasicBlockES2_RNS_15SmallVectorImplIS2_EERNS3_IPNS_12MachineInstrEEE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64FastISel.cpp' l='2283' u='c' c='_ZN12_GLOBAL__N_115AArch64FastISel20emitCompareAndBranchEPKN4llvm10BranchInstE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64FastISel.cpp' l='2414' u='c' c='_ZN12_GLOBAL__N_115AArch64FastISel12selectBranchEPKN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64FastISel.cpp' l='2496' u='c' c='_ZN12_GLOBAL__N_115AArch64FastISel12selectBranchEPKN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIOptimizeExecMaskingPreRA.cpp' l='150' u='c' c='_ZNK12_GLOBAL__N_126SIOptimizeExecMaskingPreRA30skipIgnoreExecInstsTrivialSuccERPN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFastISel.cpp' l='1251' u='c' c='_ZN12_GLOBAL__N_111ARMFastISel12SelectBranchEPKN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFastISel.cpp' l='1284' u='c' c='_ZN12_GLOBAL__N_111ARMFastISel12SelectBranchEPKN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFastISel.cpp' l='1322' u='c' c='_ZN12_GLOBAL__N_111ARMFastISel12SelectBranchEPKN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Target/BPF/BPFInstrInfo.cpp' l='201' u='c' c='_ZNK4llvm12BPFInstrInfo13analyzeBranchERNS_17MachineBasicBlockERPS1_S4_RNS_15SmallVectorImplINS_14MachineOperandEEEb'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonCFGOptimizer.cpp' l='110' u='c' c='_ZN12_GLOBAL__N_119HexagonCFGOptimizer19isOnFallThroughPathEPN4llvm17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonCFGOptimizer.cpp' l='164' u='c' c='_ZN12_GLOBAL__N_119HexagonCFGOptimizer20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonCFGOptimizer.cpp' l='167' u='c' c='_ZN12_GLOBAL__N_119HexagonCFGOptimizer20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonCFGOptimizer.cpp' l='194' u='c' c='_ZN12_GLOBAL__N_119HexagonCFGOptimizer20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonConstPropagation.cpp' l='3142' u='c' c='_ZN12_GLOBAL__N_121HexagonConstEvaluator16rewriteHexBranchERN4llvm12MachineInstrERKNS_22MachineConstPropagator7CellMapE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='431' u='c' c='_ZNK4llvm16HexagonInstrInfo13analyzeBranchERNS_17MachineBasicBlockERPS1_S4_RNS_15SmallVectorImplINS_14MachineOperandEEEb'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='3614' u='c' c='_ZNK4llvm16HexagonInstrInfo19getDotNewPredJumpOpERKNS_12MachineInstrEPKNS_28MachineBranchProbabilityInfoE'/>
+<use f='llvm/llvm/lib/Target/Lanai/LanaiInstrInfo.cpp' l='606' u='c' c='_ZNK4llvm14LanaiInstrInfo13analyzeBranchERNS_17MachineBasicBlockERPS1_S4_RNS_15SmallVectorImplINS_14MachineOperandEEEb'/>
+<use f='llvm/llvm/lib/Target/MSP430/MSP430InstrInfo.cpp' l='217' u='c' c='_ZNK4llvm15MSP430InstrInfo13analyzeBranchERNS_17MachineBasicBlockERPS1_S4_RNS_15SmallVectorImplINS_14MachineOperandEEEb'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsAsmPrinter.cpp' l='511' u='c' c='_ZNK4llvm14MipsAsmPrinter33isBlockOnlyReachableByFallthroughEPKNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCEarlyReturn.cpp' l='135' u='c' c='_ZN12_GLOBAL__N_114PPCEarlyReturn12processBlockERN4llvm17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCEarlyReturn.cpp' l='155' u='c' c='_ZN12_GLOBAL__N_114PPCEarlyReturn12processBlockERN4llvm17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCExpandISEL.cpp' l='354' u='c' c='_ZN12_GLOBAL__N_113PPCExpandISEL21reorganizeBlockLayoutERN4llvm11SmallVectorIPNS1_12MachineInstrELj4EEEPNS1_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCFastISel.cpp' l='785' u='c' c='_ZN12_GLOBAL__N_111PPCFastISel12SelectBranchEPKN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCPreEmitPeephole.cpp' l='147' u='c' c='_ZN12_GLOBAL__N_118PPCPreEmitPeephole20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZInstrInfo.cpp' l='428' u='c' c='_ZNK4llvm16SystemZInstrInfo13analyzeBranchERNS_17MachineBasicBlockERPS1_S4_RNS_15SmallVectorImplINS_14MachineOperandEEEb'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyFixIrreducibleControlFlow.cpp' l='410' u='c' c='_ZN12_GLOBAL__N_136WebAssemblyFixIrreducibleControlFlow19makeSingleEntryLoopERN4llvm11SmallPtrSetIPNS1_17MachineBasicBlockELj4EEES6_RNS1_15MachineFunc4654716'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyFixIrreducibleControlFlow.cpp' l='433' u='c' c='_ZN12_GLOBAL__N_136WebAssemblyFixIrreducibleControlFlow19makeSingleEntryLoopERN4llvm11SmallPtrSetIPNS1_17MachineBasicBlockELj4EEES6_RNS1_15MachineFunc4654716'/>
+<use f='llvm/llvm/lib/Target/X86/X86FastISel.cpp' l='1655' u='c' c='_ZN12_GLOBAL__N_111X86FastISel15X86SelectBranchEPKN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Target/X86/X86FastISel.cpp' l='1723' u='c' c='_ZN12_GLOBAL__N_111X86FastISel15X86SelectBranchEPKN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Target/X86/X86InstrInfo.cpp' l='2335' u='c' c='_ZNK4llvm12X86InstrInfo17AnalyzeBranchImplERNS_17MachineBasicBlockERPS1_S4_RNS_15SmallVectorImplINS_14MachineOperandEEERNS5_IPNS_12MachineInstrEEEb'/>
+<use f='llvm/llvm/lib/Target/X86/X86InstrInfo.cpp' l='2362' u='c' c='_ZNK4llvm12X86InstrInfo17AnalyzeBranchImplERNS_17MachineBasicBlockERPS1_S4_RNS_15SmallVectorImplINS_14MachineOperandEEERNS5_IPNS_12MachineInstrEEEb'/>
+<use f='llvm/llvm/lib/Target/X86/X86SpeculativeLoadHardening.cpp' l='261' u='c' c='_ZL9splitEdgeRN4llvm17MachineBasicBlockES1_iPNS_12MachineInstrERS3_RKNS_12X86InstrInfoE'/>
+<use f='llvm/llvm/lib/Target/X86/X86SpeculativeLoadHardening.cpp' l='268' u='c' c='_ZL9splitEdgeRN4llvm17MachineBasicBlockES1_iPNS_12MachineInstrERS3_RKNS_12X86InstrInfoE'/>

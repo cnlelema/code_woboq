@@ -1,0 +1,34 @@
+<def f='llvm/llvm/include/llvm/Analysis/ObjCARCInstKind.h' l='102' ll='112' type='llvm::objcarc::ARCInstKind llvm::objcarc::GetBasicARCInstKind(const llvm::Value * V)'/>
+<use f='llvm/llvm/include/llvm/Analysis/ObjCARCAnalysisUtils.h' l='81' u='c' c='_ZN4llvm7objcarc20GetUnderlyingObjCPtrEPKNS_5ValueERKNS_10DataLayoutE'/>
+<use f='llvm/llvm/include/llvm/Analysis/ObjCARCAnalysisUtils.h' l='119' u='c' c='_ZN4llvm7objcarc17GetRCIdentityRootEPKNS_5ValueE'/>
+<use f='llvm/llvm/lib/Analysis/ObjCARCAliasAnalysis.cpp' l='116' u='c' c='_ZN4llvm7objcarc15ObjCARCAAResult13getModRefInfoEPKNS_8CallBaseERKNS_14MemoryLocationERNS_11AAQueryInfoE'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ObjCARCInstKind.h' l='97'>/// Determine which objc runtime call instruction class V belongs to.
+///
+/// This is similar to GetARCInstKind except that it only detects objc
+/// runtime calls. This allows it to be faster.
+///</doc>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARC.h' l='58' u='c' c='_ZN4llvm7objcarcL16EraseInstructionEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARC.h' l='59' u='c' c='_ZN4llvm7objcarcL16EraseInstructionEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/DependencyAnalysis.cpp' l='178' u='c' c='_ZN4llvm7objcarc7DependsENS0_14DependenceKindEPNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/DependencyAnalysis.cpp' l='194' u='c' c='_ZN4llvm7objcarc7DependsENS0_14DependenceKindEPNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/DependencyAnalysis.cpp' l='208' u='c' c='_ZN4llvm7objcarc7DependsENS0_14DependenceKindEPNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCAPElim.cpp' l='96' u='c' c='_ZN12_GLOBAL__N_113ObjCARCAPElim10OptimizeBBEPN4llvm10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCContract.cpp' l='181' u='c' c='_ZN12_GLOBAL__N_115ObjCARCContract19contractAutoreleaseERN4llvm8FunctionEPNS1_11InstructionENS1_7objcarc11ARCInstKindERNS1_15SmallPtrSetImplIS5_EERNS82024181'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCContract.cpp' l='236' u='c' c='_ZL38findSafeStoreForStoreStrongContractionPN4llvm8LoadInstEPNS_11InstructionERNS_7objcarc18ProvenanceAnalysisEPNS_9AAResultsE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCContract.cpp' l='299' u='c' c='_ZL35findRetainForStoreStrongContractionPN4llvm5ValueEPNS_9StoreInstEPNS_11InstructionERNS_7objcarc18ProvenanceAnalysisE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCContract.cpp' l='310' u='c' c='_ZL35findRetainForStoreStrongContractionPN4llvm5ValueEPNS_9StoreInstEPNS_11InstructionERNS_7objcarc18ProvenanceAnalysisE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCContract.cpp' l='453' u='c' c='_ZN12_GLOBAL__N_115ObjCARCContract24tryToPeepholeInstructionERN4llvm8FunctionEPNS1_11InstructionERNS1_12InstIteratorINS1_15SymbolTableListINS1_10Basic6323069'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCExpand.cpp' l='101' u='c' c='_ZN12_GLOBAL__N_113ObjCARCExpand13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='98' u='c' c='_ZL29FindSingleUseIdentifiedObjectPKN4llvm5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='638' u='c' c='_ZN12_GLOBAL__N_110ObjCARCOpt20OptimizeRetainRVCallERN4llvm8FunctionEPNS1_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='692' u='c' c='_ZN12_GLOBAL__N_110ObjCARCOpt25OptimizeAutoreleaseRVCallERN4llvm8FunctionEPNS1_11InstructionERNS1_7objcarc11ARCInstKindE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='759' u='c' c='_ZN12_GLOBAL__N_110ObjCARCOpt23OptimizeIndividualCallsERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='1881' u='c' c='_ZN12_GLOBAL__N_110ObjCARCOpt17OptimizeWeakCallsERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='1985' u='c' c='_ZN12_GLOBAL__N_110ObjCARCOpt17OptimizeWeakCallsERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='1994' u='c' c='_ZN12_GLOBAL__N_110ObjCARCOpt17OptimizeWeakCallsERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='2006' u='c' c='_ZN12_GLOBAL__N_110ObjCARCOpt17OptimizeWeakCallsERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='2074' u='c' c='_ZL28HasSafePathToPredecessorCallPKN4llvm5ValueEPNS_11InstructionERNS_15SmallPtrSetImplIS4_EERNS5_IPKNS_10BasicBlockEEERNS_7objcarc18ProvenanceAnalysisE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='2095' u='c' c='_ZL33FindPredecessorRetainWithSafePathPKN4llvm5ValueEPNS_10BasicBlockEPNS_11InstructionERNS_15SmallPtrSetImplIS6_EERNS7_IPKS3_EERNS_7objcarc18ProvenanceAnalysisE'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='2120' u='c' c='_ZL38FindPredecessorAutoreleaseWithSafePathPKN4llvm5ValueEPNS_10BasicBlockEPNS_10ReturnInstERNS_15SmallPtrSetImplIPNS_11InstructionEEERNS7_IPKS3_EERNS12251248'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='2205' u='c' c='_ZN12_GLOBAL__N_110ObjCARCOpt16GatherStatisticsERN4llvm8FunctionEb'/>
+<use f='llvm/llvm/lib/Transforms/ObjCARC/PtrState.cpp' l='295' u='c' c='_ZN4llvm7objcarc16BottomUpPtrState18HandlePotentialUseEPNS_10BasicBlockEPNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE'/>

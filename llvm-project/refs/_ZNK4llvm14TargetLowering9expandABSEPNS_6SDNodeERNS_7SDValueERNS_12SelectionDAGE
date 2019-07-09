@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='3994' type='bool llvm::TargetLowering::expandABS(llvm::SDNode * N, llvm::SDValue &amp; Result, llvm::SelectionDAG &amp; DAG) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='3988'>/// Expand ABS nodes. Expands vector/scalar ABS nodes,
+  /// vector nodes can only succeed if all operations are legal/custom.
+  /// (ABS x) -&gt; (XOR (ADD x, (SRA x, type_size)), (SRA x, type_size))
+  /// \param N Node to expand
+  /// \param Result output after conversion
+  /// \returns True, if the expansion was successful, false otherwise</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeDAG.cpp' l='2691' u='c' c='_ZN12_GLOBAL__N_120SelectionDAGLegalize10ExpandNodeEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1136' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer9ExpandABSEN4llvm7SDValueE'/>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp' l='5127' ll='5146' type='bool llvm::TargetLowering::expandABS(llvm::SDNode * N, llvm::SDValue &amp; Result, llvm::SelectionDAG &amp; DAG) const'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='10396' u='c' c='_ZL17PerformABSCombinePN4llvm6SDNodeERNS_14TargetLowering15DAGCombinerInfoEPKNS_12ARMSubtargetE'/>

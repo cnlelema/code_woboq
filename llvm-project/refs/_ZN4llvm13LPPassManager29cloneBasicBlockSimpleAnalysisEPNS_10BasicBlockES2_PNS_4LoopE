@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/Analysis/LoopPass.h' l='143' type='void llvm::LPPassManager::cloneBasicBlockSimpleAnalysis(llvm::BasicBlock * From, llvm::BasicBlock * To, llvm::Loop * L)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/LoopPass.h' l='134'>//===--------------------------------------------------------------------===//
+  /// SimpleAnalysis - Provides simple interface to update analysis info
+  /// maintained by various passes. Note, if required this interface can
+  /// be extracted into a separate abstract class but it would require
+  /// additional use of multiple inheritance in Pass class hierarchy, something
+  /// we are trying to avoid.
+
+  /// cloneBasicBlockSimpleAnalysis - Invoke cloneBasicBlockAnalysis hook for
+  /// all passes that implement simple analysis interface.</doc>
+<def f='llvm/llvm/lib/Analysis/LoopPass.cpp' l='97' ll='103' type='void llvm::LPPassManager::cloneBasicBlockSimpleAnalysis(llvm::BasicBlock * From, llvm::BasicBlock * To, llvm::Loop * L)'/>
+<doc f='llvm/llvm/lib/Analysis/LoopPass.cpp' l='95'>/// cloneBasicBlockSimpleAnalysis - Invoke cloneBasicBlockAnalysis hook for
+/// all loop passes.</doc>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnswitch.cpp' l='1276' u='c' c='_ZN12_GLOBAL__N_112LoopUnswitch27UnswitchNontrivialConditionEPN4llvm5ValueEPNS1_8ConstantEPNS1_4LoopEPNS1_11InstructionE'/>

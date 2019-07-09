@@ -1,0 +1,44 @@
+<def f='llvm/llvm/include/llvm/Analysis/MemoryLocation.h' l='60' ll='158'/>
+<size>8</size>
+<doc f='llvm/llvm/include/llvm/Analysis/MemoryLocation.h' l='35'>// Represents the size of a MemoryLocation. Logically, it&apos;s an
+// Optional&lt;uint63_t&gt; that also carries a bit to represent whether the integer
+// it contains, N, is &apos;precise&apos;. Precise, in this context, means that we know
+// that the area of storage referenced by the given MemoryLocation must be
+// precisely N bytes. An imprecise value is formed as the union of two or more
+// precise values, and can conservatively represent all of the values unioned
+// into it. Importantly, imprecise values are an *upper-bound* on the size of a
+// MemoryLocation.
+//
+// Concretely, a precise MemoryLocation is (%p, 4) in
+// store i32 0, i32* %p
+//
+// Since we know that %p must be at least 4 bytes large at this point.
+// Otherwise, we have UB. An example of an imprecise MemoryLocation is (%p, 4)
+// at the memcpy in
+//
+//   %n = select i1 %foo, i64 1, i64 4
+//   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %p, i8* %baz, i64 %n, i32 1,
+//                                        i1 false)
+//
+// ...Since we&apos;ll copy *up to* 4 bytes into %p, but we can&apos;t guarantee that
+// we&apos;ll ever actually do so.
+//
+// If asked to represent a pathologically large value, this will degrade to
+// None.</doc>
+<mbr r='llvm::LocationSize::Value' o='0' t='uint64_t'/>
+<fun r='_ZN4llvm12LocationSizeC1EmNS0_18DirectConstructionE'/>
+<fun r='_ZN4llvm12LocationSizeC1Em'/>
+<fun r='_ZN4llvm12LocationSize7preciseEm'/>
+<fun r='_ZN4llvm12LocationSize10upperBoundEm'/>
+<fun r='_ZN4llvm12LocationSize7unknownEv'/>
+<fun r='_ZN4llvm12LocationSize12mapTombstoneEv'/>
+<fun r='_ZN4llvm12LocationSize8mapEmptyEv'/>
+<fun r='_ZNK4llvm12LocationSize9unionWithES0_'/>
+<fun r='_ZNK4llvm12LocationSize8hasValueEv'/>
+<fun r='_ZNK4llvm12LocationSize8getValueEv'/>
+<fun r='_ZNK4llvm12LocationSize9isPreciseEv'/>
+<fun r='_ZNK4llvm12LocationSize6isZeroEv'/>
+<fun r='_ZNK4llvm12LocationSizeeqERKS0_'/>
+<fun r='_ZNK4llvm12LocationSizeneERKS0_'/>
+<fun r='_ZNK4llvm12LocationSize5printERNS_11raw_ostreamE'/>
+<fun r='_ZNK4llvm12LocationSize5toRawEv'/>

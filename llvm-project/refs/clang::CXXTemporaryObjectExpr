@@ -1,0 +1,27 @@
+<inh f='llvm/clang/include/clang/AST/ExprCXX.h' l='1326' c='clang::CXXConstructExpr'/>
+<def f='llvm/clang/include/clang/AST/ExprCXX.h' l='1654' ll='1691'/>
+<size>48</size>
+<doc f='llvm/clang/include/clang/AST/ExprCXX.h' l='1639'>/// Represents a C++ functional cast expression that builds a
+/// temporary object.
+///
+/// This expression type represents a C++ &quot;functional&quot; cast
+/// (C++[expr.type.conv]) with N != 1 arguments that invokes a
+/// constructor to build a temporary object. With N == 1 arguments the
+/// functional cast expression will be represented by CXXFunctionalCastExpr.
+/// Example:
+/// \code
+/// struct X { X(int, float); }
+///
+/// X create_X() {
+///   return X(1, 3.14f); // creates a CXXTemporaryObjectExpr
+/// };
+/// \endcode</doc>
+<mbr r='clang::CXXTemporaryObjectExpr::TSI' o='320' t='clang::TypeSourceInfo *'/>
+<fun r='_ZN5clang22CXXTemporaryObjectExprC1EPNS_18CXXConstructorDeclENS_8QualTypeEPNS_14TypeSourceInfoEN4llvm8ArrayRefIPNS_4ExprEEENS_11SourceRangeEbbbb'/>
+<fun r='_ZN5clang22CXXTemporaryObjectExprC1ENS_4Stmt10EmptyShellEj'/>
+<fun r='_ZN5clang22CXXTemporaryObjectExpr6CreateERKNS_10ASTContextEPNS_18CXXConstructorDeclENS_8QualTypeEPNS_14TypeSourceInfoEN4llvm8ArrayRefIPNS_4ExprEEENS_11SourceRangeEbbbb'/>
+<fun r='_ZN5clang22CXXTemporaryObjectExpr11CreateEmptyERKNS_10ASTContextEj'/>
+<fun r='_ZNK5clang22CXXTemporaryObjectExpr17getTypeSourceInfoEv'/>
+<fun r='_ZNK5clang22CXXTemporaryObjectExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang22CXXTemporaryObjectExpr9getEndLocEv'/>
+<fun r='_ZN5clang22CXXTemporaryObjectExpr7classofEPKNS_4StmtE'/>

@@ -1,0 +1,18 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TailDuplicator.h' l='83' type='bool llvm::TailDuplicator::tailDuplicateAndUpdate(bool IsSimple, llvm::MachineBasicBlock * MBB, llvm::MachineBasicBlock * ForcedLayoutPred, SmallVectorImpl&lt;llvm::MachineBasicBlock *&gt; * DuplicatedPreds = nullptr, function_ref&lt;void (llvm::MachineBasicBlock *)&gt; * RemovalCallback = nullptr)'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBlockPlacement.cpp' l='2767' u='c' c='_ZN12_GLOBAL__N_121MachineBlockPlacement23maybeTailDuplicateBlockEPN4llvm17MachineBasicBlockES3_RNS_10BlockChainEPNS1_14SmallSetVectorIPKS2_Lj16EEERNS352128'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TailDuplicator.h' l='77'>/// Tail duplicate a single basic block into its predecessors, and then clean
+  /// up.
+  /// If \p DuplicatePreds is not null, it will be updated to contain the list
+  /// of predecessors that received a copy of \p MBB.
+  /// If \p RemovalCallback is non-null. It will be called before MBB is
+  /// deleted.</doc>
+<def f='llvm/llvm/lib/CodeGen/TailDuplicator.cpp' l='151' ll='255' type='bool llvm::TailDuplicator::tailDuplicateAndUpdate(bool IsSimple, llvm::MachineBasicBlock * MBB, llvm::MachineBasicBlock * ForcedLayoutPred, SmallVectorImpl&lt;llvm::MachineBasicBlock *&gt; * DuplicatedPreds = nullptr, function_ref&lt;void (llvm::MachineBasicBlock *)&gt; * RemovalCallback = nullptr)'/>
+<use f='llvm/llvm/lib/CodeGen/TailDuplicator.cpp' l='279' u='c' c='_ZN4llvm14TailDuplicator19tailDuplicateBlocksEv'/>
+<doc f='llvm/llvm/lib/CodeGen/TailDuplicator.cpp' l='143'>/// Tail duplicate the block and cleanup.
+/// \p IsSimple - return value of isSimpleBB
+/// \p MBB - block to be duplicated
+/// \p ForcedLayoutPred - If non-null, treat this block as the layout
+///     predecessor, instead of using the ordering in MF
+/// \p DuplicatedPreds - if non-null, \p DuplicatedPreds will contain a list of
+///     all Preds that received a copy of \p MBB.
+/// \p RemovalCallback - if non-null, called just before MBB is deleted.</doc>

@@ -1,0 +1,32 @@
+<dec f='llvm/llvm/include/llvm/Support/TargetRegistry.h' l='659' type='static const llvm::Target * llvm::TargetRegistry::lookupTarget(const std::string &amp; ArchName, llvm::Triple &amp; TheTriple, std::string &amp; Error)'/>
+<doc f='llvm/llvm/include/llvm/Support/TargetRegistry.h' l='648'>/// lookupTarget - Lookup a target based on an architecture name
+  /// and a target triple.  If the architecture name is non-empty,
+  /// then the lookup is done by architecture.  Otherwise, the target
+  /// triple is used.
+  ///
+  /// \param ArchName - The architecture to use for finding a target.
+  /// \param TheTriple - The triple to use for finding a target.  The
+  /// triple is updated with canonical architecture name if a lookup
+  /// by architecture is done.
+  /// \param Error - On failure, an error string describing why no target was
+  /// found.</doc>
+<use f='llvm/clang/tools/clang-fuzzer/handle-llvm/handle_llvm.cpp' l='105' u='c' c='_ZL7OptLLVMRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm10CodeGenOpt5LevelE'/>
+<def f='llvm/llvm/lib/Support/TargetRegistry.cpp' l='24' ll='60' type='static const llvm::Target * llvm::TargetRegistry::lookupTarget(const std::string &amp; ArchName, llvm::Triple &amp; TheTriple, std::string &amp; Error)'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfStreamer.cpp' l='50' u='c' c='_ZN4llvm8dsymutil13DwarfStreamer4initENS_6TripleE'/>
+<use f='llvm/llvm/tools/llc/llc.cpp' l='439' u='c' c='_ZL13compileModulePPcRN4llvm11LLVMContextE'/>
+<use f='llvm/llvm/tools/llvm-cfi-verify/lib/FileAnalysis.cpp' l='378' u='c' c='_ZN4llvm10cfi_verify12FileAnalysis28initialiseDisassemblyMembersEv'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='668' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-isel-fuzzer/llvm-isel-fuzzer.cpp' l='136' u='c' c='LLVMFuzzerInitialize'/>
+<use f='llvm/llvm/tools/llvm-jitlink/llvm-jitlink.cpp' l='499' u='c' c='_Z9runChecksRN4llvm7SessionE'/>
+<use f='llvm/llvm/tools/llvm-mc/llvm-mc.cpp' l='200' u='c' c='_ZL9GetTargetPKc'/>
+<use f='llvm/llvm/tools/llvm-objdump/llvm-objdump.cpp' l='455' u='c' c='_ZN4llvmL9getTargetEPKNS_6object10ObjectFileE'/>
+<use f='llvm/llvm/tools/llvm-opt-fuzzer/llvm-opt-fuzzer.cpp' l='216' u='c' c='LLVMFuzzerInitialize'/>
+<use f='llvm/llvm/tools/llvm-rtdyld/llvm-rtdyld.cpp' l='713' u='c' c='_ZL13linkAndVerifyv'/>
+<use f='llvm/llvm/tools/opt/opt.cpp' l='461' u='c' c='_ZL16GetTargetMachineN4llvm6TripleENS_9StringRefES1_RKNS_13TargetOptionsE'/>
+<use f='llvm/llvm/unittests/CodeGen/AArch64SelectionDAGTest.cpp' l='36' u='c' c='_ZN12_GLOBAL__N_123AArch64SelectionDAGTest5SetUpEv'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/GISelMITest.h' l='60' u='c' c='_ZL19createTargetMachinev'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/PatternMatchTest.cpp' l='48' u='c' c='_ZN12_GLOBAL__N_119createTargetMachineEv'/>
+<use f='llvm/llvm/unittests/CodeGen/TargetOptionsTest.cpp' l='34' u='c' c='_ZN12_GLOBAL__N_119createTargetMachineEb'/>
+<use f='llvm/llvm/unittests/DebugInfo/DWARF/DwarfGenerator.cpp' l='399' u='c' c='_ZN4llvm8dwarfgen9Generator4initENS_6TripleEt'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/JITLink/JITLinkTestCommon.cpp' l='53' u='c' c='_ZN4llvm17JITLinkTestCommon13TestResources25initializeTripleSpecificsERNS_6TripleE'/>
+<use f='llvm/llvm/unittests/MI/LiveIntervalTest.cpp' l='41' u='c' c='_ZN12_GLOBAL__N_119createTargetMachineEv'/>

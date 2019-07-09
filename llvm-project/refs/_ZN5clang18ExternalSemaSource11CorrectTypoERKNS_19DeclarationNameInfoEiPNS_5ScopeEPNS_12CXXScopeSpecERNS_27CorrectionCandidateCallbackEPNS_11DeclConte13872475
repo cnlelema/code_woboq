@@ -1,0 +1,14 @@
+<def f='llvm/clang/include/clang/Sema/ExternalSemaSource.h' l='202' ll='209' type='clang::TypoCorrection clang::ExternalSemaSource::CorrectTypo(const clang::DeclarationNameInfo &amp; Typo, int LookupKind, clang::Scope * S, clang::CXXScopeSpec * SS, clang::CorrectionCandidateCallback &amp; CCC, clang::DeclContext * MemberContext, bool EnteringContext, const clang::ObjCObjectPointerType * OPT)'/>
+<doc f='llvm/clang/include/clang/Sema/ExternalSemaSource.h' l='195'>/// \copydoc Sema::CorrectTypo
+  /// \note LookupKind must correspond to a valid Sema::LookupNameKind
+  ///
+  /// ExternalSemaSource::CorrectTypo is always given the first chance to
+  /// correct a typo (really, to offer suggestions to repair a failed lookup).
+  /// It will even be called when SpellChecking is turned off or after a
+  /// fatal error has already been detected.</doc>
+<ovr f='llvm/clang/lib/Sema/MultiplexExternalSemaSource.cpp' l='314' c='_ZN5clang27MultiplexExternalSemaSource11CorrectTypoERKNS_19DeclarationNameInfoEiPNS_5ScopeEPNS_12CXXScopeSpecERNS_27CorrectionCandidateCallbackEPNS_116405020'/>
+<use f='llvm/clang/lib/Sema/MultiplexExternalSemaSource.cpp' l='322' u='c' c='_ZN5clang27MultiplexExternalSemaSource11CorrectTypoERKNS_19DeclarationNameInfoEiPNS_5ScopeEPNS_12CXXScopeSpecERNS_27CorrectionCandidateCallbackEPNS_116405020'/>
+<use f='llvm/clang/lib/Sema/SemaLookup.cpp' l='4866' u='c' c='_ZN5clang4Sema11CorrectTypoERKNS_19DeclarationNameInfoENS0_14LookupNameKindEPNS_5ScopeEPNS_12CXXScopeSpecERNS_27CorrectionCandidateCallbackENS0_15Corr8634130'/>
+<use f='llvm/clang/lib/Sema/SemaLookup.cpp' l='5001' u='c' c='_ZN5clang4Sema18CorrectTypoDelayedERKNS_19DeclarationNameInfoENS0_14LookupNameKindEPNS_5ScopeEPNS_12CXXScopeSpecERNS_27CorrectionCandidateCallbackESt813153169'/>
+<ovr f='llvm/clang/unittests/Sema/ExternalSemaSourceTest.cpp' l='107' c='_ZN12_GLOBAL__N_121NamespaceTypoProvider11CorrectTypoERKN5clang19DeclarationNameInfoEiPNS1_5ScopeEPNS1_12CXXScopeSpecERNS1_27CorrectionCandidateCallba11402919'/>
+<ovr f='llvm/clang/unittests/Sema/ExternalSemaSourceTest.cpp' l='149' c='_ZN12_GLOBAL__N_120FunctionTypoProvider11CorrectTypoERKN5clang19DeclarationNameInfoEiPNS1_5ScopeEPNS1_12CXXScopeSpecERNS1_27CorrectionCandidateCallbac4161355'/>

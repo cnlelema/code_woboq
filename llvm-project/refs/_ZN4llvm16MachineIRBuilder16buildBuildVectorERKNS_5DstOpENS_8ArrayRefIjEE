@@ -1,0 +1,26 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='747' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildBuildVector(const llvm::DstOp &amp; Res, ArrayRef&lt;unsigned int&gt; Ops)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='738'>/// Build and insert \p Res = G_BUILD_VECTOR \p Op0, ...
+  ///
+  /// G_BUILD_VECTOR creates a vector value from multiple scalar registers.
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre The entire register \p Res (and no more) must be covered by the
+  ///      input scalar registers.
+  /// \pre The type of all \p Ops registers must be identical.
+  ///
+  /// \return a MachineInstrBuilder for the newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='1757' u='c' c='_ZN4llvm12IRTranslator9translateERKNS_8ConstantEj'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='1767' u='c' c='_ZN4llvm12IRTranslator9translateERKNS_8ConstantEj'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='1784' u='c' c='_ZN4llvm12IRTranslator9translateERKNS_8ConstantEj'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='186' u='c' c='_ZN4llvm15LegalizerHelper11insertPartsEjNS_3LLTES1_NS_8ArrayRefIjEES1_S3_'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='478' u='c' c='_ZN4llvm15LegalizerHelper12narrowScalarERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='543' u='c' c='_ZN4llvm15LegalizerHelper12narrowScalarERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1640' u='c' c='_ZN4llvm15LegalizerHelper30fewerElementsVectorImplicitDefERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1733' u='c' c='_ZN4llvm15LegalizerHelper24fewerElementsVectorBasicERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1880' u='c' c='_ZN4llvm15LegalizerHelper24fewerElementsVectorCastsERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1947' u='c' c='_ZN4llvm15LegalizerHelper22fewerElementsVectorCmpERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2019' u='c' c='_ZN4llvm15LegalizerHelper25fewerElementsVectorSelectERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2715' u='c' c='_ZN4llvm15LegalizerHelper19narrowScalarExtractERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2790' u='c' c='_ZN4llvm15LegalizerHelper18narrowScalarInsertERNS_12MachineInstrEjNS_3LLTE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='579' ll='586' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildBuildVector(const llvm::DstOp &amp; Res, ArrayRef&lt;unsigned int&gt; Ops)'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64CallLowering.cpp' l='316' u='c' c='_ZNK4llvm19AArch64CallLowering11lowerReturnERNS_16MachineIRBuilderEPKNS_5ValueENS_8ArrayRefIjEEj'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPURegisterBankInfo.cpp' l='676' u='c' c='_ZNK4llvm22AMDGPURegisterBankInfo22executeInWaterfallLoopERNS_12MachineInstrERNS_19MachineRegisterInfoENS_8ArrayRefIjEE'/>

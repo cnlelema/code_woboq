@@ -1,0 +1,11 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetFrameLowering.h' l='257' ll='262' type='int llvm::TargetFrameLowering::getFrameIndexReferencePreferSP(const llvm::MachineFunction &amp; MF, int FI, unsigned int &amp; FrameReg, bool IgnoreSPUpdates) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetFrameLowering.h' l='251'>/// Same as \c getFrameIndexReference, except that the stack pointer (as
+  /// opposed to the frame pointer) will be the preferred value for \p
+  /// FrameReg. This is generally used for emitting statepoint or EH tables that
+  /// use offsets from RSP.  If \p IgnoreSPUpdates is true, the returned
+  /// offset is only guaranteed to be valid with respect to the value of SP at
+  /// the end of the prologue.</doc>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/WinException.cpp' l='342' u='c' c='_ZN4llvm12WinException19getFrameIndexOffsetEiRKNS_13WinEHFuncInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/PrologEpilogInserter.cpp' l='1212' u='c' c='_ZN12_GLOBAL__N_13PEI19replaceFrameIndicesEPN4llvm17MachineBasicBlockERNS1_15MachineFunctionERi'/>
+<ovr f='llvm/llvm/lib/Target/AArch64/AArch64FrameLowering.cpp' l='2201' c='_ZNK4llvm20AArch64FrameLowering30getFrameIndexReferencePreferSPERKNS_15MachineFunctionEiRjb'/>
+<ovr f='llvm/llvm/lib/Target/X86/X86FrameLowering.cpp' l='1862' c='_ZNK4llvm16X86FrameLowering30getFrameIndexReferencePreferSPERKNS_15MachineFunctionEiRjb'/>

@@ -1,0 +1,25 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='655' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildLoad(unsigned int Res, unsigned int Addr, llvm::MachineMemOperand &amp; MMO)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='646'>/// Build and insert `Res = G_LOAD Addr, MMO`.
+  ///
+  /// Loads the value stored at \p Addr. Puts the result in \p Res.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Res must be a generic virtual register.
+  /// \pre \p Addr must be a generic virtual register with pointer type.
+  ///
+  /// \return a MachineInstrBuilder for the newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='499' u='c' c='_ZN4llvm12IRTranslator13translateLoadERKNS_4UserERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='598' u='c' c='_ZN4llvm15LegalizerHelper12narrowScalarERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='615' u='c' c='_ZN4llvm15LegalizerHelper12narrowScalarERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1513' u='c' c='_ZN4llvm15LegalizerHelper5lowerERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1521' u='c' c='_ZN4llvm15LegalizerHelper5lowerERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2155' u='c' c='_ZN4llvm15LegalizerHelper20reduceLoadStoreWidthERNS_12MachineInstrEjNS_3LLTE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='335' ll='338' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildLoad(unsigned int Res, unsigned int Addr, llvm::MachineMemOperand &amp; MMO)'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64CallLowering.cpp' l='94' u='c' c='_ZN12_GLOBAL__N_118IncomingArgHandler20assignValueToAddressEjjmRN4llvm18MachinePointerInfoERNS1_11CCValAssignE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64LegalizerInfo.cpp' l='634' u='c' c='_ZNK4llvm20AArch64LegalizerInfo17legalizeLoadStoreERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderERNS_19GISelChangeObserverE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64LegalizerInfo.cpp' l='655' u='c' c='_ZNK4llvm20AArch64LegalizerInfo13legalizeVaArgERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64LegalizerInfo.cpp' l='674' u='c' c='_ZNK4llvm20AArch64LegalizerInfo13legalizeVaArgERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUCallLowering.cpp' l='156' u='c' c='_ZNK4llvm18AMDGPUCallLowering14lowerParameterERNS_16MachineIRBuilderEPNS_4TypeEmjj'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMCallLowering.cpp' l='343' u='c' c='_ZN12_GLOBAL__N_120IncomingValueHandler9buildLoadEjjmjRN4llvm18MachinePointerInfoE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsCallLowering.cpp' l='112' u='c' c='_ZN12_GLOBAL__N_120IncomingValueHandler9buildLoadEjRKN4llvm11CCValAssignE'/>
+<use f='llvm/llvm/lib/Target/X86/X86CallLowering.cpp' l='250' u='c' c='_ZN12_GLOBAL__N_120IncomingValueHandler20assignValueToAddressEjjmRN4llvm18MachinePointerInfoERNS1_11CCValAssignE'/>

@@ -1,0 +1,50 @@
+<def f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyExceptionInfo.h' l='42' ll='113'/>
+<size>168</size>
+<doc f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyExceptionInfo.h' l='26'>// WebAssembly instructions for exception handling are structured as follows:
+//   try
+//     instructions*
+//   catch             ----|
+//     instructions*       | -&gt; A WebAssemblyException consists of this region
+//   end               ----|
+//
+// A WebAssemblyException object contains BBs that belong to a &apos;catch&apos; part of
+// the try-catch-end structure to be created later. &apos;try&apos; and &apos;end&apos; markers
+// are not present at this stage and will be generated in CFGStackify pass.
+// Because CFGSort requires all the BBs within a catch part to be sorted
+// together as it does for loops, this pass calculates the nesting structure of
+// catch part of exceptions in a function.
+//
+// An exception catch part is defined as a BB with catch instruction and all
+// other BBs dominated by this BB.</doc>
+<mbr r='llvm::WebAssemblyException::EHPad' o='0' t='llvm::MachineBasicBlock *'/>
+<mbr r='llvm::WebAssemblyException::ParentException' o='64' t='llvm::WebAssemblyException *'/>
+<mbr r='llvm::WebAssemblyException::SubExceptions' o='128' t='std::vector&lt;WebAssemblyException *&gt;'/>
+<mbr r='llvm::WebAssemblyException::Blocks' o='320' t='std::vector&lt;MachineBasicBlock *&gt;'/>
+<mbr r='llvm::WebAssemblyException::BlockSet' o='512' t='SmallPtrSet&lt;const llvm::MachineBasicBlock *, 8&gt;'/>
+<fun r='_ZN4llvm20WebAssemblyExceptionC1EPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm20WebAssemblyExceptionD1Ev'/>
+<fun r='_ZN4llvm20WebAssemblyExceptionC1ERKS0_'/>
+<fun r='_ZN4llvm20WebAssemblyExceptionaSERKS0_'/>
+<fun r='_ZNK4llvm20WebAssemblyException8getEHPadEv'/>
+<fun r='_ZNK4llvm20WebAssemblyException9getHeaderEv'/>
+<fun r='_ZNK4llvm20WebAssemblyException18getParentExceptionEv'/>
+<fun r='_ZN4llvm20WebAssemblyException18setParentExceptionEPS0_'/>
+<fun r='_ZNK4llvm20WebAssemblyException8containsEPKS0_'/>
+<fun r='_ZNK4llvm20WebAssemblyException8containsEPKNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm20WebAssemblyException8addBlockEPNS_17MachineBasicBlockE'/>
+<fun r='_ZNK4llvm20WebAssemblyException9getBlocksEv'/>
+<fun r='_ZNK4llvm20WebAssemblyException11block_beginEv'/>
+<fun r='_ZNK4llvm20WebAssemblyException9block_endEv'/>
+<fun r='_ZNK4llvm20WebAssemblyException6blocksEv'/>
+<fun r='_ZNK4llvm20WebAssemblyException12getNumBlocksEv'/>
+<fun r='_ZN4llvm20WebAssemblyException15getBlocksVectorEv'/>
+<fun r='_ZNK4llvm20WebAssemblyException16getSubExceptionsEv'/>
+<fun r='_ZN4llvm20WebAssemblyException16getSubExceptionsEv'/>
+<fun r='_ZN4llvm20WebAssemblyException15addSubExceptionEPS0_'/>
+<fun r='_ZNK4llvm20WebAssemblyException5beginEv'/>
+<fun r='_ZNK4llvm20WebAssemblyException3endEv'/>
+<fun r='_ZN4llvm20WebAssemblyException13reserveBlocksEj'/>
+<fun r='_ZN4llvm20WebAssemblyException12reverseBlockEj'/>
+<fun r='_ZNK4llvm20WebAssemblyException17getExceptionDepthEv'/>
+<fun r='_ZNK4llvm20WebAssemblyException5printERNS_11raw_ostreamEj'/>
+<fun r='_ZNK4llvm20WebAssemblyException4dumpEv'/>

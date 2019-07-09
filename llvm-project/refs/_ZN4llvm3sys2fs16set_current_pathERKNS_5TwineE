@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/include/llvm/Support/FileSystem.h' l='387' type='std::error_code llvm::sys::fs::set_current_path(const llvm::Twine &amp; path)'/>
+<doc f='llvm/llvm/include/llvm/Support/FileSystem.h' l='382'>/// Set the current path.
+///
+/// @param path The path to set.
+/// @returns errc::success if the current path was successfully set,
+///          otherwise a platform-specific error_code.</doc>
+<def f='llvm/llvm/lib/Support/Unix/Path.inc' l='320' ll='328' type='std::error_code llvm::sys::fs::set_current_path(const llvm::Twine &amp; path)'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='316' u='c' c='_ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1549' u='c' c='_ZZN12_GLOBAL__N_136FileSystemTest_set_current_path_Test8TestBodyEvEN11RestorePathD1Ev'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1552' u='c' c='_ZN12_GLOBAL__N_136FileSystemTest_set_current_path_Test8TestBodyEv'/>

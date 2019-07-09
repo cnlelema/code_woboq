@@ -1,0 +1,57 @@
+<def f='llvm/clang/include/clang/Driver/Action.h' l='47' ll='210'/>
+<ovr f='llvm/clang/include/clang/Driver/Action.h' l='212' c='clang::driver::InputAction'/>
+<ovr f='llvm/clang/include/clang/Driver/Action.h' l='227' c='clang::driver::BindArchAction'/>
+<ovr f='llvm/clang/include/clang/Driver/Action.h' l='247' c='clang::driver::OffloadAction'/>
+<ovr f='llvm/clang/include/clang/Driver/Action.h' l='373' c='clang::driver::JobAction'/>
+<size>80</size>
+<doc f='llvm/clang/include/clang/Driver/Action.h' l='35'>/// Action - Represent an abstract compilation step to perform.
+///
+/// An action represents an edge in the compilation graph; typically
+/// it is a job to transform an input using some tool.
+///
+/// The current driver is hard wired to expect actions which produce a
+/// single primary output, at least in terms of controlling the
+/// compilation. Actions can produce auxiliary files, but can only
+/// produce a single output to feed into subsequent actions.
+///
+/// Actions are usually owned by a Compilation, which creates new
+/// actions via MakeAction().</doc>
+<fun r='_ZN5clang6driver6Action12getClassNameENS1_11ActionClassE'/>
+<mbr r='clang::driver::Action::Kind' o='64' t='clang::driver::Action::ActionClass'/>
+<mbr r='clang::driver::Action::Type' o='96' t='types::ID'/>
+<mbr r='clang::driver::Action::Inputs' o='128' t='ActionList'/>
+<mbr r='clang::driver::Action::CanBeCollapsedWithNextDependentAction' o='448' t='bool'/>
+<mbr r='clang::driver::Action::ActiveOffloadKindMask' o='480' t='unsigned int'/>
+<mbr r='clang::driver::Action::OffloadingDeviceKind' o='512' t='clang::driver::Action::OffloadKind'/>
+<mbr r='clang::driver::Action::OffloadingArch' o='576' t='const char *'/>
+<fun r='_ZN5clang6driver6ActionC1ENS1_11ActionClassENS0_5types2IDE'/>
+<fun r='_ZN5clang6driver6ActionC1ENS1_11ActionClassEPS1_NS0_5types2IDE'/>
+<fun r='_ZN5clang6driver6ActionC1ENS1_11ActionClassEPS1_'/>
+<fun r='_ZN5clang6driver6ActionC1ENS1_11ActionClassERKN4llvm11SmallVectorIPS1_Lj3EEENS0_5types2IDE'/>
+<fun r='_ZN5clang6driver6ActionD1Ev'/>
+<fun r='_ZNK5clang6driver6Action12getClassNameEv'/>
+<fun r='_ZNK5clang6driver6Action7getKindEv'/>
+<fun r='_ZNK5clang6driver6Action7getTypeEv'/>
+<fun r='_ZN5clang6driver6Action9getInputsEv'/>
+<fun r='_ZNK5clang6driver6Action9getInputsEv'/>
+<fun r='_ZNK5clang6driver6Action4sizeEv'/>
+<fun r='_ZN5clang6driver6Action11input_beginEv'/>
+<fun r='_ZN5clang6driver6Action9input_endEv'/>
+<fun r='_ZN5clang6driver6Action6inputsEv'/>
+<fun r='_ZNK5clang6driver6Action11input_beginEv'/>
+<fun r='_ZNK5clang6driver6Action9input_endEv'/>
+<fun r='_ZNK5clang6driver6Action6inputsEv'/>
+<fun r='_ZN5clang6driver6Action43setCannotBeCollapsedWithNextDependentActionEv'/>
+<fun r='_ZNK5clang6driver6Action40isCollapsingWithNextDependentActionLegalEv'/>
+<fun r='_ZNK5clang6driver6Action23getOffloadingKindPrefixEv'/>
+<fun r='_ZN5clang6driver6Action27GetOffloadingFileNamePrefixENS1_11OffloadKindEN4llvm9StringRefEb'/>
+<fun r='_ZN5clang6driver6Action18GetOffloadKindNameENS1_11OffloadKindE'/>
+<fun r='_ZN5clang6driver6Action26propagateDeviceOffloadInfoENS1_11OffloadKindEPKc'/>
+<fun r='_ZN5clang6driver6Action24propagateHostOffloadInfoEjPKc'/>
+<fun r='_ZN5clang6driver6Action20propagateOffloadInfoEPKS1_'/>
+<fun r='_ZNK5clang6driver6Action28getOffloadingHostActiveKindsEv'/>
+<fun r='_ZNK5clang6driver6Action23getOffloadingDeviceKindEv'/>
+<fun r='_ZNK5clang6driver6Action17getOffloadingArchEv'/>
+<fun r='_ZNK5clang6driver6Action16isHostOffloadingENS1_11OffloadKindE'/>
+<fun r='_ZNK5clang6driver6Action18isDeviceOffloadingENS1_11OffloadKindE'/>
+<fun r='_ZNK5clang6driver6Action12isOffloadingENS1_11OffloadKindE'/>

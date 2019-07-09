@@ -1,0 +1,20 @@
+<inh f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='494' c='llvm::SDNode'/>
+<def f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='1493' ll='1549'/>
+<size>88</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='1485'>/// This SDNode is used to implement the code generator
+/// support for the llvm IR shufflevector instruction.  It combines elements
+/// from two input vectors into a new input vector, with the selection and
+/// ordering of elements determined by an array of integers, referred to as
+/// the shuffle mask.  For input vectors of width N, mask indices of 0..N-1
+/// refer to elements from the LHS input, and indices from N to 2N-1 the RHS.
+/// An index of -1 is treated as undef, such that the code generator may put
+/// any value in the corresponding element of the result.</doc>
+<mbr r='llvm::ShuffleVectorSDNode::Mask' o='640' t='const int *'/>
+<fun r='_ZN4llvm19ShuffleVectorSDNodeC1ENS_3EVTEjRKNS_8DebugLocEPKi'/>
+<fun r='_ZNK4llvm19ShuffleVectorSDNode7getMaskEv'/>
+<fun r='_ZNK4llvm19ShuffleVectorSDNode10getMaskEltEj'/>
+<fun r='_ZNK4llvm19ShuffleVectorSDNode7isSplatEv'/>
+<fun r='_ZNK4llvm19ShuffleVectorSDNode13getSplatIndexEv'/>
+<fun r='_ZN4llvm19ShuffleVectorSDNode11isSplatMaskEPKiNS_3EVTE'/>
+<fun r='_ZN4llvm19ShuffleVectorSDNode11commuteMaskENS_15MutableArrayRefIiEE'/>
+<fun r='_ZN4llvm19ShuffleVectorSDNode7classofEPKNS_6SDNodeE'/>

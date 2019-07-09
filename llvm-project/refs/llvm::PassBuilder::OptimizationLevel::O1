@@ -1,0 +1,24 @@
+<dec f='llvm/llvm/include/llvm/Passes/PassBuilder.h' l='170' type='1'/>
+<use f='llvm/clang/lib/CodeGen/BackendUtil.cpp' l='943' u='r' c='_ZL10mapToLevelRKN5clang14CodeGenOptionsE'/>
+<doc f='llvm/llvm/include/llvm/Passes/PassBuilder.h' l='152'>/// Optimize quickly without destroying debuggability.
+    ///
+    /// FIXME: The current and historical behavior of this level does *not*
+    /// agree with this goal, but we would like to move toward this goal in the
+    /// future.
+    ///
+    /// This level is tuned to produce a result from the optimizer as quickly
+    /// as possible and to avoid destroying debuggability. This tends to result
+    /// in a very good development mode where the compiled code will be
+    /// immediately executed as part of testing. As a consequence, where
+    /// possible, we would like to produce efficient-to-execute code, but not
+    /// if it significantly slows down compilation or would prevent even basic
+    /// debugging of the resulting binary.
+    ///
+    /// As an example, complex loop transformations such as versioning,
+    /// vectorization, or fusion might not make sense here due to the degree to
+    /// which the executed code would differ from the source code, and the
+    /// potential compile time cost.</doc>
+<use f='llvm/llvm/lib/LTO/LTOBackend.cpp' l='201' u='r' c='_ZN12_GLOBAL__N_1L14runNewPMPassesERN4llvm3lto6ConfigERNS0_6ModuleEPNS0_13TargetMachineEjbPNS0_18ModuleSummaryIndexEPKS8_'/>
+<use f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='235' c='_ZL19isOptimizingForSizeN4llvm11PassBuilder17OptimizationLevelE'/>
+<use f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='483' u='r' c='_ZN4llvm11PassBuilder35buildFunctionSimplificationPipelineENS0_17OptimizationLevelENS0_12ThinLTOPhaseEb'/>
+<use f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='1795' u='r' c='_ZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEbb'/>

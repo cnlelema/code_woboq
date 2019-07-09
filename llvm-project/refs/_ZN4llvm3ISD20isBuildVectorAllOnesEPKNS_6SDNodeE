@@ -1,0 +1,32 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='92' type='bool llvm::ISD::isBuildVectorAllOnes(const llvm::SDNode * N)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='90'>/// Return true if the specified node is a BUILD_VECTOR where all of the
+  /// elements are ~0 or undef.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='4947' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner8visitANDEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='4949' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner8visitANDEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='5576' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner7visitOREPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='5579' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner7visitOREPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='8646' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner12visitVSELECTEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp' l='8715' u='c' c='_ZN12_GLOBAL__N_111DAGCombiner12visitVSELECTEPN4llvm6SDNodeE'/>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='154' ll='196' type='bool llvm::ISD::isBuildVectorAllOnes(const llvm::SDNode * N)'/>
+<doc f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='151'>// FIXME: AllOnes and AllZeros duplicate a lot of code. Could these be
+// specializations of the more general isConstantSplatVector()?</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGISel.cpp' l='3176' u='c' c='_ZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS_6SDNodeEPKhj'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='8924' u='c' c='_ZL25foldVectorXorShiftIntoCmpPN4llvm6SDNodeERNS_12SelectionDAGEPKNS_16AArch64SubtargetE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsSEISelLowering.cpp' l='1049' u='c' c='_ZL17performXORCombinePN4llvm6SDNodeERNS_12SelectionDAGERKNS_13MipsSubtargetE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsSEISelLowering.cpp' l='1051' u='c' c='_ZL17performXORCombinePN4llvm6SDNodeERNS_12SelectionDAGERKNS_13MipsSubtargetE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelLowering.cpp' l='8241' u='c' c='_ZNK4llvm17PPCTargetLowering17LowerBUILD_VECTORENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='8037' u='c' c='_ZL21LowerBUILD_VECTORvXi1N4llvm7SDValueERNS_12SelectionDAGERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='8820' u='c' c='_ZL25materializeVectorConstantN4llvm7SDValueERNS_12SelectionDAGERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='22628' u='c' c='_ZNK4llvm17X86TargetLowering23LowerINTRINSIC_WO_CHAINENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='22744' u='c' c='_ZNK4llvm17X86TargetLowering23LowerINTRINSIC_WO_CHAINENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='23033' u='c' c='_ZL17getAVX2GatherNodejN4llvm7SDValueERNS_12SelectionDAGES0_S0_S0_S0_S0_S0_RKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='23068' u='c' c='_ZL13getGatherNodeN4llvm7SDValueERNS_12SelectionDAGES0_S0_S0_S0_S0_S0_RKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='35402' u='c' c='_ZL32combineVSelectWithAllOnesOrZerosPN4llvm6SDNodeERNS_12SelectionDAGERNS_14TargetLowering15DAGCombinerInfoERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='35409' u='c' c='_ZL32combineVSelectWithAllOnesOrZerosPN4llvm6SDNodeERNS_12SelectionDAGERNS_14TargetLowering15DAGCombinerInfoERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='35977' u='c' c='_ZL13combineSelectPN4llvm6SDNodeERNS_12SelectionDAGERNS_14TargetLowering15DAGCombinerInfoERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='35980' u='c' c='_ZL13combineSelectPN4llvm6SDNodeERNS_12SelectionDAGERNS_14TargetLowering15DAGCombinerInfoERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='37601' u='c' c='_ZL5IsNOTN4llvm7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='38624' u='c' c='_ZL25foldVectorXorShiftIntoCmpPN4llvm6SDNodeERNS_12SelectionDAGERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='40612' u='c' c='_ZL22combineFAndFNotToFAndnPN4llvm6SDNodeERNS_12SelectionDAGERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='40794' u='c' c='_ZL12combineAndnpPN4llvm6SDNodeERNS_12SelectionDAGERNS_14TargetLowering15DAGCombinerInfoERKNS_12X86SubtargetE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='43317' u='c' c='_ZL23combineExtractSubvectorPN4llvm6SDNodeERNS_12SelectionDAGERNS_14TargetLowering15DAGCombinerInfoERKNS_12X86SubtargetE'/>

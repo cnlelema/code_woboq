@@ -1,0 +1,17 @@
+<dec f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='441' type='const internal::VariadicDynCastAllOfMatcher&lt;Decl, ClassTemplatePartialSpecializationDecl&gt;'/>
+<doc f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='424'>/// Matches C++ class template partial specializations.
+///
+/// Given
+/// \code
+///   template&lt;class T1, class T2, int I&gt;
+///   class A {};
+///
+///   template&lt;class T, int I&gt;
+///   class A&lt;T, T*, I&gt; {};
+///
+///   template&lt;&gt;
+///   class A&lt;int, int, 1&gt; {};
+/// \endcode
+/// classTemplatePartialSpecializationDecl()
+///   matches the specialization \c A&lt;T,T*,I&gt; but not \c A&lt;int,int,1&gt;</doc>
+<def f='llvm/clang/lib/ASTMatchers/ASTMatchersInternal.cpp' l='575' ll='577' type='const internal::VariadicDynCastAllOfMatcher&lt;Decl, ClassTemplatePartialSpecializationDecl&gt;'/>

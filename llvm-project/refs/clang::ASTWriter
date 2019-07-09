@@ -1,0 +1,208 @@
+<inh f='llvm/clang/include/clang/Serialization/ASTDeserializationListener.h' l='30' c='clang::ASTDeserializationListener'/>
+<inh f='llvm/clang/include/clang/AST/ASTMutationListener.h' l='46' c='clang::ASTMutationListener'/>
+<def f='llvm/clang/include/clang/Serialization/ASTWriter.h' l='103' ll='745'/>
+<size>2008</size>
+<doc f='llvm/clang/include/clang/Serialization/ASTWriter.h' l='97'>/// Writes an AST file containing the contents of a translation unit.
+///
+/// The ASTWriter class produces a bitstream containing the serialized
+/// representation of a given abstract syntax tree and its supporting
+/// data structures. This bitstream can be de-serialized via an
+/// instance of the ASTReader class.</doc>
+<mbr r='clang::ASTWriter::Stream' o='128' t='llvm::BitstreamWriter &amp;'/>
+<mbr r='clang::ASTWriter::Buffer' o='192' t='const SmallVectorImpl&lt;char&gt; &amp;'/>
+<mbr r='clang::ASTWriter::ModuleCache' o='256' t='clang::InMemoryModuleCache &amp;'/>
+<mbr r='clang::ASTWriter::Context' o='320' t='clang::ASTContext *'/>
+<mbr r='clang::ASTWriter::PP' o='384' t='clang::Preprocessor *'/>
+<mbr r='clang::ASTWriter::Chain' o='448' t='clang::ASTReader *'/>
+<mbr r='clang::ASTWriter::WritingModule' o='512' t='clang::Module *'/>
+<mbr r='clang::ASTWriter::BaseDirectory' o='576' t='std::string'/>
+<mbr r='clang::ASTWriter::IncludeTimestamps' o='832' t='bool'/>
+<mbr r='clang::ASTWriter::WritingAST' o='840' t='bool'/>
+<mbr r='clang::ASTWriter::DoneWritingDeclsAndTypes' o='848' t='bool'/>
+<mbr r='clang::ASTWriter::ASTHasCompilerErrors' o='856' t='bool'/>
+<mbr r='clang::ASTWriter::InputFileIDs' o='896' t='llvm::DenseMap&lt;const FileEntry *, uint32_t&gt;'/>
+<mbr r='clang::ASTWriter::DeclTypesToEmit' o='1152' t='std::queue&lt;DeclOrType&gt;'/>
+<mbr r='clang::ASTWriter::FirstDeclID' o='1792' t='serialization::DeclID'/>
+<mbr r='clang::ASTWriter::NextDeclID' o='1824' t='serialization::DeclID'/>
+<mbr r='clang::ASTWriter::DeclIDs' o='1856' t='llvm::DenseMap&lt;const Decl *, serialization::DeclID&gt;'/>
+<mbr r='clang::ASTWriter::DeclOffsets' o='2112' t='std::vector&lt;serialization::DeclOffset&gt;'/>
+<mbr r='clang::ASTWriter::FileDeclIDs' o='2304' t='FileDeclIDsTy'/>
+<fun r='_ZN5clang9ASTWriter21associateDeclWithFileEPKNS_4DeclEj'/>
+<mbr r='clang::ASTWriter::FirstTypeID' o='2560' t='serialization::TypeID'/>
+<mbr r='clang::ASTWriter::NextTypeID' o='2592' t='serialization::TypeID'/>
+<mbr r='clang::ASTWriter::TypeIdxs' o='2624' t='TypeIdxMap'/>
+<mbr r='clang::ASTWriter::TypeOffsets' o='2880' t='std::vector&lt;uint32_t&gt;'/>
+<mbr r='clang::ASTWriter::FirstIdentID' o='3072' t='serialization::IdentID'/>
+<mbr r='clang::ASTWriter::NextIdentID' o='3104' t='serialization::IdentID'/>
+<mbr r='clang::ASTWriter::IdentifierIDs' o='3136' t='llvm::MapVector&lt;const IdentifierInfo *, serialization::IdentID&gt;'/>
+<mbr r='clang::ASTWriter::FirstMacroID' o='3584' t='serialization::MacroID'/>
+<mbr r='clang::ASTWriter::NextMacroID' o='3616' t='serialization::MacroID'/>
+<mbr r='clang::ASTWriter::MacroIDs' o='3648' t='llvm::DenseMap&lt;MacroInfo *, serialization::MacroID&gt;'/>
+<mbr r='clang::ASTWriter::MacroInfosToEmit' o='3904' t='std::vector&lt;MacroInfoToEmitData&gt;'/>
+<mbr r='clang::ASTWriter::IdentMacroDirectivesOffsetMap' o='4096' t='llvm::DenseMap&lt;const IdentifierInfo *, uint64_t&gt;'/>
+<mbr r='clang::ASTWriter::ParentStmts' o='4352' t='llvm::DenseSet&lt;Stmt *&gt;'/>
+<mbr r='clang::ASTWriter::SubStmtEntries' o='4608' t='llvm::DenseMap&lt;Stmt *, uint64_t&gt;'/>
+<mbr r='clang::ASTWriter::IdentifierOffsets' o='4864' t='std::vector&lt;uint32_t&gt;'/>
+<mbr r='clang::ASTWriter::FirstSubmoduleID' o='5056' t='serialization::SubmoduleID'/>
+<mbr r='clang::ASTWriter::NextSubmoduleID' o='5088' t='serialization::SubmoduleID'/>
+<mbr r='clang::ASTWriter::FirstSelectorID' o='5120' t='serialization::SelectorID'/>
+<mbr r='clang::ASTWriter::NextSelectorID' o='5152' t='serialization::SelectorID'/>
+<mbr r='clang::ASTWriter::SelectorIDs' o='5184' t='llvm::MapVector&lt;Selector, serialization::SelectorID&gt;'/>
+<mbr r='clang::ASTWriter::SelectorOffsets' o='5632' t='std::vector&lt;uint32_t&gt;'/>
+<mbr r='clang::ASTWriter::MacroDefinitions' o='5824' t='llvm::DenseMap&lt;const MacroDefinitionRecord *, serialization::PreprocessedEntityID&gt;'/>
+<mbr r='clang::ASTWriter::AnonymousDeclarationNumbers' o='6080' t='llvm::DenseMap&lt;const Decl *, unsigned int&gt;'/>
+<mbr r='clang::ASTWriter::DeclUpdates' o='6336' t='DeclUpdateMap'/>
+<mbr r='clang::ASTWriter::FirstLatestDecls' o='6784' t='FirstLatestDeclMap'/>
+<mbr r='clang::ASTWriter::EagerlyDeserializedDecls' o='7040' t='SmallVector&lt;uint64_t, 16&gt;'/>
+<mbr r='clang::ASTWriter::ModularCodegenDecls' o='8192' t='SmallVector&lt;uint64_t, 16&gt;'/>
+<mbr r='clang::ASTWriter::UpdatedDeclContexts' o='9344' t='llvm::SmallSetVector&lt;const DeclContext *, 16&gt;'/>
+<mbr r='clang::ASTWriter::DeclsToEmitEvenIfUnreferenced' o='11648' t='SmallVector&lt;const clang::Decl *, 16&gt;'/>
+<mbr r='clang::ASTWriter::ObjCClassesWithCategories' o='12800' t='llvm::SetVector&lt;ObjCInterfaceDecl *&gt;'/>
+<mbr r='clang::ASTWriter::Redeclarations' o='13248' t='llvm::SmallVector&lt;const Decl *, 16&gt;'/>
+<mbr r='clang::ASTWriter::FirstLocalDeclCache' o='14400' t='llvm::DenseMap&lt;const Decl *, const Decl *&gt;'/>
+<mbr r='clang::ASTWriter::SwitchCaseIDs' o='14656' t='llvm::DenseMap&lt;SwitchCase *, unsigned int&gt;'/>
+<mbr r='clang::ASTWriter::NumStatements' o='14912' t='unsigned int'/>
+<mbr r='clang::ASTWriter::NumMacros' o='14944' t='unsigned int'/>
+<mbr r='clang::ASTWriter::NumLexicalDeclContexts' o='14976' t='unsigned int'/>
+<mbr r='clang::ASTWriter::NumVisibleDeclContexts' o='15008' t='unsigned int'/>
+<mbr r='clang::ASTWriter::SubmoduleIDs' o='15040' t='llvm::DenseMap&lt;Module *, unsigned int&gt;'/>
+<mbr r='clang::ASTWriter::ModuleFileExtensionWriters' o='15296' t='std::vector&lt;std::unique_ptr&lt;ModuleFileExtensionWriter&gt; &gt;'/>
+<fun r='_ZN5clang9ASTWriter14getSubmoduleIDEPNS_6ModuleE'/>
+<fun r='_ZN5clang9ASTWriter12WriteSubStmtEPNS_4StmtE'/>
+<fun r='_ZN5clang9ASTWriter19WriteBlockInfoBlockEv'/>
+<fun r='_ZN5clang9ASTWriter17WriteControlBlockERNS_12PreprocessorERNS_10ASTContextEN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN5clang9ASTWriter25writeUnhashedControlBlockERNS_12PreprocessorERNS_10ASTContextE'/>
+<fun r='_ZN5clang9ASTWriter15createSignatureEN4llvm9StringRefE'/>
+<fun r='_ZN5clang9ASTWriter15WriteInputFilesERNS_13SourceManagerERNS_19HeaderSearchOptionsEb'/>
+<fun r='_ZN5clang9ASTWriter23WriteSourceManagerBlockERNS_13SourceManagerERKNS_12PreprocessorE'/>
+<fun r='_ZN5clang9ASTWriter17WritePreprocessorERKNS_12PreprocessorEb'/>
+<fun r='_ZN5clang9ASTWriter17WriteHeaderSearchERKNS_12HeaderSearchE'/>
+<fun r='_ZN5clang9ASTWriter23WritePreprocessorDetailERNS_19PreprocessingRecordE'/>
+<fun r='_ZN5clang9ASTWriter15WriteSubmodulesEPNS_6ModuleE'/>
+<fun r='_ZN5clang9ASTWriter29WritePragmaDiagnosticMappingsERKNS_17DiagnosticsEngineEb'/>
+<mbr r='clang::ASTWriter::TypeExtQualAbbrev' o='15488' t='unsigned int'/>
+<mbr r='clang::ASTWriter::TypeFunctionProtoAbbrev' o='15520' t='unsigned int'/>
+<fun r='_ZN5clang9ASTWriter16WriteTypeAbbrevsEv'/>
+<fun r='_ZN5clang9ASTWriter9WriteTypeENS_8QualTypeE'/>
+<fun r='_ZN5clang9ASTWriter22isLookupResultExternalERNS_15StoredDeclsListEPNS_11DeclContextE'/>
+<fun r='_ZN5clang9ASTWriter30isLookupResultEntirelyExternalERNS_15StoredDeclsListEPNS_11DeclContextE'/>
+<fun r='_ZN5clang9ASTWriter23GenerateNameLookupTableEPKNS_11DeclContextERN4llvm15SmallVectorImplIcEE'/>
+<fun r='_ZN5clang9ASTWriter28WriteDeclContextLexicalBlockERNS_10ASTContextEPNS_11DeclContextE'/>
+<fun r='_ZN5clang9ASTWriter28WriteDeclContextVisibleBlockERNS_10ASTContextEPNS_11DeclContextE'/>
+<fun r='_ZN5clang9ASTWriter20WriteTypeDeclOffsetsEv'/>
+<fun r='_ZN5clang9ASTWriter19WriteFileDeclIDsMapEv'/>
+<fun r='_ZN5clang9ASTWriter13WriteCommentsEv'/>
+<fun r='_ZN5clang9ASTWriter14WriteSelectorsERNS_4SemaE'/>
+<fun r='_ZN5clang9ASTWriter28WriteReferencedSelectorsPoolERNS_4SemaE'/>
+<fun r='_ZN5clang9ASTWriter20WriteIdentifierTableERNS_12PreprocessorERNS_18IdentifierResolverEb'/>
+<fun r='_ZN5clang9ASTWriter22WriteDeclUpdatesBlocksERN4llvm15SmallVectorImplImEE'/>
+<fun r='_ZN5clang9ASTWriter29WriteDeclContextVisibleUpdateEPKNS_11DeclContextE'/>
+<fun r='_ZN5clang9ASTWriter20WriteFPPragmaOptionsERKNS_9FPOptionsE'/>
+<fun r='_ZN5clang9ASTWriter21WriteOpenCLExtensionsERNS_4SemaE'/>
+<fun r='_ZN5clang9ASTWriter25WriteOpenCLExtensionTypesERNS_4SemaE'/>
+<fun r='_ZN5clang9ASTWriter25WriteOpenCLExtensionDeclsERNS_4SemaE'/>
+<fun r='_ZN5clang9ASTWriter16WriteCUDAPragmasERNS_4SemaE'/>
+<fun r='_ZN5clang9ASTWriter19WriteObjCCategoriesEv'/>
+<fun r='_ZN5clang9ASTWriter24WriteLateParsedTemplatesERNS_4SemaE'/>
+<fun r='_ZN5clang9ASTWriter26WriteOptimizePragmaOptionsERNS_4SemaE'/>
+<fun r='_ZN5clang9ASTWriter26WriteMSStructPragmaOptionsERNS_4SemaE'/>
+<fun r='_ZN5clang9ASTWriter37WriteMSPointersToMembersPragmaOptionsERNS_4SemaE'/>
+<fun r='_ZN5clang9ASTWriter22WritePackPragmaOptionsERNS_4SemaE'/>
+<fun r='_ZN5clang9ASTWriter24WriteModuleFileExtensionERNS_4SemaERNS_25ModuleFileExtensionWriterE'/>
+<mbr r='clang::ASTWriter::DeclParmVarAbbrev' o='15552' t='unsigned int'/>
+<mbr r='clang::ASTWriter::DeclContextLexicalAbbrev' o='15584' t='unsigned int'/>
+<mbr r='clang::ASTWriter::DeclContextVisibleLookupAbbrev' o='15616' t='unsigned int'/>
+<mbr r='clang::ASTWriter::UpdateVisibleAbbrev' o='15648' t='unsigned int'/>
+<mbr r='clang::ASTWriter::DeclRecordAbbrev' o='15680' t='unsigned int'/>
+<mbr r='clang::ASTWriter::DeclTypedefAbbrev' o='15712' t='unsigned int'/>
+<mbr r='clang::ASTWriter::DeclVarAbbrev' o='15744' t='unsigned int'/>
+<mbr r='clang::ASTWriter::DeclFieldAbbrev' o='15776' t='unsigned int'/>
+<mbr r='clang::ASTWriter::DeclEnumAbbrev' o='15808' t='unsigned int'/>
+<mbr r='clang::ASTWriter::DeclObjCIvarAbbrev' o='15840' t='unsigned int'/>
+<mbr r='clang::ASTWriter::DeclCXXMethodAbbrev' o='15872' t='unsigned int'/>
+<mbr r='clang::ASTWriter::DeclRefExprAbbrev' o='15904' t='unsigned int'/>
+<mbr r='clang::ASTWriter::CharacterLiteralAbbrev' o='15936' t='unsigned int'/>
+<mbr r='clang::ASTWriter::IntegerLiteralAbbrev' o='15968' t='unsigned int'/>
+<mbr r='clang::ASTWriter::ExprImplicitCastAbbrev' o='16000' t='unsigned int'/>
+<fun r='_ZN5clang9ASTWriter16WriteDeclAbbrevsEv'/>
+<fun r='_ZN5clang9ASTWriter9WriteDeclERNS_10ASTContextEPNS_4DeclE'/>
+<fun r='_ZN5clang9ASTWriter12WriteASTCoreERNS_4SemaEN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6ModuleE'/>
+<fun r='_ZN5clang9ASTWriterC1ERN4llvm15BitstreamWriterERNS1_15SmallVectorImplIcEERNS_19InMemoryModuleCacheENS1_8ArrayRefISt10shared_ptrINS_19ModuleFileExtensionEEEEb'/>
+<fun r='_ZN5clang9ASTWriterD1Ev'/>
+<fun r='_ZNK5clang9ASTWriter11getLangOptsEv'/>
+<fun r='_ZNK5clang9ASTWriter21getTimestampForOutputEPKNS_9FileEntryE'/>
+<fun r='_ZN5clang9ASTWriter8WriteASTERNS_4SemaERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6ModuleEN4llvm9StringRefEbb'/>
+<fun r='_ZN5clang9ASTWriter8AddTokenERKNS_5TokenERN4llvm15SmallVectorImplImEE'/>
+<fun r='_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEE'/>
+<fun r='_ZN5clang9ASTWriter14AddSourceRangeENS_11SourceRangeERN4llvm15SmallVectorImplImEE'/>
+<fun r='_ZN5clang9ASTWriter16AddIdentifierRefEPKNS_14IdentifierInfoERN4llvm15SmallVectorImplImEE'/>
+<fun r='_ZN5clang9ASTWriter14getSelectorRefENS_8SelectorE'/>
+<fun r='_ZN5clang9ASTWriter16getIdentifierRefEPKNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang9ASTWriter11getMacroRefEPNS_9MacroInfoEPKNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang9ASTWriter10getMacroIDEPNS_9MacroInfoE'/>
+<fun r='_ZN5clang9ASTWriter24getMacroDirectivesOffsetEPKNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE'/>
+<fun r='_ZN5clang9ASTWriter17GetOrCreateTypeIDENS_8QualTypeE'/>
+<fun r='_ZNK5clang9ASTWriter9getTypeIDENS_8QualTypeE'/>
+<fun r='_ZN5clang9ASTWriter17getFirstLocalDeclEPKNS_4DeclE'/>
+<fun r='_ZN5clang9ASTWriter11IsLocalDeclEPKNS_4DeclE'/>
+<fun r='_ZN5clang9ASTWriter10AddDeclRefEPKNS_4DeclERN4llvm15SmallVectorImplImEE'/>
+<fun r='_ZN5clang9ASTWriter10GetDeclRefEPKNS_4DeclE'/>
+<fun r='_ZN5clang9ASTWriter9getDeclIDEPKNS_4DeclE'/>
+<fun r='_ZN5clang9ASTWriter29getAnonymousDeclarationNumberEPKNS_9NamedDeclE'/>
+<fun r='_ZN5clang9ASTWriter9AddStringEN4llvm9StringRefERNS1_15SmallVectorImplImEE'/>
+<fun r='_ZN5clang9ASTWriter20PreparePathForOutputERN4llvm15SmallVectorImplIcEE'/>
+<fun r='_ZN5clang9ASTWriter7AddPathEN4llvm9StringRefERNS1_15SmallVectorImplImEE'/>
+<fun r='_ZN5clang9ASTWriter18EmitRecordWithPathEjN4llvm8ArrayRefImEENS1_9StringRefE'/>
+<fun r='_ZN5clang9ASTWriter15AddVersionTupleERKN4llvm12VersionTupleERNS1_15SmallVectorImplImEE'/>
+<fun r='_ZN5clang9ASTWriter29getLocalOrImportedSubmoduleIDEPNS_6ModuleE'/>
+<fun r='_ZN5clang9ASTWriter19SetIdentifierOffsetEPKNS_14IdentifierInfoEj'/>
+<fun r='_ZN5clang9ASTWriter17SetSelectorOffsetENS_8SelectorEj'/>
+<fun r='_ZN5clang9ASTWriter18RecordSwitchCaseIDEPNS_10SwitchCaseE'/>
+<fun r='_ZN5clang9ASTWriter15getSwitchCaseIDEPNS_10SwitchCaseE'/>
+<fun r='_ZN5clang9ASTWriter18ClearSwitchCaseIDsEv'/>
+<fun r='_ZNK5clang9ASTWriter20getTypeExtQualAbbrevEv'/>
+<fun r='_ZNK5clang9ASTWriter26getTypeFunctionProtoAbbrevEv'/>
+<fun r='_ZNK5clang9ASTWriter20getDeclParmVarAbbrevEv'/>
+<fun r='_ZNK5clang9ASTWriter19getDeclRecordAbbrevEv'/>
+<fun r='_ZNK5clang9ASTWriter20getDeclTypedefAbbrevEv'/>
+<fun r='_ZNK5clang9ASTWriter16getDeclVarAbbrevEv'/>
+<fun r='_ZNK5clang9ASTWriter18getDeclFieldAbbrevEv'/>
+<fun r='_ZNK5clang9ASTWriter17getDeclEnumAbbrevEv'/>
+<fun r='_ZNK5clang9ASTWriter21getDeclObjCIvarAbbrevEv'/>
+<fun r='_ZNK5clang9ASTWriter22getDeclCXXMethodAbbrevEv'/>
+<fun r='_ZNK5clang9ASTWriter20getDeclRefExprAbbrevEv'/>
+<fun r='_ZNK5clang9ASTWriter25getCharacterLiteralAbbrevEv'/>
+<fun r='_ZNK5clang9ASTWriter23getIntegerLiteralAbbrevEv'/>
+<fun r='_ZNK5clang9ASTWriter25getExprImplicitCastAbbrevEv'/>
+<fun r='_ZNK5clang9ASTWriter8hasChainEv'/>
+<fun r='_ZNK5clang9ASTWriter8getChainEv'/>
+<fun r='_ZN5clang9ASTWriter17ReaderInitializedEPNS_9ASTReaderE'/>
+<fun r='_ZN5clang9ASTWriter14IdentifierReadEjPNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang9ASTWriter9MacroReadEjPNS_9MacroInfoE'/>
+<fun r='_ZN5clang9ASTWriter8TypeReadENS_13serialization7TypeIdxENS_8QualTypeE'/>
+<fun r='_ZN5clang9ASTWriter12SelectorReadEjNS_8SelectorE'/>
+<fun r='_ZN5clang9ASTWriter19MacroDefinitionReadEjPNS_21MacroDefinitionRecordE'/>
+<fun r='_ZN5clang9ASTWriter10ModuleReadEjPNS_6ModuleE'/>
+<fun r='_ZN5clang9ASTWriter22CompletedTagDefinitionEPKNS_7TagDeclE'/>
+<fun r='_ZN5clang9ASTWriter16AddedVisibleDeclEPKNS_11DeclContextEPKNS_4DeclE'/>
+<fun r='_ZN5clang9ASTWriter22AddedCXXImplicitMemberEPKNS_13CXXRecordDeclEPKNS_4DeclE'/>
+<fun r='_ZN5clang9ASTWriter30AddedCXXTemplateSpecializationEPKNS_17ClassTemplateDeclEPKNS_31ClassTemplateSpecializationDeclE'/>
+<fun r='_ZN5clang9ASTWriter30AddedCXXTemplateSpecializationEPKNS_15VarTemplateDeclEPKNS_29VarTemplateSpecializationDeclE'/>
+<fun r='_ZN5clang9ASTWriter30AddedCXXTemplateSpecializationEPKNS_20FunctionTemplateDeclEPKNS_12FunctionDeclE'/>
+<fun r='_ZN5clang9ASTWriter21ResolvedExceptionSpecEPKNS_12FunctionDeclE'/>
+<fun r='_ZN5clang9ASTWriter17DeducedReturnTypeEPKNS_12FunctionDeclENS_8QualTypeE'/>
+<fun r='_ZN5clang9ASTWriter22ResolvedOperatorDeleteEPKNS_17CXXDestructorDeclEPKNS_12FunctionDeclEPNS_4ExprE'/>
+<fun r='_ZN5clang9ASTWriter27CompletedImplicitDefinitionEPKNS_12FunctionDeclE'/>
+<fun r='_ZN5clang9ASTWriter22InstantiationRequestedEPKNS_9ValueDeclE'/>
+<fun r='_ZN5clang9ASTWriter30VariableDefinitionInstantiatedEPKNS_7VarDeclE'/>
+<fun r='_ZN5clang9ASTWriter30FunctionDefinitionInstantiatedEPKNS_12FunctionDeclE'/>
+<fun r='_ZN5clang9ASTWriter27DefaultArgumentInstantiatedEPKNS_11ParmVarDeclE'/>
+<fun r='_ZN5clang9ASTWriter36DefaultMemberInitializerInstantiatedEPKNS_9FieldDeclE'/>
+<fun r='_ZN5clang9ASTWriter28AddedObjCCategoryToInterfaceEPKNS_16ObjCCategoryDeclEPKNS_17ObjCInterfaceDeclE'/>
+<fun r='_ZN5clang9ASTWriter21DeclarationMarkedUsedEPKNS_4DeclE'/>
+<fun r='_ZN5clang9ASTWriter36DeclarationMarkedOpenMPThreadPrivateEPKNS_4DeclE'/>
+<fun r='_ZN5clang9ASTWriter36DeclarationMarkedOpenMPDeclareTargetEPKNS_4DeclEPKNS_4AttrE'/>
+<fun r='_ZN5clang9ASTWriter31DeclarationMarkedOpenMPAllocateEPKNS_4DeclEPKNS_4AttrE'/>
+<fun r='_ZN5clang9ASTWriter25RedefinedHiddenDefinitionEPKNS_9NamedDeclEPNS_6ModuleE'/>
+<fun r='_ZN5clang9ASTWriter22AddedAttributeToRecordEPKNS_4AttrEPKNS_10RecordDeclE'/>

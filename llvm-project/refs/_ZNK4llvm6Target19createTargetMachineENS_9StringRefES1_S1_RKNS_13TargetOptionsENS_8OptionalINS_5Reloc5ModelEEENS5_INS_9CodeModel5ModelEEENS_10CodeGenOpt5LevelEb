@@ -1,0 +1,30 @@
+<def f='llvm/llvm/include/llvm/Support/TargetRegistry.h' l='388' ll='399' type='llvm::TargetMachine * llvm::Target::createTargetMachine(llvm::StringRef TT, llvm::StringRef CPU, llvm::StringRef Features, const llvm::TargetOptions &amp; Options, Optional&lt;Reloc::Model&gt; RM, Optional&lt;CodeModel::Model&gt; CM = None, CodeGenOpt::Level OL = CodeGenOpt::Default, bool JIT = false) const'/>
+<use f='llvm/clang/lib/CodeGen/BackendUtil.cpp' l='788' u='c' c='_ZN12_GLOBAL__N_118EmitAssemblyHelper19CreateTargetMachineEb'/>
+<doc f='llvm/llvm/include/llvm/Support/TargetRegistry.h' l='381'>/// createTargetMachine - Create a target specific machine implementation
+  /// for the specified \p Triple.
+  ///
+  /// \param TT This argument is used to determine the target machine
+  /// feature set; it should always be provided. Generally this should be
+  /// either the target triple from the module, or the target triple of the
+  /// host if that does not exist.</doc>
+<use f='llvm/clang/tools/clang-fuzzer/handle-llvm/handle_llvm.cpp' l='107' u='c' c='_ZL7OptLLVMRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm10CodeGenOpt5LevelE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/JITTargetMachineBuilder.cpp' l='37' u='c' c='_ZN4llvm3orc23JITTargetMachineBuilder19createTargetMachineEv'/>
+<use f='llvm/llvm/lib/ExecutionEngine/TargetSelect.cpp' l='95' u='c' c='_ZN4llvm13EngineBuilder12selectTargetERKNS_6TripleENS_9StringRefES4_RKNS_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE'/>
+<use f='llvm/llvm/lib/LTO/LTOBackend.cpp' l='146' u='c' c='_ZN12_GLOBAL__N_119createTargetMachineERN4llvm3lto6ConfigEPKNS0_6TargetERNS0_6ModuleE'/>
+<use f='llvm/llvm/lib/LTO/LTOCodeGenerator.cpp' l='371' u='c' c='_ZN4llvm16LTOCodeGenerator19createTargetMachineEv'/>
+<use f='llvm/llvm/lib/LTO/LTOModule.cpp' l='227' u='c' c='_ZN4llvm9LTOModule13makeLTOModuleENS_15MemoryBufferRefERKNS_13TargetOptionsERNS_11LLVMContextEb'/>
+<use f='llvm/llvm/lib/LTO/ThinLTOCodeGenerator.cpp' l='551' u='c' c='_ZNK4llvm20TargetMachineBuilder6createEv'/>
+<use f='llvm/llvm/lib/Target/TargetMachineC.cpp' l='150' u='c' c='LLVMCreateTargetMachine'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfStreamer.cpp' l='109' u='c' c='_ZN4llvm8dsymutil13DwarfStreamer4initENS_6TripleE'/>
+<use f='llvm/llvm/tools/llc/llc.cpp' l='469' u='c' c='_ZL13compileModulePPcRN4llvm11LLVMContextE'/>
+<use f='llvm/llvm/tools/llvm-isel-fuzzer/llvm-isel-fuzzer.cpp' l='158' u='c' c='LLVMFuzzerInitialize'/>
+<use f='llvm/llvm/tools/llvm-opt-fuzzer/llvm-opt-fuzzer.cpp' l='223' u='c' c='LLVMFuzzerInitialize'/>
+<use f='llvm/llvm/tools/opt/opt.cpp' l='468' u='c' c='_ZL16GetTargetMachineN4llvm6TripleENS_9StringRefES1_RKNS_13TargetOptionsE'/>
+<use f='llvm/llvm/unittests/CodeGen/AArch64SelectionDAGTest.cpp' l='45' u='c' c='_ZN12_GLOBAL__N_123AArch64SelectionDAGTest5SetUpEv'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/GISelMITest.h' l='66' u='c' c='_ZL19createTargetMachinev'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/PatternMatchTest.cpp' l='54' u='c' c='_ZN12_GLOBAL__N_119createTargetMachineEv'/>
+<use f='llvm/llvm/unittests/CodeGen/TargetOptionsTest.cpp' l='40' u='c' c='_ZN12_GLOBAL__N_119createTargetMachineEb'/>
+<use f='llvm/llvm/unittests/DebugInfo/DWARF/DwarfGenerator.cpp' l='434' u='c' c='_ZN4llvm8dwarfgen9Generator4initENS_6TripleEt'/>
+<use f='llvm/llvm/unittests/MI/LiveIntervalTest.cpp' l='47' u='c' c='_ZN12_GLOBAL__N_119createTargetMachineEv'/>
+<use f='llvm/llvm/unittests/Target/AArch64/InstSizes.cpp' l='26' u='c' c='_ZN12_GLOBAL__N_119createTargetMachineEv'/>
+<use f='llvm/llvm/unittests/Target/WebAssembly/WebAssemblyExceptionInfoTest.cpp' l='38' u='c' c='_ZN12_GLOBAL__N_119createTargetMachineEv'/>

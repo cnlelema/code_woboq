@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='555' type='Instruction::CastOps llvm::InstCombiner::isEliminableCastPair(const llvm::CastInst * CI1, const llvm::CastInst * CI2)'/>
+<doc f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='545'>/// Determine if a pair of casts can be replaced by a single cast.
+  ///
+  /// \param CI1 The first of a pair of casts.
+  /// \param CI2 The second of a pair of casts.
+  ///
+  /// \return 0 if the cast pair cannot be eliminated, otherwise returns an
+  /// Instruction::CastOps value for a cast that can replace the pair, casting
+  /// CI1-&gt;getSrcTy() to CI2-&gt;getDstTy().
+  ///
+  /// \see CastInst::isEliminableCastPair</doc>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='1341' u='c' c='_ZN4llvm12InstCombiner18shouldOptimizeCastEPNS_8CastInstE'/>
+<def f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp' l='232' ll='257' type='Instruction::CastOps llvm::InstCombiner::isEliminableCastPair(const llvm::CastInst * CI1, const llvm::CastInst * CI2)'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp' l='265' u='c' c='_ZN4llvm12InstCombiner20commonCastTransformsERNS_8CastInstE'/>

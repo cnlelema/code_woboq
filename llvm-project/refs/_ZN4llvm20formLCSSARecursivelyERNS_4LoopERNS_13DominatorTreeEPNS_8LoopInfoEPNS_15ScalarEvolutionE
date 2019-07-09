@@ -1,0 +1,20 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/LoopUtils.h' l='101' type='bool llvm::formLCSSARecursively(llvm::Loop &amp; L, llvm::DominatorTree &amp; DT, llvm::LoopInfo * LI, llvm::ScalarEvolution * SE)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/LoopUtils.h' l='92'>/// Put a loop nest into LCSSA form.
+///
+/// This recursively forms LCSSA for a loop nest.
+///
+/// LoopInfo and DominatorTree are required and preserved.
+///
+/// If ScalarEvolution is passed in, it will be preserved.
+///
+/// Returns true if any modifications are made to the loop.</doc>
+<use f='llvm/llvm/lib/Transforms/Scalar/InductiveRangeCheckElimination.cpp' l='1547' u='c' c='_ZN12_GLOBAL__N_115LoopConstrainer3runEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='454' u='c' c='_ZN12_GLOBAL__N_123LoopInvariantCodeMotion9runOnLoopEPN4llvm4LoopEPNS1_9AAResultsEPNS1_8LoopInfoEPNS1_13DominatorTreeEPNS1_17TargetLibraryInfoEPNS1_1914145461'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopSimplifyCFG.cpp' l='413' u='c' c='_ZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl15handleDeadExitsEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnrollPass.cpp' l='1404' u='c' c='_ZN4llvm14LoopUnrollPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE'/>
+<def f='llvm/llvm/lib/Transforms/Utils/LCSSA.cpp' l='385' ll='395' type='bool llvm::formLCSSARecursively(llvm::Loop &amp; L, llvm::DominatorTree &amp; DT, llvm::LoopInfo * LI, llvm::ScalarEvolution * SE)'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LCSSA.cpp' l='391' u='c' c='_ZN4llvm20formLCSSARecursivelyERNS_4LoopERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LCSSA.cpp' l='402' u='c' c='_ZL19formLCSSAOnAllLoopsPN4llvm8LoopInfoERNS_13DominatorTreeEPNS_15ScalarEvolutionE'/>
+<doc f='llvm/llvm/lib/Transforms/Utils/LCSSA.cpp' l='384'>/// Process a loop nest depth first.</doc>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnroll.cpp' l='821' u='c' c='_ZN4llvm10UnrollLoopEPNS_4LoopENS_17UnrollLoopOptionsEPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterEbPS1_'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='7612' u='c' c='_ZN4llvm17LoopVectorizePass7runImplERNS_8FunctionERNS_15ScalarEvolutionERNS_8LoopInfoERNS_19TargetTransformInfoERNS_13DominatorTreeERNS_18BlockFrequen2739751'/>

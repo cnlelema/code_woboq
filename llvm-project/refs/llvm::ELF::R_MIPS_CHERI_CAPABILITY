@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/BinaryFormat/ELFRelocs/Mips.def' l='113' type='90'/>
+<doc f='llvm/llvm/include/llvm/BinaryFormat/ELFRelocs/Mips.def' l='105'>// RTLD should set the following to a capability pointing to symbol.
+// These relocations should be processed immediatedly at load time.
+// Note: All R_MIPS_CHERI_CAPABILITY relocations for STT_FUNC symbols must
+// resolve to the same address to ensure function pointer comparison works as
+// required by the C standard. If a function is only called but the address is
+// not taken, the static linker should emit a R_MIPS_CHERI_CAPABILITY_CALL
+// relocation instead since this allows RTLD to only perform the symbol lookup
+// on the first call rather than at load time</doc>
+<use f='llvm/lld/ELF/Arch/Mips.cpp' l='56' u='r' c='_ZN12_GLOBAL__N_14MIPSC1Ev'/>
+<use f='llvm/lld/ELF/Arch/Mips.cpp' l='201' c='_ZNK12_GLOBAL__N_14MIPS10getRelExprEjRKN3lld3elf6SymbolEPKh'/>
+<use f='llvm/lld/ELF/Arch/Mips.cpp' l='232' u='r' c='_ZNK12_GLOBAL__N_14MIPS9getDynRelEj'/>
+<use f='llvm/lld/ELF/Arch/Mips.cpp' l='776' c='_ZNK12_GLOBAL__N_14MIPS11relocateOneEPhjm'/>
+<use f='llvm/lld/ELF/SyntheticSections.cpp' l='1604' u='r' c='_ZN3lld3elf21RelocationBaseSection8addRelocERKNS0_12DynamicRelocE'/>
+<use f='llvm/llvm/lib/Target/Mips/MCTargetDesc/MipsELFObjectWriter.cpp' l='451' u='r' c='_ZNK12_GLOBAL__N_119MipsELFObjectWriter12getRelocTypeERN4llvm9MCContextERKNS1_7MCValueERKNS1_7MCFixupEb'/>
+<use f='llvm/llvm/lib/Target/Mips/MCTargetDesc/MipsELFObjectWriter.cpp' l='653' c='_ZNK12_GLOBAL__N_119MipsELFObjectWriter23needsRelocateWithSymbolERKN4llvm8MCSymbolEj'/>

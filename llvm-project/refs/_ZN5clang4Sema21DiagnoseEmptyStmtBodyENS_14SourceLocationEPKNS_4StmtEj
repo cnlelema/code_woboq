@@ -1,0 +1,8 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='4083' type='void clang::Sema::DiagnoseEmptyStmtBody(clang::SourceLocation StmtLoc, const clang::Stmt * Body, unsigned int DiagID)'/>
+<doc f='llvm/clang/include/clang/Sema/Sema.h' l='4077'>/// Emit \p DiagID if statement located on \p StmtLoc has a suspicious null
+  /// statement as a \p Body, and it is located on the same line.
+  ///
+  /// This helps prevent bugs due to typos, such as:
+  ///     if (condition);
+  ///       do_stuff();</doc>
+<def f='llvm/clang/lib/Sema/SemaChecking.cpp' l='13640' ll='13659' type='void clang::Sema::DiagnoseEmptyStmtBody(clang::SourceLocation StmtLoc, const clang::Stmt * Body, unsigned int DiagID)'/>

@@ -1,0 +1,35 @@
+<def f='llvm/clang/include/clang/Basic/SourceLocation.h' l='86' ll='181'/>
+<ovr f='llvm/clang/include/clang/Basic/SourceLocation.h' l='345' c='clang::FullSourceLoc'/>
+<size>4</size>
+<doc f='llvm/clang/include/clang/Basic/SourceLocation.h' l='71'>/// Encodes a location in the source. The SourceManager can decode this
+/// to get at the full include stack, line and column information.
+///
+/// Technically, a source location is simply an offset into the manager&apos;s view
+/// of the input source, which is all input buffers (including macro
+/// expansions) concatenated in an effectively arbitrary order. The manager
+/// actually maintains two blocks of input buffers. One, starting at offset
+/// 0 and growing upwards, contains all buffers from this module. The other,
+/// starting at the highest possible offset and growing downwards, contains
+/// buffers of loaded modules.
+///
+/// In addition, one bit of SourceLocation is used for quick access to the
+/// information whether the location is in a file or a macro expansion.
+///
+/// It is important that this type remains small. It is currently 32 bits wide.</doc>
+<mbr r='clang::SourceLocation::ID' o='0' t='unsigned int'/>
+<fun r='_ZNK5clang14SourceLocation8isFileIDEv'/>
+<fun r='_ZNK5clang14SourceLocation9isMacroIDEv'/>
+<fun r='_ZNK5clang14SourceLocation7isValidEv'/>
+<fun r='_ZNK5clang14SourceLocation9isInvalidEv'/>
+<fun r='_ZNK5clang14SourceLocation9getOffsetEv'/>
+<fun r='_ZN5clang14SourceLocation10getFileLocEj'/>
+<fun r='_ZN5clang14SourceLocation11getMacroLocEj'/>
+<fun r='_ZNK5clang14SourceLocation16getLocWithOffsetEi'/>
+<fun r='_ZNK5clang14SourceLocation14getRawEncodingEv'/>
+<fun r='_ZN5clang14SourceLocation18getFromRawEncodingEj'/>
+<fun r='_ZNK5clang14SourceLocation14getPtrEncodingEv'/>
+<fun r='_ZN5clang14SourceLocation18getFromPtrEncodingEPKv'/>
+<fun r='_ZN5clang14SourceLocation21isPairOfFileLocationsES0_S0_'/>
+<fun r='_ZNK5clang14SourceLocation5printERN4llvm11raw_ostreamERKNS_13SourceManagerE'/>
+<fun r='_ZNK5clang14SourceLocation13printToStringERKNS_13SourceManagerE'/>
+<fun r='_ZNK5clang14SourceLocation4dumpERKNS_13SourceManagerE'/>

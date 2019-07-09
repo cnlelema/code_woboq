@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm-c/OrcBindings.h' l='118' type='LLVMErrorRef LLVMOrcAddObjectFile(LLVMOrcJITStackRef JITStack, LLVMOrcModuleHandle * RetHandle, LLVMMemoryBufferRef Obj, LLVMOrcSymbolResolverFn SymbolResolver, void * SymbolResolverCtx)'/>
+<def f='llvm/llvm/lib/ExecutionEngine/Orc/OrcCBindings.cpp' l='99' ll='112' type='LLVMErrorRef LLVMOrcAddObjectFile(LLVMOrcJITStackRef JITStack, LLVMOrcModuleHandle * RetHandle, LLVMMemoryBufferRef Obj, LLVMOrcSymbolResolverFn SymbolResolver, void * SymbolResolverCtx)'/>
+<doc f='llvm/llvm/include/llvm-c/OrcBindings.h' l='110'>/**
+ * Add an object file.
+ *
+ * This method takes ownership of the given memory buffer and attempts to add
+ * it to the JIT as an object file.
+ * Clients should *not* dispose of the &apos;Obj&apos; argument: the JIT will manage it
+ * from this call onwards.
+ */</doc>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/OrcCAPITest.cpp' l='171' u='c' c='_ZN4llvm43OrcCAPIExecutionTest_TestAddObjectFile_Test8TestBodyEv'/>

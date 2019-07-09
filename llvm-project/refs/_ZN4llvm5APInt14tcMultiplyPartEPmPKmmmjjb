@@ -1,0 +1,27 @@
+<dec f='llvm/llvm/include/llvm/ADT/APInt.h' l='1887' type='static int llvm::APInt::tcMultiplyPart(WordType * dst, const WordType * src, WordType multiplier, WordType carry, unsigned int srcParts, unsigned int dstParts, bool add)'/>
+<doc f='llvm/llvm/include/llvm/ADT/APInt.h' l='1877'>/// DST += SRC * MULTIPLIER + PART   if add is true
+  /// DST  = SRC * MULTIPLIER + PART   if add is false
+  ///
+  /// Requires 0 &lt;= DSTPARTS &lt;= SRCPARTS + 1.  If DST overlaps SRC they must
+  /// start at the same point, i.e. DST == SRC.
+  ///
+  /// If DSTPARTS == SRC_PARTS + 1 no overflow occurs and zero is returned.
+  /// Otherwise DST is filled with the least significant DSTPARTS parts of the
+  /// result, and if all of the omitted higher parts were zero return zero,
+  /// otherwise overflow occurred and return one.</doc>
+<use f='llvm/llvm/lib/Support/APFloat.cpp' l='2532' u='c' c='_ZN4llvm6detail9IEEEFloat24convertFromDecimalStringENS_9StringRefENS_11APFloatBase12roundingModeE'/>
+<use f='llvm/llvm/lib/Support/APInt.cpp' l='266' u='c' c='_ZN4llvm5APIntmLEm'/>
+<def f='llvm/llvm/lib/Support/APInt.cpp' l='2418' ll='2501' type='static int llvm::APInt::tcMultiplyPart(WordType * dst, const WordType * src, WordType multiplier, WordType carry, unsigned int srcParts, unsigned int dstParts, bool add)'/>
+<use f='llvm/llvm/lib/Support/APInt.cpp' l='2515' u='c' c='_ZN4llvm5APInt10tcMultiplyEPmPKmS3_j'/>
+<use f='llvm/llvm/lib/Support/APInt.cpp' l='2535' u='c' c='_ZN4llvm5APInt14tcFullMultiplyEPmPKmS3_jj'/>
+<doc f='llvm/llvm/lib/Support/APInt.cpp' l='2407'>/*  DST += SRC * MULTIPLIER + CARRY   if add is true
+    DST  = SRC * MULTIPLIER + CARRY   if add is false
+
+    Requires 0 &lt;= DSTPARTS &lt;= SRCPARTS + 1.  If DST overlaps SRC
+    they must start at the same point, i.e. DST == SRC.
+
+    If DSTPARTS == SRCPARTS + 1 no overflow occurs and zero is
+    returned.  Otherwise DST is filled with the least significant
+    DSTPARTS parts of the result, and if all of the omitted higher
+    parts were zero return zero, otherwise overflow occurred and
+    return one.  */</doc>

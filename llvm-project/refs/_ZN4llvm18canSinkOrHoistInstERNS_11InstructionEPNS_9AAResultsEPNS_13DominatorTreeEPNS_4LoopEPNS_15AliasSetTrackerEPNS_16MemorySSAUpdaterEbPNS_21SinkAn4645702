@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/LoopUtils.h' l='283' type='bool llvm::canSinkOrHoistInst(llvm::Instruction &amp; I, llvm::AAResults * AA, llvm::DominatorTree * DT, llvm::Loop * CurLoop, llvm::AliasSetTracker * CurAST, llvm::MemorySSAUpdater * MSSAU, bool TargetExecutesOncePerLoop, llvm::SinkAndHoistLICMFlags * LICMFlags = nullptr, llvm::OptimizationRemarkEmitter * ORE = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/LoopUtils.h' l='274'>/// Returns true if is legal to hoist or sink this instruction disregarding the
+/// possible introduction of faults.  Reasoning about potential faulting
+/// instructions is the responsibility of the caller since it is challenging to
+/// do efficiently from within this routine.
+/// \p TargetExecutesOncePerLoop is true only when it is guaranteed that the
+/// target executes at most once per execution of the loop body.  This is used
+/// to assess the legality of duplicating atomic loads.  Generally, this is
+/// true when moving out of loop and not true when moving into loops.
+/// If \p ORE is set use it to emit optimization remarks.</doc>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='534' u='c' c='_ZN4llvm10sinkRegionEPNS_15DomTreeNodeBaseINS_10BasicBlockEEEPNS_9AAResultsEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_17TargetLibraryInfoEPNS_19TargetTran7136225'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='843' u='c' c='_ZN4llvm11hoistRegionEPNS_15DomTreeNodeBaseINS_10BasicBlockEEEPNS_9AAResultsEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_17TargetLibraryInfoEPNS_4LoopEPNS_18226459'/>
+<def f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='1071' ll='1256' type='bool llvm::canSinkOrHoistInst(llvm::Instruction &amp; I, llvm::AAResults * AA, llvm::DominatorTree * DT, llvm::Loop * CurLoop, llvm::AliasSetTracker * CurAST, llvm::MemorySSAUpdater * MSSAU, bool TargetExecutesOncePerLoop, llvm::SinkAndHoistLICMFlags * Flags = nullptr, llvm::OptimizationRemarkEmitter * ORE = nullptr)'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopSink.cpp' l='305' u='c' c='_ZL29sinkLoopInvariantInstructionsRN4llvm4LoopERNS_9AAResultsERNS_8LoopInfoERNS_13DominatorTreeERNS_18BlockFrequencyInfoEPNS_15ScalarEvolutionE'/>

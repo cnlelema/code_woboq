@@ -1,0 +1,11 @@
+<def f='llvm/clang/include/clang/Basic/SourceManager.h' l='956' ll='969' type='const llvm::MemoryBuffer * clang::SourceManager::getBuffer(clang::FileID FID, clang::SourceLocation Loc, bool * Invalid = nullptr) const'/>
+<doc f='llvm/clang/include/clang/Basic/SourceManager.h' l='948'>//===--------------------------------------------------------------------===//
+  // FileID manipulation methods.
+  //===--------------------------------------------------------------------===//
+
+  /// Return the buffer for the specified FileID.
+  ///
+  /// If there is an error opening this buffer the first time, this
+  /// manufactures a temporary buffer and returns a non-empty error string.</doc>
+<use f='llvm/clang/lib/Lex/PPLexerChange.cpp' l='80' u='c' c='_ZN5clang12Preprocessor15EnterSourceFileENS_6FileIDEPKNS_15DirectoryLookupENS_14SourceLocationE'/>
+<use f='llvm/clang/tools/clang-import-test/clang-import-test.cpp' l='106' u='c' c='_ZN16init_convenience22TestDiagnosticConsumer22PrintSourceForLocationERKN5clang14SourceLocationERNS1_13SourceManagerE'/>

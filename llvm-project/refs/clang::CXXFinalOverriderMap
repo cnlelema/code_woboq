@@ -1,0 +1,54 @@
+<inh f='llvm/llvm/include/llvm/ADT/MapVector.h' l='37' c='llvm::MapVector'/>
+<def f='llvm/clang/include/clang/AST/CXXInheritance.h' l='368' ll='369'/>
+<size>56</size>
+<doc f='llvm/clang/include/clang/AST/CXXInheritance.h' l='317'>/// A mapping from each virtual member function to its set of
+/// final overriders.
+///
+/// Within a class hierarchy for a given derived class, each virtual
+/// member function in that hierarchy has one or more &quot;final
+/// overriders&quot; (C++ [class.virtual]p2). A final overrider for a
+/// virtual function &quot;f&quot; is the virtual function that will actually be
+/// invoked when dispatching a call to &quot;f&quot; through the
+/// vtable. Well-formed classes have a single final overrider for each
+/// virtual function; in abstract classes, the final overrider for at
+/// least one virtual function is a pure virtual function. Due to
+/// multiple, virtual inheritance, it is possible for a class to have
+/// more than one final overrider. Athough this is an error (per C++
+/// [class.virtual]p2), it is not considered an error here: the final
+/// overrider map can represent multiple final overriders for a
+/// method, and it is up to the client to determine whether they are
+/// problem. For example, the following class \c D has two final
+/// overriders for the virtual function \c A::f(), one in \c C and one
+/// in \c D:
+///
+/// \code
+///   struct A { virtual void f(); };
+///   struct B : virtual A { virtual void f(); };
+///   struct C : virtual A { virtual void f(); };
+///   struct D : B, C { };
+/// \endcode
+///
+/// This data structure contains a mapping from every virtual
+/// function *that does not override an existing virtual function* and
+/// in every subobject where that virtual function occurs to the set
+/// of virtual functions that override it. Thus, the same virtual
+/// function \c A::f can actually occur in multiple subobjects of type
+/// \c A due to multiple inheritance, and may be overridden by
+/// different virtual functions in each, as in the following example:
+///
+/// \code
+///   struct A { virtual void f(); };
+///   struct B : A { virtual void f(); };
+///   struct C : A { virtual void f(); };
+///   struct D : B, C { };
+/// \endcode
+///
+/// Unlike in the previous example, where the virtual functions \c
+/// B::f and \c C::f both overrode \c A::f in the same subobject of
+/// type \c A, in this example the two virtual functions both override
+/// \c A::f but in *different* subobjects of type A. This is
+/// represented by numbering the subobjects in which the overridden
+/// and the overriding virtual member functions are located. Subobject
+/// 0 represents the virtual base class subobject of that type, while
+/// subobject numbers greater than 0 refer to non-virtual base class
+/// subobjects of that type.</doc>

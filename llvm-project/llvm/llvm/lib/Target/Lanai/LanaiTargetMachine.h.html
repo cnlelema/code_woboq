@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>LanaiTargetMachine.h source code [llvm/llvm/lib/Target/Lanai/LanaiTargetMachine.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::LanaiTargetMachine "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/Target/Lanai/LanaiTargetMachine.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>lib</a>/<a href='..'>Target</a>/<a href='./'>Lanai</a>/<a href='LanaiTargetMachine.h.html'>LanaiTargetMachine.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- LanaiTargetMachine.h - Define TargetMachine for Lanai --- C++ ---===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file declares the Lanai specific subclass of TargetMachine.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#<span data-ppcond="13">ifndef</span> <span class="macro" data-ref="_M/LLVM_LIB_TARGET_LANAI_LANAITARGETMACHINE_H">LLVM_LIB_TARGET_LANAI_LANAITARGETMACHINE_H</span></u></td></tr>
+<tr><th id="14">14</th><td><u>#define <dfn class="macro" id="_M/LLVM_LIB_TARGET_LANAI_LANAITARGETMACHINE_H" data-ref="_M/LLVM_LIB_TARGET_LANAI_LANAITARGETMACHINE_H">LLVM_LIB_TARGET_LANAI_LANAITARGETMACHINE_H</dfn></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="LanaiFrameLowering.h.html">"LanaiFrameLowering.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="LanaiISelLowering.h.html">"LanaiISelLowering.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="LanaiInstrInfo.h.html">"LanaiInstrInfo.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="LanaiSelectionDAGInfo.h.html">"LanaiSelectionDAGInfo.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="LanaiSubtarget.h.html">"LanaiSubtarget.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../include/llvm/CodeGen/TargetFrameLowering.h.html">"llvm/CodeGen/TargetFrameLowering.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../include/llvm/Target/TargetMachine.h.html">"llvm/Target/TargetMachine.h"</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="25">25</th><td><b>class</b> <a class="type" href="../../../include/llvm/Support/FormattedStream.h.html#llvm::formatted_raw_ostream" title='llvm::formatted_raw_ostream' data-ref="llvm::formatted_raw_ostream" id="llvm::formatted_raw_ostream">formatted_raw_ostream</a>;</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><b>class</b> <dfn class="type def" id="llvm::LanaiTargetMachine" title='llvm::LanaiTargetMachine' data-ref="llvm::LanaiTargetMachine">LanaiTargetMachine</dfn> : <b>public</b> <a class="type" href="../../../include/llvm/Target/TargetMachine.h.html#llvm::LLVMTargetMachine" title='llvm::LLVMTargetMachine' data-ref="llvm::LLVMTargetMachine">LLVMTargetMachine</a> {</td></tr>
+<tr><th id="28">28</th><td>  <a class="type" href="LanaiSubtarget.h.html#llvm::LanaiSubtarget" title='llvm::LanaiSubtarget' data-ref="llvm::LanaiSubtarget">LanaiSubtarget</a> <dfn class="decl" id="llvm::LanaiTargetMachine::Subtarget" title='llvm::LanaiTargetMachine::Subtarget' data-ref="llvm::LanaiTargetMachine::Subtarget">Subtarget</dfn>;</td></tr>
+<tr><th id="29">29</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="../../../include/llvm/Target/TargetMachine.h.html#llvm::TargetLoweringObjectFile" title='llvm::TargetLoweringObjectFile' data-ref="llvm::TargetLoweringObjectFile">TargetLoweringObjectFile</a>&gt; <dfn class="decl" id="llvm::LanaiTargetMachine::TLOF" title='llvm::LanaiTargetMachine::TLOF' data-ref="llvm::LanaiTargetMachine::TLOF">TLOF</dfn>;</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><b>public</b>:</td></tr>
+<tr><th id="32">32</th><td>  <dfn class="decl" id="_ZN4llvm18LanaiTargetMachineC1ERKNS_6TargetERKNS_6TripleENS_9StringRefES7_RKNS_13TargetOptionsENS_8OptionalINS_5Reloc5ModelEEENSB_INS_9CodeModel5Model16350048" title='llvm::LanaiTargetMachine::LanaiTargetMachine' data-ref="_ZN4llvm18LanaiTargetMachineC1ERKNS_6TargetERKNS_6TripleENS_9StringRefES7_RKNS_13TargetOptionsENS_8OptionalINS_5Reloc5ModelEEENSB_INS_9CodeModel5Model16350048">LanaiTargetMachine</dfn>(<em>const</em> <a class="type" href="../../../include/llvm/Support/TargetRegistry.h.html#llvm::Target" title='llvm::Target' data-ref="llvm::Target">Target</a> &amp;<dfn class="local col6 decl" id="216TheTarget" title='TheTarget' data-type='const llvm::Target &amp;' data-ref="216TheTarget">TheTarget</dfn>, <em>const</em> <a class="type" href="../../../include/llvm/ADT/Triple.h.html#llvm::Triple" title='llvm::Triple' data-ref="llvm::Triple">Triple</a> &amp;<dfn class="local col7 decl" id="217TargetTriple" title='TargetTriple' data-type='const llvm::Triple &amp;' data-ref="217TargetTriple">TargetTriple</dfn>,</td></tr>
+<tr><th id="33">33</th><td>                     <a class="type" href="../../../include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col8 decl" id="218Cpu" title='Cpu' data-type='llvm::StringRef' data-ref="218Cpu">Cpu</dfn>, <a class="type" href="../../../include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col9 decl" id="219FeatureString" title='FeatureString' data-type='llvm::StringRef' data-ref="219FeatureString">FeatureString</dfn>,</td></tr>
+<tr><th id="34">34</th><td>                     <em>const</em> <a class="type" href="../../../include/llvm/Target/TargetOptions.h.html#llvm::TargetOptions" title='llvm::TargetOptions' data-ref="llvm::TargetOptions">TargetOptions</a> &amp;<dfn class="local col0 decl" id="220Options" title='Options' data-type='const llvm::TargetOptions &amp;' data-ref="220Options">Options</dfn>,</td></tr>
+<tr><th id="35">35</th><td>                     <a class="type" href="../../../include/llvm/ADT/Optional.h.html#llvm::Optional" title='llvm::Optional' data-ref="llvm::Optional">Optional</a>&lt;<span class="namespace">Reloc::</span><a class="type" href="../../../include/llvm/Support/CodeGen.h.html#llvm::Reloc::Model" title='llvm::Reloc::Model' data-ref="llvm::Reloc::Model">Model</a>&gt; <dfn class="local col1 decl" id="221RelocationModel" title='RelocationModel' data-type='Optional&lt;Reloc::Model&gt;' data-ref="221RelocationModel">RelocationModel</dfn>,</td></tr>
+<tr><th id="36">36</th><td>                     <a class="type" href="../../../include/llvm/ADT/Optional.h.html#llvm::Optional" title='llvm::Optional' data-ref="llvm::Optional">Optional</a>&lt;<span class="namespace">CodeModel::</span><a class="type" href="../../../include/llvm/Support/CodeGen.h.html#llvm::CodeModel::Model" title='llvm::CodeModel::Model' data-ref="llvm::CodeModel::Model">Model</a>&gt; <dfn class="local col2 decl" id="222CodeModel" title='CodeModel' data-type='Optional&lt;CodeModel::Model&gt;' data-ref="222CodeModel">CodeModel</dfn>,</td></tr>
+<tr><th id="37">37</th><td>                     <span class="namespace">CodeGenOpt::</span><a class="type" href="../../../include/llvm/Support/CodeGen.h.html#llvm::CodeGenOpt::Level" title='llvm::CodeGenOpt::Level' data-ref="llvm::CodeGenOpt::Level">Level</a> <dfn class="local col3 decl" id="223OptLevel" title='OptLevel' data-type='CodeGenOpt::Level' data-ref="223OptLevel">OptLevel</dfn>, <em>bool</em> <dfn class="local col4 decl" id="224JIT" title='JIT' data-type='bool' data-ref="224JIT">JIT</dfn>);</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td>  <em>const</em> <a class="type" href="LanaiSubtarget.h.html#llvm::LanaiSubtarget" title='llvm::LanaiSubtarget' data-ref="llvm::LanaiSubtarget">LanaiSubtarget</a> *</td></tr>
+<tr><th id="40">40</th><td>  <span class='error' title="return type of virtual function &apos;getSubtargetImpl&apos; is not covariant with the return type of the function it overrides (&apos;const llvm::LanaiSubtarget *&apos; is not derived from &apos;const llvm::TargetSubtargetInfo *&apos;)"><dfn class="virtual decl def" id="_ZNK4llvm18LanaiTargetMachine16getSubtargetImplERKNS_8FunctionE" title='llvm::LanaiTargetMachine::getSubtargetImpl' data-ref="_ZNK4llvm18LanaiTargetMachine16getSubtargetImplERKNS_8FunctionE">getSubtargetImpl</dfn></span>(<em>const</em> <span class="namespace">llvm::</span><a class="type" href="../../../include/llvm/IR/Function.h.html#llvm::Function" title='llvm::Function' data-ref="llvm::Function">Function</a> &amp; <i>/*Fn*/</i>) <em>const</em> override {</td></tr>
+<tr><th id="41">41</th><td>    <b>return</b> &amp;Subtarget;</td></tr>
+<tr><th id="42">42</th><td>  }</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>  <a class="type" href="../../../include/llvm/Analysis/DivergenceAnalysis.h.html#llvm::TargetTransformInfo" title='llvm::TargetTransformInfo' data-ref="llvm::TargetTransformInfo">TargetTransformInfo</a> <dfn class="virtual decl" id="_ZN4llvm18LanaiTargetMachine22getTargetTransformInfoERKNS_8FunctionE" title='llvm::LanaiTargetMachine::getTargetTransformInfo' data-ref="_ZN4llvm18LanaiTargetMachine22getTargetTransformInfoERKNS_8FunctionE">getTargetTransformInfo</dfn>(<em>const</em> <a class="type" href="../../../include/llvm/IR/Function.h.html#llvm::Function" title='llvm::Function' data-ref="llvm::Function">Function</a> &amp;<dfn class="local col5 decl" id="225F" title='F' data-type='const llvm::Function &amp;' data-ref="225F">F</dfn>) override;</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td>  <i>// Pass Pipeline Configuration</i></td></tr>
+<tr><th id="47">47</th><td>  <a class="type" href="../../../include/llvm/Target/TargetMachine.h.html#llvm::TargetPassConfig" title='llvm::TargetPassConfig' data-ref="llvm::TargetPassConfig">TargetPassConfig</a> *<dfn class="virtual decl" id="_ZN4llvm18LanaiTargetMachine16createPassConfigERNS_6legacy15PassManagerBaseE" title='llvm::LanaiTargetMachine::createPassConfig' data-ref="_ZN4llvm18LanaiTargetMachine16createPassConfigERNS_6legacy15PassManagerBaseE">createPassConfig</dfn>(<a class="type" href="../../../include/llvm/Target/TargetMachine.h.html#llvm::legacy::PassManagerBase" title='llvm::legacy::PassManagerBase' data-ref="llvm::legacy::PassManagerBase">PassManagerBase</a> &amp;<dfn class="local col6 decl" id="226pass_manager" title='pass_manager' data-type='llvm::legacy::PassManagerBase &amp;' data-ref="226pass_manager">pass_manager</dfn>) override;</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>  <a class="type" href="../../../include/llvm/Target/TargetMachine.h.html#llvm::TargetLoweringObjectFile" title='llvm::TargetLoweringObjectFile' data-ref="llvm::TargetLoweringObjectFile">TargetLoweringObjectFile</a> *<dfn class="virtual decl def" id="_ZNK4llvm18LanaiTargetMachine18getObjFileLoweringEv" title='llvm::LanaiTargetMachine::getObjFileLowering' data-ref="_ZNK4llvm18LanaiTargetMachine18getObjFileLoweringEv">getObjFileLowering</dfn>() <em>const</em> override {</td></tr>
+<tr><th id="50">50</th><td>    <b>return</b> <a class="member" href="#llvm::LanaiTargetMachine::TLOF" title='llvm::LanaiTargetMachine::TLOF' data-ref="llvm::LanaiTargetMachine::TLOF">TLOF</a>.<a class="ref" href="../../../../../include/c++/7/bits/unique_ptr.h.html#_ZNKSt10unique_ptr3getEv" title='std::unique_ptr::get' data-ref="_ZNKSt10unique_ptr3getEv">get</a>();</td></tr>
+<tr><th id="51">51</th><td>  }</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>  <em>bool</em> <dfn class="virtual decl def" id="_ZNK4llvm18LanaiTargetMachine22isMachineVerifierCleanEv" title='llvm::LanaiTargetMachine::isMachineVerifierClean' data-ref="_ZNK4llvm18LanaiTargetMachine22isMachineVerifierCleanEv">isMachineVerifierClean</dfn>() <em>const</em> override {</td></tr>
+<tr><th id="54">54</th><td>    <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="55">55</th><td>  }</td></tr>
+<tr><th id="56">56</th><td>};</td></tr>
+<tr><th id="57">57</th><td>} <i>// namespace llvm</i></td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><u>#<span data-ppcond="13">endif</span> // LLVM_LIB_TARGET_LANAI_LANAITARGETMACHINE_H</u></td></tr>
+<tr><th id="60">60</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='LanaiAsmPrinter.cpp.html'>llvm/llvm/lib/Target/Lanai/LanaiAsmPrinter.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,177 @@
+<inh f='llvm/clang/include/clang/AST/TextNodeDumper.h' l='29' c='clang::TextTreeStructure'/>
+<inh f='llvm/clang/include/clang/AST/CommentVisitor.h' l='62' c='clang::comments::ConstCommentVisitor'/>
+<inh f='llvm/clang/include/clang/AST/AttrVisitor.h' l='69' c='clang::ConstAttrVisitor'/>
+<inh f='llvm/clang/include/clang/AST/TemplateArgumentVisitor.h' l='92' c='clang::ConstTemplateArgumentVisitor'/>
+<inh f='llvm/clang/include/clang/AST/StmtVisitor.h' l='192' c='clang::ConstStmtVisitor'/>
+<inh f='llvm/clang/include/clang/AST/TypeVisitor.h' l='64' c='clang::TypeVisitor'/>
+<inh f='llvm/clang/include/clang/AST/DeclVisitor.h' l='73' c='clang::ConstDeclVisitor'/>
+<def f='llvm/clang/include/clang/AST/TextNodeDumper.h' l='125' ll='350'/>
+<size>1184</size>
+<mbr r='clang::TextNodeDumper::OS' o='8768' t='llvm::raw_ostream &amp;'/>
+<mbr r='clang::TextNodeDumper::ShowColors' o='8832' t='const bool'/>
+<mbr r='clang::TextNodeDumper::LastLocFilename' o='8896' t='const char *'/>
+<mbr r='clang::TextNodeDumper::LastLocLine' o='8960' t='unsigned int'/>
+<mbr r='clang::TextNodeDumper::SM' o='9024' t='const clang::SourceManager *'/>
+<mbr r='clang::TextNodeDumper::PrintPolicy' o='9088' t='clang::PrintingPolicy'/>
+<mbr r='clang::TextNodeDumper::Traits' o='9408' t='const comments::CommandTraits *'/>
+<fun r='_ZN5clang14TextNodeDumper14getCommandNameEj'/>
+<fun r='_ZN5clang14TextNodeDumperC1ERN4llvm11raw_ostreamEbPKNS_13SourceManagerERKNS_14PrintingPolicyEPKNS_8comments13CommandTraitsE'/>
+<fun r='_ZN5clang14TextNodeDumper5VisitEPKNS_8comments7CommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14TextNodeDumper5VisitEPKNS_4AttrE'/>
+<fun r='_ZN5clang14TextNodeDumper5VisitERKNS_16TemplateArgumentENS_11SourceRangeEPKNS_4DeclEN4llvm9StringRefE'/>
+<fun r='_ZN5clang14TextNodeDumper5VisitEPKNS_4StmtE'/>
+<fun r='_ZN5clang14TextNodeDumper5VisitEPKNS_4TypeE'/>
+<fun r='_ZN5clang14TextNodeDumper5VisitENS_8QualTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper5VisitEPKNS_4DeclE'/>
+<fun r='_ZN5clang14TextNodeDumper5VisitEPKNS_18CXXCtorInitializerE'/>
+<fun r='_ZN5clang14TextNodeDumper5VisitEPKNS_9OMPClauseE'/>
+<fun r='_ZN5clang14TextNodeDumper5VisitERKNS_9BlockDecl7CaptureE'/>
+<fun r='_ZN5clang14TextNodeDumper5VisitERKNS_20GenericSelectionExpr13AssociationTyILb1EEE'/>
+<fun r='_ZN5clang14TextNodeDumper11dumpPointerEPKv'/>
+<fun r='_ZN5clang14TextNodeDumper12dumpLocationENS_14SourceLocationE'/>
+<fun r='_ZN5clang14TextNodeDumper15dumpSourceRangeENS_11SourceRangeE'/>
+<fun r='_ZN5clang14TextNodeDumper12dumpBareTypeENS_8QualTypeEb'/>
+<fun r='_ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper15dumpBareDeclRefEPKNS_4DeclE'/>
+<fun r='_ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper19dumpAccessSpecifierENS_15AccessSpecifierE'/>
+<fun r='_ZN5clang14TextNodeDumper11dumpDeclRefEPKNS_4DeclEN4llvm9StringRefE'/>
+<fun r='_ZN5clang14TextNodeDumper16visitTextCommentEPKNS_8comments11TextCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14TextNodeDumper25visitInlineCommandCommentEPKNS_8comments20InlineCommandCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14TextNodeDumper24visitHTMLStartTagCommentEPKNS_8comments19HTMLStartTagCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14TextNodeDumper22visitHTMLEndTagCommentEPKNS_8comments17HTMLEndTagCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14TextNodeDumper24visitBlockCommandCommentEPKNS_8comments19BlockCommandCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14TextNodeDumper24visitParamCommandCommentEPKNS_8comments19ParamCommandCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14TextNodeDumper25visitTParamCommandCommentEPKNS_8comments20TParamCommandCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14TextNodeDumper25visitVerbatimBlockCommentEPKNS_8comments20VerbatimBlockCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14TextNodeDumper29visitVerbatimBlockLineCommentEPKNS_8comments24VerbatimBlockLineCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14TextNodeDumper24visitVerbatimLineCommentEPKNS_8comments19VerbatimLineCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14TextNodeDumper25VisitNullTemplateArgumentERKNS_16TemplateArgumentE'/>
+<fun r='_ZN5clang14TextNodeDumper25VisitTypeTemplateArgumentERKNS_16TemplateArgumentE'/>
+<fun r='_ZN5clang14TextNodeDumper32VisitDeclarationTemplateArgumentERKNS_16TemplateArgumentE'/>
+<fun r='_ZN5clang14TextNodeDumper28VisitNullPtrTemplateArgumentERKNS_16TemplateArgumentE'/>
+<fun r='_ZN5clang14TextNodeDumper29VisitIntegralTemplateArgumentERKNS_16TemplateArgumentE'/>
+<fun r='_ZN5clang14TextNodeDumper29VisitTemplateTemplateArgumentERKNS_16TemplateArgumentE'/>
+<fun r='_ZN5clang14TextNodeDumper38VisitTemplateExpansionTemplateArgumentERKNS_16TemplateArgumentE'/>
+<fun r='_ZN5clang14TextNodeDumper31VisitExpressionTemplateArgumentERKNS_16TemplateArgumentE'/>
+<fun r='_ZN5clang14TextNodeDumper25VisitPackTemplateArgumentERKNS_16TemplateArgumentE'/>
+<fun r='_ZN5clang14TextNodeDumper11VisitIfStmtEPKNS_6IfStmtE'/>
+<fun r='_ZN5clang14TextNodeDumper15VisitSwitchStmtEPKNS_10SwitchStmtE'/>
+<fun r='_ZN5clang14TextNodeDumper14VisitWhileStmtEPKNS_9WhileStmtE'/>
+<fun r='_ZN5clang14TextNodeDumper14VisitLabelStmtEPKNS_9LabelStmtE'/>
+<fun r='_ZN5clang14TextNodeDumper13VisitGotoStmtEPKNS_8GotoStmtE'/>
+<fun r='_ZN5clang14TextNodeDumper13VisitCaseStmtEPKNS_8CaseStmtE'/>
+<fun r='_ZN5clang14TextNodeDumper13VisitCallExprEPKNS_8CallExprE'/>
+<fun r='_ZN5clang14TextNodeDumper13VisitCastExprEPKNS_8CastExprE'/>
+<fun r='_ZN5clang14TextNodeDumper21VisitImplicitCastExprEPKNS_16ImplicitCastExprE'/>
+<fun r='_ZN5clang14TextNodeDumper16VisitDeclRefExprEPKNS_11DeclRefExprE'/>
+<fun r='_ZN5clang14TextNodeDumper19VisitPredefinedExprEPKNS_14PredefinedExprE'/>
+<fun r='_ZN5clang14TextNodeDumper21VisitCharacterLiteralEPKNS_16CharacterLiteralE'/>
+<fun r='_ZN5clang14TextNodeDumper19VisitIntegerLiteralEPKNS_14IntegerLiteralE'/>
+<fun r='_ZN5clang14TextNodeDumper22VisitFixedPointLiteralEPKNS_17FixedPointLiteralE'/>
+<fun r='_ZN5clang14TextNodeDumper20VisitFloatingLiteralEPKNS_15FloatingLiteralE'/>
+<fun r='_ZN5clang14TextNodeDumper18VisitStringLiteralEPKNS_13StringLiteralE'/>
+<fun r='_ZN5clang14TextNodeDumper17VisitInitListExprEPKNS_12InitListExprE'/>
+<fun r='_ZN5clang14TextNodeDumper25VisitGenericSelectionExprEPKNS_20GenericSelectionExprE'/>
+<fun r='_ZN5clang14TextNodeDumper18VisitUnaryOperatorEPKNS_13UnaryOperatorE'/>
+<fun r='_ZN5clang14TextNodeDumper29VisitUnaryExprOrTypeTraitExprEPKNS_24UnaryExprOrTypeTraitExprE'/>
+<fun r='_ZN5clang14TextNodeDumper15VisitMemberExprEPKNS_10MemberExprE'/>
+<fun r='_ZN5clang14TextNodeDumper25VisitExtVectorElementExprEPKNS_20ExtVectorElementExprE'/>
+<fun r='_ZN5clang14TextNodeDumper19VisitBinaryOperatorEPKNS_14BinaryOperatorE'/>
+<fun r='_ZN5clang14TextNodeDumper27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE'/>
+<fun r='_ZN5clang14TextNodeDumper18VisitAddrLabelExprEPKNS_13AddrLabelExprE'/>
+<fun r='_ZN5clang14TextNodeDumper21VisitCXXNamedCastExprEPKNS_16CXXNamedCastExprE'/>
+<fun r='_ZN5clang14TextNodeDumper23VisitCXXBoolLiteralExprEPKNS_18CXXBoolLiteralExprE'/>
+<fun r='_ZN5clang14TextNodeDumper16VisitCXXThisExprEPKNS_11CXXThisExprE'/>
+<fun r='_ZN5clang14TextNodeDumper26VisitCXXFunctionalCastExprEPKNS_21CXXFunctionalCastExprE'/>
+<fun r='_ZN5clang14TextNodeDumper31VisitCXXUnresolvedConstructExprEPKNS_26CXXUnresolvedConstructExprE'/>
+<fun r='_ZN5clang14TextNodeDumper21VisitCXXConstructExprEPKNS_16CXXConstructExprE'/>
+<fun r='_ZN5clang14TextNodeDumper25VisitCXXBindTemporaryExprEPKNS_20CXXBindTemporaryExprE'/>
+<fun r='_ZN5clang14TextNodeDumper15VisitCXXNewExprEPKNS_10CXXNewExprE'/>
+<fun r='_ZN5clang14TextNodeDumper18VisitCXXDeleteExprEPKNS_13CXXDeleteExprE'/>
+<fun r='_ZN5clang14TextNodeDumper29VisitMaterializeTemporaryExprEPKNS_24MaterializeTemporaryExprE'/>
+<fun r='_ZN5clang14TextNodeDumper21VisitExprWithCleanupsEPKNS_16ExprWithCleanupsE'/>
+<fun r='_ZN5clang14TextNodeDumper25VisitUnresolvedLookupExprEPKNS_20UnresolvedLookupExprE'/>
+<fun r='_ZN5clang14TextNodeDumper19VisitSizeOfPackExprEPKNS_14SizeOfPackExprE'/>
+<fun r='_ZN5clang14TextNodeDumper32VisitCXXDependentScopeMemberExprEPKNS_27CXXDependentScopeMemberExprE'/>
+<fun r='_ZN5clang14TextNodeDumper20VisitObjCAtCatchStmtEPKNS_15ObjCAtCatchStmtE'/>
+<fun r='_ZN5clang14TextNodeDumper19VisitObjCEncodeExprEPKNS_14ObjCEncodeExprE'/>
+<fun r='_ZN5clang14TextNodeDumper20VisitObjCMessageExprEPKNS_15ObjCMessageExprE'/>
+<fun r='_ZN5clang14TextNodeDumper18VisitObjCBoxedExprEPKNS_13ObjCBoxedExprE'/>
+<fun r='_ZN5clang14TextNodeDumper21VisitObjCSelectorExprEPKNS_16ObjCSelectorExprE'/>
+<fun r='_ZN5clang14TextNodeDumper21VisitObjCProtocolExprEPKNS_16ObjCProtocolExprE'/>
+<fun r='_ZN5clang14TextNodeDumper24VisitObjCPropertyRefExprEPKNS_19ObjCPropertyRefExprE'/>
+<fun r='_ZN5clang14TextNodeDumper25VisitObjCSubscriptRefExprEPKNS_20ObjCSubscriptRefExprE'/>
+<fun r='_ZN5clang14TextNodeDumper20VisitObjCIvarRefExprEPKNS_15ObjCIvarRefExprE'/>
+<fun r='_ZN5clang14TextNodeDumper24VisitObjCBoolLiteralExprEPKNS_19ObjCBoolLiteralExprE'/>
+<fun r='_ZN5clang14TextNodeDumper24VisitRValueReferenceTypeEPKNS_13ReferenceTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper14VisitArrayTypeEPKNS_9ArrayTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper22VisitConstantArrayTypeEPKNS_17ConstantArrayTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper22VisitVariableArrayTypeEPKNS_17VariableArrayTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper28VisitDependentSizedArrayTypeEPKNS_23DependentSizedArrayTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper32VisitDependentSizedExtVectorTypeEPKNS_27DependentSizedExtVectorTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper15VisitVectorTypeEPKNS_10VectorTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper17VisitFunctionTypeEPKNS_12FunctionTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper22VisitFunctionProtoTypeEPKNS_17FunctionProtoTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper24VisitUnresolvedUsingTypeEPKNS_19UnresolvedUsingTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper16VisitTypedefTypeEPKNS_11TypedefTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper23VisitUnaryTransformTypeEPKNS_18UnaryTransformTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper12VisitTagTypeEPKNS_7TagTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper25VisitTemplateTypeParmTypeEPKNS_20TemplateTypeParmTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper13VisitAutoTypeEPKNS_8AutoTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper31VisitTemplateSpecializationTypeEPKNS_26TemplateSpecializationTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper26VisitInjectedClassNameTypeEPKNS_21InjectedClassNameTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper22VisitObjCInterfaceTypeEPKNS_17ObjCInterfaceTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper22VisitPackExpansionTypeEPKNS_17PackExpansionTypeE'/>
+<fun r='_ZN5clang14TextNodeDumper14VisitLabelDeclEPKNS_9LabelDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper16VisitTypedefDeclEPKNS_11TypedefDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper13VisitEnumDeclEPKNS_8EnumDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper15VisitRecordDeclEPKNS_10RecordDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper21VisitEnumConstantDeclEPKNS_16EnumConstantDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper22VisitIndirectFieldDeclEPKNS_17IndirectFieldDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper17VisitFunctionDeclEPKNS_12FunctionDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper14VisitFieldDeclEPKNS_9FieldDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper12VisitVarDeclEPKNS_7VarDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper16VisitBindingDeclEPKNS_11BindingDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper17VisitCapturedDeclEPKNS_12CapturedDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper15VisitImportDeclEPKNS_10ImportDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper22VisitPragmaCommentDeclEPKNS_17PragmaCommentDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper29VisitPragmaDetectMismatchDeclEPKNS_24PragmaDetectMismatchDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper27VisitOMPExecutableDirectiveEPKNS_22OMPExecutableDirectiveE'/>
+<fun r='_ZN5clang14TextNodeDumper28VisitOMPDeclareReductionDeclEPKNS_23OMPDeclareReductionDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper20VisitOMPRequiresDeclEPKNS_15OMPRequiresDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper24VisitOMPCapturedExprDeclEPKNS_19OMPCapturedExprDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper18VisitNamespaceDeclEPKNS_13NamespaceDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper23VisitUsingDirectiveDeclEPKNS_18UsingDirectiveDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper23VisitNamespaceAliasDeclEPKNS_18NamespaceAliasDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper18VisitTypeAliasDeclEPKNS_13TypeAliasDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper26VisitTypeAliasTemplateDeclEPKNS_21TypeAliasTemplateDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper25VisitFunctionTemplateDeclEPKNS_20FunctionTemplateDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper22VisitClassTemplateDeclEPKNS_17ClassTemplateDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper24VisitBuiltinTemplateDeclEPKNS_19BuiltinTemplateDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper20VisitVarTemplateDeclEPKNS_15VarTemplateDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper25VisitTemplateTypeParmDeclEPKNS_20TemplateTypeParmDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper28VisitNonTypeTemplateParmDeclEPKNS_23NonTypeTemplateParmDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper29VisitTemplateTemplateParmDeclEPKNS_24TemplateTemplateParmDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper14VisitUsingDeclEPKNS_9UsingDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper32VisitUnresolvedUsingTypenameDeclEPKNS_27UnresolvedUsingTypenameDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper29VisitUnresolvedUsingValueDeclEPKNS_24UnresolvedUsingValueDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper20VisitUsingShadowDeclEPKNS_15UsingShadowDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS_26ConstructorUsingShadowDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper20VisitLinkageSpecDeclEPKNS_15LinkageSpecDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper19VisitAccessSpecDeclEPKNS_14AccessSpecDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper15VisitFriendDeclEPKNS_10FriendDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper17VisitObjCIvarDeclEPKNS_12ObjCIvarDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper19VisitObjCMethodDeclEPKNS_14ObjCMethodDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper22VisitObjCTypeParamDeclEPKNS_17ObjCTypeParamDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper21VisitObjCCategoryDeclEPKNS_16ObjCCategoryDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper25VisitObjCCategoryImplDeclEPKNS_20ObjCCategoryImplDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper21VisitObjCProtocolDeclEPKNS_16ObjCProtocolDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper22VisitObjCInterfaceDeclEPKNS_17ObjCInterfaceDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper27VisitObjCImplementationDeclEPKNS_22ObjCImplementationDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper28VisitObjCCompatibleAliasDeclEPKNS_23ObjCCompatibleAliasDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper21VisitObjCPropertyDeclEPKNS_16ObjCPropertyDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper25VisitObjCPropertyImplDeclEPKNS_20ObjCPropertyImplDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper14VisitBlockDeclEPKNS_9BlockDeclE'/>
+<fun r='_ZN5clang14TextNodeDumper16dumpCXXTemporaryEPKNS_12CXXTemporaryE'/>

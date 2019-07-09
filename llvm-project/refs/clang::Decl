@@ -1,0 +1,204 @@
+<def f='llvm/clang/include/clang/AST/DeclBase.h' l='88' ll='1163'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='107' c='clang::TranslationUnitDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='139' c='clang::PragmaCommentDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='173' c='clang::PragmaDetectMismatchDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='221' c='clang::ExternCContextDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='248' c='clang::NamedDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='3853' c='clang::FileScopeAsmDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='3888' c='clang::BlockDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='4081' c='clang::CapturedDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='4186' c='clang::ImportDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='4251' c='clang::ExportDecl'/>
+<ovr f='llvm/clang/include/clang/AST/Decl.h' l='4298' c='clang::EmptyDecl'/>
+<ovr f='llvm/clang/include/clang/AST/DeclCXX.h' l='132' c='clang::AccessSpecDecl'/>
+<ovr f='llvm/clang/include/clang/AST/DeclCXX.h' l='2952' c='clang::LinkageSpecDecl'/>
+<ovr f='llvm/clang/include/clang/AST/DeclCXX.h' l='3872' c='clang::StaticAssertDecl'/>
+<ovr f='llvm/clang/include/clang/AST/DeclObjC.h' l='2758' c='clang::ObjCPropertyImplDecl'/>
+<ovr f='llvm/clang/include/clang/AST/DeclTemplate.h' l='2323' c='clang::FriendTemplateDecl'/>
+<ovr f='llvm/clang/include/clang/AST/DeclTemplate.h' l='2483' c='clang::ClassScopeFunctionSpecializationDecl'/>
+<size>1</size>
+<doc f='llvm/clang/include/clang/AST/DeclBase.h' l='81'>/// Decl - This represents one declaration (or definition), e.g. a variable,
+/// typedef, function, struct, etc.
+///
+/// Note: There are objects tacked on before the *beginning* of Decl
+/// (and its subclasses) in its Decl::operator new(). Proper alignment
+/// of all subclasses (not requiring more than the alignment of Decl) is
+/// asserted in DeclBase.cpp.</doc>
+<mbr r='clang::Decl::NextInContextAndBits' t='int'/>
+<mbr r='clang::Decl::DeclCtx' t='llvm::PointerUnion&lt;DeclContext *, MultipleDC *&gt;'/>
+<fun r='_ZNK5clang4Decl10isInSemaDCEv'/>
+<fun r='_ZNK5clang4Decl13isOutOfSemaDCEv'/>
+<fun r='_ZNK5clang4Decl13getMultipleDCEv'/>
+<fun r='_ZNK5clang4Decl13getSemanticDCEv'/>
+<mbr r='clang::Decl::Loc' t='clang::SourceLocation'/>
+<mbr r='clang::Decl::DeclKind' t='unsigned int'/>
+<mbr r='clang::Decl::InvalidDecl' t='unsigned int'/>
+<mbr r='clang::Decl::HasAttrs' t='unsigned int'/>
+<mbr r='clang::Decl::Implicit' t='unsigned int'/>
+<mbr r='clang::Decl::Used' t='unsigned int'/>
+<mbr r='clang::Decl::Referenced' t='unsigned int'/>
+<mbr r='clang::Decl::TopLevelDeclInObjCContainer' t='unsigned int'/>
+<smbr r='clang::Decl::StatisticsEnabled' t='bool'/>
+<mbr r='clang::Decl::Access' t='unsigned int'/>
+<mbr r='clang::Decl::FromASTFile' t='unsigned int'/>
+<mbr r='clang::Decl::IdentifierNamespace' t='unsigned int'/>
+<mbr r='clang::Decl::CacheValidAndLinkage' t='unsigned int'/>
+<fun r='_ZN5clang4DeclnwEmRKNS_10ASTContextEjm'/>
+<fun r='_ZN5clang4DeclnwEmRKNS_10ASTContextEPNS_11DeclContextEm'/>
+<fun r='_ZNK5clang4Decl23AccessDeclContextSanityEv'/>
+<fun r='_ZN5clang4Decl32getModuleOwnershipKindForChildOfEPNS_11DeclContextE'/>
+<fun r='_ZN5clang4DeclC1Ev'/>
+<fun r='_ZN5clang4DeclC1ERKS0_'/>
+<fun r='_ZN5clang4DeclC1EOS0_'/>
+<fun r='_ZN5clang4DeclaSERKS0_'/>
+<fun r='_ZN5clang4DeclaSEOS0_'/>
+<fun r='_ZN5clang4DeclC1ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE'/>
+<fun r='_ZN5clang4DeclC1ENS0_4KindENS0_10EmptyShellE'/>
+<fun r='_ZN5clang4DeclD1Ev'/>
+<fun r='_ZNK5clang4Decl15updateOutOfDateERNS_14IdentifierInfoE'/>
+<fun r='_ZNK5clang4Decl16getCachedLinkageEv'/>
+<fun r='_ZNK5clang4Decl16setCachedLinkageENS_7LinkageE'/>
+<fun r='_ZNK5clang4Decl16hasCachedLinkageEv'/>
+<fun r='_ZNK5clang4Decl14getSourceRangeEv'/>
+<fun r='_ZNK5clang4Decl11getBeginLocEv'/>
+<fun r='_ZNK5clang4Decl9getEndLocEv'/>
+<fun r='_ZNK5clang4Decl11getLocationEv'/>
+<fun r='_ZN5clang4Decl11setLocationENS_14SourceLocationE'/>
+<fun r='_ZNK5clang4Decl7getKindEv'/>
+<fun r='_ZNK5clang4Decl15getDeclKindNameEv'/>
+<fun r='_ZN5clang4Decl20getNextDeclInContextEv'/>
+<fun r='_ZNK5clang4Decl20getNextDeclInContextEv'/>
+<fun r='_ZN5clang4Decl14getDeclContextEv'/>
+<fun r='_ZNK5clang4Decl14getDeclContextEv'/>
+<fun r='_ZN5clang4Decl20getNonClosureContextEv'/>
+<fun r='_ZNK5clang4Decl20getNonClosureContextEv'/>
+<fun r='_ZN5clang4Decl22getTranslationUnitDeclEv'/>
+<fun r='_ZNK5clang4Decl22getTranslationUnitDeclEv'/>
+<fun r='_ZNK5clang4Decl22isInAnonymousNamespaceEv'/>
+<fun r='_ZNK5clang4Decl16isInStdNamespaceEv'/>
+<fun r='_ZNK5clang4Decl13getASTContextEv'/>
+<fun r='_ZN5clang4Decl9setAccessENS_15AccessSpecifierE'/>
+<fun r='_ZNK5clang4Decl9getAccessEv'/>
+<fun r='_ZNK5clang4Decl15getAccessUnsafeEv'/>
+<fun r='_ZNK5clang4Decl8hasAttrsEv'/>
+<fun r='_ZN5clang4Decl8setAttrsERKN4llvm11SmallVectorIPNS_4AttrELj4EEE'/>
+<fun r='_ZN5clang4Decl8getAttrsEv'/>
+<fun r='_ZNK5clang4Decl8getAttrsEv'/>
+<fun r='_ZN5clang4Decl9dropAttrsEv'/>
+<fun r='_ZN5clang4Decl7addAttrEPNS_4AttrE'/>
+<fun r='_ZNK5clang4Decl5attrsEv'/>
+<fun r='_ZNK5clang4Decl10attr_beginEv'/>
+<fun r='_ZNK5clang4Decl8attr_endEv'/>
+<fun r='_ZN5clang4Decl8dropAttrEv'/>
+<fun r='_ZNK5clang4Decl14specific_attrsEv'/>
+<fun r='_ZNK5clang4Decl19specific_attr_beginEv'/>
+<fun r='_ZNK5clang4Decl17specific_attr_endEv'/>
+<fun r='_ZNK5clang4Decl7getAttrEv'/>
+<fun r='_ZNK5clang4Decl7hasAttrEv'/>
+<fun r='_ZNK5clang4Decl15getMaxAlignmentEv'/>
+<fun r='_ZN5clang4Decl14setInvalidDeclEb'/>
+<fun r='_ZNK5clang4Decl13isInvalidDeclEv'/>
+<fun r='_ZNK5clang4Decl10isImplicitEv'/>
+<fun r='_ZN5clang4Decl11setImplicitEb'/>
+<fun r='_ZNK5clang4Decl6isUsedEb'/>
+<fun r='_ZN5clang4Decl9setIsUsedEv'/>
+<fun r='_ZN5clang4Decl8markUsedERNS_10ASTContextE'/>
+<fun r='_ZNK5clang4Decl12isReferencedEv'/>
+<fun r='_ZNK5clang4Decl27isThisDeclarationReferencedEv'/>
+<fun r='_ZN5clang4Decl13setReferencedEb'/>
+<fun r='_ZNK5clang4Decl29isTopLevelDeclInObjCContainerEv'/>
+<fun r='_ZN5clang4Decl30setTopLevelDeclInObjCContainerEb'/>
+<fun r='_ZNK5clang4Decl27getExternalSourceSymbolAttrEv'/>
+<fun r='_ZNK5clang4Decl15isModulePrivateEv'/>
+<fun r='_ZNK5clang4Decl15hasDefiningAttrEv'/>
+<fun r='_ZNK5clang4Decl15getDefiningAttrEv'/>
+<fun r='_ZN5clang4Decl16setModulePrivateEv'/>
+<fun r='_ZN5clang4Decl17setOwningModuleIDEj'/>
+<fun r='_ZNK5clang4Decl15getAvailabilityEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm12VersionTupleEPNS8_9StringRefE'/>
+<fun r='_ZNK5clang4Decl20getVersionIntroducedEv'/>
+<fun r='_ZNK5clang4Decl12isDeprecatedEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZNK5clang4Decl13isUnavailableEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZNK5clang4Decl14isWeakImportedEv'/>
+<fun r='_ZNK5clang4Decl17canBeWeakImportedERb'/>
+<fun r='_ZNK5clang4Decl13isFromASTFileEv'/>
+<fun r='_ZNK5clang4Decl11getGlobalIDEv'/>
+<fun r='_ZNK5clang4Decl17getOwningModuleIDEv'/>
+<fun r='_ZNK5clang4Decl19getOwningModuleSlowEv'/>
+<fun r='_ZNK5clang4Decl27hasLocalOwningModuleStorageEv'/>
+<fun r='_ZNK5clang4Decl23getImportedOwningModuleEv'/>
+<fun r='_ZNK5clang4Decl20getLocalOwningModuleEv'/>
+<fun r='_ZN5clang4Decl20setLocalOwningModuleEPNS_6ModuleE'/>
+<fun r='_ZNK5clang4Decl15hasOwningModuleEv'/>
+<fun r='_ZNK5clang4Decl15getOwningModuleEv'/>
+<fun r='_ZNK5clang4Decl25getOwningModuleForLinkageEb'/>
+<fun r='_ZNK5clang4Decl8isHiddenEv'/>
+<fun r='_ZN5clang4Decl29setVisibleDespiteOwningModuleEv'/>
+<fun r='_ZNK5clang4Decl22getModuleOwnershipKindEv'/>
+<fun r='_ZN5clang4Decl22setModuleOwnershipKindENS0_19ModuleOwnershipKindE'/>
+<fun r='_ZNK5clang4Decl22getIdentifierNamespaceEv'/>
+<fun r='_ZNK5clang4Decl23isInIdentifierNamespaceEj'/>
+<fun r='_ZN5clang4Decl29getIdentifierNamespaceForKindENS0_4KindE'/>
+<fun r='_ZNK5clang4Decl25hasTagIdentifierNamespaceEv'/>
+<fun r='_ZN5clang4Decl24isTagIdentifierNamespaceEj'/>
+<fun r='_ZN5clang4Decl21getLexicalDeclContextEv'/>
+<fun r='_ZNK5clang4Decl21getLexicalDeclContextEv'/>
+<fun r='_ZNK5clang4Decl11isOutOfLineEv'/>
+<fun r='_ZN5clang4Decl14setDeclContextEPNS_11DeclContextE'/>
+<fun r='_ZN5clang4Decl21setLexicalDeclContextEPNS_11DeclContextE'/>
+<fun r='_ZNK5clang4Decl11isTemplatedEv'/>
+<fun r='_ZNK5clang4Decl32isDefinedOutsideFunctionOrMethodEv'/>
+<fun r='_ZNK5clang4Decl33isLexicallyWithinFunctionOrMethodEv'/>
+<fun r='_ZNK5clang4Decl25getParentFunctionOrMethodEv'/>
+<fun r='_ZN5clang4Decl25getParentFunctionOrMethodEv'/>
+<fun r='_ZN5clang4Decl16getCanonicalDeclEv'/>
+<fun r='_ZNK5clang4Decl16getCanonicalDeclEv'/>
+<fun r='_ZNK5clang4Decl15isCanonicalDeclEv'/>
+<fun r='_ZN5clang4Decl24getNextRedeclarationImplEv'/>
+<fun r='_ZN5clang4Decl19getPreviousDeclImplEv'/>
+<fun r='_ZN5clang4Decl21getMostRecentDeclImplEv'/>
+<fun r='_ZNK5clang4Decl7redeclsEv'/>
+<fun r='_ZNK5clang4Decl13redecls_beginEv'/>
+<fun r='_ZNK5clang4Decl11redecls_endEv'/>
+<fun r='_ZN5clang4Decl15getPreviousDeclEv'/>
+<fun r='_ZNK5clang4Decl15getPreviousDeclEv'/>
+<fun r='_ZNK5clang4Decl11isFirstDeclEv'/>
+<fun r='_ZN5clang4Decl17getMostRecentDeclEv'/>
+<fun r='_ZNK5clang4Decl17getMostRecentDeclEv'/>
+<fun r='_ZNK5clang4Decl7getBodyEv'/>
+<fun r='_ZNK5clang4Decl7hasBodyEv'/>
+<fun r='_ZNK5clang4Decl13getBodyRBraceEv'/>
+<fun r='_ZN5clang4Decl3addENS0_4KindE'/>
+<fun r='_ZN5clang4Decl16EnableStatisticsEv'/>
+<fun r='_ZN5clang4Decl10PrintStatsEv'/>
+<fun r='_ZNK5clang4Decl19isTemplateParameterEv'/>
+<fun r='_ZNK5clang4Decl23isTemplateParameterPackEv'/>
+<fun r='_ZNK5clang4Decl15isParameterPackEv'/>
+<fun r='_ZNK5clang4Decl14isTemplateDeclEv'/>
+<fun r='_ZNK5clang4Decl28isFunctionOrFunctionTemplateEv'/>
+<fun r='_ZNK5clang4Decl20getDescribedTemplateEv'/>
+<fun r='_ZN5clang4Decl13getAsFunctionEv'/>
+<fun r='_ZNK5clang4Decl13getAsFunctionEv'/>
+<fun r='_ZN5clang4Decl18setLocalExternDeclEv'/>
+<fun r='_ZN5clang4Decl17isLocalExternDeclEv'/>
+<fun r='_ZN5clang4Decl21setObjectOfFriendDeclEb'/>
+<fun r='_ZNK5clang4Decl19getFriendObjectKindEv'/>
+<fun r='_ZN5clang4Decl20setNonMemberOperatorEv'/>
+<fun r='_ZN5clang4Decl11classofKindENS0_4KindE'/>
+<fun r='_ZN5clang4Decl17castToDeclContextEPKS0_'/>
+<fun r='_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE'/>
+<fun r='_ZNK5clang4Decl5printERN4llvm11raw_ostreamEjb'/>
+<fun r='_ZNK5clang4Decl5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyEjb'/>
+<fun r='_ZN5clang4Decl10printGroupEPPS0_jRN4llvm11raw_ostreamERKNS_14PrintingPolicyEj'/>
+<fun r='_ZNK5clang4Decl4dumpEv'/>
+<fun r='_ZNK5clang4Decl9dumpColorEv'/>
+<fun r='_ZNK5clang4Decl4dumpERN4llvm11raw_ostreamEbNS_19ASTDumpOutputFormatE'/>
+<fun r='_ZNK5clang4Decl5getIDEv'/>
+<fun r='_ZNK5clang4Decl15getFunctionTypeEb'/>
+<fun r='_ZN5clang4Decl12setAttrsImplERKN4llvm11SmallVectorIPNS_4AttrELj4EEERNS_10ASTContextE'/>
+<fun r='_ZN5clang4Decl19setDeclContextsImplEPNS_11DeclContextES2_RNS_10ASTContextE'/>
+<fun r='_ZNK5clang4Decl22getASTMutationListenerEv'/>
+<fun r='_ZNK5clang4Decl19isTemplateParameterEv'/>
+<ovr f='llvm/clang/include/clang/AST/DeclFriend.h' l='53' c='clang::FriendDecl'/>
+<ovr f='llvm/clang/include/clang/AST/DeclOpenMP.h' l='39' c='clang::OMPThreadPrivateDecl'/>
+<ovr f='llvm/clang/include/clang/AST/DeclOpenMP.h' l='345' c='clang::OMPRequiresDecl'/>
+<ovr f='llvm/clang/include/clang/AST/DeclOpenMP.h' l='422' c='clang::OMPAllocateDecl'/>

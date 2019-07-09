@@ -1,0 +1,60 @@
+<def f='llvm/llvm/include/llvm/Analysis/LoopAccessAnalysis.h' l='516' ll='665'/>
+<size>200</size>
+<doc f='llvm/llvm/include/llvm/Analysis/LoopAccessAnalysis.h' l='495'>/// Drive the analysis of memory accesses in the loop
+///
+/// This class is responsible for analyzing the memory accesses of a loop.  It
+/// collects the accesses and then its main helper the AccessAnalysis class
+/// finds and categorizes the dependences in buildDependenceSets.
+///
+/// For memory dependences that can be analyzed at compile time, it determines
+/// whether the dependence is part of cycle inhibiting vectorization.  This work
+/// is delegated to the MemoryDepChecker class.
+///
+/// For memory dependences that cannot be determined at compile time, it
+/// generates run-time checks to prove independence.  This is done by
+/// AccessAnalysis::canCheckPtrAtRT and the checks are maintained by the
+/// RuntimePointerCheck class.
+///
+/// If pointers can wrap or can&apos;t be expressed as affine AddRec expressions by
+/// ScalarEvolution, we will generate run-time checks by emitting a
+/// SCEVUnionPredicate.
+///
+/// Checks for both memory dependences and the SCEV predicates contained in the
+/// PSE must be emitted in order for the results of this analysis to be valid.</doc>
+<fun r='_ZN4llvm14LoopAccessInfoC1EPNS_4LoopEPNS_15ScalarEvolutionEPKNS_17TargetLibraryInfoEPNS_9AAResultsEPNS_13DominatorTreeEPNS_8LoopInfoE'/>
+<fun r='_ZNK4llvm14LoopAccessInfo18canVectorizeMemoryEv'/>
+<fun r='_ZNK4llvm14LoopAccessInfo15hasConvergentOpEv'/>
+<fun r='_ZNK4llvm14LoopAccessInfo25getRuntimePointerCheckingEv'/>
+<fun r='_ZNK4llvm14LoopAccessInfo26getNumRuntimePointerChecksEv'/>
+<fun r='_ZN4llvm14LoopAccessInfo21blockNeedsPredicationEPNS_10BasicBlockEPNS_4LoopEPNS_13DominatorTreeE'/>
+<fun r='_ZNK4llvm14LoopAccessInfo9isUniformEPNS_5ValueE'/>
+<fun r='_ZNK4llvm14LoopAccessInfo22getMaxSafeDepDistBytesEv'/>
+<fun r='_ZNK4llvm14LoopAccessInfo12getNumStoresEv'/>
+<fun r='_ZNK4llvm14LoopAccessInfo11getNumLoadsEv'/>
+<fun r='_ZNK4llvm14LoopAccessInfo16addRuntimeChecksEPNS_11InstructionE'/>
+<fun r='_ZNK4llvm14LoopAccessInfo16addRuntimeChecksEPNS_11InstructionERKNS_15SmallVectorImplISt4pairIPKNS_22RuntimePointerChecking16CheckingPtrGroupES8_EEE'/>
+<fun r='_ZNK4llvm14LoopAccessInfo9getReportEv'/>
+<fun r='_ZNK4llvm14LoopAccessInfo13getDepCheckerEv'/>
+<fun r='_ZNK4llvm14LoopAccessInfo24getInstructionsForAccessEPNS_5ValueEb'/>
+<fun r='_ZNK4llvm14LoopAccessInfo18getSymbolicStridesEv'/>
+<fun r='_ZNK4llvm14LoopAccessInfo9hasStrideEPNS_5ValueE'/>
+<fun r='_ZNK4llvm14LoopAccessInfo5printERNS_11raw_ostreamEj'/>
+<fun r='_ZNK4llvm14LoopAccessInfo42hasDependenceInvolvingLoopInvariantAddressEv'/>
+<fun r='_ZNK4llvm14LoopAccessInfo6getPSEEv'/>
+<fun r='_ZN4llvm14LoopAccessInfo11analyzeLoopEPNS_9AAResultsEPNS_8LoopInfoEPKNS_17TargetLibraryInfoEPNS_13DominatorTreeE'/>
+<fun r='_ZN4llvm14LoopAccessInfo14canAnalyzeLoopEv'/>
+<fun r='_ZN4llvm14LoopAccessInfo14recordAnalysisENS_9StringRefEPNS_11InstructionE'/>
+<fun r='_ZN4llvm14LoopAccessInfo20collectStridedAccessEPNS_5ValueE'/>
+<mbr r='llvm::LoopAccessInfo::PSE' o='0' t='std::unique_ptr&lt;PredicatedScalarEvolution&gt;'/>
+<mbr r='llvm::LoopAccessInfo::PtrRtChecking' o='64' t='std::unique_ptr&lt;RuntimePointerChecking&gt;'/>
+<mbr r='llvm::LoopAccessInfo::DepChecker' o='128' t='std::unique_ptr&lt;MemoryDepChecker&gt;'/>
+<mbr r='llvm::LoopAccessInfo::TheLoop' o='192' t='llvm::Loop *'/>
+<mbr r='llvm::LoopAccessInfo::NumLoads' o='256' t='unsigned int'/>
+<mbr r='llvm::LoopAccessInfo::NumStores' o='288' t='unsigned int'/>
+<mbr r='llvm::LoopAccessInfo::MaxSafeDepDistBytes' o='320' t='uint64_t'/>
+<mbr r='llvm::LoopAccessInfo::CanVecMem' o='384' t='bool'/>
+<mbr r='llvm::LoopAccessInfo::HasConvergentOp' o='392' t='bool'/>
+<mbr r='llvm::LoopAccessInfo::HasDependenceInvolvingLoopInvariantAddress' o='400' t='bool'/>
+<mbr r='llvm::LoopAccessInfo::Report' o='448' t='std::unique_ptr&lt;OptimizationRemarkAnalysis&gt;'/>
+<mbr r='llvm::LoopAccessInfo::SymbolicStrides' o='512' t='ValueToValueMap'/>
+<mbr r='llvm::LoopAccessInfo::StrideSet' o='768' t='SmallPtrSet&lt;llvm::Value *, 8&gt;'/>

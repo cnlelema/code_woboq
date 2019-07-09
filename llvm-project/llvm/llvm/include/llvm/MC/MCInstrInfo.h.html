@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MCInstrInfo.h source code [llvm/llvm/include/llvm/MC/MCInstrInfo.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::MCInstrInfo "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/MC/MCInstrInfo.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>MC</a>/<a href='MCInstrInfo.h.html'>MCInstrInfo.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- llvm/MC/MCInstrInfo.h - Target Instruction Info ---------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file describes the target machine instruction set.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#<span data-ppcond="13">ifndef</span> <span class="macro" data-ref="_M/LLVM_MC_MCINSTRINFO_H">LLVM_MC_MCINSTRINFO_H</span></u></td></tr>
+<tr><th id="14">14</th><td><u>#define <dfn class="macro" id="_M/LLVM_MC_MCINSTRINFO_H" data-ref="_M/LLVM_MC_MCINSTRINFO_H">LLVM_MC_MCINSTRINFO_H</dfn></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="MCInstrDesc.h.html">"llvm/MC/MCInstrDesc.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../../../../include/c++/7/cassert.html">&lt;cassert&gt;</a></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><i>//---------------------------------------------------------------------------</i></td></tr>
+<tr><th id="22">22</th><td><i>/// Interface to description of machine instruction set.</i></td></tr>
+<tr><th id="23">23</th><td><b>class</b> <dfn class="type def" id="llvm::MCInstrInfo" title='llvm::MCInstrInfo' data-ref="llvm::MCInstrInfo">MCInstrInfo</dfn> {</td></tr>
+<tr><th id="24">24</th><td>  <em>const</em> <a class="type" href="MCInstrDesc.h.html#llvm::MCInstrDesc" title='llvm::MCInstrDesc' data-ref="llvm::MCInstrDesc">MCInstrDesc</a> *<dfn class="decl" id="llvm::MCInstrInfo::Desc" title='llvm::MCInstrInfo::Desc' data-ref="llvm::MCInstrInfo::Desc">Desc</dfn>;          <i>// Raw array to allow static init'n</i></td></tr>
+<tr><th id="25">25</th><td>  <em>const</em> <em>unsigned</em> *<dfn class="decl" id="llvm::MCInstrInfo::InstrNameIndices" title='llvm::MCInstrInfo::InstrNameIndices' data-ref="llvm::MCInstrInfo::InstrNameIndices">InstrNameIndices</dfn>; <i>// Array for name indices in InstrNameData</i></td></tr>
+<tr><th id="26">26</th><td>  <em>const</em> <em>char</em> *<dfn class="decl" id="llvm::MCInstrInfo::InstrNameData" title='llvm::MCInstrInfo::InstrNameData' data-ref="llvm::MCInstrInfo::InstrNameData">InstrNameData</dfn>;        <i>// Instruction name string pool</i></td></tr>
+<tr><th id="27">27</th><td>  <em>unsigned</em> <dfn class="decl" id="llvm::MCInstrInfo::NumOpcodes" title='llvm::MCInstrInfo::NumOpcodes' data-ref="llvm::MCInstrInfo::NumOpcodes">NumOpcodes</dfn>;              <i>// Number of entries in the desc array</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><b>public</b>:</td></tr>
+<tr><th id="30">30</th><td>  <i class="doc">/// Initialize MCInstrInfo, called by TableGen auto-generated routines.</i></td></tr>
+<tr><th id="31">31</th><td><i class="doc">  /// *DO NOT USE*.</i></td></tr>
+<tr><th id="32">32</th><td>  <em>void</em> <dfn class="decl def" id="_ZN4llvm11MCInstrInfo15InitMCInstrInfoEPKNS_11MCInstrDescEPKjPKcj" title='llvm::MCInstrInfo::InitMCInstrInfo' data-ref="_ZN4llvm11MCInstrInfo15InitMCInstrInfoEPKNS_11MCInstrDescEPKjPKcj">InitMCInstrInfo</dfn>(<em>const</em> <a class="type" href="MCInstrDesc.h.html#llvm::MCInstrDesc" title='llvm::MCInstrDesc' data-ref="llvm::MCInstrDesc">MCInstrDesc</a> *<dfn class="local col6 decl" id="396D" title='D' data-type='const llvm::MCInstrDesc *' data-ref="396D">D</dfn>, <em>const</em> <em>unsigned</em> *<dfn class="local col7 decl" id="397NI" title='NI' data-type='const unsigned int *' data-ref="397NI">NI</dfn>, <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="398ND" title='ND' data-type='const char *' data-ref="398ND">ND</dfn>,</td></tr>
+<tr><th id="33">33</th><td>                       <em>unsigned</em> <dfn class="local col9 decl" id="399NO" title='NO' data-type='unsigned int' data-ref="399NO">NO</dfn>) {</td></tr>
+<tr><th id="34">34</th><td>    <a class="member" href="#llvm::MCInstrInfo::Desc" title='llvm::MCInstrInfo::Desc' data-ref="llvm::MCInstrInfo::Desc">Desc</a> = <a class="local col6 ref" href="#396D" title='D' data-ref="396D">D</a>;</td></tr>
+<tr><th id="35">35</th><td>    <a class="member" href="#llvm::MCInstrInfo::InstrNameIndices" title='llvm::MCInstrInfo::InstrNameIndices' data-ref="llvm::MCInstrInfo::InstrNameIndices">InstrNameIndices</a> = <a class="local col7 ref" href="#397NI" title='NI' data-ref="397NI">NI</a>;</td></tr>
+<tr><th id="36">36</th><td>    <a class="member" href="#llvm::MCInstrInfo::InstrNameData" title='llvm::MCInstrInfo::InstrNameData' data-ref="llvm::MCInstrInfo::InstrNameData">InstrNameData</a> = <a class="local col8 ref" href="#398ND" title='ND' data-ref="398ND">ND</a>;</td></tr>
+<tr><th id="37">37</th><td>    <a class="member" href="#llvm::MCInstrInfo::NumOpcodes" title='llvm::MCInstrInfo::NumOpcodes' data-ref="llvm::MCInstrInfo::NumOpcodes">NumOpcodes</a> = <a class="local col9 ref" href="#399NO" title='NO' data-ref="399NO">NO</a>;</td></tr>
+<tr><th id="38">38</th><td>  }</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td>  <em>unsigned</em> <dfn class="decl def" id="_ZNK4llvm11MCInstrInfo13getNumOpcodesEv" title='llvm::MCInstrInfo::getNumOpcodes' data-ref="_ZNK4llvm11MCInstrInfo13getNumOpcodesEv">getNumOpcodes</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::MCInstrInfo::NumOpcodes" title='llvm::MCInstrInfo::NumOpcodes' data-ref="llvm::MCInstrInfo::NumOpcodes">NumOpcodes</a>; }</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td>  <i class="doc">/// Return the machine instruction descriptor that corresponds to the</i></td></tr>
+<tr><th id="43">43</th><td><i class="doc">  /// specified instruction opcode.</i></td></tr>
+<tr><th id="44">44</th><td>  <em>const</em> <a class="type" href="MCInstrDesc.h.html#llvm::MCInstrDesc" title='llvm::MCInstrDesc' data-ref="llvm::MCInstrDesc">MCInstrDesc</a> &amp;<dfn class="decl def" id="_ZNK4llvm11MCInstrInfo3getEj" title='llvm::MCInstrInfo::get' data-ref="_ZNK4llvm11MCInstrInfo3getEj">get</dfn>(<em>unsigned</em> <dfn class="local col0 decl" id="400Opcode" title='Opcode' data-type='unsigned int' data-ref="400Opcode">Opcode</dfn>) <em>const</em> {</td></tr>
+<tr><th id="45">45</th><td>    <a class="macro" href="../../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (Opcode &lt; NumOpcodes &amp;&amp; &quot;Invalid opcode!&quot;) ? void (0) : __assert_fail (&quot;Opcode &lt; NumOpcodes &amp;&amp; \&quot;Invalid opcode!\&quot;&quot;, &quot;/root/cheri/llvm-project/llvm/include/llvm/MC/MCInstrInfo.h&quot;, 45, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="local col0 ref" href="#400Opcode" title='Opcode' data-ref="400Opcode">Opcode</a> &lt; <a class="member" href="#llvm::MCInstrInfo::NumOpcodes" title='llvm::MCInstrInfo::NumOpcodes' data-ref="llvm::MCInstrInfo::NumOpcodes">NumOpcodes</a> &amp;&amp; <q>"Invalid opcode!"</q>);</td></tr>
+<tr><th id="46">46</th><td>    <b>return</b> <a class="member" href="#llvm::MCInstrInfo::Desc" title='llvm::MCInstrInfo::Desc' data-ref="llvm::MCInstrInfo::Desc">Desc</a>[<a class="local col0 ref" href="#400Opcode" title='Opcode' data-ref="400Opcode">Opcode</a>];</td></tr>
+<tr><th id="47">47</th><td>  }</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>  <i class="doc">/// Returns the name for the instructions with the given opcode.</i></td></tr>
+<tr><th id="50">50</th><td>  <a class="type" href="../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="decl def" id="_ZNK4llvm11MCInstrInfo7getNameEj" title='llvm::MCInstrInfo::getName' data-ref="_ZNK4llvm11MCInstrInfo7getNameEj">getName</dfn>(<em>unsigned</em> <dfn class="local col1 decl" id="401Opcode" title='Opcode' data-type='unsigned int' data-ref="401Opcode">Opcode</dfn>) <em>const</em> {</td></tr>
+<tr><th id="51">51</th><td>    <a class="macro" href="../../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (Opcode &lt; NumOpcodes &amp;&amp; &quot;Invalid opcode!&quot;) ? void (0) : __assert_fail (&quot;Opcode &lt; NumOpcodes &amp;&amp; \&quot;Invalid opcode!\&quot;&quot;, &quot;/root/cheri/llvm-project/llvm/include/llvm/MC/MCInstrInfo.h&quot;, 51, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="local col1 ref" href="#401Opcode" title='Opcode' data-ref="401Opcode">Opcode</a> &lt; <a class="member" href="#llvm::MCInstrInfo::NumOpcodes" title='llvm::MCInstrInfo::NumOpcodes' data-ref="llvm::MCInstrInfo::NumOpcodes">NumOpcodes</a> &amp;&amp; <q>"Invalid opcode!"</q>);</td></tr>
+<tr><th id="52">52</th><td>    <b>return</b> <a class="type" href="../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a><a class="ref" href="../ADT/StringRef.h.html#_ZN4llvm9StringRefC1EPKc" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1EPKc">(</a>&amp;<a class="member" href="#llvm::MCInstrInfo::InstrNameData" title='llvm::MCInstrInfo::InstrNameData' data-ref="llvm::MCInstrInfo::InstrNameData">InstrNameData</a>[<a class="member" href="#llvm::MCInstrInfo::InstrNameIndices" title='llvm::MCInstrInfo::InstrNameIndices' data-ref="llvm::MCInstrInfo::InstrNameIndices">InstrNameIndices</a>[<a class="local col1 ref" href="#401Opcode" title='Opcode' data-ref="401Opcode">Opcode</a>]]);</td></tr>
+<tr><th id="53">53</th><td>  }</td></tr>
+<tr><th id="54">54</th><td>};</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>} <i>// End llvm namespace</i></td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><u>#<span data-ppcond="13">endif</span></u></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../clang/lib/Parse/ParseStmtAsm.cpp.html'>llvm/clang/lib/Parse/ParseStmtAsm.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

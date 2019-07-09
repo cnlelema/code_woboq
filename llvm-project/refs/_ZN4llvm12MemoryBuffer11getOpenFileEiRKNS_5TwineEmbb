@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/Support/MemoryBuffer.h' l='103' type='static ErrorOr&lt;std::unique_ptr&lt;MemoryBuffer&gt; &gt; llvm::MemoryBuffer::getOpenFile(int FD, const llvm::Twine &amp; Filename, uint64_t FileSize, bool RequiresNullTerminator = true, bool IsVolatile = false)'/>
+<doc f='llvm/llvm/include/llvm/Support/MemoryBuffer.h' l='96'>/// Given an already-open file descriptor, read the file and return a
+  /// MemoryBuffer.
+  ///
+  /// \param IsVolatile Set to true to indicate that the contents of the file
+  /// can change outside the user&apos;s control, e.g. when libclang tries to parse
+  /// while the user is editing/updating the file or if the file is on an NFS.</doc>
+<use f='llvm/llvm/lib/LTO/Caching.cpp' l='47' u='c' c='_ZN4llvm3lto10localCacheENS_9StringRefESt8functionIFvjSt10unique_ptrINS_12MemoryBufferESt14default_deleteIS4_EEEE'/>
+<use f='llvm/llvm/lib/LTO/Caching.cpp' l='89' u='c' c='_ZZZN4llvm3lto10localCacheENS_9StringRefESt8functionIFvjSt10unique_ptrINS_12MemoryBufferESt14default_deleteIS4_EEEEENK3$_0clEjS1_EN11CacheStreamD1Ev'/>
+<use f='llvm/llvm/lib/LTO/ThinLTOCodeGenerator.cpp' l='357' u='c' c='_ZN12_GLOBAL__N_116ModuleCacheEntry16tryLoadingBufferEv'/>
+<use f='llvm/llvm/lib/Object/ArchiveWriter.cpp' l='92' u='c' c='_ZN4llvm16NewArchiveMember7getFileENS_9StringRefEb'/>
+<def f='llvm/llvm/lib/Support/MemoryBuffer.cpp' l='492' ll='497' type='static ErrorOr&lt;std::unique_ptr&lt;MemoryBuffer&gt; &gt; llvm::MemoryBuffer::getOpenFile(int FD, const llvm::Twine &amp; Filename, uint64_t FileSize, bool RequiresNullTerminator = true, bool IsVolatile = false)'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='219' u='c' c='_ZN12_GLOBAL__N_18RealFile9getBufferERKN4llvm5TwineElbb'/>
+<use f='llvm/llvm/unittests/Support/ReplaceFileTest.cpp' l='55' u='c' c='_ZN12_GLOBAL__N_112FDHasContentEiN4llvm9StringRefE'/>

@@ -1,0 +1,29 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='569' type='void clang_getExpansionLocation(CXSourceLocation location, CXFile * file, unsigned int * line, unsigned int * column, unsigned int * offset)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='547'>/**
+ * Retrieve the file, line, column, and offset represented by
+ * the given source location.
+ *
+ * If the location refers into a macro expansion, retrieves the
+ * location of the macro expansion.
+ *
+ * \param location the location within a source file that will be decomposed
+ * into its parts.
+ *
+ * \param file [out] if non-NULL, will be set to the file to which the given
+ * source location points.
+ *
+ * \param line [out] if non-NULL, will be set to the line to which the given
+ * source location points.
+ *
+ * \param column [out] if non-NULL, will be set to the column to which the given
+ * source location points.
+ *
+ * \param offset [out] if non-NULL, will be set to the offset into the
+ * buffer to which the given source location points.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='1158' u='c' c='GetCursorSource'/>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='2418' u='c' c='print_line_column'/>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='4591' u='c' c='printLocation'/>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='4651' u='c' c='printDiagnosticSet'/>
+<def f='llvm/clang/tools/libclang/CXSourceLocation.cpp' l='221' ll='260' type='void clang_getExpansionLocation(CXSourceLocation location, CXFile * file, unsigned int * line, unsigned int * column, unsigned int * offset)'/>
+<use f='llvm/clang/tools/libclang/CXSourceLocation.cpp' l='299' u='c' c='clang_getInstantiationLocation'/>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Distro.h source code [llvm/clang/include/clang/Driver/Distro.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="clang::driver::Distro "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/clang/include/clang/Driver/Distro.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>clang</a>/<a href='../..'>include</a>/<a href='..'>clang</a>/<a href='./'>Driver</a>/<a href='Distro.h.html'>Distro.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===--- Distro.h - Linux distribution detection support --------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLVM_CLANG_DRIVER_DISTRO_H">LLVM_CLANG_DRIVER_DISTRO_H</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLVM_CLANG_DRIVER_DISTRO_H" data-ref="_M/LLVM_CLANG_DRIVER_DISTRO_H">LLVM_CLANG_DRIVER_DISTRO_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="../../../../llvm/include/llvm/Support/VirtualFileSystem.h.html">"llvm/Support/VirtualFileSystem.h"</a></u></td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><b>namespace</b> <span class="namespace">clang</span> {</td></tr>
+<tr><th id="15">15</th><td><b>namespace</b> <span class="namespace">driver</span> {</td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><i class="doc">/// Distro - Helper class for detecting and classifying Linux distributions.</i></td></tr>
+<tr><th id="18">18</th><td><i class="doc">///</i></td></tr>
+<tr><th id="19">19</th><td><i class="doc">/// This class encapsulates the clang Linux distribution detection mechanism</i></td></tr>
+<tr><th id="20">20</th><td><i class="doc">/// as well as helper functions that match the specific (versioned) results</i></td></tr>
+<tr><th id="21">21</th><td><i class="doc">/// into wider distribution classes.</i></td></tr>
+<tr><th id="22">22</th><td><b>class</b> <dfn class="type def" id="clang::driver::Distro" title='clang::driver::Distro' data-ref="clang::driver::Distro">Distro</dfn> {</td></tr>
+<tr><th id="23">23</th><td><b>public</b>:</td></tr>
+<tr><th id="24">24</th><td>  <b>enum</b> <dfn class="type def" id="clang::driver::Distro::DistroType" title='clang::driver::Distro::DistroType' data-ref="clang::driver::Distro::DistroType">DistroType</dfn> {</td></tr>
+<tr><th id="25">25</th><td>    <i>// NB: Releases of a particular Linux distro should be kept together</i></td></tr>
+<tr><th id="26">26</th><td><i>    // in this enum, because some tests are done by integer comparison against</i></td></tr>
+<tr><th id="27">27</th><td><i>    // the first and last known member in the family, e.g. IsRedHat().</i></td></tr>
+<tr><th id="28">28</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::AlpineLinux" title='clang::driver::Distro::DistroType::AlpineLinux' data-ref="clang::driver::Distro::DistroType::AlpineLinux">AlpineLinux</dfn>,</td></tr>
+<tr><th id="29">29</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::ArchLinux" title='clang::driver::Distro::DistroType::ArchLinux' data-ref="clang::driver::Distro::DistroType::ArchLinux">ArchLinux</dfn>,</td></tr>
+<tr><th id="30">30</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::DebianLenny" title='clang::driver::Distro::DistroType::DebianLenny' data-ref="clang::driver::Distro::DistroType::DebianLenny">DebianLenny</dfn>,</td></tr>
+<tr><th id="31">31</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::DebianSqueeze" title='clang::driver::Distro::DistroType::DebianSqueeze' data-ref="clang::driver::Distro::DistroType::DebianSqueeze">DebianSqueeze</dfn>,</td></tr>
+<tr><th id="32">32</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::DebianWheezy" title='clang::driver::Distro::DistroType::DebianWheezy' data-ref="clang::driver::Distro::DistroType::DebianWheezy">DebianWheezy</dfn>,</td></tr>
+<tr><th id="33">33</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::DebianJessie" title='clang::driver::Distro::DistroType::DebianJessie' data-ref="clang::driver::Distro::DistroType::DebianJessie">DebianJessie</dfn>,</td></tr>
+<tr><th id="34">34</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::DebianStretch" title='clang::driver::Distro::DistroType::DebianStretch' data-ref="clang::driver::Distro::DistroType::DebianStretch">DebianStretch</dfn>,</td></tr>
+<tr><th id="35">35</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::DebianBuster" title='clang::driver::Distro::DistroType::DebianBuster' data-ref="clang::driver::Distro::DistroType::DebianBuster">DebianBuster</dfn>,</td></tr>
+<tr><th id="36">36</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::DebianBullseye" title='clang::driver::Distro::DistroType::DebianBullseye' data-ref="clang::driver::Distro::DistroType::DebianBullseye">DebianBullseye</dfn>,</td></tr>
+<tr><th id="37">37</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::Exherbo" title='clang::driver::Distro::DistroType::Exherbo' data-ref="clang::driver::Distro::DistroType::Exherbo">Exherbo</dfn>,</td></tr>
+<tr><th id="38">38</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::RHEL5" title='clang::driver::Distro::DistroType::RHEL5' data-ref="clang::driver::Distro::DistroType::RHEL5">RHEL5</dfn>,</td></tr>
+<tr><th id="39">39</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::RHEL6" title='clang::driver::Distro::DistroType::RHEL6' data-ref="clang::driver::Distro::DistroType::RHEL6">RHEL6</dfn>,</td></tr>
+<tr><th id="40">40</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::RHEL7" title='clang::driver::Distro::DistroType::RHEL7' data-ref="clang::driver::Distro::DistroType::RHEL7">RHEL7</dfn>,</td></tr>
+<tr><th id="41">41</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::Fedora" title='clang::driver::Distro::DistroType::Fedora' data-ref="clang::driver::Distro::DistroType::Fedora">Fedora</dfn>,</td></tr>
+<tr><th id="42">42</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::Gentoo" title='clang::driver::Distro::DistroType::Gentoo' data-ref="clang::driver::Distro::DistroType::Gentoo">Gentoo</dfn>,</td></tr>
+<tr><th id="43">43</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::OpenSUSE" title='clang::driver::Distro::DistroType::OpenSUSE' data-ref="clang::driver::Distro::DistroType::OpenSUSE">OpenSUSE</dfn>,</td></tr>
+<tr><th id="44">44</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuHardy" title='clang::driver::Distro::DistroType::UbuntuHardy' data-ref="clang::driver::Distro::DistroType::UbuntuHardy">UbuntuHardy</dfn>,</td></tr>
+<tr><th id="45">45</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuIntrepid" title='clang::driver::Distro::DistroType::UbuntuIntrepid' data-ref="clang::driver::Distro::DistroType::UbuntuIntrepid">UbuntuIntrepid</dfn>,</td></tr>
+<tr><th id="46">46</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuJaunty" title='clang::driver::Distro::DistroType::UbuntuJaunty' data-ref="clang::driver::Distro::DistroType::UbuntuJaunty">UbuntuJaunty</dfn>,</td></tr>
+<tr><th id="47">47</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuKarmic" title='clang::driver::Distro::DistroType::UbuntuKarmic' data-ref="clang::driver::Distro::DistroType::UbuntuKarmic">UbuntuKarmic</dfn>,</td></tr>
+<tr><th id="48">48</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuLucid" title='clang::driver::Distro::DistroType::UbuntuLucid' data-ref="clang::driver::Distro::DistroType::UbuntuLucid">UbuntuLucid</dfn>,</td></tr>
+<tr><th id="49">49</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuMaverick" title='clang::driver::Distro::DistroType::UbuntuMaverick' data-ref="clang::driver::Distro::DistroType::UbuntuMaverick">UbuntuMaverick</dfn>,</td></tr>
+<tr><th id="50">50</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuNatty" title='clang::driver::Distro::DistroType::UbuntuNatty' data-ref="clang::driver::Distro::DistroType::UbuntuNatty">UbuntuNatty</dfn>,</td></tr>
+<tr><th id="51">51</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuOneiric" title='clang::driver::Distro::DistroType::UbuntuOneiric' data-ref="clang::driver::Distro::DistroType::UbuntuOneiric">UbuntuOneiric</dfn>,</td></tr>
+<tr><th id="52">52</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuPrecise" title='clang::driver::Distro::DistroType::UbuntuPrecise' data-ref="clang::driver::Distro::DistroType::UbuntuPrecise">UbuntuPrecise</dfn>,</td></tr>
+<tr><th id="53">53</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuQuantal" title='clang::driver::Distro::DistroType::UbuntuQuantal' data-ref="clang::driver::Distro::DistroType::UbuntuQuantal">UbuntuQuantal</dfn>,</td></tr>
+<tr><th id="54">54</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuRaring" title='clang::driver::Distro::DistroType::UbuntuRaring' data-ref="clang::driver::Distro::DistroType::UbuntuRaring">UbuntuRaring</dfn>,</td></tr>
+<tr><th id="55">55</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuSaucy" title='clang::driver::Distro::DistroType::UbuntuSaucy' data-ref="clang::driver::Distro::DistroType::UbuntuSaucy">UbuntuSaucy</dfn>,</td></tr>
+<tr><th id="56">56</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuTrusty" title='clang::driver::Distro::DistroType::UbuntuTrusty' data-ref="clang::driver::Distro::DistroType::UbuntuTrusty">UbuntuTrusty</dfn>,</td></tr>
+<tr><th id="57">57</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuUtopic" title='clang::driver::Distro::DistroType::UbuntuUtopic' data-ref="clang::driver::Distro::DistroType::UbuntuUtopic">UbuntuUtopic</dfn>,</td></tr>
+<tr><th id="58">58</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuVivid" title='clang::driver::Distro::DistroType::UbuntuVivid' data-ref="clang::driver::Distro::DistroType::UbuntuVivid">UbuntuVivid</dfn>,</td></tr>
+<tr><th id="59">59</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuWily" title='clang::driver::Distro::DistroType::UbuntuWily' data-ref="clang::driver::Distro::DistroType::UbuntuWily">UbuntuWily</dfn>,</td></tr>
+<tr><th id="60">60</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuXenial" title='clang::driver::Distro::DistroType::UbuntuXenial' data-ref="clang::driver::Distro::DistroType::UbuntuXenial">UbuntuXenial</dfn>,</td></tr>
+<tr><th id="61">61</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuYakkety" title='clang::driver::Distro::DistroType::UbuntuYakkety' data-ref="clang::driver::Distro::DistroType::UbuntuYakkety">UbuntuYakkety</dfn>,</td></tr>
+<tr><th id="62">62</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuZesty" title='clang::driver::Distro::DistroType::UbuntuZesty' data-ref="clang::driver::Distro::DistroType::UbuntuZesty">UbuntuZesty</dfn>,</td></tr>
+<tr><th id="63">63</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuArtful" title='clang::driver::Distro::DistroType::UbuntuArtful' data-ref="clang::driver::Distro::DistroType::UbuntuArtful">UbuntuArtful</dfn>,</td></tr>
+<tr><th id="64">64</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuBionic" title='clang::driver::Distro::DistroType::UbuntuBionic' data-ref="clang::driver::Distro::DistroType::UbuntuBionic">UbuntuBionic</dfn>,</td></tr>
+<tr><th id="65">65</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuCosmic" title='clang::driver::Distro::DistroType::UbuntuCosmic' data-ref="clang::driver::Distro::DistroType::UbuntuCosmic">UbuntuCosmic</dfn>,</td></tr>
+<tr><th id="66">66</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuDisco" title='clang::driver::Distro::DistroType::UbuntuDisco' data-ref="clang::driver::Distro::DistroType::UbuntuDisco">UbuntuDisco</dfn>,</td></tr>
+<tr><th id="67">67</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UbuntuEoan" title='clang::driver::Distro::DistroType::UbuntuEoan' data-ref="clang::driver::Distro::DistroType::UbuntuEoan">UbuntuEoan</dfn>,</td></tr>
+<tr><th id="68">68</th><td>    <dfn class="enum" id="clang::driver::Distro::DistroType::UnknownDistro" title='clang::driver::Distro::DistroType::UnknownDistro' data-ref="clang::driver::Distro::DistroType::UnknownDistro">UnknownDistro</dfn></td></tr>
+<tr><th id="69">69</th><td>  };</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><b>private</b>:</td></tr>
+<tr><th id="72">72</th><td>  <i class="doc">/// The distribution, possibly with specific version.</i></td></tr>
+<tr><th id="73">73</th><td>  <a class="type" href="#clang::driver::Distro::DistroType" title='clang::driver::Distro::DistroType' data-ref="clang::driver::Distro::DistroType">DistroType</a> <dfn class="decl" id="clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</dfn>;</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><b>public</b>:</td></tr>
+<tr><th id="76">76</th><td>  <i class="doc">/// <span class="command">@name</span> <span class="verb">Constructors</span></i></td></tr>
+<tr><th id="77">77</th><td><i class="doc">  /// @{</i></td></tr>
+<tr><th id="78">78</th><td><i class="doc"></i></td></tr>
+<tr><th id="79">79</th><td><i class="doc">  /// Default constructor leaves the distribution unknown.</i></td></tr>
+<tr><th id="80">80</th><td>  <dfn class="decl def" id="_ZN5clang6driver6DistroC1Ev" title='clang::driver::Distro::Distro' data-ref="_ZN5clang6driver6DistroC1Ev">Distro</dfn>() : <a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a>() {}</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>  <i class="doc">/// Constructs a Distro type for specific distribution.</i></td></tr>
+<tr><th id="83">83</th><td>  <dfn class="decl def" id="_ZN5clang6driver6DistroC1ENS1_10DistroTypeE" title='clang::driver::Distro::Distro' data-ref="_ZN5clang6driver6DistroC1ENS1_10DistroTypeE">Distro</dfn>(<a class="type" href="#clang::driver::Distro::DistroType" title='clang::driver::Distro::DistroType' data-ref="clang::driver::Distro::DistroType">DistroType</a> <dfn class="local col1 decl" id="1D" title='D' data-type='clang::driver::Distro::DistroType' data-ref="1D">D</dfn>) : <a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a>(<a class="local col1 ref" href="#1D" title='D' data-ref="1D">D</a>) {}</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td>  <i class="doc">/// Detects the distribution using specified VFS.</i></td></tr>
+<tr><th id="86">86</th><td>  <b>explicit</b> <a class="decl" href="../../../lib/Driver/Distro.cpp.html#_ZN5clang6driver6DistroC1ERN4llvm3vfs10FileSystemE" title='clang::driver::Distro::Distro' data-ref="_ZN5clang6driver6DistroC1ERN4llvm3vfs10FileSystemE" id="_ZN5clang6driver6DistroC1ERN4llvm3vfs10FileSystemE">Distro</a>(<span class="namespace">llvm::vfs::</span><a class="type" href="../../../../llvm/include/llvm/Support/VirtualFileSystem.h.html#llvm::vfs::FileSystem" title='llvm::vfs::FileSystem' data-ref="llvm::vfs::FileSystem">FileSystem</a> &amp;<dfn class="local col2 decl" id="2VFS" title='VFS' data-type='llvm::vfs::FileSystem &amp;' data-ref="2VFS">VFS</dfn>);</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang6driver6DistroeqERKS1_" title='clang::driver::Distro::operator==' data-ref="_ZNK5clang6driver6DistroeqERKS1_"><b>operator</b>==</dfn>(<em>const</em> <a class="type" href="#clang::driver::Distro" title='clang::driver::Distro' data-ref="clang::driver::Distro">Distro</a> &amp;<dfn class="local col3 decl" id="3Other" title='Other' data-type='const clang::driver::Distro &amp;' data-ref="3Other">Other</dfn>) <em>const</em> {</td></tr>
+<tr><th id="89">89</th><td>    <b>return</b> <a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a> == <a class="local col3 ref" href="#3Other" title='Other' data-ref="3Other">Other</a>.<a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a>;</td></tr>
+<tr><th id="90">90</th><td>  }</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang6driver6DistroneERKS1_" title='clang::driver::Distro::operator!=' data-ref="_ZNK5clang6driver6DistroneERKS1_"><b>operator</b>!=</dfn>(<em>const</em> <a class="type" href="#clang::driver::Distro" title='clang::driver::Distro' data-ref="clang::driver::Distro">Distro</a> &amp;<dfn class="local col4 decl" id="4Other" title='Other' data-type='const clang::driver::Distro &amp;' data-ref="4Other">Other</dfn>) <em>const</em> {</td></tr>
+<tr><th id="93">93</th><td>    <b>return</b> <a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a> != <a class="local col4 ref" href="#4Other" title='Other' data-ref="4Other">Other</a>.<a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a>;</td></tr>
+<tr><th id="94">94</th><td>  }</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang6driver6DistrogeERKS1_" title='clang::driver::Distro::operator&gt;=' data-ref="_ZNK5clang6driver6DistrogeERKS1_"><b>operator</b>&gt;=</dfn>(<em>const</em> <a class="type" href="#clang::driver::Distro" title='clang::driver::Distro' data-ref="clang::driver::Distro">Distro</a> &amp;<dfn class="local col5 decl" id="5Other" title='Other' data-type='const clang::driver::Distro &amp;' data-ref="5Other">Other</dfn>) <em>const</em> {</td></tr>
+<tr><th id="97">97</th><td>    <b>return</b> <a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a> &gt;= <a class="local col5 ref" href="#5Other" title='Other' data-ref="5Other">Other</a>.<a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a>;</td></tr>
+<tr><th id="98">98</th><td>  }</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang6driver6DistroleERKS1_" title='clang::driver::Distro::operator&lt;=' data-ref="_ZNK5clang6driver6DistroleERKS1_"><b>operator</b>&lt;=</dfn>(<em>const</em> <a class="type" href="#clang::driver::Distro" title='clang::driver::Distro' data-ref="clang::driver::Distro">Distro</a> &amp;<dfn class="local col6 decl" id="6Other" title='Other' data-type='const clang::driver::Distro &amp;' data-ref="6Other">Other</dfn>) <em>const</em> {</td></tr>
+<tr><th id="101">101</th><td>    <b>return</b> <a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a> &lt;= <a class="local col6 ref" href="#6Other" title='Other' data-ref="6Other">Other</a>.<a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a>;</td></tr>
+<tr><th id="102">102</th><td>  }</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td>  <i class="doc">/// @}</i></td></tr>
+<tr><th id="105">105</th><td><i class="doc">  /// <span class="command">@name</span> <span class="verb">Convenience Predicates</span></i></td></tr>
+<tr><th id="106">106</th><td><i class="doc">  /// @{</i></td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang6driver6Distro8IsRedhatEv" title='clang::driver::Distro::IsRedhat' data-ref="_ZNK5clang6driver6Distro8IsRedhatEv">IsRedhat</dfn>() <em>const</em> {</td></tr>
+<tr><th id="109">109</th><td>    <b>return</b> <a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a> == <a class="enum" href="#clang::driver::Distro::DistroType::Fedora" title='clang::driver::Distro::DistroType::Fedora' data-ref="clang::driver::Distro::DistroType::Fedora">Fedora</a> || (<a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a> &gt;= <a class="enum" href="#clang::driver::Distro::DistroType::RHEL5" title='clang::driver::Distro::DistroType::RHEL5' data-ref="clang::driver::Distro::DistroType::RHEL5">RHEL5</a> &amp;&amp; <a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a> &lt;= <a class="enum" href="#clang::driver::Distro::DistroType::RHEL7" title='clang::driver::Distro::DistroType::RHEL7' data-ref="clang::driver::Distro::DistroType::RHEL7">RHEL7</a>);</td></tr>
+<tr><th id="110">110</th><td>  }</td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang6driver6Distro10IsOpenSUSEEv" title='clang::driver::Distro::IsOpenSUSE' data-ref="_ZNK5clang6driver6Distro10IsOpenSUSEEv">IsOpenSUSE</dfn>() <em>const</em> {</td></tr>
+<tr><th id="113">113</th><td>    <b>return</b> <a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a> == <a class="enum" href="#clang::driver::Distro::DistroType::OpenSUSE" title='clang::driver::Distro::DistroType::OpenSUSE' data-ref="clang::driver::Distro::DistroType::OpenSUSE">OpenSUSE</a>;</td></tr>
+<tr><th id="114">114</th><td>  }</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang6driver6Distro8IsDebianEv" title='clang::driver::Distro::IsDebian' data-ref="_ZNK5clang6driver6Distro8IsDebianEv">IsDebian</dfn>() <em>const</em> {</td></tr>
+<tr><th id="117">117</th><td>    <b>return</b> <a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a> &gt;= <a class="enum" href="#clang::driver::Distro::DistroType::DebianLenny" title='clang::driver::Distro::DistroType::DebianLenny' data-ref="clang::driver::Distro::DistroType::DebianLenny">DebianLenny</a> &amp;&amp; <a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a> &lt;= <a class="enum" href="#clang::driver::Distro::DistroType::DebianBullseye" title='clang::driver::Distro::DistroType::DebianBullseye' data-ref="clang::driver::Distro::DistroType::DebianBullseye">DebianBullseye</a>;</td></tr>
+<tr><th id="118">118</th><td>  }</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang6driver6Distro8IsUbuntuEv" title='clang::driver::Distro::IsUbuntu' data-ref="_ZNK5clang6driver6Distro8IsUbuntuEv">IsUbuntu</dfn>() <em>const</em> {</td></tr>
+<tr><th id="121">121</th><td>    <b>return</b> <a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a> &gt;= <a class="enum" href="#clang::driver::Distro::DistroType::UbuntuHardy" title='clang::driver::Distro::DistroType::UbuntuHardy' data-ref="clang::driver::Distro::DistroType::UbuntuHardy">UbuntuHardy</a> &amp;&amp; <a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a> &lt;= <a class="enum" href="#clang::driver::Distro::DistroType::UbuntuEoan" title='clang::driver::Distro::DistroType::UbuntuEoan' data-ref="clang::driver::Distro::DistroType::UbuntuEoan">UbuntuEoan</a>;</td></tr>
+<tr><th id="122">122</th><td>  }</td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang6driver6Distro13IsAlpineLinuxEv" title='clang::driver::Distro::IsAlpineLinux' data-ref="_ZNK5clang6driver6Distro13IsAlpineLinuxEv">IsAlpineLinux</dfn>() <em>const</em> {</td></tr>
+<tr><th id="125">125</th><td>    <b>return</b> <a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a> == <a class="enum" href="#clang::driver::Distro::DistroType::AlpineLinux" title='clang::driver::Distro::DistroType::AlpineLinux' data-ref="clang::driver::Distro::DistroType::AlpineLinux">AlpineLinux</a>;</td></tr>
+<tr><th id="126">126</th><td>  }</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang6driver6Distro8IsGentooEv" title='clang::driver::Distro::IsGentoo' data-ref="_ZNK5clang6driver6Distro8IsGentooEv">IsGentoo</dfn>() <em>const</em> {</td></tr>
+<tr><th id="129">129</th><td>    <b>return</b> <a class="member" href="#clang::driver::Distro::DistroVal" title='clang::driver::Distro::DistroVal' data-ref="clang::driver::Distro::DistroVal">DistroVal</a> == <a class="enum" href="#clang::driver::Distro::DistroType::Gentoo" title='clang::driver::Distro::DistroType::Gentoo' data-ref="clang::driver::Distro::DistroType::Gentoo">Gentoo</a>;</td></tr>
+<tr><th id="130">130</th><td>  }</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td>  <i class="doc">/// @}</i></td></tr>
+<tr><th id="133">133</th><td>};</td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td>} <i>// end namespace driver</i></td></tr>
+<tr><th id="136">136</th><td>} <i>// end namespace clang</i></td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td><u>#<span data-ppcond="9">endif</span></u></td></tr>
+<tr><th id="139">139</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../lib/Driver/Distro.cpp.html'>llvm/clang/lib/Driver/Distro.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

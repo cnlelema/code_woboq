@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AVR.cpp source code [llvm/lld/ELF/Arch/AVR.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/lld/ELF/Arch/AVR.cpp'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>llvm</a>/<a href='../..'>lld</a>/<a href='..'>ELF</a>/<a href='./'>Arch</a>/<a href='AVR.cpp.html'>AVR.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- AVR.cpp ------------------------------------------------------------===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// AVR is a Harvard-architecture 8-bit micrcontroller designed for small</i></td></tr>
+<tr><th id="10">10</th><td><i>// baremetal programs. All AVR-family processors have 32 8-bit registers.</i></td></tr>
+<tr><th id="11">11</th><td><i>// The tiniest AVR has 32 byte RAM and 1 KiB program memory, and the largest</i></td></tr>
+<tr><th id="12">12</th><td><i>// one supports up to 2^24 data address space and 2^22 code address space.</i></td></tr>
+<tr><th id="13">13</th><td><i>//</i></td></tr>
+<tr><th id="14">14</th><td><i>// Since it is a baremetal programming, there's usually no loader to load</i></td></tr>
+<tr><th id="15">15</th><td><i>// ELF files on AVRs. You are expected to link your program against address</i></td></tr>
+<tr><th id="16">16</th><td><i>// 0 and pull out a .text section from the result using objcopy, so that you</i></td></tr>
+<tr><th id="17">17</th><td><i>// can write the linked code to on-chip flush memory. You can do that with</i></td></tr>
+<tr><th id="18">18</th><td><i>// the following commands:</i></td></tr>
+<tr><th id="19">19</th><td><i>//</i></td></tr>
+<tr><th id="20">20</th><td><i>//   ld.lld -Ttext=0 -o foo foo.o</i></td></tr>
+<tr><th id="21">21</th><td><i>//   objcopy -O binary --only-section=.text foo output.bin</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><i>// Note that the current AVR support is very preliminary so you can't</i></td></tr>
+<tr><th id="24">24</th><td><i>// link any useful program yet, though.</i></td></tr>
+<tr><th id="25">25</th><td><i>//</i></td></tr>
+<tr><th id="26">26</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../InputFiles.h.html">"InputFiles.h"</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../Symbols.h.html">"Symbols.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="../Target.h.html">"Target.h"</a></u></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="../../include/lld/Common/ErrorHandler.h.html">"lld/Common/ErrorHandler.h"</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../../../llvm/include/llvm/Object/ELF.h.html">"llvm/Object/ELF.h"</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="../../../llvm/include/llvm/Support/Endian.h.html">"llvm/Support/Endian.h"</a></u></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><b>using</b> <b>namespace</b> <span class="namespace">llvm</span>;</td></tr>
+<tr><th id="36">36</th><td><b>using</b> <b>namespace</b> <span class="namespace">llvm::object</span>;</td></tr>
+<tr><th id="37">37</th><td><b>using</b> <b>namespace</b> <span class="namespace">llvm::support::endian</span>;</td></tr>
+<tr><th id="38">38</th><td><b>using</b> <b>namespace</b> <span class="namespace">llvm::ELF</span>;</td></tr>
+<tr><th id="39">39</th><td><b>using</b> <b>namespace</b> <span class="namespace">lld</span>;</td></tr>
+<tr><th id="40">40</th><td><b>using</b> <b>namespace</b> <span class="namespace">lld::elf</span>;</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><b>namespace</b> {</td></tr>
+<tr><th id="43">43</th><td><b>class</b> <dfn class="tu type def" id="(anonymousnamespace)::AVR" title='(anonymous namespace)::AVR' data-ref="(anonymousnamespace)::AVR">AVR</dfn> final : <b>public</b> <a class="type" href="../Target.h.html#lld::elf::TargetInfo" title='lld::elf::TargetInfo' data-ref="lld::elf::TargetInfo">TargetInfo</a> {</td></tr>
+<tr><th id="44">44</th><td><b>public</b>:</td></tr>
+<tr><th id="45">45</th><td>  <a class="tu decl" href="#_ZN12_GLOBAL__N_13AVRC1Ev" title='(anonymous namespace)::AVR::AVR' data-type='void (anonymous namespace)::AVR::AVR()' data-ref="_ZN12_GLOBAL__N_13AVRC1Ev">AVR</a>();</td></tr>
+<tr><th id="46">46</th><td>  <a class="type" href="../Relocations.h.html#lld::elf::RelExpr" title='lld::elf::RelExpr' data-ref="lld::elf::RelExpr">RelExpr</a> <a class="virtual tu decl" href="#_ZNK12_GLOBAL__N_13AVR10getRelExprEjRKN3lld3elf6SymbolEPKh" title='(anonymous namespace)::AVR::getRelExpr' data-type='lld::elf::RelExpr (anonymous namespace)::AVR::getRelExpr(RelType Type, const lld::elf::Symbol &amp; S, const uint8_t * Loc) const' data-ref="_ZNK12_GLOBAL__N_13AVR10getRelExprEjRKN3lld3elf6SymbolEPKh">getRelExpr</a>(<a class="typedef" href="../Relocations.h.html#lld::elf::RelType" title='lld::elf::RelType' data-type='uint32_t' data-ref="lld::elf::RelType">RelType</a> <dfn class="local col1 decl" id="1Type" title='Type' data-type='RelType' data-ref="1Type">Type</dfn>, <em>const</em> <a class="type" href="../Symbols.h.html#lld::elf::Symbol" title='lld::elf::Symbol' data-ref="lld::elf::Symbol">Symbol</a> &amp;<dfn class="local col2 decl" id="2S" title='S' data-type='const lld::elf::Symbol &amp;' data-ref="2S">S</dfn>,</td></tr>
+<tr><th id="47">47</th><td>                     <em>const</em> <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col3 decl" id="3Loc" title='Loc' data-type='const uint8_t *' data-ref="3Loc">Loc</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="48">48</th><td>  <em>void</em> <a class="virtual tu decl" href="#_ZNK12_GLOBAL__N_13AVR11relocateOneEPhjm" title='(anonymous namespace)::AVR::relocateOne' data-type='void (anonymous namespace)::AVR::relocateOne(uint8_t * Loc, RelType Type, uint64_t Val) const' data-ref="_ZNK12_GLOBAL__N_13AVR11relocateOneEPhjm">relocateOne</a>(<a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col4 decl" id="4Loc" title='Loc' data-type='uint8_t *' data-ref="4Loc">Loc</dfn>, <a class="typedef" href="../Relocations.h.html#lld::elf::RelType" title='lld::elf::RelType' data-type='uint32_t' data-ref="lld::elf::RelType">RelType</a> <dfn class="local col5 decl" id="5Type" title='Type' data-type='RelType' data-ref="5Type">Type</dfn>, <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col6 decl" id="6Val" title='Val' data-type='uint64_t' data-ref="6Val">Val</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="49">49</th><td>};</td></tr>
+<tr><th id="50">50</th><td>} <i>// namespace</i></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><a class="tu type" href="#(anonymousnamespace)::AVR" title='(anonymous namespace)::AVR' data-ref="(anonymousnamespace)::AVR">AVR</a>::<dfn class="tu decl def" id="_ZN12_GLOBAL__N_13AVRC1Ev" title='(anonymous namespace)::AVR::AVR' data-type='void (anonymous namespace)::AVR::AVR()' data-ref="_ZN12_GLOBAL__N_13AVRC1Ev">AVR</dfn>() { <a class="member" href="../Target.h.html#lld::elf::TargetInfo::NoneRel" title='lld::elf::TargetInfo::NoneRel' data-ref="lld::elf::TargetInfo::NoneRel">NoneRel</a> = <a class="enum" href="../../../llvm/include/llvm/BinaryFormat/ELFRelocs/AVR.def.html#6" title='llvm::ELF::R_AVR_NONE' data-ref="llvm::ELF::R_AVR_NONE">R_AVR_NONE</a>; }</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><a class="type" href="../Relocations.h.html#lld::elf::RelExpr" title='lld::elf::RelExpr' data-ref="lld::elf::RelExpr">RelExpr</a> <a class="tu type" href="#(anonymousnamespace)::AVR" title='(anonymous namespace)::AVR' data-ref="(anonymousnamespace)::AVR">AVR</a>::<dfn class="virtual tu decl def" id="_ZNK12_GLOBAL__N_13AVR10getRelExprEjRKN3lld3elf6SymbolEPKh" title='(anonymous namespace)::AVR::getRelExpr' data-type='lld::elf::RelExpr (anonymous namespace)::AVR::getRelExpr(RelType Type, const lld::elf::Symbol &amp; S, const uint8_t * Loc) const' data-ref="_ZNK12_GLOBAL__N_13AVR10getRelExprEjRKN3lld3elf6SymbolEPKh">getRelExpr</dfn>(<a class="typedef" href="../Relocations.h.html#lld::elf::RelType" title='lld::elf::RelType' data-type='uint32_t' data-ref="lld::elf::RelType">RelType</a> <dfn class="local col7 decl" id="7Type" title='Type' data-type='RelType' data-ref="7Type">Type</dfn>, <em>const</em> <a class="type" href="../Symbols.h.html#lld::elf::Symbol" title='lld::elf::Symbol' data-ref="lld::elf::Symbol">Symbol</a> &amp;<dfn class="local col8 decl" id="8S" title='S' data-type='const lld::elf::Symbol &amp;' data-ref="8S">S</dfn>,</td></tr>
+<tr><th id="55">55</th><td>                        <em>const</em> <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col9 decl" id="9Loc" title='Loc' data-type='const uint8_t *' data-ref="9Loc">Loc</dfn>) <em>const</em> {</td></tr>
+<tr><th id="56">56</th><td>  <b>return</b> <a class="enum" href="../Relocations.h.html#lld::elf::RelExpr::R_ABS" title='lld::elf::RelExpr::R_ABS' data-ref="lld::elf::RelExpr::R_ABS">R_ABS</a>;</td></tr>
+<tr><th id="57">57</th><td>}</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><em>void</em> <a class="tu type" href="#(anonymousnamespace)::AVR" title='(anonymous namespace)::AVR' data-ref="(anonymousnamespace)::AVR">AVR</a>::<dfn class="virtual tu decl def" id="_ZNK12_GLOBAL__N_13AVR11relocateOneEPhjm" title='(anonymous namespace)::AVR::relocateOne' data-type='void (anonymous namespace)::AVR::relocateOne(uint8_t * Loc, RelType Type, uint64_t Val) const' data-ref="_ZNK12_GLOBAL__N_13AVR11relocateOneEPhjm">relocateOne</dfn>(<a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col0 decl" id="10Loc" title='Loc' data-type='uint8_t *' data-ref="10Loc">Loc</dfn>, <a class="typedef" href="../Relocations.h.html#lld::elf::RelType" title='lld::elf::RelType' data-type='uint32_t' data-ref="lld::elf::RelType">RelType</a> <dfn class="local col1 decl" id="11Type" title='Type' data-type='RelType' data-ref="11Type">Type</dfn>, <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col2 decl" id="12Val" title='Val' data-type='uint64_t' data-ref="12Val">Val</dfn>) <em>const</em> {</td></tr>
+<tr><th id="60">60</th><td>  <b>switch</b> (<a class="local col1 ref" href="#11Type" title='Type' data-ref="11Type">Type</a>) {</td></tr>
+<tr><th id="61">61</th><td>  <b>case</b> <a class="enum" href="../../../llvm/include/llvm/BinaryFormat/ELFRelocs/AVR.def.html#24" title='llvm::ELF::R_AVR_CALL' data-ref="llvm::ELF::R_AVR_CALL">R_AVR_CALL</a>: {</td></tr>
+<tr><th id="62">62</th><td>    <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint16_t" title='uint16_t' data-type='__uint16_t' data-ref="uint16_t">uint16_t</a> <dfn class="local col3 decl" id="13Hi" title='Hi' data-type='uint16_t' data-ref="13Hi">Hi</dfn> = <a class="local col2 ref" href="#12Val" title='Val' data-ref="12Val">Val</a> &gt;&gt; <var>17</var>;</td></tr>
+<tr><th id="63">63</th><td>    <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint16_t" title='uint16_t' data-type='__uint16_t' data-ref="uint16_t">uint16_t</a> <dfn class="local col4 decl" id="14Lo" title='Lo' data-type='uint16_t' data-ref="14Lo">Lo</dfn> = <a class="local col2 ref" href="#12Val" title='Val' data-ref="12Val">Val</a> &gt;&gt; <var>1</var>;</td></tr>
+<tr><th id="64">64</th><td>    <a class="ref" href="../../../llvm/include/llvm/Support/Endian.h.html#_ZN4llvm7support6endian9write16leEPvt" title='llvm::support::endian::write16le' data-ref="_ZN4llvm7support6endian9write16leEPvt">write16le</a>(<a class="local col0 ref" href="#10Loc" title='Loc' data-ref="10Loc">Loc</a>, <a class="ref" href="../../../llvm/include/llvm/Support/Endian.h.html#_ZN4llvm7support6endian8read16leEPKv" title='llvm::support::endian::read16le' data-ref="_ZN4llvm7support6endian8read16leEPKv">read16le</a>(<a class="local col0 ref" href="#10Loc" title='Loc' data-ref="10Loc">Loc</a>) | ((<a class="local col3 ref" href="#13Hi" title='Hi' data-ref="13Hi">Hi</a> &gt;&gt; <var>1</var>) &lt;&lt; <var>4</var>) | (<a class="local col3 ref" href="#13Hi" title='Hi' data-ref="13Hi">Hi</a> &amp; <var>1</var>));</td></tr>
+<tr><th id="65">65</th><td>    <a class="ref" href="../../../llvm/include/llvm/Support/Endian.h.html#_ZN4llvm7support6endian9write16leEPvt" title='llvm::support::endian::write16le' data-ref="_ZN4llvm7support6endian9write16leEPvt">write16le</a>(<a class="local col0 ref" href="#10Loc" title='Loc' data-ref="10Loc">Loc</a> + <var>2</var>, <a class="local col4 ref" href="#14Lo" title='Lo' data-ref="14Lo">Lo</a>);</td></tr>
+<tr><th id="66">66</th><td>    <b>break</b>;</td></tr>
+<tr><th id="67">67</th><td>  }</td></tr>
+<tr><th id="68">68</th><td>  <b>default</b>:</td></tr>
+<tr><th id="69">69</th><td>    <a class="ref" href="../../include/lld/Common/ErrorHandler.h.html#_ZN3lld5errorERKN4llvm5TwineE" title='lld::error' data-ref="_ZN3lld5errorERKN4llvm5TwineE">error</a>(<a class="ref fake" href="../../../llvm/include/llvm/ADT/Twine.h.html#_ZN4llvm5TwineC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE" title='llvm::Twine::Twine' data-ref="_ZN4llvm5TwineC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"></a><a class="ref" href="../Target.h.html#_ZN3lld3elfL16getErrorLocationEPKh" title='lld::elf::getErrorLocation' data-ref="_ZN3lld3elfL16getErrorLocationEPKh">getErrorLocation</a>(<a class="local col0 ref" href="#10Loc" title='Loc' data-ref="10Loc">Loc</a>) <a class="ref" href="../../../../include/c++/7/bits/basic_string.h.html#_ZStplONSt7__cxx1112basic_stringIT_T0_T1_EEPKS1_" title='std::operator+' data-ref="_ZStplONSt7__cxx1112basic_stringIT_T0_T1_EEPKS1_">+</a> <q>"unrecognized relocation "</q> <a class="ref" href="../../../../include/c++/7/bits/basic_string.h.html#_ZStplONSt7__cxx1112basic_stringIT_T0_T1_EES5_" title='std::operator+' data-ref="_ZStplONSt7__cxx1112basic_stringIT_T0_T1_EES5_">+</a> <a class="ref" href="../Target.h.html#_ZN3lld8toStringEj" title='lld::toString' data-ref="_ZN3lld8toStringEj">toString</a>(<a class="local col1 ref" href="#11Type" title='Type' data-ref="11Type">Type</a>));</td></tr>
+<tr><th id="70">70</th><td>  }</td></tr>
+<tr><th id="71">71</th><td>}</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><a class="type" href="../Target.h.html#lld::elf::TargetInfo" title='lld::elf::TargetInfo' data-ref="lld::elf::TargetInfo">TargetInfo</a> *<span class="namespace">elf::</span><dfn class="decl def" id="_ZN3lld3elf16getAVRTargetInfoEv" title='lld::elf::getAVRTargetInfo' data-ref="_ZN3lld3elf16getAVRTargetInfoEv">getAVRTargetInfo</dfn>() {</td></tr>
+<tr><th id="74">74</th><td>  <em>static</em> <a class="tu type" href="#(anonymousnamespace)::AVR" title='(anonymous namespace)::AVR' data-ref="(anonymousnamespace)::AVR">AVR</a> <a class="tu ref fake" href="#_ZN12_GLOBAL__N_13AVRC1Ev" title='(anonymous namespace)::AVR::AVR' data-use='c' data-ref="_ZN12_GLOBAL__N_13AVRC1Ev"></a><dfn class="local col5 decl" id="15Target" title='Target' data-type='(anonymous namespace)::AVR' data-ref="15Target">Target</dfn>;</td></tr>
+<tr><th id="75">75</th><td>  <b>return</b> &amp;<a class="local col5 ref" href="#15Target" title='Target' data-ref="15Target">Target</a>;</td></tr>
+<tr><th id="76">76</th><td>}</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

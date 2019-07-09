@@ -1,0 +1,154 @@
+<def f='llvm/llvm/include/llvm/MC/MCContext.h' l='62' ll='670'/>
+<size>1520</size>
+<doc f='llvm/llvm/include/llvm/MC/MCContext.h' l='59'>/// Context object for machine code objects.  This class owns all of the
+  /// sections that it creates.
+  ///</doc>
+<mbr r='llvm::MCContext::SrcMgr' o='0' t='const llvm::SourceMgr *'/>
+<mbr r='llvm::MCContext::InlineSrcMgr' o='64' t='llvm::SourceMgr *'/>
+<mbr r='llvm::MCContext::MAI' o='128' t='const llvm::MCAsmInfo *'/>
+<mbr r='llvm::MCContext::MRI' o='192' t='const llvm::MCRegisterInfo *'/>
+<mbr r='llvm::MCContext::MOFI' o='256' t='const llvm::MCObjectFileInfo *'/>
+<mbr r='llvm::MCContext::CVContext' o='320' t='std::unique_ptr&lt;CodeViewContext&gt;'/>
+<mbr r='llvm::MCContext::Allocator' o='384' t='BumpPtrAllocator'/>
+<mbr r='llvm::MCContext::COFFAllocator' o='1216' t='SpecificBumpPtrAllocator&lt;llvm::MCSectionCOFF&gt;'/>
+<mbr r='llvm::MCContext::ELFAllocator' o='2048' t='SpecificBumpPtrAllocator&lt;llvm::MCSectionELF&gt;'/>
+<mbr r='llvm::MCContext::MachOAllocator' o='2880' t='SpecificBumpPtrAllocator&lt;llvm::MCSectionMachO&gt;'/>
+<mbr r='llvm::MCContext::WasmAllocator' o='3712' t='SpecificBumpPtrAllocator&lt;llvm::MCSectionWasm&gt;'/>
+<mbr r='llvm::MCContext::Symbols' o='4544' t='SymbolTable'/>
+<mbr r='llvm::MCContext::LocalSymbols' o='4800' t='DenseMap&lt;std::pair&lt;unsigned int, unsigned int&gt;, llvm::MCSymbol *&gt;'/>
+<mbr r='llvm::MCContext::UsedNames' o='5056' t='StringMap&lt;bool, BumpPtrAllocator &amp;&gt;'/>
+<mbr r='llvm::MCContext::NextID' o='5312' t='StringMap&lt;unsigned int&gt;'/>
+<mbr r='llvm::MCContext::Instances' o='5568' t='DenseMap&lt;unsigned int, llvm::MCLabel *&gt;'/>
+<fun r='_ZN4llvm9MCContext12NextInstanceEj'/>
+<fun r='_ZN4llvm9MCContext11GetInstanceEj'/>
+<mbr r='llvm::MCContext::SecureLogFile' o='5824' t='char *'/>
+<mbr r='llvm::MCContext::SecureLog' o='5888' t='std::unique_ptr&lt;raw_fd_ostream&gt;'/>
+<mbr r='llvm::MCContext::SecureLogUsed' o='5952' t='bool'/>
+<mbr r='llvm::MCContext::CompilationDir' o='6016' t='SmallString&lt;128&gt;'/>
+<mbr r='llvm::MCContext::DebugPrefixMap' o='7168' t='std::map&lt;const std::string, const std::string&gt;'/>
+<mbr r='llvm::MCContext::MainFileName' o='7552' t='std::string'/>
+<mbr r='llvm::MCContext::MCDwarfLineTablesCUMap' o='7808' t='std::map&lt;unsigned int, MCDwarfLineTable&gt;'/>
+<mbr r='llvm::MCContext::CurrentDwarfLoc' o='8192' t='llvm::MCDwarfLoc'/>
+<mbr r='llvm::MCContext::DwarfLocSeen' o='8320' t='bool'/>
+<mbr r='llvm::MCContext::GenDwarfForAssembly' o='8328' t='bool'/>
+<mbr r='llvm::MCContext::GenDwarfFileNumber' o='8352' t='unsigned int'/>
+<mbr r='llvm::MCContext::SectionsForRanges' o='8384' t='SetVector&lt;llvm::MCSection *&gt;'/>
+<mbr r='llvm::MCContext::MCGenDwarfLabelEntries' o='8832' t='std::vector&lt;MCGenDwarfLabelEntry&gt;'/>
+<mbr r='llvm::MCContext::DwarfDebugFlags' o='9024' t='llvm::StringRef'/>
+<mbr r='llvm::MCContext::DwarfDebugProducer' o='9152' t='llvm::StringRef'/>
+<mbr r='llvm::MCContext::DwarfVersion' o='9280' t='uint16_t'/>
+<mbr r='llvm::MCContext::AllowTemporaryLabels' o='9296' t='bool'/>
+<mbr r='llvm::MCContext::UseNamesOnTempLabels' o='9304' t='bool'/>
+<mbr r='llvm::MCContext::DwarfCompileUnitID' o='9312' t='unsigned int'/>
+<mbr r='llvm::MCContext::MachOUniquingMap' o='9344' t='StringMap&lt;llvm::MCSectionMachO *&gt;'/>
+<mbr r='llvm::MCContext::ELFUniquingMap' o='9600' t='std::map&lt;ELFSectionKey, MCSectionELF *&gt;'/>
+<mbr r='llvm::MCContext::COFFUniquingMap' o='9984' t='std::map&lt;COFFSectionKey, MCSectionCOFF *&gt;'/>
+<mbr r='llvm::MCContext::WasmUniquingMap' o='10368' t='std::map&lt;WasmSectionKey, MCSectionWasm *&gt;'/>
+<mbr r='llvm::MCContext::RelSecNames' o='10752' t='StringMap&lt;bool&gt;'/>
+<mbr r='llvm::MCContext::MCSubtargetAllocator' o='11008' t='SpecificBumpPtrAllocator&lt;llvm::MCSubtargetInfo&gt;'/>
+<mbr r='llvm::MCContext::AutoReset' o='11840' t='bool'/>
+<mbr r='llvm::MCContext::HadError' o='11848' t='bool'/>
+<fun r='_ZN4llvm9MCContext16createSymbolImplEPKNS_14StringMapEntryIbEEb'/>
+<fun r='_ZN4llvm9MCContext12createSymbolENS_9StringRefEbb'/>
+<fun r='_ZN4llvm9MCContext33getOrCreateDirectionalLocalSymbolEjj'/>
+<fun r='_ZN4llvm9MCContext20createELFSectionImplENS_9StringRefEjjNS_11SectionKindEjPKNS_11MCSymbolELFEjS5_'/>
+<mbr r='llvm::MCContext::MacroMap' o='11904' t='StringMap&lt;llvm::MCAsmMacro&gt;'/>
+<fun r='_ZN4llvm9MCContextC1EPKNS_9MCAsmInfoEPKNS_14MCRegisterInfoEPKNS_16MCObjectFileInfoEPKNS_9SourceMgrEb'/>
+<fun r='_ZN4llvm9MCContextC1ERKS0_'/>
+<fun r='_ZN4llvm9MCContextaSERKS0_'/>
+<fun r='_ZN4llvm9MCContextD1Ev'/>
+<fun r='_ZNK4llvm9MCContext16getSourceManagerEv'/>
+<fun r='_ZN4llvm9MCContext22setInlineSourceManagerEPNS_9SourceMgrE'/>
+<fun r='_ZNK4llvm9MCContext10getAsmInfoEv'/>
+<fun r='_ZNK4llvm9MCContext15getRegisterInfoEv'/>
+<fun r='_ZNK4llvm9MCContext17getObjectFileInfoEv'/>
+<fun r='_ZN4llvm9MCContext12getCVContextEv'/>
+<fun r='_ZN4llvm9MCContext23setAllowTemporaryLabelsEb'/>
+<fun r='_ZN4llvm9MCContext23setUseNamesOnTempLabelsEb'/>
+<fun r='_ZN4llvm9MCContext5resetEv'/>
+<fun r='_ZN4llvm9MCContext29createLinkerPrivateTempSymbolEv'/>
+<fun r='_ZN4llvm9MCContext16createTempSymbolEb'/>
+<fun r='_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEbb'/>
+<fun r='_ZN4llvm9MCContext28createDirectionalLocalSymbolEj'/>
+<fun r='_ZN4llvm9MCContext25getDirectionalLocalSymbolEjb'/>
+<fun r='_ZN4llvm9MCContext17getOrCreateSymbolERKNS_5TwineE'/>
+<fun r='_ZN4llvm9MCContext27getOrCreateFrameAllocSymbolENS_9StringRefEj'/>
+<fun r='_ZN4llvm9MCContext34getOrCreateParentFrameOffsetSymbolENS_9StringRefE'/>
+<fun r='_ZN4llvm9MCContext21getOrCreateLSDASymbolENS_9StringRefE'/>
+<fun r='_ZNK4llvm9MCContext12lookupSymbolERKNS_5TwineE'/>
+<fun r='_ZN4llvm9MCContext14setSymbolValueERNS_10MCStreamerENS_9StringRefEm'/>
+<fun r='_ZNK4llvm9MCContext10getSymbolsEv'/>
+<fun r='_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc'/>
+<fun r='_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc'/>
+<fun r='_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj'/>
+<fun r='_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_'/>
+<fun r='_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_j'/>
+<fun r='_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_jPKNS_11MCSymbolELFE'/>
+<fun r='_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjPKNS_11MCSymbolELFEjS6_'/>
+<fun r='_ZN4llvm9MCContext18getELFNamedSectionERKNS_5TwineES3_jjj'/>
+<fun r='_ZN4llvm9MCContext19createELFRelSectionERKNS_5TwineEjjjPKNS_11MCSymbolELFEPKNS_12MCSectionELFE'/>
+<fun r='_ZN4llvm9MCContext16renameELFSectionEPNS_12MCSectionELFENS_9StringRefE'/>
+<fun r='_ZN4llvm9MCContext21createELFGroupSectionEPKNS_11MCSymbolELFE'/>
+<fun r='_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEjNS_11SectionKindES1_ijPKc'/>
+<fun r='_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEjNS_11SectionKindEPKc'/>
+<fun r='_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefE'/>
+<fun r='_ZN4llvm9MCContext25getAssociativeCOFFSectionEPNS_13MCSectionCOFFEPKNS_8MCSymbolEj'/>
+<fun r='_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindE'/>
+<fun r='_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEPKc'/>
+<fun r='_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindES3_j'/>
+<fun r='_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindES3_jPKc'/>
+<fun r='_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEPKNS_12MCSymbolWasmEjPKc'/>
+<fun r='_ZN4llvm9MCContext16getSubtargetCopyERKNS_15MCSubtargetInfoE'/>
+<fun r='_ZNK4llvm9MCContext17getCompilationDirEv'/>
+<fun r='_ZN4llvm9MCContext17setCompilationDirENS_9StringRefE'/>
+<fun r='_ZNK4llvm9MCContext17getDebugPrefixMapEv'/>
+<fun r='_ZN4llvm9MCContext22addDebugPrefixMapEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_'/>
+<fun r='_ZN4llvm9MCContext15RemapDebugPathsEv'/>
+<fun r='_ZNK4llvm9MCContext15getMainFileNameEv'/>
+<fun r='_ZN4llvm9MCContext15setMainFileNameENS_9StringRefE'/>
+<fun r='_ZN4llvm9MCContext12getDwarfFileENS_9StringRefES1_jNS_8OptionalINS_3MD59MD5ResultEEENS2_IS1_EEj'/>
+<fun r='_ZN4llvm9MCContext22isValidDwarfFileNumberEjj'/>
+<fun r='_ZNK4llvm9MCContext20getMCDwarfLineTablesEv'/>
+<fun r='_ZN4llvm9MCContext19getMCDwarfLineTableEj'/>
+<fun r='_ZNK4llvm9MCContext19getMCDwarfLineTableEj'/>
+<fun r='_ZN4llvm9MCContext15getMCDwarfFilesEj'/>
+<fun r='_ZN4llvm9MCContext14getMCDwarfDirsEj'/>
+<fun r='_ZNK4llvm9MCContext17hasMCLineSectionsEv'/>
+<fun r='_ZN4llvm9MCContext21getDwarfCompileUnitIDEv'/>
+<fun r='_ZN4llvm9MCContext21setDwarfCompileUnitIDEj'/>
+<fun r='_ZN4llvm9MCContext22setMCLineTableRootFileEjNS_9StringRefES1_NS_8OptionalINS_3MD59MD5ResultEEENS2_IS1_EE'/>
+<fun r='_ZNK4llvm9MCContext25isDwarfMD5UsageConsistentEj'/>
+<fun r='_ZN4llvm9MCContext18setCurrentDwarfLocEjjjjjj'/>
+<fun r='_ZN4llvm9MCContext17clearDwarfLocSeenEv'/>
+<fun r='_ZN4llvm9MCContext15getDwarfLocSeenEv'/>
+<fun r='_ZN4llvm9MCContext18getCurrentDwarfLocEv'/>
+<fun r='_ZN4llvm9MCContext22getGenDwarfForAssemblyEv'/>
+<fun r='_ZN4llvm9MCContext22setGenDwarfForAssemblyEb'/>
+<fun r='_ZN4llvm9MCContext21getGenDwarfFileNumberEv'/>
+<fun r='_ZN4llvm9MCContext21setGenDwarfFileNumberEj'/>
+<fun r='_ZN4llvm9MCContext19setGenDwarfRootFileENS_9StringRefES1_'/>
+<fun r='_ZN4llvm9MCContext22getGenDwarfSectionSymsEv'/>
+<fun r='_ZN4llvm9MCContext18addGenDwarfSectionEPNS_9MCSectionE'/>
+<fun r='_ZN4llvm9MCContext21finalizeDwarfSectionsERNS_10MCStreamerE'/>
+<fun r='_ZNK4llvm9MCContext25getMCGenDwarfLabelEntriesEv'/>
+<fun r='_ZN4llvm9MCContext23addMCGenDwarfLabelEntryERKNS_20MCGenDwarfLabelEntryE'/>
+<fun r='_ZN4llvm9MCContext18setDwarfDebugFlagsENS_9StringRefE'/>
+<fun r='_ZN4llvm9MCContext18getDwarfDebugFlagsEv'/>
+<fun r='_ZN4llvm9MCContext21setDwarfDebugProducerENS_9StringRefE'/>
+<fun r='_ZN4llvm9MCContext21getDwarfDebugProducerEv'/>
+<fun r='_ZNK4llvm9MCContext14getDwarfFormatEv'/>
+<fun r='_ZN4llvm9MCContext15setDwarfVersionEt'/>
+<fun r='_ZNK4llvm9MCContext15getDwarfVersionEv'/>
+<fun r='_ZN4llvm9MCContext16getSecureLogFileEv'/>
+<fun r='_ZN4llvm9MCContext12getSecureLogEv'/>
+<fun r='_ZN4llvm9MCContext12setSecureLogESt10unique_ptrINS_14raw_fd_ostreamESt14default_deleteIS2_EE'/>
+<fun r='_ZN4llvm9MCContext16getSecureLogUsedEv'/>
+<fun r='_ZN4llvm9MCContext16setSecureLogUsedEb'/>
+<fun r='_ZN4llvm9MCContext8allocateEjj'/>
+<fun r='_ZN4llvm9MCContext10deallocateEPv'/>
+<fun r='_ZN4llvm9MCContext8hadErrorEv'/>
+<fun r='_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE'/>
+<fun r='_ZN4llvm9MCContext16reportFatalErrorENS_5SMLocERKNS_5TwineE'/>
+<fun r='_ZN4llvm9MCContext11lookupMacroENS_9StringRefE'/>
+<fun r='_ZN4llvm9MCContext11defineMacroENS_9StringRefENS_10MCAsmMacroE'/>
+<fun r='_ZN4llvm9MCContext13undefineMacroENS_9StringRefE'/>

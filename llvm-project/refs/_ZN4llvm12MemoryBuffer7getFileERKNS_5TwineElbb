@@ -1,0 +1,107 @@
+<dec f='llvm/llvm/include/llvm/Support/MemoryBuffer.h' l='80' type='static ErrorOr&lt;std::unique_ptr&lt;MemoryBuffer&gt; &gt; llvm::MemoryBuffer::getFile(const llvm::Twine &amp; Filename, int64_t FileSize = -1, bool RequiresNullTerminator = true, bool IsVolatile = false)'/>
+<doc f='llvm/llvm/include/llvm/Support/MemoryBuffer.h' l='71'>/// Open the specified file as a MemoryBuffer, returning a new MemoryBuffer
+  /// if successful, otherwise returning null. If FileSize is specified, this
+  /// means that the client knows that the file exists and that it has the
+  /// specified size.
+  ///
+  /// \param IsVolatile Set to true to indicate that the contents of the file
+  /// can change outside the user&apos;s control, e.g. when libclang tries to parse
+  /// while the user is editing/updating the file or if the file is on an NFS.</doc>
+<use f='llvm/clang/lib/CodeGen/BackendUtil.cpp' l='1396' u='c' c='_ZL17runThinLTOBackendPN4llvm18ModuleSummaryIndexEPNS_6ModuleERKN5clang19HeaderSearchOptionsERKNS4_14CodeGenOptionsERKNS4_13TargetOptionsERKNS4_11Lang4113160'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='4226' u='c' c='_ZN5clang7CodeGen15CGOpenMPRuntime23loadOffloadInfoMetadataEv'/>
+<use f='llvm/clang/lib/Driver/Driver.cpp' l='1234' u='c' c='_ZN5clang6driver6Driver22getCrashDiagnosticFileEN4llvm9StringRefERNS2_11SmallStringILj128EEE'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='197' u='c' c='_ZL17collectVFSEntriesRN5clang16CompilerInstanceESt10shared_ptrINS_25ModuleDependencyCollectorEE'/>
+<use f='llvm/clang/lib/Serialization/GlobalModuleIndex.cpp' l='245' u='c' c='_ZN5clang17GlobalModuleIndex9readIndexEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Tooling/CompilationDatabase.cpp' l='366' u='c' c='_ZN5clang7tooling24FixedCompilationDatabase12loadFromFileEN4llvm9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/clang/lib/Tooling/JSONCompilationDatabase.cpp' l='195' u='c' c='_ZN5clang7tooling23JSONCompilationDatabase12loadFromFileEN4llvm9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_21JSONCommandLineSyntaxE'/>
+<use f='llvm/clang/tools/clang-refactor/ClangRefactor.cpp' l='486' u='c' c='_ZN12_GLOBAL__N_117ClangRefactorTool18applySourceChangesEv'/>
+<use f='llvm/clang/tools/clang-refactor/TestSupport.cpp' l='93' u='c' c='_ZN5clang8refactor12_GLOBAL__N_121printRewrittenSourcesERKSt6vectorINS_7tooling12AtomicChangeESaIS4_EERN4llvm11raw_ostreamE'/>
+<use f='llvm/clang/tools/clang-refactor/TestSupport.cpp' l='163' u='c' c='_ZN5clang8refactor12_GLOBAL__N_113getLineColumnEN4llvm9StringRefEj'/>
+<use f='llvm/clang/tools/clang-refactor/TestSupport.cpp' l='296' u='c' c='_ZN5clang8refactor23findTestSelectionRangesEN4llvm9StringRefE'/>
+<use f='llvm/clang/tools/clang-rename/ClangRename.cpp' l='106' u='c' c='main'/>
+<use f='llvm/clang/tools/driver/cc1gen_reproducer_main.cpp' l='164' u='c' c='_Z22cc1gen_reproducer_mainN4llvm8ArrayRefIPKcEES2_Pv'/>
+<use f='llvm/lld/COFF/Driver.cpp' l='125' u='c' c='_ZN3lld4coffL19createFutureForFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/lld/COFF/Driver.cpp' l='747' u='c' c='_ZN3lld4coffL19createImportLibraryEb'/>
+<use f='llvm/lld/COFF/Driver.cpp' l='767' u='c' c='_ZN3lld4coffL19createImportLibraryEb'/>
+<use f='llvm/lld/COFF/Driver.cpp' l='779' u='c' c='_ZN3lld4coffL15parseModuleDefsEN4llvm9StringRefE'/>
+<use f='llvm/lld/COFF/Driver.cpp' l='864' u='c' c='_ZN3lld4coffL14parseOrderFileEN4llvm9StringRefE'/>
+<use f='llvm/lld/COFF/DriverUtils.cpp' l='347' u='c' c='_ZN3lld4coff12_GLOBAL__N_113TemporaryFile15getMemoryBufferEv'/>
+<use f='llvm/lld/COFF/DriverUtils.cpp' l='398' u='c' c='_ZN3lld4coffL31createManifestXmlWithInternalMtEN4llvm9StringRefE'/>
+<use f='llvm/lld/COFF/DriverUtils.cpp' l='432' u='c' c='_ZN3lld4coffL31createManifestXmlWithExternalMtEN4llvm9StringRefE'/>
+<use f='llvm/lld/COFF/PDB.cpp' l='1345' u='c' c='_ZN12_GLOBAL__N_19PDBLinker14addNatvisFilesEv'/>
+<use f='llvm/lld/ELF/InputFiles.cpp' l='99' u='c' c='_ZN3lld3elf8readFileEN4llvm9StringRefE'/>
+<use f='llvm/lld/unittests/MachOTests/MachONormalizedFileBinaryWriterTests.cpp' l='32' u='c' c='_ZL10fromBinaryN4llvm9StringRefERSt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EERS1_IN3lld6mach_o10normalized14NormalizedFileES3_ISA_EES0_'/>
+<use f='llvm/lld/wasm/InputFiles.cpp' l='37' u='c' c='_ZN3lld4wasm8readFileEN4llvm9StringRefE'/>
+<use f='llvm/llvm/lib/BinaryFormat/Magic.cpp' l='218' u='c' c='_ZN4llvm14identify_magicERKNS_5TwineERNS_10file_magicE'/>
+<use f='llvm/llvm/lib/DebugInfo/Symbolize/DIPrinter.cpp' l='44' u='c' c='_ZN4llvm9symbolize9DIPrinter12printContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEl'/>
+<use f='llvm/llvm/lib/FuzzMutate/FuzzerCLI.cpp' l='155' u='c' c='_ZN4llvm17runFuzzerOnInputsEiPPcPFiPKhmEPFiPiPS1_E'/>
+<use f='llvm/llvm/lib/IR/Core.cpp' l='3938' u='c' c='LLVMCreateMemoryBufferWithContentsOfFile'/>
+<use f='llvm/llvm/lib/LTO/LTO.cpp' l='283' u='c' c='_ZN4llvm18computeLTOCacheKeyERNS_11SmallStringILj40EEERKNS_3lto6ConfigERKNS_18ModuleSummaryIndexENS_9StringRefERKNS_9StringMapISt13unordered_setImSt4h16489188'/>
+<use f='llvm/llvm/lib/LTO/LTO.cpp' l='288' u='c' c='_ZN4llvm18computeLTOCacheKeyERNS_11SmallStringILj40EEERKNS_3lto6ConfigERKNS_18ModuleSummaryIndexENS_9StringRefERKNS_9StringMapISt13unordered_setImSt4h16489188'/>
+<use f='llvm/llvm/lib/LTO/LTOCodeGenerator.cpp' l='298' u='c' c='_ZN4llvm16LTOCodeGenerator16compileOptimizedEv'/>
+<use f='llvm/llvm/lib/LTO/LTOModule.cpp' l='63' u='c' c='_ZN4llvm9LTOModule13isBitcodeFileENS_9StringRefE'/>
+<use f='llvm/llvm/lib/LTO/LTOModule.cpp' l='112' u='c' c='_ZN4llvm9LTOModule14createFromFileERNS_11LLVMContextENS_9StringRefERKNS_13TargetOptionsE'/>
+<use f='llvm/llvm/lib/Object/Archive.cpp' l='449' u='c' c='_ZNK4llvm6object7Archive5Child9getBufferEv'/>
+<use f='llvm/llvm/lib/Object/ObjectFile.cpp' l='163' u='c' c='_ZN4llvm6object10ObjectFile16createObjectFileENS_9StringRefE'/>
+<use f='llvm/llvm/lib/Support/CommandLine.cpp' l='1045' u='c' c='_ZL18ExpandResponseFileN4llvm9StringRefERNS_11StringSaverEPFvS0_S2_RNS_15SmallVectorImplIPKcEEbES7_bb'/>
+<use f='llvm/llvm/lib/Support/FileUtilities.cpp' l='182' u='c' c='_ZN4llvm22DiffFilesWithToleranceENS_9StringRefES0_ddPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/lib/Support/FileUtilities.cpp' l='190' u='c' c='_ZN4llvm22DiffFilesWithToleranceENS_9StringRefES0_ddPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/lib/Support/LockFileManager.cpp' l='55' u='c' c='_ZN4llvm15LockFileManager12readLockFileENS_9StringRefE'/>
+<use f='llvm/llvm/lib/Support/MemoryBuffer.cpp' l='150' u='c' c='_ZN4llvm12MemoryBuffer14getFileOrSTDINERKNS_5TwineElb'/>
+<def f='llvm/llvm/lib/Support/MemoryBuffer.cpp' l='228' ll='233' type='static ErrorOr&lt;std::unique_ptr&lt;MemoryBuffer&gt; &gt; llvm::MemoryBuffer::getFile(const llvm::Twine &amp; Filename, int64_t FileSize = -1, bool RequiresNullTerminator = true, bool IsVolatile = false)'/>
+<use f='llvm/llvm/lib/Support/Signals.cpp' l='175' u='c' c='_ZL25printSymbolizedStackTraceN4llvm9StringRefEPPviRNS_11raw_ostreamE'/>
+<use f='llvm/llvm/lib/Support/SourceMgr.cpp' l='45' u='c' c='_ZN4llvm9SourceMgr14AddIncludeFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SMLocERS6_'/>
+<use f='llvm/llvm/lib/Support/SourceMgr.cpp' l='52' u='c' c='_ZN4llvm9SourceMgr14AddIncludeFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SMLocERS6_'/>
+<use f='llvm/llvm/lib/Support/SpecialCaseList.cpp' l='102' u='c' c='_ZN4llvm15SpecialCaseList14createInternalERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EERS7_'/>
+<use f='llvm/llvm/lib/TableGen/Main.cpp' l='120' u='c' c='_ZN4llvm12TableGenMainEPcPFbRNS_11raw_ostreamERNS_12RecordKeeperEE'/>
+<use f='llvm/llvm/lib/Target/BPF/BTFDebug.cpp' l='566' u='c' c='_ZN4llvm8BTFDebug19populateFileContentEPKNS_12DISubprogramE'/>
+<use f='llvm/llvm/lib/Testing/Support/SupportHelpers.cpp' l='43' u='c' c='_ZN4llvm8unittest21getInputFileDirectoryEPKc'/>
+<use f='llvm/llvm/lib/ToolDrivers/llvm-dlltool/DlltoolDriver.cpp' l='58' u='c' c='_ZL8openFileRKN4llvm5TwineE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/BlockExtractor.cpp' l='108' u='c' c='_ZN12_GLOBAL__N_114BlockExtractor8loadFileEv'/>
+<use f='llvm/llvm/lib/Transforms/IPO/Internalize.cpp' l='76' u='c' c='_ZN12_GLOBAL__N_115PreserveAPIList8LoadFileEN4llvm9StringRefE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/LowerTypeTests.cpp' l='1609' u='c' c='_ZN12_GLOBAL__N_120LowerTypeTestsModule13runForTestingERN4llvm6ModuleE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/WholeProgramDevirt.cpp' l='647' u='c' c='_ZN12_GLOBAL__N_112DevirtModule13runForTestingERN4llvm6ModuleENS1_12function_refIFRNS1_9AAResultsERNS1_8FunctionEEEENS4_IFRNS1_25OptimizationRemarkEmi889809'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/ControlHeightReduction.cpp' l='70' u='c' c='_ZL19parseCHRFilterFilesv'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/ControlHeightReduction.cpp' l='85' u='c' c='_ZL19parseCHRFilterFilesv'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SymbolRewriter.cpp' l='253' u='c' c='_ZN4llvm14SymbolRewriter16RewriteMapParser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_4listISt10unique_ptrINS0_17RewriteDescript2332770'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfLinker.cpp' l='2593' u='c' c='_ZN4llvm8dsymutil11DwarfLinker4linkERKNS0_8DebugMapE'/>
+<use f='llvm/llvm/tools/dsymutil/SymbolMap.cpp' l='118' u='c' c='_ZNK4llvm8dsymutil15SymbolMapLoader4LoadENS_9StringRefERKNS0_8DebugMapE'/>
+<use f='llvm/llvm/tools/lli/lli.cpp' l='269' u='c' c='_ZN14LLIObjectCache9getObjectEPKN4llvm6ModuleE'/>
+<use f='llvm/llvm/tools/lli/lli.cpp' l='847' u='c' c='_Z13runOrcLazyJITPKc'/>
+<use f='llvm/llvm/tools/llvm-ar/llvm-ar.cpp' l='247' u='c' c='_ZL11readLibraryRKN4llvm5TwineE'/>
+<use f='llvm/llvm/tools/llvm-ar/llvm-ar.cpp' l='921' u='c' c='_ZL16performOperation16ArchiveOperationPSt6vectorIN4llvm16NewArchiveMemberESaIS2_EE'/>
+<use f='llvm/llvm/tools/llvm-cfi-verify/llvm-cfi-verify.cpp' l='63' u='c' c='_Z17printBlameContextRKN4llvm10DILineInfoEj'/>
+<use f='llvm/llvm/tools/llvm-cov/CodeCoverage.cpp' l='242' u='c' c='_ZN12_GLOBAL__N_116CodeCoverageTool13getSourceFileEN4llvm9StringRefE'/>
+<use f='llvm/llvm/tools/llvm-cov/CodeCoverage.cpp' l='490' u='c' c='_ZN12_GLOBAL__N_116CodeCoverageTool15demangleSymbolsERKN4llvm8coverage15CoverageMappingE'/>
+<use f='llvm/llvm/tools/llvm-elfabi/llvm-elfabi.cpp' l='76' u='c' c='_ZL13readInputFileN4llvm9StringRefE'/>
+<use f='llvm/llvm/tools/llvm-jitlink/llvm-jitlink.cpp' l='351' u='c' c='_Z18getFirstFileTriplev'/>
+<use f='llvm/llvm/tools/llvm-jitlink/llvm-jitlink.cpp' l='450' u='c' c='_Z11loadObjectsRN4llvm7SessionE'/>
+<use f='llvm/llvm/tools/llvm-jitlink/llvm-jitlink.cpp' l='566' u='c' c='_Z9runChecksRN4llvm7SessionE'/>
+<use f='llvm/llvm/tools/llvm-lto/llvm-lto.cpp' l='314' u='c' c='_ZL17getLocalLTOModuleN4llvm9StringRefERSt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EERKNS_13TargetOptionsE'/>
+<use f='llvm/llvm/tools/llvm-lto/llvm-lto.cpp' l='469' u='c' c='_ZN7thinlto20loadAllFilesForIndexERKN4llvm18ModuleSummaryIndexE'/>
+<use f='llvm/llvm/tools/llvm-lto/llvm-lto.cpp' l='574' u='c' c='_ZN7thinlto17ThinLTOProcessing8thinLinkEv'/>
+<use f='llvm/llvm/tools/llvm-lto/llvm-lto.cpp' l='787' u='c' c='_ZN7thinlto17ThinLTOProcessing7codegenEv'/>
+<use f='llvm/llvm/tools/llvm-lto/llvm-lto.cpp' l='826' u='c' c='_ZN7thinlto17ThinLTOProcessing6runAllEv'/>
+<use f='llvm/llvm/tools/llvm-lto/llvm-lto.cpp' l='898' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-lto2/llvm-lto2.cpp' l='280' u='c' c='_ZL3runiPPc'/>
+<use f='llvm/llvm/tools/llvm-lto2/llvm-lto2.cpp' l='340' u='c' c='_ZL10dumpSymtabiPPc'/>
+<use f='llvm/llvm/tools/llvm-objcopy/COFF/COFFObjcopy.cpp' l='54' u='c' c='_ZN4llvm7objcopy4coffL33createGnuDebugLinkSectionContentsENS_9StringRefE'/>
+<use f='llvm/llvm/tools/llvm-objcopy/ELF/ELFObjcopy.cpp' l='697' u='c' c='_ZN4llvm7objcopy3elfL10handleArgsERKNS0_10CopyConfigERNS1_6ObjectERKNS1_6ReaderENS1_7ElfTypeE'/>
+<use f='llvm/llvm/tools/llvm-objdump/llvm-objdump.cpp' l='553' u='c' c='_ZN4llvm12_GLOBAL__N_113SourcePrinter11cacheSourceERKNS_10DILineInfoE'/>
+<use f='llvm/llvm/tools/llvm-opt-report/OptReport.cpp' l='146' u='c' c='_ZL16readLocationInfoRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IiS_IS5_S_IiN12_GLOBAL__N_121OptReportLocationInfoESt4lessIiESaISt412587709'/>
+<use f='llvm/llvm/tools/llvm-opt-report/OptReport.cpp' l='237' u='c' c='_ZL11writeReportRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IiS_IS5_S_IiN12_GLOBAL__N_121OptReportLocationInfoESt4lessIiESaISt4pairI11574367'/>
+<use f='llvm/llvm/tools/llvm-pdbutil/InputFile.cpp' l='290' u='c' c='_ZN4llvm3pdb9InputFile4openENS_9StringRefEb'/>
+<use f='llvm/llvm/tools/lto/lto.cpp' l='187' u='c' c='lto_module_is_object_file_for_target'/>
+<use f='llvm/llvm/tools/sancov/sancov.cpp' l='230' u='c' c='_ZN12_GLOBAL__N_111RawCoverage4readERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/tools/sancov/sancov.cpp' l='463' u='c' c='_ZN12_GLOBAL__N_118SymbolizedCoverage4readERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/tools/sancov/sancov.cpp' l='936' u='c' c='_ZN12_GLOBAL__N_1L14isCoverageFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/tools/sancov/sancov.cpp' l='962' u='c' c='_ZN12_GLOBAL__N_1L9symbolizeERKNS_11RawCoverageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/tools/sanstats/sanstats.cpp' l='128' u='c' c='main'/>
+<use f='llvm/llvm/tools/verify-uselistorder/verify-uselistorder.cpp' l='152' u='c' c='_ZNK12_GLOBAL__N_18TempFile11readBitcodeERN4llvm11LLVMContextE'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='1153' u='c' c='_ZN12_GLOBAL__N_119PrintOptionInfoTest7runTestEDpT_'/>
+<use f='llvm/llvm/unittests/Support/MemoryBufferTest.cpp' l='82' u='c' c='_ZN12_GLOBAL__N_138MemoryBufferTest_NullTerminator4K_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryBufferTest.cpp' l='255' u='c' c='_ZN12_GLOBAL__N_135MemoryBufferTest_writableSlice_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/MemoryBufferTest.cpp' l='285' u='c' c='_ZN12_GLOBAL__N_138MemoryBufferTest_writeThroughFile_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1325' u='c' c='_ZN12_GLOBAL__N_1L18verifyFileContentsERKN4llvm5TwineENS0_9StringRefE'/>
+<use f='llvm/llvm/unittests/Support/TarWriterTest.cpp' l='55' u='c' c='_ZN12_GLOBAL__N_1L9createTarEN4llvm9StringRefES1_'/>
+<use f='llvm/llvm/utils/TableGen/GlobalISelEmitter.cpp' l='4271' u='c' c='_ZN12_GLOBAL__N_117GlobalISelEmitter3runERN4llvm11raw_ostreamE'/>

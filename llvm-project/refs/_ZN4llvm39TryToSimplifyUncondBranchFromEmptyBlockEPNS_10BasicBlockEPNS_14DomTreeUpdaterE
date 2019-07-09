@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='208' type='bool llvm::TryToSimplifyUncondBranchFromEmptyBlock(llvm::BasicBlock * BB, llvm::DomTreeUpdater * DTU = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='204'>/// BB is known to contain an unconditional branch, and contains no instructions
+/// other than PHI nodes, potential debug intrinsics and the branch. If
+/// possible, eliminate BB by rewriting all the predecessors to branch to the
+/// successor block and return true. If we can&apos;t transform, return false.</doc>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='410' u='c' c='_ZN4llvm17JumpThreadingPass7runImplERNS_8FunctionEPNS_17TargetLibraryInfoEPNS_13LazyValueInfoEPNS_9AAResultsEPNS_14DomTreeUpdaterEbSt10unique_ptrINS_16218292'/>
+<def f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='964' ll='1089' type='bool llvm::TryToSimplifyUncondBranchFromEmptyBlock(llvm::BasicBlock * BB, llvm::DomTreeUpdater * DTU = nullptr)'/>
+<doc f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='959'>/// TryToSimplifyUncondBranchFromEmptyBlock - BB is known to contain an
+/// unconditional branch, and contains no instructions other than PHI nodes,
+/// potential side-effect free intrinsics and the branch.  If possible,
+/// eliminate BB by rewriting all the predecessors to branch to the successor
+/// block and return true.  If we can&apos;t transform, return false.</doc>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='5825' u='c' c='_ZN12_GLOBAL__N_114SimplifyCFGOpt20SimplifyUncondBranchEPN4llvm10BranchInstERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE'/>

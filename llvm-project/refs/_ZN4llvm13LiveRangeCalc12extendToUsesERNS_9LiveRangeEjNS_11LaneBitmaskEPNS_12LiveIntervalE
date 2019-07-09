@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/lib/CodeGen/LiveRangeCalc.h' l='173' type='void llvm::LiveRangeCalc::extendToUses(llvm::LiveRange &amp; LR, unsigned int Reg, llvm::LaneBitmask LaneMask, llvm::LiveInterval * LI = nullptr)'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.h' l='224' u='c' c='_ZN4llvm13LiveRangeCalc12extendToUsesERNS_9LiveRangeEj'/>
+<doc f='llvm/llvm/lib/CodeGen/LiveRangeCalc.h' l='163'>/// Extend the live range of @p LR to reach all uses of Reg.
+  ///
+  /// If @p LR is a main range, or if @p LI is null, then all uses must be
+  /// jointly dominated by the definitions from @p LR. If @p LR is a subrange
+  /// of the live interval @p LI, corresponding to lane mask @p LaneMask,
+  /// all uses must be jointly dominated by the definitions from @p LR
+  /// together with definitions of other lanes where @p LR becomes undefined
+  /// (via &lt;def,read-undef&gt; operands).
+  /// If @p LR is a main range, the @p LaneMask should be set to ~0, i.e.
+  /// LaneBitmask::getAll().</doc>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='121' u='c' c='_ZN4llvm13LiveRangeCalc9calculateERNS_12LiveIntervalEb'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='127' u='c' c='_ZN4llvm13LiveRangeCalc9calculateERNS_12LiveIntervalEb'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='144' u='c' c='_ZN4llvm13LiveRangeCalc31constructMainRangeFromSubrangesERNS_12LiveIntervalE'/>
+<def f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='156' ll='214' type='void llvm::LiveRangeCalc::extendToUses(llvm::LiveRange &amp; LR, unsigned int Reg, llvm::LaneBitmask Mask, llvm::LiveInterval * LI = nullptr)'/>

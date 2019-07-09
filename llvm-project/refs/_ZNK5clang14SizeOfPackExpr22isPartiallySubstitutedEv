@@ -1,0 +1,14 @@
+<def f='llvm/clang/include/clang/AST/ExprCXX.h' l='4080' ll='4082' type='bool clang::SizeOfPackExpr::isPartiallySubstituted() const'/>
+<use f='llvm/clang/include/clang/AST/ExprCXX.h' l='4086' u='c' c='_ZNK5clang14SizeOfPackExpr19getPartialArgumentsEv'/>
+<doc f='llvm/clang/include/clang/AST/ExprCXX.h' l='4075'>/// Determine whether this represents a partially-substituted sizeof...
+  /// expression, such as is produced for:
+  ///
+  ///   template&lt;typename ...Ts&gt; using X = int[sizeof...(Ts)];
+  ///   template&lt;typename ...Us&gt; void f(X&lt;Us..., 1, 2, 3, Us...&gt;);</doc>
+<use f='llvm/clang/include/clang/AST/ASTNodeTraverser.h' l='625' u='c' c='_ZN5clang16ASTNodeTraverser19VisitSizeOfPackExprEPKNS_14SizeOfPackExprE'/>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='6928' u='c' c='_ZN5clang15ASTNodeImporter19VisitSizeOfPackExprEPNS_14SizeOfPackExprE'/>
+<use f='llvm/clang/lib/AST/StmtProfile.cpp' l='1819' u='c' c='_ZN12_GLOBAL__N_112StmtProfiler19VisitSizeOfPackExprEPKN5clang14SizeOfPackExprE'/>
+<use f='llvm/clang/lib/Sema/TreeTransform.h' l='11822' u='c' c='_ZN5clang13TreeTransform23TransformSizeOfPackExprEPNS_14SizeOfPackExprE'/>
+<use f='llvm/clang/lib/Serialization/ASTReaderStmt.cpp' l='1815' u='c' c='_ZN5clang13ASTStmtReader19VisitSizeOfPackExprEPNS_14SizeOfPackExprE'/>
+<use f='llvm/clang/lib/Serialization/ASTWriterStmt.cpp' l='1750' u='c' c='_ZN5clang13ASTStmtWriter19VisitSizeOfPackExprEPNS_14SizeOfPackExprE'/>
+<use f='llvm/clang/lib/Serialization/ASTWriterStmt.cpp' l='1756' u='c' c='_ZN5clang13ASTStmtWriter19VisitSizeOfPackExprEPNS_14SizeOfPackExprE'/>

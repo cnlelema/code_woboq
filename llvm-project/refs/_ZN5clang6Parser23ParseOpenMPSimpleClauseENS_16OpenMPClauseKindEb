@@ -1,0 +1,17 @@
+<dec f='llvm/clang/include/clang/Parse/Parser.h' l='2898' type='clang::OMPClause * clang::Parser::ParseOpenMPSimpleClause(clang::OpenMPClauseKind Kind, bool ParseOnly)'/>
+<doc f='llvm/clang/include/clang/Parse/Parser.h' l='2892'>/// Parses simple clause of a kind \a Kind.
+  ///
+  /// \param Kind Kind of current clause.
+  /// \param ParseOnly true to skip the clause&apos;s semantic actions and return
+  /// nullptr.
+  ///</doc>
+<use f='llvm/clang/lib/Parse/ParseOpenMP.cpp' l='1646' u='c' c='_ZN5clang6Parser17ParseOpenMPClauseENS_19OpenMPDirectiveKindENS_16OpenMPClauseKindEb'/>
+<def f='llvm/clang/lib/Parse/ParseOpenMP.cpp' l='1812' ll='1837' type='clang::OMPClause * clang::Parser::ParseOpenMPSimpleClause(clang::OpenMPClauseKind Kind, bool ParseOnly)'/>
+<doc f='llvm/clang/lib/Parse/ParseOpenMP.cpp' l='1804'>/// Parsing of simple OpenMP clauses like &apos;default&apos; or &apos;proc_bind&apos;.
+///
+///    default-clause:
+///         &apos;default&apos; &apos;(&apos; &apos;none&apos; | &apos;shared&apos; &apos;)
+///
+///    proc_bind-clause:
+///         &apos;proc_bind&apos; &apos;(&apos; &apos;master&apos; | &apos;close&apos; | &apos;spread&apos; &apos;)
+///</doc>

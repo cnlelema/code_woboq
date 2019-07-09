@@ -1,0 +1,913 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>X86BaseInfo.h source code [llvm/llvm/lib/Target/X86/MCTargetDesc/X86BaseInfo.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::X86::CondCode,llvm::X86::IPREFIXES,llvm::X86::OperandType,llvm::X86::STATIC_ROUNDING,llvm::X86II::TOF "/>
+<link rel="stylesheet" href="../../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/Target/X86/MCTargetDesc/X86BaseInfo.h'; var root_path = '../../../../../..'; var data_path = '../../../../../../../data';</script>
+<script src='../../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>llvm</a>/<a href='../../../..'>llvm</a>/<a href='../../..'>lib</a>/<a href='../..'>Target</a>/<a href='..'>X86</a>/<a href='./'>MCTargetDesc</a>/<a href='X86BaseInfo.h.html'>X86BaseInfo.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- X86BaseInfo.h - Top level definitions for X86 -------- --*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file contains small standalone helper functions and enum definitions for</i></td></tr>
+<tr><th id="10">10</th><td><i>// the X86 target useful for the compiler back-end and the MC libraries.</i></td></tr>
+<tr><th id="11">11</th><td><i>// As such, it deliberately does not include references to LLVM core</i></td></tr>
+<tr><th id="12">12</th><td><i>// code gen types, passes, etc..</i></td></tr>
+<tr><th id="13">13</th><td><i>//</i></td></tr>
+<tr><th id="14">14</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/LLVM_LIB_TARGET_X86_MCTARGETDESC_X86BASEINFO_H">LLVM_LIB_TARGET_X86_MCTARGETDESC_X86BASEINFO_H</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/LLVM_LIB_TARGET_X86_MCTARGETDESC_X86BASEINFO_H" data-ref="_M/LLVM_LIB_TARGET_X86_MCTARGETDESC_X86BASEINFO_H">LLVM_LIB_TARGET_X86_MCTARGETDESC_X86BASEINFO_H</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="X86MCTargetDesc.h.html">"X86MCTargetDesc.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../include/llvm/MC/MCInstrDesc.h.html">"llvm/MC/MCInstrDesc.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../../include/llvm/Support/DataTypes.h.html">"llvm/Support/DataTypes.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../../include/llvm/Support/ErrorHandling.h.html">"llvm/Support/ErrorHandling.h"</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><b>namespace</b> <span class="namespace">X86</span> {</td></tr>
+<tr><th id="27">27</th><td>  <i>// Enums for memory operand decoding.  Each memory operand is represented with</i></td></tr>
+<tr><th id="28">28</th><td><i>  // a 5 operand sequence in the form:</i></td></tr>
+<tr><th id="29">29</th><td><i>  //   [BaseReg, ScaleAmt, IndexReg, Disp, Segment]</i></td></tr>
+<tr><th id="30">30</th><td><i>  // These enums help decode this.</i></td></tr>
+<tr><th id="31">31</th><td>  <b>enum</b> {</td></tr>
+<tr><th id="32">32</th><td>    <dfn class="enum" id="llvm::X86::AddrBaseReg" title='llvm::X86::AddrBaseReg' data-ref="llvm::X86::AddrBaseReg">AddrBaseReg</dfn> = <var>0</var>,</td></tr>
+<tr><th id="33">33</th><td>    <dfn class="enum" id="llvm::X86::AddrScaleAmt" title='llvm::X86::AddrScaleAmt' data-ref="llvm::X86::AddrScaleAmt">AddrScaleAmt</dfn> = <var>1</var>,</td></tr>
+<tr><th id="34">34</th><td>    <dfn class="enum" id="llvm::X86::AddrIndexReg" title='llvm::X86::AddrIndexReg' data-ref="llvm::X86::AddrIndexReg">AddrIndexReg</dfn> = <var>2</var>,</td></tr>
+<tr><th id="35">35</th><td>    <dfn class="enum" id="llvm::X86::AddrDisp" title='llvm::X86::AddrDisp' data-ref="llvm::X86::AddrDisp">AddrDisp</dfn> = <var>3</var>,</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td>    <i class="doc">/// AddrSegmentReg - The operand # of the segment in the memory operand.</i></td></tr>
+<tr><th id="38">38</th><td>    <dfn class="enum" id="llvm::X86::AddrSegmentReg" title='llvm::X86::AddrSegmentReg' data-ref="llvm::X86::AddrSegmentReg">AddrSegmentReg</dfn> = <var>4</var>,</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td>    <i class="doc">/// AddrNumOperands - Total number of operands in a memory reference.</i></td></tr>
+<tr><th id="41">41</th><td>    <dfn class="enum" id="llvm::X86::AddrNumOperands" title='llvm::X86::AddrNumOperands' data-ref="llvm::X86::AddrNumOperands">AddrNumOperands</dfn> = <var>5</var></td></tr>
+<tr><th id="42">42</th><td>  };</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>  <i class="doc">/// AVX512 static rounding constants.  These need to match the values in</i></td></tr>
+<tr><th id="45">45</th><td><i class="doc">  /// avx512fintrin.h.</i></td></tr>
+<tr><th id="46">46</th><td>  <b>enum</b> <dfn class="type def" id="llvm::X86::STATIC_ROUNDING" title='llvm::X86::STATIC_ROUNDING' data-ref="llvm::X86::STATIC_ROUNDING">STATIC_ROUNDING</dfn> {</td></tr>
+<tr><th id="47">47</th><td>    <dfn class="enum" id="llvm::X86::STATIC_ROUNDING::TO_NEAREST_INT" title='llvm::X86::STATIC_ROUNDING::TO_NEAREST_INT' data-ref="llvm::X86::STATIC_ROUNDING::TO_NEAREST_INT">TO_NEAREST_INT</dfn> = <var>0</var>,</td></tr>
+<tr><th id="48">48</th><td>    <dfn class="enum" id="llvm::X86::STATIC_ROUNDING::TO_NEG_INF" title='llvm::X86::STATIC_ROUNDING::TO_NEG_INF' data-ref="llvm::X86::STATIC_ROUNDING::TO_NEG_INF">TO_NEG_INF</dfn> = <var>1</var>,</td></tr>
+<tr><th id="49">49</th><td>    <dfn class="enum" id="llvm::X86::STATIC_ROUNDING::TO_POS_INF" title='llvm::X86::STATIC_ROUNDING::TO_POS_INF' data-ref="llvm::X86::STATIC_ROUNDING::TO_POS_INF">TO_POS_INF</dfn> = <var>2</var>,</td></tr>
+<tr><th id="50">50</th><td>    <dfn class="enum" id="llvm::X86::STATIC_ROUNDING::TO_ZERO" title='llvm::X86::STATIC_ROUNDING::TO_ZERO' data-ref="llvm::X86::STATIC_ROUNDING::TO_ZERO">TO_ZERO</dfn> = <var>3</var>,</td></tr>
+<tr><th id="51">51</th><td>    <dfn class="enum" id="llvm::X86::STATIC_ROUNDING::CUR_DIRECTION" title='llvm::X86::STATIC_ROUNDING::CUR_DIRECTION' data-ref="llvm::X86::STATIC_ROUNDING::CUR_DIRECTION">CUR_DIRECTION</dfn> = <var>4</var>,</td></tr>
+<tr><th id="52">52</th><td>    <dfn class="enum" id="llvm::X86::STATIC_ROUNDING::NO_EXC" title='llvm::X86::STATIC_ROUNDING::NO_EXC' data-ref="llvm::X86::STATIC_ROUNDING::NO_EXC">NO_EXC</dfn> = <var>8</var></td></tr>
+<tr><th id="53">53</th><td>  };</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>  <i class="doc">/// The constants to describe instr prefixes if there are</i></td></tr>
+<tr><th id="56">56</th><td>  <b>enum</b> <dfn class="type def" id="llvm::X86::IPREFIXES" title='llvm::X86::IPREFIXES' data-ref="llvm::X86::IPREFIXES">IPREFIXES</dfn> {</td></tr>
+<tr><th id="57">57</th><td>    <dfn class="enum" id="llvm::X86::IPREFIXES::IP_NO_PREFIX" title='llvm::X86::IPREFIXES::IP_NO_PREFIX' data-ref="llvm::X86::IPREFIXES::IP_NO_PREFIX">IP_NO_PREFIX</dfn> = <var>0</var>,</td></tr>
+<tr><th id="58">58</th><td>    <dfn class="enum" id="llvm::X86::IPREFIXES::IP_HAS_OP_SIZE" title='llvm::X86::IPREFIXES::IP_HAS_OP_SIZE' data-ref="llvm::X86::IPREFIXES::IP_HAS_OP_SIZE">IP_HAS_OP_SIZE</dfn> = <var>1</var>,</td></tr>
+<tr><th id="59">59</th><td>    <dfn class="enum" id="llvm::X86::IPREFIXES::IP_HAS_AD_SIZE" title='llvm::X86::IPREFIXES::IP_HAS_AD_SIZE' data-ref="llvm::X86::IPREFIXES::IP_HAS_AD_SIZE">IP_HAS_AD_SIZE</dfn> = <var>2</var>,</td></tr>
+<tr><th id="60">60</th><td>    <dfn class="enum" id="llvm::X86::IPREFIXES::IP_HAS_REPEAT_NE" title='llvm::X86::IPREFIXES::IP_HAS_REPEAT_NE' data-ref="llvm::X86::IPREFIXES::IP_HAS_REPEAT_NE">IP_HAS_REPEAT_NE</dfn> = <var>4</var>,</td></tr>
+<tr><th id="61">61</th><td>    <dfn class="enum" id="llvm::X86::IPREFIXES::IP_HAS_REPEAT" title='llvm::X86::IPREFIXES::IP_HAS_REPEAT' data-ref="llvm::X86::IPREFIXES::IP_HAS_REPEAT">IP_HAS_REPEAT</dfn> = <var>8</var>,</td></tr>
+<tr><th id="62">62</th><td>    <dfn class="enum" id="llvm::X86::IPREFIXES::IP_HAS_LOCK" title='llvm::X86::IPREFIXES::IP_HAS_LOCK' data-ref="llvm::X86::IPREFIXES::IP_HAS_LOCK">IP_HAS_LOCK</dfn> = <var>16</var>,</td></tr>
+<tr><th id="63">63</th><td>    <dfn class="enum" id="llvm::X86::IPREFIXES::IP_HAS_NOTRACK" title='llvm::X86::IPREFIXES::IP_HAS_NOTRACK' data-ref="llvm::X86::IPREFIXES::IP_HAS_NOTRACK">IP_HAS_NOTRACK</dfn> = <var>32</var>,</td></tr>
+<tr><th id="64">64</th><td>    <dfn class="enum" id="llvm::X86::IPREFIXES::IP_USE_VEX3" title='llvm::X86::IPREFIXES::IP_USE_VEX3' data-ref="llvm::X86::IPREFIXES::IP_USE_VEX3">IP_USE_VEX3</dfn> = <var>64</var>,</td></tr>
+<tr><th id="65">65</th><td>  };</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>  <b>enum</b> <dfn class="type def" id="llvm::X86::OperandType" title='llvm::X86::OperandType' data-ref="llvm::X86::OperandType">OperandType</dfn> : <em>unsigned</em> {</td></tr>
+<tr><th id="68">68</th><td>    <i class="doc">/// AVX512 embedded rounding control. This should only have values 0-3.</i></td></tr>
+<tr><th id="69">69</th><td>    <dfn class="enum" id="llvm::X86::OperandType::OPERAND_ROUNDING_CONTROL" title='llvm::X86::OperandType::OPERAND_ROUNDING_CONTROL' data-ref="llvm::X86::OperandType::OPERAND_ROUNDING_CONTROL">OPERAND_ROUNDING_CONTROL</dfn> = <span class="namespace">MCOI::</span><a class="enum" href="../../../../include/llvm/MC/MCInstrDesc.h.html#llvm::MCOI::OperandType::OPERAND_FIRST_TARGET" title='llvm::MCOI::OperandType::OPERAND_FIRST_TARGET' data-ref="llvm::MCOI::OperandType::OPERAND_FIRST_TARGET">OPERAND_FIRST_TARGET</a>,</td></tr>
+<tr><th id="70">70</th><td>    <dfn class="enum" id="llvm::X86::OperandType::OPERAND_COND_CODE" title='llvm::X86::OperandType::OPERAND_COND_CODE' data-ref="llvm::X86::OperandType::OPERAND_COND_CODE">OPERAND_COND_CODE</dfn>,</td></tr>
+<tr><th id="71">71</th><td>  };</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>  <i>// X86 specific condition code. These correspond to X86_*_COND in</i></td></tr>
+<tr><th id="74">74</th><td><i>  // X86InstrInfo.td. They must be kept in synch.</i></td></tr>
+<tr><th id="75">75</th><td>  <b>enum</b> <dfn class="type def" id="llvm::X86::CondCode" title='llvm::X86::CondCode' data-ref="llvm::X86::CondCode">CondCode</dfn> {</td></tr>
+<tr><th id="76">76</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_O" title='llvm::X86::CondCode::COND_O' data-ref="llvm::X86::CondCode::COND_O">COND_O</dfn> = <var>0</var>,</td></tr>
+<tr><th id="77">77</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_NO" title='llvm::X86::CondCode::COND_NO' data-ref="llvm::X86::CondCode::COND_NO">COND_NO</dfn> = <var>1</var>,</td></tr>
+<tr><th id="78">78</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_B" title='llvm::X86::CondCode::COND_B' data-ref="llvm::X86::CondCode::COND_B">COND_B</dfn> = <var>2</var>,</td></tr>
+<tr><th id="79">79</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_AE" title='llvm::X86::CondCode::COND_AE' data-ref="llvm::X86::CondCode::COND_AE">COND_AE</dfn> = <var>3</var>,</td></tr>
+<tr><th id="80">80</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_E" title='llvm::X86::CondCode::COND_E' data-ref="llvm::X86::CondCode::COND_E">COND_E</dfn> = <var>4</var>,</td></tr>
+<tr><th id="81">81</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_NE" title='llvm::X86::CondCode::COND_NE' data-ref="llvm::X86::CondCode::COND_NE">COND_NE</dfn> = <var>5</var>,</td></tr>
+<tr><th id="82">82</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_BE" title='llvm::X86::CondCode::COND_BE' data-ref="llvm::X86::CondCode::COND_BE">COND_BE</dfn> = <var>6</var>,</td></tr>
+<tr><th id="83">83</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_A" title='llvm::X86::CondCode::COND_A' data-ref="llvm::X86::CondCode::COND_A">COND_A</dfn> = <var>7</var>,</td></tr>
+<tr><th id="84">84</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_S" title='llvm::X86::CondCode::COND_S' data-ref="llvm::X86::CondCode::COND_S">COND_S</dfn> = <var>8</var>,</td></tr>
+<tr><th id="85">85</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_NS" title='llvm::X86::CondCode::COND_NS' data-ref="llvm::X86::CondCode::COND_NS">COND_NS</dfn> = <var>9</var>,</td></tr>
+<tr><th id="86">86</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_P" title='llvm::X86::CondCode::COND_P' data-ref="llvm::X86::CondCode::COND_P">COND_P</dfn> = <var>10</var>,</td></tr>
+<tr><th id="87">87</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_NP" title='llvm::X86::CondCode::COND_NP' data-ref="llvm::X86::CondCode::COND_NP">COND_NP</dfn> = <var>11</var>,</td></tr>
+<tr><th id="88">88</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_L" title='llvm::X86::CondCode::COND_L' data-ref="llvm::X86::CondCode::COND_L">COND_L</dfn> = <var>12</var>,</td></tr>
+<tr><th id="89">89</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_GE" title='llvm::X86::CondCode::COND_GE' data-ref="llvm::X86::CondCode::COND_GE">COND_GE</dfn> = <var>13</var>,</td></tr>
+<tr><th id="90">90</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_LE" title='llvm::X86::CondCode::COND_LE' data-ref="llvm::X86::CondCode::COND_LE">COND_LE</dfn> = <var>14</var>,</td></tr>
+<tr><th id="91">91</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_G" title='llvm::X86::CondCode::COND_G' data-ref="llvm::X86::CondCode::COND_G">COND_G</dfn> = <var>15</var>,</td></tr>
+<tr><th id="92">92</th><td>    <dfn class="enum" id="llvm::X86::CondCode::LAST_VALID_COND" title='llvm::X86::CondCode::LAST_VALID_COND' data-ref="llvm::X86::CondCode::LAST_VALID_COND">LAST_VALID_COND</dfn> = <a class="enum" href="#llvm::X86::CondCode::COND_G" title='llvm::X86::CondCode::COND_G' data-ref="llvm::X86::CondCode::COND_G">COND_G</a>,</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td>    <i>// Artificial condition codes. These are used by AnalyzeBranch</i></td></tr>
+<tr><th id="95">95</th><td><i>    // to indicate a block terminated with two conditional branches that together</i></td></tr>
+<tr><th id="96">96</th><td><i>    // form a compound condition. They occur in code using FCMP_OEQ or FCMP_UNE,</i></td></tr>
+<tr><th id="97">97</th><td><i>    // which can't be represented on x86 with a single condition. These</i></td></tr>
+<tr><th id="98">98</th><td><i>    // are never used in MachineInstrs and are inverses of one another.</i></td></tr>
+<tr><th id="99">99</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_NE_OR_P" title='llvm::X86::CondCode::COND_NE_OR_P' data-ref="llvm::X86::CondCode::COND_NE_OR_P">COND_NE_OR_P</dfn>,</td></tr>
+<tr><th id="100">100</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_E_AND_NP" title='llvm::X86::CondCode::COND_E_AND_NP' data-ref="llvm::X86::CondCode::COND_E_AND_NP">COND_E_AND_NP</dfn>,</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>    <dfn class="enum" id="llvm::X86::CondCode::COND_INVALID" title='llvm::X86::CondCode::COND_INVALID' data-ref="llvm::X86::CondCode::COND_INVALID">COND_INVALID</dfn></td></tr>
+<tr><th id="103">103</th><td>  };</td></tr>
+<tr><th id="104">104</th><td>} <i>// end namespace X86;</i></td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td><i class="doc">/// X86II - This namespace holds all of the target specific flags that</i></td></tr>
+<tr><th id="107">107</th><td><i class="doc">/// instruction info tracks.</i></td></tr>
+<tr><th id="108">108</th><td><i class="doc">///</i></td></tr>
+<tr><th id="109">109</th><td><b>namespace</b> <span class="namespace">X86II</span> {</td></tr>
+<tr><th id="110">110</th><td>  <i class="doc">/// Target Operand Flag enum.</i></td></tr>
+<tr><th id="111">111</th><td>  <b>enum</b> <dfn class="type def" id="llvm::X86II::TOF" title='llvm::X86II::TOF' data-ref="llvm::X86II::TOF">TOF</dfn> {</td></tr>
+<tr><th id="112">112</th><td>    <i>//===------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="113">113</th><td><i>    // X86 Specific MachineOperand flags.</i></td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_NO_FLAG" title='llvm::X86II::TOF::MO_NO_FLAG' data-ref="llvm::X86II::TOF::MO_NO_FLAG">MO_NO_FLAG</dfn>,</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>    <i class="doc">/// MO_GOT_ABSOLUTE_ADDRESS - On a symbol operand, this represents a</i></td></tr>
+<tr><th id="118">118</th><td><i class="doc">    /// relocation of:</i></td></tr>
+<tr><th id="119">119</th><td><i class="doc">    ///    SYMBOL_LABEL + [. - PICBASELABEL]</i></td></tr>
+<tr><th id="120">120</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_GOT_ABSOLUTE_ADDRESS" title='llvm::X86II::TOF::MO_GOT_ABSOLUTE_ADDRESS' data-ref="llvm::X86II::TOF::MO_GOT_ABSOLUTE_ADDRESS">MO_GOT_ABSOLUTE_ADDRESS</dfn>,</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td>    <i class="doc">/// MO_PIC_BASE_OFFSET - On a symbol operand this indicates that the</i></td></tr>
+<tr><th id="123">123</th><td><i class="doc">    /// immediate should get the value of the symbol minus the PIC base label:</i></td></tr>
+<tr><th id="124">124</th><td><i class="doc">    ///    SYMBOL_LABEL - PICBASELABEL</i></td></tr>
+<tr><th id="125">125</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_PIC_BASE_OFFSET" title='llvm::X86II::TOF::MO_PIC_BASE_OFFSET' data-ref="llvm::X86II::TOF::MO_PIC_BASE_OFFSET">MO_PIC_BASE_OFFSET</dfn>,</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td>    <i class="doc">/// MO_GOT - On a symbol operand this indicates that the immediate is the</i></td></tr>
+<tr><th id="128">128</th><td><i class="doc">    /// offset to the GOT entry for the symbol name from the base of the GOT.</i></td></tr>
+<tr><th id="129">129</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="130">130</th><td><i class="doc">    /// See the X86-64 ELF ABI supplement for more details.</i></td></tr>
+<tr><th id="131">131</th><td><i class="doc">    ///    SYMBOL_LABEL<span class="command"> @GOT</span></i></td></tr>
+<tr><th id="132">132</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_GOT" title='llvm::X86II::TOF::MO_GOT' data-ref="llvm::X86II::TOF::MO_GOT">MO_GOT</dfn>,</td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td>    <i class="doc">/// MO_GOTOFF - On a symbol operand this indicates that the immediate is</i></td></tr>
+<tr><th id="135">135</th><td><i class="doc">    /// the offset to the location of the symbol name from the base of the GOT.</i></td></tr>
+<tr><th id="136">136</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="137">137</th><td><i class="doc">    /// See the X86-64 ELF ABI supplement for more details.</i></td></tr>
+<tr><th id="138">138</th><td><i class="doc">    ///    SYMBOL_LABEL<span class="command"> @GOTOFF</span></i></td></tr>
+<tr><th id="139">139</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_GOTOFF" title='llvm::X86II::TOF::MO_GOTOFF' data-ref="llvm::X86II::TOF::MO_GOTOFF">MO_GOTOFF</dfn>,</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td>    <i class="doc">/// MO_GOTPCREL - On a symbol operand this indicates that the immediate is</i></td></tr>
+<tr><th id="142">142</th><td><i class="doc">    /// offset to the GOT entry for the symbol name from the current code</i></td></tr>
+<tr><th id="143">143</th><td><i class="doc">    /// location.</i></td></tr>
+<tr><th id="144">144</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="145">145</th><td><i class="doc">    /// See the X86-64 ELF ABI supplement for more details.</i></td></tr>
+<tr><th id="146">146</th><td><i class="doc">    ///    SYMBOL_LABEL<span class="command"> @GOTPCREL</span></i></td></tr>
+<tr><th id="147">147</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_GOTPCREL" title='llvm::X86II::TOF::MO_GOTPCREL' data-ref="llvm::X86II::TOF::MO_GOTPCREL">MO_GOTPCREL</dfn>,</td></tr>
+<tr><th id="148">148</th><td></td></tr>
+<tr><th id="149">149</th><td>    <i class="doc">/// MO_PLT - On a symbol operand this indicates that the immediate is</i></td></tr>
+<tr><th id="150">150</th><td><i class="doc">    /// offset to the PLT entry of symbol name from the current code location.</i></td></tr>
+<tr><th id="151">151</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="152">152</th><td><i class="doc">    /// See the X86-64 ELF ABI supplement for more details.</i></td></tr>
+<tr><th id="153">153</th><td><i class="doc">    ///    SYMBOL_LABEL<span class="command"> @PLT</span></i></td></tr>
+<tr><th id="154">154</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_PLT" title='llvm::X86II::TOF::MO_PLT' data-ref="llvm::X86II::TOF::MO_PLT">MO_PLT</dfn>,</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>    <i class="doc">/// MO_TLSGD - On a symbol operand this indicates that the immediate is</i></td></tr>
+<tr><th id="157">157</th><td><i class="doc">    /// the offset of the GOT entry with the TLS index structure that contains</i></td></tr>
+<tr><th id="158">158</th><td><i class="doc">    /// the module number and variable offset for the symbol. Used in the</i></td></tr>
+<tr><th id="159">159</th><td><i class="doc">    /// general dynamic TLS access model.</i></td></tr>
+<tr><th id="160">160</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="161">161</th><td><i class="doc">    /// See 'ELF Handling for Thread-Local Storage' for more details.</i></td></tr>
+<tr><th id="162">162</th><td><i class="doc">    ///    SYMBOL_LABEL<span class="command"> @TLSGD</span></i></td></tr>
+<tr><th id="163">163</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_TLSGD" title='llvm::X86II::TOF::MO_TLSGD' data-ref="llvm::X86II::TOF::MO_TLSGD">MO_TLSGD</dfn>,</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>    <i class="doc">/// MO_TLSLD - On a symbol operand this indicates that the immediate is</i></td></tr>
+<tr><th id="166">166</th><td><i class="doc">    /// the offset of the GOT entry with the TLS index for the module that</i></td></tr>
+<tr><th id="167">167</th><td><i class="doc">    /// contains the symbol. When this index is passed to a call to</i></td></tr>
+<tr><th id="168">168</th><td><i class="doc">    /// __tls_get_addr, the function will return the base address of the TLS</i></td></tr>
+<tr><th id="169">169</th><td><i class="doc">    /// block for the symbol. Used in the x86-64 local dynamic TLS access model.</i></td></tr>
+<tr><th id="170">170</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="171">171</th><td><i class="doc">    /// See 'ELF Handling for Thread-Local Storage' for more details.</i></td></tr>
+<tr><th id="172">172</th><td><i class="doc">    ///    SYMBOL_LABEL<span class="command"> @TLSLD</span></i></td></tr>
+<tr><th id="173">173</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_TLSLD" title='llvm::X86II::TOF::MO_TLSLD' data-ref="llvm::X86II::TOF::MO_TLSLD">MO_TLSLD</dfn>,</td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td>    <i class="doc">/// MO_TLSLDM - On a symbol operand this indicates that the immediate is</i></td></tr>
+<tr><th id="176">176</th><td><i class="doc">    /// the offset of the GOT entry with the TLS index for the module that</i></td></tr>
+<tr><th id="177">177</th><td><i class="doc">    /// contains the symbol. When this index is passed to a call to</i></td></tr>
+<tr><th id="178">178</th><td><i class="doc">    /// ___tls_get_addr, the function will return the base address of the TLS</i></td></tr>
+<tr><th id="179">179</th><td><i class="doc">    /// block for the symbol. Used in the IA32 local dynamic TLS access model.</i></td></tr>
+<tr><th id="180">180</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="181">181</th><td><i class="doc">    /// See 'ELF Handling for Thread-Local Storage' for more details.</i></td></tr>
+<tr><th id="182">182</th><td><i class="doc">    ///    SYMBOL_LABEL<span class="command"> @TLSLDM</span></i></td></tr>
+<tr><th id="183">183</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_TLSLDM" title='llvm::X86II::TOF::MO_TLSLDM' data-ref="llvm::X86II::TOF::MO_TLSLDM">MO_TLSLDM</dfn>,</td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td>    <i class="doc">/// MO_GOTTPOFF - On a symbol operand this indicates that the immediate is</i></td></tr>
+<tr><th id="186">186</th><td><i class="doc">    /// the offset of the GOT entry with the thread-pointer offset for the</i></td></tr>
+<tr><th id="187">187</th><td><i class="doc">    /// symbol. Used in the x86-64 initial exec TLS access model.</i></td></tr>
+<tr><th id="188">188</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="189">189</th><td><i class="doc">    /// See 'ELF Handling for Thread-Local Storage' for more details.</i></td></tr>
+<tr><th id="190">190</th><td><i class="doc">    ///    SYMBOL_LABEL<span class="command"> @GOTTPOFF</span></i></td></tr>
+<tr><th id="191">191</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_GOTTPOFF" title='llvm::X86II::TOF::MO_GOTTPOFF' data-ref="llvm::X86II::TOF::MO_GOTTPOFF">MO_GOTTPOFF</dfn>,</td></tr>
+<tr><th id="192">192</th><td></td></tr>
+<tr><th id="193">193</th><td>    <i class="doc">/// MO_INDNTPOFF - On a symbol operand this indicates that the immediate is</i></td></tr>
+<tr><th id="194">194</th><td><i class="doc">    /// the absolute address of the GOT entry with the negative thread-pointer</i></td></tr>
+<tr><th id="195">195</th><td><i class="doc">    /// offset for the symbol. Used in the non-PIC IA32 initial exec TLS access</i></td></tr>
+<tr><th id="196">196</th><td><i class="doc">    /// model.</i></td></tr>
+<tr><th id="197">197</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="198">198</th><td><i class="doc">    /// See 'ELF Handling for Thread-Local Storage' for more details.</i></td></tr>
+<tr><th id="199">199</th><td><i class="doc">    ///    SYMBOL_LABEL<span class="command"> @INDNTPOFF</span></i></td></tr>
+<tr><th id="200">200</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_INDNTPOFF" title='llvm::X86II::TOF::MO_INDNTPOFF' data-ref="llvm::X86II::TOF::MO_INDNTPOFF">MO_INDNTPOFF</dfn>,</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td>    <i class="doc">/// MO_TPOFF - On a symbol operand this indicates that the immediate is</i></td></tr>
+<tr><th id="203">203</th><td><i class="doc">    /// the thread-pointer offset for the symbol. Used in the x86-64 local</i></td></tr>
+<tr><th id="204">204</th><td><i class="doc">    /// exec TLS access model.</i></td></tr>
+<tr><th id="205">205</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="206">206</th><td><i class="doc">    /// See 'ELF Handling for Thread-Local Storage' for more details.</i></td></tr>
+<tr><th id="207">207</th><td><i class="doc">    ///    SYMBOL_LABEL<span class="command"> @TPOFF</span></i></td></tr>
+<tr><th id="208">208</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_TPOFF" title='llvm::X86II::TOF::MO_TPOFF' data-ref="llvm::X86II::TOF::MO_TPOFF">MO_TPOFF</dfn>,</td></tr>
+<tr><th id="209">209</th><td></td></tr>
+<tr><th id="210">210</th><td>    <i class="doc">/// MO_DTPOFF - On a symbol operand this indicates that the immediate is</i></td></tr>
+<tr><th id="211">211</th><td><i class="doc">    /// the offset of the GOT entry with the TLS offset of the symbol. Used</i></td></tr>
+<tr><th id="212">212</th><td><i class="doc">    /// in the local dynamic TLS access model.</i></td></tr>
+<tr><th id="213">213</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="214">214</th><td><i class="doc">    /// See 'ELF Handling for Thread-Local Storage' for more details.</i></td></tr>
+<tr><th id="215">215</th><td><i class="doc">    ///    SYMBOL_LABEL<span class="command"> @DTPOFF</span></i></td></tr>
+<tr><th id="216">216</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_DTPOFF" title='llvm::X86II::TOF::MO_DTPOFF' data-ref="llvm::X86II::TOF::MO_DTPOFF">MO_DTPOFF</dfn>,</td></tr>
+<tr><th id="217">217</th><td></td></tr>
+<tr><th id="218">218</th><td>    <i class="doc">/// MO_NTPOFF - On a symbol operand this indicates that the immediate is</i></td></tr>
+<tr><th id="219">219</th><td><i class="doc">    /// the negative thread-pointer offset for the symbol. Used in the IA32</i></td></tr>
+<tr><th id="220">220</th><td><i class="doc">    /// local exec TLS access model.</i></td></tr>
+<tr><th id="221">221</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="222">222</th><td><i class="doc">    /// See 'ELF Handling for Thread-Local Storage' for more details.</i></td></tr>
+<tr><th id="223">223</th><td><i class="doc">    ///    SYMBOL_LABEL<span class="command"> @NTPOFF</span></i></td></tr>
+<tr><th id="224">224</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_NTPOFF" title='llvm::X86II::TOF::MO_NTPOFF' data-ref="llvm::X86II::TOF::MO_NTPOFF">MO_NTPOFF</dfn>,</td></tr>
+<tr><th id="225">225</th><td></td></tr>
+<tr><th id="226">226</th><td>    <i class="doc">/// MO_GOTNTPOFF - On a symbol operand this indicates that the immediate is</i></td></tr>
+<tr><th id="227">227</th><td><i class="doc">    /// the offset of the GOT entry with the negative thread-pointer offset for</i></td></tr>
+<tr><th id="228">228</th><td><i class="doc">    /// the symbol. Used in the PIC IA32 initial exec TLS access model.</i></td></tr>
+<tr><th id="229">229</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="230">230</th><td><i class="doc">    /// See 'ELF Handling for Thread-Local Storage' for more details.</i></td></tr>
+<tr><th id="231">231</th><td><i class="doc">    ///    SYMBOL_LABEL<span class="command"> @GOTNTPOFF</span></i></td></tr>
+<tr><th id="232">232</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_GOTNTPOFF" title='llvm::X86II::TOF::MO_GOTNTPOFF' data-ref="llvm::X86II::TOF::MO_GOTNTPOFF">MO_GOTNTPOFF</dfn>,</td></tr>
+<tr><th id="233">233</th><td></td></tr>
+<tr><th id="234">234</th><td>    <i class="doc">/// MO_DLLIMPORT - On a symbol operand "FOO", this indicates that the</i></td></tr>
+<tr><th id="235">235</th><td><i class="doc">    /// reference is actually to the "__imp_FOO" symbol.  This is used for</i></td></tr>
+<tr><th id="236">236</th><td><i class="doc">    /// dllimport linkage on windows.</i></td></tr>
+<tr><th id="237">237</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_DLLIMPORT" title='llvm::X86II::TOF::MO_DLLIMPORT' data-ref="llvm::X86II::TOF::MO_DLLIMPORT">MO_DLLIMPORT</dfn>,</td></tr>
+<tr><th id="238">238</th><td></td></tr>
+<tr><th id="239">239</th><td>    <i class="doc">/// MO_DARWIN_NONLAZY - On a symbol operand "FOO", this indicates that the</i></td></tr>
+<tr><th id="240">240</th><td><i class="doc">    /// reference is actually to the "FOO$non_lazy_ptr" symbol, which is a</i></td></tr>
+<tr><th id="241">241</th><td><i class="doc">    /// non-PIC-base-relative reference to a non-hidden dyld lazy pointer stub.</i></td></tr>
+<tr><th id="242">242</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_DARWIN_NONLAZY" title='llvm::X86II::TOF::MO_DARWIN_NONLAZY' data-ref="llvm::X86II::TOF::MO_DARWIN_NONLAZY">MO_DARWIN_NONLAZY</dfn>,</td></tr>
+<tr><th id="243">243</th><td></td></tr>
+<tr><th id="244">244</th><td>    <i class="doc">/// MO_DARWIN_NONLAZY_PIC_BASE - On a symbol operand "FOO", this indicates</i></td></tr>
+<tr><th id="245">245</th><td><i class="doc">    /// that the reference is actually to "FOO$non_lazy_ptr - PICBASE", which is</i></td></tr>
+<tr><th id="246">246</th><td><i class="doc">    /// a PIC-base-relative reference to a non-hidden dyld lazy pointer stub.</i></td></tr>
+<tr><th id="247">247</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_DARWIN_NONLAZY_PIC_BASE" title='llvm::X86II::TOF::MO_DARWIN_NONLAZY_PIC_BASE' data-ref="llvm::X86II::TOF::MO_DARWIN_NONLAZY_PIC_BASE">MO_DARWIN_NONLAZY_PIC_BASE</dfn>,</td></tr>
+<tr><th id="248">248</th><td></td></tr>
+<tr><th id="249">249</th><td>    <i class="doc">/// MO_TLVP - On a symbol operand this indicates that the immediate is</i></td></tr>
+<tr><th id="250">250</th><td><i class="doc">    /// some TLS offset.</i></td></tr>
+<tr><th id="251">251</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="252">252</th><td><i class="doc">    /// This is the TLS offset for the Darwin TLS mechanism.</i></td></tr>
+<tr><th id="253">253</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_TLVP" title='llvm::X86II::TOF::MO_TLVP' data-ref="llvm::X86II::TOF::MO_TLVP">MO_TLVP</dfn>,</td></tr>
+<tr><th id="254">254</th><td></td></tr>
+<tr><th id="255">255</th><td>    <i class="doc">/// MO_TLVP_PIC_BASE - On a symbol operand this indicates that the immediate</i></td></tr>
+<tr><th id="256">256</th><td><i class="doc">    /// is some TLS offset from the picbase.</i></td></tr>
+<tr><th id="257">257</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="258">258</th><td><i class="doc">    /// This is the 32-bit TLS offset for Darwin TLS in PIC mode.</i></td></tr>
+<tr><th id="259">259</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_TLVP_PIC_BASE" title='llvm::X86II::TOF::MO_TLVP_PIC_BASE' data-ref="llvm::X86II::TOF::MO_TLVP_PIC_BASE">MO_TLVP_PIC_BASE</dfn>,</td></tr>
+<tr><th id="260">260</th><td></td></tr>
+<tr><th id="261">261</th><td>    <i class="doc">/// MO_SECREL - On a symbol operand this indicates that the immediate is</i></td></tr>
+<tr><th id="262">262</th><td><i class="doc">    /// the offset from beginning of section.</i></td></tr>
+<tr><th id="263">263</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="264">264</th><td><i class="doc">    /// This is the TLS offset for the COFF/Windows TLS mechanism.</i></td></tr>
+<tr><th id="265">265</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_SECREL" title='llvm::X86II::TOF::MO_SECREL' data-ref="llvm::X86II::TOF::MO_SECREL">MO_SECREL</dfn>,</td></tr>
+<tr><th id="266">266</th><td></td></tr>
+<tr><th id="267">267</th><td>    <i class="doc">/// MO_ABS8 - On a symbol operand this indicates that the symbol is known</i></td></tr>
+<tr><th id="268">268</th><td><i class="doc">    /// to be an absolute symbol in range [0,128), so we can use the<span class="command"> @ABS8</span></i></td></tr>
+<tr><th id="269">269</th><td><i class="doc">    /// symbol modifier.</i></td></tr>
+<tr><th id="270">270</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_ABS8" title='llvm::X86II::TOF::MO_ABS8' data-ref="llvm::X86II::TOF::MO_ABS8">MO_ABS8</dfn>,</td></tr>
+<tr><th id="271">271</th><td></td></tr>
+<tr><th id="272">272</th><td>    <i class="doc">/// MO_COFFSTUB - On a symbol operand "FOO", this indicates that the</i></td></tr>
+<tr><th id="273">273</th><td><i class="doc">    /// reference is actually to the ".refptr.FOO" symbol.  This is used for</i></td></tr>
+<tr><th id="274">274</th><td><i class="doc">    /// stub symbols on windows.</i></td></tr>
+<tr><th id="275">275</th><td>    <dfn class="enum" id="llvm::X86II::TOF::MO_COFFSTUB" title='llvm::X86II::TOF::MO_COFFSTUB' data-ref="llvm::X86II::TOF::MO_COFFSTUB">MO_COFFSTUB</dfn>,</td></tr>
+<tr><th id="276">276</th><td>  };</td></tr>
+<tr><th id="277">277</th><td></td></tr>
+<tr><th id="278">278</th><td>  <b>enum</b> : uint64_t {</td></tr>
+<tr><th id="279">279</th><td>    <i>//===------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="280">280</th><td><i>    // Instruction encodings.  These are the standard/most common forms for X86</i></td></tr>
+<tr><th id="281">281</th><td><i>    // instructions.</i></td></tr>
+<tr><th id="282">282</th><td><i>    //</i></td></tr>
+<tr><th id="283">283</th><td><i></i></td></tr>
+<tr><th id="284">284</th><td><i>    // PseudoFrm - This represents an instruction that is a pseudo instruction</i></td></tr>
+<tr><th id="285">285</th><td><i>    // or one that has not been implemented yet.  It is illegal to code generate</i></td></tr>
+<tr><th id="286">286</th><td><i>    // it, but tolerated for intermediate implementation stages.</i></td></tr>
+<tr><th id="287">287</th><td>    <dfn class="enum" id="llvm::X86II::Pseudo" title='llvm::X86II::Pseudo' data-ref="llvm::X86II::Pseudo">Pseudo</dfn>         = <var>0</var>,</td></tr>
+<tr><th id="288">288</th><td></td></tr>
+<tr><th id="289">289</th><td>    <i class="doc">/// Raw - This form is for instructions that don't have any operands, so</i></td></tr>
+<tr><th id="290">290</th><td><i class="doc">    /// they are just a fixed opcode value, like 'leave'.</i></td></tr>
+<tr><th id="291">291</th><td>    <dfn class="enum" id="llvm::X86II::RawFrm" title='llvm::X86II::RawFrm' data-ref="llvm::X86II::RawFrm">RawFrm</dfn>         = <var>1</var>,</td></tr>
+<tr><th id="292">292</th><td></td></tr>
+<tr><th id="293">293</th><td>    <i class="doc">/// AddRegFrm - This form is used for instructions like 'push r32' that have</i></td></tr>
+<tr><th id="294">294</th><td><i class="doc">    /// their one register operand added to their opcode.</i></td></tr>
+<tr><th id="295">295</th><td>    <dfn class="enum" id="llvm::X86II::AddRegFrm" title='llvm::X86II::AddRegFrm' data-ref="llvm::X86II::AddRegFrm">AddRegFrm</dfn>      = <var>2</var>,</td></tr>
+<tr><th id="296">296</th><td></td></tr>
+<tr><th id="297">297</th><td>    <i class="doc">/// RawFrmMemOffs - This form is for instructions that store an absolute</i></td></tr>
+<tr><th id="298">298</th><td><i class="doc">    /// memory offset as an immediate with a possible segment override.</i></td></tr>
+<tr><th id="299">299</th><td>    <dfn class="enum" id="llvm::X86II::RawFrmMemOffs" title='llvm::X86II::RawFrmMemOffs' data-ref="llvm::X86II::RawFrmMemOffs">RawFrmMemOffs</dfn>  = <var>3</var>,</td></tr>
+<tr><th id="300">300</th><td></td></tr>
+<tr><th id="301">301</th><td>    <i class="doc">/// RawFrmSrc - This form is for instructions that use the source index</i></td></tr>
+<tr><th id="302">302</th><td><i class="doc">    /// register SI/ESI/RSI with a possible segment override.</i></td></tr>
+<tr><th id="303">303</th><td>    <dfn class="enum" id="llvm::X86II::RawFrmSrc" title='llvm::X86II::RawFrmSrc' data-ref="llvm::X86II::RawFrmSrc">RawFrmSrc</dfn>      = <var>4</var>,</td></tr>
+<tr><th id="304">304</th><td></td></tr>
+<tr><th id="305">305</th><td>    <i class="doc">/// RawFrmDst - This form is for instructions that use the destination index</i></td></tr>
+<tr><th id="306">306</th><td><i class="doc">    /// register DI/EDI/RDI.</i></td></tr>
+<tr><th id="307">307</th><td>    <dfn class="enum" id="llvm::X86II::RawFrmDst" title='llvm::X86II::RawFrmDst' data-ref="llvm::X86II::RawFrmDst">RawFrmDst</dfn>      = <var>5</var>,</td></tr>
+<tr><th id="308">308</th><td></td></tr>
+<tr><th id="309">309</th><td>    <i class="doc">/// RawFrmDstSrc - This form is for instructions that use the source index</i></td></tr>
+<tr><th id="310">310</th><td><i class="doc">    /// register SI/ESI/RSI with a possible segment override, and also the</i></td></tr>
+<tr><th id="311">311</th><td><i class="doc">    /// destination index register DI/EDI/RDI.</i></td></tr>
+<tr><th id="312">312</th><td>    <dfn class="enum" id="llvm::X86II::RawFrmDstSrc" title='llvm::X86II::RawFrmDstSrc' data-ref="llvm::X86II::RawFrmDstSrc">RawFrmDstSrc</dfn>   = <var>6</var>,</td></tr>
+<tr><th id="313">313</th><td></td></tr>
+<tr><th id="314">314</th><td>    <i class="doc">/// RawFrmImm8 - This is used for the ENTER instruction, which has two</i></td></tr>
+<tr><th id="315">315</th><td><i class="doc">    /// immediates, the first of which is a 16-bit immediate (specified by</i></td></tr>
+<tr><th id="316">316</th><td><i class="doc">    /// the imm encoding) and the second is a 8-bit fixed value.</i></td></tr>
+<tr><th id="317">317</th><td>    <dfn class="enum" id="llvm::X86II::RawFrmImm8" title='llvm::X86II::RawFrmImm8' data-ref="llvm::X86II::RawFrmImm8">RawFrmImm8</dfn> = <var>7</var>,</td></tr>
+<tr><th id="318">318</th><td></td></tr>
+<tr><th id="319">319</th><td>    <i class="doc">/// RawFrmImm16 - This is used for CALL FAR instructions, which have two</i></td></tr>
+<tr><th id="320">320</th><td><i class="doc">    /// immediates, the first of which is a 16 or 32-bit immediate (specified by</i></td></tr>
+<tr><th id="321">321</th><td><i class="doc">    /// the imm encoding) and the second is a 16-bit fixed value.  In the AMD</i></td></tr>
+<tr><th id="322">322</th><td><i class="doc">    /// manual, this operand is described as pntr16:32 and pntr16:16</i></td></tr>
+<tr><th id="323">323</th><td>    <dfn class="enum" id="llvm::X86II::RawFrmImm16" title='llvm::X86II::RawFrmImm16' data-ref="llvm::X86II::RawFrmImm16">RawFrmImm16</dfn> = <var>8</var>,</td></tr>
+<tr><th id="324">324</th><td></td></tr>
+<tr><th id="325">325</th><td>    <i class="doc">/// AddCCFrm - This form is used for Jcc that encode the condition code</i></td></tr>
+<tr><th id="326">326</th><td><i class="doc">    /// in the lower 4 bits of the opcode.</i></td></tr>
+<tr><th id="327">327</th><td>    <dfn class="enum" id="llvm::X86II::AddCCFrm" title='llvm::X86II::AddCCFrm' data-ref="llvm::X86II::AddCCFrm">AddCCFrm</dfn> = <var>9</var>,</td></tr>
+<tr><th id="328">328</th><td></td></tr>
+<tr><th id="329">329</th><td>    <i class="doc">/// MRM[0-7][rm] - These forms are used to represent instructions that use</i></td></tr>
+<tr><th id="330">330</th><td><i class="doc">    /// a Mod/RM byte, and use the middle field to hold extended opcode</i></td></tr>
+<tr><th id="331">331</th><td><i class="doc">    /// information.  In the intel manual these are represented as /0, /1, ...</i></td></tr>
+<tr><th id="332">332</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="333">333</th><td><i class="doc"></i></td></tr>
+<tr><th id="334">334</th><td><i class="doc">    /// MRMDestMem - This form is used for instructions that use the Mod/RM byte</i></td></tr>
+<tr><th id="335">335</th><td><i class="doc">    /// to specify a destination, which in this case is memory.</i></td></tr>
+<tr><th id="336">336</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="337">337</th><td>    <dfn class="enum" id="llvm::X86II::MRMDestMem" title='llvm::X86II::MRMDestMem' data-ref="llvm::X86II::MRMDestMem">MRMDestMem</dfn>     = <var>32</var>,</td></tr>
+<tr><th id="338">338</th><td></td></tr>
+<tr><th id="339">339</th><td>    <i class="doc">/// MRMSrcMem - This form is used for instructions that use the Mod/RM byte</i></td></tr>
+<tr><th id="340">340</th><td><i class="doc">    /// to specify a source, which in this case is memory.</i></td></tr>
+<tr><th id="341">341</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="342">342</th><td>    <dfn class="enum" id="llvm::X86II::MRMSrcMem" title='llvm::X86II::MRMSrcMem' data-ref="llvm::X86II::MRMSrcMem">MRMSrcMem</dfn>      = <var>33</var>,</td></tr>
+<tr><th id="343">343</th><td></td></tr>
+<tr><th id="344">344</th><td>    <i class="doc">/// MRMSrcMem4VOp3 - This form is used for instructions that encode</i></td></tr>
+<tr><th id="345">345</th><td><i class="doc">    /// operand 3 with VEX.VVVV and load from memory.</i></td></tr>
+<tr><th id="346">346</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="347">347</th><td>    <dfn class="enum" id="llvm::X86II::MRMSrcMem4VOp3" title='llvm::X86II::MRMSrcMem4VOp3' data-ref="llvm::X86II::MRMSrcMem4VOp3">MRMSrcMem4VOp3</dfn> = <var>34</var>,</td></tr>
+<tr><th id="348">348</th><td></td></tr>
+<tr><th id="349">349</th><td>    <i class="doc">/// MRMSrcMemOp4 - This form is used for instructions that use the Mod/RM</i></td></tr>
+<tr><th id="350">350</th><td><i class="doc">    /// byte to specify the fourth source, which in this case is memory.</i></td></tr>
+<tr><th id="351">351</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="352">352</th><td>    <dfn class="enum" id="llvm::X86II::MRMSrcMemOp4" title='llvm::X86II::MRMSrcMemOp4' data-ref="llvm::X86II::MRMSrcMemOp4">MRMSrcMemOp4</dfn>   = <var>35</var>,</td></tr>
+<tr><th id="353">353</th><td></td></tr>
+<tr><th id="354">354</th><td>    <i class="doc">/// MRMSrcMemCC - This form is used for instructions that use the Mod/RM</i></td></tr>
+<tr><th id="355">355</th><td><i class="doc">    /// byte to specify the operands and also encodes a condition code.</i></td></tr>
+<tr><th id="356">356</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="357">357</th><td>    <dfn class="enum" id="llvm::X86II::MRMSrcMemCC" title='llvm::X86II::MRMSrcMemCC' data-ref="llvm::X86II::MRMSrcMemCC">MRMSrcMemCC</dfn>    = <var>36</var>,</td></tr>
+<tr><th id="358">358</th><td></td></tr>
+<tr><th id="359">359</th><td>    <i class="doc">/// MRMXm - This form is used for instructions that use the Mod/RM byte</i></td></tr>
+<tr><th id="360">360</th><td><i class="doc">    /// to specify a memory source, but doesn't use the middle field. And has</i></td></tr>
+<tr><th id="361">361</th><td><i class="doc">    /// a condition code.</i></td></tr>
+<tr><th id="362">362</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="363">363</th><td>    <dfn class="enum" id="llvm::X86II::MRMXmCC" title='llvm::X86II::MRMXmCC' data-ref="llvm::X86II::MRMXmCC">MRMXmCC</dfn> = <var>38</var>,</td></tr>
+<tr><th id="364">364</th><td></td></tr>
+<tr><th id="365">365</th><td>    <i class="doc">/// MRMXm - This form is used for instructions that use the Mod/RM byte</i></td></tr>
+<tr><th id="366">366</th><td><i class="doc">    /// to specify a memory source, but doesn't use the middle field.</i></td></tr>
+<tr><th id="367">367</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="368">368</th><td>    <dfn class="enum" id="llvm::X86II::MRMXm" title='llvm::X86II::MRMXm' data-ref="llvm::X86II::MRMXm">MRMXm</dfn> = <var>39</var>,</td></tr>
+<tr><th id="369">369</th><td></td></tr>
+<tr><th id="370">370</th><td>    <i>// Next, instructions that operate on a memory r/m operand...</i></td></tr>
+<tr><th id="371">371</th><td>    <dfn class="enum" id="llvm::X86II::MRM0m" title='llvm::X86II::MRM0m' data-ref="llvm::X86II::MRM0m">MRM0m</dfn> = <var>40</var>,  <dfn class="enum" id="llvm::X86II::MRM1m" title='llvm::X86II::MRM1m' data-ref="llvm::X86II::MRM1m">MRM1m</dfn> = <var>41</var>,  <dfn class="enum" id="llvm::X86II::MRM2m" title='llvm::X86II::MRM2m' data-ref="llvm::X86II::MRM2m">MRM2m</dfn> = <var>42</var>,  <dfn class="enum" id="llvm::X86II::MRM3m" title='llvm::X86II::MRM3m' data-ref="llvm::X86II::MRM3m">MRM3m</dfn> = <var>43</var>, <i>// Format /0 /1 /2 /3</i></td></tr>
+<tr><th id="372">372</th><td>    <dfn class="enum" id="llvm::X86II::MRM4m" title='llvm::X86II::MRM4m' data-ref="llvm::X86II::MRM4m">MRM4m</dfn> = <var>44</var>,  <dfn class="enum" id="llvm::X86II::MRM5m" title='llvm::X86II::MRM5m' data-ref="llvm::X86II::MRM5m">MRM5m</dfn> = <var>45</var>,  <dfn class="enum" id="llvm::X86II::MRM6m" title='llvm::X86II::MRM6m' data-ref="llvm::X86II::MRM6m">MRM6m</dfn> = <var>46</var>,  <dfn class="enum" id="llvm::X86II::MRM7m" title='llvm::X86II::MRM7m' data-ref="llvm::X86II::MRM7m">MRM7m</dfn> = <var>47</var>, <i>// Format /4 /5 /6 /7</i></td></tr>
+<tr><th id="373">373</th><td></td></tr>
+<tr><th id="374">374</th><td>    <i class="doc">/// MRMDestReg - This form is used for instructions that use the Mod/RM byte</i></td></tr>
+<tr><th id="375">375</th><td><i class="doc">    /// to specify a destination, which in this case is a register.</i></td></tr>
+<tr><th id="376">376</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="377">377</th><td>    <dfn class="enum" id="llvm::X86II::MRMDestReg" title='llvm::X86II::MRMDestReg' data-ref="llvm::X86II::MRMDestReg">MRMDestReg</dfn>     = <var>48</var>,</td></tr>
+<tr><th id="378">378</th><td></td></tr>
+<tr><th id="379">379</th><td>    <i class="doc">/// MRMSrcReg - This form is used for instructions that use the Mod/RM byte</i></td></tr>
+<tr><th id="380">380</th><td><i class="doc">    /// to specify a source, which in this case is a register.</i></td></tr>
+<tr><th id="381">381</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="382">382</th><td>    <dfn class="enum" id="llvm::X86II::MRMSrcReg" title='llvm::X86II::MRMSrcReg' data-ref="llvm::X86II::MRMSrcReg">MRMSrcReg</dfn>      = <var>49</var>,</td></tr>
+<tr><th id="383">383</th><td></td></tr>
+<tr><th id="384">384</th><td>    <i class="doc">/// MRMSrcReg4VOp3 - This form is used for instructions that encode</i></td></tr>
+<tr><th id="385">385</th><td><i class="doc">    /// operand 3 with VEX.VVVV and do not load from memory.</i></td></tr>
+<tr><th id="386">386</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="387">387</th><td>    <dfn class="enum" id="llvm::X86II::MRMSrcReg4VOp3" title='llvm::X86II::MRMSrcReg4VOp3' data-ref="llvm::X86II::MRMSrcReg4VOp3">MRMSrcReg4VOp3</dfn> = <var>50</var>,</td></tr>
+<tr><th id="388">388</th><td></td></tr>
+<tr><th id="389">389</th><td>    <i class="doc">/// MRMSrcRegOp4 - This form is used for instructions that use the Mod/RM</i></td></tr>
+<tr><th id="390">390</th><td><i class="doc">    /// byte to specify the fourth source, which in this case is a register.</i></td></tr>
+<tr><th id="391">391</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="392">392</th><td>    <dfn class="enum" id="llvm::X86II::MRMSrcRegOp4" title='llvm::X86II::MRMSrcRegOp4' data-ref="llvm::X86II::MRMSrcRegOp4">MRMSrcRegOp4</dfn>   = <var>51</var>,</td></tr>
+<tr><th id="393">393</th><td></td></tr>
+<tr><th id="394">394</th><td>    <i class="doc">/// MRMSrcRegCC - This form is used for instructions that use the Mod/RM</i></td></tr>
+<tr><th id="395">395</th><td><i class="doc">    /// byte to specify the operands and also encodes a condition code</i></td></tr>
+<tr><th id="396">396</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="397">397</th><td>    <dfn class="enum" id="llvm::X86II::MRMSrcRegCC" title='llvm::X86II::MRMSrcRegCC' data-ref="llvm::X86II::MRMSrcRegCC">MRMSrcRegCC</dfn>    = <var>52</var>,</td></tr>
+<tr><th id="398">398</th><td></td></tr>
+<tr><th id="399">399</th><td>    <i class="doc">/// MRMXCCr - This form is used for instructions that use the Mod/RM byte</i></td></tr>
+<tr><th id="400">400</th><td><i class="doc">    /// to specify a register source, but doesn't use the middle field. And has</i></td></tr>
+<tr><th id="401">401</th><td><i class="doc">    /// a condition code.</i></td></tr>
+<tr><th id="402">402</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="403">403</th><td>    <dfn class="enum" id="llvm::X86II::MRMXrCC" title='llvm::X86II::MRMXrCC' data-ref="llvm::X86II::MRMXrCC">MRMXrCC</dfn> = <var>54</var>,</td></tr>
+<tr><th id="404">404</th><td></td></tr>
+<tr><th id="405">405</th><td>    <i class="doc">/// MRMXr - This form is used for instructions that use the Mod/RM byte</i></td></tr>
+<tr><th id="406">406</th><td><i class="doc">    /// to specify a register source, but doesn't use the middle field.</i></td></tr>
+<tr><th id="407">407</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="408">408</th><td>    <dfn class="enum" id="llvm::X86II::MRMXr" title='llvm::X86II::MRMXr' data-ref="llvm::X86II::MRMXr">MRMXr</dfn> = <var>55</var>,</td></tr>
+<tr><th id="409">409</th><td></td></tr>
+<tr><th id="410">410</th><td>    <i>// Instructions that operate on a register r/m operand...</i></td></tr>
+<tr><th id="411">411</th><td>    <dfn class="enum" id="llvm::X86II::MRM0r" title='llvm::X86II::MRM0r' data-ref="llvm::X86II::MRM0r">MRM0r</dfn> = <var>56</var>,  <dfn class="enum" id="llvm::X86II::MRM1r" title='llvm::X86II::MRM1r' data-ref="llvm::X86II::MRM1r">MRM1r</dfn> = <var>57</var>,  <dfn class="enum" id="llvm::X86II::MRM2r" title='llvm::X86II::MRM2r' data-ref="llvm::X86II::MRM2r">MRM2r</dfn> = <var>58</var>,  <dfn class="enum" id="llvm::X86II::MRM3r" title='llvm::X86II::MRM3r' data-ref="llvm::X86II::MRM3r">MRM3r</dfn> = <var>59</var>, <i>// Format /0 /1 /2 /3</i></td></tr>
+<tr><th id="412">412</th><td>    <dfn class="enum" id="llvm::X86II::MRM4r" title='llvm::X86II::MRM4r' data-ref="llvm::X86II::MRM4r">MRM4r</dfn> = <var>60</var>,  <dfn class="enum" id="llvm::X86II::MRM5r" title='llvm::X86II::MRM5r' data-ref="llvm::X86II::MRM5r">MRM5r</dfn> = <var>61</var>,  <dfn class="enum" id="llvm::X86II::MRM6r" title='llvm::X86II::MRM6r' data-ref="llvm::X86II::MRM6r">MRM6r</dfn> = <var>62</var>,  <dfn class="enum" id="llvm::X86II::MRM7r" title='llvm::X86II::MRM7r' data-ref="llvm::X86II::MRM7r">MRM7r</dfn> = <var>63</var>, <i>// Format /4 /5 /6 /7</i></td></tr>
+<tr><th id="413">413</th><td></td></tr>
+<tr><th id="414">414</th><td>    <i class="doc">/// MRM_XX - A mod/rm byte of exactly 0xXX.</i></td></tr>
+<tr><th id="415">415</th><td>    <dfn class="enum" id="llvm::X86II::MRM_C0" title='llvm::X86II::MRM_C0' data-ref="llvm::X86II::MRM_C0">MRM_C0</dfn> = <var>64</var>,  <dfn class="enum" id="llvm::X86II::MRM_C1" title='llvm::X86II::MRM_C1' data-ref="llvm::X86II::MRM_C1">MRM_C1</dfn> = <var>65</var>,  <dfn class="enum" id="llvm::X86II::MRM_C2" title='llvm::X86II::MRM_C2' data-ref="llvm::X86II::MRM_C2">MRM_C2</dfn> = <var>66</var>,  <dfn class="enum" id="llvm::X86II::MRM_C3" title='llvm::X86II::MRM_C3' data-ref="llvm::X86II::MRM_C3">MRM_C3</dfn> = <var>67</var>,</td></tr>
+<tr><th id="416">416</th><td>    <dfn class="enum" id="llvm::X86II::MRM_C4" title='llvm::X86II::MRM_C4' data-ref="llvm::X86II::MRM_C4">MRM_C4</dfn> = <var>68</var>,  <dfn class="enum" id="llvm::X86II::MRM_C5" title='llvm::X86II::MRM_C5' data-ref="llvm::X86II::MRM_C5">MRM_C5</dfn> = <var>69</var>,  <dfn class="enum" id="llvm::X86II::MRM_C6" title='llvm::X86II::MRM_C6' data-ref="llvm::X86II::MRM_C6">MRM_C6</dfn> = <var>70</var>,  <dfn class="enum" id="llvm::X86II::MRM_C7" title='llvm::X86II::MRM_C7' data-ref="llvm::X86II::MRM_C7">MRM_C7</dfn> = <var>71</var>,</td></tr>
+<tr><th id="417">417</th><td>    <dfn class="enum" id="llvm::X86II::MRM_C8" title='llvm::X86II::MRM_C8' data-ref="llvm::X86II::MRM_C8">MRM_C8</dfn> = <var>72</var>,  <dfn class="enum" id="llvm::X86II::MRM_C9" title='llvm::X86II::MRM_C9' data-ref="llvm::X86II::MRM_C9">MRM_C9</dfn> = <var>73</var>,  <dfn class="enum" id="llvm::X86II::MRM_CA" title='llvm::X86II::MRM_CA' data-ref="llvm::X86II::MRM_CA">MRM_CA</dfn> = <var>74</var>,  <dfn class="enum" id="llvm::X86II::MRM_CB" title='llvm::X86II::MRM_CB' data-ref="llvm::X86II::MRM_CB">MRM_CB</dfn> = <var>75</var>,</td></tr>
+<tr><th id="418">418</th><td>    <dfn class="enum" id="llvm::X86II::MRM_CC" title='llvm::X86II::MRM_CC' data-ref="llvm::X86II::MRM_CC">MRM_CC</dfn> = <var>76</var>,  <dfn class="enum" id="llvm::X86II::MRM_CD" title='llvm::X86II::MRM_CD' data-ref="llvm::X86II::MRM_CD">MRM_CD</dfn> = <var>77</var>,  <dfn class="enum" id="llvm::X86II::MRM_CE" title='llvm::X86II::MRM_CE' data-ref="llvm::X86II::MRM_CE">MRM_CE</dfn> = <var>78</var>,  <dfn class="enum" id="llvm::X86II::MRM_CF" title='llvm::X86II::MRM_CF' data-ref="llvm::X86II::MRM_CF">MRM_CF</dfn> = <var>79</var>,</td></tr>
+<tr><th id="419">419</th><td>    <dfn class="enum" id="llvm::X86II::MRM_D0" title='llvm::X86II::MRM_D0' data-ref="llvm::X86II::MRM_D0">MRM_D0</dfn> = <var>80</var>,  <dfn class="enum" id="llvm::X86II::MRM_D1" title='llvm::X86II::MRM_D1' data-ref="llvm::X86II::MRM_D1">MRM_D1</dfn> = <var>81</var>,  <dfn class="enum" id="llvm::X86II::MRM_D2" title='llvm::X86II::MRM_D2' data-ref="llvm::X86II::MRM_D2">MRM_D2</dfn> = <var>82</var>,  <dfn class="enum" id="llvm::X86II::MRM_D3" title='llvm::X86II::MRM_D3' data-ref="llvm::X86II::MRM_D3">MRM_D3</dfn> = <var>83</var>,</td></tr>
+<tr><th id="420">420</th><td>    <dfn class="enum" id="llvm::X86II::MRM_D4" title='llvm::X86II::MRM_D4' data-ref="llvm::X86II::MRM_D4">MRM_D4</dfn> = <var>84</var>,  <dfn class="enum" id="llvm::X86II::MRM_D5" title='llvm::X86II::MRM_D5' data-ref="llvm::X86II::MRM_D5">MRM_D5</dfn> = <var>85</var>,  <dfn class="enum" id="llvm::X86II::MRM_D6" title='llvm::X86II::MRM_D6' data-ref="llvm::X86II::MRM_D6">MRM_D6</dfn> = <var>86</var>,  <dfn class="enum" id="llvm::X86II::MRM_D7" title='llvm::X86II::MRM_D7' data-ref="llvm::X86II::MRM_D7">MRM_D7</dfn> = <var>87</var>,</td></tr>
+<tr><th id="421">421</th><td>    <dfn class="enum" id="llvm::X86II::MRM_D8" title='llvm::X86II::MRM_D8' data-ref="llvm::X86II::MRM_D8">MRM_D8</dfn> = <var>88</var>,  <dfn class="enum" id="llvm::X86II::MRM_D9" title='llvm::X86II::MRM_D9' data-ref="llvm::X86II::MRM_D9">MRM_D9</dfn> = <var>89</var>,  <dfn class="enum" id="llvm::X86II::MRM_DA" title='llvm::X86II::MRM_DA' data-ref="llvm::X86II::MRM_DA">MRM_DA</dfn> = <var>90</var>,  <dfn class="enum" id="llvm::X86II::MRM_DB" title='llvm::X86II::MRM_DB' data-ref="llvm::X86II::MRM_DB">MRM_DB</dfn> = <var>91</var>,</td></tr>
+<tr><th id="422">422</th><td>    <dfn class="enum" id="llvm::X86II::MRM_DC" title='llvm::X86II::MRM_DC' data-ref="llvm::X86II::MRM_DC">MRM_DC</dfn> = <var>92</var>,  <dfn class="enum" id="llvm::X86II::MRM_DD" title='llvm::X86II::MRM_DD' data-ref="llvm::X86II::MRM_DD">MRM_DD</dfn> = <var>93</var>,  <dfn class="enum" id="llvm::X86II::MRM_DE" title='llvm::X86II::MRM_DE' data-ref="llvm::X86II::MRM_DE">MRM_DE</dfn> = <var>94</var>,  <dfn class="enum" id="llvm::X86II::MRM_DF" title='llvm::X86II::MRM_DF' data-ref="llvm::X86II::MRM_DF">MRM_DF</dfn> = <var>95</var>,</td></tr>
+<tr><th id="423">423</th><td>    <dfn class="enum" id="llvm::X86II::MRM_E0" title='llvm::X86II::MRM_E0' data-ref="llvm::X86II::MRM_E0">MRM_E0</dfn> = <var>96</var>,  <dfn class="enum" id="llvm::X86II::MRM_E1" title='llvm::X86II::MRM_E1' data-ref="llvm::X86II::MRM_E1">MRM_E1</dfn> = <var>97</var>,  <dfn class="enum" id="llvm::X86II::MRM_E2" title='llvm::X86II::MRM_E2' data-ref="llvm::X86II::MRM_E2">MRM_E2</dfn> = <var>98</var>,  <dfn class="enum" id="llvm::X86II::MRM_E3" title='llvm::X86II::MRM_E3' data-ref="llvm::X86II::MRM_E3">MRM_E3</dfn> = <var>99</var>,</td></tr>
+<tr><th id="424">424</th><td>    <dfn class="enum" id="llvm::X86II::MRM_E4" title='llvm::X86II::MRM_E4' data-ref="llvm::X86II::MRM_E4">MRM_E4</dfn> = <var>100</var>, <dfn class="enum" id="llvm::X86II::MRM_E5" title='llvm::X86II::MRM_E5' data-ref="llvm::X86II::MRM_E5">MRM_E5</dfn> = <var>101</var>, <dfn class="enum" id="llvm::X86II::MRM_E6" title='llvm::X86II::MRM_E6' data-ref="llvm::X86II::MRM_E6">MRM_E6</dfn> = <var>102</var>, <dfn class="enum" id="llvm::X86II::MRM_E7" title='llvm::X86II::MRM_E7' data-ref="llvm::X86II::MRM_E7">MRM_E7</dfn> = <var>103</var>,</td></tr>
+<tr><th id="425">425</th><td>    <dfn class="enum" id="llvm::X86II::MRM_E8" title='llvm::X86II::MRM_E8' data-ref="llvm::X86II::MRM_E8">MRM_E8</dfn> = <var>104</var>, <dfn class="enum" id="llvm::X86II::MRM_E9" title='llvm::X86II::MRM_E9' data-ref="llvm::X86II::MRM_E9">MRM_E9</dfn> = <var>105</var>, <dfn class="enum" id="llvm::X86II::MRM_EA" title='llvm::X86II::MRM_EA' data-ref="llvm::X86II::MRM_EA">MRM_EA</dfn> = <var>106</var>, <dfn class="enum" id="llvm::X86II::MRM_EB" title='llvm::X86II::MRM_EB' data-ref="llvm::X86II::MRM_EB">MRM_EB</dfn> = <var>107</var>,</td></tr>
+<tr><th id="426">426</th><td>    <dfn class="enum" id="llvm::X86II::MRM_EC" title='llvm::X86II::MRM_EC' data-ref="llvm::X86II::MRM_EC">MRM_EC</dfn> = <var>108</var>, <dfn class="enum" id="llvm::X86II::MRM_ED" title='llvm::X86II::MRM_ED' data-ref="llvm::X86II::MRM_ED">MRM_ED</dfn> = <var>109</var>, <dfn class="enum" id="llvm::X86II::MRM_EE" title='llvm::X86II::MRM_EE' data-ref="llvm::X86II::MRM_EE">MRM_EE</dfn> = <var>110</var>, <dfn class="enum" id="llvm::X86II::MRM_EF" title='llvm::X86II::MRM_EF' data-ref="llvm::X86II::MRM_EF">MRM_EF</dfn> = <var>111</var>,</td></tr>
+<tr><th id="427">427</th><td>    <dfn class="enum" id="llvm::X86II::MRM_F0" title='llvm::X86II::MRM_F0' data-ref="llvm::X86II::MRM_F0">MRM_F0</dfn> = <var>112</var>, <dfn class="enum" id="llvm::X86II::MRM_F1" title='llvm::X86II::MRM_F1' data-ref="llvm::X86II::MRM_F1">MRM_F1</dfn> = <var>113</var>, <dfn class="enum" id="llvm::X86II::MRM_F2" title='llvm::X86II::MRM_F2' data-ref="llvm::X86II::MRM_F2">MRM_F2</dfn> = <var>114</var>, <dfn class="enum" id="llvm::X86II::MRM_F3" title='llvm::X86II::MRM_F3' data-ref="llvm::X86II::MRM_F3">MRM_F3</dfn> = <var>115</var>,</td></tr>
+<tr><th id="428">428</th><td>    <dfn class="enum" id="llvm::X86II::MRM_F4" title='llvm::X86II::MRM_F4' data-ref="llvm::X86II::MRM_F4">MRM_F4</dfn> = <var>116</var>, <dfn class="enum" id="llvm::X86II::MRM_F5" title='llvm::X86II::MRM_F5' data-ref="llvm::X86II::MRM_F5">MRM_F5</dfn> = <var>117</var>, <dfn class="enum" id="llvm::X86II::MRM_F6" title='llvm::X86II::MRM_F6' data-ref="llvm::X86II::MRM_F6">MRM_F6</dfn> = <var>118</var>, <dfn class="enum" id="llvm::X86II::MRM_F7" title='llvm::X86II::MRM_F7' data-ref="llvm::X86II::MRM_F7">MRM_F7</dfn> = <var>119</var>,</td></tr>
+<tr><th id="429">429</th><td>    <dfn class="enum" id="llvm::X86II::MRM_F8" title='llvm::X86II::MRM_F8' data-ref="llvm::X86II::MRM_F8">MRM_F8</dfn> = <var>120</var>, <dfn class="enum" id="llvm::X86II::MRM_F9" title='llvm::X86II::MRM_F9' data-ref="llvm::X86II::MRM_F9">MRM_F9</dfn> = <var>121</var>, <dfn class="enum" id="llvm::X86II::MRM_FA" title='llvm::X86II::MRM_FA' data-ref="llvm::X86II::MRM_FA">MRM_FA</dfn> = <var>122</var>, <dfn class="enum" id="llvm::X86II::MRM_FB" title='llvm::X86II::MRM_FB' data-ref="llvm::X86II::MRM_FB">MRM_FB</dfn> = <var>123</var>,</td></tr>
+<tr><th id="430">430</th><td>    <dfn class="enum" id="llvm::X86II::MRM_FC" title='llvm::X86II::MRM_FC' data-ref="llvm::X86II::MRM_FC">MRM_FC</dfn> = <var>124</var>, <dfn class="enum" id="llvm::X86II::MRM_FD" title='llvm::X86II::MRM_FD' data-ref="llvm::X86II::MRM_FD">MRM_FD</dfn> = <var>125</var>, <dfn class="enum" id="llvm::X86II::MRM_FE" title='llvm::X86II::MRM_FE' data-ref="llvm::X86II::MRM_FE">MRM_FE</dfn> = <var>126</var>, <dfn class="enum" id="llvm::X86II::MRM_FF" title='llvm::X86II::MRM_FF' data-ref="llvm::X86II::MRM_FF">MRM_FF</dfn> = <var>127</var>,</td></tr>
+<tr><th id="431">431</th><td></td></tr>
+<tr><th id="432">432</th><td>    <dfn class="enum" id="llvm::X86II::FormMask" title='llvm::X86II::FormMask' data-ref="llvm::X86II::FormMask">FormMask</dfn>       = <var>127</var>,</td></tr>
+<tr><th id="433">433</th><td></td></tr>
+<tr><th id="434">434</th><td>    <i>//===------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="435">435</th><td><i>    // Actual flags...</i></td></tr>
+<tr><th id="436">436</th><td><i></i></td></tr>
+<tr><th id="437">437</th><td><i>    // OpSize - OpSizeFixed implies instruction never needs a 0x66 prefix.</i></td></tr>
+<tr><th id="438">438</th><td><i>    // OpSize16 means this is a 16-bit instruction and needs 0x66 prefix in</i></td></tr>
+<tr><th id="439">439</th><td><i>    // 32-bit mode. OpSize32 means this is a 32-bit instruction needs a 0x66</i></td></tr>
+<tr><th id="440">440</th><td><i>    // prefix in 16-bit mode.</i></td></tr>
+<tr><th id="441">441</th><td>    <dfn class="enum" id="llvm::X86II::OpSizeShift" title='llvm::X86II::OpSizeShift' data-ref="llvm::X86II::OpSizeShift">OpSizeShift</dfn> = <var>7</var>,</td></tr>
+<tr><th id="442">442</th><td>    <dfn class="enum" id="llvm::X86II::OpSizeMask" title='llvm::X86II::OpSizeMask' data-ref="llvm::X86II::OpSizeMask">OpSizeMask</dfn> = <var>0x3</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpSizeShift" title='llvm::X86II::OpSizeShift' data-ref="llvm::X86II::OpSizeShift">OpSizeShift</a>,</td></tr>
+<tr><th id="443">443</th><td></td></tr>
+<tr><th id="444">444</th><td>    <dfn class="enum" id="llvm::X86II::OpSizeFixed" title='llvm::X86II::OpSizeFixed' data-ref="llvm::X86II::OpSizeFixed">OpSizeFixed</dfn>  = <var>0</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpSizeShift" title='llvm::X86II::OpSizeShift' data-ref="llvm::X86II::OpSizeShift">OpSizeShift</a>,</td></tr>
+<tr><th id="445">445</th><td>    <dfn class="enum" id="llvm::X86II::OpSize16" title='llvm::X86II::OpSize16' data-ref="llvm::X86II::OpSize16">OpSize16</dfn>     = <var>1</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpSizeShift" title='llvm::X86II::OpSizeShift' data-ref="llvm::X86II::OpSizeShift">OpSizeShift</a>,</td></tr>
+<tr><th id="446">446</th><td>    <dfn class="enum" id="llvm::X86II::OpSize32" title='llvm::X86II::OpSize32' data-ref="llvm::X86II::OpSize32">OpSize32</dfn>     = <var>2</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpSizeShift" title='llvm::X86II::OpSizeShift' data-ref="llvm::X86II::OpSizeShift">OpSizeShift</a>,</td></tr>
+<tr><th id="447">447</th><td></td></tr>
+<tr><th id="448">448</th><td>    <i>// AsSize - AdSizeX implies this instruction determines its need of 0x67</i></td></tr>
+<tr><th id="449">449</th><td><i>    // prefix from a normal ModRM memory operand. The other types indicate that</i></td></tr>
+<tr><th id="450">450</th><td><i>    // an operand is encoded with a specific width and a prefix is needed if</i></td></tr>
+<tr><th id="451">451</th><td><i>    // it differs from the current mode.</i></td></tr>
+<tr><th id="452">452</th><td>    <dfn class="enum" id="llvm::X86II::AdSizeShift" title='llvm::X86II::AdSizeShift' data-ref="llvm::X86II::AdSizeShift">AdSizeShift</dfn> = <a class="enum" href="#llvm::X86II::OpSizeShift" title='llvm::X86II::OpSizeShift' data-ref="llvm::X86II::OpSizeShift">OpSizeShift</a> + <var>2</var>,</td></tr>
+<tr><th id="453">453</th><td>    <dfn class="enum" id="llvm::X86II::AdSizeMask" title='llvm::X86II::AdSizeMask' data-ref="llvm::X86II::AdSizeMask">AdSizeMask</dfn>  = <var>0x3</var> &lt;&lt; <a class="enum" href="#llvm::X86II::AdSizeShift" title='llvm::X86II::AdSizeShift' data-ref="llvm::X86II::AdSizeShift">AdSizeShift</a>,</td></tr>
+<tr><th id="454">454</th><td></td></tr>
+<tr><th id="455">455</th><td>    <dfn class="enum" id="llvm::X86II::AdSizeX" title='llvm::X86II::AdSizeX' data-ref="llvm::X86II::AdSizeX">AdSizeX</dfn>  = <var>0</var> &lt;&lt; <a class="enum" href="#llvm::X86II::AdSizeShift" title='llvm::X86II::AdSizeShift' data-ref="llvm::X86II::AdSizeShift">AdSizeShift</a>,</td></tr>
+<tr><th id="456">456</th><td>    <dfn class="enum" id="llvm::X86II::AdSize16" title='llvm::X86II::AdSize16' data-ref="llvm::X86II::AdSize16">AdSize16</dfn> = <var>1</var> &lt;&lt; <a class="enum" href="#llvm::X86II::AdSizeShift" title='llvm::X86II::AdSizeShift' data-ref="llvm::X86II::AdSizeShift">AdSizeShift</a>,</td></tr>
+<tr><th id="457">457</th><td>    <dfn class="enum" id="llvm::X86II::AdSize32" title='llvm::X86II::AdSize32' data-ref="llvm::X86II::AdSize32">AdSize32</dfn> = <var>2</var> &lt;&lt; <a class="enum" href="#llvm::X86II::AdSizeShift" title='llvm::X86II::AdSizeShift' data-ref="llvm::X86II::AdSizeShift">AdSizeShift</a>,</td></tr>
+<tr><th id="458">458</th><td>    <dfn class="enum" id="llvm::X86II::AdSize64" title='llvm::X86II::AdSize64' data-ref="llvm::X86II::AdSize64">AdSize64</dfn> = <var>3</var> &lt;&lt; <a class="enum" href="#llvm::X86II::AdSizeShift" title='llvm::X86II::AdSizeShift' data-ref="llvm::X86II::AdSizeShift">AdSizeShift</a>,</td></tr>
+<tr><th id="459">459</th><td></td></tr>
+<tr><th id="460">460</th><td>    <i>//===------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="461">461</th><td><i>    // OpPrefix - There are several prefix bytes that are used as opcode</i></td></tr>
+<tr><th id="462">462</th><td><i>    // extensions. These are 0x66, 0xF3, and 0xF2. If this field is 0 there is</i></td></tr>
+<tr><th id="463">463</th><td><i>    // no prefix.</i></td></tr>
+<tr><th id="464">464</th><td><i>    //</i></td></tr>
+<tr><th id="465">465</th><td>    <dfn class="enum" id="llvm::X86II::OpPrefixShift" title='llvm::X86II::OpPrefixShift' data-ref="llvm::X86II::OpPrefixShift">OpPrefixShift</dfn> = <a class="enum" href="#llvm::X86II::AdSizeShift" title='llvm::X86II::AdSizeShift' data-ref="llvm::X86II::AdSizeShift">AdSizeShift</a> + <var>2</var>,</td></tr>
+<tr><th id="466">466</th><td>    <dfn class="enum" id="llvm::X86II::OpPrefixMask" title='llvm::X86II::OpPrefixMask' data-ref="llvm::X86II::OpPrefixMask">OpPrefixMask</dfn>  = <var>0x3</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpPrefixShift" title='llvm::X86II::OpPrefixShift' data-ref="llvm::X86II::OpPrefixShift">OpPrefixShift</a>,</td></tr>
+<tr><th id="467">467</th><td></td></tr>
+<tr><th id="468">468</th><td>    <i>// PD - Prefix code for packed double precision vector floating point</i></td></tr>
+<tr><th id="469">469</th><td><i>    // operations performed in the SSE registers.</i></td></tr>
+<tr><th id="470">470</th><td>    <dfn class="enum" id="llvm::X86II::PD" title='llvm::X86II::PD' data-ref="llvm::X86II::PD">PD</dfn> = <var>1</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpPrefixShift" title='llvm::X86II::OpPrefixShift' data-ref="llvm::X86II::OpPrefixShift">OpPrefixShift</a>,</td></tr>
+<tr><th id="471">471</th><td></td></tr>
+<tr><th id="472">472</th><td>    <i>// XS, XD - These prefix codes are for single and double precision scalar</i></td></tr>
+<tr><th id="473">473</th><td><i>    // floating point operations performed in the SSE registers.</i></td></tr>
+<tr><th id="474">474</th><td>    <dfn class="enum" id="llvm::X86II::XS" title='llvm::X86II::XS' data-ref="llvm::X86II::XS">XS</dfn> = <var>2</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpPrefixShift" title='llvm::X86II::OpPrefixShift' data-ref="llvm::X86II::OpPrefixShift">OpPrefixShift</a>,  <dfn class="enum" id="llvm::X86II::XD" title='llvm::X86II::XD' data-ref="llvm::X86II::XD">XD</dfn> = <var>3</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpPrefixShift" title='llvm::X86II::OpPrefixShift' data-ref="llvm::X86II::OpPrefixShift">OpPrefixShift</a>,</td></tr>
+<tr><th id="475">475</th><td></td></tr>
+<tr><th id="476">476</th><td>    <i>//===------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="477">477</th><td><i>    // OpMap - This field determines which opcode map this instruction</i></td></tr>
+<tr><th id="478">478</th><td><i>    // belongs to. i.e. one-byte, two-byte, 0x0f 0x38, 0x0f 0x3a, etc.</i></td></tr>
+<tr><th id="479">479</th><td><i>    //</i></td></tr>
+<tr><th id="480">480</th><td>    <dfn class="enum" id="llvm::X86II::OpMapShift" title='llvm::X86II::OpMapShift' data-ref="llvm::X86II::OpMapShift">OpMapShift</dfn> = <a class="enum" href="#llvm::X86II::OpPrefixShift" title='llvm::X86II::OpPrefixShift' data-ref="llvm::X86II::OpPrefixShift">OpPrefixShift</a> + <var>2</var>,</td></tr>
+<tr><th id="481">481</th><td>    <dfn class="enum" id="llvm::X86II::OpMapMask" title='llvm::X86II::OpMapMask' data-ref="llvm::X86II::OpMapMask">OpMapMask</dfn>  = <var>0x7</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpMapShift" title='llvm::X86II::OpMapShift' data-ref="llvm::X86II::OpMapShift">OpMapShift</a>,</td></tr>
+<tr><th id="482">482</th><td></td></tr>
+<tr><th id="483">483</th><td>    <i>// OB - OneByte - Set if this instruction has a one byte opcode.</i></td></tr>
+<tr><th id="484">484</th><td>    <dfn class="enum" id="llvm::X86II::OB" title='llvm::X86II::OB' data-ref="llvm::X86II::OB">OB</dfn> = <var>0</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpMapShift" title='llvm::X86II::OpMapShift' data-ref="llvm::X86II::OpMapShift">OpMapShift</a>,</td></tr>
+<tr><th id="485">485</th><td></td></tr>
+<tr><th id="486">486</th><td>    <i>// TB - TwoByte - Set if this instruction has a two byte opcode, which</i></td></tr>
+<tr><th id="487">487</th><td><i>    // starts with a 0x0F byte before the real opcode.</i></td></tr>
+<tr><th id="488">488</th><td>    <dfn class="enum" id="llvm::X86II::TB" title='llvm::X86II::TB' data-ref="llvm::X86II::TB">TB</dfn> = <var>1</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpMapShift" title='llvm::X86II::OpMapShift' data-ref="llvm::X86II::OpMapShift">OpMapShift</a>,</td></tr>
+<tr><th id="489">489</th><td></td></tr>
+<tr><th id="490">490</th><td>    <i>// T8, TA - Prefix after the 0x0F prefix.</i></td></tr>
+<tr><th id="491">491</th><td>    <dfn class="enum" id="llvm::X86II::T8" title='llvm::X86II::T8' data-ref="llvm::X86II::T8">T8</dfn> = <var>2</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpMapShift" title='llvm::X86II::OpMapShift' data-ref="llvm::X86II::OpMapShift">OpMapShift</a>,  <dfn class="enum" id="llvm::X86II::TA" title='llvm::X86II::TA' data-ref="llvm::X86II::TA">TA</dfn> = <var>3</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpMapShift" title='llvm::X86II::OpMapShift' data-ref="llvm::X86II::OpMapShift">OpMapShift</a>,</td></tr>
+<tr><th id="492">492</th><td></td></tr>
+<tr><th id="493">493</th><td>    <i>// XOP8 - Prefix to include use of imm byte.</i></td></tr>
+<tr><th id="494">494</th><td>    <dfn class="enum" id="llvm::X86II::XOP8" title='llvm::X86II::XOP8' data-ref="llvm::X86II::XOP8">XOP8</dfn> = <var>4</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpMapShift" title='llvm::X86II::OpMapShift' data-ref="llvm::X86II::OpMapShift">OpMapShift</a>,</td></tr>
+<tr><th id="495">495</th><td></td></tr>
+<tr><th id="496">496</th><td>    <i>// XOP9 - Prefix to exclude use of imm byte.</i></td></tr>
+<tr><th id="497">497</th><td>    <dfn class="enum" id="llvm::X86II::XOP9" title='llvm::X86II::XOP9' data-ref="llvm::X86II::XOP9">XOP9</dfn> = <var>5</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpMapShift" title='llvm::X86II::OpMapShift' data-ref="llvm::X86II::OpMapShift">OpMapShift</a>,</td></tr>
+<tr><th id="498">498</th><td></td></tr>
+<tr><th id="499">499</th><td>    <i>// XOPA - Prefix to encode 0xA in VEX.MMMM of XOP instructions.</i></td></tr>
+<tr><th id="500">500</th><td>    <dfn class="enum" id="llvm::X86II::XOPA" title='llvm::X86II::XOPA' data-ref="llvm::X86II::XOPA">XOPA</dfn> = <var>6</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpMapShift" title='llvm::X86II::OpMapShift' data-ref="llvm::X86II::OpMapShift">OpMapShift</a>,</td></tr>
+<tr><th id="501">501</th><td></td></tr>
+<tr><th id="502">502</th><td>    <i class="doc">/// ThreeDNow - This indicates that the instruction uses the</i></td></tr>
+<tr><th id="503">503</th><td><i class="doc">    /// wacky 0x0F 0x0F prefix for 3DNow! instructions.  The manual documents</i></td></tr>
+<tr><th id="504">504</th><td><i class="doc">    /// this as having a 0x0F prefix with a 0x0F opcode, and each instruction</i></td></tr>
+<tr><th id="505">505</th><td><i class="doc">    /// storing a classifier in the imm8 field.  To simplify our implementation,</i></td></tr>
+<tr><th id="506">506</th><td><i class="doc">    /// we handle this by storeing the classifier in the opcode field and using</i></td></tr>
+<tr><th id="507">507</th><td><i class="doc">    /// this flag to indicate that the encoder should do the wacky 3DNow! thing.</i></td></tr>
+<tr><th id="508">508</th><td>    <dfn class="enum" id="llvm::X86II::ThreeDNow" title='llvm::X86II::ThreeDNow' data-ref="llvm::X86II::ThreeDNow">ThreeDNow</dfn> = <var>7</var> &lt;&lt; <a class="enum" href="#llvm::X86II::OpMapShift" title='llvm::X86II::OpMapShift' data-ref="llvm::X86II::OpMapShift">OpMapShift</a>,</td></tr>
+<tr><th id="509">509</th><td></td></tr>
+<tr><th id="510">510</th><td>    <i>//===------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="511">511</th><td><i>    // REX_W - REX prefixes are instruction prefixes used in 64-bit mode.</i></td></tr>
+<tr><th id="512">512</th><td><i>    // They are used to specify GPRs and SSE registers, 64-bit operand size,</i></td></tr>
+<tr><th id="513">513</th><td><i>    // etc. We only cares about REX.W and REX.R bits and only the former is</i></td></tr>
+<tr><th id="514">514</th><td><i>    // statically determined.</i></td></tr>
+<tr><th id="515">515</th><td><i>    //</i></td></tr>
+<tr><th id="516">516</th><td>    <dfn class="enum" id="llvm::X86II::REXShift" title='llvm::X86II::REXShift' data-ref="llvm::X86II::REXShift">REXShift</dfn>    = <a class="enum" href="#llvm::X86II::OpMapShift" title='llvm::X86II::OpMapShift' data-ref="llvm::X86II::OpMapShift">OpMapShift</a> + <var>3</var>,</td></tr>
+<tr><th id="517">517</th><td>    <dfn class="enum" id="llvm::X86II::REX_W" title='llvm::X86II::REX_W' data-ref="llvm::X86II::REX_W">REX_W</dfn>       = <var>1</var> &lt;&lt; <a class="enum" href="#llvm::X86II::REXShift" title='llvm::X86II::REXShift' data-ref="llvm::X86II::REXShift">REXShift</a>,</td></tr>
+<tr><th id="518">518</th><td></td></tr>
+<tr><th id="519">519</th><td>    <i>//===------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="520">520</th><td><i>    // This three-bit field describes the size of an immediate operand.  Zero is</i></td></tr>
+<tr><th id="521">521</th><td><i>    // unused so that we can tell if we forgot to set a value.</i></td></tr>
+<tr><th id="522">522</th><td>    <dfn class="enum" id="llvm::X86II::ImmShift" title='llvm::X86II::ImmShift' data-ref="llvm::X86II::ImmShift">ImmShift</dfn> = <a class="enum" href="#llvm::X86II::REXShift" title='llvm::X86II::REXShift' data-ref="llvm::X86II::REXShift">REXShift</a> + <var>1</var>,</td></tr>
+<tr><th id="523">523</th><td>    <dfn class="enum" id="llvm::X86II::ImmMask" title='llvm::X86II::ImmMask' data-ref="llvm::X86II::ImmMask">ImmMask</dfn>    = <var>15</var> &lt;&lt; <a class="enum" href="#llvm::X86II::ImmShift" title='llvm::X86II::ImmShift' data-ref="llvm::X86II::ImmShift">ImmShift</a>,</td></tr>
+<tr><th id="524">524</th><td>    <dfn class="enum" id="llvm::X86II::Imm8" title='llvm::X86II::Imm8' data-ref="llvm::X86II::Imm8">Imm8</dfn>       = <var>1</var> &lt;&lt; <a class="enum" href="#llvm::X86II::ImmShift" title='llvm::X86II::ImmShift' data-ref="llvm::X86II::ImmShift">ImmShift</a>,</td></tr>
+<tr><th id="525">525</th><td>    <dfn class="enum" id="llvm::X86II::Imm8PCRel" title='llvm::X86II::Imm8PCRel' data-ref="llvm::X86II::Imm8PCRel">Imm8PCRel</dfn>  = <var>2</var> &lt;&lt; <a class="enum" href="#llvm::X86II::ImmShift" title='llvm::X86II::ImmShift' data-ref="llvm::X86II::ImmShift">ImmShift</a>,</td></tr>
+<tr><th id="526">526</th><td>    <dfn class="enum" id="llvm::X86II::Imm8Reg" title='llvm::X86II::Imm8Reg' data-ref="llvm::X86II::Imm8Reg">Imm8Reg</dfn>    = <var>3</var> &lt;&lt; <a class="enum" href="#llvm::X86II::ImmShift" title='llvm::X86II::ImmShift' data-ref="llvm::X86II::ImmShift">ImmShift</a>,</td></tr>
+<tr><th id="527">527</th><td>    <dfn class="enum" id="llvm::X86II::Imm16" title='llvm::X86II::Imm16' data-ref="llvm::X86II::Imm16">Imm16</dfn>      = <var>4</var> &lt;&lt; <a class="enum" href="#llvm::X86II::ImmShift" title='llvm::X86II::ImmShift' data-ref="llvm::X86II::ImmShift">ImmShift</a>,</td></tr>
+<tr><th id="528">528</th><td>    <dfn class="enum" id="llvm::X86II::Imm16PCRel" title='llvm::X86II::Imm16PCRel' data-ref="llvm::X86II::Imm16PCRel">Imm16PCRel</dfn> = <var>5</var> &lt;&lt; <a class="enum" href="#llvm::X86II::ImmShift" title='llvm::X86II::ImmShift' data-ref="llvm::X86II::ImmShift">ImmShift</a>,</td></tr>
+<tr><th id="529">529</th><td>    <dfn class="enum" id="llvm::X86II::Imm32" title='llvm::X86II::Imm32' data-ref="llvm::X86II::Imm32">Imm32</dfn>      = <var>6</var> &lt;&lt; <a class="enum" href="#llvm::X86II::ImmShift" title='llvm::X86II::ImmShift' data-ref="llvm::X86II::ImmShift">ImmShift</a>,</td></tr>
+<tr><th id="530">530</th><td>    <dfn class="enum" id="llvm::X86II::Imm32PCRel" title='llvm::X86II::Imm32PCRel' data-ref="llvm::X86II::Imm32PCRel">Imm32PCRel</dfn> = <var>7</var> &lt;&lt; <a class="enum" href="#llvm::X86II::ImmShift" title='llvm::X86II::ImmShift' data-ref="llvm::X86II::ImmShift">ImmShift</a>,</td></tr>
+<tr><th id="531">531</th><td>    <dfn class="enum" id="llvm::X86II::Imm32S" title='llvm::X86II::Imm32S' data-ref="llvm::X86II::Imm32S">Imm32S</dfn>     = <var>8</var> &lt;&lt; <a class="enum" href="#llvm::X86II::ImmShift" title='llvm::X86II::ImmShift' data-ref="llvm::X86II::ImmShift">ImmShift</a>,</td></tr>
+<tr><th id="532">532</th><td>    <dfn class="enum" id="llvm::X86II::Imm64" title='llvm::X86II::Imm64' data-ref="llvm::X86II::Imm64">Imm64</dfn>      = <var>9</var> &lt;&lt; <a class="enum" href="#llvm::X86II::ImmShift" title='llvm::X86II::ImmShift' data-ref="llvm::X86II::ImmShift">ImmShift</a>,</td></tr>
+<tr><th id="533">533</th><td></td></tr>
+<tr><th id="534">534</th><td>    <i>//===------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="535">535</th><td><i>    // FP Instruction Classification...  Zero is non-fp instruction.</i></td></tr>
+<tr><th id="536">536</th><td><i></i></td></tr>
+<tr><th id="537">537</th><td><i>    // FPTypeMask - Mask for all of the FP types...</i></td></tr>
+<tr><th id="538">538</th><td>    <dfn class="enum" id="llvm::X86II::FPTypeShift" title='llvm::X86II::FPTypeShift' data-ref="llvm::X86II::FPTypeShift">FPTypeShift</dfn> = <a class="enum" href="#llvm::X86II::ImmShift" title='llvm::X86II::ImmShift' data-ref="llvm::X86II::ImmShift">ImmShift</a> + <var>4</var>,</td></tr>
+<tr><th id="539">539</th><td>    <dfn class="enum" id="llvm::X86II::FPTypeMask" title='llvm::X86II::FPTypeMask' data-ref="llvm::X86II::FPTypeMask">FPTypeMask</dfn>  = <var>7</var> &lt;&lt; <a class="enum" href="#llvm::X86II::FPTypeShift" title='llvm::X86II::FPTypeShift' data-ref="llvm::X86II::FPTypeShift">FPTypeShift</a>,</td></tr>
+<tr><th id="540">540</th><td></td></tr>
+<tr><th id="541">541</th><td>    <i>// NotFP - The default, set for instructions that do not use FP registers.</i></td></tr>
+<tr><th id="542">542</th><td>    <dfn class="enum" id="llvm::X86II::NotFP" title='llvm::X86II::NotFP' data-ref="llvm::X86II::NotFP">NotFP</dfn>      = <var>0</var> &lt;&lt; <a class="enum" href="#llvm::X86II::FPTypeShift" title='llvm::X86II::FPTypeShift' data-ref="llvm::X86II::FPTypeShift">FPTypeShift</a>,</td></tr>
+<tr><th id="543">543</th><td></td></tr>
+<tr><th id="544">544</th><td>    <i>// ZeroArgFP - 0 arg FP instruction which implicitly pushes ST(0), f.e. fld0</i></td></tr>
+<tr><th id="545">545</th><td>    <dfn class="enum" id="llvm::X86II::ZeroArgFP" title='llvm::X86II::ZeroArgFP' data-ref="llvm::X86II::ZeroArgFP">ZeroArgFP</dfn>  = <var>1</var> &lt;&lt; <a class="enum" href="#llvm::X86II::FPTypeShift" title='llvm::X86II::FPTypeShift' data-ref="llvm::X86II::FPTypeShift">FPTypeShift</a>,</td></tr>
+<tr><th id="546">546</th><td></td></tr>
+<tr><th id="547">547</th><td>    <i>// OneArgFP - 1 arg FP instructions which implicitly read ST(0), such as fst</i></td></tr>
+<tr><th id="548">548</th><td>    <dfn class="enum" id="llvm::X86II::OneArgFP" title='llvm::X86II::OneArgFP' data-ref="llvm::X86II::OneArgFP">OneArgFP</dfn>   = <var>2</var> &lt;&lt; <a class="enum" href="#llvm::X86II::FPTypeShift" title='llvm::X86II::FPTypeShift' data-ref="llvm::X86II::FPTypeShift">FPTypeShift</a>,</td></tr>
+<tr><th id="549">549</th><td></td></tr>
+<tr><th id="550">550</th><td>    <i>// OneArgFPRW - 1 arg FP instruction which implicitly read ST(0) and write a</i></td></tr>
+<tr><th id="551">551</th><td><i>    // result back to ST(0).  For example, fcos, fsqrt, etc.</i></td></tr>
+<tr><th id="552">552</th><td><i>    //</i></td></tr>
+<tr><th id="553">553</th><td>    <dfn class="enum" id="llvm::X86II::OneArgFPRW" title='llvm::X86II::OneArgFPRW' data-ref="llvm::X86II::OneArgFPRW">OneArgFPRW</dfn> = <var>3</var> &lt;&lt; <a class="enum" href="#llvm::X86II::FPTypeShift" title='llvm::X86II::FPTypeShift' data-ref="llvm::X86II::FPTypeShift">FPTypeShift</a>,</td></tr>
+<tr><th id="554">554</th><td></td></tr>
+<tr><th id="555">555</th><td>    <i>// TwoArgFP - 2 arg FP instructions which implicitly read ST(0), and an</i></td></tr>
+<tr><th id="556">556</th><td><i>    // explicit argument, storing the result to either ST(0) or the implicit</i></td></tr>
+<tr><th id="557">557</th><td><i>    // argument.  For example: fadd, fsub, fmul, etc...</i></td></tr>
+<tr><th id="558">558</th><td>    <dfn class="enum" id="llvm::X86II::TwoArgFP" title='llvm::X86II::TwoArgFP' data-ref="llvm::X86II::TwoArgFP">TwoArgFP</dfn>   = <var>4</var> &lt;&lt; <a class="enum" href="#llvm::X86II::FPTypeShift" title='llvm::X86II::FPTypeShift' data-ref="llvm::X86II::FPTypeShift">FPTypeShift</a>,</td></tr>
+<tr><th id="559">559</th><td></td></tr>
+<tr><th id="560">560</th><td>    <i>// CompareFP - 2 arg FP instructions which implicitly read ST(0) and an</i></td></tr>
+<tr><th id="561">561</th><td><i>    // explicit argument, but have no destination.  Example: fucom, fucomi, ...</i></td></tr>
+<tr><th id="562">562</th><td>    <dfn class="enum" id="llvm::X86II::CompareFP" title='llvm::X86II::CompareFP' data-ref="llvm::X86II::CompareFP">CompareFP</dfn>  = <var>5</var> &lt;&lt; <a class="enum" href="#llvm::X86II::FPTypeShift" title='llvm::X86II::FPTypeShift' data-ref="llvm::X86II::FPTypeShift">FPTypeShift</a>,</td></tr>
+<tr><th id="563">563</th><td></td></tr>
+<tr><th id="564">564</th><td>    <i>// CondMovFP - "2 operand" floating point conditional move instructions.</i></td></tr>
+<tr><th id="565">565</th><td>    <dfn class="enum" id="llvm::X86II::CondMovFP" title='llvm::X86II::CondMovFP' data-ref="llvm::X86II::CondMovFP">CondMovFP</dfn>  = <var>6</var> &lt;&lt; <a class="enum" href="#llvm::X86II::FPTypeShift" title='llvm::X86II::FPTypeShift' data-ref="llvm::X86II::FPTypeShift">FPTypeShift</a>,</td></tr>
+<tr><th id="566">566</th><td></td></tr>
+<tr><th id="567">567</th><td>    <i>// SpecialFP - Special instruction forms.  Dispatch by opcode explicitly.</i></td></tr>
+<tr><th id="568">568</th><td>    <dfn class="enum" id="llvm::X86II::SpecialFP" title='llvm::X86II::SpecialFP' data-ref="llvm::X86II::SpecialFP">SpecialFP</dfn>  = <var>7</var> &lt;&lt; <a class="enum" href="#llvm::X86II::FPTypeShift" title='llvm::X86II::FPTypeShift' data-ref="llvm::X86II::FPTypeShift">FPTypeShift</a>,</td></tr>
+<tr><th id="569">569</th><td></td></tr>
+<tr><th id="570">570</th><td>    <i>// Lock prefix</i></td></tr>
+<tr><th id="571">571</th><td>    <dfn class="enum" id="llvm::X86II::LOCKShift" title='llvm::X86II::LOCKShift' data-ref="llvm::X86II::LOCKShift">LOCKShift</dfn> = <a class="enum" href="#llvm::X86II::FPTypeShift" title='llvm::X86II::FPTypeShift' data-ref="llvm::X86II::FPTypeShift">FPTypeShift</a> + <var>3</var>,</td></tr>
+<tr><th id="572">572</th><td>    <dfn class="enum" id="llvm::X86II::LOCK" title='llvm::X86II::LOCK' data-ref="llvm::X86II::LOCK">LOCK</dfn> = <var>1</var> &lt;&lt; <a class="enum" href="#llvm::X86II::LOCKShift" title='llvm::X86II::LOCKShift' data-ref="llvm::X86II::LOCKShift">LOCKShift</a>,</td></tr>
+<tr><th id="573">573</th><td></td></tr>
+<tr><th id="574">574</th><td>    <i>// REP prefix</i></td></tr>
+<tr><th id="575">575</th><td>    <dfn class="enum" id="llvm::X86II::REPShift" title='llvm::X86II::REPShift' data-ref="llvm::X86II::REPShift">REPShift</dfn> = <a class="enum" href="#llvm::X86II::LOCKShift" title='llvm::X86II::LOCKShift' data-ref="llvm::X86II::LOCKShift">LOCKShift</a> + <var>1</var>,</td></tr>
+<tr><th id="576">576</th><td>    <dfn class="enum" id="llvm::X86II::REP" title='llvm::X86II::REP' data-ref="llvm::X86II::REP">REP</dfn> = <var>1</var> &lt;&lt; <a class="enum" href="#llvm::X86II::REPShift" title='llvm::X86II::REPShift' data-ref="llvm::X86II::REPShift">REPShift</a>,</td></tr>
+<tr><th id="577">577</th><td></td></tr>
+<tr><th id="578">578</th><td>    <i>// Execution domain for SSE instructions.</i></td></tr>
+<tr><th id="579">579</th><td><i>    // 0 means normal, non-SSE instruction.</i></td></tr>
+<tr><th id="580">580</th><td>    <dfn class="enum" id="llvm::X86II::SSEDomainShift" title='llvm::X86II::SSEDomainShift' data-ref="llvm::X86II::SSEDomainShift">SSEDomainShift</dfn> = <a class="enum" href="#llvm::X86II::REPShift" title='llvm::X86II::REPShift' data-ref="llvm::X86II::REPShift">REPShift</a> + <var>1</var>,</td></tr>
+<tr><th id="581">581</th><td></td></tr>
+<tr><th id="582">582</th><td>    <i>// Encoding</i></td></tr>
+<tr><th id="583">583</th><td>    <dfn class="enum" id="llvm::X86II::EncodingShift" title='llvm::X86II::EncodingShift' data-ref="llvm::X86II::EncodingShift">EncodingShift</dfn> = <a class="enum" href="#llvm::X86II::SSEDomainShift" title='llvm::X86II::SSEDomainShift' data-ref="llvm::X86II::SSEDomainShift">SSEDomainShift</a> + <var>2</var>,</td></tr>
+<tr><th id="584">584</th><td>    <dfn class="enum" id="llvm::X86II::EncodingMask" title='llvm::X86II::EncodingMask' data-ref="llvm::X86II::EncodingMask">EncodingMask</dfn> = <var>0x3</var> &lt;&lt; <a class="enum" href="#llvm::X86II::EncodingShift" title='llvm::X86II::EncodingShift' data-ref="llvm::X86II::EncodingShift">EncodingShift</a>,</td></tr>
+<tr><th id="585">585</th><td></td></tr>
+<tr><th id="586">586</th><td>    <i>// VEX - encoding using 0xC4/0xC5</i></td></tr>
+<tr><th id="587">587</th><td>    <dfn class="enum" id="llvm::X86II::VEX" title='llvm::X86II::VEX' data-ref="llvm::X86II::VEX">VEX</dfn> = <var>1</var> &lt;&lt; <a class="enum" href="#llvm::X86II::EncodingShift" title='llvm::X86II::EncodingShift' data-ref="llvm::X86II::EncodingShift">EncodingShift</a>,</td></tr>
+<tr><th id="588">588</th><td></td></tr>
+<tr><th id="589">589</th><td>    <i class="doc">/// XOP - Opcode prefix used by XOP instructions.</i></td></tr>
+<tr><th id="590">590</th><td>    <dfn class="enum" id="llvm::X86II::XOP" title='llvm::X86II::XOP' data-ref="llvm::X86II::XOP">XOP</dfn> = <var>2</var> &lt;&lt; <a class="enum" href="#llvm::X86II::EncodingShift" title='llvm::X86II::EncodingShift' data-ref="llvm::X86II::EncodingShift">EncodingShift</a>,</td></tr>
+<tr><th id="591">591</th><td></td></tr>
+<tr><th id="592">592</th><td>    <i>// VEX_EVEX - Specifies that this instruction use EVEX form which provides</i></td></tr>
+<tr><th id="593">593</th><td><i>    // syntax support up to 32 512-bit register operands and up to 7 16-bit</i></td></tr>
+<tr><th id="594">594</th><td><i>    // mask operands as well as source operand data swizzling/memory operand</i></td></tr>
+<tr><th id="595">595</th><td><i>    // conversion, eviction hint, and rounding mode.</i></td></tr>
+<tr><th id="596">596</th><td>    <dfn class="enum" id="llvm::X86II::EVEX" title='llvm::X86II::EVEX' data-ref="llvm::X86II::EVEX">EVEX</dfn> = <var>3</var> &lt;&lt; <a class="enum" href="#llvm::X86II::EncodingShift" title='llvm::X86II::EncodingShift' data-ref="llvm::X86II::EncodingShift">EncodingShift</a>,</td></tr>
+<tr><th id="597">597</th><td></td></tr>
+<tr><th id="598">598</th><td>    <i>// Opcode</i></td></tr>
+<tr><th id="599">599</th><td>    <dfn class="enum" id="llvm::X86II::OpcodeShift" title='llvm::X86II::OpcodeShift' data-ref="llvm::X86II::OpcodeShift">OpcodeShift</dfn>   = <a class="enum" href="#llvm::X86II::EncodingShift" title='llvm::X86II::EncodingShift' data-ref="llvm::X86II::EncodingShift">EncodingShift</a> + <var>2</var>,</td></tr>
+<tr><th id="600">600</th><td></td></tr>
+<tr><th id="601">601</th><td>    <i class="doc">/// VEX_W - Has a opcode specific functionality, but is used in the same</i></td></tr>
+<tr><th id="602">602</th><td><i class="doc">    /// way as REX_W is for regular SSE instructions.</i></td></tr>
+<tr><th id="603">603</th><td>    <dfn class="enum" id="llvm::X86II::VEX_WShift" title='llvm::X86II::VEX_WShift' data-ref="llvm::X86II::VEX_WShift">VEX_WShift</dfn>  = <a class="enum" href="#llvm::X86II::OpcodeShift" title='llvm::X86II::OpcodeShift' data-ref="llvm::X86II::OpcodeShift">OpcodeShift</a> + <var>8</var>,</td></tr>
+<tr><th id="604">604</th><td>    <dfn class="enum" id="llvm::X86II::VEX_W" title='llvm::X86II::VEX_W' data-ref="llvm::X86II::VEX_W">VEX_W</dfn>       = <var>1ULL</var> &lt;&lt; <a class="enum" href="#llvm::X86II::VEX_WShift" title='llvm::X86II::VEX_WShift' data-ref="llvm::X86II::VEX_WShift">VEX_WShift</a>,</td></tr>
+<tr><th id="605">605</th><td></td></tr>
+<tr><th id="606">606</th><td>    <i class="doc">/// VEX_4V - Used to specify an additional AVX/SSE register. Several 2</i></td></tr>
+<tr><th id="607">607</th><td><i class="doc">    /// address instructions in SSE are represented as 3 address ones in AVX</i></td></tr>
+<tr><th id="608">608</th><td><i class="doc">    /// and the additional register is encoded in VEX_VVVV prefix.</i></td></tr>
+<tr><th id="609">609</th><td>    <dfn class="enum" id="llvm::X86II::VEX_4VShift" title='llvm::X86II::VEX_4VShift' data-ref="llvm::X86II::VEX_4VShift">VEX_4VShift</dfn> = <a class="enum" href="#llvm::X86II::VEX_WShift" title='llvm::X86II::VEX_WShift' data-ref="llvm::X86II::VEX_WShift">VEX_WShift</a> + <var>1</var>,</td></tr>
+<tr><th id="610">610</th><td>    <dfn class="enum" id="llvm::X86II::VEX_4V" title='llvm::X86II::VEX_4V' data-ref="llvm::X86II::VEX_4V">VEX_4V</dfn>      = <var>1ULL</var> &lt;&lt; <a class="enum" href="#llvm::X86II::VEX_4VShift" title='llvm::X86II::VEX_4VShift' data-ref="llvm::X86II::VEX_4VShift">VEX_4VShift</a>,</td></tr>
+<tr><th id="611">611</th><td></td></tr>
+<tr><th id="612">612</th><td>    <i class="doc">/// VEX_L - Stands for a bit in the VEX opcode prefix meaning the current</i></td></tr>
+<tr><th id="613">613</th><td><i class="doc">    /// instruction uses 256-bit wide registers. This is usually auto detected</i></td></tr>
+<tr><th id="614">614</th><td><i class="doc">    /// if a VR256 register is used, but some AVX instructions also have this</i></td></tr>
+<tr><th id="615">615</th><td><i class="doc">    /// field marked when using a f256 memory references.</i></td></tr>
+<tr><th id="616">616</th><td>    <dfn class="enum" id="llvm::X86II::VEX_LShift" title='llvm::X86II::VEX_LShift' data-ref="llvm::X86II::VEX_LShift">VEX_LShift</dfn> = <a class="enum" href="#llvm::X86II::VEX_4VShift" title='llvm::X86II::VEX_4VShift' data-ref="llvm::X86II::VEX_4VShift">VEX_4VShift</a> + <var>1</var>,</td></tr>
+<tr><th id="617">617</th><td>    <dfn class="enum" id="llvm::X86II::VEX_L" title='llvm::X86II::VEX_L' data-ref="llvm::X86II::VEX_L">VEX_L</dfn>       = <var>1ULL</var> &lt;&lt; <a class="enum" href="#llvm::X86II::VEX_LShift" title='llvm::X86II::VEX_LShift' data-ref="llvm::X86II::VEX_LShift">VEX_LShift</a>,</td></tr>
+<tr><th id="618">618</th><td></td></tr>
+<tr><th id="619">619</th><td>    <i>// EVEX_K - Set if this instruction requires masking</i></td></tr>
+<tr><th id="620">620</th><td>    <dfn class="enum" id="llvm::X86II::EVEX_KShift" title='llvm::X86II::EVEX_KShift' data-ref="llvm::X86II::EVEX_KShift">EVEX_KShift</dfn> = <a class="enum" href="#llvm::X86II::VEX_LShift" title='llvm::X86II::VEX_LShift' data-ref="llvm::X86II::VEX_LShift">VEX_LShift</a> + <var>1</var>,</td></tr>
+<tr><th id="621">621</th><td>    <dfn class="enum" id="llvm::X86II::EVEX_K" title='llvm::X86II::EVEX_K' data-ref="llvm::X86II::EVEX_K">EVEX_K</dfn>      = <var>1ULL</var> &lt;&lt; <a class="enum" href="#llvm::X86II::EVEX_KShift" title='llvm::X86II::EVEX_KShift' data-ref="llvm::X86II::EVEX_KShift">EVEX_KShift</a>,</td></tr>
+<tr><th id="622">622</th><td></td></tr>
+<tr><th id="623">623</th><td>    <i>// EVEX_Z - Set if this instruction has EVEX.Z field set.</i></td></tr>
+<tr><th id="624">624</th><td>    <dfn class="enum" id="llvm::X86II::EVEX_ZShift" title='llvm::X86II::EVEX_ZShift' data-ref="llvm::X86II::EVEX_ZShift">EVEX_ZShift</dfn> = <a class="enum" href="#llvm::X86II::EVEX_KShift" title='llvm::X86II::EVEX_KShift' data-ref="llvm::X86II::EVEX_KShift">EVEX_KShift</a> + <var>1</var>,</td></tr>
+<tr><th id="625">625</th><td>    <dfn class="enum" id="llvm::X86II::EVEX_Z" title='llvm::X86II::EVEX_Z' data-ref="llvm::X86II::EVEX_Z">EVEX_Z</dfn>      = <var>1ULL</var> &lt;&lt; <a class="enum" href="#llvm::X86II::EVEX_ZShift" title='llvm::X86II::EVEX_ZShift' data-ref="llvm::X86II::EVEX_ZShift">EVEX_ZShift</a>,</td></tr>
+<tr><th id="626">626</th><td></td></tr>
+<tr><th id="627">627</th><td>    <i>// EVEX_L2 - Set if this instruction has EVEX.L' field set.</i></td></tr>
+<tr><th id="628">628</th><td>    <dfn class="enum" id="llvm::X86II::EVEX_L2Shift" title='llvm::X86II::EVEX_L2Shift' data-ref="llvm::X86II::EVEX_L2Shift">EVEX_L2Shift</dfn> = <a class="enum" href="#llvm::X86II::EVEX_ZShift" title='llvm::X86II::EVEX_ZShift' data-ref="llvm::X86II::EVEX_ZShift">EVEX_ZShift</a> + <var>1</var>,</td></tr>
+<tr><th id="629">629</th><td>    <dfn class="enum" id="llvm::X86II::EVEX_L2" title='llvm::X86II::EVEX_L2' data-ref="llvm::X86II::EVEX_L2">EVEX_L2</dfn>     = <var>1ULL</var> &lt;&lt; <a class="enum" href="#llvm::X86II::EVEX_L2Shift" title='llvm::X86II::EVEX_L2Shift' data-ref="llvm::X86II::EVEX_L2Shift">EVEX_L2Shift</a>,</td></tr>
+<tr><th id="630">630</th><td></td></tr>
+<tr><th id="631">631</th><td>    <i>// EVEX_B - Set if this instruction has EVEX.B field set.</i></td></tr>
+<tr><th id="632">632</th><td>    <dfn class="enum" id="llvm::X86II::EVEX_BShift" title='llvm::X86II::EVEX_BShift' data-ref="llvm::X86II::EVEX_BShift">EVEX_BShift</dfn> = <a class="enum" href="#llvm::X86II::EVEX_L2Shift" title='llvm::X86II::EVEX_L2Shift' data-ref="llvm::X86II::EVEX_L2Shift">EVEX_L2Shift</a> + <var>1</var>,</td></tr>
+<tr><th id="633">633</th><td>    <dfn class="enum" id="llvm::X86II::EVEX_B" title='llvm::X86II::EVEX_B' data-ref="llvm::X86II::EVEX_B">EVEX_B</dfn>      = <var>1ULL</var> &lt;&lt; <a class="enum" href="#llvm::X86II::EVEX_BShift" title='llvm::X86II::EVEX_BShift' data-ref="llvm::X86II::EVEX_BShift">EVEX_BShift</a>,</td></tr>
+<tr><th id="634">634</th><td></td></tr>
+<tr><th id="635">635</th><td>    <i>// The scaling factor for the AVX512's 8-bit compressed displacement.</i></td></tr>
+<tr><th id="636">636</th><td>    <dfn class="enum" id="llvm::X86II::CD8_Scale_Shift" title='llvm::X86II::CD8_Scale_Shift' data-ref="llvm::X86II::CD8_Scale_Shift">CD8_Scale_Shift</dfn> = <a class="enum" href="#llvm::X86II::EVEX_BShift" title='llvm::X86II::EVEX_BShift' data-ref="llvm::X86II::EVEX_BShift">EVEX_BShift</a> + <var>1</var>,</td></tr>
+<tr><th id="637">637</th><td>    <dfn class="enum" id="llvm::X86II::CD8_Scale_Mask" title='llvm::X86II::CD8_Scale_Mask' data-ref="llvm::X86II::CD8_Scale_Mask">CD8_Scale_Mask</dfn> = <var>127ULL</var> &lt;&lt; <a class="enum" href="#llvm::X86II::CD8_Scale_Shift" title='llvm::X86II::CD8_Scale_Shift' data-ref="llvm::X86II::CD8_Scale_Shift">CD8_Scale_Shift</a>,</td></tr>
+<tr><th id="638">638</th><td></td></tr>
+<tr><th id="639">639</th><td>    <i class="doc">/// Explicitly specified rounding control</i></td></tr>
+<tr><th id="640">640</th><td>    <dfn class="enum" id="llvm::X86II::EVEX_RCShift" title='llvm::X86II::EVEX_RCShift' data-ref="llvm::X86II::EVEX_RCShift">EVEX_RCShift</dfn> = <a class="enum" href="#llvm::X86II::CD8_Scale_Shift" title='llvm::X86II::CD8_Scale_Shift' data-ref="llvm::X86II::CD8_Scale_Shift">CD8_Scale_Shift</a> + <var>7</var>,</td></tr>
+<tr><th id="641">641</th><td>    <dfn class="enum" id="llvm::X86II::EVEX_RC" title='llvm::X86II::EVEX_RC' data-ref="llvm::X86II::EVEX_RC">EVEX_RC</dfn> = <var>1ULL</var> &lt;&lt; <a class="enum" href="#llvm::X86II::EVEX_RCShift" title='llvm::X86II::EVEX_RCShift' data-ref="llvm::X86II::EVEX_RCShift">EVEX_RCShift</a>,</td></tr>
+<tr><th id="642">642</th><td></td></tr>
+<tr><th id="643">643</th><td>    <i>// NOTRACK prefix</i></td></tr>
+<tr><th id="644">644</th><td>    <dfn class="enum" id="llvm::X86II::NoTrackShift" title='llvm::X86II::NoTrackShift' data-ref="llvm::X86II::NoTrackShift">NoTrackShift</dfn> = <a class="enum" href="#llvm::X86II::EVEX_RCShift" title='llvm::X86II::EVEX_RCShift' data-ref="llvm::X86II::EVEX_RCShift">EVEX_RCShift</a> + <var>1</var>,</td></tr>
+<tr><th id="645">645</th><td>    <dfn class="enum" id="llvm::X86II::NOTRACK" title='llvm::X86II::NOTRACK' data-ref="llvm::X86II::NOTRACK">NOTRACK</dfn> = <var>1ULL</var> &lt;&lt; <a class="enum" href="#llvm::X86II::NoTrackShift" title='llvm::X86II::NoTrackShift' data-ref="llvm::X86II::NoTrackShift">NoTrackShift</a></td></tr>
+<tr><th id="646">646</th><td>  };</td></tr>
+<tr><th id="647">647</th><td></td></tr>
+<tr><th id="648">648</th><td>  <i>// getBaseOpcodeFor - This function returns the "base" X86 opcode for the</i></td></tr>
+<tr><th id="649">649</th><td><i>  // specified machine instruction.</i></td></tr>
+<tr><th id="650">650</th><td><i>  //</i></td></tr>
+<tr><th id="651">651</th><td>  <b>inline</b> <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="decl def" id="_ZN4llvm5X86II16getBaseOpcodeForEm" title='llvm::X86II::getBaseOpcodeFor' data-ref="_ZN4llvm5X86II16getBaseOpcodeForEm">getBaseOpcodeFor</dfn>(<a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col1 decl" id="41TSFlags" title='TSFlags' data-type='uint64_t' data-ref="41TSFlags">TSFlags</dfn>) {</td></tr>
+<tr><th id="652">652</th><td>    <b>return</b> <a class="local col1 ref" href="#41TSFlags" title='TSFlags' data-ref="41TSFlags">TSFlags</a> &gt;&gt; <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::OpcodeShift" title='llvm::X86II::OpcodeShift' data-ref="llvm::X86II::OpcodeShift">OpcodeShift</a>;</td></tr>
+<tr><th id="653">653</th><td>  }</td></tr>
+<tr><th id="654">654</th><td></td></tr>
+<tr><th id="655">655</th><td>  <b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN4llvm5X86II6hasImmEm" title='llvm::X86II::hasImm' data-ref="_ZN4llvm5X86II6hasImmEm">hasImm</dfn>(<a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col2 decl" id="42TSFlags" title='TSFlags' data-type='uint64_t' data-ref="42TSFlags">TSFlags</dfn>) {</td></tr>
+<tr><th id="656">656</th><td>    <b>return</b> (<a class="local col2 ref" href="#42TSFlags" title='TSFlags' data-ref="42TSFlags">TSFlags</a> &amp; <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::ImmMask" title='llvm::X86II::ImmMask' data-ref="llvm::X86II::ImmMask">ImmMask</a>) != <var>0</var>;</td></tr>
+<tr><th id="657">657</th><td>  }</td></tr>
+<tr><th id="658">658</th><td></td></tr>
+<tr><th id="659">659</th><td>  <i class="doc">/// getSizeOfImm - Decode the "size of immediate" field from the TSFlags field</i></td></tr>
+<tr><th id="660">660</th><td><i class="doc">  /// of the specified instruction.</i></td></tr>
+<tr><th id="661">661</th><td>  <b>inline</b> <em>unsigned</em> <dfn class="decl def" id="_ZN4llvm5X86II12getSizeOfImmEm" title='llvm::X86II::getSizeOfImm' data-ref="_ZN4llvm5X86II12getSizeOfImmEm">getSizeOfImm</dfn>(<a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col3 decl" id="43TSFlags" title='TSFlags' data-type='uint64_t' data-ref="43TSFlags">TSFlags</dfn>) {</td></tr>
+<tr><th id="662">662</th><td>    <b>switch</b> (<a class="local col3 ref" href="#43TSFlags" title='TSFlags' data-ref="43TSFlags">TSFlags</a> &amp; <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::ImmMask" title='llvm::X86II::ImmMask' data-ref="llvm::X86II::ImmMask">ImmMask</a>) {</td></tr>
+<tr><th id="663">663</th><td>    <b>default</b>: <a class="macro" href="../../../../include/llvm/Support/ErrorHandling.h.html#135" title="::llvm::llvm_unreachable_internal(&quot;Unknown immediate size&quot;, &quot;/root/cheri/llvm-project/llvm/lib/Target/X86/MCTargetDesc/X86BaseInfo.h&quot;, 663)" data-ref="_M/llvm_unreachable">llvm_unreachable</a>(<q>"Unknown immediate size"</q>);</td></tr>
+<tr><th id="664">664</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm8" title='llvm::X86II::Imm8' data-ref="llvm::X86II::Imm8">Imm8</a>:</td></tr>
+<tr><th id="665">665</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm8PCRel" title='llvm::X86II::Imm8PCRel' data-ref="llvm::X86II::Imm8PCRel">Imm8PCRel</a>:</td></tr>
+<tr><th id="666">666</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm8Reg" title='llvm::X86II::Imm8Reg' data-ref="llvm::X86II::Imm8Reg">Imm8Reg</a>:    <b>return</b> <var>1</var>;</td></tr>
+<tr><th id="667">667</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm16" title='llvm::X86II::Imm16' data-ref="llvm::X86II::Imm16">Imm16</a>:</td></tr>
+<tr><th id="668">668</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm16PCRel" title='llvm::X86II::Imm16PCRel' data-ref="llvm::X86II::Imm16PCRel">Imm16PCRel</a>: <b>return</b> <var>2</var>;</td></tr>
+<tr><th id="669">669</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm32" title='llvm::X86II::Imm32' data-ref="llvm::X86II::Imm32">Imm32</a>:</td></tr>
+<tr><th id="670">670</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm32S" title='llvm::X86II::Imm32S' data-ref="llvm::X86II::Imm32S">Imm32S</a>:</td></tr>
+<tr><th id="671">671</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm32PCRel" title='llvm::X86II::Imm32PCRel' data-ref="llvm::X86II::Imm32PCRel">Imm32PCRel</a>: <b>return</b> <var>4</var>;</td></tr>
+<tr><th id="672">672</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm64" title='llvm::X86II::Imm64' data-ref="llvm::X86II::Imm64">Imm64</a>:      <b>return</b> <var>8</var>;</td></tr>
+<tr><th id="673">673</th><td>    }</td></tr>
+<tr><th id="674">674</th><td>  }</td></tr>
+<tr><th id="675">675</th><td></td></tr>
+<tr><th id="676">676</th><td>  <i class="doc">/// isImmPCRel - Return true if the immediate of the specified instruction's</i></td></tr>
+<tr><th id="677">677</th><td><i class="doc">  /// TSFlags indicates that it is pc relative.</i></td></tr>
+<tr><th id="678">678</th><td>  <b>inline</b> <em>unsigned</em> <dfn class="decl def" id="_ZN4llvm5X86II10isImmPCRelEm" title='llvm::X86II::isImmPCRel' data-ref="_ZN4llvm5X86II10isImmPCRelEm">isImmPCRel</dfn>(<a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col4 decl" id="44TSFlags" title='TSFlags' data-type='uint64_t' data-ref="44TSFlags">TSFlags</dfn>) {</td></tr>
+<tr><th id="679">679</th><td>    <b>switch</b> (<a class="local col4 ref" href="#44TSFlags" title='TSFlags' data-ref="44TSFlags">TSFlags</a> &amp; <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::ImmMask" title='llvm::X86II::ImmMask' data-ref="llvm::X86II::ImmMask">ImmMask</a>) {</td></tr>
+<tr><th id="680">680</th><td>    <b>default</b>: <a class="macro" href="../../../../include/llvm/Support/ErrorHandling.h.html#135" title="::llvm::llvm_unreachable_internal(&quot;Unknown immediate size&quot;, &quot;/root/cheri/llvm-project/llvm/lib/Target/X86/MCTargetDesc/X86BaseInfo.h&quot;, 680)" data-ref="_M/llvm_unreachable">llvm_unreachable</a>(<q>"Unknown immediate size"</q>);</td></tr>
+<tr><th id="681">681</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm8PCRel" title='llvm::X86II::Imm8PCRel' data-ref="llvm::X86II::Imm8PCRel">Imm8PCRel</a>:</td></tr>
+<tr><th id="682">682</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm16PCRel" title='llvm::X86II::Imm16PCRel' data-ref="llvm::X86II::Imm16PCRel">Imm16PCRel</a>:</td></tr>
+<tr><th id="683">683</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm32PCRel" title='llvm::X86II::Imm32PCRel' data-ref="llvm::X86II::Imm32PCRel">Imm32PCRel</a>:</td></tr>
+<tr><th id="684">684</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="685">685</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm8" title='llvm::X86II::Imm8' data-ref="llvm::X86II::Imm8">Imm8</a>:</td></tr>
+<tr><th id="686">686</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm8Reg" title='llvm::X86II::Imm8Reg' data-ref="llvm::X86II::Imm8Reg">Imm8Reg</a>:</td></tr>
+<tr><th id="687">687</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm16" title='llvm::X86II::Imm16' data-ref="llvm::X86II::Imm16">Imm16</a>:</td></tr>
+<tr><th id="688">688</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm32" title='llvm::X86II::Imm32' data-ref="llvm::X86II::Imm32">Imm32</a>:</td></tr>
+<tr><th id="689">689</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm32S" title='llvm::X86II::Imm32S' data-ref="llvm::X86II::Imm32S">Imm32S</a>:</td></tr>
+<tr><th id="690">690</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm64" title='llvm::X86II::Imm64' data-ref="llvm::X86II::Imm64">Imm64</a>:</td></tr>
+<tr><th id="691">691</th><td>      <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="692">692</th><td>    }</td></tr>
+<tr><th id="693">693</th><td>  }</td></tr>
+<tr><th id="694">694</th><td></td></tr>
+<tr><th id="695">695</th><td>  <i class="doc">/// isImmSigned - Return true if the immediate of the specified instruction's</i></td></tr>
+<tr><th id="696">696</th><td><i class="doc">  /// TSFlags indicates that it is signed.</i></td></tr>
+<tr><th id="697">697</th><td>  <b>inline</b> <em>unsigned</em> <dfn class="decl def" id="_ZN4llvm5X86II11isImmSignedEm" title='llvm::X86II::isImmSigned' data-ref="_ZN4llvm5X86II11isImmSignedEm">isImmSigned</dfn>(<a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col5 decl" id="45TSFlags" title='TSFlags' data-type='uint64_t' data-ref="45TSFlags">TSFlags</dfn>) {</td></tr>
+<tr><th id="698">698</th><td>    <b>switch</b> (<a class="local col5 ref" href="#45TSFlags" title='TSFlags' data-ref="45TSFlags">TSFlags</a> &amp; <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::ImmMask" title='llvm::X86II::ImmMask' data-ref="llvm::X86II::ImmMask">ImmMask</a>) {</td></tr>
+<tr><th id="699">699</th><td>    <b>default</b>: <a class="macro" href="../../../../include/llvm/Support/ErrorHandling.h.html#135" title="::llvm::llvm_unreachable_internal(&quot;Unknown immediate signedness&quot;, &quot;/root/cheri/llvm-project/llvm/lib/Target/X86/MCTargetDesc/X86BaseInfo.h&quot;, 699)" data-ref="_M/llvm_unreachable">llvm_unreachable</a>(<q>"Unknown immediate signedness"</q>);</td></tr>
+<tr><th id="700">700</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm32S" title='llvm::X86II::Imm32S' data-ref="llvm::X86II::Imm32S">Imm32S</a>:</td></tr>
+<tr><th id="701">701</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="702">702</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm8" title='llvm::X86II::Imm8' data-ref="llvm::X86II::Imm8">Imm8</a>:</td></tr>
+<tr><th id="703">703</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm8PCRel" title='llvm::X86II::Imm8PCRel' data-ref="llvm::X86II::Imm8PCRel">Imm8PCRel</a>:</td></tr>
+<tr><th id="704">704</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm8Reg" title='llvm::X86II::Imm8Reg' data-ref="llvm::X86II::Imm8Reg">Imm8Reg</a>:</td></tr>
+<tr><th id="705">705</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm16" title='llvm::X86II::Imm16' data-ref="llvm::X86II::Imm16">Imm16</a>:</td></tr>
+<tr><th id="706">706</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm16PCRel" title='llvm::X86II::Imm16PCRel' data-ref="llvm::X86II::Imm16PCRel">Imm16PCRel</a>:</td></tr>
+<tr><th id="707">707</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm32" title='llvm::X86II::Imm32' data-ref="llvm::X86II::Imm32">Imm32</a>:</td></tr>
+<tr><th id="708">708</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm32PCRel" title='llvm::X86II::Imm32PCRel' data-ref="llvm::X86II::Imm32PCRel">Imm32PCRel</a>:</td></tr>
+<tr><th id="709">709</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Imm64" title='llvm::X86II::Imm64' data-ref="llvm::X86II::Imm64">Imm64</a>:</td></tr>
+<tr><th id="710">710</th><td>      <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="711">711</th><td>    }</td></tr>
+<tr><th id="712">712</th><td>  }</td></tr>
+<tr><th id="713">713</th><td></td></tr>
+<tr><th id="714">714</th><td>  <i class="doc">/// getOperandBias - compute whether all of the def operands are repeated</i></td></tr>
+<tr><th id="715">715</th><td><i class="doc">  ///                  in the uses and therefore should be skipped.</i></td></tr>
+<tr><th id="716">716</th><td><i class="doc">  /// This determines the start of the unique operand list. We need to determine</i></td></tr>
+<tr><th id="717">717</th><td><i class="doc">  /// if all of the defs have a corresponding tied operand in the uses.</i></td></tr>
+<tr><th id="718">718</th><td><i class="doc">  /// Unfortunately, the tied operand information is encoded in the uses not</i></td></tr>
+<tr><th id="719">719</th><td><i class="doc">  /// the defs so we have to use some heuristics to find which operands to</i></td></tr>
+<tr><th id="720">720</th><td><i class="doc">  /// query.</i></td></tr>
+<tr><th id="721">721</th><td>  <b>inline</b> <em>unsigned</em> <dfn class="decl def" id="_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE" title='llvm::X86II::getOperandBias' data-ref="_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE">getOperandBias</dfn>(<em>const</em> <a class="type" href="../../../../include/llvm/MC/MCInstrDesc.h.html#llvm::MCInstrDesc" title='llvm::MCInstrDesc' data-ref="llvm::MCInstrDesc">MCInstrDesc</a>&amp; <dfn class="local col6 decl" id="46Desc" title='Desc' data-type='const llvm::MCInstrDesc &amp;' data-ref="46Desc">Desc</dfn>) {</td></tr>
+<tr><th id="722">722</th><td>    <em>unsigned</em> <dfn class="local col7 decl" id="47NumDefs" title='NumDefs' data-type='unsigned int' data-ref="47NumDefs">NumDefs</dfn> = <a class="local col6 ref" href="#46Desc" title='Desc' data-ref="46Desc">Desc</a>.<a class="ref" href="../../../../include/llvm/MC/MCInstrDesc.h.html#_ZNK4llvm11MCInstrDesc10getNumDefsEv" title='llvm::MCInstrDesc::getNumDefs' data-ref="_ZNK4llvm11MCInstrDesc10getNumDefsEv">getNumDefs</a>();</td></tr>
+<tr><th id="723">723</th><td>    <em>unsigned</em> <dfn class="local col8 decl" id="48NumOps" title='NumOps' data-type='unsigned int' data-ref="48NumOps">NumOps</dfn> = <a class="local col6 ref" href="#46Desc" title='Desc' data-ref="46Desc">Desc</a>.<a class="ref" href="../../../../include/llvm/MC/MCInstrDesc.h.html#_ZNK4llvm11MCInstrDesc14getNumOperandsEv" title='llvm::MCInstrDesc::getNumOperands' data-ref="_ZNK4llvm11MCInstrDesc14getNumOperandsEv">getNumOperands</a>();</td></tr>
+<tr><th id="724">724</th><td>    <b>switch</b> (<a class="local col7 ref" href="#47NumDefs" title='NumDefs' data-ref="47NumDefs">NumDefs</a>) {</td></tr>
+<tr><th id="725">725</th><td>    <b>default</b>: <a class="macro" href="../../../../include/llvm/Support/ErrorHandling.h.html#135" title="::llvm::llvm_unreachable_internal(&quot;Unexpected number of defs&quot;, &quot;/root/cheri/llvm-project/llvm/lib/Target/X86/MCTargetDesc/X86BaseInfo.h&quot;, 725)" data-ref="_M/llvm_unreachable">llvm_unreachable</a>(<q>"Unexpected number of defs"</q>);</td></tr>
+<tr><th id="726">726</th><td>    <b>case</b> <var>0</var>:</td></tr>
+<tr><th id="727">727</th><td>      <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="728">728</th><td>    <b>case</b> <var>1</var>:</td></tr>
+<tr><th id="729">729</th><td>      <i>// Common two addr case.</i></td></tr>
+<tr><th id="730">730</th><td>      <b>if</b> (<a class="local col8 ref" href="#48NumOps" title='NumOps' data-ref="48NumOps">NumOps</a> &gt; <var>1</var> &amp;&amp; <a class="local col6 ref" href="#46Desc" title='Desc' data-ref="46Desc">Desc</a>.<a class="ref" href="../../../../include/llvm/MC/MCInstrDesc.h.html#_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE" title='llvm::MCInstrDesc::getOperandConstraint' data-ref="_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE">getOperandConstraint</a>(<var>1</var>, <span class="namespace">MCOI::</span><a class="enum" href="../../../../include/llvm/MC/MCInstrDesc.h.html#llvm::MCOI::OperandConstraint::TIED_TO" title='llvm::MCOI::OperandConstraint::TIED_TO' data-ref="llvm::MCOI::OperandConstraint::TIED_TO">TIED_TO</a>) == <var>0</var>)</td></tr>
+<tr><th id="731">731</th><td>        <b>return</b> <var>1</var>;</td></tr>
+<tr><th id="732">732</th><td>      <i>// Check for AVX-512 scatter which has a TIED_TO in the second to last</i></td></tr>
+<tr><th id="733">733</th><td><i>      // operand.</i></td></tr>
+<tr><th id="734">734</th><td>      <b>if</b> (<a class="local col8 ref" href="#48NumOps" title='NumOps' data-ref="48NumOps">NumOps</a> == <var>8</var> &amp;&amp;</td></tr>
+<tr><th id="735">735</th><td>          <a class="local col6 ref" href="#46Desc" title='Desc' data-ref="46Desc">Desc</a>.<a class="ref" href="../../../../include/llvm/MC/MCInstrDesc.h.html#_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE" title='llvm::MCInstrDesc::getOperandConstraint' data-ref="_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE">getOperandConstraint</a>(<var>6</var>, <span class="namespace">MCOI::</span><a class="enum" href="../../../../include/llvm/MC/MCInstrDesc.h.html#llvm::MCOI::OperandConstraint::TIED_TO" title='llvm::MCOI::OperandConstraint::TIED_TO' data-ref="llvm::MCOI::OperandConstraint::TIED_TO">TIED_TO</a>) == <var>0</var>)</td></tr>
+<tr><th id="736">736</th><td>        <b>return</b> <var>1</var>;</td></tr>
+<tr><th id="737">737</th><td>      <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="738">738</th><td>    <b>case</b> <var>2</var>:</td></tr>
+<tr><th id="739">739</th><td>      <i>// XCHG/XADD have two destinations and two sources.</i></td></tr>
+<tr><th id="740">740</th><td>      <b>if</b> (<a class="local col8 ref" href="#48NumOps" title='NumOps' data-ref="48NumOps">NumOps</a> &gt;= <var>4</var> &amp;&amp; <a class="local col6 ref" href="#46Desc" title='Desc' data-ref="46Desc">Desc</a>.<a class="ref" href="../../../../include/llvm/MC/MCInstrDesc.h.html#_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE" title='llvm::MCInstrDesc::getOperandConstraint' data-ref="_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE">getOperandConstraint</a>(<var>2</var>, <span class="namespace">MCOI::</span><a class="enum" href="../../../../include/llvm/MC/MCInstrDesc.h.html#llvm::MCOI::OperandConstraint::TIED_TO" title='llvm::MCOI::OperandConstraint::TIED_TO' data-ref="llvm::MCOI::OperandConstraint::TIED_TO">TIED_TO</a>) == <var>0</var> &amp;&amp;</td></tr>
+<tr><th id="741">741</th><td>          <a class="local col6 ref" href="#46Desc" title='Desc' data-ref="46Desc">Desc</a>.<a class="ref" href="../../../../include/llvm/MC/MCInstrDesc.h.html#_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE" title='llvm::MCInstrDesc::getOperandConstraint' data-ref="_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE">getOperandConstraint</a>(<var>3</var>, <span class="namespace">MCOI::</span><a class="enum" href="../../../../include/llvm/MC/MCInstrDesc.h.html#llvm::MCOI::OperandConstraint::TIED_TO" title='llvm::MCOI::OperandConstraint::TIED_TO' data-ref="llvm::MCOI::OperandConstraint::TIED_TO">TIED_TO</a>) == <var>1</var>)</td></tr>
+<tr><th id="742">742</th><td>        <b>return</b> <var>2</var>;</td></tr>
+<tr><th id="743">743</th><td>      <i>// Check for gather. AVX-512 has the second tied operand early. AVX2</i></td></tr>
+<tr><th id="744">744</th><td><i>      // has it as the last op.</i></td></tr>
+<tr><th id="745">745</th><td>      <b>if</b> (<a class="local col8 ref" href="#48NumOps" title='NumOps' data-ref="48NumOps">NumOps</a> == <var>9</var> &amp;&amp; <a class="local col6 ref" href="#46Desc" title='Desc' data-ref="46Desc">Desc</a>.<a class="ref" href="../../../../include/llvm/MC/MCInstrDesc.h.html#_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE" title='llvm::MCInstrDesc::getOperandConstraint' data-ref="_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE">getOperandConstraint</a>(<var>2</var>, <span class="namespace">MCOI::</span><a class="enum" href="../../../../include/llvm/MC/MCInstrDesc.h.html#llvm::MCOI::OperandConstraint::TIED_TO" title='llvm::MCOI::OperandConstraint::TIED_TO' data-ref="llvm::MCOI::OperandConstraint::TIED_TO">TIED_TO</a>) == <var>0</var> &amp;&amp;</td></tr>
+<tr><th id="746">746</th><td>          (<a class="local col6 ref" href="#46Desc" title='Desc' data-ref="46Desc">Desc</a>.<a class="ref" href="../../../../include/llvm/MC/MCInstrDesc.h.html#_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE" title='llvm::MCInstrDesc::getOperandConstraint' data-ref="_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE">getOperandConstraint</a>(<var>3</var>, <span class="namespace">MCOI::</span><a class="enum" href="../../../../include/llvm/MC/MCInstrDesc.h.html#llvm::MCOI::OperandConstraint::TIED_TO" title='llvm::MCOI::OperandConstraint::TIED_TO' data-ref="llvm::MCOI::OperandConstraint::TIED_TO">TIED_TO</a>) == <var>1</var> ||</td></tr>
+<tr><th id="747">747</th><td>           <a class="local col6 ref" href="#46Desc" title='Desc' data-ref="46Desc">Desc</a>.<a class="ref" href="../../../../include/llvm/MC/MCInstrDesc.h.html#_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE" title='llvm::MCInstrDesc::getOperandConstraint' data-ref="_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE">getOperandConstraint</a>(<var>8</var>, <span class="namespace">MCOI::</span><a class="enum" href="../../../../include/llvm/MC/MCInstrDesc.h.html#llvm::MCOI::OperandConstraint::TIED_TO" title='llvm::MCOI::OperandConstraint::TIED_TO' data-ref="llvm::MCOI::OperandConstraint::TIED_TO">TIED_TO</a>) == <var>1</var>))</td></tr>
+<tr><th id="748">748</th><td>        <b>return</b> <var>2</var>;</td></tr>
+<tr><th id="749">749</th><td>      <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="750">750</th><td>    }</td></tr>
+<tr><th id="751">751</th><td>  }</td></tr>
+<tr><th id="752">752</th><td></td></tr>
+<tr><th id="753">753</th><td>  <i class="doc">/// getMemoryOperandNo - The function returns the MCInst operand # for the</i></td></tr>
+<tr><th id="754">754</th><td><i class="doc">  /// first field of the memory operand.  If the instruction doesn't have a</i></td></tr>
+<tr><th id="755">755</th><td><i class="doc">  /// memory operand, this returns -1.</i></td></tr>
+<tr><th id="756">756</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="757">757</th><td><i class="doc">  /// Note that this ignores tied operands.  If there is a tied register which</i></td></tr>
+<tr><th id="758">758</th><td><i class="doc">  /// is duplicated in the MCInst (e.g. "EAX = addl EAX, [mem]") it is only</i></td></tr>
+<tr><th id="759">759</th><td><i class="doc">  /// counted as one operand.</i></td></tr>
+<tr><th id="760">760</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="761">761</th><td>  <b>inline</b> <em>int</em> <dfn class="decl def" id="_ZN4llvm5X86II18getMemoryOperandNoEm" title='llvm::X86II::getMemoryOperandNo' data-ref="_ZN4llvm5X86II18getMemoryOperandNoEm">getMemoryOperandNo</dfn>(<a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col9 decl" id="49TSFlags" title='TSFlags' data-type='uint64_t' data-ref="49TSFlags">TSFlags</dfn>) {</td></tr>
+<tr><th id="762">762</th><td>    <em>bool</em> <dfn class="local col0 decl" id="50HasVEX_4V" title='HasVEX_4V' data-type='bool' data-ref="50HasVEX_4V">HasVEX_4V</dfn> = <a class="local col9 ref" href="#49TSFlags" title='TSFlags' data-ref="49TSFlags">TSFlags</a> &amp; <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::VEX_4V" title='llvm::X86II::VEX_4V' data-ref="llvm::X86II::VEX_4V">VEX_4V</a>;</td></tr>
+<tr><th id="763">763</th><td>    <em>bool</em> <dfn class="local col1 decl" id="51HasEVEX_K" title='HasEVEX_K' data-type='bool' data-ref="51HasEVEX_K">HasEVEX_K</dfn> = <a class="local col9 ref" href="#49TSFlags" title='TSFlags' data-ref="49TSFlags">TSFlags</a> &amp; <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::EVEX_K" title='llvm::X86II::EVEX_K' data-ref="llvm::X86II::EVEX_K">EVEX_K</a>;</td></tr>
+<tr><th id="764">764</th><td></td></tr>
+<tr><th id="765">765</th><td>    <b>switch</b> (<a class="local col9 ref" href="#49TSFlags" title='TSFlags' data-ref="49TSFlags">TSFlags</a> &amp; <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::FormMask" title='llvm::X86II::FormMask' data-ref="llvm::X86II::FormMask">FormMask</a>) {</td></tr>
+<tr><th id="766">766</th><td>    <b>default</b>: <a class="macro" href="../../../../include/llvm/Support/ErrorHandling.h.html#135" title="::llvm::llvm_unreachable_internal(&quot;Unknown FormMask value in getMemoryOperandNo!&quot;, &quot;/root/cheri/llvm-project/llvm/lib/Target/X86/MCTargetDesc/X86BaseInfo.h&quot;, 766)" data-ref="_M/llvm_unreachable">llvm_unreachable</a>(<q>"Unknown FormMask value in getMemoryOperandNo!"</q>);</td></tr>
+<tr><th id="767">767</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::Pseudo" title='llvm::X86II::Pseudo' data-ref="llvm::X86II::Pseudo">Pseudo</a>:</td></tr>
+<tr><th id="768">768</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::RawFrm" title='llvm::X86II::RawFrm' data-ref="llvm::X86II::RawFrm">RawFrm</a>:</td></tr>
+<tr><th id="769">769</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::AddRegFrm" title='llvm::X86II::AddRegFrm' data-ref="llvm::X86II::AddRegFrm">AddRegFrm</a>:</td></tr>
+<tr><th id="770">770</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::RawFrmImm8" title='llvm::X86II::RawFrmImm8' data-ref="llvm::X86II::RawFrmImm8">RawFrmImm8</a>:</td></tr>
+<tr><th id="771">771</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::RawFrmImm16" title='llvm::X86II::RawFrmImm16' data-ref="llvm::X86II::RawFrmImm16">RawFrmImm16</a>:</td></tr>
+<tr><th id="772">772</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::RawFrmMemOffs" title='llvm::X86II::RawFrmMemOffs' data-ref="llvm::X86II::RawFrmMemOffs">RawFrmMemOffs</a>:</td></tr>
+<tr><th id="773">773</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::RawFrmSrc" title='llvm::X86II::RawFrmSrc' data-ref="llvm::X86II::RawFrmSrc">RawFrmSrc</a>:</td></tr>
+<tr><th id="774">774</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::RawFrmDst" title='llvm::X86II::RawFrmDst' data-ref="llvm::X86II::RawFrmDst">RawFrmDst</a>:</td></tr>
+<tr><th id="775">775</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::RawFrmDstSrc" title='llvm::X86II::RawFrmDstSrc' data-ref="llvm::X86II::RawFrmDstSrc">RawFrmDstSrc</a>:</td></tr>
+<tr><th id="776">776</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::AddCCFrm" title='llvm::X86II::AddCCFrm' data-ref="llvm::X86II::AddCCFrm">AddCCFrm</a>:</td></tr>
+<tr><th id="777">777</th><td>      <b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="778">778</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRMDestMem" title='llvm::X86II::MRMDestMem' data-ref="llvm::X86II::MRMDestMem">MRMDestMem</a>:</td></tr>
+<tr><th id="779">779</th><td>      <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="780">780</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRMSrcMem" title='llvm::X86II::MRMSrcMem' data-ref="llvm::X86II::MRMSrcMem">MRMSrcMem</a>:</td></tr>
+<tr><th id="781">781</th><td>      <i>// Start from 1, skip any registers encoded in VEX_VVVV or I8IMM, or a</i></td></tr>
+<tr><th id="782">782</th><td><i>      // mask register.</i></td></tr>
+<tr><th id="783">783</th><td>      <b>return</b> <var>1</var> + <a class="local col0 ref" href="#50HasVEX_4V" title='HasVEX_4V' data-ref="50HasVEX_4V">HasVEX_4V</a> + <a class="local col1 ref" href="#51HasEVEX_K" title='HasEVEX_K' data-ref="51HasEVEX_K">HasEVEX_K</a>;</td></tr>
+<tr><th id="784">784</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRMSrcMem4VOp3" title='llvm::X86II::MRMSrcMem4VOp3' data-ref="llvm::X86II::MRMSrcMem4VOp3">MRMSrcMem4VOp3</a>:</td></tr>
+<tr><th id="785">785</th><td>      <i>// Skip registers encoded in reg.</i></td></tr>
+<tr><th id="786">786</th><td>      <b>return</b> <var>1</var> + <a class="local col1 ref" href="#51HasEVEX_K" title='HasEVEX_K' data-ref="51HasEVEX_K">HasEVEX_K</a>;</td></tr>
+<tr><th id="787">787</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRMSrcMemOp4" title='llvm::X86II::MRMSrcMemOp4' data-ref="llvm::X86II::MRMSrcMemOp4">MRMSrcMemOp4</a>:</td></tr>
+<tr><th id="788">788</th><td>      <i>// Skip registers encoded in reg, VEX_VVVV, and I8IMM.</i></td></tr>
+<tr><th id="789">789</th><td>      <b>return</b> <var>3</var>;</td></tr>
+<tr><th id="790">790</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRMSrcMemCC" title='llvm::X86II::MRMSrcMemCC' data-ref="llvm::X86II::MRMSrcMemCC">MRMSrcMemCC</a>:</td></tr>
+<tr><th id="791">791</th><td>      <i>// Start from 1, skip any registers encoded in VEX_VVVV or I8IMM, or a</i></td></tr>
+<tr><th id="792">792</th><td><i>      // mask register.</i></td></tr>
+<tr><th id="793">793</th><td>      <b>return</b> <var>1</var>;</td></tr>
+<tr><th id="794">794</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRMDestReg" title='llvm::X86II::MRMDestReg' data-ref="llvm::X86II::MRMDestReg">MRMDestReg</a>:</td></tr>
+<tr><th id="795">795</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRMSrcReg" title='llvm::X86II::MRMSrcReg' data-ref="llvm::X86II::MRMSrcReg">MRMSrcReg</a>:</td></tr>
+<tr><th id="796">796</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRMSrcReg4VOp3" title='llvm::X86II::MRMSrcReg4VOp3' data-ref="llvm::X86II::MRMSrcReg4VOp3">MRMSrcReg4VOp3</a>:</td></tr>
+<tr><th id="797">797</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRMSrcRegOp4" title='llvm::X86II::MRMSrcRegOp4' data-ref="llvm::X86II::MRMSrcRegOp4">MRMSrcRegOp4</a>:</td></tr>
+<tr><th id="798">798</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRMSrcRegCC" title='llvm::X86II::MRMSrcRegCC' data-ref="llvm::X86II::MRMSrcRegCC">MRMSrcRegCC</a>:</td></tr>
+<tr><th id="799">799</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRMXrCC" title='llvm::X86II::MRMXrCC' data-ref="llvm::X86II::MRMXrCC">MRMXrCC</a>:</td></tr>
+<tr><th id="800">800</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRMXr" title='llvm::X86II::MRMXr' data-ref="llvm::X86II::MRMXr">MRMXr</a>:</td></tr>
+<tr><th id="801">801</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM0r" title='llvm::X86II::MRM0r' data-ref="llvm::X86II::MRM0r">MRM0r</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM1r" title='llvm::X86II::MRM1r' data-ref="llvm::X86II::MRM1r">MRM1r</a>:</td></tr>
+<tr><th id="802">802</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM2r" title='llvm::X86II::MRM2r' data-ref="llvm::X86II::MRM2r">MRM2r</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM3r" title='llvm::X86II::MRM3r' data-ref="llvm::X86II::MRM3r">MRM3r</a>:</td></tr>
+<tr><th id="803">803</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM4r" title='llvm::X86II::MRM4r' data-ref="llvm::X86II::MRM4r">MRM4r</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM5r" title='llvm::X86II::MRM5r' data-ref="llvm::X86II::MRM5r">MRM5r</a>:</td></tr>
+<tr><th id="804">804</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM6r" title='llvm::X86II::MRM6r' data-ref="llvm::X86II::MRM6r">MRM6r</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM7r" title='llvm::X86II::MRM7r' data-ref="llvm::X86II::MRM7r">MRM7r</a>:</td></tr>
+<tr><th id="805">805</th><td>      <b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="806">806</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRMXmCC" title='llvm::X86II::MRMXmCC' data-ref="llvm::X86II::MRMXmCC">MRMXmCC</a>:</td></tr>
+<tr><th id="807">807</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRMXm" title='llvm::X86II::MRMXm' data-ref="llvm::X86II::MRMXm">MRMXm</a>:</td></tr>
+<tr><th id="808">808</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM0m" title='llvm::X86II::MRM0m' data-ref="llvm::X86II::MRM0m">MRM0m</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM1m" title='llvm::X86II::MRM1m' data-ref="llvm::X86II::MRM1m">MRM1m</a>:</td></tr>
+<tr><th id="809">809</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM2m" title='llvm::X86II::MRM2m' data-ref="llvm::X86II::MRM2m">MRM2m</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM3m" title='llvm::X86II::MRM3m' data-ref="llvm::X86II::MRM3m">MRM3m</a>:</td></tr>
+<tr><th id="810">810</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM4m" title='llvm::X86II::MRM4m' data-ref="llvm::X86II::MRM4m">MRM4m</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM5m" title='llvm::X86II::MRM5m' data-ref="llvm::X86II::MRM5m">MRM5m</a>:</td></tr>
+<tr><th id="811">811</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM6m" title='llvm::X86II::MRM6m' data-ref="llvm::X86II::MRM6m">MRM6m</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM7m" title='llvm::X86II::MRM7m' data-ref="llvm::X86II::MRM7m">MRM7m</a>:</td></tr>
+<tr><th id="812">812</th><td>      <i>// Start from 0, skip registers encoded in VEX_VVVV or a mask register.</i></td></tr>
+<tr><th id="813">813</th><td>      <b>return</b> <var>0</var> + <a class="local col0 ref" href="#50HasVEX_4V" title='HasVEX_4V' data-ref="50HasVEX_4V">HasVEX_4V</a> + <a class="local col1 ref" href="#51HasEVEX_K" title='HasEVEX_K' data-ref="51HasEVEX_K">HasEVEX_K</a>;</td></tr>
+<tr><th id="814">814</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_C0" title='llvm::X86II::MRM_C0' data-ref="llvm::X86II::MRM_C0">MRM_C0</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_C1" title='llvm::X86II::MRM_C1' data-ref="llvm::X86II::MRM_C1">MRM_C1</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_C2" title='llvm::X86II::MRM_C2' data-ref="llvm::X86II::MRM_C2">MRM_C2</a>:</td></tr>
+<tr><th id="815">815</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_C3" title='llvm::X86II::MRM_C3' data-ref="llvm::X86II::MRM_C3">MRM_C3</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_C4" title='llvm::X86II::MRM_C4' data-ref="llvm::X86II::MRM_C4">MRM_C4</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_C5" title='llvm::X86II::MRM_C5' data-ref="llvm::X86II::MRM_C5">MRM_C5</a>:</td></tr>
+<tr><th id="816">816</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_C6" title='llvm::X86II::MRM_C6' data-ref="llvm::X86II::MRM_C6">MRM_C6</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_C7" title='llvm::X86II::MRM_C7' data-ref="llvm::X86II::MRM_C7">MRM_C7</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_C8" title='llvm::X86II::MRM_C8' data-ref="llvm::X86II::MRM_C8">MRM_C8</a>:</td></tr>
+<tr><th id="817">817</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_C9" title='llvm::X86II::MRM_C9' data-ref="llvm::X86II::MRM_C9">MRM_C9</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_CA" title='llvm::X86II::MRM_CA' data-ref="llvm::X86II::MRM_CA">MRM_CA</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_CB" title='llvm::X86II::MRM_CB' data-ref="llvm::X86II::MRM_CB">MRM_CB</a>:</td></tr>
+<tr><th id="818">818</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_CC" title='llvm::X86II::MRM_CC' data-ref="llvm::X86II::MRM_CC">MRM_CC</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_CD" title='llvm::X86II::MRM_CD' data-ref="llvm::X86II::MRM_CD">MRM_CD</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_CE" title='llvm::X86II::MRM_CE' data-ref="llvm::X86II::MRM_CE">MRM_CE</a>:</td></tr>
+<tr><th id="819">819</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_CF" title='llvm::X86II::MRM_CF' data-ref="llvm::X86II::MRM_CF">MRM_CF</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_D0" title='llvm::X86II::MRM_D0' data-ref="llvm::X86II::MRM_D0">MRM_D0</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_D1" title='llvm::X86II::MRM_D1' data-ref="llvm::X86II::MRM_D1">MRM_D1</a>:</td></tr>
+<tr><th id="820">820</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_D2" title='llvm::X86II::MRM_D2' data-ref="llvm::X86II::MRM_D2">MRM_D2</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_D3" title='llvm::X86II::MRM_D3' data-ref="llvm::X86II::MRM_D3">MRM_D3</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_D4" title='llvm::X86II::MRM_D4' data-ref="llvm::X86II::MRM_D4">MRM_D4</a>:</td></tr>
+<tr><th id="821">821</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_D5" title='llvm::X86II::MRM_D5' data-ref="llvm::X86II::MRM_D5">MRM_D5</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_D6" title='llvm::X86II::MRM_D6' data-ref="llvm::X86II::MRM_D6">MRM_D6</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_D7" title='llvm::X86II::MRM_D7' data-ref="llvm::X86II::MRM_D7">MRM_D7</a>:</td></tr>
+<tr><th id="822">822</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_D8" title='llvm::X86II::MRM_D8' data-ref="llvm::X86II::MRM_D8">MRM_D8</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_D9" title='llvm::X86II::MRM_D9' data-ref="llvm::X86II::MRM_D9">MRM_D9</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_DA" title='llvm::X86II::MRM_DA' data-ref="llvm::X86II::MRM_DA">MRM_DA</a>:</td></tr>
+<tr><th id="823">823</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_DB" title='llvm::X86II::MRM_DB' data-ref="llvm::X86II::MRM_DB">MRM_DB</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_DC" title='llvm::X86II::MRM_DC' data-ref="llvm::X86II::MRM_DC">MRM_DC</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_DD" title='llvm::X86II::MRM_DD' data-ref="llvm::X86II::MRM_DD">MRM_DD</a>:</td></tr>
+<tr><th id="824">824</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_DE" title='llvm::X86II::MRM_DE' data-ref="llvm::X86II::MRM_DE">MRM_DE</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_DF" title='llvm::X86II::MRM_DF' data-ref="llvm::X86II::MRM_DF">MRM_DF</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_E0" title='llvm::X86II::MRM_E0' data-ref="llvm::X86II::MRM_E0">MRM_E0</a>:</td></tr>
+<tr><th id="825">825</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_E1" title='llvm::X86II::MRM_E1' data-ref="llvm::X86II::MRM_E1">MRM_E1</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_E2" title='llvm::X86II::MRM_E2' data-ref="llvm::X86II::MRM_E2">MRM_E2</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_E3" title='llvm::X86II::MRM_E3' data-ref="llvm::X86II::MRM_E3">MRM_E3</a>:</td></tr>
+<tr><th id="826">826</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_E4" title='llvm::X86II::MRM_E4' data-ref="llvm::X86II::MRM_E4">MRM_E4</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_E5" title='llvm::X86II::MRM_E5' data-ref="llvm::X86II::MRM_E5">MRM_E5</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_E6" title='llvm::X86II::MRM_E6' data-ref="llvm::X86II::MRM_E6">MRM_E6</a>:</td></tr>
+<tr><th id="827">827</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_E7" title='llvm::X86II::MRM_E7' data-ref="llvm::X86II::MRM_E7">MRM_E7</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_E8" title='llvm::X86II::MRM_E8' data-ref="llvm::X86II::MRM_E8">MRM_E8</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_E9" title='llvm::X86II::MRM_E9' data-ref="llvm::X86II::MRM_E9">MRM_E9</a>:</td></tr>
+<tr><th id="828">828</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_EA" title='llvm::X86II::MRM_EA' data-ref="llvm::X86II::MRM_EA">MRM_EA</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_EB" title='llvm::X86II::MRM_EB' data-ref="llvm::X86II::MRM_EB">MRM_EB</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_EC" title='llvm::X86II::MRM_EC' data-ref="llvm::X86II::MRM_EC">MRM_EC</a>:</td></tr>
+<tr><th id="829">829</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_ED" title='llvm::X86II::MRM_ED' data-ref="llvm::X86II::MRM_ED">MRM_ED</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_EE" title='llvm::X86II::MRM_EE' data-ref="llvm::X86II::MRM_EE">MRM_EE</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_EF" title='llvm::X86II::MRM_EF' data-ref="llvm::X86II::MRM_EF">MRM_EF</a>:</td></tr>
+<tr><th id="830">830</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_F0" title='llvm::X86II::MRM_F0' data-ref="llvm::X86II::MRM_F0">MRM_F0</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_F1" title='llvm::X86II::MRM_F1' data-ref="llvm::X86II::MRM_F1">MRM_F1</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_F2" title='llvm::X86II::MRM_F2' data-ref="llvm::X86II::MRM_F2">MRM_F2</a>:</td></tr>
+<tr><th id="831">831</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_F3" title='llvm::X86II::MRM_F3' data-ref="llvm::X86II::MRM_F3">MRM_F3</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_F4" title='llvm::X86II::MRM_F4' data-ref="llvm::X86II::MRM_F4">MRM_F4</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_F5" title='llvm::X86II::MRM_F5' data-ref="llvm::X86II::MRM_F5">MRM_F5</a>:</td></tr>
+<tr><th id="832">832</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_F6" title='llvm::X86II::MRM_F6' data-ref="llvm::X86II::MRM_F6">MRM_F6</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_F7" title='llvm::X86II::MRM_F7' data-ref="llvm::X86II::MRM_F7">MRM_F7</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_F8" title='llvm::X86II::MRM_F8' data-ref="llvm::X86II::MRM_F8">MRM_F8</a>:</td></tr>
+<tr><th id="833">833</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_F9" title='llvm::X86II::MRM_F9' data-ref="llvm::X86II::MRM_F9">MRM_F9</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_FA" title='llvm::X86II::MRM_FA' data-ref="llvm::X86II::MRM_FA">MRM_FA</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_FB" title='llvm::X86II::MRM_FB' data-ref="llvm::X86II::MRM_FB">MRM_FB</a>:</td></tr>
+<tr><th id="834">834</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_FC" title='llvm::X86II::MRM_FC' data-ref="llvm::X86II::MRM_FC">MRM_FC</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_FD" title='llvm::X86II::MRM_FD' data-ref="llvm::X86II::MRM_FD">MRM_FD</a>: <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_FE" title='llvm::X86II::MRM_FE' data-ref="llvm::X86II::MRM_FE">MRM_FE</a>:</td></tr>
+<tr><th id="835">835</th><td>    <b>case</b> <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::MRM_FF" title='llvm::X86II::MRM_FF' data-ref="llvm::X86II::MRM_FF">MRM_FF</a>:</td></tr>
+<tr><th id="836">836</th><td>      <b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="837">837</th><td>    }</td></tr>
+<tr><th id="838">838</th><td>  }</td></tr>
+<tr><th id="839">839</th><td></td></tr>
+<tr><th id="840">840</th><td>  <i class="doc">/// isX86_64ExtendedReg - Is the MachineOperand a x86-64 extended (r8 or</i></td></tr>
+<tr><th id="841">841</th><td><i class="doc">  /// higher) register?  e.g. r8, xmm8, xmm13, etc.</i></td></tr>
+<tr><th id="842">842</th><td>  <b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN4llvm5X86II19isX86_64ExtendedRegEj" title='llvm::X86II::isX86_64ExtendedReg' data-ref="_ZN4llvm5X86II19isX86_64ExtendedRegEj">isX86_64ExtendedReg</dfn>(<em>unsigned</em> <dfn class="local col2 decl" id="52RegNo" title='RegNo' data-type='unsigned int' data-ref="52RegNo">RegNo</dfn>) {</td></tr>
+<tr><th id="843">843</th><td>    <b>if</b> ((RegNo &gt;= X86::<span class='error' title="no member named &apos;XMM8&apos; in namespace &apos;llvm::X86&apos;">XMM8</span> &amp;&amp; RegNo &lt;= X86::<span class='error' title="no member named &apos;XMM31&apos; in namespace &apos;llvm::X86&apos;">XMM31</span>) ||</td></tr>
+<tr><th id="844">844</th><td>        (RegNo &gt;= X86::<span class='error' title="no member named &apos;YMM8&apos; in namespace &apos;llvm::X86&apos;">YMM8</span> &amp;&amp; RegNo &lt;= X86::<span class='error' title="no member named &apos;YMM31&apos; in namespace &apos;llvm::X86&apos;">YMM31</span>) ||</td></tr>
+<tr><th id="845">845</th><td>        (RegNo &gt;= X86::<span class='error' title="no member named &apos;ZMM8&apos; in namespace &apos;llvm::X86&apos;">ZMM8</span> &amp;&amp; RegNo &lt;= X86::<span class='error' title="no member named &apos;ZMM31&apos; in namespace &apos;llvm::X86&apos;">ZMM31</span>))</td></tr>
+<tr><th id="846">846</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="847">847</th><td></td></tr>
+<tr><th id="848">848</th><td>    <b>switch</b> (<a class="local col2 ref" href="#52RegNo" title='RegNo' data-ref="52RegNo">RegNo</a>) {</td></tr>
+<tr><th id="849">849</th><td>    <b>default</b>: <b>break</b>;</td></tr>
+<tr><th id="850">850</th><td>    <b>case</b> X86::<span class='error' title="no member named &apos;R8&apos; in namespace &apos;llvm::X86&apos;">R8</span>:    <b>case</b> X86::<span class='error' title="no member named &apos;R9&apos; in namespace &apos;llvm::X86&apos;">R9</span>:    <b>case</b> X86::<span class='error' title="no member named &apos;R10&apos; in namespace &apos;llvm::X86&apos;">R10</span>:   <b>case</b> X86::<span class='error' title="no member named &apos;R11&apos; in namespace &apos;llvm::X86&apos;">R11</span>:</td></tr>
+<tr><th id="851">851</th><td>    <b>case</b> X86::<span class='error' title="no member named &apos;R12&apos; in namespace &apos;llvm::X86&apos;">R12</span>:   <b>case</b> X86::<span class='error' title="no member named &apos;R13&apos; in namespace &apos;llvm::X86&apos;">R13</span>:   <b>case</b> X86::<span class='error' title="no member named &apos;R14&apos; in namespace &apos;llvm::X86&apos;">R14</span>:   <b>case</b> X86::<span class='error' title="no member named &apos;R15&apos; in namespace &apos;llvm::X86&apos;">R15</span>:</td></tr>
+<tr><th id="852">852</th><td>    <b>case</b> X86::<span class='error' title="no member named &apos;R8D&apos; in namespace &apos;llvm::X86&apos;">R8D</span>:   <b>case</b> X86::<span class='error' title="no member named &apos;R9D&apos; in namespace &apos;llvm::X86&apos;">R9D</span>:   <b>case</b> X86::<span class='error' title="no member named &apos;R10D&apos; in namespace &apos;llvm::X86&apos;">R10D</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;R11D&apos; in namespace &apos;llvm::X86&apos;">R11D</span>:</td></tr>
+<tr><th id="853">853</th><td>    <b>case</b> X86::<span class='error' title="no member named &apos;R12D&apos; in namespace &apos;llvm::X86&apos;">R12D</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;R13D&apos; in namespace &apos;llvm::X86&apos;">R13D</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;R14D&apos; in namespace &apos;llvm::X86&apos;">R14D</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;R15D&apos; in namespace &apos;llvm::X86&apos;">R15D</span>:</td></tr>
+<tr><th id="854">854</th><td>    <b>case</b> X86::<span class='error' title="no member named &apos;R8W&apos; in namespace &apos;llvm::X86&apos;">R8W</span>:   <b>case</b> X86::<span class='error' title="no member named &apos;R9W&apos; in namespace &apos;llvm::X86&apos;">R9W</span>:   <b>case</b> X86::<span class='error' title="no member named &apos;R10W&apos; in namespace &apos;llvm::X86&apos;">R10W</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;R11W&apos; in namespace &apos;llvm::X86&apos;">R11W</span>:</td></tr>
+<tr><th id="855">855</th><td>    <b>case</b> X86::<span class='error' title="no member named &apos;R12W&apos; in namespace &apos;llvm::X86&apos;">R12W</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;R13W&apos; in namespace &apos;llvm::X86&apos;">R13W</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;R14W&apos; in namespace &apos;llvm::X86&apos;">R14W</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;R15W&apos; in namespace &apos;llvm::X86&apos;">R15W</span>:</td></tr>
+<tr><th id="856">856</th><td>    <b>case</b> X86::<span class='error' title="no member named &apos;R8B&apos; in namespace &apos;llvm::X86&apos;">R8B</span>:   <b>case</b> X86::<span class='error' title="no member named &apos;R9B&apos; in namespace &apos;llvm::X86&apos;">R9B</span>:   <b>case</b> X86::<span class='error' title="no member named &apos;R10B&apos; in namespace &apos;llvm::X86&apos;">R10B</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;R11B&apos; in namespace &apos;llvm::X86&apos;">R11B</span>:</td></tr>
+<tr><th id="857">857</th><td>    <b>case</b> X86::<span class='error' title="no member named &apos;R12B&apos; in namespace &apos;llvm::X86&apos;">R12B</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;R13B&apos; in namespace &apos;llvm::X86&apos;">R13B</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;R14B&apos; in namespace &apos;llvm::X86&apos;">R14B</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;R15B&apos; in namespace &apos;llvm::X86&apos;">R15B</span>:</td></tr>
+<tr><th id="858">858</th><td>    <b>case</b> X86::<span class='error' title="no member named &apos;CR8&apos; in namespace &apos;llvm::X86&apos;">CR8</span>:   <b>case</b> X86::<span class='error' title="no member named &apos;CR9&apos; in namespace &apos;llvm::X86&apos;">CR9</span>:   <b>case</b> X86::<span class='error' title="no member named &apos;CR10&apos; in namespace &apos;llvm::X86&apos;">CR10</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;CR11&apos; in namespace &apos;llvm::X86&apos;">CR11</span>:</td></tr>
+<tr><th id="859">859</th><td>    <b>case</b> X86::<span class='error' title="no member named &apos;CR12&apos; in namespace &apos;llvm::X86&apos;">CR12</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;CR13&apos; in namespace &apos;llvm::X86&apos;">CR13</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;CR14&apos; in namespace &apos;llvm::X86&apos;">CR14</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;CR15&apos; in namespace &apos;llvm::X86&apos;">CR15</span>:</td></tr>
+<tr><th id="860">860</th><td>    <b>case</b> X86::<span class='error' title="no member named &apos;DR8&apos; in namespace &apos;llvm::X86&apos;">DR8</span>:   <b>case</b> X86::<span class='error' title="no member named &apos;DR9&apos; in namespace &apos;llvm::X86&apos;">DR9</span>:   <b>case</b> X86::<span class='error' title="no member named &apos;DR10&apos; in namespace &apos;llvm::X86&apos;">DR10</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;DR11&apos; in namespace &apos;llvm::X86&apos;">DR11</span>:</td></tr>
+<tr><th id="861">861</th><td>    <b>case</b> X86::<span class='error' title="no member named &apos;DR12&apos; in namespace &apos;llvm::X86&apos;">DR12</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;DR13&apos; in namespace &apos;llvm::X86&apos;">DR13</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;DR14&apos; in namespace &apos;llvm::X86&apos;">DR14</span>:  <b>case</b> X86::<span class='error' title="no member named &apos;DR15&apos; in namespace &apos;llvm::X86&apos;">DR15</span>:</td></tr>
+<tr><th id="862">862</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="863">863</th><td>    }</td></tr>
+<tr><th id="864">864</th><td>    <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="865">865</th><td>  }</td></tr>
+<tr><th id="866">866</th><td></td></tr>
+<tr><th id="867">867</th><td>  <i class="doc">/// is32ExtendedReg - Is the MemoryOperand a 32 extended (zmm16 or higher)</i></td></tr>
+<tr><th id="868">868</th><td><i class="doc">  /// registers? e.g. zmm21, etc.</i></td></tr>
+<tr><th id="869">869</th><td>  <em>static</em> <b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN4llvm5X86IIL15is32ExtendedRegEj" title='llvm::X86II::is32ExtendedReg' data-ref="_ZN4llvm5X86IIL15is32ExtendedRegEj">is32ExtendedReg</dfn>(<em>unsigned</em> <dfn class="local col3 decl" id="53RegNo" title='RegNo' data-type='unsigned int' data-ref="53RegNo">RegNo</dfn>) {</td></tr>
+<tr><th id="870">870</th><td>    <b>return</b> ((RegNo &gt;= X86::<span class='error' title="no member named &apos;XMM16&apos; in namespace &apos;llvm::X86&apos;">XMM16</span> &amp;&amp; RegNo &lt;= X86::<span class='error' title="no member named &apos;XMM31&apos; in namespace &apos;llvm::X86&apos;">XMM31</span>) ||</td></tr>
+<tr><th id="871">871</th><td>            (RegNo &gt;= X86::<span class='error' title="no member named &apos;YMM16&apos; in namespace &apos;llvm::X86&apos;">YMM16</span> &amp;&amp; RegNo &lt;= X86::<span class='error' title="no member named &apos;YMM31&apos; in namespace &apos;llvm::X86&apos;">YMM31</span>) ||</td></tr>
+<tr><th id="872">872</th><td>            (RegNo &gt;= X86::<span class='error' title="no member named &apos;ZMM16&apos; in namespace &apos;llvm::X86&apos;">ZMM16</span> &amp;&amp; RegNo &lt;= X86::<span class='error' title="no member named &apos;ZMM31&apos; in namespace &apos;llvm::X86&apos;">ZMM31</span>));</td></tr>
+<tr><th id="873">873</th><td>  }</td></tr>
+<tr><th id="874">874</th><td></td></tr>
+<tr><th id="875">875</th><td></td></tr>
+<tr><th id="876">876</th><td>  <b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN4llvm5X86II24isX86_64NonExtLowByteRegEj" title='llvm::X86II::isX86_64NonExtLowByteReg' data-ref="_ZN4llvm5X86II24isX86_64NonExtLowByteRegEj">isX86_64NonExtLowByteReg</dfn>(<em>unsigned</em> <dfn class="local col4 decl" id="54reg" title='reg' data-type='unsigned int' data-ref="54reg">reg</dfn>) {</td></tr>
+<tr><th id="877">877</th><td>    <b>return</b> (reg == X86::<span class='error' title="no member named &apos;SPL&apos; in namespace &apos;llvm::X86&apos;">SPL</span> || reg == X86::<span class='error' title="no member named &apos;BPL&apos; in namespace &apos;llvm::X86&apos;">BPL</span> ||</td></tr>
+<tr><th id="878">878</th><td>            reg == X86::<span class='error' title="no member named &apos;SIL&apos; in namespace &apos;llvm::X86&apos;">SIL</span> || reg == X86::<span class='error' title="no member named &apos;DIL&apos; in namespace &apos;llvm::X86&apos;">DIL</span>);</td></tr>
+<tr><th id="879">879</th><td>  }</td></tr>
+<tr><th id="880">880</th><td></td></tr>
+<tr><th id="881">881</th><td>  <i class="doc">/// isKMasked - Is this a masked instruction.</i></td></tr>
+<tr><th id="882">882</th><td>  <b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN4llvm5X86II9isKMaskedEm" title='llvm::X86II::isKMasked' data-ref="_ZN4llvm5X86II9isKMaskedEm">isKMasked</dfn>(<a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col5 decl" id="55TSFlags" title='TSFlags' data-type='uint64_t' data-ref="55TSFlags">TSFlags</dfn>) {</td></tr>
+<tr><th id="883">883</th><td>    <b>return</b> (<a class="local col5 ref" href="#55TSFlags" title='TSFlags' data-ref="55TSFlags">TSFlags</a> &amp; <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::EVEX_K" title='llvm::X86II::EVEX_K' data-ref="llvm::X86II::EVEX_K">EVEX_K</a>) != <var>0</var>;</td></tr>
+<tr><th id="884">884</th><td>  }</td></tr>
+<tr><th id="885">885</th><td></td></tr>
+<tr><th id="886">886</th><td>  <i class="doc">/// isKMergedMasked - Is this a merge masked instruction.</i></td></tr>
+<tr><th id="887">887</th><td>  <b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN4llvm5X86II14isKMergeMaskedEm" title='llvm::X86II::isKMergeMasked' data-ref="_ZN4llvm5X86II14isKMergeMaskedEm">isKMergeMasked</dfn>(<a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col6 decl" id="56TSFlags" title='TSFlags' data-type='uint64_t' data-ref="56TSFlags">TSFlags</dfn>) {</td></tr>
+<tr><th id="888">888</th><td>    <b>return</b> <a class="ref" href="#_ZN4llvm5X86II9isKMaskedEm" title='llvm::X86II::isKMasked' data-ref="_ZN4llvm5X86II9isKMaskedEm">isKMasked</a>(<a class="local col6 ref" href="#56TSFlags" title='TSFlags' data-ref="56TSFlags">TSFlags</a>) &amp;&amp; (<a class="local col6 ref" href="#56TSFlags" title='TSFlags' data-ref="56TSFlags">TSFlags</a> &amp; <span class="namespace">X86II::</span><a class="enum" href="#llvm::X86II::EVEX_Z" title='llvm::X86II::EVEX_Z' data-ref="llvm::X86II::EVEX_Z">EVEX_Z</a>) == <var>0</var>;</td></tr>
+<tr><th id="889">889</th><td>  }</td></tr>
+<tr><th id="890">890</th><td>}</td></tr>
+<tr><th id="891">891</th><td></td></tr>
+<tr><th id="892">892</th><td>} <i>// end namespace llvm;</i></td></tr>
+<tr><th id="893">893</th><td></td></tr>
+<tr><th id="894">894</th><td><u>#<span data-ppcond="16">endif</span></u></td></tr>
+<tr><th id="895">895</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../AsmParser/X86AsmParser.cpp.html'>llvm/llvm/lib/Target/X86/AsmParser/X86AsmParser.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

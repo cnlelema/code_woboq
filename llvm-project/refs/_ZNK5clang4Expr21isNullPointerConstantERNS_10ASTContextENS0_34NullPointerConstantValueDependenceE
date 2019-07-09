@@ -1,0 +1,66 @@
+<dec f='llvm/clang/include/clang/AST/Expr.h' l='740' type='clang::Expr::NullPointerConstantKind clang::Expr::isNullPointerConstant(clang::ASTContext &amp; Ctx, clang::Expr::NullPointerConstantValueDependence NPC) const'/>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='737'>/// isNullPointerConstant - C99 6.3.2.3p3 - Test if this reduces down to
+  /// a Null pointer constant. The return value can further distinguish the
+  /// kind of NULL pointer constant that was detected.</doc>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='2565' u='c' c='_ZN5clang10ASTContext18isSentinelNullExprEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='2056' u='c' c='_ZN5clang14BinaryOperator32isNullPointerArithmeticExtensionERNS_10ASTContextENS_18BinaryOperatorKindEPNS_4ExprES5_'/>
+<def f='llvm/clang/lib/AST/Expr.cpp' l='3593' ll='3709' type='Expr::NullPointerConstantKind clang::Expr::isNullPointerConstant(clang::ASTContext &amp; Ctx, clang::Expr::NullPointerConstantValueDependence NPC) const'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='3632' u='c' c='_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='3637' u='c' c='_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='3641' u='c' c='_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='3646' u='c' c='_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='3650' u='c' c='_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='3654' u='c' c='_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='3658' u='c' c='_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='3664' u='c' c='_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='3667' u='c' c='_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='3680' u='c' c='_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE'/>
+<doc f='llvm/clang/lib/AST/Expr.cpp' l='3588'>/// isNullPointerConstant - C99 6.3.2.3p3 - Return whether this is a null
+/// pointer constant or not, as well as the specific kind of constant detected.
+/// Null pointer constants can be integer constant expressions with the
+/// value zero, casts of zero to void*, nullptr (C++0X), or __null
+/// (a GNU extension).</doc>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='9485' u='c' c='_ZN12_GLOBAL__N_116IntExprEvaluator20VisitBuiltinCallExprEPKN5clang8CallExprEj'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='4113' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='4124' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='3699' u='c' c='_ZN5clang7CodeGen15CodeGenFunction13getVarArgTypeEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='575' u='c' c='_ZN5clang4Sema31ImpCastPointerToCHERICapabilityENS_8QualTypeES1_RPNS_4ExprEb'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='803' u='c' c='_ZL30SemaOpenCLBuiltinEnqueueKernelRN5clang4SemaEPNS_8CallExprE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='814' u='c' c='_ZL30SemaOpenCLBuiltinEnqueueKernelRN5clang4SemaEPNS_8CallExprE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='6358' u='c' c='_ZN5clang4Sema31SemaBuiltinARMMemoryTaggingCallEjPNS_8CallExprE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='6715' u='c' c='_ZL21checkFormatStringExprRN5clang4SemaEPKNS_4ExprEN4llvm8ArrayRefIS4_EEbjjNS0_16FormatStringTypeENS0_16VariadicCallTypeEbRNS5_14SmallBitVectorERN12_G984872'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='11091' u='c' c='_ZL22DiagnoseNullConversionRN5clang4SemaEPNS_4ExprENS_8QualTypeENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='487' u='c' c='_ZL30CheckForNullPointerDereferenceRN5clang4SemaEPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='5232' u='c' c='_ZN5clang4Sema24CheckStaticArrayArgumentENS_14SourceLocationEPNS_11ParmVarDeclEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='6243' u='c' c='_ZN5clang4Sema17PrepareScalarCastERNS_12ActionResultIPNS_4ExprELb1EEENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='6710' u='c' c='_ZN5clang4Sema26DiagnoseConditionalForNullEPNS_4ExprES2_NS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='6717' u='c' c='_ZN5clang4Sema26DiagnoseConditionalForNullEPNS_4ExprES2_NS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='6784' u='c' c='_ZL27checkConditionalNullPointerRN5clang4SemaERNS_12ActionResultIPNS_4ExprELb1EEENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='8211' u='c' c='_ZN5clang4Sema26CheckAssignmentConstraintsENS_8QualTypeERNS_12ActionResultIPNS_4ExprELb1EEERNS_8CastKindEb'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='8357' u='c' c='_ZN5clang4Sema26CheckAssignmentConstraintsENS_8QualTypeERNS_12ActionResultIPNS_4ExprELb1EEERNS_8CastKindEb'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='8449' u='c' c='_ZN5clang4Sema40CheckTransparentUnionArgumentConstraintsENS_8QualTypeERNS_12ActionResultIPNS_4ExprELb1EEE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='8550' u='c' c='_ZN5clang4Sema32CheckSingleAssignmentConstraintsENS_8QualTypeERNS_12ActionResultIPNS_4ExprELb1EEEbbb'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='8564' u='c' c='_ZN5clang4Sema32CheckSingleAssignmentConstraintsENS_8QualTypeERNS_12ActionResultIPNS_4ExprELb1EEEbbb'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='9373' u='c' c='_ZL35checkArithmeticBinOpPointerOperandsRN5clang4SemaENS_14SourceLocationEPNS_4ExprES4_'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='9375' u='c' c='_ZL35checkArithmeticBinOpPointerOperandsRN5clang4SemaENS_14SourceLocationEPNS_4ExprES4_'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='9567' u='c' c='_ZN5clang4Sema21CheckAdditionOperandsERNS_12ActionResultIPNS_4ExprELb1EEES5_NS_14SourceLocationENS_18BinaryOperatorKindEPNS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='9646' u='c' c='_ZN5clang4Sema24CheckSubtractionOperandsERNS_12ActionResultIPNS_4ExprELb1EEES5_NS_14SourceLocationEPNS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='10158' u='c' c='_ZL29diagnoseObjCLiteralComparisonRN5clang4SemaENS_14SourceLocationERNS_12ActionResultIPNS_4ExprELb1EEES7_NS_18BinaryOperatorKindE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='10333' u='c' c='_ZL30diagnoseTautologicalComparisonRN5clang4SemaENS_14SourceLocationEPNS_4ExprES4_NS_18BinaryOperatorKindE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='10339' u='c' c='_ZL30diagnoseTautologicalComparisonRN5clang4SemaENS_14SourceLocationEPNS_4ExprES4_NS_18BinaryOperatorKindE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='10600' u='c' c='_ZN5clang4Sema20CheckCompareOperandsERNS_12ActionResultIPNS_4ExprELb1EEES5_NS_14SourceLocationENS_18BinaryOperatorKindE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='10602' u='c' c='_ZN5clang4Sema20CheckCompareOperandsERNS_12ActionResultIPNS_4ExprELb1EEES5_NS_14SourceLocationENS_18BinaryOperatorKindE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='645' u='c' c='_ZN5clang4Sema14BuildCXXUuidofENS_8QualTypeENS_14SourceLocationEPNS_4ExprES2_'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='6128' u='c' c='_ZN5clang4Sema24FindCompositePointerTypeENS_14SourceLocationERPNS_4ExprES4_b'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='6136' u='c' c='_ZN5clang4Sema24FindCompositePointerTypeENS_14SourceLocationERPNS_4ExprES4_b'/>
+<use f='llvm/clang/lib/Sema/SemaExprObjC.cpp' l='2753' u='c' c='_ZN5clang4Sema20BuildInstanceMessageEPNS_4ExprENS_8QualTypeENS_14SourceLocationENS_8SelectorEPNS_14ObjCMethodDeclES4_N4llvm8ArrayRefIS4_EES4_NS8_15MutableArrayRefIS2_EEb'/>
+<use f='llvm/clang/lib/Sema/SemaExprObjC.cpp' l='3363' u='c' c='_ZN12_GLOBAL__N_114ARCCastChecker9VisitExprEPN5clang4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaFixItUtils.cpp' l='102' u='c' c='_ZN5clang24ConversionFixItGenerator18tryToFixConversionEPKNS_4ExprENS_8QualTypeES4_RNS_4SemaE'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='5336' u='c' c='_ZL18isInvalidICRSourceRN5clang10ASTContextEPNS_4ExprEbRb'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='7423' u='c' c='_ZL30CheckForNullPointerDereferenceRN5clang4SemaEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='2253' u='c' c='_ZL34isNullPointerConstantForConversionPN5clang4ExprEbRNS_10ASTContextE'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='2918' u='c' c='_ZN5clang4Sema22CheckPointerConversionEPNS_4ExprENS_8QualTypeERNS_8CastKindERN4llvm11SmallVectorIPNS_16CXXBaseSpecifierELj4EEEbb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='2982' u='c' c='_ZN5clang4Sema22CheckPointerConversionEPNS_4ExprENS_8QualTypeERNS_8CastKindERN4llvm11SmallVectorIPNS_16CXXBaseSpecifierELj4EEEbb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='3002' u='c' c='_ZN5clang4Sema25IsMemberPointerConversionEPNS_4ExprENS_8QualTypeES3_bRS3_'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='3043' u='c' c='_ZN5clang4Sema28CheckMemberPointerConversionEPNS_4ExprENS_8QualTypeERNS_8CastKindERN4llvm11SmallVectorIPNS_16CXXBaseSpecifierELj4EEEb'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='5786' u='c' c='_ZL34isNullPointerValueTemplateArgumentRN5clang4SemaEPNS_23NonTypeTemplateParmDeclENS_8QualTypeEPNS_4ExprEPNS_4DeclE'/>

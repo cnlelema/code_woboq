@@ -1,0 +1,17 @@
+<def f='llvm/llvm/include/llvm/Transforms/Utils/LoopVersioning.h' l='58' type='void llvm::LoopVersioning::versionLoop()'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/LoopVersioning.h' l='45'>/// Performs the CFG manipulation part of versioning the loop including
+  /// the DominatorTree and LoopInfo updates.
+  ///
+  /// The loop that was used to construct the class will be the &quot;versioned&quot; loop
+  /// i.e. the loop that will receive control if all the memchecks pass.
+  ///
+  /// This allows the loop transform pass to operate on the same loop regardless
+  /// of whether versioning was necessary or not:
+  ///
+  ///    for each loop L:
+  ///        analyze L
+  ///        if versioning is necessary version L
+  ///        transform L</doc>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopLoadElimination.cpp' l='565' u='c' c='_ZN12_GLOBAL__N_122LoadEliminationForLoop11processLoopEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopVersioningLICM.cpp' l='638' u='c' c='_ZN12_GLOBAL__N_118LoopVersioningLICM9runOnLoopEPN4llvm4LoopERNS1_13LPPassManagerE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopVersioning.cpp' l='287' u='c' c='_ZN12_GLOBAL__N_118LoopVersioningPass13runOnFunctionERN4llvm8FunctionE'/>

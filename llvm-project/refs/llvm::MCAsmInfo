@@ -1,0 +1,191 @@
+<def f='llvm/llvm/include/llvm/MC/MCAsmInfo.h' l='56' ll='642'/>
+<size>408</size>
+<doc f='llvm/llvm/include/llvm/MC/MCAsmInfo.h' l='54'>/// This class is intended to be used as a base class for asm
+/// properties and features specific to the target.</doc>
+<mbr r='llvm::MCAsmInfo::CodePointerSize' o='64' t='unsigned int'/>
+<mbr r='llvm::MCAsmInfo::CalleeSaveStackSlotSize' o='96' t='unsigned int'/>
+<mbr r='llvm::MCAsmInfo::IsLittleEndian' o='128' t='bool'/>
+<mbr r='llvm::MCAsmInfo::StackGrowsUp' o='136' t='bool'/>
+<mbr r='llvm::MCAsmInfo::HasSubsectionsViaSymbols' o='144' t='bool'/>
+<mbr r='llvm::MCAsmInfo::HasMachoZeroFillDirective' o='152' t='bool'/>
+<mbr r='llvm::MCAsmInfo::HasMachoTBSSDirective' o='160' t='bool'/>
+<mbr r='llvm::MCAsmInfo::HasCOFFAssociativeComdats' o='168' t='bool'/>
+<mbr r='llvm::MCAsmInfo::HasCOFFComdatConstants' o='176' t='bool'/>
+<mbr r='llvm::MCAsmInfo::MaxInstLength' o='192' t='unsigned int'/>
+<mbr r='llvm::MCAsmInfo::MinInstAlignment' o='224' t='unsigned int'/>
+<mbr r='llvm::MCAsmInfo::DollarIsPC' o='256' t='bool'/>
+<mbr r='llvm::MCAsmInfo::SeparatorString' o='320' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::CommentString' o='384' t='llvm::StringRef'/>
+<mbr r='llvm::MCAsmInfo::LabelSuffix' o='512' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::UseAssignmentForEHBegin' o='576' t='bool'/>
+<mbr r='llvm::MCAsmInfo::NeedsLocalForSize' o='584' t='bool'/>
+<mbr r='llvm::MCAsmInfo::PrivateGlobalPrefix' o='640' t='llvm::StringRef'/>
+<mbr r='llvm::MCAsmInfo::PrivateLabelPrefix' o='768' t='llvm::StringRef'/>
+<mbr r='llvm::MCAsmInfo::LinkerPrivateGlobalPrefix' o='896' t='llvm::StringRef'/>
+<mbr r='llvm::MCAsmInfo::InlineAsmStart' o='1024' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::InlineAsmEnd' o='1088' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::Code16Directive' o='1152' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::Code32Directive' o='1216' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::Code64Directive' o='1280' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::AssemblerDialect' o='1344' t='unsigned int'/>
+<mbr r='llvm::MCAsmInfo::AllowAtInName' o='1376' t='bool'/>
+<mbr r='llvm::MCAsmInfo::SupportsQuotedNames' o='1384' t='bool'/>
+<mbr r='llvm::MCAsmInfo::UseDataRegionDirectives' o='1392' t='bool'/>
+<mbr r='llvm::MCAsmInfo::ZeroDirective' o='1408' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::AsciiDirective' o='1472' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::AscizDirective' o='1536' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::Data8bitsDirective' o='1600' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::Data16bitsDirective' o='1664' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::Data32bitsDirective' o='1728' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::Data64bitsDirective' o='1792' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::GPRel64Directive' o='1856' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::GPRel32Directive' o='1920' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::DTPRel32Directive' o='1984' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::DTPRel64Directive' o='2048' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::TPRel32Directive' o='2112' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::TPRel64Directive' o='2176' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::SunStyleELFSectionSwitchSyntax' o='2240' t='bool'/>
+<mbr r='llvm::MCAsmInfo::UsesELFSectionDirectiveForBSS' o='2248' t='bool'/>
+<mbr r='llvm::MCAsmInfo::NeedsDwarfSectionOffsetDirective' o='2256' t='bool'/>
+<mbr r='llvm::MCAsmInfo::AlignmentIsInBytes' o='2264' t='bool'/>
+<mbr r='llvm::MCAsmInfo::TextAlignFillValue' o='2272' t='unsigned int'/>
+<mbr r='llvm::MCAsmInfo::GlobalDirective' o='2304' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::SetDirectiveSuppressesReloc' o='2368' t='bool'/>
+<mbr r='llvm::MCAsmInfo::HasAggressiveSymbolFolding' o='2376' t='bool'/>
+<mbr r='llvm::MCAsmInfo::COMMDirectiveAlignmentIsInBytes' o='2384' t='bool'/>
+<mbr r='llvm::MCAsmInfo::LCOMMDirectiveAlignmentType' o='2400' t='LCOMM::LCOMMType'/>
+<mbr r='llvm::MCAsmInfo::HasFunctionAlignment' o='2432' t='bool'/>
+<mbr r='llvm::MCAsmInfo::HasDotTypeDotSizeDirective' o='2440' t='bool'/>
+<mbr r='llvm::MCAsmInfo::HasSingleParameterDotFile' o='2448' t='bool'/>
+<mbr r='llvm::MCAsmInfo::HasIdentDirective' o='2456' t='bool'/>
+<mbr r='llvm::MCAsmInfo::HasNoDeadStrip' o='2464' t='bool'/>
+<mbr r='llvm::MCAsmInfo::HasAltEntry' o='2472' t='bool'/>
+<mbr r='llvm::MCAsmInfo::WeakDirective' o='2496' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::WeakRefDirective' o='2560' t='const char *'/>
+<mbr r='llvm::MCAsmInfo::HasWeakDefDirective' o='2624' t='bool'/>
+<mbr r='llvm::MCAsmInfo::HasWeakDefCanBeHiddenDirective' o='2632' t='bool'/>
+<mbr r='llvm::MCAsmInfo::HasLinkOnceDirective' o='2640' t='bool'/>
+<mbr r='llvm::MCAsmInfo::HiddenVisibilityAttr' o='2656' t='llvm::MCSymbolAttr'/>
+<mbr r='llvm::MCAsmInfo::HiddenDeclarationVisibilityAttr' o='2688' t='llvm::MCSymbolAttr'/>
+<mbr r='llvm::MCAsmInfo::ProtectedVisibilityAttr' o='2720' t='llvm::MCSymbolAttr'/>
+<mbr r='llvm::MCAsmInfo::SupportsDebugInformation' o='2752' t='bool'/>
+<mbr r='llvm::MCAsmInfo::ExceptionsType' o='2784' t='llvm::ExceptionHandling'/>
+<mbr r='llvm::MCAsmInfo::WinEHEncodingType' o='2816' t='WinEH::EncodingType'/>
+<mbr r='llvm::MCAsmInfo::DwarfUsesRelocationsAcrossSections' o='2848' t='bool'/>
+<mbr r='llvm::MCAsmInfo::DwarfFDESymbolsUseAbsDiff' o='2856' t='bool'/>
+<mbr r='llvm::MCAsmInfo::DwarfRegNumForCFI' o='2864' t='bool'/>
+<mbr r='llvm::MCAsmInfo::UseParensForSymbolVariant' o='2872' t='bool'/>
+<mbr r='llvm::MCAsmInfo::SupportsExtendedDwarfLocDirective' o='2880' t='bool'/>
+<mbr r='llvm::MCAsmInfo::InitialFrameState' o='2944' t='std::vector&lt;MCCFIInstruction&gt;'/>
+<mbr r='llvm::MCAsmInfo::UseIntegratedAssembler' o='3136' t='bool'/>
+<mbr r='llvm::MCAsmInfo::PreserveAsmComments' o='3144' t='bool'/>
+<mbr r='llvm::MCAsmInfo::CompressDebugSections' o='3168' t='llvm::DebugCompressionType'/>
+<mbr r='llvm::MCAsmInfo::UseLogicalShr' o='3200' t='bool'/>
+<mbr r='llvm::MCAsmInfo::RelaxELFRelocations' o='3208' t='bool'/>
+<mbr r='llvm::MCAsmInfo::HasMipsExpressions' o='3216' t='bool'/>
+<fun r='_ZN4llvm9MCAsmInfoC1Ev'/>
+<fun r='_ZN4llvm9MCAsmInfoD1Ev'/>
+<fun r='_ZNK4llvm9MCAsmInfo18getCodePointerSizeEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo26getCalleeSaveStackSlotSizeEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo14isLittleEndianEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo24isStackGrowthDirectionUpEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo24hasSubsectionsViaSymbolsEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo21getData8bitsDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo22getData16bitsDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo22getData32bitsDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo22getData64bitsDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo19getGPRel64DirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo19getGPRel32DirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo20getDTPRel64DirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo20getDTPRel32DirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo19getTPRel64DirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo19getTPRel32DirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo28getNonexecutableStackSectionERNS_9MCContextE'/>
+<fun r='_ZNK4llvm9MCAsmInfo28isSectionAtomizableBySymbolsERKNS_9MCSectionE'/>
+<fun r='_ZNK4llvm9MCAsmInfo27getExprForPersonalitySymbolEPKNS_8MCSymbolEjRNS_10MCStreamerE'/>
+<fun r='_ZNK4llvm9MCAsmInfo19getExprForFDESymbolEPKNS_8MCSymbolEjRNS_10MCStreamerE'/>
+<fun r='_ZNK4llvm9MCAsmInfo19isValidUnquotedNameENS_9StringRefE'/>
+<fun r='_ZNK4llvm9MCAsmInfo26shouldOmitSectionDirectiveENS_9StringRefE'/>
+<fun r='_ZNK4llvm9MCAsmInfo34usesSunStyleELFSectionSwitchSyntaxEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo29usesELFSectionDirectiveForBSSEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo32needsDwarfSectionOffsetDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo25hasMachoZeroFillDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo21hasMachoTBSSDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo25hasCOFFAssociativeComdatsEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo22hasCOFFComdatConstantsEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo16getMaxInstLengthEPKNS_15MCSubtargetInfoE'/>
+<fun r='_ZNK4llvm9MCAsmInfo19getMinInstAlignmentEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo13getDollarIsPCEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo18getSeparatorStringEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo16getCommentColumnEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo16getCommentStringEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo14getLabelSuffixEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo23useAssignmentForEHBeginEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo17needsLocalForSizeEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo22getPrivateGlobalPrefixEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo21getPrivateLabelPrefixEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo28hasLinkerPrivateGlobalPrefixEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo28getLinkerPrivateGlobalPrefixEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo17getInlineAsmStartEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo15getInlineAsmEndEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo18getCode16DirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo18getCode32DirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo18getCode64DirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo19getAssemblerDialectEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo17doesAllowAtInNameEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo19supportsNameQuotingEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo31doesSupportDataRegionDirectivesEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo16getZeroDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo17getAsciiDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo17getAscizDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo21getAlignmentIsInBytesEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo21getTextAlignFillValueEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo18getGlobalDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo29doesSetDirectiveSuppressRelocEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo26hasAggressiveSymbolFoldingEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo34getCOMMDirectiveAlignmentIsInBytesEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo30getLCOMMDirectiveAlignmentTypeEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo20hasFunctionAlignmentEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo26hasDotTypeDotSizeDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo25hasSingleParameterDotFileEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo17hasIdentDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo14hasNoDeadStripEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo11hasAltEntryEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo16getWeakDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo19getWeakRefDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo19hasWeakDefDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo30hasWeakDefCanBeHiddenDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo20hasLinkOnceDirectiveEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo23getHiddenVisibilityAttrEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo34getHiddenDeclarationVisibilityAttrEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo26getProtectedVisibilityAttrEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo27doesSupportDebugInformationEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo28doesSupportExceptionHandlingEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo24getExceptionHandlingTypeEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo20getWinEHEncodingTypeEv'/>
+<fun r='_ZN4llvm9MCAsmInfo17setExceptionsTypeENS_17ExceptionHandlingE'/>
+<fun r='_ZNK4llvm9MCAsmInfo12usesCFIForEHEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo37doesDwarfUseRelocationsAcrossSectionsEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo27doDwarfFDESymbolsUseAbsDiffEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo20useDwarfRegNumForCFIEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo25useParensForSymbolVariantEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo33supportsExtendedDwarfLocDirectiveEv'/>
+<fun r='_ZN4llvm9MCAsmInfo20addInitialFrameStateERKNS_16MCCFIInstructionE'/>
+<fun r='_ZNK4llvm9MCAsmInfo20getInitialFrameStateEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo22useIntegratedAssemblerEv'/>
+<fun r='_ZN4llvm9MCAsmInfo25setUseIntegratedAssemblerEb'/>
+<fun r='_ZNK4llvm9MCAsmInfo19preserveAsmCommentsEv'/>
+<fun r='_ZN4llvm9MCAsmInfo22setPreserveAsmCommentsEb'/>
+<fun r='_ZNK4llvm9MCAsmInfo21compressDebugSectionsEv'/>
+<fun r='_ZN4llvm9MCAsmInfo24setCompressDebugSectionsENS_20DebugCompressionTypeE'/>
+<fun r='_ZNK4llvm9MCAsmInfo19shouldUseLogicalShrEv'/>
+<fun r='_ZNK4llvm9MCAsmInfo19canRelaxRelocationsEv'/>
+<fun r='_ZN4llvm9MCAsmInfo22setRelaxELFRelocationsEb'/>
+<fun r='_ZNK4llvm9MCAsmInfo18hasMipsExpressionsEv'/>
+<ovr f='llvm/llvm/include/llvm/MC/MCAsmInfoCOFF.h' l='16' c='llvm::MCAsmInfoCOFF'/>
+<ovr f='llvm/llvm/include/llvm/MC/MCAsmInfoDarwin.h' l='21' c='llvm::MCAsmInfoDarwin'/>
+<ovr f='llvm/llvm/include/llvm/MC/MCAsmInfoELF.h' l='16' c='llvm::MCAsmInfoELF'/>
+<ovr f='llvm/llvm/include/llvm/MC/MCAsmInfoWasm.h' l='15' c='llvm::MCAsmInfoWasm'/>
+<ovr f='llvm/llvm/lib/Target/BPF/MCTargetDesc/BPFMCAsmInfo.h' l='22' c='llvm::BPFMCAsmInfo'/>
+<ovr f='llvm/llvm/lib/Target/NVPTX/MCTargetDesc/NVPTXMCAsmInfo.h' l='22' c='llvm::NVPTXMCAsmInfo'/>

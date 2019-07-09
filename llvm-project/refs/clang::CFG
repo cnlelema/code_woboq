@@ -1,0 +1,58 @@
+<def f='llvm/clang/include/clang/Analysis/CFG.h' l='1027' ll='1249'/>
+<size>120</size>
+<doc f='llvm/clang/include/clang/Analysis/CFG.h' l='1020'>/// Represents a source-level, intra-procedural CFG that represents the
+///  control-flow of a Stmt.  The Stmt can represent an entire function body,
+///  or a single expression.  A CFG will always contain one empty block that
+///  represents the Exit point of the CFG.  A CFG will also contain a designated
+///  Entry block.  The CFG solely represents control-flow; it consists of
+///  CFGBlocks which are simply containers of Stmt*&apos;s in the AST the CFG
+///  was constructed from.</doc>
+<fun r='_ZN5clang3CFG8buildCFGEPKNS_4DeclEPNS_4StmtEPNS_10ASTContextERKNS0_12BuildOptionsE'/>
+<fun r='_ZN5clang3CFG11createBlockEv'/>
+<fun r='_ZN5clang3CFG8setEntryEPNS_8CFGBlockE'/>
+<fun r='_ZN5clang3CFG20setIndirectGotoBlockEPNS_8CFGBlockE'/>
+<fun r='_ZN5clang3CFG5frontEv'/>
+<fun r='_ZN5clang3CFG4backEv'/>
+<fun r='_ZN5clang3CFG5beginEv'/>
+<fun r='_ZN5clang3CFG3endEv'/>
+<fun r='_ZNK5clang3CFG5beginEv'/>
+<fun r='_ZNK5clang3CFG3endEv'/>
+<fun r='_ZN5clang3CFG11nodes_beginEv'/>
+<fun r='_ZN5clang3CFG9nodes_endEv'/>
+<fun r='_ZNK5clang3CFG11nodes_beginEv'/>
+<fun r='_ZNK5clang3CFG9nodes_endEv'/>
+<fun r='_ZN5clang3CFG6rbeginEv'/>
+<fun r='_ZN5clang3CFG4rendEv'/>
+<fun r='_ZNK5clang3CFG6rbeginEv'/>
+<fun r='_ZNK5clang3CFG4rendEv'/>
+<fun r='_ZN5clang3CFG8getEntryEv'/>
+<fun r='_ZNK5clang3CFG8getEntryEv'/>
+<fun r='_ZN5clang3CFG7getExitEv'/>
+<fun r='_ZNK5clang3CFG7getExitEv'/>
+<fun r='_ZN5clang3CFG20getIndirectGotoBlockEv'/>
+<fun r='_ZNK5clang3CFG20getIndirectGotoBlockEv'/>
+<fun r='_ZNK5clang3CFG16try_blocks_beginEv'/>
+<fun r='_ZNK5clang3CFG14try_blocks_endEv'/>
+<fun r='_ZN5clang3CFG19addTryDispatchBlockEPKNS_8CFGBlockE'/>
+<fun r='_ZN5clang3CFG20addSyntheticDeclStmtEPKNS_8DeclStmtES3_'/>
+<fun r='_ZNK5clang3CFG20synthetic_stmt_beginEv'/>
+<fun r='_ZNK5clang3CFG18synthetic_stmt_endEv'/>
+<fun r='_ZNK5clang3CFG15synthetic_stmtsEv'/>
+<fun r='_ZNK5clang3CFG15VisitBlockStmtsERT_'/>
+<fun r='_ZNK5clang3CFG14getNumBlockIDsEv'/>
+<fun r='_ZNK5clang3CFG4sizeEv'/>
+<fun r='_ZNK5clang3CFG8isLinearEv'/>
+<fun r='_ZNK5clang3CFG7viewCFGERKNS_11LangOptionsE'/>
+<fun r='_ZNK5clang3CFG5printERN4llvm11raw_ostreamERKNS_11LangOptionsEb'/>
+<fun r='_ZNK5clang3CFG4dumpERKNS_11LangOptionsEb'/>
+<fun r='_ZN5clang3CFGC1Ev'/>
+<fun r='_ZN5clang3CFG12getAllocatorEv'/>
+<fun r='_ZN5clang3CFG20getBumpVectorContextEv'/>
+<mbr r='clang::CFG::Entry' o='0' t='clang::CFGBlock *'/>
+<mbr r='clang::CFG::Exit' o='64' t='clang::CFGBlock *'/>
+<mbr r='clang::CFG::IndirectGotoBlock' o='128' t='clang::CFGBlock *'/>
+<mbr r='clang::CFG::NumBlockIDs' o='192' t='unsigned int'/>
+<mbr r='clang::CFG::BlkBVC' o='256' t='clang::BumpVectorContext'/>
+<mbr r='clang::CFG::Blocks' o='320' t='CFGBlockListTy'/>
+<mbr r='clang::CFG::TryDispatchBlocks' o='512' t='std::vector&lt;const CFGBlock *&gt;'/>
+<mbr r='clang::CFG::SyntheticDeclStmts' o='704' t='llvm::DenseMap&lt;const DeclStmt *, const DeclStmt *&gt;'/>

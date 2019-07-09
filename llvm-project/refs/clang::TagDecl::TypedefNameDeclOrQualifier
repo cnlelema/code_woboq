@@ -1,0 +1,18 @@
+<dec f='llvm/clang/include/clang/AST/Decl.h' l='3118' type='llvm::PointerUnion&lt;TypedefNameDecl *, ExtInfo *&gt;'/>
+<use f='llvm/clang/include/clang/AST/Decl.h' l='3120' u='m' c='_ZNK5clang7TagDecl10hasExtInfoEv'/>
+<use f='llvm/clang/include/clang/AST/Decl.h' l='3121' u='m' c='_ZN5clang7TagDecl10getExtInfoEv'/>
+<use f='llvm/clang/include/clang/AST/Decl.h' l='3123' u='m' c='_ZNK5clang7TagDecl10getExtInfoEv'/>
+<use f='llvm/clang/include/clang/AST/Decl.h' l='3306' u='m' c='_ZNK5clang7TagDecl25getTypedefNameForAnonDeclEv'/>
+<doc f='llvm/clang/include/clang/AST/Decl.h' l='3110'>/// If the (out-of-line) tag declaration name
+  /// is qualified, it points to the qualifier info (nns and range);
+  /// otherwise, if the tag declaration is anonymous and it is part of
+  /// a typedef or alias, it points to the TypedefNameDecl (used for mangling);
+  /// otherwise, if the tag declaration is anonymous and it is used as a
+  /// declaration specifier for variables, it points to the first VarDecl (used
+  /// for mangling);
+  /// otherwise, it is a null (TypedefNameDecl) pointer.</doc>
+<use f='llvm/clang/lib/AST/Decl.cpp' l='3966' u='w' c='_ZN5clang7TagDeclC1ENS_4Decl4KindENS_11TagTypeKindERKNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationEPNS_14IdentifierInfoEPS0_S9_'/>
+<use f='llvm/clang/lib/AST/Decl.cpp' l='3991' u='w' c='_ZN5clang7TagDecl25setTypedefNameForAnonDeclEPNS_15TypedefNameDeclE'/>
+<use f='llvm/clang/lib/AST/Decl.cpp' l='4057' u='w' c='_ZN5clang7TagDecl16setQualifierInfoENS_22NestedNameSpecifierLocE'/>
+<use f='llvm/clang/lib/Serialization/ASTReaderDecl.cpp' l='540' u='w' c='_ZN5clang13ASTDeclReader5VisitEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Serialization/ASTReaderDecl.cpp' l='719' u='w' c='_ZN5clang13ASTDeclReader12VisitTagDeclEPNS_7TagDeclE'/>

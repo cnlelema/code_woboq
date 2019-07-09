@@ -1,0 +1,20 @@
+<dec f='llvm/llvm/include/llvm/IR/LLVMContext.h' l='210' type='void llvm::LLVMContext::setDiagnosticHandler(std::unique_ptr&lt;DiagnosticHandler&gt; &amp;&amp; DH, bool RespectFilters = false)'/>
+<doc f='llvm/llvm/include/llvm/IR/LLVMContext.h' l='204'>/// setDiagnosticHandler - This method sets unique_ptr to object of DiagnosticHandler
+  /// to provide custom diagnostic handling. The first argument is unique_ptr of object
+  /// of type DiagnosticHandler or a derived of that.   The third argument should be
+  /// set to true if the handler only expects enabled diagnostics.
+  ///
+  /// Ownership of this pointer is moved to LLVMContextImpl.</doc>
+<use f='llvm/llvm/include/llvm/LTO/Config.h' l='219' u='c' c='_ZN4llvm3lto14LTOLLVMContextC1ERKNS0_6ConfigE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenAction.cpp' l='263' u='c' c='_ZN5clang15BackendConsumer21HandleTranslationUnitERNS_10ASTContextE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenAction.cpp' l='307' u='c' c='_ZN5clang15BackendConsumer21HandleTranslationUnitERNS_10ASTContextE'/>
+<def f='llvm/llvm/lib/IR/LLVMContext.cpp' l='144' ll='148' type='void llvm::LLVMContext::setDiagnosticHandler(std::unique_ptr&lt;DiagnosticHandler&gt; &amp;&amp; DH, bool RespectFilters = false)'/>
+<use f='llvm/llvm/lib/LTO/LTOCodeGenerator.cpp' l='683' u='c' c='_ZN4llvm16LTOCodeGenerator20setDiagnosticHandlerEPFv33lto_codegen_diagnostic_severity_tPKcPvES4_'/>
+<use f='llvm/llvm/lib/LTO/LTOCodeGenerator.cpp' l='686' u='c' c='_ZN4llvm16LTOCodeGenerator20setDiagnosticHandlerEPFv33lto_codegen_diagnostic_severity_tPKcPvES4_'/>
+<use f='llvm/llvm/tools/llc/llc.cpp' l='326' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-dis/llvm-dis.cpp' l='155' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-link/llvm-link.cpp' l='353' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-lto/llvm-lto.cpp' l='319' u='c' c='_ZL17getLocalLTOModuleN4llvm9StringRefERSt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EERKNS_13TargetOptionsE'/>
+<use f='llvm/llvm/tools/llvm-lto/llvm-lto.cpp' l='924' u='c' c='main'/>
+<use f='llvm/llvm/tools/lto/lto.cpp' l='114' u='c' c='_ZL14lto_initializev'/>
+<use f='llvm/llvm/tools/lto/lto.cpp' l='281' u='c' c='lto_module_create_in_local_context'/>

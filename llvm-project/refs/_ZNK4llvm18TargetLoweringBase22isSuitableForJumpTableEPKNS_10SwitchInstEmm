@@ -1,0 +1,11 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='1007' ll='1019' type='bool llvm::TargetLoweringBase::isSuitableForJumpTable(const llvm::SwitchInst * SI, uint64_t NumCases, uint64_t Range) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='1000'>/// Return true if lowering to a jump table is suitable for a set of case
+  /// clusters which may contain \p NumCases cases, \p Range range of values.
+  /// FIXME: This function check the maximum table size and density, but the
+  /// minimum size is not checked. It would be nice if the minimum size is
+  /// also combined within this function. Currently, the minimum size check is
+  /// performed in findJumpTable() in SelectionDAGBuiler and
+  /// getEstimatedNumberOfCaseClusters() in BasicTTIImpl.</doc>
+<use f='llvm/llvm/include/llvm/CodeGen/BasicTTIImpl.h' l='368' u='c' c='_ZN4llvm16BasicTTIImplBase32getEstimatedNumberOfCaseClustersERKNS_10SwitchInstERj'/>
+<use f='llvm/llvm/lib/CodeGen/SwitchLoweringUtils.cpp' l='81' u='c' c='_ZN4llvm8SwitchCG14SwitchLowering14findJumpTablesERSt6vectorINS0_11CaseClusterESaIS3_EEPKNS_10SwitchInstEPNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/SwitchLoweringUtils.cpp' l='138' u='c' c='_ZN4llvm8SwitchCG14SwitchLowering14findJumpTablesERSt6vectorINS0_11CaseClusterESaIS3_EEPKNS_10SwitchInstEPNS_17MachineBasicBlockE'/>

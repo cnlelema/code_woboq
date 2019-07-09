@@ -1,0 +1,39 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<def f='llvm/clang/include/clang/AST/ExprCXX.h' l='4320' ll='4429'/>
+<size>24</size>
+<doc f='llvm/clang/include/clang/AST/ExprCXX.h' l='4300'>/// Represents a prvalue temporary that is written into memory so that
+/// a reference can bind to it.
+///
+/// Prvalue expressions are materialized when they need to have an address
+/// in memory for a reference to bind to. This happens when binding a
+/// reference to the result of a conversion, e.g.,
+///
+/// \code
+/// const int &amp;r = 1.0;
+/// \endcode
+///
+/// Here, 1.0 is implicitly converted to an \c int. That resulting \c int is
+/// then materialized via a \c MaterializeTemporaryExpr, and the reference
+/// binds to the temporary. \c MaterializeTemporaryExprs are always glvalues
+/// (either an lvalue or an xvalue, depending on the kind of reference binding
+/// to it), maintaining the invariant that references always bind to glvalues.
+///
+/// Reference binding and copy-elision can both extend the lifetime of a
+/// temporary. When either happens, the expression will also track the
+/// declaration which is responsible for the lifetime extension.</doc>
+<mbr r='clang::MaterializeTemporaryExpr::State' o='128' t='llvm::PointerUnion&lt;Stmt *, ExtraState *&gt;'/>
+<fun r='_ZN5clang24MaterializeTemporaryExpr20initializeExtraStateEPKNS_9ValueDeclEj'/>
+<fun r='_ZN5clang24MaterializeTemporaryExprC1ENS_8QualTypeEPNS_4ExprEb'/>
+<fun r='_ZN5clang24MaterializeTemporaryExprC1ENS_4Stmt10EmptyShellE'/>
+<fun r='_ZNK5clang24MaterializeTemporaryExpr12getTemporaryEv'/>
+<fun r='_ZNK5clang24MaterializeTemporaryExpr16GetTemporaryExprEv'/>
+<fun r='_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv'/>
+<fun r='_ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv'/>
+<fun r='_ZN5clang24MaterializeTemporaryExpr16setExtendingDeclEPKNS_9ValueDeclEj'/>
+<fun r='_ZNK5clang24MaterializeTemporaryExpr17getManglingNumberEv'/>
+<fun r='_ZNK5clang24MaterializeTemporaryExpr24isBoundToLvalueReferenceEv'/>
+<fun r='_ZNK5clang24MaterializeTemporaryExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang24MaterializeTemporaryExpr9getEndLocEv'/>
+<fun r='_ZN5clang24MaterializeTemporaryExpr7classofEPKNS_4StmtE'/>
+<fun r='_ZN5clang24MaterializeTemporaryExpr8childrenEv'/>
+<fun r='_ZNK5clang24MaterializeTemporaryExpr8childrenEv'/>

@@ -1,0 +1,16 @@
+<def f='llvm/llvm/include/llvm/CodeGen/SlotIndexes.h' l='580' ll='618' type='llvm::SlotIndex llvm::SlotIndexes::insertMachineInstrInMaps(llvm::MachineInstr &amp; MI, bool Late = false)'/>
+<use f='llvm/llvm/include/llvm/CodeGen/LiveIntervals.h' l='266' u='c' c='_ZN4llvm13LiveIntervals24InsertMachineInstrInMapsERNS_12MachineInstrE'/>
+<use f='llvm/llvm/include/llvm/CodeGen/LiveIntervals.h' l='272' u='c' c='_ZN4llvm13LiveIntervals29InsertMachineInstrRangeInMapsENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES3_'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/SlotIndexes.h' l='575'>/// Insert the given machine instruction into the mapping. Returns the
+    /// assigned index.
+    /// If Late is set and there are null indexes between mi&apos;s neighboring
+    /// instructions, create the new index after the null indexes instead of
+    /// before them.</doc>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='1447' u='c' c='_ZN4llvm13LiveIntervals10handleMoveERNS_12MachineInstrEb'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeEdit.cpp' l='177' u='c' c='_ZN4llvm13LiveRangeEdit15rematerializeAtERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEjRKNS0_5RematERKNS_18TargetRegisterInfoEb'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='977' u='c' c='_ZN4llvm17MachineBasicBlock17SplitCriticalEdgeEPS0_RNS_4PassE'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='354' u='c' c='_ZN4llvm16MachinePipeliner18preprocessPhiNodesERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/SlotIndexes.cpp' l='248' u='c' c='_ZN4llvm11SlotIndexes20repairIndexesInRangeEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES5_'/>
+<use f='llvm/llvm/lib/CodeGen/SplitKit.cpp' l='525' u='c' c='_ZN4llvm11SplitEditor21buildSingleSubRegCopyEjjRNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEjRNS_12LiveIntervalEbNS_9SlotIndexE'/>
+<use f='llvm/llvm/lib/CodeGen/SplitKit.cpp' l='547' u='c' c='_ZN4llvm11SplitEditor9buildCopyEjjNS_11LaneBitmaskERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEbj'/>
+<use f='llvm/llvm/lib/CodeGen/VirtRegMap.cpp' l='463' u='c' c='_ZNK12_GLOBAL__N_115VirtRegRewriter16expandCopyBundleERN4llvm12MachineInstrE'/>

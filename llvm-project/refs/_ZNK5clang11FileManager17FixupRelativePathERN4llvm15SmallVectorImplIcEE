@@ -1,0 +1,12 @@
+<dec f='llvm/clang/include/clang/Basic/FileManager.h' l='256' type='bool clang::FileManager::FixupRelativePath(SmallVectorImpl&lt;char&gt; &amp; path) const'/>
+<doc f='llvm/clang/include/clang/Basic/FileManager.h' l='252'>/// If path is not absolute and FileSystemOptions set the working
+  /// directory, the path is modified to be relative to the given
+  /// working directory.
+  /// \returns true if \c path changed.</doc>
+<def f='llvm/clang/lib/Basic/FileManager.cpp' l='342' ll='353' type='bool clang::FileManager::FixupRelativePath(SmallVectorImpl&lt;char&gt; &amp; path) const'/>
+<use f='llvm/clang/lib/Basic/FileManager.cpp' l='356' u='c' c='_ZNK5clang11FileManager16makeAbsolutePathERN4llvm15SmallVectorImplIcEE'/>
+<use f='llvm/clang/lib/Basic/FileManager.cpp' l='406' u='c' c='_ZN5clang11FileManager16getBufferForFileEPKNS_9FileEntryEbb'/>
+<use f='llvm/clang/lib/Basic/FileManager.cpp' l='417' u='c' c='_ZN5clang11FileManager16getBufferForFileEN4llvm9StringRefEb'/>
+<use f='llvm/clang/lib/Basic/FileManager.cpp' l='436' u='c' c='_ZN5clang11FileManager12getStatValueEN4llvm9StringRefERNS1_3vfs6StatusEbPSt10unique_ptrINS3_4FileESt14default_deleteIS7_EE'/>
+<use f='llvm/clang/lib/Basic/FileManager.cpp' l='445' u='c' c='_ZN5clang11FileManager21getNoncachedStatValueEN4llvm9StringRefERNS1_3vfs6StatusE'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='643' u='c' c='_ZN5clang16CompilerInstance16clearOutputFilesEb'/>

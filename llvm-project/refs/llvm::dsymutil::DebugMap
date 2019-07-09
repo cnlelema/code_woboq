@@ -1,0 +1,47 @@
+<def f='llvm/llvm/tools/dsymutil/DebugMap.h' l='74' ll='132'/>
+<size>136</size>
+<doc f='llvm/llvm/tools/dsymutil/DebugMap.h' l='50'>/// The DebugMap object stores the list of object files to query for debug
+/// information along with the mapping between the symbols&apos; addresses in the
+/// object file to their linked address in the linked binary.
+///
+/// A DebugMap producer could look like this:
+/// DebugMap *DM = new DebugMap();
+/// for (const auto &amp;Obj: LinkedObjects) {
+///     DebugMapObject &amp;DMO = DM-&gt;addDebugMapObject(Obj.getPath());
+///     for (const auto &amp;Sym: Obj.getLinkedSymbols())
+///         DMO.addSymbol(Sym.getName(), Sym.getObjectFileAddress(),
+///                       Sym.getBinaryAddress());
+/// }
+///
+/// A DebugMap consumer can then use the map to link the debug
+/// information. For example something along the lines of:
+/// for (const auto &amp;DMO: DM-&gt;objects()) {
+///     auto Obj = createBinary(DMO.getObjectFilename());
+///     for (auto &amp;DIE: Obj.getDwarfDIEs()) {
+///         if (SymbolMapping *Sym = DMO.lookup(DIE.getName()))
+///             DIE.relocate(Sym-&gt;ObjectAddress, Sym-&gt;BinaryAddress);
+///         else
+///             DIE.discardSubtree();
+///     }
+/// }</doc>
+<mbr r='llvm::dsymutil::DebugMap::BinaryTriple' o='0' t='llvm::Triple'/>
+<mbr r='llvm::dsymutil::DebugMap::BinaryPath' o='448' t='std::string'/>
+<mbr r='llvm::dsymutil::DebugMap::BinaryUUID' o='704' t='std::vector&lt;uint8_t&gt;'/>
+<mbr r='llvm::dsymutil::DebugMap::Objects' o='896' t='ObjectContainer'/>
+<fun r='_ZN4llvm8dsymutil8DebugMapC1Ev'/>
+<fun r='_ZN4llvm8dsymutil8DebugMapC1ERKNS_6TripleENS_9StringRefENS_8ArrayRefIhEE'/>
+<fun r='_ZNK4llvm8dsymutil8DebugMap7objectsEv'/>
+<fun r='_ZNK4llvm8dsymutil8DebugMap5beginEv'/>
+<fun r='_ZNK4llvm8dsymutil8DebugMap3endEv'/>
+<fun r='_ZNK4llvm8dsymutil8DebugMap18getNumberOfObjectsEv'/>
+<fun r='_ZN4llvm8dsymutil8DebugMap17addDebugMapObjectENS_9StringRefENSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEh'/>
+<fun r='_ZNK4llvm8dsymutil8DebugMap9getTripleEv'/>
+<fun r='_ZNK4llvm8dsymutil8DebugMap7getUUIDEv'/>
+<fun r='_ZNK4llvm8dsymutil8DebugMap13getBinaryPathEv'/>
+<fun r='_ZNK4llvm8dsymutil8DebugMap5printERNS_11raw_ostreamE'/>
+<fun r='_ZNK4llvm8dsymutil8DebugMap4dumpEv'/>
+<fun r='_ZN4llvm8dsymutil8DebugMap17parseYAMLDebugMapENS_9StringRefES2_b'/>
+<fun r='_ZN4llvm8dsymutil8DebugMap17addDebugMapObjectENS_9StringRefENSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEh'/>
+<fun r='_ZNK4llvm8dsymutil8DebugMap5printERNS_11raw_ostreamE'/>
+<fun r='_ZNK4llvm8dsymutil8DebugMap4dumpEv'/>
+<fun r='_ZN4llvm8dsymutil8DebugMap17parseYAMLDebugMapENS_9StringRefES2_b'/>

@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/include/llvm/ExecutionEngine/RuntimeDyld.h' l='229' type='void llvm::RuntimeDyld::registerEHFrames()'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/RuntimeDyld.h' l='224'>/// Register any EH frame sections that have been loaded but not previously
+  /// registered with the memory manager.  Note, RuntimeDyld is responsible
+  /// for identifying the EH frame and calling the memory manager with the
+  /// EH frame section data.  However, the memory manager itself will handle
+  /// the actual target-specific EH frame registration.</doc>
+<use f='llvm/llvm/lib/ExecutionEngine/MCJIT/MCJIT.cpp' l='245' u='c' c='_ZN4llvm5MCJIT21finalizeLoadedModulesEv'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyld.cpp' l='1365' u='c' c='_ZN4llvm11RuntimeDyld32finalizeWithMemoryManagerLockingEv'/>
+<def f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyld.cpp' l='1382' ll='1385' type='void llvm::RuntimeDyld::registerEHFrames()'/>
+<use f='llvm/llvm/tools/llvm-rtdyld/llvm-rtdyld.cpp' l='918' u='c' c='_ZL13linkAndVerifyv'/>

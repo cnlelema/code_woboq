@@ -1,0 +1,44 @@
+<def f='llvm/lld/include/lld/Core/Reference.h' l='41' ll='114'/>
+<size>16</size>
+<doc f='llvm/lld/include/lld/Core/Reference.h' l='18'>///
+/// The linker has a Graph Theory model of linking. An object file is seen
+/// as a set of Atoms with References to other Atoms.  Each Atom is a node
+/// and each Reference is an edge.
+///
+/// For example if a function contains a call site to &quot;malloc&quot; 40 bytes into
+/// the Atom, then the function Atom will have a Reference of: offsetInAtom=40,
+/// kind=callsite, target=malloc, addend=0.
+///
+/// Besides supporting traditional &quot;relocations&quot;, references are also used
+/// forcing layout (one atom must follow another), marking data-in-code
+/// (jump tables or ARM constants), etc.
+///
+/// The &quot;kind&quot; of a reference is a tuple of &lt;namespace, arch, value&gt;.  This
+/// enable us to re-use existing relocation types definded for various
+/// file formats and architectures.
+///
+/// References and atoms form a directed graph. The dead-stripping pass
+/// traverses them starting from dead-strip root atoms to garbage collect
+/// unreachable ones.
+///
+/// References of any kind are considered as directed edges. In addition to
+/// that, references of some kind is considered as bidirected edges.</doc>
+<fun r='_ZNK3lld9Reference13kindNamespaceEv'/>
+<fun r='_ZN3lld9Reference16setKindNamespaceENS0_13KindNamespaceE'/>
+<fun r='_ZNK3lld9Reference8kindArchEv'/>
+<fun r='_ZN3lld9Reference11setKindArchENS0_8KindArchE'/>
+<fun r='_ZNK3lld9Reference9kindValueEv'/>
+<fun r='_ZN3lld9Reference12setKindValueEt'/>
+<fun r='_ZNK3lld9Reference12offsetInAtomEv'/>
+<fun r='_ZNK3lld9Reference6targetEv'/>
+<fun r='_ZN3lld9Reference9setTargetEPKNS_4AtomE'/>
+<fun r='_ZNK3lld9Reference6addendEv'/>
+<fun r='_ZN3lld9Reference9setAddendEl'/>
+<fun r='_ZNK3lld9Reference3tagEv'/>
+<fun r='_ZN3lld9ReferenceC1ENS0_13KindNamespaceENS0_8KindArchEt'/>
+<fun r='_ZN3lld9ReferenceD1Ev'/>
+<mbr r='lld::Reference::_kindValue' o='64' t='KindValue'/>
+<mbr r='lld::Reference::_kindNamespace' o='80' t='uint8_t'/>
+<mbr r='lld::Reference::_kindArch' o='88' t='uint8_t'/>
+<ovr f='llvm/lld/include/lld/Core/Simple.h' l='114' c='lld::SimpleReference'/>
+<ovr f='llvm/lld/lib/ReaderWriter/YAML/ReaderWriterYAML.cpp' l='738' c='llvm::yaml::MappingTraits{constlld::Reference*}::NormalizedReference'/>

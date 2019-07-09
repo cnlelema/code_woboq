@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/lib/CodeGen/SplitKit.h' l='231' type='bool llvm::SplitAnalysis::shouldSplitSingleBlock(const llvm::SplitAnalysis::BlockInfo &amp; BI, bool SingleInstrs) const'/>
+<doc f='llvm/llvm/lib/CodeGen/SplitKit.h' l='223'>/// shouldSplitSingleBlock - Returns true if it would help to create a local
+  /// live range for the instructions in BI. There is normally no benefit to
+  /// creating a live range for a single instruction, but it does enable
+  /// register class inflation if the instruction has a restricted register
+  /// class.
+  ///
+  /// @param BI           The block to be isolated.
+  /// @param SingleInstrs True when single instructions should be isolated.</doc>
+<use f='llvm/llvm/lib/CodeGen/RegAllocGreedy.cpp' l='1721' u='c' c='_ZN12_GLOBAL__N_18RAGreedy17splitAroundRegionERN4llvm13LiveRangeEditENS1_8ArrayRefIjEE'/>
+<use f='llvm/llvm/lib/CodeGen/RegAllocGreedy.cpp' l='2029' u='c' c='_ZN12_GLOBAL__N_18RAGreedy13tryBlockSplitERN4llvm12LiveIntervalERNS1_15AllocationOrderERNS1_15SmallVectorImplIjEE'/>
+<def f='llvm/llvm/lib/CodeGen/SplitKit.cpp' l='1556' ll='1572' type='bool llvm::SplitAnalysis::shouldSplitSingleBlock(const llvm::SplitAnalysis::BlockInfo &amp; BI, bool SingleInstrs) const'/>
+<doc f='llvm/llvm/lib/CodeGen/SplitKit.cpp' l='1552'>//===----------------------------------------------------------------------===//
+//                            Single Block Splitting
+//===----------------------------------------------------------------------===//</doc>

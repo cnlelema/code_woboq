@@ -1,0 +1,46 @@
+<dec f='llvm/llvm/include/llvm/IR/Instruction.h' l='266' type='void llvm::Instruction::getAAMetadata(llvm::AAMDNodes &amp; N, bool Merge = false) const'/>
+<doc f='llvm/llvm/include/llvm/IR/Instruction.h' l='263'>/// Fills the AAMDNodes structure with AA metadata from this instruction.
+  /// When Merge is true, the existing AA metadata is merged with that from this
+  /// instruction providing the most-general result.</doc>
+<use f='llvm/llvm/lib/Analysis/MemoryLocation.cpp' l='36' u='c' c='_ZN4llvm14MemoryLocation3getEPKNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Analysis/MemoryLocation.cpp' l='46' u='c' c='_ZN4llvm14MemoryLocation3getEPKNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Analysis/MemoryLocation.cpp' l='57' u='c' c='_ZN4llvm14MemoryLocation3getEPKNS_9VAArgInstE'/>
+<use f='llvm/llvm/lib/Analysis/MemoryLocation.cpp' l='65' u='c' c='_ZN4llvm14MemoryLocation3getEPKNS_17AtomicCmpXchgInstE'/>
+<use f='llvm/llvm/lib/Analysis/MemoryLocation.cpp' l='76' u='c' c='_ZN4llvm14MemoryLocation3getEPKNS_13AtomicRMWInstE'/>
+<use f='llvm/llvm/lib/Analysis/MemoryLocation.cpp' l='101' u='c' c='_ZN4llvm14MemoryLocation12getForSourceEPKNS_18AnyMemTransferInstE'/>
+<use f='llvm/llvm/lib/Analysis/MemoryLocation.cpp' l='122' u='c' c='_ZN4llvm14MemoryLocation10getForDestEPKNS_15AnyMemIntrinsicE'/>
+<use f='llvm/llvm/lib/Analysis/MemoryLocation.cpp' l='131' u='c' c='_ZN4llvm14MemoryLocation14getForArgumentEPKNS_8CallBaseEjPKNS_17TargetLibraryInfoE'/>
+<def f='llvm/llvm/lib/Analysis/TypeBasedAliasAnalysis.cpp' l='522' ll='540' type='void llvm::Instruction::getAAMetadata(llvm::AAMDNodes &amp; N, bool Merge = false) const'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/FastISel.cpp' l='2429' u='c' c='_ZNK4llvm8FastISel26createMachineMemOperandForEPKNS_11InstructionE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='4050' u='c' c='_ZN4llvm19SelectionDAGBuilder9visitLoadERKNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='4176' u='c' c='_ZN4llvm19SelectionDAGBuilder23visitLoadFromSwiftErrorERKNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='4240' u='c' c='_ZN4llvm19SelectionDAGBuilder10visitStoreERKNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='4315' u='c' c='_ZN4llvm19SelectionDAGBuilder16visitMaskedStoreERKNS_8CallInstEb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='4405' u='c' c='_ZN4llvm19SelectionDAGBuilder18visitMaskedScatterERKNS_8CallInstE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='4467' u='c' c='_ZN4llvm19SelectionDAGBuilder15visitMaskedLoadERKNS_8CallInstEb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='4507' u='c' c='_ZN4llvm19SelectionDAGBuilder17visitMaskedGatherERKNS_8CallInstE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/ArgumentPromotion.cpp' l='310' u='c' c='_ZL11doPromotionPN4llvm8FunctionERNS_15SmallPtrSetImplIPNS_8ArgumentEEES6_NS_8OptionalINS_12function_refIFvNS_8CallSiteES9_EEEEE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/FunctionAttrs.cpp' l='166' u='c' c='_ZL25checkFunctionMemoryAccessRN4llvm8FunctionEbRNS_9AAResultsERKNS_14SmallSetVectorIPS0_Lj8EEE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='697' u='c' c='_ZL21unpackLoadToAggregateRN4llvm12InstCombinerERNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='731' u='c' c='_ZL21unpackLoadToAggregateRN4llvm12InstCombinerERNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='746' u='c' c='_ZL21unpackLoadToAggregateRN4llvm12InstCombinerERNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='781' u='c' c='_ZL21unpackLoadToAggregateRN4llvm12InstCombinerERNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1261' u='c' c='_ZL22unpackStoreToAggregateRN4llvm12InstCombinerERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1311' u='c' c='_ZL22unpackStoreToAggregateRN4llvm12InstCombinerERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1631' u='c' c='_ZN4llvm12InstCombiner23mergeStoreIntoSuccessorERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1633' u='c' c='_ZN4llvm12InstCombiner23mergeStoreIntoSuccessorERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='2726' u='c' c='_ZN4llvm12InstCombiner21visitExtractValueInstERNS_16ExtractValueInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1253' u='c' c='_ZN4llvm3GVN14PerformLoadPREEPNS_8LoadInstERNS_11SmallVectorINS_3gvn21AvailableValueInBlockELj64EEERNS3_IPNS_10BasicBlockELj64EEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='1334' u='c' c='_ZN4llvm17JumpThreadingPass30SimplifyPartiallyRedundantLoadEPNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='2019' u='c' c='_ZN4llvm28promoteLoopAccessesToScalarsERKNS_14SmallSetVectorIPNS_5ValueELj8EEERNS_15SmallVectorImplIPNS_10BasicBlockEEERNS6_IPNS_11InstructionEEERNS6_2137798'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='2021' u='c' c='_ZN4llvm28promoteLoopAccessesToScalarsERKNS_14SmallSetVectorIPNS_5ValueELj8EEERNS_15SmallVectorImplIPNS_10BasicBlockEEERNS6_IPNS_11InstructionEEERNS6_2137798'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SROA.cpp' l='1244' u='c' c='_ZL21speculatePHINodeLoadsRN4llvm7PHINodeE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SROA.cpp' l='1345' u='c' c='_ZL24speculateSelectInstLoadsRN4llvm10SelectInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SROA.cpp' l='2469' u='c' c='_ZN4llvm4sroa19AllocaSliceRewriter13visitLoadInstERNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SROA.cpp' l='2624' u='c' c='_ZN4llvm4sroa19AllocaSliceRewriter14visitStoreInstERNS_9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SROA.cpp' l='2730' u='c' c='_ZN4llvm4sroa19AllocaSliceRewriter15visitMemSetInstERNS_10MemSetInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SROA.cpp' l='2853' u='c' c='_ZN4llvm4sroa19AllocaSliceRewriter20visitMemTransferInstERNS_15MemTransferInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SROA.cpp' l='3365' u='c' c='_ZN12_GLOBAL__N_120AggLoadStoreRewriter13visitLoadInstERN4llvm8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SROA.cpp' l='3412' u='c' c='_ZN12_GLOBAL__N_120AggLoadStoreRewriter14visitStoreInstERN4llvm9StoreInstE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='3060' u='c' c='_ZL30mergeConditionalStoreToAddressPN4llvm10BasicBlockES1_S1_S1_S1_PNS_5ValueEbbRKNS_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='3061' u='c' c='_ZL30mergeConditionalStoreToAddressPN4llvm10BasicBlockES1_S1_S1_S1_PNS_5ValueEbbRKNS_10DataLayoutE'/>

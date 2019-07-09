@@ -1,0 +1,14 @@
+<def f='llvm/llvm/include/llvm/IR/PassManager.h' l='1107' ll='1110' type='llvm::InnerAnalysisManagerProxy::Result llvm::InnerAnalysisManagerProxy::run(IRUnitT &amp; IR, AnalysisManager&lt;IRUnitT, ExtraArgTs...&gt; &amp; AM, ExtraArgTs... )'/>
+<dec f='llvm/llvm/include/llvm/Analysis/CGSCCPassManager.h' l='202' type='CGSCCAnalysisManagerModuleProxy::Result llvm::InnerAnalysisManagerProxy&lt;llvm::AnalysisManager&lt;LazyCallGraph::SCC, llvm::LazyCallGraph &amp;&gt;, llvm::Module&gt;::run(llvm::Module &amp; M, ModuleAnalysisManager &amp; AM)'/>
+<dec f='llvm/llvm/include/llvm/Analysis/LoopAnalysisManager.h' l='139' type='LoopAnalysisManagerFunctionProxy::Result llvm::InnerAnalysisManagerProxy&lt;llvm::AnalysisManager&lt;llvm::Loop, llvm::LoopStandardAnalysisResults &amp;&gt;, llvm::Function&gt;::run(llvm::Function &amp; F, FunctionAnalysisManager &amp; AM)'/>
+<doc f='llvm/llvm/include/llvm/IR/PassManager.h' l='1102'>/// Run the analysis pass and create our proxy result object.
+  ///
+  /// This doesn&apos;t do any interesting work; it is primarily used to insert our
+  /// proxy result object into the outer analysis cache so that we can proxy
+  /// invalidation to the inner analysis manager.</doc>
+<doc f='llvm/llvm/include/llvm/Analysis/CGSCCPassManager.h' l='198'>/// Provide a specialized run method for the \c CGSCCAnalysisManagerModuleProxy
+/// so it can pass the lazy call graph to the result.</doc>
+<doc f='llvm/llvm/include/llvm/Analysis/LoopAnalysisManager.h' l='135'>/// Provide a specialized run method for the \c LoopAnalysisManagerFunctionProxy
+/// so it can pass the \c LoopInfo to the result.</doc>
+<def f='llvm/llvm/lib/Analysis/CGSCCPassManager.cpp' l='203' ll='213' type='CGSCCAnalysisManagerModuleProxy::Result llvm::InnerAnalysisManagerProxy&lt;llvm::AnalysisManager&lt;LazyCallGraph::SCC, llvm::LazyCallGraph &amp;&gt;, llvm::Module&gt;::run(llvm::Module &amp; M, ModuleAnalysisManager &amp; AM)'/>
+<def f='llvm/llvm/lib/Analysis/LoopAnalysisManager.cpp' l='130' ll='135' type='LoopAnalysisManagerFunctionProxy::Result llvm::InnerAnalysisManagerProxy&lt;llvm::AnalysisManager&lt;llvm::Loop, llvm::LoopStandardAnalysisResults &amp;&gt;, llvm::Function&gt;::run(llvm::Function &amp; F, FunctionAnalysisManager &amp; AM)'/>

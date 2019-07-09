@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/LiveIntervals.h' l='169' type='void llvm::LiveIntervals::shrinkToUses(LiveInterval::SubRange &amp; SR, unsigned int Reg)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/LiveIntervals.h' l='163'>/// Specialized version of
+    /// shrinkToUses(LiveInterval *li, SmallVectorImpl&lt;MachineInstr*&gt; *dead)
+    /// that works on a subregister live range and only looks at uses matching
+    /// the lane mask of the subregister range.
+    /// This may leave the subrange empty which needs to be cleaned up with
+    /// LiveInterval::removeEmptySubranges() afterwards.</doc>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='450' u='c' c='_ZN4llvm13LiveIntervals12shrinkToUsesEPNS_12LiveIntervalEPNS_15SmallVectorImplIPNS_12MachineInstrEEE'/>
+<def f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='542' ll='610' type='void llvm::LiveIntervals::shrinkToUses(LiveInterval::SubRange &amp; SR, unsigned int Reg)'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterCoalescer.cpp' l='1933' u='c' c='_ZN12_GLOBAL__N_117RegisterCoalescer8joinCopyEPN4llvm12MachineInstrERb'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonExpandCondsets.cpp' l='531' u='c' c='_ZN12_GLOBAL__N_121HexagonExpandCondsets15updateDeadFlagsEj'/>

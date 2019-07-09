@@ -1,0 +1,18 @@
+<use f='llvm/llvm/include/llvm/CodeGen/LiveIntervalUnion.h' l='148' u='c' c='_ZN4llvm17LiveIntervalUnion5Query17checkInterferenceEv'/>
+<dec f='llvm/llvm/include/llvm/CodeGen/LiveIntervalUnion.h' l='152' type='unsigned int llvm::LiveIntervalUnion::Query::collectInterferingVRegs(unsigned int MaxInterferingRegs = std::numeric_limits&lt;unsigned int&gt;::max())'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/LiveIntervalUnion.h' l='150'>// Count the virtual registers in this union that interfere with this
+    // query&apos;s live virtual register, up to maxInterferingRegs.</doc>
+<def f='llvm/llvm/lib/CodeGen/LiveIntervalUnion.cpp' l='117' ll='179' type='unsigned int llvm::LiveIntervalUnion::Query::collectInterferingVRegs(unsigned int MaxInterferingRegs = std::numeric_limits&lt;unsigned int&gt;::max())'/>
+<doc f='llvm/llvm/lib/CodeGen/LiveIntervalUnion.cpp' l='108'>// Collect virtual registers in this union that interfere with this
+// query&apos;s live virtual register.
+//
+// The query state is one of:
+//
+// 1. CheckedFirstInterference == false: Iterators are uninitialized.
+// 2. SeenAllInterferences == true: InterferingVRegs complete, iterators unused.
+// 3. Iterators left at the last seen intersection.
+//</doc>
+<use f='llvm/llvm/lib/CodeGen/RegAllocBasic.cpp' l='213' u='c' c='_ZN12_GLOBAL__N_17RABasic18spillInterferencesERN4llvm12LiveIntervalEjRNS1_15SmallVectorImplIjEE'/>
+<use f='llvm/llvm/lib/CodeGen/RegAllocGreedy.cpp' l='896' u='c' c='_ZN12_GLOBAL__N_18RAGreedy20canEvictInterferenceERN4llvm12LiveIntervalEjbRNS0_12EvictionCostERKNS1_8SmallSetIjLj16ESt4lessIjEEE'/>
+<use f='llvm/llvm/lib/CodeGen/RegAllocGreedy.cpp' l='1068' u='c' c='_ZN12_GLOBAL__N_18RAGreedy17evictInterferenceERN4llvm12LiveIntervalEjRNS1_15SmallVectorImplIjEE'/>
+<use f='llvm/llvm/lib/CodeGen/RegAllocGreedy.cpp' l='2538' u='c' c='_ZN12_GLOBAL__N_18RAGreedy26mayRecolorAllInterferencesEjRN4llvm12LiveIntervalERNS1_11SmallPtrSetIPS2_Lj4EEERKNS1_8SmallSetIjLj16ESt4lessIjEEE'/>

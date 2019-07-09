@@ -1,0 +1,60 @@
+<dec f='llvm/llvm/include/llvm/Analysis/BlockFrequencyInfo.h' l='65' type='llvm::BlockFrequency llvm::BlockFrequencyInfo::getBlockFreq(const llvm::BasicBlock * BB) const'/>
+<doc f='llvm/llvm/include/llvm/Analysis/BlockFrequencyInfo.h' l='60'>/// getblockFreq - Return block frequency. Return 0 if we don&apos;t have the
+  /// information. Please note that initial frequency is equal to ENTRY_FREQ. It
+  /// means that we should not rely on the value itself, but only on the
+  /// comparison to the other block frequencies. We do this to avoid using of
+  /// floating points.</doc>
+<def f='llvm/llvm/lib/Analysis/BlockFrequencyInfo.cpp' l='201' ll='203' type='llvm::BlockFrequency llvm::BlockFrequencyInfo::getBlockFreq(const llvm::BasicBlock * BB) const'/>
+<use f='llvm/llvm/lib/Analysis/InlineCost.cpp' l='823' u='c' c='_ZN12_GLOBAL__N_112CallAnalyzer14isColdCallSiteERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE'/>
+<use f='llvm/llvm/lib/Analysis/InlineCost.cpp' l='825' u='c' c='_ZN12_GLOBAL__N_112CallAnalyzer14isColdCallSiteERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE'/>
+<use f='llvm/llvm/lib/Analysis/InlineCost.cpp' l='849' u='c' c='_ZN12_GLOBAL__N_112CallAnalyzer23getHotCallSiteThresholdERN4llvm8CallBaseEPNS1_18BlockFrequencyInfoE'/>
+<use f='llvm/llvm/lib/Analysis/ModuleSummaryAnalysis.cpp' l='329' u='c' c='_ZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTr12499115'/>
+<use f='llvm/llvm/lib/CodeGen/CodeGenPrepare.cpp' l='737' u='c' c='_ZN12_GLOBAL__N_114CodeGenPrepare29isMergingEmptyBlockProfitableEPN4llvm10BasicBlockES3_b'/>
+<use f='llvm/llvm/lib/CodeGen/CodeGenPrepare.cpp' l='738' u='c' c='_ZN12_GLOBAL__N_114CodeGenPrepare29isMergingEmptyBlockProfitableEPN4llvm10BasicBlockES3_b'/>
+<use f='llvm/llvm/lib/CodeGen/CodeGenPrepare.cpp' l='743' u='c' c='_ZN12_GLOBAL__N_114CodeGenPrepare29isMergingEmptyBlockProfitableEPN4llvm10BasicBlockES3_b'/>
+<use f='llvm/llvm/lib/Transforms/IPO/GlobalOpt.cpp' l='2168' u='c' c='_ZL14isColdCallSiteN4llvm8CallSiteERNS_18BlockFrequencyInfoE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/GlobalOpt.cpp' l='2170' u='c' c='_ZL14isColdCallSiteN4llvm8CallSiteERNS_18BlockFrequencyInfoE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='724' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14FunctionClonerE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='726' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14FunctionClonerE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/SyntheticCountsPropagation.cpp' l='122' u='c' c='_ZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/CFGMST.h' l='123' u='c' c='_ZN4llvm6CFGMST10buildEdgesEv'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/PGOMemOPSizeOpt.cpp' l='340' u='c' c='_ZN12_GLOBAL__N_112MemOPSizeOpt7performEPN4llvm12MemIntrinsicE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/ConstantHoisting.cpp' l='275' u='c' c='_ZL20findBestInsertionSetRN4llvm13DominatorTreeERNS_18BlockFrequencyInfoEPNS_10BasicBlockERNS_11SmallPtrSetIS5_Lj8EEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/ConstantHoisting.cpp' l='276' u='c' c='_ZL20findBestInsertionSetRN4llvm13DominatorTreeERNS_18BlockFrequencyInfoEPNS_10BasicBlockERNS_11SmallPtrSetIS5_Lj8EEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/ConstantHoisting.cpp' l='296' u='c' c='_ZL20findBestInsertionSetRN4llvm13DominatorTreeERNS_18BlockFrequencyInfoEPNS_10BasicBlockERNS_11SmallPtrSetIS5_Lj8EEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/ConstantHoisting.cpp' l='297' u='c' c='_ZL20findBestInsertionSetRN4llvm13DominatorTreeERNS_18BlockFrequencyInfoEPNS_10BasicBlockERNS_11SmallPtrSetIS5_Lj8EEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/ConstantHoisting.cpp' l='299' u='c' c='_ZL20findBestInsertionSetRN4llvm13DominatorTreeERNS_18BlockFrequencyInfoEPNS_10BasicBlockERNS_11SmallPtrSetIS5_Lj8EEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='1977' u='c' c='_ZN4llvm17JumpThreadingPass10ThreadEdgeEPNS_10BasicBlockERKNS_15SmallVectorImplIS2_EES2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='2092' u='c' c='_ZN4llvm17JumpThreadingPass15SplitBlockPredsEPNS_10BasicBlockENS_8ArrayRefIS2_EEPKc'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='2153' u='c' c='_ZN4llvm17JumpThreadingPass28UpdateBlockFreqAndEdgeWeightEPNS_10BasicBlockES2_S2_S2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='2154' u='c' c='_ZN4llvm17JumpThreadingPass28UpdateBlockFreqAndEdgeWeightEPNS_10BasicBlockES2_S2_S2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopSink.cpp' l='86' u='c' c='_ZL15adjustedSumFreqRN4llvm15SmallPtrSetImplIPNS_10BasicBlockEEERNS_18BlockFrequencyInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopSink.cpp' l='146' u='c' c='_ZL17findBBsToSinkIntoRKN4llvm4LoopERKNS_15SmallPtrSetImplIPNS_10BasicBlockEEERKNS_15SmallVectorImplIS5_EERNS_13DominatorTreeERNS_18BlockFrequencyInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopSink.cpp' l='165' u='c' c='_ZL17findBBsToSinkIntoRKN4llvm4LoopERKNS_15SmallPtrSetImplIPNS_10BasicBlockEEERKNS_15SmallVectorImplIS5_EERNS_13DominatorTreeERNS_18BlockFrequencyInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopSink.cpp' l='267' u='c' c='_ZL29sinkLoopInvariantInstructionsRN4llvm4LoopERNS_9AAResultsERNS_8LoopInfoERNS_13DominatorTreeERNS_18BlockFrequencyInfoEPNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopSink.cpp' l='272' u='c' c='_ZL29sinkLoopInvariantInstructionsRN4llvm4LoopERNS_9AAResultsERNS_8LoopInfoERNS_13DominatorTreeERNS_18BlockFrequencyInfoEPNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopSink.cpp' l='289' u='c' c='_ZL29sinkLoopInvariantInstructionsRN4llvm4LoopERNS_9AAResultsERNS_8LoopInfoERNS_13DominatorTreeERNS_18BlockFrequencyInfoEPNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopSink.cpp' l='289' u='c' c='_ZL29sinkLoopInvariantInstructionsRN4llvm4LoopERNS_9AAResultsERNS_8LoopInfoERNS_13DominatorTreeERNS_18BlockFrequencyInfoEPNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopSink.cpp' l='294' u='c' c='_ZL29sinkLoopInvariantInstructionsRN4llvm4LoopERNS_9AAResultsERNS_8LoopInfoERNS_13DominatorTreeERNS_18BlockFrequencyInfoEPNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopSink.cpp' l='294' u='c' c='_ZL29sinkLoopInvariantInstructionsRN4llvm4LoopERNS_9AAResultsERNS_8LoopInfoERNS_13DominatorTreeERNS_18BlockFrequencyInfoEPNS_15ScalarEvolutionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/BreakCriticalEdges.cpp' l='397' u='c' c='_ZN4llvm28SplitIndirectBrCriticalEdgesERNS_8FunctionEPNS_21BranchProbabilityInfoEPNS_18BlockFrequencyInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/BreakCriticalEdges.cpp' l='417' u='c' c='_ZN4llvm28SplitIndirectBrCriticalEdgesERNS_8FunctionEPNS_21BranchProbabilityInfoEPNS_18BlockFrequencyInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/BreakCriticalEdges.cpp' l='423' u='c' c='_ZN4llvm28SplitIndirectBrCriticalEdgesERNS_8FunctionEPNS_21BranchProbabilityInfoEPNS_18BlockFrequencyInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CodeExtractor.cpp' l='1351' u='c' c='_ZN4llvm13CodeExtractor17extractCodeRegionEv'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CodeExtractor.cpp' l='1370' u='c' c='_ZN4llvm13CodeExtractor17extractCodeRegionEv'/>
+<use f='llvm/llvm/lib/Transforms/Utils/InlineFunction.cpp' l='1461' u='c' c='_ZL15updateCallerBFIPN4llvm10BasicBlockERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEEPNS_18Bloc12023011'/>
+<use f='llvm/llvm/lib/Transforms/Utils/InlineFunction.cpp' l='1466' u='c' c='_ZL15updateCallerBFIPN4llvm10BasicBlockERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEEPNS_18Bloc12023011'/>
+<use f='llvm/llvm/lib/Transforms/Utils/InlineFunction.cpp' l='1474' u='c' c='_ZL15updateCallerBFIPN4llvm10BasicBlockERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEEPNS_18Bloc12023011'/>
+<use f='llvm/llvm/lib/Transforms/Utils/InlineFunction.cpp' l='2291' u='c' c='_ZN4llvm14InlineFunctionENS_8CallSiteERNS_18InlineFunctionInfoEPNS_9AAResultsEbPNS_8FunctionE'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='69' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='70' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='71' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='72' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='88' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='88' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='89' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='89' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='90' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='90' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='91' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/BlockFrequencyInfoTest.cpp' l='91' u='c' c='_ZN4llvm12_GLOBAL__N_133BlockFrequencyInfoTest_Basic_Test8TestBodyEv'/>

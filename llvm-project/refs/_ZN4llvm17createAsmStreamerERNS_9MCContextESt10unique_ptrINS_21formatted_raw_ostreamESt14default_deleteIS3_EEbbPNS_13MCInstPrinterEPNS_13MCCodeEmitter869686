@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='1086' type='llvm::MCStreamer * llvm::createAsmStreamer(llvm::MCContext &amp; Ctx, std::unique_ptr&lt;formatted_raw_ostream&gt; OS, bool isVerboseAsm, bool useDwarfDirectory, llvm::MCInstPrinter * InstPrint, llvm::MCCodeEmitter * CE, llvm::MCAsmBackend * TAB, bool ShowInst)'/>
+<doc f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='1070'>/// Create a machine code streamer which will print out assembly for the native
+/// target, suitable for compiling with a native assembler.
+///
+/// \param InstPrint - If given, the instruction printer to use. If not given
+/// the MCInst representation will be printed.  This method takes ownership of
+/// InstPrint.
+///
+/// \param CE - If given, a code emitter to use to show the instruction
+/// encoding inline with the assembly. This method takes ownership of \p CE.
+///
+/// \param TAB - If given, a target asm backend to use to show the fixup
+/// information in conjunction with encoding information. This method takes
+/// ownership of \p TAB.
+///
+/// \param ShowInst - Whether to show the MCInst representation inline with
+/// the assembly.</doc>

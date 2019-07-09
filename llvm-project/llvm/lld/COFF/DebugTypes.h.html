@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>DebugTypes.h source code [llvm/lld/COFF/DebugTypes.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="lld::coff::TpiSource "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/lld/COFF/DebugTypes.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>llvm</a>/<a href='..'>lld</a>/<a href='./'>COFF</a>/<a href='DebugTypes.h.html'>DebugTypes.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- DebugTypes.h ---------------------------------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLD_COFF_DEBUGTYPES_H">LLD_COFF_DEBUGTYPES_H</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLD_COFF_DEBUGTYPES_H" data-ref="_M/LLD_COFF_DEBUGTYPES_H">LLD_COFF_DEBUGTYPES_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="../../llvm/include/llvm/Support/Error.h.html">"llvm/Support/Error.h"</a></u></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../../llvm/include/llvm/Support/MemoryBuffer.h.html">"llvm/Support/MemoryBuffer.h"</a></u></td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="16">16</th><td><b>namespace</b> <span class="namespace">codeview</span> {</td></tr>
+<tr><th id="17">17</th><td><b>class</b> <a class="type" href="../../llvm/include/llvm/DebugInfo/CodeView/TypeRecord.h.html#llvm::codeview::PrecompRecord" title='llvm::codeview::PrecompRecord' data-ref="llvm::codeview::PrecompRecord" id="llvm::codeview::PrecompRecord">PrecompRecord</a>;</td></tr>
+<tr><th id="18">18</th><td><b>class</b> <a class="type" href="../../llvm/include/llvm/DebugInfo/CodeView/TypeRecord.h.html#llvm::codeview::TypeServer2Record" title='llvm::codeview::TypeServer2Record' data-ref="llvm::codeview::TypeServer2Record" id="llvm::codeview::TypeServer2Record">TypeServer2Record</a>;</td></tr>
+<tr><th id="19">19</th><td>} <i>// namespace codeview</i></td></tr>
+<tr><th id="20">20</th><td><b>namespace</b> <span class="namespace">pdb</span> {</td></tr>
+<tr><th id="21">21</th><td><b>class</b> <a class="type" href="../../llvm/include/llvm/DebugInfo/PDB/Native/NativeSession.h.html#llvm::pdb::NativeSession" title='llvm::pdb::NativeSession' data-ref="llvm::pdb::NativeSession" id="llvm::pdb::NativeSession">NativeSession</a>;</td></tr>
+<tr><th id="22">22</th><td>}</td></tr>
+<tr><th id="23">23</th><td>} <i>// namespace llvm</i></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><b>namespace</b> <span class="namespace">lld</span> {</td></tr>
+<tr><th id="26">26</th><td><b>namespace</b> <span class="namespace">coff</span> {</td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><b>class</b> <a class="type" href="InputFiles.h.html#lld::coff::ObjFile" title='lld::coff::ObjFile' data-ref="lld::coff::ObjFile" id="lld::coff::ObjFile">ObjFile</a>;</td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><b>class</b> <dfn class="type def" id="lld::coff::TpiSource" title='lld::coff::TpiSource' data-ref="lld::coff::TpiSource">TpiSource</dfn> {</td></tr>
+<tr><th id="31">31</th><td><b>public</b>:</td></tr>
+<tr><th id="32">32</th><td>  <b>enum</b> <dfn class="type def" id="lld::coff::TpiSource::TpiKind" title='lld::coff::TpiSource::TpiKind' data-ref="lld::coff::TpiSource::TpiKind">TpiKind</dfn> { <dfn class="enum" id="lld::coff::TpiSource::TpiKind::Regular" title='lld::coff::TpiSource::TpiKind::Regular' data-ref="lld::coff::TpiSource::TpiKind::Regular">Regular</dfn>, <dfn class="enum" id="lld::coff::TpiSource::TpiKind::PCH" title='lld::coff::TpiSource::TpiKind::PCH' data-ref="lld::coff::TpiSource::TpiKind::PCH">PCH</dfn>, <dfn class="enum" id="lld::coff::TpiSource::TpiKind::UsingPCH" title='lld::coff::TpiSource::TpiKind::UsingPCH' data-ref="lld::coff::TpiSource::TpiKind::UsingPCH">UsingPCH</dfn>, <dfn class="enum" id="lld::coff::TpiSource::TpiKind::PDB" title='lld::coff::TpiSource::TpiKind::PDB' data-ref="lld::coff::TpiSource::TpiKind::PDB">PDB</dfn>, <dfn class="enum" id="lld::coff::TpiSource::TpiKind::UsingPDB" title='lld::coff::TpiSource::TpiKind::UsingPDB' data-ref="lld::coff::TpiSource::TpiKind::UsingPDB">UsingPDB</dfn> };</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td>  <a class="decl" href="DebugTypes.cpp.html#_ZN3lld4coff9TpiSourceC1ENS1_7TpiKindEPKNS0_7ObjFileE" title='lld::coff::TpiSource::TpiSource' data-ref="_ZN3lld4coff9TpiSourceC1ENS1_7TpiKindEPKNS0_7ObjFileE" id="_ZN3lld4coff9TpiSourceC1ENS1_7TpiKindEPKNS0_7ObjFileE">TpiSource</a>(<a class="type" href="#lld::coff::TpiSource::TpiKind" title='lld::coff::TpiSource::TpiKind' data-ref="lld::coff::TpiSource::TpiKind">TpiKind</a> <dfn class="local col1 decl" id="1K" title='K' data-type='lld::coff::TpiSource::TpiKind' data-ref="1K">K</dfn>, <em>const</em> <a class="type" href="InputFiles.h.html#lld::coff::ObjFile" title='lld::coff::ObjFile' data-ref="lld::coff::ObjFile">ObjFile</a> *<dfn class="local col2 decl" id="2F" title='F' data-type='const lld::coff::ObjFile *' data-ref="2F">F</dfn>);</td></tr>
+<tr><th id="35">35</th><td>  <b>virtual</b> <dfn class="virtual decl def" id="_ZN3lld4coff9TpiSourceD1Ev" title='lld::coff::TpiSource::~TpiSource' data-ref="_ZN3lld4coff9TpiSourceD1Ev">~TpiSource</dfn>() {}</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td>  <em>const</em> <a class="type" href="#lld::coff::TpiSource::TpiKind" title='lld::coff::TpiSource::TpiKind' data-ref="lld::coff::TpiSource::TpiKind">TpiKind</a> <dfn class="decl" id="lld::coff::TpiSource::Kind" title='lld::coff::TpiSource::Kind' data-ref="lld::coff::TpiSource::Kind">Kind</dfn>;</td></tr>
+<tr><th id="38">38</th><td>  <em>const</em> <a class="type" href="InputFiles.h.html#lld::coff::ObjFile" title='lld::coff::ObjFile' data-ref="lld::coff::ObjFile">ObjFile</a> *<dfn class="decl" id="lld::coff::TpiSource::File" title='lld::coff::TpiSource::File' data-ref="lld::coff::TpiSource::File">File</dfn>;</td></tr>
+<tr><th id="39">39</th><td>};</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><a class="type" href="#lld::coff::TpiSource" title='lld::coff::TpiSource' data-ref="lld::coff::TpiSource">TpiSource</a> *<a class="decl" href="DebugTypes.cpp.html#_ZN3lld4coff13makeTpiSourceEPKNS0_7ObjFileE" title='lld::coff::makeTpiSource' data-ref="_ZN3lld4coff13makeTpiSourceEPKNS0_7ObjFileE" id="_ZN3lld4coff13makeTpiSourceEPKNS0_7ObjFileE">makeTpiSource</a>(<em>const</em> <a class="type" href="InputFiles.h.html#lld::coff::ObjFile" title='lld::coff::ObjFile' data-ref="lld::coff::ObjFile">ObjFile</a> *<dfn class="local col3 decl" id="3F" title='F' data-type='const lld::coff::ObjFile *' data-ref="3F">F</dfn>);</td></tr>
+<tr><th id="42">42</th><td><a class="type" href="#lld::coff::TpiSource" title='lld::coff::TpiSource' data-ref="lld::coff::TpiSource">TpiSource</a> *<a class="decl" href="DebugTypes.cpp.html#_ZN3lld4coff23makeUseTypeServerSourceEPKNS0_7ObjFileEPKN4llvm8codeview17TypeServer2RecordE" title='lld::coff::makeUseTypeServerSource' data-ref="_ZN3lld4coff23makeUseTypeServerSourceEPKNS0_7ObjFileEPKN4llvm8codeview17TypeServer2RecordE" id="_ZN3lld4coff23makeUseTypeServerSourceEPKNS0_7ObjFileEPKN4llvm8codeview17TypeServer2RecordE">makeUseTypeServerSource</a>(<em>const</em> <a class="type" href="InputFiles.h.html#lld::coff::ObjFile" title='lld::coff::ObjFile' data-ref="lld::coff::ObjFile">ObjFile</a> *<dfn class="local col4 decl" id="4F" title='F' data-type='const lld::coff::ObjFile *' data-ref="4F">F</dfn>,</td></tr>
+<tr><th id="43">43</th><td>                                   <em>const</em> <span class="namespace">llvm::codeview::</span><a class="type" href="../../llvm/include/llvm/DebugInfo/CodeView/TypeRecord.h.html#llvm::codeview::TypeServer2Record" title='llvm::codeview::TypeServer2Record' data-ref="llvm::codeview::TypeServer2Record">TypeServer2Record</a> *<dfn class="local col5 decl" id="5TS" title='TS' data-type='const llvm::codeview::TypeServer2Record *' data-ref="5TS">TS</dfn>);</td></tr>
+<tr><th id="44">44</th><td><a class="type" href="#lld::coff::TpiSource" title='lld::coff::TpiSource' data-ref="lld::coff::TpiSource">TpiSource</a> *<a class="decl" href="DebugTypes.cpp.html#_ZN3lld4coff17makePrecompSourceEPKNS0_7ObjFileE" title='lld::coff::makePrecompSource' data-ref="_ZN3lld4coff17makePrecompSourceEPKNS0_7ObjFileE" id="_ZN3lld4coff17makePrecompSourceEPKNS0_7ObjFileE">makePrecompSource</a>(<em>const</em> <a class="type" href="InputFiles.h.html#lld::coff::ObjFile" title='lld::coff::ObjFile' data-ref="lld::coff::ObjFile">ObjFile</a> *<dfn class="local col6 decl" id="6F" title='F' data-type='const lld::coff::ObjFile *' data-ref="6F">F</dfn>);</td></tr>
+<tr><th id="45">45</th><td><a class="type" href="#lld::coff::TpiSource" title='lld::coff::TpiSource' data-ref="lld::coff::TpiSource">TpiSource</a> *<a class="decl" href="DebugTypes.cpp.html#_ZN3lld4coff20makeUsePrecompSourceEPKNS0_7ObjFileEPKN4llvm8codeview13PrecompRecordE" title='lld::coff::makeUsePrecompSource' data-ref="_ZN3lld4coff20makeUsePrecompSourceEPKNS0_7ObjFileEPKN4llvm8codeview13PrecompRecordE" id="_ZN3lld4coff20makeUsePrecompSourceEPKNS0_7ObjFileEPKN4llvm8codeview13PrecompRecordE">makeUsePrecompSource</a>(<em>const</em> <a class="type" href="InputFiles.h.html#lld::coff::ObjFile" title='lld::coff::ObjFile' data-ref="lld::coff::ObjFile">ObjFile</a> *<dfn class="local col7 decl" id="7F" title='F' data-type='const lld::coff::ObjFile *' data-ref="7F">F</dfn>,</td></tr>
+<tr><th id="46">46</th><td>                                <em>const</em> <span class="namespace">llvm::codeview::</span><a class="type" href="../../llvm/include/llvm/DebugInfo/CodeView/TypeRecord.h.html#llvm::codeview::PrecompRecord" title='llvm::codeview::PrecompRecord' data-ref="llvm::codeview::PrecompRecord">PrecompRecord</a> *<dfn class="local col8 decl" id="8Precomp" title='Precomp' data-type='const llvm::codeview::PrecompRecord *' data-ref="8Precomp">Precomp</dfn>);</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><em>void</em> <a class="decl" href="DebugTypes.cpp.html#_ZN3lld4coff20loadTypeServerSourceEN4llvm15MemoryBufferRefE" title='lld::coff::loadTypeServerSource' data-ref="_ZN3lld4coff20loadTypeServerSourceEN4llvm15MemoryBufferRefE" id="_ZN3lld4coff20loadTypeServerSourceEN4llvm15MemoryBufferRefE">loadTypeServerSource</a>(<span class="namespace">llvm::</span><a class="type" href="../../llvm/include/llvm/Support/MemoryBuffer.h.html#llvm::MemoryBufferRef" title='llvm::MemoryBufferRef' data-ref="llvm::MemoryBufferRef">MemoryBufferRef</a> <dfn class="local col9 decl" id="9M" title='M' data-type='llvm::MemoryBufferRef' data-ref="9M">M</dfn>);</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><i>// Temporary interface to get the dependency</i></td></tr>
+<tr><th id="51">51</th><td><b>template</b> &lt;<b>typename</b> T&gt; <em>const</em> T &amp;<dfn class="decl" id="_ZN3lld4coff22retrieveDependencyInfoEPKNS0_9TpiSourceE" title='lld::coff::retrieveDependencyInfo' data-ref="_ZN3lld4coff22retrieveDependencyInfoEPKNS0_9TpiSourceE">retrieveDependencyInfo</dfn>(<em>const</em> <a class="type" href="#lld::coff::TpiSource" title='lld::coff::TpiSource' data-ref="lld::coff::TpiSource">TpiSource</a> *<dfn class="local col0 decl" id="10Source" title='Source' data-type='const lld::coff::TpiSource *' data-ref="10Source">Source</dfn>);</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><i>// Temporary interface until we move PDBLinker::maybeMergeTypeServerPDB here</i></td></tr>
+<tr><th id="54">54</th><td><span class="namespace">llvm::</span><a class="type" href="../../llvm/include/llvm/Support/Error.h.html#llvm::Expected" title='llvm::Expected' data-ref="llvm::Expected">Expected</a>&lt;<span class="namespace">llvm::pdb::</span><a class="type" href="../../llvm/include/llvm/DebugInfo/PDB/Native/NativeSession.h.html#llvm::pdb::NativeSession" title='llvm::pdb::NativeSession' data-ref="llvm::pdb::NativeSession">NativeSession</a> *&gt;</td></tr>
+<tr><th id="55">55</th><td><a class="decl" href="DebugTypes.cpp.html#_ZN3lld4coff20findTypeServerSourceEPKNS0_7ObjFileE" title='lld::coff::findTypeServerSource' data-ref="_ZN3lld4coff20findTypeServerSourceEPKNS0_7ObjFileE" id="_ZN3lld4coff20findTypeServerSourceEPKNS0_7ObjFileE">findTypeServerSource</a>(<em>const</em> <a class="type" href="InputFiles.h.html#lld::coff::ObjFile" title='lld::coff::ObjFile' data-ref="lld::coff::ObjFile">ObjFile</a> *<dfn class="local col1 decl" id="11F" title='F' data-type='const lld::coff::ObjFile *' data-ref="11F">F</dfn>);</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>} <i>// namespace coff</i></td></tr>
+<tr><th id="58">58</th><td>} <i>// namespace lld</i></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><u>#<span data-ppcond="9">endif</span></u></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='DebugTypes.cpp.html'>llvm/lld/COFF/DebugTypes.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

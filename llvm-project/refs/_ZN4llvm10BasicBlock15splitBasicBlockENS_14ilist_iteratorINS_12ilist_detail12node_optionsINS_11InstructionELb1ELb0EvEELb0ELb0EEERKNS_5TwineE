@@ -1,0 +1,64 @@
+<dec f='llvm/llvm/include/llvm/IR/BasicBlock.h' l='384' type='llvm::BasicBlock * llvm::BasicBlock::splitBasicBlock(iterator I, const llvm::Twine &amp; BBName = &quot;&quot;)'/>
+<use f='llvm/llvm/include/llvm/IR/BasicBlock.h' l='386' u='c' c='_ZN4llvm10BasicBlock15splitBasicBlockEPNS_11InstructionERKNS_5TwineE'/>
+<doc f='llvm/llvm/include/llvm/IR/BasicBlock.h' l='369'>/// Split the basic block into two basic blocks at the specified instruction.
+  ///
+  /// Note that all instructions BEFORE the specified iterator stay as part of
+  /// the original basic block, an unconditional branch is added to the original
+  /// BB, and the rest of the instructions in the BB are moved to the new BB,
+  /// including the old terminator.  The newly formed BasicBlock is returned.
+  /// This function invalidates the specified iterator.
+  ///
+  /// Note that this only works on well formed basic blocks (must have a
+  /// terminator), and &apos;I&apos; must not be the end of instruction list (which would
+  /// cause a degenerate basic block to be formed, having a terminator inside of
+  /// the basic block).
+  ///
+  /// Also note that this doesn&apos;t preserve any passes. To split blocks while
+  /// keeping loop information consistent, use the SplitBlock utility function.</doc>
+<use f='llvm/llvm/lib/CodeGen/AtomicExpandPass.cpp' l='857' u='c' c='_ZN12_GLOBAL__N_112AtomicExpand21expandPartwordCmpXchgEPN4llvm17AtomicCmpXchgInstE'/>
+<use f='llvm/llvm/lib/CodeGen/AtomicExpandPass.cpp' l='1023' u='c' c='_ZN12_GLOBAL__N_112AtomicExpand17insertRMWLLSCLoopERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_4TypeEPNS1_5ValueENS1_7857536'/>
+<use f='llvm/llvm/lib/CodeGen/AtomicExpandPass.cpp' l='1167' u='c' c='_ZN12_GLOBAL__N_112AtomicExpand19expandAtomicCmpXchgEPN4llvm17AtomicCmpXchgInstE'/>
+<use f='llvm/llvm/lib/CodeGen/AtomicExpandPass.cpp' l='1369' u='c' c='_ZN12_GLOBAL__N_112AtomicExpand20insertRMWCmpXchgLoopERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_4TypeEPNS1_5ValueEN6117739'/>
+<use f='llvm/llvm/lib/CodeGen/CodeGenPrepare.cpp' l='1740' u='c' c='_ZL21despeculateCountZerosPN4llvm13IntrinsicInstEPKNS_14TargetLoweringEPKNS_10DataLayoutERb'/>
+<use f='llvm/llvm/lib/CodeGen/CodeGenPrepare.cpp' l='5996' u='c' c='_ZN12_GLOBAL__N_114CodeGenPrepare18optimizeSelectInstEPN4llvm10SelectInstE'/>
+<use f='llvm/llvm/lib/CodeGen/ScalarizeMaskedMemIntrin.cpp' l='192' u='c' c='_ZL19scalarizeMaskedLoadPN4llvm8CallInstERb'/>
+<use f='llvm/llvm/lib/CodeGen/ScalarizeMaskedMemIntrin.cpp' l='202' u='c' c='_ZL19scalarizeMaskedLoadPN4llvm8CallInstERb'/>
+<use f='llvm/llvm/lib/CodeGen/ScalarizeMaskedMemIntrin.cpp' l='308' u='c' c='_ZL20scalarizeMaskedStorePN4llvm8CallInstERb'/>
+<use f='llvm/llvm/lib/CodeGen/ScalarizeMaskedMemIntrin.cpp' l='317' u='c' c='_ZL20scalarizeMaskedStorePN4llvm8CallInstERb'/>
+<use f='llvm/llvm/lib/CodeGen/ScalarizeMaskedMemIntrin.cpp' l='575' u='c' c='_ZL25scalarizeMaskedExpandLoadPN4llvm8CallInstERb'/>
+<use f='llvm/llvm/lib/CodeGen/ScalarizeMaskedMemIntrin.cpp' l='589' u='c' c='_ZL25scalarizeMaskedExpandLoadPN4llvm8CallInstERb'/>
+<use f='llvm/llvm/lib/CodeGen/ScalarizeMaskedMemIntrin.cpp' l='651' u='c' c='_ZL28scalarizeMaskedCompressStorePN4llvm8CallInstERb'/>
+<use f='llvm/llvm/lib/CodeGen/ScalarizeMaskedMemIntrin.cpp' l='664' u='c' c='_ZL28scalarizeMaskedCompressStorePN4llvm8CallInstERb'/>
+<use f='llvm/llvm/lib/CodeGen/StackProtector.cpp' l='426' u='c' c='_ZN4llvm14StackProtector21InsertStackProtectorsEv'/>
+<def f='llvm/llvm/lib/IR/BasicBlock.cpp' l='407' ll='432' type='llvm::BasicBlock * llvm::BasicBlock::splitBasicBlock(iterator I, const llvm::Twine &amp; BBName = &quot;&quot;)'/>
+<doc f='llvm/llvm/lib/IR/BasicBlock.cpp' l='396'>/// This splits a basic block into two at the specified
+/// instruction.  Note that all instructions BEFORE the specified iterator stay
+/// as part of the original basic block, an unconditional branch is added to
+/// the new BB, and the rest of the instructions in the BB are moved to the new
+/// BB, including the old terminator.  This invalidates the iterator.
+///
+/// Note that this only works on well formed basic blocks (must have a
+/// terminator), and &apos;I&apos; must not be the end of instruction list (which would
+/// cause a degenerate basic block to be formed, having a terminator inside of
+/// the basic block).
+///</doc>
+<use f='llvm/llvm/lib/Transforms/IPO/GlobalOpt.cpp' l='1347' u='c' c='_ZL20PerformHeapAllocSRoAPN4llvm14GlobalVariableEPNS_8CallInstEPNS_5ValueERKNS_10DataLayoutEPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/LowerTypeTests.cpp' l='724' u='c' c='_ZN12_GLOBAL__N_120LowerTypeTestsModule17lowerTypeTestCallEPN4llvm8MetadataEPNS1_8CallInstERKNS0_14TypeIdLoweringE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='1063' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20NormalizeReturnBlockEv'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PruneEH.cpp' l='212' u='c' c='_ZL16SimplifyFunctionPN4llvm8FunctionERNS_9CallGraphE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/BoundsChecking.cpp' l='127' u='c' c='_ZL17insertBoundsCheckPN4llvm5ValueENS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEET_'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/DataFlowSanitizer.cpp' l='1251' u='c' c='_ZN12_GLOBAL__N_113DFSanFunction10loadShadowEPN4llvm5ValueEmmPNS1_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/GCOVProfiling.cpp' l='696' u='c' c='_ZN12_GLOBAL__N_112GCOVProfiler16emitProfileNotesEv'/>
+<use f='llvm/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp' l='372' u='c' c='_ZN4llvm10SplitBlockEPNS_10BasicBlockEPNS_11InstructionEPNS_13DominatorTreeEPNS_8LoopInfoEPNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp' l='773' u='c' c='_ZN4llvm25SplitBlockAndInsertIfThenEPNS_5ValueEPNS_11InstructionEbPNS_6MDNodeEPNS_13DominatorTreeEPNS_8LoopInfoEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp' l='823' u='c' c='_ZN4llvm29SplitBlockAndInsertIfThenElseEPNS_5ValueEPNS_11InstructionEPS3_S4_PNS_6MDNodeE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CodeExtractor.cpp' l='398' u='c' c='_ZN4llvm13CodeExtractor28findOrCreateBlockForHoistingEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CodeExtractor.cpp' l='671' u='c' c='_ZN4llvm13CodeExtractor17splitReturnBlocksEv'/>
+<use f='llvm/llvm/lib/Transforms/Utils/InlineFunction.cpp' l='170' u='c' c='_ZN12_GLOBAL__N_122LandingPadInliningInfo18getInnerResumeDestEv'/>
+<use f='llvm/llvm/lib/Transforms/Utils/InlineFunction.cpp' l='2277' u='c' c='_ZN4llvm14InlineFunctionENS_8CallSiteERNS_18InlineFunctionInfoEPNS_9AAResultsEbPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/InlineFunction.cpp' l='2284' u='c' c='_ZN4llvm14InlineFunctionENS_8CallSiteERNS_18InlineFunctionInfoEPNS_9AAResultsEbPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/IntegerDivision.cpp' l='219' u='c' c='_ZL28generateUnsignedDivisionCodePN4llvm5ValueES1_RNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1996' u='c' c='_ZN4llvm32changeToInvokeAndSplitBasicBlockEPNS_8CallInstEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='3738' u='c' c='_ZL25SimplifyBranchOnICmpChainPN4llvm10BranchInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/VPlan.cpp' l='378' u='c' c='_ZN4llvm5VPlan7executeEPNS_16VPTransformStateE'/>
+<use f='llvm/llvm/tools/llvm-stress/llvm-stress.cpp' l='719' u='c' c='_ZN4llvmL20IntroduceControlFlowEPNS_8FunctionERNS_12_GLOBAL__N_16RandomE'/>

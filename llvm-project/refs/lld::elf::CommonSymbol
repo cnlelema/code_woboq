@@ -1,0 +1,28 @@
+<inh f='llvm/lld/ELF/Symbols.h' l='56' c='lld::elf::Symbol'/>
+<def f='llvm/lld/ELF/Symbols.h' l='316' ll='327'/>
+<size>64</size>
+<doc f='llvm/lld/ELF/Symbols.h' l='295'>// Represents a common symbol.
+//
+// On Unix, it is traditionally allowed to write variable definitions
+// without initialization expressions (such as &quot;int foo;&quot;) to header
+// files. Such definition is called &quot;tentative definition&quot;.
+//
+// Using tentative definition is usually considered a bad practice
+// because you should write only declarations (such as &quot;extern int
+// foo;&quot;) to header files. Nevertheless, the linker and the compiler
+// have to do something to support bad code by allowing duplicate
+// definitions for this particular case.
+//
+// Common symbols represent variable definitions without initializations.
+// The compiler creates common symbols when it sees varaible definitions
+// without initialization (you can suppress this behavior and let the
+// compiler create a regular defined symbol by -fno-common).
+//
+// The linker allows common symbols to be replaced by regular defined
+// symbols. If there are remaining common symbols after name resolution is
+// complete, they are converted to regular defined symbols in a .bss
+// section. (Therefore, the later passes don&apos;t see any CommonSymbols.)</doc>
+<fun r='_ZN3lld3elf12CommonSymbolC1EPNS0_9InputFileENS0_10StringRefZEhhhmm'/>
+<fun r='_ZN3lld3elf12CommonSymbol7classofEPKNS0_6SymbolE'/>
+<mbr r='lld::elf::CommonSymbol::Alignment' o='416' t='uint32_t'/>
+<mbr r='lld::elf::CommonSymbol::Size' o='448' t='uint64_t'/>

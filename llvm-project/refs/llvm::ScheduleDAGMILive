@@ -1,0 +1,64 @@
+<inh f='llvm/llvm/include/llvm/CodeGen/MachineScheduler.h' l='261' c='llvm::ScheduleDAGMI'/>
+<def f='llvm/llvm/include/llvm/CodeGen/MachineScheduler.h' l='380' ll='511'/>
+<size>4352</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineScheduler.h' l='378'>/// ScheduleDAGMILive is an implementation of ScheduleDAGInstrs that schedules
+/// machine instructions while updating LiveIntervals and tracking regpressure.</doc>
+<mbr r='llvm::ScheduleDAGMILive::RegClassInfo' o='20416' t='llvm::RegisterClassInfo *'/>
+<mbr r='llvm::ScheduleDAGMILive::DFSResult' o='20480' t='llvm::SchedDFSResult *'/>
+<mbr r='llvm::ScheduleDAGMILive::ScheduledTrees' o='20544' t='llvm::BitVector'/>
+<mbr r='llvm::ScheduleDAGMILive::LiveRegionEnd' o='20736' t='MachineBasicBlock::iterator'/>
+<mbr r='llvm::ScheduleDAGMILive::VRegUses' o='20800' t='VReg2SUnitMultiMap'/>
+<mbr r='llvm::ScheduleDAGMILive::SUPressureDiffs' o='22656' t='llvm::PressureDiffs'/>
+<mbr r='llvm::ScheduleDAGMILive::ShouldTrackPressure' o='22784' t='bool'/>
+<mbr r='llvm::ScheduleDAGMILive::ShouldTrackLaneMasks' o='22792' t='bool'/>
+<mbr r='llvm::ScheduleDAGMILive::RegPressure' o='22848' t='llvm::IntervalPressure'/>
+<mbr r='llvm::ScheduleDAGMILive::RPTracker' o='24448' t='llvm::RegPressureTracker'/>
+<mbr r='llvm::ScheduleDAGMILive::RegionCriticalPSets' o='26752' t='std::vector&lt;PressureChange&gt;'/>
+<mbr r='llvm::ScheduleDAGMILive::TopPressure' o='26944' t='llvm::IntervalPressure'/>
+<mbr r='llvm::ScheduleDAGMILive::TopRPTracker' o='28544' t='llvm::RegPressureTracker'/>
+<mbr r='llvm::ScheduleDAGMILive::BotPressure' o='30848' t='llvm::IntervalPressure'/>
+<mbr r='llvm::ScheduleDAGMILive::BotRPTracker' o='32448' t='llvm::RegPressureTracker'/>
+<mbr r='llvm::ScheduleDAGMILive::DisconnectedComponentsRenamed' o='34752' t='bool'/>
+<fun r='_ZN4llvm17ScheduleDAGMILiveC1EPNS_19MachineSchedContextESt10unique_ptrINS_20MachineSchedStrategyESt14default_deleteIS4_EE'/>
+<fun r='_ZN4llvm17ScheduleDAGMILiveD1Ev'/>
+<fun r='_ZNK4llvm17ScheduleDAGMILive15hasVRegLivenessEv'/>
+<fun r='_ZNK4llvm17ScheduleDAGMILive18isTrackingPressureEv'/>
+<fun r='_ZNK4llvm17ScheduleDAGMILive14getTopPressureEv'/>
+<fun r='_ZNK4llvm17ScheduleDAGMILive15getTopRPTrackerEv'/>
+<fun r='_ZNK4llvm17ScheduleDAGMILive14getBotPressureEv'/>
+<fun r='_ZNK4llvm17ScheduleDAGMILive15getBotRPTrackerEv'/>
+<fun r='_ZNK4llvm17ScheduleDAGMILive14getRegPressureEv'/>
+<fun r='_ZNK4llvm17ScheduleDAGMILive22getRegionCriticalPSetsEv'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive15getPressureDiffEPKNS_5SUnitE'/>
+<fun r='_ZNK4llvm17ScheduleDAGMILive15getPressureDiffEPKNS_5SUnitE'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive16computeDFSResultEv'/>
+<fun r='_ZNK4llvm17ScheduleDAGMILive12getDFSResultEv'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive17getScheduledTreesEv'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive11enterRegionEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES5_j'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive8scheduleEv'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive25computeCyclicCriticalPathEv'/>
+<fun r='_ZNK4llvm17ScheduleDAGMILive4dumpEv'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive23buildDAGWithRegPressureEv'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive10scheduleMIEPNS_5SUnitEb'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive15initRegPressureEv'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive19updatePressureDiffsENS_8ArrayRefINS_16RegisterMaskPairEEE'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive23updateScheduledPressureEPKNS_5SUnitERKSt6vectorIjSaIjEE'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive15collectVRegUsesERNS_5SUnitE'/>
+<fun r='_ZN4llvm17ScheduleDAGMILiveD1Ev'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive15collectVRegUsesERNS_5SUnitE'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive11enterRegionEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES5_j'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive15initRegPressureEv'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive23updateScheduledPressureEPKNS_5SUnitERKSt6vectorIjSaIjEE'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive19updatePressureDiffsENS_8ArrayRefINS_16RegisterMaskPairEEE'/>
+<fun r='_ZNK4llvm17ScheduleDAGMILive4dumpEv'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive8scheduleEv'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive23buildDAGWithRegPressureEv'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive16computeDFSResultEv'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive25computeCyclicCriticalPathEv'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_'/>
+<fun r='_ZN4llvm17ScheduleDAGMILive10scheduleMIEPNS_5SUnitEb'/>
+<ovr f='llvm/llvm/lib/Target/AMDGPU/GCNIterativeScheduler.h' l='27' c='llvm::GCNIterativeScheduler'/>
+<ovr f='llvm/llvm/lib/Target/AMDGPU/GCNSchedStrategy.h' l='62' c='llvm::GCNScheduleDAGMILive'/>
+<ovr f='llvm/llvm/lib/Target/AMDGPU/SIMachineScheduler.h' l='429' c='llvm::SIScheduleDAGMI'/>
+<ovr f='llvm/llvm/lib/Target/Hexagon/HexagonMachineScheduler.h' l='89' c='llvm::VLIWMachineScheduler'/>

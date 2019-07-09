@@ -1,0 +1,7 @@
+<dec f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.h' l='243' type='bool llvm::PPCInstrInfo::isAssociativeAndCommutative(const llvm::MachineInstr &amp; Inst) const'/>
+<def f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp' l='234' ll='266' type='bool llvm::PPCInstrInfo::isAssociativeAndCommutative(const llvm::MachineInstr &amp; Inst) const'/>
+<doc f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp' l='229'>// This function does not list all associative and commutative operations, but
+// only those worth feeding through the machine combiner in an attempt to
+// reduce the critical path. Mostly, this means floating-point operations,
+// because they have high latencies (compared to other operations, such and
+// and/or, which are also associative and commutative, but have low latencies).</doc>

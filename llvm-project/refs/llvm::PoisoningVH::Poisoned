@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='458' type='bool'/>
+<use f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='465' u='r' c='_ZN4llvm11PoisoningVH7deletedEv'/>
+<use f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='466' u='w' c='_ZN4llvm11PoisoningVH7deletedEv'/>
+<use f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='472' u='r' c='_ZN4llvm11PoisoningVH19allUsesReplacedWithEPNS_5ValueE'/>
+<use f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='473' u='w' c='_ZN4llvm11PoisoningVH19allUsesReplacedWithEPNS_5ValueE'/>
+<use f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='484' u='r' c='_ZNK4llvm11PoisoningVH9getValPtrEv'/>
+<use f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='494' u='w' c='_ZN4llvm11PoisoningVHC1ERKNS_11PoisoningVHIT_EE'/>
+<use f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='497' u='r' c='_ZN4llvm11PoisoningVHD1Ev'/>
+<use f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='502' u='r' c='_ZN4llvm11PoisoningVHaSERKNS_11PoisoningVHIT_EE'/>
+<use f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='505' u='w' c='_ZN4llvm11PoisoningVHaSERKNS_11PoisoningVHIT_EE'/>
+<doc f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='452'>/// A flag tracking whether this value has been poisoned.
+  ///
+  /// On delete and RAUW, we leave the value pointer alone so that as a raw
+  /// pointer it produces the same value (and we fit into the same key of
+  /// a hash table, etc), but we poison the handle so that any top-level usage
+  /// will fail.</doc>

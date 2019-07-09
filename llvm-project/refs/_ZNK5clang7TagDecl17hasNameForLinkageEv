@@ -1,0 +1,23 @@
+<def f='llvm/clang/include/clang/AST/Decl.h' l='3300' ll='3302' type='bool clang::TagDecl::hasNameForLinkage() const'/>
+<doc f='llvm/clang/include/clang/AST/Decl.h' l='3285'>/// Is this tag type named, either directly or via being defined in
+  /// a typedef of this type?
+  ///
+  /// C++11 [basic.link]p8:
+  ///   A type is said to have linkage if and only if:
+  ///     - it is a class or enumeration type that is named (or has a
+  ///       name for linkage purposes) and the name has linkage; ...
+  /// C++11 [dcl.typedef]p9:
+  ///   If the typedef declaration defines an unnamed class (or enum),
+  ///   the first typedef-name declared by the declaration to be that
+  ///   class type (or enum type) is used to denote the class type (or
+  ///   enum type) for linkage purposes only.
+  ///
+  /// C does not have an analogous rule, but the same concept is
+  /// nonetheless useful in some places.</doc>
+<use f='llvm/clang/lib/AST/Decl.cpp' l='849' u='c' c='_ZN5clang15LinkageComputer26getLVForNamespaceScopeDeclEPKNS_9NamedDeclENS_17LVComputationKindEb'/>
+<use f='llvm/clang/lib/AST/MicrosoftMangle.cpp' l='219' u='c' c='_ZN12_GLOBAL__N_126MicrosoftMangleContextImpl20getNextDiscriminatorEPKN5clang9NamedDeclERj'/>
+<use f='llvm/clang/lib/Sema/SemaCodeComplete.cpp' l='1880' u='c' c='_ZL23GetCompletionTypeStringN5clang8QualTypeERNS_10ASTContextERKNS_14PrintingPolicyERNS_23CodeCompletionAllocatorE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='4194' u='c' c='_ZN5clang4Sema28setTagNameForLinkagePurposesEPNS_7TagDeclEPNS_15TypedefNameDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='12454' u='c' c='_ZN5clang4Sema23FinalizeDeclaratorGroupEPNS_5ScopeERKNS_8DeclSpecEN4llvm8ArrayRefIPNS_4DeclEEE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='5636' u='c' c='_ZN12_GLOBAL__N_127UnnamedLocalNoLinkageFinder12VisitTagDeclEPKN5clang7TagDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateInstantiateDecl.cpp' l='693' u='c' c='_ZN5clang24TemplateDeclInstantiator26InstantiateTypedefNameDeclEPNS_15TypedefNameDeclEb'/>

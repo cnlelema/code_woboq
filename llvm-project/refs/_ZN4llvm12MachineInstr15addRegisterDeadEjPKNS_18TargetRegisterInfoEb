@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1361' type='bool llvm::MachineInstr::addRegisterDead(unsigned int Reg, const llvm::TargetRegisterInfo * RegInfo, bool AddIfNotFound = false)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1357'>/// We have determined MI defined a register without a use.
+  /// Look for the operand that defines it and mark it as IsDead. If
+  /// AddIfNotFound is true, add a implicit operand if it&apos;s not found. Returns
+  /// true if the operand exists / is added.</doc>
+<use f='llvm/llvm/lib/CodeGen/InlineSpiller.cpp' l='685' u='c' c='_ZN12_GLOBAL__N_113InlineSpiller16reMaterializeAllEv'/>
+<use f='llvm/llvm/include/llvm/CodeGen/LiveVariables.h' l='238' u='c' c='_ZN4llvm13LiveVariables22addVirtualRegisterDeadEjRNS_12MachineInstrEb'/>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='532' u='c' c='_ZN4llvm13LiveIntervals17computeDeadValuesERNS_12LiveIntervalEPNS_15SmallVectorImplIPNS_12MachineInstrEEE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeEdit.cpp' l='235' u='c' c='_ZN4llvm13LiveRangeEdit10foldAsLoadEPNS_12LiveIntervalERNS_15SmallVectorImplIPNS_12MachineInstrEEE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveVariables.cpp' l='368' u='c' c='_ZN4llvm13LiveVariables17HandlePhysRegKillEjPNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveVariables.cpp' l='407' u='c' c='_ZN4llvm13LiveVariables17HandlePhysRegKillEjPNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveVariables.cpp' l='660' u='c' c='_ZN4llvm13LiveVariables20runOnMachineFunctionERNS_15MachineFunctionE'/>
+<def f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='1863' ll='1914' type='bool llvm::MachineInstr::addRegisterDead(unsigned int Reg, const llvm::TargetRegisterInfo * RegInfo, bool AddIfNotFound = false)'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterScavenging.cpp' l='734' u='c' c='_ZL31scavengeFrameVirtualRegsInBlockRN4llvm19MachineRegisterInfoERNS_12RegScavengerERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/SplitKit.cpp' l='1419' u='c' c='_ZN4llvm11SplitEditor18deleteRematVictimsEv'/>
+<use f='llvm/llvm/lib/CodeGen/VirtRegMap.cpp' l='580' u='c' c='_ZN12_GLOBAL__N_115VirtRegRewriter7rewriteEv'/>

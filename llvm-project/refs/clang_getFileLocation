@@ -1,0 +1,31 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='685' type='void clang_getFileLocation(CXSourceLocation location, CXFile * file, unsigned int * line, unsigned int * column, unsigned int * offset)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='662'>/**
+ * Retrieve the file, line, column, and offset represented by
+ * the given source location.
+ *
+ * If the location refers into a macro expansion, return where the macro was
+ * expanded or where the macro argument was written, if the location points at
+ * a macro argument.
+ *
+ * \param location the location within a source file that will be decomposed
+ * into its parts.
+ *
+ * \param file [out] if non-NULL, will be set to the file to which the given
+ * source location points.
+ *
+ * \param line [out] if non-NULL, will be set to the line to which the given
+ * source location points.
+ *
+ * \param column [out] if non-NULL, will be set to the column to which the given
+ * source location points.
+ *
+ * \param offset [out] if non-NULL, will be set to the offset into the
+ * buffer to which the given source location points.
+ */</doc>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='5649' u='c' c='clang_getCursor'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='5651' u='c' c='clang_getCursor'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='5675' u='c' c='clang_getCursor'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='8893' u='c' c='_ZN5clang7cxindex6LoggerlsE16CXSourceLocation'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='8906' u='c' c='_ZN5clang7cxindex6LoggerlsE13CXSourceRange'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='8910' u='c' c='_ZN5clang7cxindex6LoggerlsE13CXSourceRange'/>
+<def f='llvm/clang/tools/libclang/CXSourceLocation.cpp' l='339' ll='373' type='void clang_getFileLocation(CXSourceLocation location, CXFile * file, unsigned int * line, unsigned int * column, unsigned int * offset)'/>

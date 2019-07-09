@@ -1,0 +1,21 @@
+<inh f='llvm/lld/ELF/Symbols.h' l='56' c='lld::elf::Symbol'/>
+<def f='llvm/lld/ELF/Symbols.h' l='394' ll='406'/>
+<size>72</size>
+<doc f='llvm/lld/ELF/Symbols.h' l='380'>// LazyArchive and LazyObject represent a symbols that is not yet in the link,
+// but we know where to find it if needed. If the resolver finds both Undefined
+// and Lazy for the same name, it will ask the Lazy to load a file.
+//
+// A special complication is the handling of weak undefined symbols. They should
+// not load a file, but we have to remember we have seen both the weak undefined
+// and the lazy. We represent that with a lazy symbol with a weak binding. This
+// means that code looking for undefined symbols normally also has to take lazy
+// symbols into consideration.
+
+// This class represents a symbol defined in an archive file. It is
+// created from an archive file header, and it knows how to load an
+// object file from an archive to replace itself with a defined
+// symbol.</doc>
+<fun r='_ZN3lld3elf11LazyArchiveC1ERNS0_9InputFileEN4llvm6object7Archive6SymbolE'/>
+<fun r='_ZN3lld3elf11LazyArchive7classofEPKNS0_6SymbolE'/>
+<fun r='_ZN3lld3elf11LazyArchive15getMemberBufferEv'/>
+<mbr r='lld::elf::LazyArchive::Sym' o='448' t='const llvm::object::Archive::Symbol'/>

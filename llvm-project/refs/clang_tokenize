@@ -1,0 +1,21 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='4981' type='void clang_tokenize(CXTranslationUnit TU, CXSourceRange Range, CXToken ** Tokens, unsigned int * NumTokens)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='4964'>/**
+ * Tokenize the source code described by the given range into raw
+ * lexical tokens.
+ *
+ * \param TU the translation unit whose text is being tokenized.
+ *
+ * \param Range the source range in which text should be tokenized. All of the
+ * tokens produced by tokenization will fall within this source range,
+ *
+ * \param Tokens this pointer will be set to point to the array of tokens
+ * that occur within the given source range. The returned pointer must be
+ * freed with clang_disposeTokens() before the translation unit is destroyed.
+ *
+ * \param NumTokens will be set to the number of tokens in the \c *Tokens
+ * array.
+ *
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='4170' u='c' c='perform_token_annotation'/>
+<def f='llvm/clang/tools/libclang/CIndex.cpp' l='6775' ll='6811' type='void clang_tokenize(CXTranslationUnit TU, CXSourceRange Range, CXToken ** Tokens, unsigned int * NumTokens)'/>
+<use f='llvm/clang/unittests/libclang/LibclangTest.cpp' l='787' u='c' c='_ZN63LibclangSerializationTest_TokenKindsAreCorrectAfterLoading_Test8TestBodyEv'/>

@@ -1,0 +1,12 @@
+<def f='llvm/clang/lib/CodeGen/EHScopeStack.h' l='36' ll='53'/>
+<size>32</size>
+<doc f='llvm/clang/lib/CodeGen/EHScopeStack.h' l='30'>/// A branch fixup.  These are required when emitting a goto to a
+/// label which hasn&apos;t been emitted yet.  The goto is optimistically
+/// emitted as a branch to the basic block for the label, and (if it
+/// occurs in a scope with non-trivial cleanups) a fixup is added to
+/// the innermost cleanup.  When a (normal) cleanup is popped, any
+/// unresolved fixups in that scope are threaded through the cleanup.</doc>
+<mbr r='clang::CodeGen::BranchFixup::OptimisticBranchBlock' o='0' t='llvm::BasicBlock *'/>
+<mbr r='clang::CodeGen::BranchFixup::Destination' o='64' t='llvm::BasicBlock *'/>
+<mbr r='clang::CodeGen::BranchFixup::DestinationIndex' o='128' t='unsigned int'/>
+<mbr r='clang::CodeGen::BranchFixup::InitialBranch' o='192' t='llvm::BranchInst *'/>

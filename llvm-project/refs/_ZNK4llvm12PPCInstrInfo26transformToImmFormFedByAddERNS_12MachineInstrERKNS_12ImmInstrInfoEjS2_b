@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.h' l='131' type='bool llvm::PPCInstrInfo::transformToImmFormFedByAdd(llvm::MachineInstr &amp; MI, const llvm::ImmInstrInfo &amp; III, unsigned int ConstantOpNo, llvm::MachineInstr &amp; DefMI, bool KillDefMI) const'/>
+<doc f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.h' l='129'>// If the inst has imm-form and one of its operand is produced by an
+  // add-immediate, try to transform it when possible.</doc>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp' l='2551' u='c' c='_ZNK4llvm12PPCInstrInfo22convertToImmediateFormERNS_12MachineInstrEPPS1_'/>
+<def f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp' l='3376' ll='3486' type='bool llvm::PPCInstrInfo::transformToImmFormFedByAdd(llvm::MachineInstr &amp; MI, const llvm::ImmInstrInfo &amp; III, unsigned int OpNoForForwarding, llvm::MachineInstr &amp; DefMI, bool KillDefMI) const'/>
+<doc f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp' l='3372'>// If an X-Form instruction is fed by an add-immediate and one of its operands
+// is the literal zero, attempt to forward the source of the add-immediate to
+// the corresponding D-Form instruction with the displacement coming from
+// the immediate being added.</doc>

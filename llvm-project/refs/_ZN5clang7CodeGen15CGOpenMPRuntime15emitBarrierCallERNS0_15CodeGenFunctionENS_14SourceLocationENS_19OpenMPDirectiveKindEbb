@@ -1,0 +1,24 @@
+<dec f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.h' l='918' type='void clang::CodeGen::CGOpenMPRuntime::emitBarrierCall(clang::CodeGen::CodeGenFunction &amp; CGF, clang::SourceLocation Loc, clang::OpenMPDirectiveKind Kind, bool EmitChecks = true, bool ForceSimpleCall = false)'/>
+<doc f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.h' l='910'>/// Emit an implicit/explicit barrier for OpenMP threads.
+  /// \param Kind Directive for which this implicit barrier call must be
+  /// generated. Must be OMPD_barrier for explicit barrier generation.
+  /// \param EmitChecks true if need to emit checks for cancellation barriers.
+  /// \param ForceSimpleCall true simple barrier call must be emitted, false if
+  /// runtime class decides which one to emit (simple or with cancellation
+  /// checks).
+  ///</doc>
+<def f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='3350' ll='3386' type='void clang::CodeGen::CGOpenMPRuntime::emitBarrierCall(clang::CodeGen::CodeGenFunction &amp; CGF, clang::SourceLocation Loc, clang::OpenMPDirectiveKind Kind, bool EmitChecks = true, bool ForceSimpleCall = false)'/>
+<ovr f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='10537' c='_ZN5clang7CodeGen19CGOpenMPSIMDRuntime15emitBarrierCallERNS0_15CodeGenFunctionENS_14SourceLocationENS_19OpenMPDirectiveKindEbb'/>
+<ovr f='llvm/clang/lib/CodeGen/CGOpenMPRuntimeNVPTX.cpp' l='2677' c='_ZN5clang7CodeGen20CGOpenMPRuntimeNVPTX15emitBarrierCallERNS0_15CodeGenFunctionENS_14SourceLocationENS_19OpenMPDirectiveKindEbb'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntimeNVPTX.cpp' l='3221' u='c' c='_ZL25emitInterWarpCopyFunctionRN5clang7CodeGen13CodeGenModuleEN4llvm8ArrayRefIPKNS_4ExprEEENS_8QualTypeENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntimeNVPTX.cpp' l='3269' u='c' c='_ZL25emitInterWarpCopyFunctionRN5clang7CodeGen13CodeGenModuleEN4llvm8ArrayRefIPKNS_4ExprEEENS_8QualTypeENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='1292' u='c' c='_ZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS_20OMPParallelDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='2302' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_2192858'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='2497' u='c' c='_ZN5clang7CodeGen15CodeGenFunction19EmitOMPForDirectiveERKNS_15OMPForDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='2515' u='c' c='_ZN5clang7CodeGen15CodeGenFunction23EmitOMPForSimdDirectiveERKNS_19OMPForSimdDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='2601' u='c' c='_ZN5clang7CodeGen15CodeGenFunction12EmitSectionsERKNS_22OMPExecutableDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='2665' u='c' c='_ZN5clang7CodeGen15CodeGenFunction12EmitSectionsERKNS_22OMPExecutableDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='2677' u='c' c='_ZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNS_20OMPSectionsDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='2726' u='c' c='_ZN5clang7CodeGen15CodeGenFunction22EmitOMPSingleDirectiveERKNS_18OMPSingleDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='3235' u='c' c='_ZN5clang7CodeGen15CodeGenFunction23EmitOMPBarrierDirectiveERKNS_19OMPBarrierDirectiveE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmtOpenMP.cpp' l='3358' u='c' c='_ZN5clang7CodeGen15CodeGenFunction21EmitOMPDistributeLoopERKNS_16OMPLoopDirectiveERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEEPNS_4ExprE'/>

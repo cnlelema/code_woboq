@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Scalar/LICM.h' l='41' type='cl::opt&lt;unsigned int&gt;'/>
+<use f='llvm/llvm/include/llvm/Transforms/Scalar/LICM.h' l='51' u='m' c='_ZN4llvm8LICMPassC1Ev'/>
+<use f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='223' u='m' c='_ZN4llvm21PipelineTuningOptionsC1Ev'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PassManagerBuilder.cpp' l='161' u='m' c='_ZN4llvm18PassManagerBuilderC1Ev'/>
+<def f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='119' ll='122' type='cl::opt&lt;unsigned int&gt;'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='196' u='m' c='_ZN12_GLOBAL__N_114LegacyLICMPassC1Ejj'/>
+<doc f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='110'>// Experimental option to allow imprecision in LICM in pathological cases, in
+// exchange for faster compile. This is to be removed if MemorySSA starts to
+// address the same issue. This flag applies only when LICM uses MemorySSA
+// instead on AliasSetTracker. LICM calls MemorySSAWalker&apos;s
+// getClobberingMemoryAccess, up to the value of the Cap, getting perfect
+// accuracy. Afterwards, LICM will call into MemorySSA&apos;s getDefiningAccess,
+// which may not be precise, since optimizeUses is capped. The result is
+// correct, but we may not get as &quot;far up&quot; as possible to get which access is
+// clobbering the one queried.</doc>

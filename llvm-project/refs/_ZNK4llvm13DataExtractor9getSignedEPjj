@@ -1,0 +1,45 @@
+<dec f='llvm/llvm/include/llvm/Support/DataExtractor.h' l='155' type='int64_t llvm::DataExtractor::getSigned(uint32_t * offset_ptr, uint32_t size) const'/>
+<doc f='llvm/llvm/include/llvm/Support/DataExtractor.h' l='132'>/// Extract an signed integer of size \a byte_size from \a *offset_ptr.
+  ///
+  /// Extract a single signed integer value (sign extending if required)
+  /// and update the offset pointed to by \a offset_ptr. The size of
+  /// the extracted integer is specified by the \a byte_size argument.
+  /// \a byte_size should have a value greater than or equal to one
+  /// and less than or equal to eight since the return value is 64
+  /// bits wide. Any \a byte_size values less than 1 or greater than
+  /// 8 will result in nothing being extracted, and zero being returned.
+  ///
+  /// @param[in,out] offset_ptr
+  ///     A pointer to an offset within the data that will be advanced
+  ///     by the appropriate number of bytes if the value is extracted
+  ///     correctly. If the offset is out of bounds or there are not
+  ///     enough bytes to extract this value, the offset will be left
+  ///     unmodified.
+  ///
+  /// @param[in] size
+  ///     The size in bytes of the integer to extract.
+  ///
+  /// @return
+  ///     The sign extended signed integer value that was extracted,
+  ///     or zero on failure.</doc>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDataExtractor.cpp' l='67' u='c' c='_ZNK4llvm18DWARFDataExtractor17getEncodedPointerEPjhm'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDataExtractor.cpp' l='70' u='c' c='_ZNK4llvm18DWARFDataExtractor17getEncodedPointerEPjhm'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDataExtractor.cpp' l='73' u='c' c='_ZNK4llvm18DWARFDataExtractor17getEncodedPointerEPjhm'/>
+<def f='llvm/llvm/lib/Support/DataExtractor.cpp' l='112' ll='125' type='int64_t llvm::DataExtractor::getSigned(uint32_t * offset_ptr, uint32_t byte_size) const'/>
+<use f='llvm/llvm/lib/XRay/Profile.cpp' l='85' u='c' c='_ZN4llvm4xray12_GLOBAL__N_1L8readPathERNS_13DataExtractorERj'/>
+<use f='llvm/llvm/lib/XRay/RecordInitializer.cpp' l='107' u='c' c='_ZN4llvm4xray17RecordInitializer5visitERNS0_17CustomEventRecordE'/>
+<use f='llvm/llvm/lib/XRay/RecordInitializer.cpp' l='179' u='c' c='_ZN4llvm4xray17RecordInitializer5visitERNS0_19CustomEventRecordV5E'/>
+<use f='llvm/llvm/lib/XRay/RecordInitializer.cpp' l='192' u='c' c='_ZN4llvm4xray17RecordInitializer5visitERNS0_19CustomEventRecordV5E'/>
+<use f='llvm/llvm/lib/XRay/RecordInitializer.cpp' l='241' u='c' c='_ZN4llvm4xray17RecordInitializer5visitERNS0_16TypedEventRecordE'/>
+<use f='llvm/llvm/lib/XRay/RecordInitializer.cpp' l='254' u='c' c='_ZN4llvm4xray17RecordInitializer5visitERNS0_16TypedEventRecordE'/>
+<use f='llvm/llvm/lib/XRay/RecordInitializer.cpp' l='326' u='c' c='_ZN4llvm4xray17RecordInitializer5visitERNS0_9PIDRecordE'/>
+<use f='llvm/llvm/lib/XRay/RecordInitializer.cpp' l='344' u='c' c='_ZN4llvm4xray17RecordInitializer5visitERNS0_15NewBufferRecordE'/>
+<use f='llvm/llvm/lib/XRay/Trace.cpp' l='118' u='c' c='_ZN12_GLOBAL__N_118loadNaiveFormatLogEN4llvm9StringRefEbRNS0_4xray14XRayFileHeaderERSt6vectorINS2_10XRayRecordESaIS6_EE'/>
+<use f='llvm/llvm/lib/XRay/Trace.cpp' l='154' u='c' c='_ZN12_GLOBAL__N_118loadNaiveFormatLogEN4llvm9StringRefEbRNS0_4xray14XRayFileHeaderERSt6vectorINS2_10XRayRecordESaIS6_EE'/>
+<use f='llvm/llvm/tools/llvm-readobj/DwarfCFIEHPrinter.h' l='144' u='c' c='_ZNK4llvm10DwarfCFIEH14PrinterContext15printEHFrameHdrEmmm'/>
+<use f='llvm/llvm/tools/llvm-readobj/DwarfCFIEHPrinter.h' l='155' u='c' c='_ZNK4llvm10DwarfCFIEH14PrinterContext15printEHFrameHdrEmmm'/>
+<use f='llvm/llvm/tools/llvm-readobj/DwarfCFIEHPrinter.h' l='157' u='c' c='_ZNK4llvm10DwarfCFIEH14PrinterContext15printEHFrameHdrEmmm'/>
+<use f='llvm/llvm/unittests/Support/DataExtractorTest.cpp' l='77' u='c' c='_ZN12_GLOBAL__N_136DataExtractorTest_SignedNumbers_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/DataExtractorTest.cpp' l='80' u='c' c='_ZN12_GLOBAL__N_136DataExtractorTest_SignedNumbers_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/DataExtractorTest.cpp' l='83' u='c' c='_ZN12_GLOBAL__N_136DataExtractorTest_SignedNumbers_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/DataExtractorTest.cpp' l='86' u='c' c='_ZN12_GLOBAL__N_136DataExtractorTest_SignedNumbers_Test8TestBodyEv'/>

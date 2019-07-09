@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/include/llvm/Analysis/IVDescriptors.h' l='157' type='static llvm::RecurrenceDescriptor::InstDesc llvm::RecurrenceDescriptor::isConditionalRdxPattern(llvm::RecurrenceDescriptor::RecurrenceKind Kind, llvm::Instruction * I)'/>
+<use f='llvm/llvm/lib/Analysis/IVDescriptors.cpp' l='378' u='c' c='_ZN4llvm20RecurrenceDescriptor15AddReductionVarEPNS_7PHINodeENS0_14RecurrenceKindEPNS_4LoopEbRS0_PNS_12DemandedBitsEPNS_15AssumptionCacheEPNS_13DominatorTreeE'/>
+<def f='llvm/llvm/lib/Analysis/IVDescriptors.cpp' l='517' ll='553' type='static RecurrenceDescriptor::InstDesc llvm::RecurrenceDescriptor::isConditionalRdxPattern(llvm::RecurrenceDescriptor::RecurrenceKind Kind, llvm::Instruction * I)'/>
+<use f='llvm/llvm/lib/Analysis/IVDescriptors.cpp' l='585' u='c' c='_ZN4llvm20RecurrenceDescriptor17isRecurrenceInstrEPNS_11InstructionENS0_14RecurrenceKindERNS0_8InstDescEb'/>
+<doc f='llvm/llvm/lib/Analysis/IVDescriptors.cpp' l='508'>/// Returns true if the select instruction has users in the compare-and-add
+/// reduction pattern below. The select instruction argument is the last one
+/// in the sequence.
+///
+/// %sum.1 = phi ...
+/// ...
+/// %cmp = fcmp pred %0, %CFP
+/// %add = fadd %0, %sum.1
+/// %sum.2 = select %cmp, %add, %sum.1</doc>
+<doc f='llvm/llvm/include/llvm/Analysis/IVDescriptors.h' l='155'>/// Returns a struct describing if the instruction is a
+  /// Select(FCmp(X, Y), (Z = X op PHINode), PHINode) instruction pattern.</doc>

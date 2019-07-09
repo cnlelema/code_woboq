@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/MachinePipeliner.h' l='319' type='void llvm::SwingSchedulerDAG::splitLifetimes(llvm::MachineBasicBlock * KernelBB, MBBVectorTy &amp; EpilogBBs, llvm::SMSchedule &amp; Schedule)'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='2086' u='c' c='_ZN4llvm17SwingSchedulerDAG21generatePipelinedLoopERNS_10SMScheduleE'/>
+<def f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='2713' ll='2758' type='void llvm::SwingSchedulerDAG::splitLifetimes(llvm::MachineBasicBlock * KernelBB, MBBVectorTy &amp; EpilogBBs, llvm::SMSchedule &amp; Schedule)'/>
+<doc f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='2703'>/// For loop carried definitions, we split the lifetime of a virtual register
+/// that has uses past the definition in the next iteration. A copy with a new
+/// virtual register is inserted before the definition, which helps with
+/// generating a better register assignment.
+///
+///   v1 = phi(a, v2)     v1 = phi(a, v2)
+///   v2 = phi(b, v3)     v2 = phi(b, v3)
+///   v3 = ..             v4 = copy v1
+///   .. = V1             v3 = ..
+///                       .. = v4</doc>

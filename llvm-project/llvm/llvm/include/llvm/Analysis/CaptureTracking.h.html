@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CaptureTracking.h source code [llvm/llvm/include/llvm/Analysis/CaptureTracking.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::CaptureTracker "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/Analysis/CaptureTracking.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>Analysis</a>/<a href='CaptureTracking.h.html'>CaptureTracking.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===----- llvm/Analysis/CaptureTracking.h - Pointer capture ----*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file contains routines that help determine which pointers are captured.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#<span data-ppcond="13">ifndef</span> <span class="macro" data-ref="_M/LLVM_ANALYSIS_CAPTURETRACKING_H">LLVM_ANALYSIS_CAPTURETRACKING_H</span></u></td></tr>
+<tr><th id="14">14</th><td><u>#define <dfn class="macro" id="_M/LLVM_ANALYSIS_CAPTURETRACKING_H" data-ref="_M/LLVM_ANALYSIS_CAPTURETRACKING_H">LLVM_ANALYSIS_CAPTURETRACKING_H</dfn></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td>  <b>class</b> <a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value" id="llvm::Value">Value</a>;</td></tr>
+<tr><th id="19">19</th><td>  <b>class</b> <a class="type" href="../IR/Use.h.html#llvm::Use" title='llvm::Use' data-ref="llvm::Use" id="llvm::Use">Use</a>;</td></tr>
+<tr><th id="20">20</th><td>  <b>class</b> <a class="type" href="../IR/Instruction.h.html#llvm::Instruction" title='llvm::Instruction' data-ref="llvm::Instruction" id="llvm::Instruction">Instruction</a>;</td></tr>
+<tr><th id="21">21</th><td>  <b>class</b> <a class="type" href="AliasAnalysis.h.html#llvm::DominatorTree" title='llvm::DominatorTree' data-ref="llvm::DominatorTree" id="llvm::DominatorTree">DominatorTree</a>;</td></tr>
+<tr><th id="22">22</th><td>  <b>class</b> <a class="type" href="AliasAnalysis.h.html#llvm::OrderedBasicBlock" title='llvm::OrderedBasicBlock' data-ref="llvm::OrderedBasicBlock" id="llvm::OrderedBasicBlock">OrderedBasicBlock</a>;</td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td>  <i class="doc">/// The default value for MaxUsesToExplore argument. It's relatively small to</i></td></tr>
+<tr><th id="25">25</th><td><i class="doc">  /// keep the cost of analysis reasonable for clients like BasicAliasAnalysis,</i></td></tr>
+<tr><th id="26">26</th><td><i class="doc">  /// where the results can't be cached.</i></td></tr>
+<tr><th id="27">27</th><td><i class="doc">  /// TODO: we should probably introduce a caching CaptureTracking analysis and</i></td></tr>
+<tr><th id="28">28</th><td><i class="doc">  /// use it where possible. The caching version can use much higher limit or</i></td></tr>
+<tr><th id="29">29</th><td><i class="doc">  /// don't have this cap at all.</i></td></tr>
+<tr><th id="30">30</th><td>  <em>unsigned</em> <b>constexpr</b> <dfn class="decl def" id="llvm::DefaultMaxUsesToExplore" title='llvm::DefaultMaxUsesToExplore' data-ref="llvm::DefaultMaxUsesToExplore">DefaultMaxUsesToExplore</dfn> = <var>20</var>;</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td>  <i class="doc">/// PointerMayBeCaptured - Return true if this pointer value may be captured</i></td></tr>
+<tr><th id="33">33</th><td><i class="doc">  /// by the enclosing function (which is required to exist).  This routine can</i></td></tr>
+<tr><th id="34">34</th><td><i class="doc">  /// be expensive, so consider caching the results.  The boolean ReturnCaptures</i></td></tr>
+<tr><th id="35">35</th><td><i class="doc">  /// specifies whether returning the value (or part of it) from the function</i></td></tr>
+<tr><th id="36">36</th><td><i class="doc">  /// counts as capturing it or not.  The boolean StoreCaptures specified</i></td></tr>
+<tr><th id="37">37</th><td><i class="doc">  /// whether storing the value (or part of it) into memory anywhere</i></td></tr>
+<tr><th id="38">38</th><td><i class="doc">  /// automatically counts as capturing it or not.</i></td></tr>
+<tr><th id="39">39</th><td><i class="doc">  /// MaxUsesToExplore specifies how many uses should the analysis explore for</i></td></tr>
+<tr><th id="40">40</th><td><i class="doc">  /// one value before giving up due too "too many uses".</i></td></tr>
+<tr><th id="41">41</th><td>  <em>bool</em> <dfn class="decl" id="_ZN4llvm20PointerMayBeCapturedEPKNS_5ValueEbbj" title='llvm::PointerMayBeCaptured' data-ref="_ZN4llvm20PointerMayBeCapturedEPKNS_5ValueEbbj">PointerMayBeCaptured</dfn>(<em>const</em> <a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value">Value</a> *<dfn class="local col1 decl" id="1V" title='V' data-type='const llvm::Value *' data-ref="1V">V</dfn>,</td></tr>
+<tr><th id="42">42</th><td>                            <em>bool</em> <dfn class="local col2 decl" id="2ReturnCaptures" title='ReturnCaptures' data-type='bool' data-ref="2ReturnCaptures">ReturnCaptures</dfn>,</td></tr>
+<tr><th id="43">43</th><td>                            <em>bool</em> <dfn class="local col3 decl" id="3StoreCaptures" title='StoreCaptures' data-type='bool' data-ref="3StoreCaptures">StoreCaptures</dfn>,</td></tr>
+<tr><th id="44">44</th><td>                            <em>unsigned</em> <dfn class="local col4 decl" id="4MaxUsesToExplore" title='MaxUsesToExplore' data-type='unsigned int' data-ref="4MaxUsesToExplore">MaxUsesToExplore</dfn> = <a class="ref" href="#llvm::DefaultMaxUsesToExplore" title='llvm::DefaultMaxUsesToExplore' data-ref="llvm::DefaultMaxUsesToExplore">DefaultMaxUsesToExplore</a>);</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td>  <i class="doc">/// PointerMayBeCapturedBefore - Return true if this pointer value may be</i></td></tr>
+<tr><th id="47">47</th><td><i class="doc">  /// captured by the enclosing function (which is required to exist). If a</i></td></tr>
+<tr><th id="48">48</th><td><i class="doc">  /// DominatorTree is provided, only captures which happen before the given</i></td></tr>
+<tr><th id="49">49</th><td><i class="doc">  /// instruction are considered. This routine can be expensive, so consider</i></td></tr>
+<tr><th id="50">50</th><td><i class="doc">  /// caching the results.  The boolean ReturnCaptures specifies whether</i></td></tr>
+<tr><th id="51">51</th><td><i class="doc">  /// returning the value (or part of it) from the function counts as capturing</i></td></tr>
+<tr><th id="52">52</th><td><i class="doc">  /// it or not.  The boolean StoreCaptures specified whether storing the value</i></td></tr>
+<tr><th id="53">53</th><td><i class="doc">  /// (or part of it) into memory anywhere automatically counts as capturing it</i></td></tr>
+<tr><th id="54">54</th><td><i class="doc">  /// or not. Captures by the provided instruction are considered if the</i></td></tr>
+<tr><th id="55">55</th><td><i class="doc">  /// final parameter is true. An ordered basic block in<span class="command"> \p</span> <span class="arg">OBB</span> could be used</i></td></tr>
+<tr><th id="56">56</th><td><i class="doc">  /// to speed up capture-tracker queries.</i></td></tr>
+<tr><th id="57">57</th><td><i class="doc">  /// MaxUsesToExplore specifies how many uses should the analysis explore for</i></td></tr>
+<tr><th id="58">58</th><td><i class="doc">  /// one value before giving up due too "too many uses".</i></td></tr>
+<tr><th id="59">59</th><td>  <em>bool</em> <dfn class="decl" id="_ZN4llvm26PointerMayBeCapturedBeforeEPKNS_5ValueEbbPKNS_11InstructionEPKNS_13DominatorTreeEbPNS_17OrderedBasicBlockEj" title='llvm::PointerMayBeCapturedBefore' data-ref="_ZN4llvm26PointerMayBeCapturedBeforeEPKNS_5ValueEbbPKNS_11InstructionEPKNS_13DominatorTreeEbPNS_17OrderedBasicBlockEj">PointerMayBeCapturedBefore</dfn>(<em>const</em> <a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value">Value</a> *<dfn class="local col5 decl" id="5V" title='V' data-type='const llvm::Value *' data-ref="5V">V</dfn>, <em>bool</em> <dfn class="local col6 decl" id="6ReturnCaptures" title='ReturnCaptures' data-type='bool' data-ref="6ReturnCaptures">ReturnCaptures</dfn>,</td></tr>
+<tr><th id="60">60</th><td>                                  <em>bool</em> <dfn class="local col7 decl" id="7StoreCaptures" title='StoreCaptures' data-type='bool' data-ref="7StoreCaptures">StoreCaptures</dfn>, <em>const</em> <a class="type" href="../IR/Instruction.h.html#llvm::Instruction" title='llvm::Instruction' data-ref="llvm::Instruction">Instruction</a> *<dfn class="local col8 decl" id="8I" title='I' data-type='const llvm::Instruction *' data-ref="8I">I</dfn>,</td></tr>
+<tr><th id="61">61</th><td>                                  <em>const</em> <a class="type" href="AliasAnalysis.h.html#llvm::DominatorTree" title='llvm::DominatorTree' data-ref="llvm::DominatorTree">DominatorTree</a> *<dfn class="local col9 decl" id="9DT" title='DT' data-type='const llvm::DominatorTree *' data-ref="9DT">DT</dfn>, <em>bool</em> <dfn class="local col0 decl" id="10IncludeI" title='IncludeI' data-type='bool' data-ref="10IncludeI">IncludeI</dfn> = <b>false</b>,</td></tr>
+<tr><th id="62">62</th><td>                                  <a class="type" href="AliasAnalysis.h.html#llvm::OrderedBasicBlock" title='llvm::OrderedBasicBlock' data-ref="llvm::OrderedBasicBlock">OrderedBasicBlock</a> *<dfn class="local col1 decl" id="11OBB" title='OBB' data-type='llvm::OrderedBasicBlock *' data-ref="11OBB">OBB</dfn> = <b>nullptr</b>,</td></tr>
+<tr><th id="63">63</th><td>                                  <em>unsigned</em> <dfn class="local col2 decl" id="12MaxUsesToExplore" title='MaxUsesToExplore' data-type='unsigned int' data-ref="12MaxUsesToExplore">MaxUsesToExplore</dfn> = <a class="ref" href="#llvm::DefaultMaxUsesToExplore" title='llvm::DefaultMaxUsesToExplore' data-ref="llvm::DefaultMaxUsesToExplore">DefaultMaxUsesToExplore</a>);</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>  <i class="doc">/// This callback is used in conjunction with PointerMayBeCaptured. In</i></td></tr>
+<tr><th id="66">66</th><td><i class="doc">  /// addition to the interface here, you'll need to provide your own getters</i></td></tr>
+<tr><th id="67">67</th><td><i class="doc">  /// to see whether anything was captured.</i></td></tr>
+<tr><th id="68">68</th><td>  <b>struct</b> <dfn class="type def" id="llvm::CaptureTracker" title='llvm::CaptureTracker' data-ref="llvm::CaptureTracker">CaptureTracker</dfn> {</td></tr>
+<tr><th id="69">69</th><td>    <b>virtual</b> <dfn class="virtual decl" id="_ZN4llvm14CaptureTrackerD1Ev" title='llvm::CaptureTracker::~CaptureTracker' data-ref="_ZN4llvm14CaptureTrackerD1Ev">~CaptureTracker</dfn>();</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>    <i class="doc">/// tooManyUses - The depth of traversal has breached a limit. There may be</i></td></tr>
+<tr><th id="72">72</th><td><i class="doc">    /// capturing instructions that will not be passed into captured().</i></td></tr>
+<tr><th id="73">73</th><td>    <b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZN4llvm14CaptureTracker11tooManyUsesEv" title='llvm::CaptureTracker::tooManyUses' data-ref="_ZN4llvm14CaptureTracker11tooManyUsesEv">tooManyUses</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td>    <i class="doc">/// shouldExplore - This is the use of a value derived from the pointer.</i></td></tr>
+<tr><th id="76">76</th><td><i class="doc">    /// To prune the search (ie., assume that none of its users could possibly</i></td></tr>
+<tr><th id="77">77</th><td><i class="doc">    /// capture) return false. To search it, return true.</i></td></tr>
+<tr><th id="78">78</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="79">79</th><td><i class="doc">    /// U-&gt;getUser() is always an Instruction.</i></td></tr>
+<tr><th id="80">80</th><td>    <b>virtual</b> <em>bool</em> <dfn class="virtual decl" id="_ZN4llvm14CaptureTracker13shouldExploreEPKNS_3UseE" title='llvm::CaptureTracker::shouldExplore' data-ref="_ZN4llvm14CaptureTracker13shouldExploreEPKNS_3UseE">shouldExplore</dfn>(<em>const</em> <a class="type" href="../IR/Use.h.html#llvm::Use" title='llvm::Use' data-ref="llvm::Use">Use</a> *<dfn class="local col3 decl" id="13U" title='U' data-type='const llvm::Use *' data-ref="13U">U</dfn>);</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>    <i class="doc">/// captured - Information about the pointer was captured by the user of</i></td></tr>
+<tr><th id="83">83</th><td><i class="doc">    /// use U. Return true to stop the traversal or false to continue looking</i></td></tr>
+<tr><th id="84">84</th><td><i class="doc">    /// for more capturing instructions.</i></td></tr>
+<tr><th id="85">85</th><td>    <b>virtual</b> <em>bool</em> <dfn class="virtual decl" id="_ZN4llvm14CaptureTracker8capturedEPKNS_3UseE" title='llvm::CaptureTracker::captured' data-ref="_ZN4llvm14CaptureTracker8capturedEPKNS_3UseE">captured</dfn>(<em>const</em> <a class="type" href="../IR/Use.h.html#llvm::Use" title='llvm::Use' data-ref="llvm::Use">Use</a> *<dfn class="local col4 decl" id="14U" title='U' data-type='const llvm::Use *' data-ref="14U">U</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="86">86</th><td>  };</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>  <i class="doc">/// PointerMayBeCaptured - Visit the value and the values derived from it and</i></td></tr>
+<tr><th id="89">89</th><td><i class="doc">  /// find values which appear to be capturing the pointer value. This feeds</i></td></tr>
+<tr><th id="90">90</th><td><i class="doc">  /// results into and is controlled by the CaptureTracker object.</i></td></tr>
+<tr><th id="91">91</th><td><i class="doc">  /// MaxUsesToExplore specifies how many uses should the analysis explore for</i></td></tr>
+<tr><th id="92">92</th><td><i class="doc">  /// one value before giving up due too "too many uses".</i></td></tr>
+<tr><th id="93">93</th><td>  <em>void</em> <dfn class="decl" id="_ZN4llvm20PointerMayBeCapturedEPKNS_5ValueEPNS_14CaptureTrackerEj" title='llvm::PointerMayBeCaptured' data-ref="_ZN4llvm20PointerMayBeCapturedEPKNS_5ValueEPNS_14CaptureTrackerEj">PointerMayBeCaptured</dfn>(<em>const</em> <a class="type" href="../IR/Value.h.html#llvm::Value" title='llvm::Value' data-ref="llvm::Value">Value</a> *<dfn class="local col5 decl" id="15V" title='V' data-type='const llvm::Value *' data-ref="15V">V</dfn>, <a class="type" href="#llvm::CaptureTracker" title='llvm::CaptureTracker' data-ref="llvm::CaptureTracker">CaptureTracker</a> *<dfn class="local col6 decl" id="16Tracker" title='Tracker' data-type='llvm::CaptureTracker *' data-ref="16Tracker">Tracker</dfn>,</td></tr>
+<tr><th id="94">94</th><td>                            <em>unsigned</em> <dfn class="local col7 decl" id="17MaxUsesToExplore" title='MaxUsesToExplore' data-type='unsigned int' data-ref="17MaxUsesToExplore">MaxUsesToExplore</dfn> = <a class="ref" href="#llvm::DefaultMaxUsesToExplore" title='llvm::DefaultMaxUsesToExplore' data-ref="llvm::DefaultMaxUsesToExplore">DefaultMaxUsesToExplore</a>);</td></tr>
+<tr><th id="95">95</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><u>#<span data-ppcond="13">endif</span></u></td></tr>
+<tr><th id="98">98</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../lib/Analysis/AliasAnalysis.cpp.html'>llvm/llvm/lib/Analysis/AliasAnalysis.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

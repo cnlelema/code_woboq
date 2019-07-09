@@ -1,0 +1,83 @@
+<def f='llvm/llvm/include/llvm/MC/MCSymbol.h' l='41' ll='422'/>
+<size>32</size>
+<doc f='llvm/llvm/include/llvm/MC/MCSymbol.h' l='34'>/// MCSymbol - Instances of this class represent a symbol name in the MC file,
+/// and MCSymbols are created and uniqued by the MCContext class.  MCSymbols
+/// should only be constructed with valid names for the object file.
+///
+/// If the symbol is defined/emitted into the current translation unit, the
+/// Section member is set to indicate what section it lives in.  Otherwise, if
+/// it is a reference to an external entity, it has a null section.</doc>
+<smbr r='llvm::MCSymbol::AbsolutePseudoFragment' t='llvm::MCFragment *'/>
+<mbr r='llvm::MCSymbol::FragmentAndHasName' o='0' t='PointerIntPair&lt;llvm::MCFragment *, 1&gt;'/>
+<mbr r='llvm::MCSymbol::IsTemporary' o='64' t='unsigned int'/>
+<mbr r='llvm::MCSymbol::IsRedefinable' o='65' t='unsigned int'/>
+<mbr r='llvm::MCSymbol::IsUsed' o='66' t='unsigned int'/>
+<mbr r='llvm::MCSymbol::IsRegistered' o='67' t='unsigned int'/>
+<mbr r='llvm::MCSymbol::IsExternal' o='68' t='unsigned int'/>
+<mbr r='llvm::MCSymbol::IsPrivateExtern' o='69' t='unsigned int'/>
+<mbr r='llvm::MCSymbol::Kind' o='70' t='unsigned int'/>
+<mbr r='llvm::MCSymbol::IsUsedInReloc' o='73' t='unsigned int'/>
+<mbr r='llvm::MCSymbol::SymbolContents' o='74' t='unsigned int'/>
+<mbr r='llvm::MCSymbol::CommonAlignLog2' o='76' t='unsigned int'/>
+<mbr r='llvm::MCSymbol::Flags' o='96' t='uint32_t'/>
+<mbr r='llvm::MCSymbol::Index' o='128' t='uint32_t'/>
+<fun r='_ZN4llvm8MCSymbolC1ENS0_10SymbolKindEPKNS_14StringMapEntryIbEEb'/>
+<fun r='_ZN4llvm8MCSymbolnwEmPKNS_14StringMapEntryIbEERNS_9MCContextE'/>
+<fun r='_ZN4llvm8MCSymboldlEPv'/>
+<fun r='_ZN4llvm8MCSymboldlEPvj'/>
+<fun r='_ZN4llvm8MCSymboldlEPvjb'/>
+<fun r='_ZNK4llvm8MCSymbol13getSectionPtrEv'/>
+<fun r='_ZN4llvm8MCSymbol15getNameEntryPtrEv'/>
+<fun r='_ZNK4llvm8MCSymbol15getNameEntryPtrEv'/>
+<fun r='_ZN4llvm8MCSymbolC1ERKS0_'/>
+<fun r='_ZN4llvm8MCSymbolaSERKS0_'/>
+<fun r='_ZNK4llvm8MCSymbol7getNameEv'/>
+<fun r='_ZNK4llvm8MCSymbol12isRegisteredEv'/>
+<fun r='_ZNK4llvm8MCSymbol15setIsRegisteredEb'/>
+<fun r='_ZNK4llvm8MCSymbol14setUsedInRelocEv'/>
+<fun r='_ZNK4llvm8MCSymbol13isUsedInRelocEv'/>
+<fun r='_ZNK4llvm8MCSymbol11isTemporaryEv'/>
+<fun r='_ZNK4llvm8MCSymbol6isUsedEv'/>
+<fun r='_ZNK4llvm8MCSymbol13isRedefinableEv'/>
+<fun r='_ZN4llvm8MCSymbol14setRedefinableEb'/>
+<fun r='_ZN4llvm8MCSymbol18redefineIfPossibleEv'/>
+<fun r='_ZNK4llvm8MCSymbol9isDefinedEv'/>
+<fun r='_ZNK4llvm8MCSymbol11isInSectionEv'/>
+<fun r='_ZNK4llvm8MCSymbol11isUndefinedEb'/>
+<fun r='_ZNK4llvm8MCSymbol10isAbsoluteEv'/>
+<fun r='_ZNK4llvm8MCSymbol10getSectionEv'/>
+<fun r='_ZNK4llvm8MCSymbol11setFragmentEPNS_10MCFragmentE'/>
+<fun r='_ZN4llvm8MCSymbol12setUndefinedEv'/>
+<fun r='_ZNK4llvm8MCSymbol5isELFEv'/>
+<fun r='_ZNK4llvm8MCSymbol6isCOFFEv'/>
+<fun r='_ZNK4llvm8MCSymbol7isMachOEv'/>
+<fun r='_ZNK4llvm8MCSymbol6isWasmEv'/>
+<fun r='_ZNK4llvm8MCSymbol7isXCOFFEv'/>
+<fun r='_ZNK4llvm8MCSymbol10isVariableEv'/>
+<fun r='_ZNK4llvm8MCSymbol16getVariableValueEb'/>
+<fun r='_ZN4llvm8MCSymbol16setVariableValueEPKNS_6MCExprE'/>
+<fun r='_ZNK4llvm8MCSymbol8getIndexEv'/>
+<fun r='_ZNK4llvm8MCSymbol8setIndexEj'/>
+<fun r='_ZNK4llvm8MCSymbol7isUnsetEv'/>
+<fun r='_ZNK4llvm8MCSymbol9getOffsetEv'/>
+<fun r='_ZN4llvm8MCSymbol9setOffsetEm'/>
+<fun r='_ZNK4llvm8MCSymbol13getCommonSizeEv'/>
+<fun r='_ZN4llvm8MCSymbol9setCommonEmj'/>
+<fun r='_ZNK4llvm8MCSymbol18getCommonAlignmentEv'/>
+<fun r='_ZN4llvm8MCSymbol13declareCommonEmj'/>
+<fun r='_ZNK4llvm8MCSymbol8isCommonEv'/>
+<fun r='_ZNK4llvm8MCSymbol11getFragmentEb'/>
+<fun r='_ZNK4llvm8MCSymbol10isExternalEv'/>
+<fun r='_ZNK4llvm8MCSymbol11setExternalEb'/>
+<fun r='_ZNK4llvm8MCSymbol15isPrivateExternEv'/>
+<fun r='_ZN4llvm8MCSymbol16setPrivateExternEb'/>
+<fun r='_ZNK4llvm8MCSymbol5printERNS_11raw_ostreamEPKNS_9MCAsmInfoE'/>
+<fun r='_ZNK4llvm8MCSymbol4dumpEv'/>
+<fun r='_ZNK4llvm8MCSymbol8getFlagsEv'/>
+<fun r='_ZNK4llvm8MCSymbol8setFlagsEj'/>
+<fun r='_ZNK4llvm8MCSymbol11modifyFlagsEjj'/>
+<ovr f='llvm/llvm/include/llvm/MC/MCSymbolWasm.h' l='16' c='llvm::MCSymbolWasm'/>
+<ovr f='llvm/llvm/include/llvm/MC/MCSymbolELF.h' l='14' c='llvm::MCSymbolELF'/>
+<ovr f='llvm/llvm/include/llvm/MC/MCSymbolCOFF.h' l='17' c='llvm::MCSymbolCOFF'/>
+<ovr f='llvm/llvm/include/llvm/MC/MCSymbolMachO.h' l='15' c='llvm::MCSymbolMachO'/>
+<ovr f='llvm/llvm/include/llvm/MC/MCSymbolXCOFF.h' l='18' c='llvm::MCSymbolXCOFF'/>

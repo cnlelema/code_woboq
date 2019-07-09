@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='1600' type='llvm::Value * llvm::TargetLoweringBase::getSDagStackGuard(const llvm::Module &amp; M) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='1597'>/// Return the variable that&apos;s previously inserted by insertSSPDeclarations,
+  /// if any, otherwise return nullptr. Should be used only when
+  /// getIRStackGuard returns nullptr.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='786' u='c' c='_ZN4llvm12IRTranslator13getStackGuardEjRNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='2492' u='c' c='_ZL17getLoadStackGuardRN4llvm12SelectionDAGERKNS_5SDLocERNS_7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='2575' u='c' c='_ZN4llvm19SelectionDAGBuilder23visitSPDescriptorParentERNS0_24StackProtectorDescriptorEPNS_17MachineBasicBlockE'/>
+<def f='llvm/llvm/lib/CodeGen/TargetLoweringBase.cpp' l='1720' ll='1722' type='llvm::Value * llvm::TargetLoweringBase::getSDagStackGuard(const llvm::Module &amp; M) const'/>
+<doc f='llvm/llvm/lib/CodeGen/TargetLoweringBase.cpp' l='1718'>// Currently only support &quot;standard&quot; __stack_chk_guard.
+// TODO: add LOAD_STACK_GUARD support.</doc>
+<ovr f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='11939' c='_ZNK4llvm21AArch64TargetLowering17getSDagStackGuardERKNS_6ModuleE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp' l='11943' u='c' c='_ZNK4llvm21AArch64TargetLowering17getSDagStackGuardERKNS_6ModuleE'/>
+<ovr f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='2300' c='_ZNK4llvm17X86TargetLowering17getSDagStackGuardERKNS_6ModuleE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='2306' u='c' c='_ZNK4llvm17X86TargetLowering17getSDagStackGuardERKNS_6ModuleE'/>

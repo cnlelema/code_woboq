@@ -1,0 +1,8 @@
+<def f='llvm/llvm/include/llvm/CodeGen/TargetRegisterInfo.h' l='884' ll='887' type='bool llvm::TargetRegisterInfo::hasReservedSpillSlot(const llvm::MachineFunction &amp; MF, unsigned int Reg, int &amp; FrameIdx) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetRegisterInfo.h' l='878'>/// Return true if target has reserved a spill slot in the stack frame of
+  /// the given function for the specified register. e.g. On x86, if the frame
+  /// register is required, the first fixed stack object is reserved as its
+  /// spill slot. This tells PEI not to create a new stack frame
+  /// object for the given register. It should be called only after
+  /// determineCalleeSaves().</doc>
+<use f='llvm/llvm/lib/CodeGen/PrologEpilogInserter.cpp' l='420' u='c' c='_ZL27assignCalleeSavedSpillSlotsRN4llvm15MachineFunctionERKNS_9BitVectorERjS5_'/>

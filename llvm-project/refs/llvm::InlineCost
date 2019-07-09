@@ -1,0 +1,27 @@
+<def f='llvm/llvm/include/llvm/Analysis/InlineCost.h' l='63' ll='131'/>
+<size>16</size>
+<doc f='llvm/llvm/include/llvm/Analysis/InlineCost.h' l='53'>/// Represents the cost of inlining a function.
+///
+/// This supports special values for functions which should &quot;always&quot; or
+/// &quot;never&quot; be inlined. Otherwise, the cost represents a unitless amount;
+/// smaller values increase the likelihood of the function being inlined.
+///
+/// Objects of this type also provide the adjusted threshold for inlining
+/// based on the information available for a particular callsite. They can be
+/// directly tested to determine if inlining should occur given the cost and
+/// threshold for this cost metric.</doc>
+<mbr r='llvm::InlineCost::Cost' o='0' t='const int'/>
+<mbr r='llvm::InlineCost::Threshold' o='32' t='const int'/>
+<mbr r='llvm::InlineCost::Reason' o='64' t='const char *'/>
+<fun r='_ZN4llvm10InlineCostC1EiiPKc'/>
+<fun r='_ZN4llvm10InlineCost3getEii'/>
+<fun r='_ZN4llvm10InlineCost9getAlwaysEPKc'/>
+<fun r='_ZN4llvm10InlineCost8getNeverEPKc'/>
+<fun r='_ZNK4llvm10InlineCostcvbEv'/>
+<fun r='_ZNK4llvm10InlineCost8isAlwaysEv'/>
+<fun r='_ZNK4llvm10InlineCost7isNeverEv'/>
+<fun r='_ZNK4llvm10InlineCost10isVariableEv'/>
+<fun r='_ZNK4llvm10InlineCost7getCostEv'/>
+<fun r='_ZNK4llvm10InlineCost12getThresholdEv'/>
+<fun r='_ZNK4llvm10InlineCost9getReasonEv'/>
+<fun r='_ZNK4llvm10InlineCost12getCostDeltaEv'/>

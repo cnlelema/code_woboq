@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>NestedNameSpecifiers.cpp source code [llvm/clang/unittests/Tooling/RecursiveASTVisitorTests/NestedNameSpecifiers.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/clang/unittests/Tooling/RecursiveASTVisitorTests/NestedNameSpecifiers.cpp'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>clang</a>/<a href='../..'>unittests</a>/<a href='..'>Tooling</a>/<a href='./'>RecursiveASTVisitorTests</a>/<a href='NestedNameSpecifiers.cpp.html'>NestedNameSpecifiers.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- unittest/Tooling/RecursiveASTVisitorTests/NestedNameSpecifiers.cpp -===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#include <a href="../TestVisitor.h.html">"TestVisitor.h"</a></u></td></tr>
+<tr><th id="10">10</th><td></td></tr>
+<tr><th id="11">11</th><td><b>using</b> <b>namespace</b> <span class="namespace">clang</span>;</td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><b>namespace</b> {</td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><i  data-doc="(anonymousnamespace)::NestedNameSpecifiersVisitor">// Check to ensure that nested name specifiers are visited.</i></td></tr>
+<tr><th id="16">16</th><td><b>class</b> <dfn class="tu type def" id="(anonymousnamespace)::NestedNameSpecifiersVisitor" title='(anonymous namespace)::NestedNameSpecifiersVisitor' data-ref="(anonymousnamespace)::NestedNameSpecifiersVisitor">NestedNameSpecifiersVisitor</dfn></td></tr>
+<tr><th id="17">17</th><td>    : <b>public</b> ExpectedLocationVisitor&lt;NestedNameSpecifiersVisitor&gt; {</td></tr>
+<tr><th id="18">18</th><td><b>public</b>:</td></tr>
+<tr><th id="19">19</th><td>  <em>bool</em> <dfn class="tu decl def" id="_ZN12_GLOBAL__N_127NestedNameSpecifiersVisitor18VisitRecordTypeLocEN5clang13RecordTypeLocE" title='(anonymous namespace)::NestedNameSpecifiersVisitor::VisitRecordTypeLoc' data-type='bool (anonymous namespace)::NestedNameSpecifiersVisitor::VisitRecordTypeLoc(clang::RecordTypeLoc RTL)' data-ref="_ZN12_GLOBAL__N_127NestedNameSpecifiersVisitor18VisitRecordTypeLocEN5clang13RecordTypeLocE">VisitRecordTypeLoc</dfn>(<a class="type" href="../../../include/clang/AST/TypeLoc.h.html#clang::RecordTypeLoc" title='clang::RecordTypeLoc' data-ref="clang::RecordTypeLoc">RecordTypeLoc</a> <dfn class="local col1 decl" id="1RTL" title='RTL' data-type='clang::RecordTypeLoc' data-ref="1RTL">RTL</dfn>) {</td></tr>
+<tr><th id="20">20</th><td>    <b>if</b> (!<a class="ref fake" href="../../../include/clang/AST/TypeLoc.h.html#_ZNK5clang7TypeLoccvbEv" title='clang::TypeLoc::operator bool' data-ref="_ZNK5clang7TypeLoccvbEv"></a><a class="local col1 ref" href="#1RTL" title='RTL' data-ref="1RTL">RTL</a>)</td></tr>
+<tr><th id="21">21</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="22">22</th><td>    Match(<span class='error' title="cannot initialize object parameter of type &apos;const clang::NamedDecl&apos; with an expression of type &apos;clang::RecordDecl&apos;">RTL</span>.getDecl()-&gt;getName(), RTL.getNameLoc());</td></tr>
+<tr><th id="23">23</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="24">24</th><td>  }</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td>  <em>bool</em> <dfn class="tu decl def" id="_ZN12_GLOBAL__N_127NestedNameSpecifiersVisitor30TraverseNestedNameSpecifierLocEN5clang22NestedNameSpecifierLocE" title='(anonymous namespace)::NestedNameSpecifiersVisitor::TraverseNestedNameSpecifierLoc' data-type='bool (anonymous namespace)::NestedNameSpecifiersVisitor::TraverseNestedNameSpecifierLoc(clang::NestedNameSpecifierLoc NNS)' data-ref="_ZN12_GLOBAL__N_127NestedNameSpecifiersVisitor30TraverseNestedNameSpecifierLocEN5clang22NestedNameSpecifierLocE">TraverseNestedNameSpecifierLoc</dfn>(<a class="type" href="../../../include/clang/AST/NestedNameSpecifier.h.html#clang::NestedNameSpecifierLoc" title='clang::NestedNameSpecifierLoc' data-ref="clang::NestedNameSpecifierLoc">NestedNameSpecifierLoc</a> <dfn class="local col2 decl" id="2NNS" title='NNS' data-type='clang::NestedNameSpecifierLoc' data-ref="2NNS">NNS</dfn>) {</td></tr>
+<tr><th id="27">27</th><td>    <b>if</b> (!<a class="ref fake" href="../../../include/clang/AST/NestedNameSpecifier.h.html#_ZNK5clang22NestedNameSpecifierLoccvbEv" title='clang::NestedNameSpecifierLoc::operator bool' data-ref="_ZNK5clang22NestedNameSpecifierLoccvbEv"></a><a class="local col2 ref" href="#2NNS" title='NNS' data-ref="2NNS">NNS</a>)</td></tr>
+<tr><th id="28">28</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="29">29</th><td>    <b>if</b> (<em>const</em> NamespaceDecl *ND =</td></tr>
+<tr><th id="30">30</th><td>            NNS.getNestedNameSpecifier()-&gt;getAsNamespace())</td></tr>
+<tr><th id="31">31</th><td>      Match(<span class='error' title="cannot initialize object parameter of type &apos;const clang::NamedDecl&apos; with an expression of type &apos;const clang::NamespaceDecl&apos;">ND</span>-&gt;getName(), NNS.getLocalBeginLoc());</td></tr>
+<tr><th id="32">32</th><td>    <b>return</b> <span class='error' title="&apos;ExpectedLocationVisitor&apos; is not a class, namespace, or enumeration">ExpectedLocationVisitor</span>::TraverseNestedNameSpecifierLoc(NNS);</td></tr>
+<tr><th id="33">33</th><td>  }</td></tr>
+<tr><th id="34">34</th><td>};</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><a class="macro" href="../../../../llvm/utils/unittest/googletest/include/gtest/gtest.h.html#2187" title="class RecursiveASTVisitor_NestedNameSpecifiersForTemplateSpecializationsAreVisited_Test : public ::testing::Test { public: RecursiveASTVisitor_NestedNameSpecifiersForTemplateSpecializationsAreVisited_Test() {} private: virtual void TestBody(); static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); RecursiveASTVisitor_NestedNameSpecifiersForTemplateSpecializationsAreVisited_Test(RecursiveASTVisitor_NestedNameSpecifiersForTemplateSpecializationsAreVisited_Test const &amp;); void operator=(RecursiveASTVisitor_NestedNameSpecifiersForTemplateSpecializationsAreVisited_Test const &amp;);};::testing::TestInfo* const RecursiveASTVisitor_NestedNameSpecifiersForTemplateSpecializationsAreVisited_Test ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( &quot;RecursiveASTVisitor&quot;, &quot;NestedNameSpecifiersForTemplateSpecializationsAreVisited&quot;, __null, __null, ::testing::internal::CodeLocation(&quot;/root/cheri/llvm-project/clang/unittests/Tooling/RecursiveASTVisitorTests/NestedNameSpecifiers.cpp&quot;, 37), (::testing::internal::GetTestTypeId()), ::testing::Test::SetUpTestCase, ::testing::Test::TearDownTestCase, new ::testing::internal::TestFactoryImpl&lt; RecursiveASTVisitor_NestedNameSpecifiersForTemplateSpecializationsAreVisited_Test&gt;);void RecursiveASTVisitor_NestedNameSpecifiersForTemplateSpecializationsAreVisited_Test::TestBody()" data-ref="_M/TEST">TEST</a>(RecursiveASTVisitor,</td></tr>
+<tr><th id="37">37</th><td>     NestedNameSpecifiersForTemplateSpecializationsAreVisited) {</td></tr>
+<tr><th id="38">38</th><td>  <a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col3 decl" id="3Source" title='Source' data-type='llvm::StringRef' data-ref="3Source">Source</dfn> = <a class="ref fake" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#_ZN4llvm9StringRefC1EPKc" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1EPKc"></a><q>R"(</q></td></tr>
+<tr><th id="39">39</th><td><q>namespace ns {</q></td></tr>
+<tr><th id="40">40</th><td><q>struct Outer {</q></td></tr>
+<tr><th id="41">41</th><td><q>    template&lt;typename T, typename U&gt;</q></td></tr>
+<tr><th id="42">42</th><td><q>    struct Nested { };</q></td></tr>
+<tr><th id="43">43</th><td><q></q></td></tr>
+<tr><th id="44">44</th><td><q>    template&lt;typename T&gt;</q></td></tr>
+<tr><th id="45">45</th><td><q>    static T x;</q></td></tr>
+<tr><th id="46">46</th><td><q>};</q></td></tr>
+<tr><th id="47">47</th><td><q>}</q></td></tr>
+<tr><th id="48">48</th><td><q></q></td></tr>
+<tr><th id="49">49</th><td><q>template&lt;&gt;</q></td></tr>
+<tr><th id="50">50</th><td><q>struct ns::Outer::Nested&lt;int, int&gt;;</q></td></tr>
+<tr><th id="51">51</th><td><q></q></td></tr>
+<tr><th id="52">52</th><td><q>template&lt;&gt;</q></td></tr>
+<tr><th id="53">53</th><td><q>struct ns::Outer::Nested&lt;int, int&gt; { };</q></td></tr>
+<tr><th id="54">54</th><td><q></q></td></tr>
+<tr><th id="55">55</th><td><q>template&lt;typename T&gt;</q></td></tr>
+<tr><th id="56">56</th><td><q>struct ns::Outer::Nested&lt;int, T&gt; { };</q></td></tr>
+<tr><th id="57">57</th><td><q></q></td></tr>
+<tr><th id="58">58</th><td><q>template&lt;&gt;</q></td></tr>
+<tr><th id="59">59</th><td><q>int ns::Outer::x&lt;int&gt; = 0;</q></td></tr>
+<tr><th id="60">60</th><td><q>)"</q>;</td></tr>
+<tr><th id="61">61</th><td>  <a class="tu type" href="#(anonymousnamespace)::NestedNameSpecifiersVisitor" title='(anonymous namespace)::NestedNameSpecifiersVisitor' data-ref="(anonymousnamespace)::NestedNameSpecifiersVisitor">NestedNameSpecifiersVisitor</a> <a class="tu ref fake" href="#16" title='(anonymous namespace)::NestedNameSpecifiersVisitor::NestedNameSpecifiersVisitor' data-use='c' data-ref="_ZN12_GLOBAL__N_127NestedNameSpecifiersVisitorC1Ev"></a><dfn class="local col4 decl" id="4Visitor" title='Visitor' data-type='(anonymous namespace)::NestedNameSpecifiersVisitor' data-ref="4Visitor">Visitor</dfn>;</td></tr>
+<tr><th id="62">62</th><td>  Visitor.<span class='error' title="no member named &apos;ExpectMatch&apos; in &apos;(anonymous namespace)::NestedNameSpecifiersVisitor&apos;">ExpectMatch</span>(<q>"ns"</q>, <var>13</var>, <var>8</var>);</td></tr>
+<tr><th id="63">63</th><td>  Visitor.<span class='error' title="no member named &apos;ExpectMatch&apos; in &apos;(anonymous namespace)::NestedNameSpecifiersVisitor&apos;">ExpectMatch</span>(<q>"ns"</q>, <var>16</var>, <var>8</var>);</td></tr>
+<tr><th id="64">64</th><td>  Visitor.<span class='error' title="no member named &apos;ExpectMatch&apos; in &apos;(anonymous namespace)::NestedNameSpecifiersVisitor&apos;">ExpectMatch</span>(<q>"ns"</q>, <var>19</var>, <var>8</var>);</td></tr>
+<tr><th id="65">65</th><td>  Visitor.<span class='error' title="no member named &apos;ExpectMatch&apos; in &apos;(anonymous namespace)::NestedNameSpecifiersVisitor&apos;">ExpectMatch</span>(<q>"ns"</q>, <var>22</var>, <var>5</var>);</td></tr>
+<tr><th id="66">66</th><td>  Visitor.<span class='error' title="no member named &apos;ExpectMatch&apos; in &apos;(anonymous namespace)::NestedNameSpecifiersVisitor&apos;">ExpectMatch</span>(<q>"Outer"</q>, <var>13</var>, <var>12</var>);</td></tr>
+<tr><th id="67">67</th><td>  Visitor.<span class='error' title="no member named &apos;ExpectMatch&apos; in &apos;(anonymous namespace)::NestedNameSpecifiersVisitor&apos;">ExpectMatch</span>(<q>"Outer"</q>, <var>16</var>, <var>12</var>);</td></tr>
+<tr><th id="68">68</th><td>  Visitor.<span class='error' title="no member named &apos;ExpectMatch&apos; in &apos;(anonymous namespace)::NestedNameSpecifiersVisitor&apos;">ExpectMatch</span>(<q>"Outer"</q>, <var>19</var>, <var>12</var>);</td></tr>
+<tr><th id="69">69</th><td>  Visitor.<span class='error' title="no member named &apos;ExpectMatch&apos; in &apos;(anonymous namespace)::NestedNameSpecifiersVisitor&apos;">ExpectMatch</span>(<q>"Outer"</q>, <var>22</var>, <var>9</var>);</td></tr>
+<tr><th id="70">70</th><td>  <a class="macro" href="../../../../llvm/utils/unittest/googletest/include/gtest/gtest.h.html#1859" title="switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult((Visitor.runOver(Source, NestedNameSpecifiersVisitor::Lang_CXX14)))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, &quot;/root/cheri/llvm-project/clang/unittests/Tooling/RecursiveASTVisitorTests/NestedNameSpecifiers.cpp&quot;, 70, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, &quot;Visitor.runOver(Source, NestedNameSpecifiersVisitor::Lang_CXX14)&quot;, &quot;false&quot;, &quot;true&quot;).c_str()) = ::testing::Message()" data-ref="_M/EXPECT_TRUE">EXPECT_TRUE</a>(Visitor.<span class='error' title="no member named &apos;runOver&apos; in &apos;(anonymous namespace)::NestedNameSpecifiersVisitor&apos;">runOver</span>(Source, NestedNameSpecifiersVisitor::<span class='error' title="no member named &apos;Lang_CXX14&apos; in &apos;(anonymous namespace)::NestedNameSpecifiersVisitor&apos;">Lang_CXX14</span>));</td></tr>
+<tr><th id="71">71</th><td>}</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>} <i>// end anonymous namespace</i></td></tr>
+<tr><th id="74">74</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

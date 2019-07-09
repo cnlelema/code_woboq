@@ -1,0 +1,15 @@
+<dec f='llvm/clang/include/clang/StaticAnalyzer/Core/AnalyzerOptions.h' l='362' type='llvm::StringRef clang::AnalyzerOptions::getCheckerStringOption(llvm::StringRef CheckerName, llvm::StringRef OptionName, bool SearchInParents = false) const'/>
+<doc f='llvm/clang/include/clang/StaticAnalyzer/Core/AnalyzerOptions.h' l='348'>/// Query an option&apos;s string value.
+  ///
+  /// If an option value is not provided, returns the given \p DefaultVal.
+  /// @param [in] CheckerName The *full name* of the checker. One may retrieve
+  /// this from the checker object&apos;s field \c Name, or through \c
+  /// CheckerManager::getCurrentCheckName within the checker&apos;s registry
+  /// function.
+  /// Checker options are retrieved in the following format:
+  /// `-analyzer-config CheckerName:OptionName=Value.
+  /// @param [in] OptionName Name for option to retrieve.
+  /// @param [in] SearchInParents If set to true and the searched option was not
+  /// specified for the given checker the options for the parent packages will
+  /// be searched as well. The inner packages take precedence over the outer
+  /// ones.</doc>

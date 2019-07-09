@@ -1,0 +1,16 @@
+<dec f='llvm/clang/include/clang/ASTMatchers/Dynamic/Parser.h' l='192' type='static bool clang::ast_matchers::dynamic::Parser::parseExpression(llvm::StringRef Code, clang::ast_matchers::dynamic::Parser::Sema * S, const NamedValueMap * NamedValues, clang::ast_matchers::dynamic::VariantValue * Value, clang::ast_matchers::dynamic::Diagnostics * Error)'/>
+<use f='llvm/clang/include/clang/ASTMatchers/Dynamic/Parser.h' l='197' u='c' c='_ZN5clang12ast_matchers7dynamic6Parser15parseExpressionEN4llvm9StringRefEPNS2_4SemaEPNS1_12VariantValueEPNS1_11DiagnosticsE'/>
+<def f='llvm/clang/lib/ASTMatchers/Dynamic/Parser.cpp' l='627' ll='639' type='static bool clang::ast_matchers::dynamic::Parser::parseExpression(llvm::StringRef Code, clang::ast_matchers::dynamic::Parser::Sema * S, const NamedValueMap * NamedValues, clang::ast_matchers::dynamic::VariantValue * Value, clang::ast_matchers::dynamic::Diagnostics * Error)'/>
+<use f='llvm/clang/lib/ASTMatchers/Dynamic/Parser.cpp' l='666' u='c' c='_ZN5clang12ast_matchers7dynamic6Parser22parseMatcherExpressionEN4llvm9StringRefEPNS2_4SemaEPKNS3_9StringMapINS1_12VariantValueENS3_15MallocAllocatorEEEPNS1_11DiagnosticsE'/>
+<doc f='llvm/clang/include/clang/ASTMatchers/Dynamic/Parser.h' l='180'>/// Parse an expression.
+  ///
+  /// Parses any expression supported by this parser. In general, the
+  /// \c parseMatcherExpression function is a better approach to get a matcher
+  /// object.
+  ///
+  /// \param S The Sema instance that will help the parser
+  ///   construct the matchers. If null, it uses the default registry.
+  ///
+  /// \param NamedValues A map of precomputed named values.  This provides
+  ///   the dictionary for the &lt;NamedValue&gt; rule of the grammar.
+  ///   If null, it is ignored.</doc>

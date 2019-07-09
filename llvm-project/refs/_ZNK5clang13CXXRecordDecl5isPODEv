@@ -1,0 +1,18 @@
+<def f='llvm/clang/include/clang/AST/DeclCXX.h' l='1315' type='bool clang::CXXRecordDecl::isPOD() const'/>
+<doc f='llvm/clang/include/clang/AST/DeclCXX.h' l='1307'>/// Whether this class is a POD-type (C++ [class]p4)
+  ///
+  /// For purposes of this function a class is POD if it is an aggregate
+  /// that has no non-static non-POD data members, no reference data
+  /// members, no user-defined copy assignment operator and no
+  /// user-defined destructor.
+  ///
+  /// Note that this is the C++ TR1 definition of POD.</doc>
+<use f='llvm/clang/lib/AST/DeclCXX.cpp' l='1355' u='c' c='_ZNK5clang13CXXRecordDecl7isCLikeEv'/>
+<use f='llvm/clang/lib/AST/JSONNodeDumper.cpp' l='367' u='c' c='_ZN5clang14JSONNodeDumper29createCXXRecordDefinitionDataEPKNS_13CXXRecordDeclE'/>
+<use f='llvm/clang/lib/AST/RecordLayoutBuilder.cpp' l='2145' u='c' c='_ZL19mustSkipTailPaddingN5clang12TargetCXXABIEPKNS_13CXXRecordDeclE'/>
+<use f='llvm/clang/lib/AST/TextNodeDumper.cpp' l='1538' u='c' c='_ZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='2223' u='c' c='_ZNK5clang8QualType14isCXX98PODTypeERKNS_10ASTContextE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='11829' u='c' c='_ZN5clang4Sema22ActOnUninitializedDeclEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='2140' u='c' c='_ZL19handleVecReturnAttrRN5clang4SemaEPNS_4DeclERKNS_10ParsedAttrE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclObjC.cpp' l='3201' u='c' c='_ZL19tryMatchRecordTypesRN5clang10ASTContextENS_4Sema19MethodMatchStrategyEPKNS_4TypeES6_'/>
+<use f='llvm/clang/lib/Sema/SemaDeclObjC.cpp' l='3202' u='c' c='_ZL19tryMatchRecordTypesRN5clang10ASTContextENS_4Sema19MethodMatchStrategyEPKNS_4TypeES6_'/>

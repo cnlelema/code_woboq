@@ -1,0 +1,16 @@
+<def f='llvm/llvm/include/llvm/CodeGen/SlotIndexes.h' l='698' ll='707' type='void llvm::SlotIndexes::eraseIndex(llvm::SlotIndex index)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/SlotIndexes.h' l='683'>/// Free the resources that were required to maintain a SlotIndex.
+    ///
+    /// Once an index is no longer needed (for instance because the instruction
+    /// at that index has been moved), the resources required to maintain the
+    /// index can be relinquished to reduce memory use and improve renumbering
+    /// performance. Any remaining SlotIndex objects that point to the same
+    /// index are left &apos;dangling&apos; (much the same as a dangling pointer to a
+    /// freed object) and should not be accessed, except to destruct them.
+    ///
+    /// Like dangling pointers, access to dangling SlotIndexes can cause
+    /// painful-to-track-down bugs, especially if the memory for the index
+    /// previously pointed to has been re-used. To detect dangling SlotIndex
+    /// bugs, build with EXPENSIVE_CHECKS=1. This will cause &quot;erased&quot; indexes to
+    /// be retained in a graveyard instead of being freed. Operations on indexes
+    /// in the graveyard will trigger an assertion.</doc>

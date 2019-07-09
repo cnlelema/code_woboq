@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='424' type='bool llvm::InstCombiner::shouldOptimizeCast(llvm::CastInst * CI)'/>
+<doc f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='415'>/// Classify whether a cast is worth optimizing.
+  ///
+  /// This is a helper to decide whether the simplification of
+  /// logic(cast(A), cast(B)) to cast(logic(A, B)) should be performed.
+  ///
+  /// \param CI The cast we are interested in.
+  ///
+  /// \return true if this cast actually results in any code being generated and
+  /// if it cannot already be eliminated by some other transformation.</doc>
+<def f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='1331' ll='1345' type='bool llvm::InstCombiner::shouldOptimizeCast(llvm::CastInst * CI)'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='1420' u='c' c='_ZN4llvm12InstCombiner22foldCastedBitwiseLogicERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='1420' u='c' c='_ZN4llvm12InstCombiner22foldCastedBitwiseLogicERNS_14BinaryOperatorE'/>

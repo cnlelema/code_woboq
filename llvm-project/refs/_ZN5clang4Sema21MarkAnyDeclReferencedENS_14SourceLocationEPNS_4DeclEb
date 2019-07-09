@@ -1,0 +1,19 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='4178' type='void clang::Sema::MarkAnyDeclReferenced(clang::SourceLocation Loc, clang::Decl * D, bool MightBeOdrUse)'/>
+<doc f='llvm/clang/include/clang/Sema/Sema.h' l='4166'>// Functions for marking a declaration referenced.  These functions also
+  // contain the relevant logic for marking if a reference to a function or
+  // variable is an odr-use (in the C++11 sense).  There are separate variants
+  // for expressions referring to a decl; these exist because odr-use marking
+  // needs to be delayed for some constant variables when we build one of the
+  // named expressions.
+  //
+  // MightBeOdrUse indicates whether the use could possibly be an odr-use, and
+  // should usually be true. This only needs to be set to false if the lack of
+  // odr-use cannot be determined from the current context (for instance,
+  // because the name denotes a virtual function and was written without an
+  // explicit nested-name-specifier).</doc>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='16656' u='c' c='_ZL18MarkExprReferencedRN5clang4SemaENS_14SourceLocationEPNS_4DeclEPNS_4ExprEb'/>
+<def f='llvm/clang/lib/Sema/SemaExpr.cpp' l='16722' ll='16735' type='void clang::Sema::MarkAnyDeclReferenced(clang::SourceLocation Loc, clang::Decl * D, bool MightBeOdrUse)'/>
+<doc f='llvm/clang/lib/Sema/SemaExpr.cpp' l='16718'>/// Perform marking for a reference to an arbitrary declaration.  It
+/// marks the declaration referenced, and performs odr-use checking for
+/// functions and variables. This method should not be used when building a
+/// normal expression which refers to a variable.</doc>

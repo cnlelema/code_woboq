@@ -1,0 +1,246 @@
+<inh f='llvm/llvm/include/llvm/IR/InstVisitor.h' l='80' c='llvm::InstVisitor'/>
+<def f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='247' ll='932'/>
+<size>160</size>
+<doc f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='243'>/// The core instruction combiner logic.
+///
+/// This class provides both the logic to recursively visit instructions and
+/// combine them.</doc>
+<mbr r='llvm::InstCombiner::Worklist' o='0' t='llvm::InstCombineWorklist &amp;'/>
+<mbr r='llvm::InstCombiner::Builder' o='64' t='BuilderTy &amp;'/>
+<mbr r='llvm::InstCombiner::MinimizeSize' o='128' t='const bool'/>
+<mbr r='llvm::InstCombiner::ExpensiveCombines' o='136' t='const bool'/>
+<mbr r='llvm::InstCombiner::AA' o='192' t='AliasAnalysis *'/>
+<mbr r='llvm::InstCombiner::AC' o='256' t='llvm::AssumptionCache &amp;'/>
+<mbr r='llvm::InstCombiner::TLI' o='320' t='llvm::TargetLibraryInfo &amp;'/>
+<mbr r='llvm::InstCombiner::DT' o='384' t='llvm::DominatorTree &amp;'/>
+<mbr r='llvm::InstCombiner::DL' o='448' t='const llvm::DataLayout &amp;'/>
+<mbr r='llvm::InstCombiner::SQ' o='512' t='const llvm::SimplifyQuery'/>
+<mbr r='llvm::InstCombiner::ORE' o='896' t='llvm::OptimizationRemarkEmitter &amp;'/>
+<mbr r='llvm::InstCombiner::BFI' o='960' t='llvm::BlockFrequencyInfo *'/>
+<mbr r='llvm::InstCombiner::PSI' o='1024' t='llvm::ProfileSummaryInfo *'/>
+<mbr r='llvm::InstCombiner::LI' o='1088' t='llvm::LoopInfo *'/>
+<mbr r='llvm::InstCombiner::MadeIRChange' o='1152' t='bool'/>
+<fun r='_ZN4llvm12InstCombinerC1ERNS_19InstCombineWorklistERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEbbPNS_9AAResultsERNS_15Assumption6993317'/>
+<fun r='_ZN4llvm12InstCombiner3runEv'/>
+<fun r='_ZNK4llvm12InstCombiner18getAssumptionCacheEv'/>
+<fun r='_ZNK4llvm12InstCombiner13getDataLayoutEv'/>
+<fun r='_ZNK4llvm12InstCombiner16getDominatorTreeEv'/>
+<fun r='_ZNK4llvm12InstCombiner11getLoopInfoEv'/>
+<fun r='_ZNK4llvm12InstCombiner20getTargetLibraryInfoEv'/>
+<fun r='_ZN4llvm12InstCombiner9visitFNegERNS_13UnaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner8visitAddERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner9visitFAddERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner25OptimizePointerDifferenceEPNS_5ValueES2_PNS_4TypeE'/>
+<fun r='_ZN4llvm12InstCombiner8visitSubERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner9visitFSubERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner8visitMulERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner9visitFMulERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner9visitURemERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner9visitSRemERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner9visitFRemERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner32simplifyDivRemOfSelectWithZeroOpERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner19commonRemTransformsERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner20commonIRemTransformsERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner19commonDivTransformsERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner20commonIDivTransformsERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner9visitUDivERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner9visitSDivERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner9visitFDivERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner18simplifyRangeCheckEPNS_8ICmpInstES2_b'/>
+<fun r='_ZN4llvm12InstCombiner8visitAndERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner7visitOrERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner8visitXorERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner8visitShlERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner9visitAShrERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner9visitLShrERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner21commonShiftTransformsERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner13visitFCmpInstERNS_8FCmpInstE'/>
+<fun r='_ZN4llvm12InstCombiner13visitICmpInstERNS_8ICmpInstE'/>
+<fun r='_ZN4llvm12InstCombiner19FoldShiftByConstantEPNS_5ValueEPNS_8ConstantERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner20commonCastTransformsERNS_8CastInstE'/>
+<fun r='_ZN4llvm12InstCombiner27commonPointerCastTransformsERNS_8CastInstE'/>
+<fun r='_ZN4llvm12InstCombiner10visitTruncERNS_9TruncInstE'/>
+<fun r='_ZN4llvm12InstCombiner9visitZExtERNS_8ZExtInstE'/>
+<fun r='_ZN4llvm12InstCombiner9visitSExtERNS_8SExtInstE'/>
+<fun r='_ZN4llvm12InstCombiner12visitFPTruncERNS_11FPTruncInstE'/>
+<fun r='_ZN4llvm12InstCombiner10visitFPExtERNS_8CastInstE'/>
+<fun r='_ZN4llvm12InstCombiner11visitFPToUIERNS_10FPToUIInstE'/>
+<fun r='_ZN4llvm12InstCombiner11visitFPToSIERNS_10FPToSIInstE'/>
+<fun r='_ZN4llvm12InstCombiner11visitUIToFPERNS_8CastInstE'/>
+<fun r='_ZN4llvm12InstCombiner11visitSIToFPERNS_8CastInstE'/>
+<fun r='_ZN4llvm12InstCombiner13visitPtrToIntERNS_12PtrToIntInstE'/>
+<fun r='_ZN4llvm12InstCombiner13visitIntToPtrERNS_12IntToPtrInstE'/>
+<fun r='_ZN4llvm12InstCombiner12visitBitCastERNS_11BitCastInstE'/>
+<fun r='_ZN4llvm12InstCombiner18visitAddrSpaceCastERNS_17AddrSpaceCastInstE'/>
+<fun r='_ZN4llvm12InstCombiner12FoldItoFPtoIERNS_11InstructionE'/>
+<fun r='_ZN4llvm12InstCombiner15visitSelectInstERNS_10SelectInstE'/>
+<fun r='_ZN4llvm12InstCombiner13visitCallInstERNS_8CallInstE'/>
+<fun r='_ZN4llvm12InstCombiner15visitInvokeInstERNS_10InvokeInstE'/>
+<fun r='_ZN4llvm12InstCombiner15visitCallBrInstERNS_10CallBrInstE'/>
+<fun r='_ZN4llvm12InstCombiner24SliceUpIllegalIntegerPHIERNS_7PHINodeE'/>
+<fun r='_ZN4llvm12InstCombiner12visitPHINodeERNS_7PHINodeE'/>
+<fun r='_ZN4llvm12InstCombiner22visitGetElementPtrInstERNS_17GetElementPtrInstE'/>
+<fun r='_ZN4llvm12InstCombiner15visitAllocaInstERNS_10AllocaInstE'/>
+<fun r='_ZN4llvm12InstCombiner14visitAllocSiteERNS_11InstructionE'/>
+<fun r='_ZN4llvm12InstCombiner9visitFreeERNS_8CallInstE'/>
+<fun r='_ZN4llvm12InstCombiner13visitLoadInstERNS_8LoadInstE'/>
+<fun r='_ZN4llvm12InstCombiner14visitStoreInstERNS_9StoreInstE'/>
+<fun r='_ZN4llvm12InstCombiner18visitAtomicRMWInstERNS_13AtomicRMWInstE'/>
+<fun r='_ZN4llvm12InstCombiner15visitBranchInstERNS_10BranchInstE'/>
+<fun r='_ZN4llvm12InstCombiner14visitFenceInstERNS_9FenceInstE'/>
+<fun r='_ZN4llvm12InstCombiner15visitSwitchInstERNS_10SwitchInstE'/>
+<fun r='_ZN4llvm12InstCombiner15visitReturnInstERNS_10ReturnInstE'/>
+<fun r='_ZN4llvm12InstCombiner20visitInsertValueInstERNS_15InsertValueInstE'/>
+<fun r='_ZN4llvm12InstCombiner22visitInsertElementInstERNS_17InsertElementInstE'/>
+<fun r='_ZN4llvm12InstCombiner23visitExtractElementInstERNS_18ExtractElementInstE'/>
+<fun r='_ZN4llvm12InstCombiner22visitShuffleVectorInstERNS_17ShuffleVectorInstE'/>
+<fun r='_ZN4llvm12InstCombiner21visitExtractValueInstERNS_16ExtractValueInstE'/>
+<fun r='_ZN4llvm12InstCombiner19visitLandingPadInstERNS_14LandingPadInstE'/>
+<fun r='_ZN4llvm12InstCombiner16visitVAStartInstERNS_11VAStartInstE'/>
+<fun r='_ZN4llvm12InstCombiner15visitVACopyInstERNS_10VACopyInstE'/>
+<fun r='_ZN4llvm12InstCombiner16visitInstructionERNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner16dominatesAllUsesEPKNS_11InstructionES3_PKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm12InstCombiner25replacedSelectWithOperandEPNS_10SelectInstEPKNS_8ICmpInstEj'/>
+<fun r='_ZN4llvm12InstCombiner14replacePointerERNS_11InstructionEPNS_5ValueE'/>
+<fun r='_ZNK4llvm12InstCombiner16shouldChangeTypeEjj'/>
+<fun r='_ZNK4llvm12InstCombiner16shouldChangeTypeEPNS_4TypeES2_'/>
+<fun r='_ZNK4llvm12InstCombiner14dyn_castNegValEPNS_5ValueE'/>
+<fun r='_ZN4llvm12InstCombiner19FindElementAtOffsetEPNS_11PointerTypeElRNS_15SmallVectorImplIPNS_5ValueEEE'/>
+<fun r='_ZN4llvm12InstCombiner18shouldOptimizeCastEPNS_8CastInstE'/>
+<fun r='_ZN4llvm12InstCombiner21OptimizeOverflowCheckENS_11Instruction9BinaryOpsEbPNS_5ValueES4_RS1_RS4_RPNS_8ConstantE'/>
+<fun r='_ZN4llvm12InstCombiner13visitCallBaseERNS_8CallBaseE'/>
+<fun r='_ZN4llvm12InstCombiner15tryOptimizeCallEPNS_8CallInstE'/>
+<fun r='_ZN4llvm12InstCombiner26transformConstExprCastCallERNS_8CallBaseE'/>
+<fun r='_ZN4llvm12InstCombiner30transformCallThroughTrampolineERNS_8CallBaseERNS_13IntrinsicInstE'/>
+<fun r='_ZN4llvm12InstCombiner18simplifyMaskedLoadERNS_13IntrinsicInstE'/>
+<fun r='_ZN4llvm12InstCombiner19simplifyMaskedStoreERNS_13IntrinsicInstE'/>
+<fun r='_ZN4llvm12InstCombiner20simplifyMaskedGatherERNS_13IntrinsicInstE'/>
+<fun r='_ZN4llvm12InstCombiner21simplifyMaskedScatterERNS_13IntrinsicInstE'/>
+<fun r='_ZN4llvm12InstCombiner17transformZExtICmpEPNS_8ICmpInstERNS_8ZExtInstEb'/>
+<fun r='_ZN4llvm12InstCombiner17transformSExtICmpEPNS_8ICmpInstERNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner24willNotOverflowSignedAddEPKNS_5ValueES3_RKNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner26willNotOverflowUnsignedAddEPKNS_5ValueES3_RKNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner18willNotOverflowAddEPKNS_5ValueES3_RKNS_11InstructionEb'/>
+<fun r='_ZNK4llvm12InstCombiner24willNotOverflowSignedSubEPKNS_5ValueES3_RKNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner26willNotOverflowUnsignedSubEPKNS_5ValueES3_RKNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner18willNotOverflowSubEPKNS_5ValueES3_RKNS_11InstructionEb'/>
+<fun r='_ZNK4llvm12InstCombiner24willNotOverflowSignedMulEPKNS_5ValueES3_RKNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner26willNotOverflowUnsignedMulEPKNS_5ValueES3_RKNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner18willNotOverflowMulEPKNS_5ValueES3_RKNS_11InstructionEb'/>
+<fun r='_ZNK4llvm12InstCombiner15willNotOverflowENS_11Instruction9BinaryOpsEPKNS_5ValueES5_RKS1_b'/>
+<fun r='_ZN4llvm12InstCombiner13EmitGEPOffsetEPNS_4UserE'/>
+<fun r='_ZN4llvm12InstCombiner12scalarizePHIERNS_18ExtractElementInstEPNS_7PHINodeE'/>
+<fun r='_ZN4llvm12InstCombiner22foldCastedBitwiseLogicERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner11narrowBinOpERNS_9TruncInstE'/>
+<fun r='_ZN4llvm12InstCombiner17narrowMaskedBinOpERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner22narrowMathIfNoOverflowERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner12narrowRotateERNS_9TruncInstE'/>
+<fun r='_ZN4llvm12InstCombiner22optimizeBitCastFromPhiERNS_8CastInstEPNS_7PHINodeE'/>
+<fun r='_ZN4llvm12InstCombiner20isEliminableCastPairEPKNS_8CastInstES3_'/>
+<fun r='_ZN4llvm12InstCombiner14foldAndOfICmpsEPNS_8ICmpInstES2_RNS_11InstructionE'/>
+<fun r='_ZN4llvm12InstCombiner13foldOrOfICmpsEPNS_8ICmpInstES2_RNS_11InstructionE'/>
+<fun r='_ZN4llvm12InstCombiner14foldXorOfICmpsEPNS_8ICmpInstES2_'/>
+<fun r='_ZN4llvm12InstCombiner16foldLogicOfFCmpsEPNS_8FCmpInstES2_b'/>
+<fun r='_ZN4llvm12InstCombiner29foldAndOrOfICmpsOfAndWithPow2EPNS_8ICmpInstES2_bRNS_11InstructionE'/>
+<fun r='_ZN4llvm12InstCombiner20matchSelectFromAndOrEPNS_5ValueES2_S2_S2_'/>
+<fun r='_ZN4llvm12InstCombiner18getSelectConditionEPNS_5ValueES2_'/>
+<fun r='_ZN4llvm12InstCombiner31foldIntrinsicWithOverflowCommonEPNS_13IntrinsicInstE'/>
+<fun r='_ZN4llvm12InstCombiner19InsertNewInstBeforeEPNS_11InstructionERS1_'/>
+<fun r='_ZN4llvm12InstCombiner17InsertNewInstWithEPNS_11InstructionERS1_'/>
+<fun r='_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE'/>
+<fun r='_ZN4llvm12InstCombiner19CreateOverflowTupleEPNS_13IntrinsicInstEPNS_5ValueEPNS_8ConstantE'/>
+<fun r='_ZN4llvm12InstCombiner30CreateNonTerminatorUnreachableEPNS_11InstructionE'/>
+<fun r='_ZN4llvm12InstCombiner21eraseInstFromFunctionERNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner16computeKnownBitsEPKNS_5ValueERNS_9KnownBitsEjPKNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner16computeKnownBitsEPKNS_5ValueEjPKNS_11InstructionE'/>
+<fun r='_ZN4llvm12InstCombiner22isKnownToBeAPowerOfTwoEPKNS_5ValueEbjPKNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner17MaskedValueIsZeroEPKNS_5ValueERKNS_5APIntEjPKNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner18ComputeNumSignBitsEPKNS_5ValueEjPKNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner29computeOverflowForUnsignedMulEPKNS_5ValueES3_PKNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner27computeOverflowForSignedMulEPKNS_5ValueES3_PKNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner29computeOverflowForUnsignedAddEPKNS_5ValueES3_PKNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner27computeOverflowForSignedAddEPKNS_5ValueES3_PKNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner29computeOverflowForUnsignedSubEPKNS_5ValueES3_PKNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner27computeOverflowForSignedSubEPKNS_5ValueES3_PKNS_11InstructionE'/>
+<fun r='_ZNK4llvm12InstCombiner15computeOverflowENS_11Instruction9BinaryOpsEbPNS_5ValueES4_PS1_'/>
+<mbr r='llvm::InstCombiner::MaxArraySizeForCombine' o='1216' t='uint64_t'/>
+<fun r='_ZN4llvm12InstCombiner32SimplifyAssociativeOrCommutativeERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner29SimplifyUsingDistributiveLawsERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner24SimplifyAddWithRemainderERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner30SimplifySelectsFeedingBinaryOpERNS_14BinaryOperatorEPNS_5ValueES4_'/>
+<fun r='_ZN4llvm12InstCombiner16tryFactorizationERNS_14BinaryOperatorENS_11Instruction9BinaryOpsEPNS_5ValueES6_S6_S6_'/>
+<fun r='_ZN4llvm12InstCombiner23matchThreeWayIntCompareEPNS_10SelectInstERPNS_5ValueES5_RPNS_11ConstantIntES8_S8_'/>
+<fun r='_ZN4llvm12InstCombiner23SimplifyDemandedUseBitsEPNS_5ValueENS_5APIntERNS_9KnownBitsEjPNS_11InstructionE'/>
+<fun r='_ZN4llvm12InstCombiner20SimplifyDemandedBitsEPNS_11InstructionEjRKNS_5APIntERNS_9KnownBitsEj'/>
+<fun r='_ZN4llvm12InstCombiner31SimplifyMultipleUseDemandedBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjS2_'/>
+<fun r='_ZN4llvm12InstCombiner26simplifyShrShlDemandedBitsEPNS_11InstructionERKNS_5APIntES2_S5_S5_RNS_9KnownBitsE'/>
+<fun r='_ZN4llvm12InstCombiner31SimplifyDemandedInstructionBitsERNS_11InstructionE'/>
+<fun r='_ZN4llvm12InstCombiner37simplifyAMDGCNMemoryIntrinsicDemandedEPNS_13IntrinsicInstENS_5APIntEi'/>
+<fun r='_ZN4llvm12InstCombiner26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_j'/>
+<fun r='_ZN4llvm12InstCombiner15foldVectorBinopERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner13foldOpIntoPhiERNS_11InstructionEPNS_7PHINodeE'/>
+<fun r='_ZN4llvm12InstCombiner16FoldOpIntoSelectERNS_11InstructionEPNS_10SelectInstE'/>
+<fun r='_ZN4llvm12InstCombiner24foldBinOpIntoSelectOrPhiERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner19foldAddWithConstantERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner19FoldPHIArgOpIntoPHIERNS_7PHINodeE'/>
+<fun r='_ZN4llvm12InstCombiner22FoldPHIArgBinOpIntoPHIERNS_7PHINodeE'/>
+<fun r='_ZN4llvm12InstCombiner20FoldPHIArgGEPIntoPHIERNS_7PHINodeE'/>
+<fun r='_ZN4llvm12InstCombiner21FoldPHIArgLoadIntoPHIERNS_7PHINodeE'/>
+<fun r='_ZN4llvm12InstCombiner22FoldPHIArgZextsIntoPHIERNS_7PHINodeE'/>
+<fun r='_ZN4llvm12InstCombiner19FoldIntegerTypedPHIERNS_7PHINodeE'/>
+<fun r='_ZN4llvm12InstCombiner20PHIArgMergedDebugLocEPNS_11InstructionERNS_7PHINodeE'/>
+<fun r='_ZN4llvm12InstCombiner11foldGEPICmpEPNS_11GEPOperatorEPNS_5ValueENS_7CmpInst9PredicateERNS_11InstructionE'/>
+<fun r='_ZN4llvm12InstCombiner13foldAllocaCmpERNS_8ICmpInstEPKNS_10AllocaInstEPKNS_5ValueE'/>
+<fun r='_ZN4llvm12InstCombiner28foldCmpLoadFromIndexedGlobalEPNS_17GetElementPtrInstEPNS_14GlobalVariableERNS_7CmpInstEPNS_11ConstantIntE'/>
+<fun r='_ZN4llvm12InstCombiner20foldFCmpIntToFPConstERNS_8FCmpInstEPNS_11InstructionEPNS_8ConstantE'/>
+<fun r='_ZN4llvm12InstCombiner18foldICmpAddOpConstEPNS_5ValueERKNS_5APIntENS_7CmpInst9PredicateE'/>
+<fun r='_ZN4llvm12InstCombiner23foldICmpWithCastAndCastERNS_8ICmpInstE'/>
+<fun r='_ZN4llvm12InstCombiner22foldICmpUsingKnownBitsERNS_8ICmpInstE'/>
+<fun r='_ZN4llvm12InstCombiner26foldICmpWithDominatingICmpERNS_8ICmpInstE'/>
+<fun r='_ZN4llvm12InstCombiner20foldICmpWithConstantERNS_8ICmpInstE'/>
+<fun r='_ZN4llvm12InstCombiner24foldICmpInstWithConstantERNS_8ICmpInstE'/>
+<fun r='_ZN4llvm12InstCombiner30foldICmpInstWithConstantNotIntERNS_8ICmpInstE'/>
+<fun r='_ZN4llvm12InstCombiner13foldICmpBinOpERNS_8ICmpInstE'/>
+<fun r='_ZN4llvm12InstCombiner16foldICmpEqualityERNS_8ICmpInstE'/>
+<fun r='_ZN4llvm12InstCombiner16foldICmpWithZeroERNS_8ICmpInstE'/>
+<fun r='_ZN4llvm12InstCombiner22foldICmpSelectConstantERNS_8ICmpInstEPNS_10SelectInstEPNS_11ConstantIntE'/>
+<fun r='_ZN4llvm12InstCombiner21foldICmpTruncConstantERNS_8ICmpInstEPNS_9TruncInstERKNS_5APIntE'/>
+<fun r='_ZN4llvm12InstCombiner19foldICmpAndConstantERNS_8ICmpInstEPNS_14BinaryOperatorERKNS_5APIntE'/>
+<fun r='_ZN4llvm12InstCombiner19foldICmpXorConstantERNS_8ICmpInstEPNS_14BinaryOperatorERKNS_5APIntE'/>
+<fun r='_ZN4llvm12InstCombiner18foldICmpOrConstantERNS_8ICmpInstEPNS_14BinaryOperatorERKNS_5APIntE'/>
+<fun r='_ZN4llvm12InstCombiner19foldICmpMulConstantERNS_8ICmpInstEPNS_14BinaryOperatorERKNS_5APIntE'/>
+<fun r='_ZN4llvm12InstCombiner19foldICmpShlConstantERNS_8ICmpInstEPNS_14BinaryOperatorERKNS_5APIntE'/>
+<fun r='_ZN4llvm12InstCombiner19foldICmpShrConstantERNS_8ICmpInstEPNS_14BinaryOperatorERKNS_5APIntE'/>
+<fun r='_ZN4llvm12InstCombiner20foldICmpUDivConstantERNS_8ICmpInstEPNS_14BinaryOperatorERKNS_5APIntE'/>
+<fun r='_ZN4llvm12InstCombiner19foldICmpDivConstantERNS_8ICmpInstEPNS_14BinaryOperatorERKNS_5APIntE'/>
+<fun r='_ZN4llvm12InstCombiner19foldICmpSubConstantERNS_8ICmpInstEPNS_14BinaryOperatorERKNS_5APIntE'/>
+<fun r='_ZN4llvm12InstCombiner19foldICmpAddConstantERNS_8ICmpInstEPNS_14BinaryOperatorERKNS_5APIntE'/>
+<fun r='_ZN4llvm12InstCombiner21foldICmpAndConstConstERNS_8ICmpInstEPNS_14BinaryOperatorERKNS_5APIntE'/>
+<fun r='_ZN4llvm12InstCombiner16foldICmpAndShiftERNS_8ICmpInstEPNS_14BinaryOperatorERKNS_5APIntES7_'/>
+<fun r='_ZN4llvm12InstCombiner21foldICmpShrConstConstERNS_8ICmpInstEPNS_5ValueERKNS_5APIntES7_'/>
+<fun r='_ZN4llvm12InstCombiner21foldICmpShlConstConstERNS_8ICmpInstEPNS_5ValueERKNS_5APIntES7_'/>
+<fun r='_ZN4llvm12InstCombiner33foldICmpBinOpEqualityWithConstantERNS_8ICmpInstEPNS_14BinaryOperatorERKNS_5APIntE'/>
+<fun r='_ZN4llvm12InstCombiner29foldICmpIntrinsicWithConstantERNS_8ICmpInstEPNS_13IntrinsicInstERKNS_5APIntE'/>
+<fun r='_ZN4llvm12InstCombiner31foldICmpEqIntrinsicWithConstantERNS_8ICmpInstEPNS_13IntrinsicInstERKNS_5APIntE'/>
+<fun r='_ZN4llvm12InstCombiner18foldSelectExtConstERNS_10SelectInstE'/>
+<fun r='_ZN4llvm12InstCombiner14foldSelectOpOpERNS_10SelectInstEPNS_11InstructionES4_'/>
+<fun r='_ZN4llvm12InstCombiner16foldSelectIntoOpERNS_10SelectInstEPNS_5ValueES4_'/>
+<fun r='_ZN4llvm12InstCombiner12foldSPFofSPFEPNS_11InstructionENS_19SelectPatternFlavorEPNS_5ValueES5_RS1_S3_S5_'/>
+<fun r='_ZN4llvm12InstCombiner22foldSelectInstWithICmpERNS_10SelectInstEPNS_8ICmpInstE'/>
+<fun r='_ZN4llvm12InstCombiner8OptAndOpEPNS_14BinaryOperatorEPNS_11ConstantIntES4_RS1_'/>
+<fun r='_ZN4llvm12InstCombiner15insertRangeTestEPNS_5ValueERKNS_5APIntES5_bb'/>
+<fun r='_ZN4llvm12InstCombiner23PromoteCastOfAllocationERNS_11BitCastInstERNS_10AllocaInstE'/>
+<fun r='_ZN4llvm12InstCombiner23mergeStoreIntoSuccessorERNS_9StoreInstE'/>
+<fun r='_ZN4llvm12InstCombiner10matchBSwapERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner22SimplifyAnyMemTransferEPNS_18AnyMemTransferInstE'/>
+<fun r='_ZN4llvm12InstCombiner17SimplifyAnyMemSetEPNS_13AnyMemSetInstE'/>
+<fun r='_ZN4llvm12InstCombiner23EvaluateInDifferentTypeEPNS_5ValueEPNS_4TypeEb'/>
+<fun r='_ZN4llvm12InstCombiner7DescaleEPNS_5ValueENS_5APIntERb'/>
+<fun r='_ZN4llvm12InstCombiner19foldAddWithConstantERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner24SimplifyAddWithRemainderERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner8visitAddERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner9visitFAddERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner25OptimizePointerDifferenceEPNS_5ValueES2_PNS_4TypeE'/>
+<fun r='_ZN4llvm12InstCombiner8visitSubERNS_14BinaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner9visitFNegERNS_13UnaryOperatorE'/>
+<fun r='_ZN4llvm12InstCombiner9visitFSubERNS_14BinaryOperatorE'/>

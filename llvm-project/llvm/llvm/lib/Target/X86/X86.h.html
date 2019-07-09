@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>X86.h source code [llvm/llvm/lib/Target/X86/X86.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/Target/X86/X86.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>lib</a>/<a href='..'>Target</a>/<a href='./'>X86</a>/<a href='X86.h.html'>X86.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- X86.h - Top-level interface for X86 representation ------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file contains the entry points for global functions defined in the x86</i></td></tr>
+<tr><th id="10">10</th><td><i>// target library, as used by the LLVM JIT.</i></td></tr>
+<tr><th id="11">11</th><td><i>//</i></td></tr>
+<tr><th id="12">12</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><u>#<span data-ppcond="14">ifndef</span> <span class="macro" data-ref="_M/LLVM_LIB_TARGET_X86_X86_H">LLVM_LIB_TARGET_X86_X86_H</span></u></td></tr>
+<tr><th id="15">15</th><td><u>#define <dfn class="macro" id="_M/LLVM_LIB_TARGET_X86_X86_H" data-ref="_M/LLVM_LIB_TARGET_X86_X86_H">LLVM_LIB_TARGET_X86_X86_H</dfn></u></td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../../include/llvm/Support/CodeGen.h.html">"llvm/Support/CodeGen.h"</a></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><b>class</b> <a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass" id="llvm::FunctionPass">FunctionPass</a>;</td></tr>
+<tr><th id="22">22</th><td><b>class</b> <a class="type" href="../../../include/llvm/Pass.h.html#llvm::ImmutablePass" title='llvm::ImmutablePass' data-ref="llvm::ImmutablePass" id="llvm::ImmutablePass">ImmutablePass</a>;</td></tr>
+<tr><th id="23">23</th><td><b>class</b> <a class="type" href="../../../include/llvm/CodeGen/GlobalISel/InstructionSelector.h.html#llvm::InstructionSelector" title='llvm::InstructionSelector' data-ref="llvm::InstructionSelector" id="llvm::InstructionSelector">InstructionSelector</a>;</td></tr>
+<tr><th id="24">24</th><td><b>class</b> <a class="type" href="../../../include/llvm/Pass.h.html#llvm::ModulePass" title='llvm::ModulePass' data-ref="llvm::ModulePass" id="llvm::ModulePass">ModulePass</a>;</td></tr>
+<tr><th id="25">25</th><td><b>class</b> <a class="type" href="../../../include/llvm/PassRegistry.h.html#llvm::PassRegistry" title='llvm::PassRegistry' data-ref="llvm::PassRegistry" id="llvm::PassRegistry">PassRegistry</a>;</td></tr>
+<tr><th id="26">26</th><td><b>class</b> <dfn class="type" id="llvm::X86RegisterBankInfo" title='llvm::X86RegisterBankInfo' data-ref="llvm::X86RegisterBankInfo">X86RegisterBankInfo</dfn>;</td></tr>
+<tr><th id="27">27</th><td><b>class</b> <a class="type" href="X86Subtarget.h.html#llvm::X86Subtarget" title='llvm::X86Subtarget' data-ref="llvm::X86Subtarget" id="llvm::X86Subtarget">X86Subtarget</a>;</td></tr>
+<tr><th id="28">28</th><td><b>class</b> <a class="type" href="X86ISelLowering.h.html#llvm::X86TargetMachine" title='llvm::X86TargetMachine' data-ref="llvm::X86TargetMachine" id="llvm::X86TargetMachine">X86TargetMachine</a>;</td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><i class="doc">/// This pass converts a legalized DAG into a X86-specific DAG, ready for</i></td></tr>
+<tr><th id="31">31</th><td><i class="doc">/// instruction scheduling.</i></td></tr>
+<tr><th id="32">32</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm16createX86ISelDagERNS_16X86TargetMachineENS_10CodeGenOpt5LevelE" title='llvm::createX86ISelDag' data-ref="_ZN4llvm16createX86ISelDagERNS_16X86TargetMachineENS_10CodeGenOpt5LevelE">createX86ISelDag</dfn>(<a class="type" href="X86ISelLowering.h.html#llvm::X86TargetMachine" title='llvm::X86TargetMachine' data-ref="llvm::X86TargetMachine">X86TargetMachine</a> &amp;<dfn class="local col8 decl" id="658TM" title='TM' data-type='llvm::X86TargetMachine &amp;' data-ref="658TM">TM</dfn>,</td></tr>
+<tr><th id="33">33</th><td>                               <span class="namespace">CodeGenOpt::</span><a class="type" href="../../../include/llvm/Support/CodeGen.h.html#llvm::CodeGenOpt::Level" title='llvm::CodeGenOpt::Level' data-ref="llvm::CodeGenOpt::Level">Level</a> <dfn class="local col9 decl" id="659OptLevel" title='OptLevel' data-type='CodeGenOpt::Level' data-ref="659OptLevel">OptLevel</dfn>);</td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><i class="doc">/// This pass initializes a global base register for PIC on x86-32.</i></td></tr>
+<tr><th id="36">36</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm26createX86GlobalBaseRegPassEv" title='llvm::createX86GlobalBaseRegPass' data-ref="_ZN4llvm26createX86GlobalBaseRegPassEv">createX86GlobalBaseRegPass</dfn>();</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><i class="doc">/// This pass combines multiple accesses to local-dynamic TLS variables so that</i></td></tr>
+<tr><th id="39">39</th><td><i class="doc">/// the TLS base address for the module is only fetched once per execution path</i></td></tr>
+<tr><th id="40">40</th><td><i class="doc">/// through the function.</i></td></tr>
+<tr><th id="41">41</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm32createCleanupLocalDynamicTLSPassEv" title='llvm::createCleanupLocalDynamicTLSPass' data-ref="_ZN4llvm32createCleanupLocalDynamicTLSPassEv">createCleanupLocalDynamicTLSPass</dfn>();</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><i class="doc">/// This function returns a pass which converts floating-point register</i></td></tr>
+<tr><th id="44">44</th><td><i class="doc">/// references and pseudo instructions into floating-point stack references and</i></td></tr>
+<tr><th id="45">45</th><td><i class="doc">/// physical instructions.</i></td></tr>
+<tr><th id="46">46</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm36createX86FloatingPointStackifierPassEv" title='llvm::createX86FloatingPointStackifierPass' data-ref="_ZN4llvm36createX86FloatingPointStackifierPassEv">createX86FloatingPointStackifierPass</dfn>();</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><i class="doc">/// This pass inserts AVX vzeroupper instructions before each call to avoid</i></td></tr>
+<tr><th id="49">49</th><td><i class="doc">/// transition penalty between functions encoded with AVX and SSE.</i></td></tr>
+<tr><th id="50">50</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm28createX86IssueVZeroUpperPassEv" title='llvm::createX86IssueVZeroUpperPass' data-ref="_ZN4llvm28createX86IssueVZeroUpperPassEv">createX86IssueVZeroUpperPass</dfn>();</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><i class="doc">/// This pass inserts ENDBR instructions before indirect jump/call</i></td></tr>
+<tr><th id="53">53</th><td><i class="doc">/// destinations as part of CET IBT mechanism.</i></td></tr>
+<tr><th id="54">54</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm35createX86IndirectBranchTrackingPassEv" title='llvm::createX86IndirectBranchTrackingPass' data-ref="_ZN4llvm35createX86IndirectBranchTrackingPassEv">createX86IndirectBranchTrackingPass</dfn>();</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><i class="doc">/// Return a pass that pads short functions with NOOPs.</i></td></tr>
+<tr><th id="57">57</th><td><i class="doc">/// This will prevent a stall when returning on the Atom.</i></td></tr>
+<tr><th id="58">58</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm26createX86PadShortFunctionsEv" title='llvm::createX86PadShortFunctions' data-ref="_ZN4llvm26createX86PadShortFunctionsEv">createX86PadShortFunctions</dfn>();</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><i class="doc">/// Return a pass that selectively replaces certain instructions (like add,</i></td></tr>
+<tr><th id="61">61</th><td><i class="doc">/// sub, inc, dec, some shifts, and some multiplies) by equivalent LEA</i></td></tr>
+<tr><th id="62">62</th><td><i class="doc">/// instructions, in order to eliminate execution delays in some processors.</i></td></tr>
+<tr><th id="63">63</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm18createX86FixupLEAsEv" title='llvm::createX86FixupLEAs' data-ref="_ZN4llvm18createX86FixupLEAsEv">createX86FixupLEAs</dfn>();</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><i class="doc">/// Return a pass that removes redundant LEA instructions and redundant address</i></td></tr>
+<tr><th id="66">66</th><td><i class="doc">/// recalculations.</i></td></tr>
+<tr><th id="67">67</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm21createX86OptimizeLEAsEv" title='llvm::createX86OptimizeLEAs' data-ref="_ZN4llvm21createX86OptimizeLEAsEv">createX86OptimizeLEAs</dfn>();</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><i class="doc">/// Return a pass that transforms setcc + movzx pairs into xor + setcc.</i></td></tr>
+<tr><th id="70">70</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm19createX86FixupSetCCEv" title='llvm::createX86FixupSetCC' data-ref="_ZN4llvm19createX86FixupSetCCEv">createX86FixupSetCC</dfn>();</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><i class="doc">/// Return a pass that folds conditional branch jumps.</i></td></tr>
+<tr><th id="73">73</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm22createX86CondBrFoldingEv" title='llvm::createX86CondBrFolding' data-ref="_ZN4llvm22createX86CondBrFoldingEv">createX86CondBrFolding</dfn>();</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><i class="doc">/// Return a pass that avoids creating store forward block issues in the hardware.</i></td></tr>
+<tr><th id="76">76</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm35createX86AvoidStoreForwardingBlocksEv" title='llvm::createX86AvoidStoreForwardingBlocks' data-ref="_ZN4llvm35createX86AvoidStoreForwardingBlocksEv">createX86AvoidStoreForwardingBlocks</dfn>();</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><i class="doc">/// Return a pass that lowers EFLAGS copy pseudo instructions.</i></td></tr>
+<tr><th id="79">79</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm30createX86FlagsCopyLoweringPassEv" title='llvm::createX86FlagsCopyLoweringPass' data-ref="_ZN4llvm30createX86FlagsCopyLoweringPassEv">createX86FlagsCopyLoweringPass</dfn>();</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td><i class="doc">/// Return a pass that expands WinAlloca pseudo-instructions.</i></td></tr>
+<tr><th id="82">82</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm26createX86WinAllocaExpanderEv" title='llvm::createX86WinAllocaExpander' data-ref="_ZN4llvm26createX86WinAllocaExpanderEv">createX86WinAllocaExpander</dfn>();</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><i class="doc">/// Return a pass that optimizes the code-size of x86 call sequences. This is</i></td></tr>
+<tr><th id="85">85</th><td><i class="doc">/// done by replacing esp-relative movs with pushes.</i></td></tr>
+<tr><th id="86">86</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm30createX86CallFrameOptimizationEv" title='llvm::createX86CallFrameOptimization' data-ref="_ZN4llvm30createX86CallFrameOptimizationEv">createX86CallFrameOptimization</dfn>();</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><i class="doc">/// Return an IR pass that inserts EH registration stack objects and explicit</i></td></tr>
+<tr><th id="89">89</th><td><i class="doc">/// EH state updates. This pass must run after EH preparation, which does</i></td></tr>
+<tr><th id="90">90</th><td><i class="doc">/// Windows-specific but architecture-neutral preparation.</i></td></tr>
+<tr><th id="91">91</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm23createX86WinEHStatePassEv" title='llvm::createX86WinEHStatePass' data-ref="_ZN4llvm23createX86WinEHStatePassEv">createX86WinEHStatePass</dfn>();</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td><i class="doc">/// Return a Machine IR pass that expands X86-specific pseudo</i></td></tr>
+<tr><th id="94">94</th><td><i class="doc">/// instructions into a sequence of actual instructions. This pass</i></td></tr>
+<tr><th id="95">95</th><td><i class="doc">/// must run after prologue/epilogue insertion and before lowering</i></td></tr>
+<tr><th id="96">96</th><td><i class="doc">/// the MachineInstr to MC.</i></td></tr>
+<tr><th id="97">97</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm25createX86ExpandPseudoPassEv" title='llvm::createX86ExpandPseudoPass' data-ref="_ZN4llvm25createX86ExpandPseudoPassEv">createX86ExpandPseudoPass</dfn>();</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td><i class="doc">/// This pass converts X86 cmov instructions into branch when profitable.</i></td></tr>
+<tr><th id="100">100</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm26createX86CmovConverterPassEv" title='llvm::createX86CmovConverterPass' data-ref="_ZN4llvm26createX86CmovConverterPassEv">createX86CmovConverterPass</dfn>();</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td><i class="doc">/// Return a Machine IR pass that selectively replaces</i></td></tr>
+<tr><th id="103">103</th><td><i class="doc">/// certain byte and word instructions by equivalent 32 bit instructions,</i></td></tr>
+<tr><th id="104">104</th><td><i class="doc">/// in order to eliminate partial register usage, false dependences on</i></td></tr>
+<tr><th id="105">105</th><td><i class="doc">/// the upper portions of registers, and to save code size.</i></td></tr>
+<tr><th id="106">106</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm21createX86FixupBWInstsEv" title='llvm::createX86FixupBWInsts' data-ref="_ZN4llvm21createX86FixupBWInstsEv">createX86FixupBWInsts</dfn>();</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td><i class="doc">/// Return a Machine IR pass that reassigns instruction chains from one domain</i></td></tr>
+<tr><th id="109">109</th><td><i class="doc">/// to another, when profitable.</i></td></tr>
+<tr><th id="110">110</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm31createX86DomainReassignmentPassEv" title='llvm::createX86DomainReassignmentPass' data-ref="_ZN4llvm31createX86DomainReassignmentPassEv">createX86DomainReassignmentPass</dfn>();</td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td><i class="doc">/// This pass replaces EVEX encoded of AVX-512 instructiosn by VEX</i></td></tr>
+<tr><th id="113">113</th><td><i class="doc">/// encoding when possible in order to reduce code size.</i></td></tr>
+<tr><th id="114">114</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm23createX86EvexToVexInstsEv" title='llvm::createX86EvexToVexInsts' data-ref="_ZN4llvm23createX86EvexToVexInstsEv">createX86EvexToVexInsts</dfn>();</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td><i class="doc">/// This pass creates the thunks for the retpoline feature.</i></td></tr>
+<tr><th id="117">117</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm28createX86RetpolineThunksPassEv" title='llvm::createX86RetpolineThunksPass' data-ref="_ZN4llvm28createX86RetpolineThunksPassEv">createX86RetpolineThunksPass</dfn>();</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td><i class="doc">/// This pass ensures instructions featuring a memory operand</i></td></tr>
+<tr><th id="120">120</th><td><i class="doc">/// have distinctive &lt;LineNumber, Discriminator&gt; (with respect to eachother)</i></td></tr>
+<tr><th id="121">121</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm31createX86DiscriminateMemOpsPassEv" title='llvm::createX86DiscriminateMemOpsPass' data-ref="_ZN4llvm31createX86DiscriminateMemOpsPassEv">createX86DiscriminateMemOpsPass</dfn>();</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td><i class="doc">/// This pass applies profiling information to insert cache prefetches.</i></td></tr>
+<tr><th id="124">124</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm27createX86InsertPrefetchPassEv" title='llvm::createX86InsertPrefetchPass' data-ref="_ZN4llvm27createX86InsertPrefetchPassEv">createX86InsertPrefetchPass</dfn>();</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td><a class="type" href="../../../include/llvm/CodeGen/GlobalISel/InstructionSelector.h.html#llvm::InstructionSelector" title='llvm::InstructionSelector' data-ref="llvm::InstructionSelector">InstructionSelector</a> *<dfn class="decl" id="_ZN4llvm28createX86InstructionSelectorERKNS_16X86TargetMachineERNS_12X86SubtargetERNS_19X86RegisterBankInfoE" title='llvm::createX86InstructionSelector' data-ref="_ZN4llvm28createX86InstructionSelectorERKNS_16X86TargetMachineERNS_12X86SubtargetERNS_19X86RegisterBankInfoE">createX86InstructionSelector</dfn>(<em>const</em> <a class="type" href="X86ISelLowering.h.html#llvm::X86TargetMachine" title='llvm::X86TargetMachine' data-ref="llvm::X86TargetMachine">X86TargetMachine</a> &amp;<dfn class="local col0 decl" id="660TM" title='TM' data-type='const llvm::X86TargetMachine &amp;' data-ref="660TM">TM</dfn>,</td></tr>
+<tr><th id="127">127</th><td>                                                  <a class="type" href="X86Subtarget.h.html#llvm::X86Subtarget" title='llvm::X86Subtarget' data-ref="llvm::X86Subtarget">X86Subtarget</a> &amp;,</td></tr>
+<tr><th id="128">128</th><td>                                                  <a class="type" href="#llvm::X86RegisterBankInfo" title='llvm::X86RegisterBankInfo' data-ref="llvm::X86RegisterBankInfo">X86RegisterBankInfo</a> &amp;);</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::FunctionPass" title='llvm::FunctionPass' data-ref="llvm::FunctionPass">FunctionPass</a> *<dfn class="decl" id="_ZN4llvm37createX86SpeculativeLoadHardeningPassEv" title='llvm::createX86SpeculativeLoadHardeningPass' data-ref="_ZN4llvm37createX86SpeculativeLoadHardeningPassEv">createX86SpeculativeLoadHardeningPass</dfn>();</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><em>void</em> <dfn class="decl" id="_ZN4llvm31initializeEvexToVexInstPassPassERNS_12PassRegistryE" title='llvm::initializeEvexToVexInstPassPass' data-ref="_ZN4llvm31initializeEvexToVexInstPassPassERNS_12PassRegistryE">initializeEvexToVexInstPassPass</dfn>(<a class="type" href="../../../include/llvm/PassRegistry.h.html#llvm::PassRegistry" title='llvm::PassRegistry' data-ref="llvm::PassRegistry">PassRegistry</a> &amp;);</td></tr>
+<tr><th id="133">133</th><td><em>void</em> <dfn class="decl" id="_ZN4llvm29initializeFixupBWInstPassPassERNS_12PassRegistryE" title='llvm::initializeFixupBWInstPassPass' data-ref="_ZN4llvm29initializeFixupBWInstPassPassERNS_12PassRegistryE">initializeFixupBWInstPassPass</dfn>(<a class="type" href="../../../include/llvm/PassRegistry.h.html#llvm::PassRegistry" title='llvm::PassRegistry' data-ref="llvm::PassRegistry">PassRegistry</a> &amp;);</td></tr>
+<tr><th id="134">134</th><td><em>void</em> <dfn class="decl" id="_ZN4llvm26initializeFixupLEAPassPassERNS_12PassRegistryE" title='llvm::initializeFixupLEAPassPass' data-ref="_ZN4llvm26initializeFixupLEAPassPassERNS_12PassRegistryE">initializeFixupLEAPassPass</dfn>(<a class="type" href="../../../include/llvm/PassRegistry.h.html#llvm::PassRegistry" title='llvm::PassRegistry' data-ref="llvm::PassRegistry">PassRegistry</a> &amp;);</td></tr>
+<tr><th id="135">135</th><td><em>void</em> <dfn class="decl" id="_ZN4llvm17initializeFPSPassERNS_12PassRegistryE" title='llvm::initializeFPSPass' data-ref="_ZN4llvm17initializeFPSPassERNS_12PassRegistryE">initializeFPSPass</dfn>(<a class="type" href="../../../include/llvm/PassRegistry.h.html#llvm::PassRegistry" title='llvm::PassRegistry' data-ref="llvm::PassRegistry">PassRegistry</a> &amp;);</td></tr>
+<tr><th id="136">136</th><td><em>void</em> <dfn class="decl" id="_ZN4llvm28initializeWinEHStatePassPassERNS_12PassRegistryE" title='llvm::initializeWinEHStatePassPass' data-ref="_ZN4llvm28initializeWinEHStatePassPassERNS_12PassRegistryE">initializeWinEHStatePassPass</dfn>(<a class="type" href="../../../include/llvm/PassRegistry.h.html#llvm::PassRegistry" title='llvm::PassRegistry' data-ref="llvm::PassRegistry">PassRegistry</a> &amp;);</td></tr>
+<tr><th id="137">137</th><td><em>void</em> <dfn class="decl" id="_ZN4llvm29initializeX86AvoidSFBPassPassERNS_12PassRegistryE" title='llvm::initializeX86AvoidSFBPassPass' data-ref="_ZN4llvm29initializeX86AvoidSFBPassPassERNS_12PassRegistryE">initializeX86AvoidSFBPassPass</dfn>(<a class="type" href="../../../include/llvm/PassRegistry.h.html#llvm::PassRegistry" title='llvm::PassRegistry' data-ref="llvm::PassRegistry">PassRegistry</a> &amp;);</td></tr>
+<tr><th id="138">138</th><td><em>void</em> <dfn class="decl" id="_ZN4llvm38initializeX86CallFrameOptimizationPassERNS_12PassRegistryE" title='llvm::initializeX86CallFrameOptimizationPass' data-ref="_ZN4llvm38initializeX86CallFrameOptimizationPassERNS_12PassRegistryE">initializeX86CallFrameOptimizationPass</dfn>(<a class="type" href="../../../include/llvm/PassRegistry.h.html#llvm::PassRegistry" title='llvm::PassRegistry' data-ref="llvm::PassRegistry">PassRegistry</a> &amp;);</td></tr>
+<tr><th id="139">139</th><td><em>void</em> <dfn class="decl" id="_ZN4llvm34initializeX86CmovConverterPassPassERNS_12PassRegistryE" title='llvm::initializeX86CmovConverterPassPass' data-ref="_ZN4llvm34initializeX86CmovConverterPassPassERNS_12PassRegistryE">initializeX86CmovConverterPassPass</dfn>(<a class="type" href="../../../include/llvm/PassRegistry.h.html#llvm::PassRegistry" title='llvm::PassRegistry' data-ref="llvm::PassRegistry">PassRegistry</a> &amp;);</td></tr>
+<tr><th id="140">140</th><td><em>void</em> <dfn class="decl" id="_ZN4llvm29initializeX86ExpandPseudoPassERNS_12PassRegistryE" title='llvm::initializeX86ExpandPseudoPass' data-ref="_ZN4llvm29initializeX86ExpandPseudoPassERNS_12PassRegistryE">initializeX86ExpandPseudoPass</dfn>(<a class="type" href="../../../include/llvm/PassRegistry.h.html#llvm::PassRegistry" title='llvm::PassRegistry' data-ref="llvm::PassRegistry">PassRegistry</a>&amp;);</td></tr>
+<tr><th id="141">141</th><td><em>void</em> <dfn class="decl" id="_ZN4llvm34initializeX86CondBrFoldingPassPassERNS_12PassRegistryE" title='llvm::initializeX86CondBrFoldingPassPass' data-ref="_ZN4llvm34initializeX86CondBrFoldingPassPassERNS_12PassRegistryE">initializeX86CondBrFoldingPassPass</dfn>(<a class="type" href="../../../include/llvm/PassRegistry.h.html#llvm::PassRegistry" title='llvm::PassRegistry' data-ref="llvm::PassRegistry">PassRegistry</a> &amp;);</td></tr>
+<tr><th id="142">142</th><td><em>void</em> <dfn class="decl" id="_ZN4llvm35initializeX86DomainReassignmentPassERNS_12PassRegistryE" title='llvm::initializeX86DomainReassignmentPass' data-ref="_ZN4llvm35initializeX86DomainReassignmentPassERNS_12PassRegistryE">initializeX86DomainReassignmentPass</dfn>(<a class="type" href="../../../include/llvm/PassRegistry.h.html#llvm::PassRegistry" title='llvm::PassRegistry' data-ref="llvm::PassRegistry">PassRegistry</a> &amp;);</td></tr>
+<tr><th id="143">143</th><td><em>void</em> <dfn class="decl" id="_ZN4llvm35initializeX86ExecutionDomainFixPassERNS_12PassRegistryE" title='llvm::initializeX86ExecutionDomainFixPass' data-ref="_ZN4llvm35initializeX86ExecutionDomainFixPassERNS_12PassRegistryE">initializeX86ExecutionDomainFixPass</dfn>(<a class="type" href="../../../include/llvm/PassRegistry.h.html#llvm::PassRegistry" title='llvm::PassRegistry' data-ref="llvm::PassRegistry">PassRegistry</a> &amp;);</td></tr>
+<tr><th id="144">144</th><td><em>void</em> <dfn class="decl" id="_ZN4llvm38initializeX86FlagsCopyLoweringPassPassERNS_12PassRegistryE" title='llvm::initializeX86FlagsCopyLoweringPassPass' data-ref="_ZN4llvm38initializeX86FlagsCopyLoweringPassPassERNS_12PassRegistryE">initializeX86FlagsCopyLoweringPassPass</dfn>(<a class="type" href="../../../include/llvm/PassRegistry.h.html#llvm::PassRegistry" title='llvm::PassRegistry' data-ref="llvm::PassRegistry">PassRegistry</a> &amp;);</td></tr>
+<tr><th id="145">145</th><td><em>void</em> <dfn class="decl" id="_ZN4llvm45initializeX86SpeculativeLoadHardeningPassPassERNS_12PassRegistryE" title='llvm::initializeX86SpeculativeLoadHardeningPassPass' data-ref="_ZN4llvm45initializeX86SpeculativeLoadHardeningPassPassERNS_12PassRegistryE">initializeX86SpeculativeLoadHardeningPassPass</dfn>(<a class="type" href="../../../include/llvm/PassRegistry.h.html#llvm::PassRegistry" title='llvm::PassRegistry' data-ref="llvm::PassRegistry">PassRegistry</a> &amp;);</td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td>} <i>// End llvm namespace</i></td></tr>
+<tr><th id="148">148</th><td></td></tr>
+<tr><th id="149">149</th><td><u>#<span data-ppcond="14">endif</span></u></td></tr>
+<tr><th id="150">150</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='X86AsmPrinter.cpp.html'>llvm/llvm/lib/Target/X86/X86AsmPrinter.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

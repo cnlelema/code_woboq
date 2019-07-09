@@ -1,0 +1,27 @@
+<dec f='llvm/llvm/include/llvm/Analysis/Loads.h' l='58' type='bool llvm::isSafeToLoadUnconditionally(llvm::Value * V, unsigned int Align, const llvm::DataLayout &amp; DL, llvm::Instruction * ScanFrom = nullptr, const llvm::DominatorTree * DT = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/Loads.h' l='50'>/// Return true if we know that executing a load from this value cannot trap.
+///
+/// If DT and ScanFrom are specified this method performs context-sensitive
+/// analysis and returns true if it is safe to load immediately before ScanFrom.
+///
+/// If it is not obviously safe to load from the specified pointer, we do a
+/// quick local scan of the basic block containing ScanFrom, to determine if
+/// the address is already accessed.</doc>
+<def f='llvm/llvm/lib/Analysis/Loads.cpp' l='200' ll='314' type='bool llvm::isSafeToLoadUnconditionally(llvm::Value * V, unsigned int Align, const llvm::DataLayout &amp; DL, llvm::Instruction * ScanFrom = nullptr, const llvm::DominatorTree * DT = nullptr)'/>
+<doc f='llvm/llvm/lib/Analysis/Loads.cpp' l='189'>/// Check if executing a load of this pointer value cannot trap.
+///
+/// If DT and ScanFrom are specified this method performs context-sensitive
+/// analysis and returns true if it is safe to load immediately before ScanFrom.
+///
+/// If it is not obviously safe to load from the specified pointer, we do
+/// a quick local scan of the basic block containing \c ScanFrom, to determine
+/// if the address is already accessed.
+///
+/// This uses the pointee type to determine how many bytes need to be safe to
+/// load from the pointer.</doc>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1067' u='c' c='_ZN4llvm12InstCombiner13visitLoadInstERNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineLoadStoreAlloca.cpp' l='1068' u='c' c='_ZN4llvm12InstCombiner13visitLoadInstERNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SROA.cpp' l='1223' u='c' c='_ZL20isSafePHIToSpeculateRN4llvm7PHINodeE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SROA.cpp' l='1313' u='c' c='_ZL23isSafeSelectToSpeculateRN4llvm10SelectInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SROA.cpp' l='1315' u='c' c='_ZL23isSafeSelectToSpeculateRN4llvm10SelectInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/TailRecursionElimination.cpp' l='343' u='c' c='_ZL16canMoveAboveCallPN4llvm11InstructionEPNS_8CallInstEPNS_9AAResultsE'/>

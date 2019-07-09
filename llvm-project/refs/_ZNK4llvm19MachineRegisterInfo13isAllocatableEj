@@ -1,0 +1,29 @@
+<def f='llvm/llvm/include/llvm/CodeGen/MachineRegisterInfo.h' l='898' ll='901' type='bool llvm::MachineRegisterInfo::isAllocatable(unsigned int PhysReg) const'/>
+<use f='llvm/llvm/lib/CodeGen/AggressiveAntiDepBreaker.cpp' l='650' u='c' c='_ZN4llvm24AggressiveAntiDepBreaker25FindSuitableFreeRegistersEjRSt3mapIPKNS_19TargetRegisterClassEjSt4lessIS4_ESaISt4pairIKS4_jEEERS1_IjjS5_IjESaIS7_IKjjEEE'/>
+<use f='llvm/llvm/lib/CodeGen/AggressiveAntiDepBreaker.cpp' l='861' u='c' c='_ZN4llvm24AggressiveAntiDepBreaker21BreakAntiDependenciesERKSt6vectorINS_5SUnitESaIS2_EENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES9_jRS10755327'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineRegisterInfo.h' l='892'>/// isAllocatable - Returns true when PhysReg belongs to an allocatable
+  /// register class and it hasn&apos;t been reserved.
+  ///
+  /// Allocatable registers may show up in the allocation order of some virtual
+  /// register, so a register allocator needs to track its liveness and
+  /// availability.</doc>
+<use f='llvm/llvm/lib/CodeGen/CalcSpillWeights.cpp' l='254' u='c' c='_ZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS_12LiveIntervalEPNS_9SlotIndexES4_'/>
+<use f='llvm/llvm/lib/CodeGen/CriticalAntiDepBreaker.cpp' l='561' u='c' c='_ZN4llvm22CriticalAntiDepBreaker21BreakAntiDependenciesERKSt6vectorINS_5SUnitESaIS2_EENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES9_jRS1_7404272'/>
+<use f='llvm/llvm/lib/CodeGen/MachineCSE.cpp' l='333' u='c' c='_ZNK12_GLOBAL__N_110MachineCSE16PhysRegDefsReachEPN4llvm12MachineInstrES3_RNS1_8SmallSetIjLj8ESt4lessIjEEERNS1_11SmallVectorISt4pairIjjELj2EEERb'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='1518' u='c' c='_ZL15computeLiveOutsRN4llvm15MachineFunctionERNS_18RegPressureTrackerERNS_7NodeSetE'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='1531' u='c' c='_ZL15computeLiveOutsRN4llvm15MachineFunctionERNS_18RegPressureTrackerERNS_7NodeSetE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineRegisterInfo.cpp' l='523' u='c' c='_ZNK4llvm19MachineRegisterInfo17isConstantPhysRegEj'/>
+<use f='llvm/llvm/lib/CodeGen/PeepholeOptimizer.cpp' l='1437' u='c' c='_ZN12_GLOBAL__N_117PeepholeOptimizer12isNAPhysCopyEj'/>
+<use f='llvm/llvm/lib/CodeGen/RegAllocFast.cpp' l='675' u='c' c='_ZN12_GLOBAL__N_112RegAllocFast12allocVirtRegERN4llvm12MachineInstrERNS0_7LiveRegEj'/>
+<use f='llvm/llvm/lib/CodeGen/RegAllocFast.cpp' l='696' u='c' c='_ZN12_GLOBAL__N_112RegAllocFast12allocVirtRegERN4llvm12MachineInstrERNS0_7LiveRegEj'/>
+<use f='llvm/llvm/lib/CodeGen/RegAllocFast.cpp' l='1063' u='c' c='_ZN12_GLOBAL__N_112RegAllocFast19allocateInstructionERN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/RegAllocFast.cpp' l='1172' u='c' c='_ZN12_GLOBAL__N_112RegAllocFast19allocateInstructionERN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/RegAllocFast.cpp' l='1257' u='c' c='_ZN12_GLOBAL__N_112RegAllocFast18allocateBasicBlockERN4llvm17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/RegAllocPBQP.cpp' l='458' u='c' c='_ZN12_GLOBAL__N_110Coalescing5applyERN4llvm4PBQP8RegAlloc11PBQPRAGraphE'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterPressure.cpp' l='508' u='c' c='_ZNK12_GLOBAL__N_125RegisterOperandsCollector7pushRegEjRN4llvm15SmallVectorImplINS1_16RegisterMaskPairEEE'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterPressure.cpp' l='543' u='c' c='_ZNK12_GLOBAL__N_125RegisterOperandsCollector12pushRegLanesEjjRN4llvm15SmallVectorImplINS1_16RegisterMaskPairEEE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/GCNNSAReassign.cpp' l='132' u='c' c='_ZNK12_GLOBAL__N_114GCNNSAReassign9canAssignEjj'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/GCNRegBankReassign.cpp' l='599' u='c' c='_ZNK12_GLOBAL__N_118GCNRegBankReassign11scavengeRegERN4llvm12LiveIntervalEj'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIFrameLowering.cpp' l='157' u='c' c='_ZNK4llvm15SIFrameLowering34getReservedPrivateSegmentBufferRegERKNS_12GCNSubtargetEPKNS_11SIInstrInfoEPKNS_14SIRegisterInfoEPNS_21SIMachineFunctionInf953228'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIFrameLowering.cpp' l='218' u='c' c='_ZNK4llvm15SIFrameLowering42getReservedPrivateSegmentWaveByteOffsetRegERKNS_12GCNSubtargetEPKNS_11SIInstrInfoEPKNS_14SIRegisterInfoEPNS_21SIMachineFun393513'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIRegisterInfo.cpp' l='1478' u='c' c='_ZNK4llvm14SIRegisterInfo18findUnusedRegisterERKNS_19MachineRegisterInfoEPKNS_19TargetRegisterClassERKNS_15MachineFunctionE'/>

@@ -1,0 +1,54 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<inh f='llvm/llvm/include/llvm/Support/TrailingObjects.h' l='233' c='llvm::TrailingObjects'/>
+<def f='llvm/clang/include/clang/AST/ExprCXX.h' l='3291' ll='3403'/>
+<size>32</size>
+<doc f='llvm/clang/include/clang/AST/ExprCXX.h' l='3270'>/// Describes an explicit type conversion that uses functional
+/// notion but could not be resolved because one or more arguments are
+/// type-dependent.
+///
+/// The explicit type conversions expressed by
+/// CXXUnresolvedConstructExpr have the form &lt;tt&gt;T(a1, a2, ..., aN)&lt;/tt&gt;,
+/// where \c T is some type and \c a1, \c a2, ..., \c aN are values, and
+/// either \c T is a dependent type or one or more of the &lt;tt&gt;a&lt;/tt&gt;&apos;s is
+/// type-dependent. For example, this would occur in a template such
+/// as:
+///
+/// \code
+///   template&lt;typename T, typename A1&gt;
+///   inline T make_a(const A1&amp; a1) {
+///     return T(a1);
+///   }
+/// \endcode
+///
+/// When the returned expression is instantiated, it may resolve to a
+/// constructor call, conversion function call, or some kind of type
+/// conversion.</doc>
+<mbr r='clang::CXXUnresolvedConstructExpr::TSI' o='128' t='clang::TypeSourceInfo *'/>
+<mbr r='clang::CXXUnresolvedConstructExpr::LParenLoc' o='192' t='clang::SourceLocation'/>
+<mbr r='clang::CXXUnresolvedConstructExpr::RParenLoc' o='224' t='clang::SourceLocation'/>
+<fun r='_ZN5clang26CXXUnresolvedConstructExprC1EPNS_14TypeSourceInfoENS_14SourceLocationEN4llvm8ArrayRefIPNS_4ExprEEES3_'/>
+<fun r='_ZN5clang26CXXUnresolvedConstructExprC1ENS_4Stmt10EmptyShellEj'/>
+<fun r='_ZN5clang26CXXUnresolvedConstructExpr6CreateERKNS_10ASTContextEPNS_14TypeSourceInfoENS_14SourceLocationEN4llvm8ArrayRefIPNS_4ExprEEES6_'/>
+<fun r='_ZN5clang26CXXUnresolvedConstructExpr11CreateEmptyERKNS_10ASTContextEj'/>
+<fun r='_ZNK5clang26CXXUnresolvedConstructExpr16getTypeAsWrittenEv'/>
+<fun r='_ZNK5clang26CXXUnresolvedConstructExpr17getTypeSourceInfoEv'/>
+<fun r='_ZNK5clang26CXXUnresolvedConstructExpr12getLParenLocEv'/>
+<fun r='_ZN5clang26CXXUnresolvedConstructExpr12setLParenLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang26CXXUnresolvedConstructExpr12getRParenLocEv'/>
+<fun r='_ZN5clang26CXXUnresolvedConstructExpr12setRParenLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang26CXXUnresolvedConstructExpr20isListInitializationEv'/>
+<fun r='_ZNK5clang26CXXUnresolvedConstructExpr8arg_sizeEv'/>
+<fun r='_ZN5clang26CXXUnresolvedConstructExpr9arg_beginEv'/>
+<fun r='_ZN5clang26CXXUnresolvedConstructExpr7arg_endEv'/>
+<fun r='_ZN5clang26CXXUnresolvedConstructExpr9argumentsEv'/>
+<fun r='_ZNK5clang26CXXUnresolvedConstructExpr9arg_beginEv'/>
+<fun r='_ZNK5clang26CXXUnresolvedConstructExpr7arg_endEv'/>
+<fun r='_ZNK5clang26CXXUnresolvedConstructExpr9argumentsEv'/>
+<fun r='_ZN5clang26CXXUnresolvedConstructExpr6getArgEj'/>
+<fun r='_ZNK5clang26CXXUnresolvedConstructExpr6getArgEj'/>
+<fun r='_ZN5clang26CXXUnresolvedConstructExpr6setArgEjPNS_4ExprE'/>
+<fun r='_ZNK5clang26CXXUnresolvedConstructExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang26CXXUnresolvedConstructExpr9getEndLocEv'/>
+<fun r='_ZN5clang26CXXUnresolvedConstructExpr7classofEPKNS_4StmtE'/>
+<fun r='_ZN5clang26CXXUnresolvedConstructExpr8childrenEv'/>
+<fun r='_ZNK5clang26CXXUnresolvedConstructExpr8childrenEv'/>

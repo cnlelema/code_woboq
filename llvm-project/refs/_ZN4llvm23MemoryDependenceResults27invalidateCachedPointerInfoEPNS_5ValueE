@@ -1,0 +1,19 @@
+<dec f='llvm/llvm/include/llvm/Analysis/MemoryDependenceAnalysis.h' l='426' type='void llvm::MemoryDependenceResults::invalidateCachedPointerInfo(llvm::Value * Ptr)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/MemoryDependenceAnalysis.h' l='419'>/// Invalidates cached information about the specified pointer, because it
+  /// may be too conservative in memdep.
+  ///
+  /// This is an optional call that can be used when the client detects an
+  /// equivalence between the pointer and some other value and replaces the
+  /// other value with ptr. This can make Ptr available in more places that
+  /// cached info does not necessarily keep.</doc>
+<def f='llvm/llvm/lib/Analysis/MemoryDependenceAnalysis.cpp' l='1525' ll='1535' type='void llvm::MemoryDependenceResults::invalidateCachedPointerInfo(llvm::Value * Ptr)'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1273' u='c' c='_ZN4llvm3GVN14PerformLoadPREEPNS_8LoadInstERNS_11SmallVectorINS_3gvn21AvailableValueInBlockELj64EEERNS3_IPNS_10BasicBlockELj64EEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1287' u='c' c='_ZN4llvm3GVN14PerformLoadPREEPNS_8LoadInstERNS_11SmallVectorINS_3gvn21AvailableValueInBlockELj64EEERNS3_IPNS_10BasicBlockELj64EEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1381' u='c' c='_ZN4llvm3GVN19processNonLocalLoadEPNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1507' u='c' c='_ZN4llvm3GVN11processLoadEPNS_8LoadInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1758' u='c' c='_ZN4llvm3GVN17propagateEqualityEPNS_5ValueES2_RKNS_14BasicBlockEdgeEb'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1836' u='c' c='_ZN4llvm3GVN17propagateEqualityEPNS_5ValueES2_RKNS_14BasicBlockEdgeEb'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1877' u='c' c='_ZN4llvm3GVN18processInstructionEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1988' u='c' c='_ZN4llvm3GVN18processInstructionEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='2317' u='c' c='_ZN4llvm3GVN16performScalarPREEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='2501' u='c' c='_ZN4llvm3GVN12addDeadBlockEPNS_10BasicBlockE'/>

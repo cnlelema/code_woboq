@@ -1,0 +1,80 @@
+<def f='llvm/llvm/include/llvm/Passes/PassBuilder.h' l='110' ll='718'/>
+<size>1592</size>
+<doc f='llvm/llvm/include/llvm/Passes/PassBuilder.h' l='104'>/// This class provides access to building LLVM&apos;s passes.
+///
+/// Its members provide the baseline state available to passes during their
+/// construction. The \c PassRegistry.def file specifies how to construct all
+/// of the built-in passes, and those may reference these members during
+/// construction.</doc>
+<mbr r='llvm::PassBuilder::TM' o='0' t='llvm::TargetMachine *'/>
+<mbr r='llvm::PassBuilder::PTO' o='64' t='llvm::PipelineTuningOptions'/>
+<mbr r='llvm::PassBuilder::PGOOpt' o='192' t='Optional&lt;llvm::PGOOptions&gt;'/>
+<mbr r='llvm::PassBuilder::PIC' o='1152' t='llvm::PassInstrumentationCallbacks *'/>
+<fun r='_ZN4llvm11PassBuilderC1EPNS_13TargetMachineENS_21PipelineTuningOptionsENS_8OptionalINS_10PGOOptionsEEEPNS_28PassInstrumentationCallbacksE'/>
+<fun r='_ZN4llvm11PassBuilder20crossRegisterProxiesERNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEERNS1_INS_8FunctionEJEEERNS1_INS_13Laz9651133'/>
+<fun r='_ZN4llvm11PassBuilder22registerModuleAnalysesERNS_15AnalysisManagerINS_6ModuleEJEEE'/>
+<fun r='_ZN4llvm11PassBuilder21registerCGSCCAnalysesERNS_15AnalysisManagerINS_13LazyCallGraph3SCCEJRS2_EEE'/>
+<fun r='_ZN4llvm11PassBuilder24registerFunctionAnalysesERNS_15AnalysisManagerINS_8FunctionEJEEE'/>
+<fun r='_ZN4llvm11PassBuilder20registerLoopAnalysesERNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEE'/>
+<fun r='_ZN4llvm11PassBuilder35buildFunctionSimplificationPipelineENS0_17OptimizationLevelENS0_12ThinLTOPhaseEb'/>
+<fun r='_ZN4llvm11PassBuilder33buildModuleSimplificationPipelineENS0_17OptimizationLevelENS0_12ThinLTOPhaseEb'/>
+<fun r='_ZN4llvm11PassBuilder31buildModuleOptimizationPipelineENS0_17OptimizationLevelEbb'/>
+<fun r='_ZN4llvm11PassBuilder29buildPerModuleDefaultPipelineENS0_17OptimizationLevelEbb'/>
+<fun r='_ZN4llvm11PassBuilder34buildThinLTOPreLinkDefaultPipelineENS0_17OptimizationLevelEb'/>
+<fun r='_ZN4llvm11PassBuilder27buildThinLTODefaultPipelineENS0_17OptimizationLevelEbPKNS_18ModuleSummaryIndexE'/>
+<fun r='_ZN4llvm11PassBuilder30buildLTOPreLinkDefaultPipelineENS0_17OptimizationLevelEb'/>
+<fun r='_ZN4llvm11PassBuilder23buildLTODefaultPipelineENS0_17OptimizationLevelEbPNS_18ModuleSummaryIndexE'/>
+<fun r='_ZN4llvm11PassBuilder22buildDefaultAAPipelineEv'/>
+<fun r='_ZN4llvm11PassBuilder17parsePassPipelineERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEENS_9StringRefEbb'/>
+<fun r='_ZN4llvm11PassBuilder17parsePassPipelineERNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS3_JRS2_EEEJS5_RNS_17CGSCCUpdateResultEEEENS_9StringRefEbb'/>
+<fun r='_ZN4llvm11PassBuilder17parsePassPipelineERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_9StringRefEbb'/>
+<fun r='_ZN4llvm11PassBuilder17parsePassPipelineERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS5_RNS_10LPMUpdaterEEEENS_9StringRefEbb'/>
+<fun r='_ZN4llvm11PassBuilder15parseAAPipelineERNS_9AAManagerENS_9StringRefE'/>
+<fun r='_ZN4llvm11PassBuilder26registerPeepholeEPCallbackERKSt8functionIFvRNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS3_JEEEJEEENS0_17OptimizationLevelEEE'/>
+<fun r='_ZN4llvm11PassBuilder39registerLateLoopOptimizationsEPCallbackERKSt8functionIFvRNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS3_JRNS_27LoopStandardA6101810'/>
+<fun r='_ZN4llvm11PassBuilder34registerLoopOptimizerEndEPCallbackERKSt8functionIFvRNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS3_JRNS_27LoopStandardAnalys12523229'/>
+<fun r='_ZN4llvm11PassBuilder37registerScalarOptimizerLateEPCallbackERKSt8functionIFvRNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS3_JEEEJEEENS0_17OptimizationLevelEEE'/>
+<fun r='_ZN4llvm11PassBuilder36registerCGSCCOptimizerLateEPCallbackERKSt8functionIFvRNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS4_JRS3_EEEJ805298'/>
+<fun r='_ZN4llvm11PassBuilder33registerVectorizerStartEPCallbackERKSt8functionIFvRNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS3_JEEEJEEENS0_17OptimizationLevelEEE'/>
+<fun r='_ZN4llvm11PassBuilder31registerPipelineStartEPCallbackERKSt8functionIFvRNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEEEE'/>
+<fun r='_ZN4llvm11PassBuilder31registerOptimizerLastEPCallbackERKSt8functionIFvRNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS3_JEEEJEEENS0_17OptimizationLevelEEE'/>
+<fun r='_ZN4llvm11PassBuilder23registerParseAACallbackERKSt8functionIFbNS_9StringRefERNS_9AAManagerEEE'/>
+<fun r='_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_13LazyCallGraph3SCCEJRS3_EEEEE'/>
+<fun r='_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEE'/>
+<fun r='_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEE'/>
+<fun r='_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEE'/>
+<fun r='_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS5_5224172'/>
+<fun r='_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS16249016'/>
+<fun r='_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopSta2804963'/>
+<fun r='_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_811379445'/>
+<fun r='_ZN4llvm11PassBuilder37registerParseTopLevelPipelineCallbackERKSt8functionIFbRNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEENS_8ArrayRef1322388'/>
+<fun r='_ZN4llvm11PassBuilder17parsePipelineTextENS_9StringRefE'/>
+<fun r='_ZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEbb'/>
+<fun r='_ZN4llvm11PassBuilder14parseCGSCCPassERNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS3_JRS2_EEEJS5_RNS_17CGSCCUpdateResultEEEERKNS0_15PipelineElementEbb'/>
+<fun r='_ZN4llvm11PassBuilder17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEbb'/>
+<fun r='_ZN4llvm11PassBuilder13parseLoopPassERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS5_RNS_10LPMUpdaterEEEE1817392'/>
+<fun r='_ZN4llvm11PassBuilder15parseAAPassNameERNS_9AAManagerENS_9StringRefE'/>
+<fun r='_ZN4llvm11PassBuilder21parseLoopPassPipelineERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS5_RNS_10LPMUpd12649385'/>
+<fun r='_ZN4llvm11PassBuilder25parseFunctionPassPipelineERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEbb'/>
+<fun r='_ZN4llvm11PassBuilder22parseCGSCCPassPipelineERNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS3_JRS2_EEEJS5_RNS_17CGSCCUpdateResultEEEE1029578'/>
+<fun r='_ZN4llvm11PassBuilder23parseModulePassPipelineERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEbb'/>
+<fun r='_ZN4llvm11PassBuilder17addPGOInstrPassesERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEEbNS0_17OptimizationLevelEbbNSt7__cxx1112basic_st4957342'/>
+<fun r='_ZN4llvm11PassBuilder25invokePeepholeEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelE'/>
+<mbr r='llvm::PassBuilder::PeepholeEPCallbacks' o='1216' t='SmallVector&lt;std::function&lt;void (FunctionPassManager &amp;, OptimizationLevel)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::LateLoopOptimizationsEPCallbacks' o='1856' t='SmallVector&lt;std::function&lt;void (LoopPassManager &amp;, OptimizationLevel)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::LoopOptimizerEndEPCallbacks' o='2496' t='SmallVector&lt;std::function&lt;void (LoopPassManager &amp;, OptimizationLevel)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::ScalarOptimizerLateEPCallbacks' o='3136' t='SmallVector&lt;std::function&lt;void (FunctionPassManager &amp;, OptimizationLevel)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::CGSCCOptimizerLateEPCallbacks' o='3776' t='SmallVector&lt;std::function&lt;void (CGSCCPassManager &amp;, OptimizationLevel)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::VectorizerStartEPCallbacks' o='4416' t='SmallVector&lt;std::function&lt;void (FunctionPassManager &amp;, OptimizationLevel)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::OptimizerLastEPCallbacks' o='5056' t='SmallVector&lt;std::function&lt;void (FunctionPassManager &amp;, OptimizationLevel)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::PipelineStartEPCallbacks' o='5696' t='SmallVector&lt;std::function&lt;void (ModulePassManager &amp;)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::ModuleAnalysisRegistrationCallbacks' o='6336' t='SmallVector&lt;std::function&lt;void (ModuleAnalysisManager &amp;)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::ModulePipelineParsingCallbacks' o='6976' t='SmallVector&lt;std::function&lt;bool (StringRef, ModulePassManager &amp;, ArrayRef&lt;PipelineElement&gt;)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::TopLevelPipelineParsingCallbacks' o='7616' t='SmallVector&lt;std::function&lt;bool (ModulePassManager &amp;, ArrayRef&lt;PipelineElement&gt;, bool, bool)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::CGSCCAnalysisRegistrationCallbacks' o='8256' t='SmallVector&lt;std::function&lt;void (CGSCCAnalysisManager &amp;)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::CGSCCPipelineParsingCallbacks' o='8896' t='SmallVector&lt;std::function&lt;bool (StringRef, CGSCCPassManager &amp;, ArrayRef&lt;PipelineElement&gt;)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::FunctionAnalysisRegistrationCallbacks' o='9536' t='SmallVector&lt;std::function&lt;void (FunctionAnalysisManager &amp;)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::FunctionPipelineParsingCallbacks' o='10176' t='SmallVector&lt;std::function&lt;bool (StringRef, FunctionPassManager &amp;, ArrayRef&lt;PipelineElement&gt;)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::LoopAnalysisRegistrationCallbacks' o='10816' t='SmallVector&lt;std::function&lt;void (LoopAnalysisManager &amp;)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::LoopPipelineParsingCallbacks' o='11456' t='SmallVector&lt;std::function&lt;bool (StringRef, LoopPassManager &amp;, ArrayRef&lt;PipelineElement&gt;)&gt;, 2&gt;'/>
+<mbr r='llvm::PassBuilder::AAParsingCallbacks' o='12096' t='SmallVector&lt;std::function&lt;bool (StringRef, AAManager &amp;)&gt;, 2&gt;'/>

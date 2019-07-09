@@ -1,0 +1,118 @@
+<inh f='llvm/clang/include/clang/Basic/TargetInfo.h' l='163' c='clang::TargetInfo'/>
+<def f='llvm/clang/lib/Basic/Targets/X86.h' l='27' ll='328'/>
+<ovr f='llvm/clang/lib/Basic/Targets/X86.h' l='331' c='clang::targets::X86_32TargetInfo'/>
+<ovr f='llvm/clang/lib/Basic/Targets/X86.h' l='590' c='clang::targets::X86_64TargetInfo'/>
+<size>408</size>
+<doc f='llvm/clang/lib/Basic/Targets/X86.h' l='25'>// X86 target abstract base class; x86-32 and x86-64 are very close, so
+// most of the implementation can be shared.</doc>
+<mbr r='clang::targets::X86TargetInfo::SSELevel' o='1376' t='enum X86SSEEnum'/>
+<mbr r='clang::targets::X86TargetInfo::MMX3DNowLevel' o='1408' t='enum MMX3DNowEnum'/>
+<mbr r='clang::targets::X86TargetInfo::XOPLevel' o='1440' t='enum XOPEnum'/>
+<mbr r='clang::targets::X86TargetInfo::HasAES' o='1472' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasVAES' o='1480' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasPCLMUL' o='1488' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasVPCLMULQDQ' o='1496' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasGFNI' o='1504' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasLZCNT' o='1512' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasRDRND' o='1520' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasFSGSBASE' o='1528' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasBMI' o='1536' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasBMI2' o='1544' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasPOPCNT' o='1552' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasRTM' o='1560' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasPRFCHW' o='1568' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasRDSEED' o='1576' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasADX' o='1584' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasTBM' o='1592' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasLWP' o='1600' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasFMA' o='1608' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasF16C' o='1616' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasAVX512CD' o='1624' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasAVX512VPOPCNTDQ' o='1632' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasAVX512VNNI' o='1640' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasAVX512BF16' o='1648' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasAVX512ER' o='1656' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasAVX512PF' o='1664' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasAVX512DQ' o='1672' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasAVX512BITALG' o='1680' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasAVX512BW' o='1688' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasAVX512VL' o='1696' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasAVX512VBMI' o='1704' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasAVX512VBMI2' o='1712' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasAVX512IFMA' o='1720' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasAVX512VP2INTERSECT' o='1728' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasSHA' o='1736' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasMPX' o='1744' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasSHSTK' o='1752' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasSGX' o='1760' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasCX8' o='1768' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasCX16' o='1776' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasFXSR' o='1784' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasXSAVE' o='1792' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasXSAVEOPT' o='1800' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasXSAVEC' o='1808' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasXSAVES' o='1816' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasMWAITX' o='1824' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasCLZERO' o='1832' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasCLDEMOTE' o='1840' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasPCONFIG' o='1848' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasPKU' o='1856' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasCLFLUSHOPT' o='1864' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasCLWB' o='1872' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasMOVBE' o='1880' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasPREFETCHWT1' o='1888' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasRDPID' o='1896' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasRetpolineExternalThunk' o='1904' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasLAHFSAHF' o='1912' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasWBNOINVD' o='1920' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasWAITPKG' o='1928' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasMOVDIRI' o='1936' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasMOVDIR64B' o='1944' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasPTWRITE' o='1952' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasINVPCID' o='1960' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::HasENQCMD' o='1968' t='bool'/>
+<mbr r='clang::targets::X86TargetInfo::CPU' o='1984' t='enum CPUKind'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo12checkCPUKindENS1_7CPUKindE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo10getCPUKindEN4llvm9StringRefE'/>
+<mbr r='clang::targets::X86TargetInfo::FPMath' o='2016' t='enum FPMathKind'/>
+<fun r='_ZN5clang7targets13X86TargetInfoC1ERKN4llvm6TripleERKNS_13TargetOptionsE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo18getFloatEvalMethodEv'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo14getGCCRegNamesEv'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo16getGCCRegAliasesEv'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo18getGCCAddlRegNamesEv'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo19validateCpuSupportsEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo13validateCpuIsEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo30validateCPUSpecificCPUDispatchEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo28CPUSpecificManglingCharacterEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo33getCPUSpecificCPUDispatchFeaturesEN4llvm9StringRefERNS2_15SmallVectorImplIS3_EE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo21validateAsmConstraintERPKcRNS_10TargetInfo14ConstraintInfoE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo30validateGlobalRegisterVariableEN4llvm9StringRefEjRb'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo18validateOutputSizeEN4llvm9StringRefEj'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo17validateInputSizeEN4llvm9StringRefEj'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo32checkCFProtectionReturnSupportedERNS_17DiagnosticsEngineE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo32checkCFProtectionBranchSupportedERNS_17DiagnosticsEngineE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo19validateOperandSizeEN4llvm9StringRefEj'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo17convertConstraintERPKc'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo11getClobbersEv'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo21getConstraintRegisterEN4llvm9StringRefES3_'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo27useFP16ConversionIntrinsicsEv'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo16getTargetDefinesERKNS_11LangOptionsERNS_12MacroBuilderE'/>
+<fun r='_ZN5clang7targets13X86TargetInfo11setSSELevelERN4llvm9StringMapIbNS2_15MallocAllocatorEEENS1_10X86SSEEnumEb'/>
+<fun r='_ZN5clang7targets13X86TargetInfo11setMMXLevelERN4llvm9StringMapIbNS2_15MallocAllocatorEEENS1_12MMX3DNowEnumEb'/>
+<fun r='_ZN5clang7targets13X86TargetInfo11setXOPLevelERN4llvm9StringMapIbNS2_15MallocAllocatorEEENS1_7XOPEnumEb'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo17setFeatureEnabledERN4llvm9StringMapIbNS2_15MallocAllocatorEEENS2_9StringRefEb'/>
+<fun r='_ZN5clang7targets13X86TargetInfo21setFeatureEnabledImplERN4llvm9StringMapIbNS2_15MallocAllocatorEEENS2_9StringRefEb'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo14initFeatureMapERN4llvm9StringMapIbNS2_15MallocAllocatorEEERNS_17DiagnosticsEngineENS2_9StringRefERKSt6vectorINSt7__6770527'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo18isValidFeatureNameEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo10hasFeatureEN4llvm9StringRefE'/>
+<fun r='_ZN5clang7targets13X86TargetInfo20handleTargetFeaturesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERNS_17DiagnosticsEngineE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo6getABIEv'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo14isValidCPUNameEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo16fillValidCPUListERN4llvm15SmallVectorImplINS2_9StringRefEEE'/>
+<fun r='_ZN5clang7targets13X86TargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo24multiVersionSortPriorityEN4llvm9StringRefE'/>
+<fun r='_ZN5clang7targets13X86TargetInfo9setFPMathEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo22checkCallingConventionENS_11CallingConvE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo21getDefaultCallingConvENS_10TargetInfo21CallingConvMethodTypeE'/>
+<fun r='_ZNK5clang7targets13X86TargetInfo15hasSjLjLoweringEv'/>
+<fun r='_ZN5clang7targets13X86TargetInfo22setSupportedOpenCLOptsEv'/>

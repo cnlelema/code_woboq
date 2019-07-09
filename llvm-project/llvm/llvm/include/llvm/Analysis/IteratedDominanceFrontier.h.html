@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>IteratedDominanceFrontier.h source code [llvm/llvm/include/llvm/Analysis/IteratedDominanceFrontier.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::IDFCalculator "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/Analysis/IteratedDominanceFrontier.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>Analysis</a>/<a href='IteratedDominanceFrontier.h.html'>IteratedDominanceFrontier.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- IteratedDominanceFrontier.h - Calculate IDF --------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>/// \file</i></td></tr>
+<tr><th id="9">9</th><td><i>/// Compute iterated dominance frontiers using a linear time algorithm.</i></td></tr>
+<tr><th id="10">10</th><td><i>///</i></td></tr>
+<tr><th id="11">11</th><td><i>/// The algorithm used here is based on:</i></td></tr>
+<tr><th id="12">12</th><td><i>///</i></td></tr>
+<tr><th id="13">13</th><td><i>///   Sreedhar and Gao. A linear time algorithm for placing phi-nodes.</i></td></tr>
+<tr><th id="14">14</th><td><i>///   In Proceedings of the 22nd ACM SIGPLAN-SIGACT Symposium on Principles of</i></td></tr>
+<tr><th id="15">15</th><td><i>///   Programming Languages</i></td></tr>
+<tr><th id="16">16</th><td><i>///   POPL '95. ACM, New York, NY, 62-73.</i></td></tr>
+<tr><th id="17">17</th><td><i>///</i></td></tr>
+<tr><th id="18">18</th><td><i>/// It has been modified to not explicitly use the DJ graph data structure and</i></td></tr>
+<tr><th id="19">19</th><td><i>/// to directly compute pruned SSA using per-variable liveness information.</i></td></tr>
+<tr><th id="20">20</th><td><i>//</i></td></tr>
+<tr><th id="21">21</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#<span data-ppcond="23">ifndef</span> <span class="macro" data-ref="_M/LLVM_ANALYSIS_IDF_H">LLVM_ANALYSIS_IDF_H</span></u></td></tr>
+<tr><th id="24">24</th><td><u>#define <dfn class="macro" id="_M/LLVM_ANALYSIS_IDF_H" data-ref="_M/LLVM_ANALYSIS_IDF_H">LLVM_ANALYSIS_IDF_H</dfn></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../ADT/DenseMap.h.html">"llvm/ADT/DenseMap.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../ADT/SmallPtrSet.h.html">"llvm/ADT/SmallPtrSet.h"</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../ADT/SmallVector.h.html">"llvm/ADT/SmallVector.h"</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../IR/BasicBlock.h.html">"llvm/IR/BasicBlock.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="../IR/CFGDiff.h.html">"llvm/IR/CFGDiff.h"</a></u></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="../IR/Dominators.h.html">"llvm/IR/Dominators.h"</a></u></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><i class="doc">/// Determine the iterated dominance frontier, given a set of defining</i></td></tr>
+<tr><th id="36">36</th><td><i class="doc">/// blocks, and optionally, a set of live-in blocks.</i></td></tr>
+<tr><th id="37">37</th><td><i class="doc">///</i></td></tr>
+<tr><th id="38">38</th><td><i class="doc">/// In turn, the results can be used to place phi nodes.</i></td></tr>
+<tr><th id="39">39</th><td><i class="doc">///</i></td></tr>
+<tr><th id="40">40</th><td><i class="doc">/// This algorithm is a linear time computation of Iterated Dominance Frontiers,</i></td></tr>
+<tr><th id="41">41</th><td><i class="doc">/// pruned using the live-in set.</i></td></tr>
+<tr><th id="42">42</th><td><i class="doc">/// By default, liveness is not used to prune the IDF computation.</i></td></tr>
+<tr><th id="43">43</th><td><i class="doc">/// The template parameters should be either BasicBlock* or Inverse&lt;BasicBlock</i></td></tr>
+<tr><th id="44">44</th><td><i class="doc">/// *&gt;, depending on if you want the forward or reverse IDF.</i></td></tr>
+<tr><th id="45">45</th><td><b>template</b> &lt;<b>class</b> NodeTy, <em>bool</em> IsPostDom&gt;</td></tr>
+<tr><th id="46">46</th><td><b>class</b> <dfn class="type def" id="llvm::IDFCalculator" title='llvm::IDFCalculator' data-ref="llvm::IDFCalculator">IDFCalculator</dfn> {</td></tr>
+<tr><th id="47">47</th><td> <b>public</b>:</td></tr>
+<tr><th id="48">48</th><td>   <dfn class="decl def" id="_ZN4llvm13IDFCalculatorC1ERNS_17DominatorTreeBaseINS_10BasicBlockEXT0_EEE" title='llvm::IDFCalculator::IDFCalculator&lt;NodeTy, IsPostDom&gt;' data-ref="_ZN4llvm13IDFCalculatorC1ERNS_17DominatorTreeBaseINS_10BasicBlockEXT0_EEE">IDFCalculator</dfn>(<a class="type" href="../Support/GenericDomTree.h.html#llvm::DominatorTreeBase" title='llvm::DominatorTreeBase' data-ref="llvm::DominatorTreeBase">DominatorTreeBase</a>&lt;<a class="type" href="../IR/BasicBlock.h.html#llvm::BasicBlock" title='llvm::BasicBlock' data-ref="llvm::BasicBlock">BasicBlock</a>, <a class="tu member" href="#llvm::IDFCalculator::IsPostDom" title='llvm::IDFCalculator::IsPostDom' data-ref="llvm::IDFCalculator::IsPostDom">IsPostDom</a>&gt; &amp;<dfn class="local col9 decl" id="39DT" title='DT' data-type='DominatorTreeBase&lt;llvm::BasicBlock, IsPostDom&gt; &amp;' data-ref="39DT">DT</dfn>)</td></tr>
+<tr><th id="49">49</th><td>       : <a class="member" href="#llvm::IDFCalculator::DT" title='llvm::IDFCalculator::DT' data-ref="llvm::IDFCalculator::DT">DT</a>(<a class="local col9 ref" href="#39DT" title='DT' data-ref="39DT">DT</a>), <a class="member" href="#llvm::IDFCalculator::GD" title='llvm::IDFCalculator::GD' data-ref="llvm::IDFCalculator::GD">GD</a>(<b>nullptr</b>), <a class="member" href="#llvm::IDFCalculator::useLiveIn" title='llvm::IDFCalculator::useLiveIn' data-ref="llvm::IDFCalculator::useLiveIn">useLiveIn</a>(<b>false</b>) {}</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td>   <dfn class="decl def" id="_ZN4llvm13IDFCalculatorC1ERNS_17DominatorTreeBaseINS_10BasicBlockEXT0_EEEPKNS_9GraphDiffIPS2_XT0_EEE" title='llvm::IDFCalculator::IDFCalculator&lt;NodeTy, IsPostDom&gt;' data-ref="_ZN4llvm13IDFCalculatorC1ERNS_17DominatorTreeBaseINS_10BasicBlockEXT0_EEEPKNS_9GraphDiffIPS2_XT0_EEE">IDFCalculator</dfn>(<a class="type" href="../Support/GenericDomTree.h.html#llvm::DominatorTreeBase" title='llvm::DominatorTreeBase' data-ref="llvm::DominatorTreeBase">DominatorTreeBase</a>&lt;<a class="type" href="../IR/BasicBlock.h.html#llvm::BasicBlock" title='llvm::BasicBlock' data-ref="llvm::BasicBlock">BasicBlock</a>, <a class="tu member" href="#llvm::IDFCalculator::IsPostDom" title='llvm::IDFCalculator::IsPostDom' data-ref="llvm::IDFCalculator::IsPostDom">IsPostDom</a>&gt; &amp;<dfn class="local col0 decl" id="40DT" title='DT' data-type='DominatorTreeBase&lt;llvm::BasicBlock, IsPostDom&gt; &amp;' data-ref="40DT">DT</dfn>,</td></tr>
+<tr><th id="52">52</th><td>                 <em>const</em> <a class="type" href="../IR/CFGDiff.h.html#llvm::GraphDiff" title='llvm::GraphDiff' data-ref="llvm::GraphDiff">GraphDiff</a>&lt;<a class="type" href="../IR/BasicBlock.h.html#llvm::BasicBlock" title='llvm::BasicBlock' data-ref="llvm::BasicBlock">BasicBlock</a> *, <a class="tu member" href="#llvm::IDFCalculator::IsPostDom" title='llvm::IDFCalculator::IsPostDom' data-ref="llvm::IDFCalculator::IsPostDom">IsPostDom</a>&gt; *<dfn class="local col1 decl" id="41GD" title='GD' data-type='const GraphDiff&lt;llvm::BasicBlock *, IsPostDom&gt; *' data-ref="41GD">GD</dfn>)</td></tr>
+<tr><th id="53">53</th><td>       : <a class="member" href="#llvm::IDFCalculator::DT" title='llvm::IDFCalculator::DT' data-ref="llvm::IDFCalculator::DT">DT</a>(<a class="local col0 ref" href="#40DT" title='DT' data-ref="40DT">DT</a>), <a class="member" href="#llvm::IDFCalculator::GD" title='llvm::IDFCalculator::GD' data-ref="llvm::IDFCalculator::GD">GD</a>(<a class="local col1 ref" href="#41GD" title='GD' data-ref="41GD">GD</a>), <a class="member" href="#llvm::IDFCalculator::useLiveIn" title='llvm::IDFCalculator::useLiveIn' data-ref="llvm::IDFCalculator::useLiveIn">useLiveIn</a>(<b>false</b>) {}</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>   <i class="doc">/// Give the IDF calculator the set of blocks in which the value is</i></td></tr>
+<tr><th id="56">56</th><td><i class="doc">   /// defined.  This is equivalent to the set of starting blocks it should be</i></td></tr>
+<tr><th id="57">57</th><td><i class="doc">   /// calculating the IDF for (though later gets pruned based on liveness).</i></td></tr>
+<tr><th id="58">58</th><td><i class="doc">   ///</i></td></tr>
+<tr><th id="59">59</th><td><i class="doc">   /// Note: This set *must* live for the entire lifetime of the IDF calculator.</i></td></tr>
+<tr><th id="60">60</th><td>   <em>void</em> <dfn class="decl def" id="_ZN4llvm13IDFCalculator17setDefiningBlocksERKNS_15SmallPtrSetImplIPNS_10BasicBlockEEE" title='llvm::IDFCalculator::setDefiningBlocks' data-ref="_ZN4llvm13IDFCalculator17setDefiningBlocksERKNS_15SmallPtrSetImplIPNS_10BasicBlockEEE">setDefiningBlocks</dfn>(<em>const</em> <a class="type" href="../ADT/SmallPtrSet.h.html#llvm::SmallPtrSetImpl" title='llvm::SmallPtrSetImpl' data-ref="llvm::SmallPtrSetImpl">SmallPtrSetImpl</a>&lt;<a class="type" href="../IR/BasicBlock.h.html#llvm::BasicBlock" title='llvm::BasicBlock' data-ref="llvm::BasicBlock">BasicBlock</a> *&gt; &amp;<dfn class="local col2 decl" id="42Blocks" title='Blocks' data-type='const SmallPtrSetImpl&lt;llvm::BasicBlock *&gt; &amp;' data-ref="42Blocks">Blocks</dfn>) {</td></tr>
+<tr><th id="61">61</th><td>     <a class="member" href="#llvm::IDFCalculator::DefBlocks" title='llvm::IDFCalculator::DefBlocks' data-ref="llvm::IDFCalculator::DefBlocks">DefBlocks</a> = &amp;<a class="local col2 ref" href="#42Blocks" title='Blocks' data-ref="42Blocks">Blocks</a>;</td></tr>
+<tr><th id="62">62</th><td>   }</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>  <i class="doc">/// Give the IDF calculator the set of blocks in which the value is</i></td></tr>
+<tr><th id="65">65</th><td><i class="doc">  /// live on entry to the block.   This is used to prune the IDF calculation to</i></td></tr>
+<tr><th id="66">66</th><td><i class="doc">  /// not include blocks where any phi insertion would be dead.</i></td></tr>
+<tr><th id="67">67</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="68">68</th><td><i class="doc">  /// Note: This set *must* live for the entire lifetime of the IDF calculator.</i></td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td>  <em>void</em> <dfn class="decl def" id="_ZN4llvm13IDFCalculator15setLiveInBlocksERKNS_15SmallPtrSetImplIPNS_10BasicBlockEEE" title='llvm::IDFCalculator::setLiveInBlocks' data-ref="_ZN4llvm13IDFCalculator15setLiveInBlocksERKNS_15SmallPtrSetImplIPNS_10BasicBlockEEE">setLiveInBlocks</dfn>(<em>const</em> <a class="type" href="../ADT/SmallPtrSet.h.html#llvm::SmallPtrSetImpl" title='llvm::SmallPtrSetImpl' data-ref="llvm::SmallPtrSetImpl">SmallPtrSetImpl</a>&lt;<a class="type" href="../IR/BasicBlock.h.html#llvm::BasicBlock" title='llvm::BasicBlock' data-ref="llvm::BasicBlock">BasicBlock</a> *&gt; &amp;<dfn class="local col3 decl" id="43Blocks" title='Blocks' data-type='const SmallPtrSetImpl&lt;llvm::BasicBlock *&gt; &amp;' data-ref="43Blocks">Blocks</dfn>) {</td></tr>
+<tr><th id="71">71</th><td>    <a class="member" href="#llvm::IDFCalculator::LiveInBlocks" title='llvm::IDFCalculator::LiveInBlocks' data-ref="llvm::IDFCalculator::LiveInBlocks">LiveInBlocks</a> = &amp;<a class="local col3 ref" href="#43Blocks" title='Blocks' data-ref="43Blocks">Blocks</a>;</td></tr>
+<tr><th id="72">72</th><td>    <a class="member" href="#llvm::IDFCalculator::useLiveIn" title='llvm::IDFCalculator::useLiveIn' data-ref="llvm::IDFCalculator::useLiveIn">useLiveIn</a> = <b>true</b>;</td></tr>
+<tr><th id="73">73</th><td>  }</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td>  <i class="doc">/// Reset the live-in block set to be empty, and tell the IDF</i></td></tr>
+<tr><th id="76">76</th><td><i class="doc">  /// calculator to not use liveness anymore.</i></td></tr>
+<tr><th id="77">77</th><td>  <em>void</em> <dfn class="decl def" id="_ZN4llvm13IDFCalculator17resetLiveInBlocksEv" title='llvm::IDFCalculator::resetLiveInBlocks' data-ref="_ZN4llvm13IDFCalculator17resetLiveInBlocksEv">resetLiveInBlocks</dfn>() {</td></tr>
+<tr><th id="78">78</th><td>    <a class="member" href="#llvm::IDFCalculator::LiveInBlocks" title='llvm::IDFCalculator::LiveInBlocks' data-ref="llvm::IDFCalculator::LiveInBlocks">LiveInBlocks</a> = <b>nullptr</b>;</td></tr>
+<tr><th id="79">79</th><td>    <a class="member" href="#llvm::IDFCalculator::useLiveIn" title='llvm::IDFCalculator::useLiveIn' data-ref="llvm::IDFCalculator::useLiveIn">useLiveIn</a> = <b>false</b>;</td></tr>
+<tr><th id="80">80</th><td>  }</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>  <i class="doc">/// Calculate iterated dominance frontiers</i></td></tr>
+<tr><th id="83">83</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="84">84</th><td><i class="doc">  /// This uses the linear-time phi algorithm based on DJ-graphs mentioned in</i></td></tr>
+<tr><th id="85">85</th><td><i class="doc">  /// the file-level comment.  It performs DF-&gt;IDF pruning using the live-in</i></td></tr>
+<tr><th id="86">86</th><td><i class="doc">  /// set, to avoid computing the IDF for blocks where an inserted PHI node</i></td></tr>
+<tr><th id="87">87</th><td><i class="doc">  /// would be dead.</i></td></tr>
+<tr><th id="88">88</th><td>  <em>void</em> <a class="decl" href="../../../lib/Analysis/IteratedDominanceFrontier.cpp.html#_ZN4llvm13IDFCalculator9calculateERNS_15SmallVectorImplIPNS_10BasicBlockEEE" title='llvm::IDFCalculator::calculate' data-ref="_ZN4llvm13IDFCalculator9calculateERNS_15SmallVectorImplIPNS_10BasicBlockEEE" id="_ZN4llvm13IDFCalculator9calculateERNS_15SmallVectorImplIPNS_10BasicBlockEEE">calculate</a>(<a class="type" href="../ADT/SmallVector.h.html#llvm::SmallVectorImpl" title='llvm::SmallVectorImpl' data-ref="llvm::SmallVectorImpl">SmallVectorImpl</a>&lt;<a class="type" href="../IR/BasicBlock.h.html#llvm::BasicBlock" title='llvm::BasicBlock' data-ref="llvm::BasicBlock">BasicBlock</a> *&gt; &amp;<dfn class="local col4 decl" id="44IDFBlocks" title='IDFBlocks' data-type='SmallVectorImpl&lt;llvm::BasicBlock *&gt; &amp;' data-ref="44IDFBlocks">IDFBlocks</dfn>);</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><b>private</b>:</td></tr>
+<tr><th id="91">91</th><td> <a class="type" href="../Support/GenericDomTree.h.html#llvm::DominatorTreeBase" title='llvm::DominatorTreeBase' data-ref="llvm::DominatorTreeBase">DominatorTreeBase</a>&lt;<a class="type" href="../IR/BasicBlock.h.html#llvm::BasicBlock" title='llvm::BasicBlock' data-ref="llvm::BasicBlock">BasicBlock</a>, <a class="tu ref" href="#llvm::IDFCalculator::IsPostDom" title='llvm::IDFCalculator::IsPostDom' data-ref="llvm::IDFCalculator::IsPostDom">IsPostDom</a>&gt; &amp;<dfn class="decl" id="llvm::IDFCalculator::DT" title='llvm::IDFCalculator::DT' data-ref="llvm::IDFCalculator::DT">DT</dfn>;</td></tr>
+<tr><th id="92">92</th><td> <em>const</em> <a class="type" href="../IR/CFGDiff.h.html#llvm::GraphDiff" title='llvm::GraphDiff' data-ref="llvm::GraphDiff">GraphDiff</a>&lt;<a class="type" href="../IR/BasicBlock.h.html#llvm::BasicBlock" title='llvm::BasicBlock' data-ref="llvm::BasicBlock">BasicBlock</a> *, <a class="tu ref" href="#llvm::IDFCalculator::IsPostDom" title='llvm::IDFCalculator::IsPostDom' data-ref="llvm::IDFCalculator::IsPostDom">IsPostDom</a>&gt; *<dfn class="decl" id="llvm::IDFCalculator::GD" title='llvm::IDFCalculator::GD' data-ref="llvm::IDFCalculator::GD">GD</dfn>;</td></tr>
+<tr><th id="93">93</th><td> <em>bool</em> <dfn class="decl" id="llvm::IDFCalculator::useLiveIn" title='llvm::IDFCalculator::useLiveIn' data-ref="llvm::IDFCalculator::useLiveIn">useLiveIn</dfn>;</td></tr>
+<tr><th id="94">94</th><td> <em>const</em> <a class="type" href="../ADT/SmallPtrSet.h.html#llvm::SmallPtrSetImpl" title='llvm::SmallPtrSetImpl' data-ref="llvm::SmallPtrSetImpl">SmallPtrSetImpl</a>&lt;<a class="type" href="../IR/BasicBlock.h.html#llvm::BasicBlock" title='llvm::BasicBlock' data-ref="llvm::BasicBlock">BasicBlock</a> *&gt; *<dfn class="decl" id="llvm::IDFCalculator::LiveInBlocks" title='llvm::IDFCalculator::LiveInBlocks' data-ref="llvm::IDFCalculator::LiveInBlocks">LiveInBlocks</dfn>;</td></tr>
+<tr><th id="95">95</th><td> <em>const</em> <a class="type" href="../ADT/SmallPtrSet.h.html#llvm::SmallPtrSetImpl" title='llvm::SmallPtrSetImpl' data-ref="llvm::SmallPtrSetImpl">SmallPtrSetImpl</a>&lt;<a class="type" href="../IR/BasicBlock.h.html#llvm::BasicBlock" title='llvm::BasicBlock' data-ref="llvm::BasicBlock">BasicBlock</a> *&gt; *<dfn class="decl" id="llvm::IDFCalculator::DefBlocks" title='llvm::IDFCalculator::DefBlocks' data-ref="llvm::IDFCalculator::DefBlocks">DefBlocks</dfn>;</td></tr>
+<tr><th id="96">96</th><td>};</td></tr>
+<tr><th id="97">97</th><td><b>typedef</b> <a class="type" href="#llvm::IDFCalculator" title='llvm::IDFCalculator' data-ref="llvm::IDFCalculator">IDFCalculator</a>&lt;<a class="type" href="../IR/BasicBlock.h.html#llvm::BasicBlock" title='llvm::BasicBlock' data-ref="llvm::BasicBlock">BasicBlock</a> *, <b>false</b>&gt; <dfn class="typedef" id="llvm::ForwardIDFCalculator" title='llvm::ForwardIDFCalculator' data-type='IDFCalculator&lt;llvm::BasicBlock *, false&gt;' data-ref="llvm::ForwardIDFCalculator">ForwardIDFCalculator</dfn>;</td></tr>
+<tr><th id="98">98</th><td><b>typedef</b> <a class="type" href="#llvm::IDFCalculator" title='llvm::IDFCalculator' data-ref="llvm::IDFCalculator">IDFCalculator</a>&lt;<a class="type" href="../ADT/GraphTraits.h.html#llvm::Inverse" title='llvm::Inverse' data-ref="llvm::Inverse">Inverse</a>&lt;<a class="type" href="../IR/BasicBlock.h.html#llvm::BasicBlock" title='llvm::BasicBlock' data-ref="llvm::BasicBlock">BasicBlock</a> *&gt;, <b>true</b>&gt; <dfn class="typedef" id="llvm::ReverseIDFCalculator" title='llvm::ReverseIDFCalculator' data-type='IDFCalculator&lt;Inverse&lt;llvm::BasicBlock *&gt;, true&gt;' data-ref="llvm::ReverseIDFCalculator">ReverseIDFCalculator</dfn>;</td></tr>
+<tr><th id="99">99</th><td>}</td></tr>
+<tr><th id="100">100</th><td><u>#<span data-ppcond="23">endif</span></u></td></tr>
+<tr><th id="101">101</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../lib/Analysis/IteratedDominanceFrontier.cpp.html'>llvm/llvm/lib/Analysis/IteratedDominanceFrontier.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

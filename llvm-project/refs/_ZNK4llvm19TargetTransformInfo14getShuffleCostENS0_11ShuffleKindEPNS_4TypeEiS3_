@@ -1,0 +1,18 @@
+<dec f='llvm/llvm/include/llvm/Analysis/TargetTransformInfo.h' l='826' type='int llvm::TargetTransformInfo::getShuffleCost(llvm::TargetTransformInfo::ShuffleKind Kind, llvm::Type * Tp, int Index = 0, llvm::Type * SubTp = nullptr) const'/>
+<doc f='llvm/llvm/include/llvm/Analysis/TargetTransformInfo.h' l='821'>/// \return The cost of a shuffle instruction of kind Kind and of type Tp.
+  /// The index and subtype parameters are used by the subvector insertion and
+  /// extraction shuffle kinds to show the insert/extract point and the type of
+  /// the subvector being inserted/extracted.
+  /// NOTE: For subvector extractions Tp represents the source type.</doc>
+<def f='llvm/llvm/lib/Analysis/TargetTransformInfo.cpp' l='471' ll='476' type='int llvm::TargetTransformInfo::getShuffleCost(llvm::TargetTransformInfo::ShuffleKind Kind, llvm::Type * Ty, int Index = 0, llvm::Type * SubTp = nullptr) const'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='5542' u='c' c='_ZN4llvm26LoopVectorizationCostModel23getConsecutiveMemOpCostEPNS_11InstructionEj'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='5555' u='c' c='_ZN4llvm26LoopVectorizationCostModel19getUniformMemOpCostEPNS_11InstructionEj'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='5612' u='c' c='_ZN4llvm26LoopVectorizationCostModel22getInterleaveGroupCostEPNS_11InstructionEj'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='5890' u='c' c='_ZN4llvm26LoopVectorizationCostModel18getInstructionCostEPNS_11InstructionEjRPNS_4TypeE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp' l='2731' u='c' c='_ZN4llvm13slpvectorizer7BoUpSLP12getEntryCostEPNS1_9TreeEntryE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp' l='2738' u='c' c='_ZN4llvm13slpvectorizer7BoUpSLP12getEntryCostEPNS1_9TreeEntryE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp' l='2744' u='c' c='_ZN4llvm13slpvectorizer7BoUpSLP12getEntryCostEPNS1_9TreeEntryE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp' l='2806' u='c' c='_ZN4llvm13slpvectorizer7BoUpSLP12getEntryCostEPNS1_9TreeEntryE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp' l='2978' u='c' c='_ZN4llvm13slpvectorizer7BoUpSLP12getEntryCostEPNS1_9TreeEntryE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp' l='3066' u='c' c='_ZN4llvm13slpvectorizer7BoUpSLP12getEntryCostEPNS1_9TreeEntryE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp' l='3276' u='c' c='_ZNK4llvm13slpvectorizer7BoUpSLP13getGatherCostEPNS_4TypeERKNS_8DenseSetIjNS_12DenseMapInfoIjEEEE'/>

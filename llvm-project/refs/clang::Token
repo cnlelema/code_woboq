@@ -1,0 +1,64 @@
+<def f='llvm/clang/include/clang/Lex/Token.h' l='34' ll='311'/>
+<size>24</size>
+<doc f='llvm/clang/include/clang/Lex/Token.h' l='25'>/// Token - This structure provides full information about a lexed token.
+/// It is not intended to be space efficient, it is intended to return as much
+/// information as possible about each returned token.  This is expected to be
+/// compressed into a smaller form if memory footprint is important.
+///
+/// The parser can create a special &quot;annotation token&quot; representing a stream of
+/// tokens that were parsed and semantically resolved, e.g.: &quot;foo::MyClass&lt;int&gt;&quot;
+/// can be represented by a single typename annotation token that carries
+/// information about the SourceRange of the tokens and the type object.</doc>
+<mbr r='clang::Token::Loc' o='0' t='unsigned int'/>
+<mbr r='clang::Token::UintData' o='32' t='unsigned int'/>
+<mbr r='clang::Token::PtrData' o='64' t='void *'/>
+<mbr r='clang::Token::Kind' o='128' t='tok::TokenKind'/>
+<mbr r='clang::Token::Flags' o='144' t='unsigned short'/>
+<fun r='_ZNK5clang5Token7getKindEv'/>
+<fun r='_ZN5clang5Token7setKindENS_3tok9TokenKindE'/>
+<fun r='_ZNK5clang5Token2isENS_3tok9TokenKindE'/>
+<fun r='_ZNK5clang5Token5isNotENS_3tok9TokenKindE'/>
+<fun r='_ZNK5clang5Token7isOneOfENS_3tok9TokenKindES2_'/>
+<fun r='_ZNK5clang5Token7isOneOfENS_3tok9TokenKindES2_DpT_'/>
+<fun r='_ZNK5clang5Token15isAnyIdentifierEv'/>
+<fun r='_ZNK5clang5Token9isLiteralEv'/>
+<fun r='_ZNK5clang5Token12isAnnotationEv'/>
+<fun r='_ZNK5clang5Token11getLocationEv'/>
+<fun r='_ZNK5clang5Token9getLengthEv'/>
+<fun r='_ZN5clang5Token11setLocationENS_14SourceLocationE'/>
+<fun r='_ZN5clang5Token9setLengthEj'/>
+<fun r='_ZNK5clang5Token19getAnnotationEndLocEv'/>
+<fun r='_ZN5clang5Token19setAnnotationEndLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang5Token10getLastLocEv'/>
+<fun r='_ZNK5clang5Token9getEndLocEv'/>
+<fun r='_ZNK5clang5Token18getAnnotationRangeEv'/>
+<fun r='_ZN5clang5Token18setAnnotationRangeENS_11SourceRangeE'/>
+<fun r='_ZNK5clang5Token7getNameEv'/>
+<fun r='_ZN5clang5Token10startTokenEv'/>
+<fun r='_ZNK5clang5Token17getIdentifierInfoEv'/>
+<fun r='_ZN5clang5Token17setIdentifierInfoEPNS_14IdentifierInfoE'/>
+<fun r='_ZNK5clang5Token10getEofDataEv'/>
+<fun r='_ZN5clang5Token10setEofDataEPKv'/>
+<fun r='_ZNK5clang5Token16getRawIdentifierEv'/>
+<fun r='_ZN5clang5Token20setRawIdentifierDataEPKc'/>
+<fun r='_ZNK5clang5Token14getLiteralDataEv'/>
+<fun r='_ZN5clang5Token14setLiteralDataEPKc'/>
+<fun r='_ZNK5clang5Token18getAnnotationValueEv'/>
+<fun r='_ZN5clang5Token18setAnnotationValueEPv'/>
+<fun r='_ZN5clang5Token7setFlagENS0_10TokenFlagsE'/>
+<fun r='_ZNK5clang5Token7getFlagENS0_10TokenFlagsE'/>
+<fun r='_ZN5clang5Token9clearFlagENS0_10TokenFlagsE'/>
+<fun r='_ZNK5clang5Token8getFlagsEv'/>
+<fun r='_ZN5clang5Token12setFlagValueENS0_10TokenFlagsEb'/>
+<fun r='_ZNK5clang5Token15isAtStartOfLineEv'/>
+<fun r='_ZNK5clang5Token15hasLeadingSpaceEv'/>
+<fun r='_ZNK5clang5Token16isExpandDisabledEv'/>
+<fun r='_ZNK5clang5Token15isObjCAtKeywordENS_3tok15ObjCKeywordKindE'/>
+<fun r='_ZNK5clang5Token16getObjCKeywordIDEv'/>
+<fun r='_ZNK5clang5Token13needsCleaningEv'/>
+<fun r='_ZNK5clang5Token20hasLeadingEmptyMacroEv'/>
+<fun r='_ZNK5clang5Token11hasUDSuffixEv'/>
+<fun r='_ZNK5clang5Token6hasUCNEv'/>
+<fun r='_ZNK5clang5Token18stringifiedInMacroEv'/>
+<fun r='_ZNK5clang5Token16commaAfterElidedEv'/>
+<fun r='_ZNK5clang5Token19isEditorPlaceholderEv'/>

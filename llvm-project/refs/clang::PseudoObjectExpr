@@ -1,0 +1,59 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<inh f='llvm/llvm/include/llvm/Support/TrailingObjects.h' l='233' c='llvm::TrailingObjects'/>
+<def f='llvm/clang/include/clang/AST/Expr.h' l='5607' ll='5732'/>
+<size>16</size>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='5579'>/// PseudoObjectExpr - An expression which accesses a pseudo-object
+/// l-value.  A pseudo-object is an abstract object, accesses to which
+/// are translated to calls.  The pseudo-object expression has a
+/// syntactic form, which shows how the expression was actually
+/// written in the source code, and a semantic form, which is a series
+/// of expressions to be executed in order which detail how the
+/// operation is actually evaluated.  Optionally, one of the semantic
+/// forms may also provide a result value for the expression.
+///
+/// If any of the semantic-form expressions is an OpaqueValueExpr,
+/// that OVE is required to have a source expression, and it is bound
+/// to the result of that source expression.  Such OVEs may appear
+/// only in subsequent semantic-form expressions and as
+/// sub-expressions of the syntactic form.
+///
+/// PseudoObjectExpr should be used only when an operation can be
+/// usefully described in terms of fairly simple rewrite rules on
+/// objects and functions that are meant to be used by end-developers.
+/// For example, under the Itanium ABI, dynamic casts are implemented
+/// as a call to a runtime function called __dynamic_cast; using this
+/// class to describe that would be inappropriate because that call is
+/// not really part of the user-visible semantics, and instead the
+/// cast is properly reflected in the AST and IR-generation has been
+/// taught to generate the call as necessary.  In contrast, an
+/// Objective-C property access is semantically defined to be
+/// equivalent to a particular message send, and this is very much
+/// part of the user model.  The name of this class encourages this
+/// modelling design.</doc>
+<fun r='_ZN5clang16PseudoObjectExpr17getSubExprsBufferEv'/>
+<fun r='_ZNK5clang16PseudoObjectExpr17getSubExprsBufferEv'/>
+<fun r='_ZN5clang16PseudoObjectExprC1ENS_8QualTypeENS_13ExprValueKindEPNS_4ExprEN4llvm8ArrayRefIS4_EEj'/>
+<fun r='_ZN5clang16PseudoObjectExprC1ENS_4Stmt10EmptyShellEj'/>
+<fun r='_ZNK5clang16PseudoObjectExpr14getNumSubExprsEv'/>
+<fun r='_ZN5clang16PseudoObjectExpr6CreateERKNS_10ASTContextEPNS_4ExprEN4llvm8ArrayRefIS5_EEj'/>
+<fun r='_ZN5clang16PseudoObjectExpr6CreateERKNS_10ASTContextENS_4Stmt10EmptyShellEj'/>
+<fun r='_ZN5clang16PseudoObjectExpr16getSyntacticFormEv'/>
+<fun r='_ZNK5clang16PseudoObjectExpr16getSyntacticFormEv'/>
+<fun r='_ZNK5clang16PseudoObjectExpr18getResultExprIndexEv'/>
+<fun r='_ZN5clang16PseudoObjectExpr13getResultExprEv'/>
+<fun r='_ZNK5clang16PseudoObjectExpr13getResultExprEv'/>
+<fun r='_ZNK5clang16PseudoObjectExpr19getNumSemanticExprsEv'/>
+<fun r='_ZN5clang16PseudoObjectExpr15semantics_beginEv'/>
+<fun r='_ZNK5clang16PseudoObjectExpr15semantics_beginEv'/>
+<fun r='_ZN5clang16PseudoObjectExpr13semantics_endEv'/>
+<fun r='_ZNK5clang16PseudoObjectExpr13semantics_endEv'/>
+<fun r='_ZN5clang16PseudoObjectExpr9semanticsEv'/>
+<fun r='_ZNK5clang16PseudoObjectExpr9semanticsEv'/>
+<fun r='_ZN5clang16PseudoObjectExpr15getSemanticExprEj'/>
+<fun r='_ZNK5clang16PseudoObjectExpr15getSemanticExprEj'/>
+<fun r='_ZNK5clang16PseudoObjectExpr10getExprLocEv'/>
+<fun r='_ZNK5clang16PseudoObjectExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang16PseudoObjectExpr9getEndLocEv'/>
+<fun r='_ZN5clang16PseudoObjectExpr8childrenEv'/>
+<fun r='_ZNK5clang16PseudoObjectExpr8childrenEv'/>
+<fun r='_ZN5clang16PseudoObjectExpr7classofEPKNS_4StmtE'/>

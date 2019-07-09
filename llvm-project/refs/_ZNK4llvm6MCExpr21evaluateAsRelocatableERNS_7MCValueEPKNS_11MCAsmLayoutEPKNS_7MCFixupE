@@ -1,0 +1,32 @@
+<dec f='llvm/llvm/include/llvm/MC/MCExpr.h' l='111' type='bool llvm::MCExpr::evaluateAsRelocatable(llvm::MCValue &amp; Res, const llvm::MCAsmLayout * Layout, const llvm::MCFixup * Fixup) const'/>
+<doc f='llvm/llvm/include/llvm/MC/MCExpr.h' l='104'>/// Try to evaluate the expression to a relocatable value, i.e. an
+  /// expression of the fixed form (a - b + constant).
+  ///
+  /// \param Res - The relocatable value, if evaluation succeeds.
+  /// \param Layout - The assembler layout object to use for evaluating values.
+  /// \param Fixup - The Fixup object if available.
+  /// \return - True on success.</doc>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/AsmPrinter.cpp' l='2662' u='c' c='_ZL28handleIndirectSymViaGOTPCRelRN4llvm10AsmPrinterEPPKNS_6MCExprEPKNS_8ConstantEm'/>
+<use f='llvm/llvm/lib/MC/MCAssembler.cpp' l='143' u='c' c='_ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8MCSymbolE'/>
+<use f='llvm/llvm/lib/MC/MCAssembler.cpp' l='214' u='c' c='_ZNK4llvm11MCAssembler13evaluateFixupERKNS_11MCAsmLayoutERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueERmRb'/>
+<use f='llvm/llvm/lib/MC/MCCodeView.cpp' l='655' u='c' c='_ZN4llvm15CodeViewContext14encodeDefRangeERNS_11MCAsmLayoutERNS_20MCCVDefRangeFragmentE'/>
+<def f='llvm/llvm/lib/MC/MCExpr.cpp' l='655' ll='661' type='bool llvm::MCExpr::evaluateAsRelocatable(llvm::MCValue &amp; Res, const llvm::MCAsmLayout * Layout, const llvm::MCFixup * Fixup) const'/>
+<use f='llvm/llvm/lib/MC/MCMachOStreamer.cpp' l='202' u='c' c='_ZN12_GLOBAL__N_115MCMachOStreamer14EmitAssignmentEPN4llvm8MCSymbolEPKNS1_6MCExprE'/>
+<use f='llvm/llvm/lib/MC/MCParser/AsmParser.cpp' l='3017' u='c' c='_ZN12_GLOBAL__N_19AsmParser19parseDirectiveRelocEN4llvm5SMLocE'/>
+<use f='llvm/llvm/lib/MC/MachObjectWriter.cpp' l='95' u='c' c='_ZNK4llvm16MachObjectWriter16getSymbolAddressERKNS_8MCSymbolERKNS_11MCAsmLayoutE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AsmParser/AArch64AsmParser.cpp' l='5497' u='c' c='_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl'/>
+<use f='llvm/llvm/lib/Target/AArch64/MCTargetDesc/AArch64MCExpr.cpp' l='97' u='c' c='_ZNK4llvm13AArch64MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAsmLayoutEPKNS_7MCFixupE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/AsmParser/HexagonAsmParser.cpp' l='1186' u='c' c='_ZN12_GLOBAL__N_116HexagonAsmParser16parseInstructionERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/MCTargetDesc/HexagonMCExpr.cpp' l='29' u='c' c='_ZNK4llvm13HexagonMCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAsmLayoutEPKNS_7MCFixupE'/>
+<use f='llvm/llvm/lib/Target/Lanai/MCTargetDesc/LanaiMCExpr.cpp' l='52' u='c' c='_ZNK4llvm11LanaiMCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAsmLayoutEPKNS_7MCFixupE'/>
+<use f='llvm/llvm/lib/Target/Mips/AsmParser/MipsAsmParser.cpp' l='1413' u='c' c='_ZNK12_GLOBAL__N_111MipsOperand19isMemWithSimmOffsetEv'/>
+<use f='llvm/llvm/lib/Target/Mips/AsmParser/MipsAsmParser.cpp' l='1427' u='c' c='_ZNK12_GLOBAL__N_111MipsOperand22isMemWithPtrSizeOffsetEv'/>
+<use f='llvm/llvm/lib/Target/Mips/AsmParser/MipsAsmParser.cpp' l='1470' u='c' c='_ZNK12_GLOBAL__N_111MipsOperand12isScaledSImmEv'/>
+<use f='llvm/llvm/lib/Target/Mips/AsmParser/MipsAsmParser.cpp' l='3193' u='c' c='_ZN12_GLOBAL__N_113MipsAsmParser23loadAndAddSymbolAddressEPKN4llvm6MCExprEjjbNS1_5SMLocERNS1_10MCStreamerEPKNS1_15MCSubtargetInfoE'/>
+<use f='llvm/llvm/lib/Target/Mips/AsmParser/MipsAsmParser.cpp' l='3269' u='c' c='_ZN12_GLOBAL__N_113MipsAsmParser23loadAndAddSymbolAddressEPKN4llvm6MCExprEjjbNS1_5SMLocERNS1_10MCStreamerEPKNS1_15MCSubtargetInfoE'/>
+<use f='llvm/llvm/lib/Target/Mips/MCTargetDesc/MipsMCExpr.cpp' l='195' u='c' c='_ZNK4llvm10MipsMCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAsmLayoutEPKNS_7MCFixupE'/>
+<use f='llvm/llvm/lib/Target/Mips/MCTargetDesc/MipsMCExpr.cpp' l='203' u='c' c='_ZNK4llvm10MipsMCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAsmLayoutEPKNS_7MCFixupE'/>
+<use f='llvm/llvm/lib/Target/Mips/MCTargetDesc/MipsMCExpr.cpp' l='223' u='c' c='_ZNK4llvm10MipsMCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAsmLayoutEPKNS_7MCFixupE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/MCTargetDesc/PPCMCExpr.cpp' l='60' u='c' c='_ZNK4llvm9PPCMCExpr18evaluateAsConstantERl'/>
+<use f='llvm/llvm/lib/Target/PowerPC/MCTargetDesc/PPCMCExpr.cpp' l='103' u='c' c='_ZNK4llvm9PPCMCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAsmLayoutEPKNS_7MCFixupE'/>
+<use f='llvm/llvm/lib/Target/Sparc/MCTargetDesc/SparcMCExpr.cpp' l='165' u='c' c='_ZNK4llvm11SparcMCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAsmLayoutEPKNS_7MCFixupE'/>

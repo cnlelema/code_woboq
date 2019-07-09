@@ -1,0 +1,23 @@
+<dec f='llvm/llvm/include/llvm/ExecutionEngine/Orc/Core.h' l='548' type='void llvm::orc::JITDylib::setSearchOrder(JITDylibSearchList NewSearchOrder, bool SearchThisJITDylibFirst = true, bool MatchNonExportedInThisDylib = true)'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/Core.h' l='529'>/// Set the search order to be used when fixing up definitions in JITDylib.
+  /// This will replace the previous search order, and apply to any symbol
+  /// resolutions made for definitions in this JITDylib after the call to
+  /// setSearchOrder (even if the definition itself was added before the
+  /// call).
+  ///
+  /// If SearchThisJITDylibFirst is set, which by default it is, then this
+  /// JITDylib will add itself to the beginning of the SearchOrder (Clients
+  /// should *not* put this JITDylib in the list in this case, to avoid
+  /// redundant lookups).
+  ///
+  /// If SearchThisJITDylibFirst is false then the search order will be used as
+  /// given. The main motivation for this feature is to support deliberate
+  /// shadowing of symbols in this JITDylib by a facade JITDylib. For example,
+  /// the facade may resolve function names to stubs, and the stubs may compile
+  /// lazily by looking up symbols in this dylib. Adding the facade dylib
+  /// as the first in the search order (instead of this dylib) ensures that
+  /// definitions within this dylib resolve to the lazy-compiling stubs,
+  /// rather than immediately materializing the definitions in this dylib.</doc>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/CompileOnDemandLayer.cpp' l='178' u='c' c='_ZN4llvm3orc20CompileOnDemandLayer20getPerDylibResourcesERNS0_8JITDylibE'/>
+<def f='llvm/llvm/lib/ExecutionEngine/Orc/Core.cpp' l='1057' ll='1067' type='void llvm::orc::JITDylib::setSearchOrder(JITDylibSearchList NewSearchOrder, bool SearchThisJITDylibFirst = true, bool MatchNonExportedInThisDylib = true)'/>
+<use f='llvm/llvm/tools/llvm-jitlink/llvm-jitlink.cpp' l='435' u='c' c='_Z11loadObjectsRN4llvm7SessionE'/>

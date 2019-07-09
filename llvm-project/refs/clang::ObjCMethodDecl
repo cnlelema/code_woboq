@@ -1,0 +1,124 @@
+<inh f='llvm/clang/include/clang/AST/Decl.h' l='248' c='clang::NamedDecl'/>
+<inh f='llvm/clang/include/clang/AST/DeclBase.h' l='1271' c='clang::DeclContext'/>
+<def f='llvm/clang/include/clang/AST/DeclObjC.h' l='138' ll='530'/>
+<size>1</size>
+<doc f='llvm/clang/include/clang/AST/DeclObjC.h' l='118'>/// ObjCMethodDecl - Represents an instance or class method declaration.
+/// ObjC methods can be declared within 4 contexts: class interfaces,
+/// categories, protocols, and class implementations. While C++ member
+/// functions leverage C syntax, Objective-C method syntax is modeled after
+/// Smalltalk (using colons to specify argument types/expressions).
+/// Here are some brief examples:
+///
+/// Setter/getter instance methods:
+/// - (void)setMenu:(NSMenu *)menu;
+/// - (NSMenu *)menu;
+///
+/// Instance method that takes 2 NSView arguments:
+/// - (void)replaceSubview:(NSView *)oldView with:(NSView *)newView;
+///
+/// Getter class method:
+/// + (NSMenu *)defaultMenu;
+///
+/// A selector represents a unique name for a method. The selector names for
+/// the above methods are setMenu:, menu, replaceSubview:with:, and defaultMenu.
+///</doc>
+<mbr r='clang::ObjCMethodDecl::MethodDeclType' t='clang::QualType'/>
+<mbr r='clang::ObjCMethodDecl::ReturnTInfo' t='clang::TypeSourceInfo *'/>
+<mbr r='clang::ObjCMethodDecl::ParamsAndSelLocs' t='void *'/>
+<mbr r='clang::ObjCMethodDecl::NumParams' t='unsigned int'/>
+<mbr r='clang::ObjCMethodDecl::DeclEndLoc' t='clang::SourceLocation'/>
+<mbr r='clang::ObjCMethodDecl::Body' t='LazyDeclStmtPtr'/>
+<mbr r='clang::ObjCMethodDecl::SelfDecl' t='clang::ImplicitParamDecl *'/>
+<mbr r='clang::ObjCMethodDecl::CmdDecl' t='clang::ImplicitParamDecl *'/>
+<fun r='_ZN5clang14ObjCMethodDeclC1ENS_14SourceLocationES1_NS_8SelectorENS_8QualTypeEPNS_14TypeSourceInfoEPNS_11DeclContextEbbbbbNS0_21ImplementationControlEb'/>
+<fun r='_ZNK5clang14ObjCMethodDecl14getSelLocsKindEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl14setSelLocsKindENS_21SelectorLocationsKindE'/>
+<fun r='_ZNK5clang14ObjCMethodDecl18hasStandardSelLocsEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl16getStoredSelLocsEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl16getStoredSelLocsEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl9getParamsEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl9getParamsEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl19getNumStoredSelLocsEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl19setParamsAndSelLocsERNS_10ASTContextEN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS4_INS_14SourceLocationEEE'/>
+<fun r='_ZN5clang14ObjCMethodDecl24getNextRedeclarationImplEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl6CreateERNS_10ASTContextENS_14SourceLocationES3_NS_8SelectorENS_8QualTypeEPNS_14TypeSourceInfoEPNS_11DeclContextEbbbbbNS0_21I15780081'/>
+<fun r='_ZN5clang14ObjCMethodDecl18CreateDeserializedERNS_10ASTContextEj'/>
+<fun r='_ZN5clang14ObjCMethodDecl16getCanonicalDeclEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl16getCanonicalDeclEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl20getObjCDeclQualifierEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl20setObjCDeclQualifierENS_4Decl17ObjCDeclQualifierE'/>
+<fun r='_ZNK5clang14ObjCMethodDecl20hasRelatedResultTypeEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl20setRelatedResultTypeEb'/>
+<fun r='_ZNK5clang14ObjCMethodDecl15isRedeclarationEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl18setIsRedeclarationEb'/>
+<fun r='_ZN5clang14ObjCMethodDecl18setAsRedeclarationEPKS0_'/>
+<fun r='_ZNK5clang14ObjCMethodDecl16hasRedeclarationEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl19setHasRedeclarationEb'/>
+<fun r='_ZNK5clang14ObjCMethodDecl19getDeclaratorEndLocEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl11getBeginLocEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl9getEndLocEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl14getSourceRangeEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl19getSelectorStartLocEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl14getSelectorLocEj'/>
+<fun r='_ZNK5clang14ObjCMethodDecl15getSelectorLocsERN4llvm15SmallVectorImplINS_14SourceLocationEEE'/>
+<fun r='_ZNK5clang14ObjCMethodDecl18getNumSelectorLocsEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl17getClassInterfaceEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl11getSelectorEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl13getReturnTypeEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl13setReturnTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang14ObjCMethodDecl24getReturnTypeSourceRangeEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl17getSendResultTypeEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl17getSendResultTypeENS_8QualTypeE'/>
+<fun r='_ZNK5clang14ObjCMethodDecl23getReturnTypeSourceInfoEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl23setReturnTypeSourceInfoEPNS_14TypeSourceInfoE'/>
+<fun r='_ZNK5clang14ObjCMethodDecl10param_sizeEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl11param_beginEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl9param_endEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl11param_beginEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl9param_endEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl13sel_param_endEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl10parametersEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl12getParamDeclEj'/>
+<fun r='_ZNK5clang14ObjCMethodDecl12getParamDeclEj'/>
+<fun r='_ZN5clang14ObjCMethodDecl15setMethodParamsERNS_10ASTContextEN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS4_INS_14SourceLocationEEE'/>
+<fun r='_ZNK5clang14ObjCMethodDecl16param_type_beginEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl14param_type_endEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl20createImplicitParamsERNS_10ASTContextEPKNS_17ObjCInterfaceDeclE'/>
+<fun r='_ZN5clang14ObjCMethodDecl11getSelfTypeERNS_10ASTContextEPKNS_17ObjCInterfaceDeclERbS6_'/>
+<fun r='_ZNK5clang14ObjCMethodDecl11getSelfDeclEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl11setSelfDeclEPNS_17ImplicitParamDeclE'/>
+<fun r='_ZNK5clang14ObjCMethodDecl10getCmdDeclEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl10setCmdDeclEPNS_17ImplicitParamDeclE'/>
+<fun r='_ZNK5clang14ObjCMethodDecl15getMethodFamilyEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl16isInstanceMethodEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl17setInstanceMethodEb'/>
+<fun r='_ZNK5clang14ObjCMethodDecl10isVariadicEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl11setVariadicEb'/>
+<fun r='_ZNK5clang14ObjCMethodDecl13isClassMethodEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl18isPropertyAccessorEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl19setPropertyAccessorEb'/>
+<fun r='_ZNK5clang14ObjCMethodDecl9isDefinedEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl10setDefinedEb'/>
+<fun r='_ZNK5clang14ObjCMethodDecl12isOverridingEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl13setOverridingEb'/>
+<fun r='_ZNK5clang14ObjCMethodDecl20getOverriddenMethodsERN4llvm15SmallVectorImplIPKS0_EE'/>
+<fun r='_ZNK5clang14ObjCMethodDecl14hasSkippedBodyEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl17setHasSkippedBodyEb'/>
+<fun r='_ZNK5clang14ObjCMethodDecl16findPropertyDeclEb'/>
+<fun r='_ZN5clang14ObjCMethodDecl21setDeclImplementationENS0_21ImplementationControlE'/>
+<fun r='_ZNK5clang14ObjCMethodDecl24getImplementationControlEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl10isOptionalEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl39isThisDeclarationADesignatedInitializerEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl38isDesignatedInitializerForTheInterfaceEPPKS0_'/>
+<fun r='_ZNK5clang14ObjCMethodDecl7hasBodyEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl7getBodyEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl11setLazyBodyEm'/>
+<fun r='_ZN5clang14ObjCMethodDecl15getCompoundBodyEv'/>
+<fun r='_ZN5clang14ObjCMethodDecl7setBodyEPNS_4StmtE'/>
+<fun r='_ZNK5clang14ObjCMethodDecl28isThisDeclarationADefinitionEv'/>
+<fun r='_ZNK5clang14ObjCMethodDecl17definedInNSObjectERKNS_10ASTContextE'/>
+<fun r='_ZN5clang14ObjCMethodDecl7classofEPKNS_4DeclE'/>
+<fun r='_ZN5clang14ObjCMethodDecl11classofKindENS_4Decl4KindE'/>
+<fun r='_ZN5clang14ObjCMethodDecl17castToDeclContextEPKS0_'/>
+<fun r='_ZN5clang14ObjCMethodDecl19castFromDeclContextEPKNS_11DeclContextE'/>

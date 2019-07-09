@@ -1,0 +1,37 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='868' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildSelect(const llvm::DstOp &amp; Res, const llvm::SrcOp &amp; Tst, const llvm::SrcOp &amp; Op0, const llvm::SrcOp &amp; Op1)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='858'>/// Build and insert a \p Res = G_SELECT \p Tst, \p Op0, \p Op1
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Res, \p Op0 and \p Op1 must be generic virtual registers
+  ///      with the same type.
+  /// \pre \p Tst must be a generic virtual register with scalar, pointer or
+  ///      vector type. If vector then it must have the same number of
+  ///      elements as the other parameters.
+  ///
+  /// \return a MachineInstrBuilder for the newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1606' u='c' c='_ZN4llvm15LegalizerHelper5lowerERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2011' u='c' c='_ZN4llvm15LegalizerHelper25fewerElementsVectorSelectERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2418' u='c' c='_ZN4llvm15LegalizerHelper17narrowScalarShiftERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2419' u='c' c='_ZN4llvm15LegalizerHelper17narrowScalarShiftERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2420' u='c' c='_ZN4llvm15LegalizerHelper17narrowScalarShiftERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2438' u='c' c='_ZN4llvm15LegalizerHelper17narrowScalarShiftERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2439' u='c' c='_ZN4llvm15LegalizerHelper17narrowScalarShiftERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2440' u='c' c='_ZN4llvm15LegalizerHelper17narrowScalarShiftERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2462' u='c' c='_ZN4llvm15LegalizerHelper17narrowScalarShiftERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2463' u='c' c='_ZN4llvm15LegalizerHelper17narrowScalarShiftERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2465' u='c' c='_ZN4llvm15LegalizerHelper17narrowScalarShiftERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2866' u='c' c='_ZN4llvm15LegalizerHelper18narrowScalarSelectERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2872' u='c' c='_ZN4llvm15LegalizerHelper18narrowScalarSelectERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2913' u='c' c='_ZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2964' u='c' c='_ZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='3028' u='c' c='_ZN4llvm15LegalizerHelper19lowerU64ToF32BitOpsERNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='3048' u='c' c='_ZN4llvm15LegalizerHelper19lowerU64ToF32BitOpsERNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='3049' u='c' c='_ZN4llvm15LegalizerHelper19lowerU64ToF32BitOpsERNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='3107' u='c' c='_ZN4llvm15LegalizerHelper11lowerSITOFPERNS_12MachineInstrEjNS_3LLTE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='680' ll='686' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildSelect(const llvm::DstOp &amp; Res, const llvm::SrcOp &amp; Tst, const llvm::SrcOp &amp; Op0, const llvm::SrcOp &amp; Op1)'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULegalizerInfo.cpp' l='846' u='c' c='_ZNK4llvm19AMDGPULegalizerInfo21legalizeAddrSpaceCastERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULegalizerInfo.cpp' l='876' u='c' c='_ZNK4llvm19AMDGPULegalizerInfo21legalizeAddrSpaceCastERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULegalizerInfo.cpp' l='905' u='c' c='_ZNK4llvm19AMDGPULegalizerInfo13legalizeFrintERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULegalizerInfo.cpp' l='931' u='c' c='_ZNK4llvm19AMDGPULegalizerInfo13legalizeFceilERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULegalizerInfo.cpp' l='995' u='c' c='_ZNK4llvm19AMDGPULegalizerInfo22legalizeIntrinsicTruncERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULegalizerInfo.cpp' l='996' u='c' c='_ZNK4llvm19AMDGPULegalizerInfo22legalizeIntrinsicTruncERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_16MachineIRBuilderE'/>

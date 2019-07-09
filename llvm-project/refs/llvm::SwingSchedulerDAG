@@ -1,0 +1,119 @@
+<inh f='llvm/llvm/include/llvm/CodeGen/ScheduleDAGInstrs.h' l='118' c='llvm::ScheduleDAGInstrs'/>
+<def f='llvm/llvm/include/llvm/CodeGen/MachinePipeliner.h' l='109' ll='355'/>
+<size>3096</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachinePipeliner.h' l='107'>/// This class builds the dependence graph for the instructions in a loop,
+/// and attempts to schedule the instructions using the SMS algorithm.</doc>
+<mbr r='llvm::SwingSchedulerDAG::Pass' o='19712' t='llvm::MachinePipeliner &amp;'/>
+<mbr r='llvm::SwingSchedulerDAG::MII' o='19776' t='unsigned int'/>
+<mbr r='llvm::SwingSchedulerDAG::MAX_II' o='19808' t='unsigned int'/>
+<mbr r='llvm::SwingSchedulerDAG::Scheduled' o='19840' t='bool'/>
+<mbr r='llvm::SwingSchedulerDAG::Loop' o='19904' t='llvm::MachineLoop &amp;'/>
+<mbr r='llvm::SwingSchedulerDAG::LIS' o='19968' t='llvm::LiveIntervals &amp;'/>
+<mbr r='llvm::SwingSchedulerDAG::RegClassInfo' o='20032' t='const llvm::RegisterClassInfo &amp;'/>
+<mbr r='llvm::SwingSchedulerDAG::II_setByPragma' o='20096' t='unsigned int'/>
+<mbr r='llvm::SwingSchedulerDAG::Topo' o='20160' t='llvm::ScheduleDAGTopologicalSort'/>
+<mbr r='llvm::SwingSchedulerDAG::ScheduleInfo' o='23104' t='std::vector&lt;NodeInfo&gt;'/>
+<mbr r='llvm::SwingSchedulerDAG::NodeOrder' o='23296' t='SetVector&lt;llvm::SUnit *&gt;'/>
+<mbr r='llvm::SwingSchedulerDAG::InstrChanges' o='23744' t='DenseMap&lt;llvm::SUnit *, std::pair&lt;unsigned int, int64_t&gt; &gt;'/>
+<mbr r='llvm::SwingSchedulerDAG::NewMIs' o='24000' t='SmallPtrSet&lt;llvm::MachineInstr *, 4&gt;'/>
+<mbr r='llvm::SwingSchedulerDAG::Mutations' o='24576' t='std::vector&lt;std::unique_ptr&lt;ScheduleDAGMutation&gt; &gt;'/>
+<fun r='_ZN4llvm17SwingSchedulerDAGC1ERNS_16MachinePipelinerERNS_11MachineLoopERNS_13LiveIntervalsERKNS_17RegisterClassInfoEj'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG8scheduleEv'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG11finishBlockEv'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG14hasNewScheduleEv'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG7getASAPEPNS_5SUnitE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG7getALAPEPNS_5SUnitE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG6getMOVEPNS_5SUnitE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG8getDepthEPNS_5SUnitE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG19getZeroLatencyDepthEPNS_5SUnitE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG9getHeightEPNS_5SUnitE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG20getZeroLatencyHeightEPNS_5SUnitE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG10isBackedgeEPNS_5SUnitERKNS_4SDepE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG16isLoopCarriedDepEPNS_5SUnitERKNS_4SDepEb'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG11getDistanceEPNS_5SUnitES2_RKNS_4SDepE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG16applyInstrChangeEPNS_12MachineInstrERNS_10SMScheduleE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG21fixupRegisterOverlapsERSt5dequeIPNS_5SUnitESaIS3_EE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG15getInstrBaseRegEPNS_5SUnitE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG11addMutationESt10unique_ptrINS_19ScheduleDAGMutationESt14default_deleteIS2_EE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG7classofEPKNS_17ScheduleDAGInstrsE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG25addLoopCarriedDependencesEPNS_9AAResultsE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG20updatePhiDependencesEv'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG17changeDependencesEv'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG15calculateResMIIEv'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG15calculateRecMIIERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG12findCircuitsERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG8fuseRecsERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG20removeDuplicateNodesERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG20computeNodeFunctionsERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG22registerPressureFilterERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG16colocateNodeSetsERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG13checkNodeSetsERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG19groupRemainingNodesERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG17addConnectedNodesEPNS_5SUnitERNS_7NodeSetERNS_9SetVectorIS2_St6vectorIS2_SaIS2_EENS_8DenseSetIS2_NS_12DenseMapInfoIS2_EEEEEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG16computeNodeOrderERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZNK4llvm17SwingSchedulerDAG19checkValidNodeOrderERKNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG16schedulePipelineERNS_10SMScheduleE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG21generatePipelinedLoopERNS_10SMScheduleE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG14generatePrologERNS_10SMScheduleEjPNS_17MachineBasicBlockEPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjj15430837'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG14generateEpilogERNS_10SMScheduleEjPNS_17MachineBasicBlockEPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjj8871859'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG20generateExistingPhisEPNS_17MachineBasicBlockES2_S2_S2_RNS_10SMScheduleEPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12D3023948'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG12generatePhisEPNS_17MachineBasicBlockES2_S2_S2_RNS_10SMScheduleEPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapP8010026'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG22removeDeadInstructionsEPNS_17MachineBasicBlockERNS_15SmallVectorImplIS2_EE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG14splitLifetimesEPNS_17MachineBasicBlockERNS_15SmallVectorImplIS2_EERNS_10SMScheduleE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG11addBranchesERNS_17MachineBasicBlockERNS_15SmallVectorImplIPS1_EES4_S6_RNS_10SMScheduleEPNS_8DenseMapIjjNS_12DenseMapInfoI9154485'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG12computeDeltaERNS_12MachineInstrERj'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG17updateMemOperandsERNS_12MachineInstrES2_j'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG10cloneInstrEPNS_12MachineInstrEjj'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG19cloneAndChangeInstrEPNS_12MachineInstrEjjRNS_10SMScheduleE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG17updateInstructionEPNS_12MachineInstrEbjjRNS_10SMScheduleEPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG13findDefInLoopEj'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG13getPrevMapValEjjjjPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEEPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG16rewritePhiValuesEPNS_17MachineBasicBlockEjRNS_10SMScheduleEPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairI1376084'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG21rewriteScheduledInstrEPNS_17MachineBasicBlockERNS_10SMScheduleERNS_8DenseMapIPNS_12MachineInstrES7_NS_12DenseMapInfoIS7_E3719723'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG21canUseLastOffsetValueEPNS_12MachineInstrERjS3_S3_Rl'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG14postprocessDAGEv'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG6setMIIEjj'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG6setMIIEjj'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG8scheduleEv'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG11finishBlockEv'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG25addLoopCarriedDependencesEPNS_9AAResultsE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG20updatePhiDependencesEv'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG17changeDependencesEv'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG15calculateResMIIEv'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG15calculateRecMIIERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG12findCircuitsERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG20computeNodeFunctionsERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG22registerPressureFilterERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG16colocateNodeSetsERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG13checkNodeSetsERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG19groupRemainingNodesERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG17addConnectedNodesEPNS_5SUnitERNS_7NodeSetERNS_9SetVectorIS2_St6vectorIS2_SaIS2_EENS_8DenseSetIS2_NS_12DenseMapInfoIS2_EEEEEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG8fuseRecsERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG20removeDuplicateNodesERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG16computeNodeOrderERNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG16schedulePipelineERNS_10SMScheduleE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG21generatePipelinedLoopERNS_10SMScheduleE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG14generatePrologERNS_10SMScheduleEjPNS_17MachineBasicBlockEPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjj15430837'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG14generateEpilogERNS_10SMScheduleEjPNS_17MachineBasicBlockEPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjj8871859'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG20generateExistingPhisEPNS_17MachineBasicBlockES2_S2_S2_RNS_10SMScheduleEPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12D3023948'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG12generatePhisEPNS_17MachineBasicBlockES2_S2_S2_RNS_10SMScheduleEPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapP8010026'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG22removeDeadInstructionsEPNS_17MachineBasicBlockERNS_15SmallVectorImplIS2_EE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG14splitLifetimesEPNS_17MachineBasicBlockERNS_15SmallVectorImplIS2_EERNS_10SMScheduleE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG11addBranchesERNS_17MachineBasicBlockERNS_15SmallVectorImplIPS1_EES4_S6_RNS_10SMScheduleEPNS_8DenseMapIjjNS_12DenseMapInfoI9154485'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG12computeDeltaERNS_12MachineInstrERj'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG17updateMemOperandsERNS_12MachineInstrES2_j'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG10cloneInstrEPNS_12MachineInstrEjj'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG19cloneAndChangeInstrEPNS_12MachineInstrEjjRNS_10SMScheduleE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG17updateInstructionEPNS_12MachineInstrEbjjRNS_10SMScheduleEPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG13findDefInLoopEj'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG13getPrevMapValEjjjjPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEEPNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG16rewritePhiValuesEPNS_17MachineBasicBlockEjRNS_10SMScheduleEPNS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairI1376084'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG21rewriteScheduledInstrEPNS_17MachineBasicBlockERNS_10SMScheduleERNS_8DenseMapIPNS_12MachineInstrES7_NS_12DenseMapInfoIS7_E3719723'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG21canUseLastOffsetValueEPNS_12MachineInstrERjS3_S3_Rl'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG16applyInstrChangeEPNS_12MachineInstrERNS_10SMScheduleE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG16isLoopCarriedDepEPNS_5SUnitERKNS_4SDepEb'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG14postprocessDAGEv'/>
+<fun r='_ZNK4llvm17SwingSchedulerDAG19checkValidNodeOrderERKNS_11SmallVectorINS_7NodeSetELj8EEE'/>
+<fun r='_ZN4llvm17SwingSchedulerDAG21fixupRegisterOverlapsERSt5dequeIPNS_5SUnitESaIS3_EE'/>

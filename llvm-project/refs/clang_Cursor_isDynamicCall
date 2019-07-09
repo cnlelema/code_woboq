@@ -1,0 +1,14 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='4470' type='int clang_Cursor_isDynamicCall(CXCursor C)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='4459'>/**
+ * Given a cursor pointing to a C++ method call or an Objective-C
+ * message, returns non-zero if the method/message is &quot;dynamic&quot;, meaning:
+ *
+ * For a C++ method: the call is virtual.
+ * For an Objective-C message: the receiver is an object instance, not &apos;super&apos;
+ * or a specific class.
+ *
+ * If the method/message is &quot;static&quot; or the cursor does not point to a
+ * method/message, it will return zero.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='2876' u='c' c='inspect_print_cursor'/>
+<def f='llvm/clang/tools/libclang/CXCursor.cpp' l='1547' ll='1584' type='int clang_Cursor_isDynamicCall(CXCursor C)'/>

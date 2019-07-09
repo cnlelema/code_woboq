@@ -1,0 +1,19 @@
+<dec f='llvm/llvm/include/llvm/IR/Constants.h' l='594' type='static llvm::Constant * llvm::ConstantDataSequential::getImpl(llvm::StringRef Bytes, llvm::Type * Ty)'/>
+<use f='llvm/llvm/include/llvm/IR/Constants.h' l='723' u='c' c='_ZN4llvm17ConstantDataArray6getRawENS_9StringRefEmPNS_4TypeE'/>
+<def f='llvm/llvm/lib/IR/Constants.cpp' l='2493' ll='2523' type='static llvm::Constant * llvm::ConstantDataSequential::getImpl(llvm::StringRef Elements, llvm::Type * Ty)'/>
+<use f='llvm/llvm/lib/IR/Constants.cpp' l='2571' u='c' c='_ZN4llvm17ConstantDataArray5getFPERNS_11LLVMContextENS_8ArrayRefItEE'/>
+<use f='llvm/llvm/lib/IR/Constants.cpp' l='2577' u='c' c='_ZN4llvm17ConstantDataArray5getFPERNS_11LLVMContextENS_8ArrayRefIjEE'/>
+<use f='llvm/llvm/lib/IR/Constants.cpp' l='2583' u='c' c='_ZN4llvm17ConstantDataArray5getFPERNS_11LLVMContextENS_8ArrayRefImEE'/>
+<use f='llvm/llvm/lib/IR/Constants.cpp' l='2605' u='c' c='_ZN4llvm18ConstantDataVector3getERNS_11LLVMContextENS_8ArrayRefIhEE'/>
+<use f='llvm/llvm/lib/IR/Constants.cpp' l='2610' u='c' c='_ZN4llvm18ConstantDataVector3getERNS_11LLVMContextENS_8ArrayRefItEE'/>
+<use f='llvm/llvm/lib/IR/Constants.cpp' l='2615' u='c' c='_ZN4llvm18ConstantDataVector3getERNS_11LLVMContextENS_8ArrayRefIjEE'/>
+<use f='llvm/llvm/lib/IR/Constants.cpp' l='2620' u='c' c='_ZN4llvm18ConstantDataVector3getERNS_11LLVMContextENS_8ArrayRefImEE'/>
+<use f='llvm/llvm/lib/IR/Constants.cpp' l='2625' u='c' c='_ZN4llvm18ConstantDataVector3getERNS_11LLVMContextENS_8ArrayRefIfEE'/>
+<use f='llvm/llvm/lib/IR/Constants.cpp' l='2630' u='c' c='_ZN4llvm18ConstantDataVector3getERNS_11LLVMContextENS_8ArrayRefIdEE'/>
+<use f='llvm/llvm/lib/IR/Constants.cpp' l='2642' u='c' c='_ZN4llvm18ConstantDataVector5getFPERNS_11LLVMContextENS_8ArrayRefItEE'/>
+<use f='llvm/llvm/lib/IR/Constants.cpp' l='2648' u='c' c='_ZN4llvm18ConstantDataVector5getFPERNS_11LLVMContextENS_8ArrayRefIjEE'/>
+<use f='llvm/llvm/lib/IR/Constants.cpp' l='2654' u='c' c='_ZN4llvm18ConstantDataVector5getFPERNS_11LLVMContextENS_8ArrayRefImEE'/>
+<doc f='llvm/llvm/lib/IR/Constants.cpp' l='2489'>/// This is the underlying implementation of all of the
+/// ConstantDataSequential::get methods.  They all thunk down to here, providing
+/// the correct element type.  We take the bytes in as a StringRef because
+/// we *want* an underlying &quot;char*&quot; to avoid TBAA type punning violations.</doc>

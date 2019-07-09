@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetRegisterInfo.h' l='960' type='void llvm::TargetRegisterInfo::eliminateFrameIndex(MachineBasicBlock::iterator MI, int SPAdj, unsigned int FIOperandNum, llvm::RegScavenger * RS = nullptr) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetRegisterInfo.h' l='953'>/// This method must be overriden to eliminate abstract frame indices from
+  /// instructions which may use them. The instruction referenced by the
+  /// iterator contains an MO_FrameIndex operand which must be eliminated by
+  /// this method. This method may modify or replace the specified instruction,
+  /// as long as it keeps the iterator pointing at the finished product.
+  /// SPAdj is the SP adjustment due to call frame setup instruction.
+  /// FIOperandNum is the FI operand number.</doc>
+<use f='llvm/llvm/lib/CodeGen/PrologEpilogInserter.cpp' l='1232' u='c' c='_ZN12_GLOBAL__N_13PEI19replaceFrameIndicesEPN4llvm17MachineBasicBlockERNS1_15MachineFunctionERi'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterScavenging.cpp' l='521' u='c' c='_ZN4llvm12RegScavenger5spillEjRKNS_19TargetRegisterClassEiNS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERS6_'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterScavenging.cpp' l='529' u='c' c='_ZN4llvm12RegScavenger5spillEjRKNS_19TargetRegisterClassEiNS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERS6_'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXPrologEpilogPass.cpp' l='81' u='c' c='_ZN12_GLOBAL__N_121NVPTXPrologEpilogPass20runOnMachineFunctionERN4llvm15MachineFunctionE'/>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MCDisassembler.h source code [llvm/llvm/include/llvm/MC/MCDisassembler/MCDisassembler.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::MCDisassembler "/>
+<link rel="stylesheet" href="../../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/MC/MCDisassembler/MCDisassembler.h'; var root_path = '../../../../../..'; var data_path = '../../../../../../../data';</script>
+<script src='../../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>llvm</a>/<a href='../../../..'>llvm</a>/<a href='../../..'>include</a>/<a href='../..'>llvm</a>/<a href='..'>MC</a>/<a href='./'>MCDisassembler</a>/<a href='MCDisassembler.h.html'>MCDisassembler.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- llvm/MC/MCDisassembler.h - Disassembler interface --------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLVM_MC_MCDISASSEMBLER_MCDISASSEMBLER_H">LLVM_MC_MCDISASSEMBLER_MCDISASSEMBLER_H</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLVM_MC_MCDISASSEMBLER_MCDISASSEMBLER_H" data-ref="_M/LLVM_MC_MCDISASSEMBLER_MCDISASSEMBLER_H">LLVM_MC_MCDISASSEMBLER_MCDISASSEMBLER_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="MCSymbolizer.h.html">"llvm/MC/MCDisassembler/MCSymbolizer.h"</a></u></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../../../../../../include/c++/7/cstdint.html">&lt;cstdint&gt;</a></u></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="../../../../../../include/c++/7/memory.html">&lt;memory&gt;</a></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><b>template</b> &lt;<b>typename</b> T&gt; <b>class</b> <a class="type" href="../../ADT/ArrayRef.h.html#llvm::ArrayRef" title='llvm::ArrayRef' data-ref="llvm::ArrayRef" id="llvm::ArrayRef">ArrayRef</a>;</td></tr>
+<tr><th id="19">19</th><td><b>class</b> <a class="type" href="../../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef" id="llvm::StringRef">StringRef</a>;</td></tr>
+<tr><th id="20">20</th><td><b>class</b> <a class="type" href="../MCContext.h.html#llvm::MCContext" title='llvm::MCContext' data-ref="llvm::MCContext" id="llvm::MCContext">MCContext</a>;</td></tr>
+<tr><th id="21">21</th><td><b>class</b> <a class="type" href="../MCInst.h.html#llvm::MCInst" title='llvm::MCInst' data-ref="llvm::MCInst" id="llvm::MCInst">MCInst</a>;</td></tr>
+<tr><th id="22">22</th><td><b>class</b> <a class="type" href="../MCSubtargetInfo.h.html#llvm::MCSubtargetInfo" title='llvm::MCSubtargetInfo' data-ref="llvm::MCSubtargetInfo" id="llvm::MCSubtargetInfo">MCSubtargetInfo</a>;</td></tr>
+<tr><th id="23">23</th><td><b>class</b> <a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream" id="llvm::raw_ostream">raw_ostream</a>;</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><i class="doc">/// Superclass for all disassemblers. Consumes a memory region and provides an</i></td></tr>
+<tr><th id="26">26</th><td><i class="doc">/// array of assembly instructions.</i></td></tr>
+<tr><th id="27">27</th><td><b>class</b> <dfn class="type def" id="llvm::MCDisassembler" title='llvm::MCDisassembler' data-ref="llvm::MCDisassembler">MCDisassembler</dfn> {</td></tr>
+<tr><th id="28">28</th><td><b>public</b>:</td></tr>
+<tr><th id="29">29</th><td>  <i class="doc">/// Ternary decode status. Most backends will just use Fail and</i></td></tr>
+<tr><th id="30">30</th><td><i class="doc">  /// Success, however some have a concept of an instruction with</i></td></tr>
+<tr><th id="31">31</th><td><i class="doc">  /// understandable semantics but which is architecturally</i></td></tr>
+<tr><th id="32">32</th><td><i class="doc">  /// incorrect. An example of this is ARM UNPREDICTABLE instructions</i></td></tr>
+<tr><th id="33">33</th><td><i class="doc">  /// which are disassemblable but cause undefined behaviour.</i></td></tr>
+<tr><th id="34">34</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="35">35</th><td><i class="doc">  /// Because it makes sense to disassemble these instructions, there</i></td></tr>
+<tr><th id="36">36</th><td><i class="doc">  /// is a "soft fail" failure mode that indicates the MCInst&amp; is</i></td></tr>
+<tr><th id="37">37</th><td><i class="doc">  /// valid but architecturally incorrect.</i></td></tr>
+<tr><th id="38">38</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="39">39</th><td><i class="doc">  /// The enum numbers are deliberately chosen such that reduction</i></td></tr>
+<tr><th id="40">40</th><td><i class="doc">  /// from Success-&gt;SoftFail -&gt;Fail can be done with a simple</i></td></tr>
+<tr><th id="41">41</th><td><i class="doc">  /// bitwise-AND:</i></td></tr>
+<tr><th id="42">42</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="43">43</th><td><i class="doc">  ///   LEFT &amp; TOP =  | Success       Unpredictable   Fail</i></td></tr>
+<tr><th id="44">44</th><td><i class="doc">  ///   --------------+-----------------------------------</i></td></tr>
+<tr><th id="45">45</th><td><i class="doc">  ///   Success       | Success       Unpredictable   Fail</i></td></tr>
+<tr><th id="46">46</th><td><i class="doc">  ///   Unpredictable | Unpredictable Unpredictable   Fail</i></td></tr>
+<tr><th id="47">47</th><td><i class="doc">  ///   Fail          | Fail          Fail            Fail</i></td></tr>
+<tr><th id="48">48</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="49">49</th><td><i class="doc">  /// An easy way of encoding this is as 0b11, 0b01, 0b00 for</i></td></tr>
+<tr><th id="50">50</th><td><i class="doc">  /// Success, SoftFail, Fail respectively.</i></td></tr>
+<tr><th id="51">51</th><td>  <b>enum</b> <dfn class="type def" id="llvm::MCDisassembler::DecodeStatus" title='llvm::MCDisassembler::DecodeStatus' data-ref="llvm::MCDisassembler::DecodeStatus">DecodeStatus</dfn> {</td></tr>
+<tr><th id="52">52</th><td>    <dfn class="enum" id="llvm::MCDisassembler::DecodeStatus::Fail" title='llvm::MCDisassembler::DecodeStatus::Fail' data-ref="llvm::MCDisassembler::DecodeStatus::Fail">Fail</dfn> = <var>0</var>,</td></tr>
+<tr><th id="53">53</th><td>    <dfn class="enum" id="llvm::MCDisassembler::DecodeStatus::SoftFail" title='llvm::MCDisassembler::DecodeStatus::SoftFail' data-ref="llvm::MCDisassembler::DecodeStatus::SoftFail">SoftFail</dfn> = <var>1</var>,</td></tr>
+<tr><th id="54">54</th><td>    <dfn class="enum" id="llvm::MCDisassembler::DecodeStatus::Success" title='llvm::MCDisassembler::DecodeStatus::Success' data-ref="llvm::MCDisassembler::DecodeStatus::Success">Success</dfn> = <var>3</var></td></tr>
+<tr><th id="55">55</th><td>  };</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>  <dfn class="decl def" id="_ZN4llvm14MCDisassemblerC1ERKNS_15MCSubtargetInfoERNS_9MCContextE" title='llvm::MCDisassembler::MCDisassembler' data-ref="_ZN4llvm14MCDisassemblerC1ERKNS_15MCSubtargetInfoERNS_9MCContextE">MCDisassembler</dfn>(<em>const</em> <a class="type" href="../MCSubtargetInfo.h.html#llvm::MCSubtargetInfo" title='llvm::MCSubtargetInfo' data-ref="llvm::MCSubtargetInfo">MCSubtargetInfo</a> &amp;<dfn class="local col3 decl" id="43STI" title='STI' data-type='const llvm::MCSubtargetInfo &amp;' data-ref="43STI">STI</dfn>, <a class="type" href="../MCContext.h.html#llvm::MCContext" title='llvm::MCContext' data-ref="llvm::MCContext">MCContext</a> &amp;<dfn class="local col4 decl" id="44Ctx" title='Ctx' data-type='llvm::MCContext &amp;' data-ref="44Ctx">Ctx</dfn>)</td></tr>
+<tr><th id="58">58</th><td>    : <a class="member" href="#llvm::MCDisassembler::Ctx" title='llvm::MCDisassembler::Ctx' data-ref="llvm::MCDisassembler::Ctx">Ctx</a>(<a class="local col4 ref" href="#44Ctx" title='Ctx' data-ref="44Ctx">Ctx</a>), <a class="member" href="#llvm::MCDisassembler::STI" title='llvm::MCDisassembler::STI' data-ref="llvm::MCDisassembler::STI">STI</a>(<a class="local col3 ref" href="#43STI" title='STI' data-ref="43STI">STI</a>) {}</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>  <b>virtual</b> <dfn class="virtual decl" id="_ZN4llvm14MCDisassemblerD1Ev" title='llvm::MCDisassembler::~MCDisassembler' data-ref="_ZN4llvm14MCDisassemblerD1Ev">~MCDisassembler</dfn>();</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>  <i class="doc">/// Returns the disassembly of a single instruction.</i></td></tr>
+<tr><th id="63">63</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="64">64</th><td><i class="doc">  /// <span class="command">\param</span> <span class="arg">Instr</span>    - An MCInst to populate with the contents of the</i></td></tr>
+<tr><th id="65">65</th><td><i class="doc">  ///                   instruction.</i></td></tr>
+<tr><th id="66">66</th><td><i class="doc">  /// <span class="command">\param</span> <span class="arg">Size</span>     - A value to populate with the size of the instruction, or</i></td></tr>
+<tr><th id="67">67</th><td><i class="doc">  ///                   the number of bytes consumed while attempting to decode</i></td></tr>
+<tr><th id="68">68</th><td><i class="doc">  ///                   an invalid instruction.</i></td></tr>
+<tr><th id="69">69</th><td><i class="doc">  /// <span class="command">\param</span> <span class="arg">Address</span>  - The address, in the memory space of region, of the first</i></td></tr>
+<tr><th id="70">70</th><td><i class="doc">  ///                   byte of the instruction.</i></td></tr>
+<tr><th id="71">71</th><td><i class="doc">  /// <span class="command">\param</span> <span class="arg">Bytes</span>    - A reference to the actual bytes of the instruction.</i></td></tr>
+<tr><th id="72">72</th><td><i class="doc">  /// <span class="command">\param</span> <span class="arg">VStream</span>  - The stream to print warnings and diagnostic messages on.</i></td></tr>
+<tr><th id="73">73</th><td><i class="doc">  /// <span class="command">\param</span> <span class="arg">CStream</span>  - The stream to print comments and annotations on.</i></td></tr>
+<tr><th id="74">74</th><td><i class="doc">  /// <span class="command">\return</span>         - MCDisassembler::Success if the instruction is valid,</i></td></tr>
+<tr><th id="75">75</th><td><i class="doc">  ///                   MCDisassembler::SoftFail if the instruction was</i></td></tr>
+<tr><th id="76">76</th><td><i class="doc">  ///                                            disassemblable but invalid,</i></td></tr>
+<tr><th id="77">77</th><td><i class="doc">  ///                   MCDisassembler::Fail if the instruction was invalid.</i></td></tr>
+<tr><th id="78">78</th><td>  <b>virtual</b> <a class="type" href="#llvm::MCDisassembler::DecodeStatus" title='llvm::MCDisassembler::DecodeStatus' data-ref="llvm::MCDisassembler::DecodeStatus">DecodeStatus</a> <dfn class="virtual decl" id="_ZNK4llvm14MCDisassembler14getInstructionERNS_6MCInstERmNS_8ArrayRefIhEEmRNS_11raw_ostreamES7_" title='llvm::MCDisassembler::getInstruction' data-ref="_ZNK4llvm14MCDisassembler14getInstructionERNS_6MCInstERmNS_8ArrayRefIhEEmRNS_11raw_ostreamES7_">getInstruction</dfn>(<a class="type" href="../MCInst.h.html#llvm::MCInst" title='llvm::MCInst' data-ref="llvm::MCInst">MCInst</a> &amp;<dfn class="local col5 decl" id="45Instr" title='Instr' data-type='llvm::MCInst &amp;' data-ref="45Instr">Instr</dfn>, <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> &amp;<dfn class="local col6 decl" id="46Size" title='Size' data-type='uint64_t &amp;' data-ref="46Size">Size</dfn>,</td></tr>
+<tr><th id="79">79</th><td>                                      <a class="type" href="../../ADT/ArrayRef.h.html#llvm::ArrayRef" title='llvm::ArrayRef' data-ref="llvm::ArrayRef">ArrayRef</a>&lt;<a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a>&gt; <dfn class="local col7 decl" id="47Bytes" title='Bytes' data-type='ArrayRef&lt;uint8_t&gt;' data-ref="47Bytes">Bytes</dfn>, <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col8 decl" id="48Address" title='Address' data-type='uint64_t' data-ref="48Address">Address</dfn>,</td></tr>
+<tr><th id="80">80</th><td>                                      <a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col9 decl" id="49VStream" title='VStream' data-type='llvm::raw_ostream &amp;' data-ref="49VStream">VStream</dfn>,</td></tr>
+<tr><th id="81">81</th><td>                                      <a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col0 decl" id="50CStream" title='CStream' data-type='llvm::raw_ostream &amp;' data-ref="50CStream">CStream</dfn>) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td>  <i class="doc">/// May parse any prelude that precedes instructions after the start of a</i></td></tr>
+<tr><th id="84">84</th><td><i class="doc">  /// symbol. Needed for some targets, e.g. WebAssembly.</i></td></tr>
+<tr><th id="85">85</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="86">86</th><td><i class="doc">  /// <span class="command">\param</span> <span class="arg">Name</span>     - The name of the symbol.</i></td></tr>
+<tr><th id="87">87</th><td><i class="doc">  /// <span class="command">\param</span> <span class="arg">Size</span>     - The number of bytes consumed.</i></td></tr>
+<tr><th id="88">88</th><td><i class="doc">  /// <span class="command">\param</span> <span class="arg">Address</span>  - The address, in the memory space of region, of the first</i></td></tr>
+<tr><th id="89">89</th><td><i class="doc">  ///                   byte of the symbol.</i></td></tr>
+<tr><th id="90">90</th><td><i class="doc">  /// <span class="command">\param</span> <span class="arg">Bytes</span>    - A reference to the actual bytes at the symbol location.</i></td></tr>
+<tr><th id="91">91</th><td><i class="doc">  /// <span class="command">\param</span> <span class="arg">VStream</span>  - The stream to print warnings and diagnostic messages on.</i></td></tr>
+<tr><th id="92">92</th><td><i class="doc">  /// <span class="command">\param</span> <span class="arg">CStream</span>  - The stream to print comments and annotations on.</i></td></tr>
+<tr><th id="93">93</th><td><i class="doc">  /// <span class="command">\return</span>         - MCDisassembler::Success if the bytes are valid,</i></td></tr>
+<tr><th id="94">94</th><td><i class="doc">  ///                   MCDisassembler::Fail if the bytes were invalid.</i></td></tr>
+<tr><th id="95">95</th><td>  <b>virtual</b> <a class="type" href="#llvm::MCDisassembler::DecodeStatus" title='llvm::MCDisassembler::DecodeStatus' data-ref="llvm::MCDisassembler::DecodeStatus">DecodeStatus</a> <dfn class="virtual decl" id="_ZNK4llvm14MCDisassembler13onSymbolStartENS_9StringRefERmNS_8ArrayRefIhEEmRNS_11raw_ostreamES6_" title='llvm::MCDisassembler::onSymbolStart' data-ref="_ZNK4llvm14MCDisassembler13onSymbolStartENS_9StringRefERmNS_8ArrayRefIhEEmRNS_11raw_ostreamES6_">onSymbolStart</dfn>(<a class="type" href="../../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col1 decl" id="51Name" title='Name' data-type='llvm::StringRef' data-ref="51Name">Name</dfn>, <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> &amp;<dfn class="local col2 decl" id="52Size" title='Size' data-type='uint64_t &amp;' data-ref="52Size">Size</dfn>,</td></tr>
+<tr><th id="96">96</th><td>                                     <a class="type" href="../../ADT/ArrayRef.h.html#llvm::ArrayRef" title='llvm::ArrayRef' data-ref="llvm::ArrayRef">ArrayRef</a>&lt;<a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a>&gt; <dfn class="local col3 decl" id="53Bytes" title='Bytes' data-type='ArrayRef&lt;uint8_t&gt;' data-ref="53Bytes">Bytes</dfn>, <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col4 decl" id="54Address" title='Address' data-type='uint64_t' data-ref="54Address">Address</dfn>,</td></tr>
+<tr><th id="97">97</th><td>                                     <a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col5 decl" id="55VStream" title='VStream' data-type='llvm::raw_ostream &amp;' data-ref="55VStream">VStream</dfn>,</td></tr>
+<tr><th id="98">98</th><td>                                     <a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col6 decl" id="56CStream" title='CStream' data-type='llvm::raw_ostream &amp;' data-ref="56CStream">CStream</dfn>) <em>const</em>;</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td><b>private</b>:</td></tr>
+<tr><th id="101">101</th><td>  <a class="type" href="../MCContext.h.html#llvm::MCContext" title='llvm::MCContext' data-ref="llvm::MCContext">MCContext</a> &amp;<dfn class="decl" id="llvm::MCDisassembler::Ctx" title='llvm::MCDisassembler::Ctx' data-ref="llvm::MCDisassembler::Ctx">Ctx</dfn>;</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td><b>protected</b>:</td></tr>
+<tr><th id="104">104</th><td>  <i>// Subtarget information, for instruction decoding predicates if required.</i></td></tr>
+<tr><th id="105">105</th><td>  <em>const</em> <a class="type" href="../MCSubtargetInfo.h.html#llvm::MCSubtargetInfo" title='llvm::MCSubtargetInfo' data-ref="llvm::MCSubtargetInfo">MCSubtargetInfo</a> &amp;<dfn class="decl" id="llvm::MCDisassembler::STI" title='llvm::MCDisassembler::STI' data-ref="llvm::MCDisassembler::STI">STI</dfn>;</td></tr>
+<tr><th id="106">106</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/7/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="MCSymbolizer.h.html#llvm::MCSymbolizer" title='llvm::MCSymbolizer' data-ref="llvm::MCSymbolizer">MCSymbolizer</a>&gt; <dfn class="decl" id="llvm::MCDisassembler::Symbolizer" title='llvm::MCDisassembler::Symbolizer' data-ref="llvm::MCDisassembler::Symbolizer">Symbolizer</dfn>;</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td><b>public</b>:</td></tr>
+<tr><th id="109">109</th><td>  <i>// Helpers around MCSymbolizer</i></td></tr>
+<tr><th id="110">110</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK4llvm14MCDisassembler24tryAddingSymbolicOperandERNS_6MCInstElmbmm" title='llvm::MCDisassembler::tryAddingSymbolicOperand' data-ref="_ZNK4llvm14MCDisassembler24tryAddingSymbolicOperandERNS_6MCInstElmbmm">tryAddingSymbolicOperand</dfn>(<a class="type" href="../MCInst.h.html#llvm::MCInst" title='llvm::MCInst' data-ref="llvm::MCInst">MCInst</a> &amp;<dfn class="local col7 decl" id="57Inst" title='Inst' data-type='llvm::MCInst &amp;' data-ref="57Inst">Inst</dfn>,</td></tr>
+<tr><th id="111">111</th><td>                                <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-intn.h.html#int64_t" title='int64_t' data-type='__int64_t' data-ref="int64_t">int64_t</a> <dfn class="local col8 decl" id="58Value" title='Value' data-type='int64_t' data-ref="58Value">Value</dfn>,</td></tr>
+<tr><th id="112">112</th><td>                                <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col9 decl" id="59Address" title='Address' data-type='uint64_t' data-ref="59Address">Address</dfn>, <em>bool</em> <dfn class="local col0 decl" id="60IsBranch" title='IsBranch' data-type='bool' data-ref="60IsBranch">IsBranch</dfn>,</td></tr>
+<tr><th id="113">113</th><td>                                <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col1 decl" id="61Offset" title='Offset' data-type='uint64_t' data-ref="61Offset">Offset</dfn>, <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col2 decl" id="62InstSize" title='InstSize' data-type='uint64_t' data-ref="62InstSize">InstSize</dfn>) <em>const</em>;</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm14MCDisassembler31tryAddingPcLoadReferenceCommentElm" title='llvm::MCDisassembler::tryAddingPcLoadReferenceComment' data-ref="_ZNK4llvm14MCDisassembler31tryAddingPcLoadReferenceCommentElm">tryAddingPcLoadReferenceComment</dfn>(<a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-intn.h.html#int64_t" title='int64_t' data-type='__int64_t' data-ref="int64_t">int64_t</a> <dfn class="local col3 decl" id="63Value" title='Value' data-type='int64_t' data-ref="63Value">Value</dfn>, <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col4 decl" id="64Address" title='Address' data-type='uint64_t' data-ref="64Address">Address</dfn>) <em>const</em>;</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>  <i class="doc">/// Set<span class="command"> \p</span> <span class="arg">Symzer</span> as the current symbolizer.</i></td></tr>
+<tr><th id="118">118</th><td><i class="doc">  /// This takes ownership of<span class="command"> \p</span> <span class="arg">Symzer,</span> and deletes the previously set one.</i></td></tr>
+<tr><th id="119">119</th><td>  <em>void</em> <dfn class="decl" id="_ZN4llvm14MCDisassembler13setSymbolizerESt10unique_ptrINS_12MCSymbolizerESt14default_deleteIS2_EE" title='llvm::MCDisassembler::setSymbolizer' data-ref="_ZN4llvm14MCDisassembler13setSymbolizerESt10unique_ptrINS_12MCSymbolizerESt14default_deleteIS2_EE">setSymbolizer</dfn>(<span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/7/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="MCSymbolizer.h.html#llvm::MCSymbolizer" title='llvm::MCSymbolizer' data-ref="llvm::MCSymbolizer">MCSymbolizer</a>&gt; <dfn class="local col5 decl" id="65Symzer" title='Symzer' data-type='std::unique_ptr&lt;MCSymbolizer&gt;' data-ref="65Symzer">Symzer</dfn>);</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>  <a class="type" href="../MCContext.h.html#llvm::MCContext" title='llvm::MCContext' data-ref="llvm::MCContext">MCContext</a>&amp; <dfn class="decl def" id="_ZNK4llvm14MCDisassembler10getContextEv" title='llvm::MCDisassembler::getContext' data-ref="_ZNK4llvm14MCDisassembler10getContextEv">getContext</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::MCDisassembler::Ctx" title='llvm::MCDisassembler::Ctx' data-ref="llvm::MCDisassembler::Ctx">Ctx</a>; }</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td>  <em>const</em> <a class="type" href="../MCSubtargetInfo.h.html#llvm::MCSubtargetInfo" title='llvm::MCSubtargetInfo' data-ref="llvm::MCSubtargetInfo">MCSubtargetInfo</a>&amp; <dfn class="decl def" id="_ZNK4llvm14MCDisassembler16getSubtargetInfoEv" title='llvm::MCDisassembler::getSubtargetInfo' data-ref="_ZNK4llvm14MCDisassembler16getSubtargetInfoEv">getSubtargetInfo</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::MCDisassembler::STI" title='llvm::MCDisassembler::STI' data-ref="llvm::MCDisassembler::STI">STI</a>; }</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td>  <i>// Marked mutable because we cache it inside the disassembler, rather than</i></td></tr>
+<tr><th id="126">126</th><td><i>  // having to pass it around as an argument through all the autogenerated code.</i></td></tr>
+<tr><th id="127">127</th><td>  <em>mutable</em> <a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> *<dfn class="decl" id="llvm::MCDisassembler::CommentStream" title='llvm::MCDisassembler::CommentStream' data-ref="llvm::MCDisassembler::CommentStream">CommentStream</dfn> = <b>nullptr</b>;</td></tr>
+<tr><th id="128">128</th><td>};</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><u>#<span data-ppcond="9">endif</span> // LLVM_MC_MCDISASSEMBLER_MCDISASSEMBLER_H</u></td></tr>
+<tr><th id="133">133</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../lib/ExecutionEngine/RuntimeDyld/RuntimeDyldChecker.cpp.html'>llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyldChecker.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

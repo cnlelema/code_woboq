@@ -1,0 +1,78 @@
+<dec f='llvm/llvm/include/llvm/ADT/StringRef.h' l='750' type='void llvm::StringRef::split(SmallVectorImpl&lt;llvm::StringRef&gt; &amp; A, llvm::StringRef Separator, int MaxSplit = -1, bool KeepEmpty = true) const'/>
+<doc f='llvm/llvm/include/llvm/ADT/StringRef.h' l='736'>/// Split into substrings around the occurrences of a separator string.
+    ///
+    /// Each substring is stored in \p A. If \p MaxSplit is &gt;= 0, at most
+    /// \p MaxSplit splits are done and consequently &lt;= \p MaxSplit + 1
+    /// elements are added to A.
+    /// If \p KeepEmpty is false, empty strings are not added to \p A. They
+    /// still count when considering \p MaxSplit
+    /// An useful invariant is that
+    /// Separator.join(A) == *this if MaxSplit == -1 and KeepEmpty == true
+    ///
+    /// \param A - Where to put the substrings.
+    /// \param Separator - The string to split on.
+    /// \param MaxSplit - The maximum number of times the string is split.
+    /// \param KeepEmpty - True if empty substring should be added.</doc>
+<use f='llvm/clang/lib/Driver/Distro.cpp' l='26' u='c' c='_ZL12DetectDistroRN4llvm3vfs10FileSystemE'/>
+<use f='llvm/clang/lib/Driver/Distro.cpp' l='117' u='c' c='_ZL12DetectDistroRN4llvm3vfs10FileSystemE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Arch/AArch64.cpp' l='57' u='c' c='_ZL21DecodeAArch64FeaturesRKN5clang6driver6DriverEN4llvm9StringRefERSt6vectorIS5_SaIS5_EE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Arch/ARM.cpp' l='78' u='c' c='_ZL17DecodeARMFeaturesRKN5clang6driver6DriverEN4llvm9StringRefES5_NS4_3ARM8ArchKindERSt6vectorIS5_SaIS5_EE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Arch/RISCV.cpp' l='105' u='c' c='_ZL20getExtensionFeaturesRKN5clang6driver6DriverERKN4llvm3opt7ArgListERSt6vectorINS4_9StringRefESaISA_EERSA_SE_'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Clang.cpp' l='5980' u='c' c='_ZNK5clang6driver5tools5Clang14AddClangCLArgsERKN4llvm3opt7ArgListENS0_5types2IDERNS3_11SmallVectorIPKcLj16EEEPNS_14codegenoptions13DebugInfoKindEPb'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Darwin.cpp' l='1849' u='c' c='_ZNK5clang6driver10toolchains11DarwinClang25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Fuchsia.cpp' l='279' u='c' c='_ZNK5clang6driver10toolchains7Fuchsia25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Gnu.cpp' l='2441' u='c' c='_ZN5clang6driver10toolchains11Generic_GCC23GCCInstallationDetector19ScanGentooGccConfigERKN4llvm6TripleERKNS4_3opt7ArgListENS4_9StringRefEb'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Gnu.cpp' l='2464' u='c' c='_ZN5clang6driver10toolchains11Generic_GCC23GCCInstallationDetector19ScanGentooGccConfigERKN4llvm6TripleERKNS4_3opt7ArgListENS4_9StringRefEb'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Hurd.cpp' l='145' u='c' c='_ZNK5clang6driver10toolchains4Hurd25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Linux.cpp' l='678' u='c' c='_ZNK5clang6driver10toolchains5Linux25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/MSVC.cpp' l='1219' u='c' c='_ZNK5clang6driver10toolchains13MSVCToolChain25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Solaris.cpp' l='238' u='c' c='_ZNK5clang6driver10toolchains7Solaris25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/WebAssembly.cpp' l='192' u='c' c='_ZNK5clang6driver10toolchains11WebAssembly25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/XCore.cpp' l='119' u='c' c='_ZNK5clang6driver10toolchains14XCoreToolChain25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/XCore.cpp' l='140' u='c' c='_ZNK5clang6driver10toolchains14XCoreToolChain28AddClangCXXStdlibIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEE'/>
+<use f='llvm/clang/lib/Format/BreakableToken.cpp' l='345' u='c' c='_ZN5clang6format21BreakableBlockCommentC1ERKNS0_11FormatTokenEjjbbNS0_8encoding8EncodingERKNS0_11FormatStyleEb'/>
+<use f='llvm/clang/lib/Format/BreakableToken.cpp' l='739' u='c' c='_ZN5clang6format27BreakableLineCommentSectionC1ERKNS0_11FormatTokenEjjbbNS0_8encoding8EncodingERKNS0_11FormatStyleE'/>
+<use f='llvm/clang/lib/Format/UsingDeclarationsSorter.cpp' l='37' u='c' c='_ZN5clang6format12_GLOBAL__N_113compareLabelsEN4llvm9StringRefES3_'/>
+<use f='llvm/clang/lib/Format/UsingDeclarationsSorter.cpp' l='39' u='c' c='_ZN5clang6format12_GLOBAL__N_113compareLabelsEN4llvm9StringRefES3_'/>
+<use f='llvm/clang/lib/Frontend/InitHeaderSearch.cpp' l='258' u='c' c='_ZN12_GLOBAL__N_116InitHeaderSearch23AddDefaultCIncludePathsERKN4llvm6TripleERKN5clang19HeaderSearchOptionsE'/>
+<use f='llvm/clang/lib/Rewrite/Rewriter.cpp' l='266' u='c' c='_ZN5clang8Rewriter10InsertTextENS_14SourceLocationEN4llvm9StringRefEbb'/>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='2231' u='c' c='_ZN5clang4Sema25setOpenCLExtensionForTypeENS_8QualTypeEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='2239' u='c' c='_ZN5clang4Sema25setOpenCLExtensionForDeclEPNS_4DeclEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='6436' u='c' c='_ZN5clang4Sema24SemaBuiltinARMSpecialRegEjPNS_8CallExprEijb'/>
+<use f='llvm/clang/lib/Sema/SemaStmtAsm.cpp' l='776' u='c' c='_ZN5clang4Sema20LookupInlineAsmFieldEN4llvm9StringRefES2_RjNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Tooling/Core/Lookup.cpp' l='136' u='c' c='_ZL27disambiguateSpellingInScopeN4llvm9StringRefES0_RKN5clang11DeclContextENS1_14SourceLocationE'/>
+<use f='llvm/clang/lib/Tooling/Inclusions/HeaderIncludes.cpp' l='233' u='c' c='_ZN5clang7tooling14HeaderIncludesC1EN4llvm9StringRefES3_RKNS0_12IncludeStyleE'/>
+<use f='llvm/lld/COFF/DriverUtils.cpp' l='99' u='c' c='_ZN3lld4coff10parseGuardEN4llvm9StringRefE'/>
+<use f='llvm/lld/tools/lld/lld.cpp' l='109' u='c' c='_ZL13parsePrognameN4llvm9StringRefE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='3905' u='c' c='_ZN4llvm26UpgradeRetainReleaseMarkerERNS_6ModuleE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='3958' u='c' c='_ZN4llvm18UpgradeModuleFlagsERNS_6ModuleE'/>
+<use f='llvm/llvm/lib/MC/MCParser/WasmAsmParser.cpp' l='87' u='c' c='_ZN12_GLOBAL__N_113WasmAsmParser17parseSectionFlagsEN4llvm9StringRefERb'/>
+<use f='llvm/llvm/lib/Option/OptTable.cpp' l='217' u='c' c='_ZNK4llvm3opt8OptTable23suggestValueCompletionsENS_9StringRefES2_'/>
+<use f='llvm/llvm/lib/ProfileData/InstrProf.cpp' l='471' u='c' c='_ZN4llvm22readPGOFuncNameStringsENS_9StringRefERNS_15InstrProfSymtabE'/>
+<use f='llvm/llvm/lib/Support/Host.cpp' l='153' u='c' c='_ZN4llvm3sys6detail20getHostCPUNameForARMENS_9StringRefE'/>
+<use f='llvm/llvm/lib/Support/Host.cpp' l='288' u='c' c='_ZN4llvm3sys6detail22getHostCPUNameForS390xENS_9StringRefE'/>
+<use f='llvm/llvm/lib/Support/Host.cpp' l='1228' u='c' c='_ZL27computeHostNumPhysicalCoresv'/>
+<use f='llvm/llvm/lib/Support/Signals.cpp' l='180' u='c' c='_ZL25printSymbolizedStackTraceN4llvm9StringRefEPPviRNS_11raw_ostreamE'/>
+<def f='llvm/llvm/lib/Support/StringRef.cpp' l='313' ll='338' type='void llvm::StringRef::split(SmallVectorImpl&lt;llvm::StringRef&gt; &amp; A, llvm::StringRef Separator, int MaxSplit = -1, bool KeepEmpty = true) const'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUHSAMetadataStreamer.cpp' l='385' u='c' c='_ZN4llvm6AMDGPU5HSAMD18MetadataStreamerV213emitKernelArgERKNS_10DataLayoutEPNS_4TypeENS1_9ValueKindEjNS_9StringRefES9_S9_S9_S9_'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUHSAMetadataStreamer.cpp' l='810' u='c' c='_ZN4llvm6AMDGPU5HSAMD18MetadataStreamerV313emitKernelArgERKNS_10DataLayoutEPNS_4TypeENS_9StringRefERjNS_7msgpack12ArrayDocNodeEjS8_S8_S8_S8_S8_'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='201' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='207' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='212' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='216' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='220' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='225' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='230' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='236' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='241' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='246' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='251' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='256' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='261' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='267' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='272' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='282' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='287' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='291' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='293' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='301' u='c' c='_ZN12_GLOBAL__N_125StringRefTest_Split2_Test8TestBodyEv'/>

@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/Analysis/MemoryBuiltins.h' l='176' type='bool llvm::getObjectSize(const llvm::Value * Ptr, uint64_t &amp; Size, const llvm::DataLayout &amp; DL, const llvm::TargetLibraryInfo * TLI, llvm::ObjectSizeOpts Opts = {})'/>
+<use f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='188' u='c' c='_ZL13getObjectSizePKN4llvm5ValueERKNS_10DataLayoutERKNS_17TargetLibraryInfoEbb'/>
+<doc f='llvm/llvm/include/llvm/Analysis/MemoryBuiltins.h' l='172'>/// Compute the size of the object pointed by Ptr. Returns true and the
+/// object size in Size if successful, and false otherwise. In this context, by
+/// object we mean the region of memory starting at Ptr to the end of the
+/// underlying object pointed to by Ptr.</doc>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='2249' u='c' c='_ZL18computePointerICmpRKN4llvm10DataLayoutEPKNS_17TargetLibraryInfoEPKNS_13DominatorTreeENS_7CmpInst9PredicateEPNS_15AssumptionCacheEPKNS_11Instructi10406885'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='2250' u='c' c='_ZL18computePointerICmpRKN4llvm10DataLayoutEPKNS_17TargetLibraryInfoEPKNS_13DominatorTreeENS_7CmpInst9PredicateEPNS_15AssumptionCacheEPKNS_11Instructi10406885'/>
+<def f='llvm/llvm/lib/Analysis/MemoryBuiltins.cpp' l='433' ll='442' type='bool llvm::getObjectSize(const llvm::Value * Ptr, uint64_t &amp; Size, const llvm::DataLayout &amp; DL, const llvm::TargetLibraryInfo * TLI, llvm::ObjectSizeOpts Opts = {})'/>
+<use f='llvm/llvm/lib/Analysis/MemoryBuiltins.cpp' l='470' u='c' c='_ZN4llvm19lowerObjectSizeCallEPNS_13IntrinsicInstERKNS_10DataLayoutEPKNS_17TargetLibraryInfoEb'/>
+<doc f='llvm/llvm/lib/Analysis/MemoryBuiltins.cpp' l='429'>/// Compute the size of the object pointed by Ptr. Returns true and the
+/// object size in Size if successful, and false otherwise.
+/// If RoundToAlign is true, then Size is rounded up to the alignment of
+/// allocas, byval arguments, and global variables.</doc>
+<use f='llvm/llvm/lib/Transforms/Scalar/DeadStoreElimination.cpp' l='318' u='c' c='_ZL14getPointerSizePKN4llvm5ValueERKNS_10DataLayoutERKNS_17TargetLibraryInfoEPKNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SeparateConstOffsetFromGEP.cpp' l='1306' u='c' c='_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP14swapGEPOperandEPN4llvm17GetElementPtrInstES3_'/>
+<use f='llvm/llvm/lib/Transforms/Utils/VNCoercion.cpp' l='226' u='c' c='_ZN4llvm10VNCoercionL30analyzeLoadFromClobberingWriteEPNS_4TypeEPNS_5ValueES4_mRKNS_10DataLayoutEPKNS_17TargetLibraryInfoE'/>

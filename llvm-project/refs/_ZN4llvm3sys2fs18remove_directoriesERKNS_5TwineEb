@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/Support/FileSystem.h' l='402' type='std::error_code llvm::sys::fs::remove_directories(const llvm::Twine &amp; path, bool IgnoreErrors = true)'/>
+<doc f='llvm/llvm/include/llvm/Support/FileSystem.h' l='397'>/// Recursively delete a directory.
+///
+/// @param path Input path.
+/// @returns errc::success if path has been removed or didn&apos;t exist, otherwise a
+///          platform-specific error code.</doc>
+<def f='llvm/llvm/lib/Support/Unix/Path.inc' l='1012' ll='1020' type='std::error_code llvm::sys::fs::remove_directories(const llvm::Twine &amp; path, bool IgnoreErrors = true)'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='540' u='c' c='_ZN12_GLOBAL__N_128FileSystemTest_RealPath_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='582' u='c' c='_ZN12_GLOBAL__N_138FileSystemTest_RealPathNoReadPerm_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='991' u='c' c='_ZN12_GLOBAL__N_151FileSystemTest_BrokenSymlinkDirectoryIteration_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1022' u='c' c='_ZN12_GLOBAL__N_126FileSystemTest_Remove_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1024' u='c' c='_ZN12_GLOBAL__N_126FileSystemTest_Remove_Test8TestBodyEv'/>

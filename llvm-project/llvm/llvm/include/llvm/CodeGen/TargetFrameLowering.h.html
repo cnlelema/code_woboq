@@ -1,0 +1,392 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TargetFrameLowering.h source code [llvm/llvm/include/llvm/CodeGen/TargetFrameLowering.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::TargetFrameLowering "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/CodeGen/TargetFrameLowering.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>CodeGen</a>/<a href='TargetFrameLowering.h.html'>TargetFrameLowering.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- llvm/CodeGen/TargetFrameLowering.h ----------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// Interface to describe the layout of a stack frame on the target machine.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#<span data-ppcond="13">ifndef</span> <span class="macro" data-ref="_M/LLVM_CODEGEN_TARGETFRAMELOWERING_H">LLVM_CODEGEN_TARGETFRAMELOWERING_H</span></u></td></tr>
+<tr><th id="14">14</th><td><u>#define <dfn class="macro" id="_M/LLVM_CODEGEN_TARGETFRAMELOWERING_H" data-ref="_M/LLVM_CODEGEN_TARGETFRAMELOWERING_H">LLVM_CODEGEN_TARGETFRAMELOWERING_H</dfn></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="MachineBasicBlock.h.html">"llvm/CodeGen/MachineBasicBlock.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../../../../include/c++/7/utility.html">&lt;utility&gt;</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../../../include/c++/7/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="21">21</th><td>  <b>class</b> <a class="type" href="../ADT/BitVector.h.html#llvm::BitVector" title='llvm::BitVector' data-ref="llvm::BitVector" id="llvm::BitVector">BitVector</a>;</td></tr>
+<tr><th id="22">22</th><td>  <b>class</b> <a class="type" href="MachineFrameInfo.h.html#llvm::CalleeSavedInfo" title='llvm::CalleeSavedInfo' data-ref="llvm::CalleeSavedInfo" id="llvm::CalleeSavedInfo">CalleeSavedInfo</a>;</td></tr>
+<tr><th id="23">23</th><td>  <b>class</b> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction" id="llvm::MachineFunction">MachineFunction</a>;</td></tr>
+<tr><th id="24">24</th><td>  <b>class</b> <dfn class="type" id="llvm::RegScavenger" title='llvm::RegScavenger' data-ref="llvm::RegScavenger">RegScavenger</dfn>;</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><i class="doc">/// Information about stack frame layout on the target.  It holds the direction</i></td></tr>
+<tr><th id="27">27</th><td><i class="doc">/// of stack growth, the known stack alignment on entry to each function, and</i></td></tr>
+<tr><th id="28">28</th><td><i class="doc">/// the offset to the locals area.</i></td></tr>
+<tr><th id="29">29</th><td><i class="doc">///</i></td></tr>
+<tr><th id="30">30</th><td><i class="doc">/// The offset to the local area is the offset from the stack pointer on</i></td></tr>
+<tr><th id="31">31</th><td><i class="doc">/// function entry to the first location where function data (local variables,</i></td></tr>
+<tr><th id="32">32</th><td><i class="doc">/// spill locations) can be stored.</i></td></tr>
+<tr><th id="33">33</th><td><b>class</b> <dfn class="type def" id="llvm::TargetFrameLowering" title='llvm::TargetFrameLowering' data-ref="llvm::TargetFrameLowering">TargetFrameLowering</dfn> {</td></tr>
+<tr><th id="34">34</th><td><b>public</b>:</td></tr>
+<tr><th id="35">35</th><td>  <b>enum</b> <dfn class="type def" id="llvm::TargetFrameLowering::StackDirection" title='llvm::TargetFrameLowering::StackDirection' data-ref="llvm::TargetFrameLowering::StackDirection">StackDirection</dfn> {</td></tr>
+<tr><th id="36">36</th><td>    <dfn class="enum" id="llvm::TargetFrameLowering::StackDirection::StackGrowsUp" title='llvm::TargetFrameLowering::StackDirection::StackGrowsUp' data-ref="llvm::TargetFrameLowering::StackDirection::StackGrowsUp">StackGrowsUp</dfn>,        <i>// Adding to the stack increases the stack address</i></td></tr>
+<tr><th id="37">37</th><td>    <dfn class="enum" id="llvm::TargetFrameLowering::StackDirection::StackGrowsDown" title='llvm::TargetFrameLowering::StackDirection::StackGrowsDown' data-ref="llvm::TargetFrameLowering::StackDirection::StackGrowsDown">StackGrowsDown</dfn>       <i>// Adding to the stack decreases the stack address</i></td></tr>
+<tr><th id="38">38</th><td>  };</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td>  <i>// Maps a callee saved register to a stack slot with a fixed offset.</i></td></tr>
+<tr><th id="41">41</th><td>  <b>struct</b> <dfn class="type def" id="llvm::TargetFrameLowering::SpillSlot" title='llvm::TargetFrameLowering::SpillSlot' data-ref="llvm::TargetFrameLowering::SpillSlot">SpillSlot</dfn> {</td></tr>
+<tr><th id="42">42</th><td>    <em>unsigned</em> <dfn class="decl" id="llvm::TargetFrameLowering::SpillSlot::Reg" title='llvm::TargetFrameLowering::SpillSlot::Reg' data-ref="llvm::TargetFrameLowering::SpillSlot::Reg">Reg</dfn>;</td></tr>
+<tr><th id="43">43</th><td>    <em>int</em> <dfn class="decl" id="llvm::TargetFrameLowering::SpillSlot::Offset" title='llvm::TargetFrameLowering::SpillSlot::Offset' data-ref="llvm::TargetFrameLowering::SpillSlot::Offset">Offset</dfn>; <i>// Offset relative to stack pointer on function entry.</i></td></tr>
+<tr><th id="44">44</th><td>  };</td></tr>
+<tr><th id="45">45</th><td><b>private</b>:</td></tr>
+<tr><th id="46">46</th><td>  <a class="type" href="#llvm::TargetFrameLowering::StackDirection" title='llvm::TargetFrameLowering::StackDirection' data-ref="llvm::TargetFrameLowering::StackDirection">StackDirection</a> <dfn class="decl" id="llvm::TargetFrameLowering::StackDir" title='llvm::TargetFrameLowering::StackDir' data-ref="llvm::TargetFrameLowering::StackDir">StackDir</dfn>;</td></tr>
+<tr><th id="47">47</th><td>  <em>unsigned</em> <dfn class="decl" id="llvm::TargetFrameLowering::StackAlignment" title='llvm::TargetFrameLowering::StackAlignment' data-ref="llvm::TargetFrameLowering::StackAlignment">StackAlignment</dfn>;</td></tr>
+<tr><th id="48">48</th><td>  <em>unsigned</em> <dfn class="decl" id="llvm::TargetFrameLowering::TransientStackAlignment" title='llvm::TargetFrameLowering::TransientStackAlignment' data-ref="llvm::TargetFrameLowering::TransientStackAlignment">TransientStackAlignment</dfn>;</td></tr>
+<tr><th id="49">49</th><td>  <em>int</em> <dfn class="decl" id="llvm::TargetFrameLowering::LocalAreaOffset" title='llvm::TargetFrameLowering::LocalAreaOffset' data-ref="llvm::TargetFrameLowering::LocalAreaOffset">LocalAreaOffset</dfn>;</td></tr>
+<tr><th id="50">50</th><td>  <em>bool</em> <dfn class="decl" id="llvm::TargetFrameLowering::StackRealignable" title='llvm::TargetFrameLowering::StackRealignable' data-ref="llvm::TargetFrameLowering::StackRealignable">StackRealignable</dfn>;</td></tr>
+<tr><th id="51">51</th><td><b>public</b>:</td></tr>
+<tr><th id="52">52</th><td>  <dfn class="decl def" id="_ZN4llvm19TargetFrameLoweringC1ENS0_14StackDirectionEjijb" title='llvm::TargetFrameLowering::TargetFrameLowering' data-ref="_ZN4llvm19TargetFrameLoweringC1ENS0_14StackDirectionEjijb">TargetFrameLowering</dfn>(<a class="type" href="#llvm::TargetFrameLowering::StackDirection" title='llvm::TargetFrameLowering::StackDirection' data-ref="llvm::TargetFrameLowering::StackDirection">StackDirection</a> <dfn class="local col5 decl" id="275D" title='D' data-type='llvm::TargetFrameLowering::StackDirection' data-ref="275D">D</dfn>, <em>unsigned</em> <dfn class="local col6 decl" id="276StackAl" title='StackAl' data-type='unsigned int' data-ref="276StackAl">StackAl</dfn>, <em>int</em> <dfn class="local col7 decl" id="277LAO" title='LAO' data-type='int' data-ref="277LAO">LAO</dfn>,</td></tr>
+<tr><th id="53">53</th><td>                      <em>unsigned</em> <dfn class="local col8 decl" id="278TransAl" title='TransAl' data-type='unsigned int' data-ref="278TransAl">TransAl</dfn> = <var>1</var>, <em>bool</em> <dfn class="local col9 decl" id="279StackReal" title='StackReal' data-type='bool' data-ref="279StackReal">StackReal</dfn> = <b>true</b>)</td></tr>
+<tr><th id="54">54</th><td>    : <a class="member" href="#llvm::TargetFrameLowering::StackDir" title='llvm::TargetFrameLowering::StackDir' data-ref="llvm::TargetFrameLowering::StackDir">StackDir</a>(<a class="local col5 ref" href="#275D" title='D' data-ref="275D">D</a>), <a class="member" href="#llvm::TargetFrameLowering::StackAlignment" title='llvm::TargetFrameLowering::StackAlignment' data-ref="llvm::TargetFrameLowering::StackAlignment">StackAlignment</a>(<a class="local col6 ref" href="#276StackAl" title='StackAl' data-ref="276StackAl">StackAl</a>), <a class="member" href="#llvm::TargetFrameLowering::TransientStackAlignment" title='llvm::TargetFrameLowering::TransientStackAlignment' data-ref="llvm::TargetFrameLowering::TransientStackAlignment">TransientStackAlignment</a>(<a class="local col8 ref" href="#278TransAl" title='TransAl' data-ref="278TransAl">TransAl</a>),</td></tr>
+<tr><th id="55">55</th><td>      <a class="member" href="#llvm::TargetFrameLowering::LocalAreaOffset" title='llvm::TargetFrameLowering::LocalAreaOffset' data-ref="llvm::TargetFrameLowering::LocalAreaOffset">LocalAreaOffset</a>(<a class="local col7 ref" href="#277LAO" title='LAO' data-ref="277LAO">LAO</a>), <a class="member" href="#llvm::TargetFrameLowering::StackRealignable" title='llvm::TargetFrameLowering::StackRealignable' data-ref="llvm::TargetFrameLowering::StackRealignable">StackRealignable</a>(<a class="local col9 ref" href="#279StackReal" title='StackReal' data-ref="279StackReal">StackReal</a>) {}</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>  <b>virtual</b> <dfn class="virtual decl" id="_ZN4llvm19TargetFrameLoweringD1Ev" title='llvm::TargetFrameLowering::~TargetFrameLowering' data-ref="_ZN4llvm19TargetFrameLoweringD1Ev">~TargetFrameLowering</dfn>();</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>  <i>// These methods return information that describes the abstract stack layout</i></td></tr>
+<tr><th id="60">60</th><td><i>  // of the target machine.</i></td></tr>
+<tr><th id="61">61</th><td><i></i></td></tr>
+<tr><th id="62">62</th><td><i>  /// getStackGrowthDirection - Return the direction the stack grows</i></td></tr>
+<tr><th id="63">63</th><td><i>  ///</i></td></tr>
+<tr><th id="64">64</th><td>  <a class="type" href="#llvm::TargetFrameLowering::StackDirection" title='llvm::TargetFrameLowering::StackDirection' data-ref="llvm::TargetFrameLowering::StackDirection">StackDirection</a> <dfn class="decl def" id="_ZNK4llvm19TargetFrameLowering23getStackGrowthDirectionEv" title='llvm::TargetFrameLowering::getStackGrowthDirection' data-ref="_ZNK4llvm19TargetFrameLowering23getStackGrowthDirectionEv">getStackGrowthDirection</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::TargetFrameLowering::StackDir" title='llvm::TargetFrameLowering::StackDir' data-ref="llvm::TargetFrameLowering::StackDir">StackDir</a>; }</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>  <i class="doc">/// getStackAlignment - This method returns the number of bytes to which the</i></td></tr>
+<tr><th id="67">67</th><td><i class="doc">  /// stack pointer must be aligned on entry to a function.  Typically, this</i></td></tr>
+<tr><th id="68">68</th><td><i class="doc">  /// is the largest alignment for any data object in the target.</i></td></tr>
+<tr><th id="69">69</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="70">70</th><td>  <em>unsigned</em> <dfn class="decl def" id="_ZNK4llvm19TargetFrameLowering17getStackAlignmentEv" title='llvm::TargetFrameLowering::getStackAlignment' data-ref="_ZNK4llvm19TargetFrameLowering17getStackAlignmentEv">getStackAlignment</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::TargetFrameLowering::StackAlignment" title='llvm::TargetFrameLowering::StackAlignment' data-ref="llvm::TargetFrameLowering::StackAlignment">StackAlignment</a>; }</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td>  <i class="doc">/// alignSPAdjust - This method aligns the stack adjustment to the correct</i></td></tr>
+<tr><th id="73">73</th><td><i class="doc">  /// alignment.</i></td></tr>
+<tr><th id="74">74</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="75">75</th><td>  <em>int</em> <dfn class="decl def" id="_ZNK4llvm19TargetFrameLowering13alignSPAdjustEi" title='llvm::TargetFrameLowering::alignSPAdjust' data-ref="_ZNK4llvm19TargetFrameLowering13alignSPAdjustEi">alignSPAdjust</dfn>(<em>int</em> <dfn class="local col0 decl" id="280SPAdj" title='SPAdj' data-type='int' data-ref="280SPAdj">SPAdj</dfn>) <em>const</em> {</td></tr>
+<tr><th id="76">76</th><td>    <b>if</b> (<a class="local col0 ref" href="#280SPAdj" title='SPAdj' data-ref="280SPAdj">SPAdj</a> &lt; <var>0</var>) {</td></tr>
+<tr><th id="77">77</th><td>      <a class="local col0 ref" href="#280SPAdj" title='SPAdj' data-ref="280SPAdj">SPAdj</a> = -<a class="ref" href="../Support/MathExtras.h.html#_ZN4llvm7alignToEmmm" title='llvm::alignTo' data-ref="_ZN4llvm7alignToEmmm">alignTo</a>(-<a class="local col0 ref" href="#280SPAdj" title='SPAdj' data-ref="280SPAdj">SPAdj</a>, <a class="member" href="#llvm::TargetFrameLowering::StackAlignment" title='llvm::TargetFrameLowering::StackAlignment' data-ref="llvm::TargetFrameLowering::StackAlignment">StackAlignment</a>);</td></tr>
+<tr><th id="78">78</th><td>    } <b>else</b> {</td></tr>
+<tr><th id="79">79</th><td>      <a class="local col0 ref" href="#280SPAdj" title='SPAdj' data-ref="280SPAdj">SPAdj</a> = <a class="ref" href="../Support/MathExtras.h.html#_ZN4llvm7alignToEmmm" title='llvm::alignTo' data-ref="_ZN4llvm7alignToEmmm">alignTo</a>(<a class="local col0 ref" href="#280SPAdj" title='SPAdj' data-ref="280SPAdj">SPAdj</a>, <a class="member" href="#llvm::TargetFrameLowering::StackAlignment" title='llvm::TargetFrameLowering::StackAlignment' data-ref="llvm::TargetFrameLowering::StackAlignment">StackAlignment</a>);</td></tr>
+<tr><th id="80">80</th><td>    }</td></tr>
+<tr><th id="81">81</th><td>    <b>return</b> <a class="local col0 ref" href="#280SPAdj" title='SPAdj' data-ref="280SPAdj">SPAdj</a>;</td></tr>
+<tr><th id="82">82</th><td>  }</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>  <i class="doc">/// getTransientStackAlignment - This method returns the number of bytes to</i></td></tr>
+<tr><th id="85">85</th><td><i class="doc">  /// which the stack pointer must be aligned at all times, even between</i></td></tr>
+<tr><th id="86">86</th><td><i class="doc">  /// calls.</i></td></tr>
+<tr><th id="87">87</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="88">88</th><td>  <em>unsigned</em> <dfn class="decl def" id="_ZNK4llvm19TargetFrameLowering26getTransientStackAlignmentEv" title='llvm::TargetFrameLowering::getTransientStackAlignment' data-ref="_ZNK4llvm19TargetFrameLowering26getTransientStackAlignmentEv">getTransientStackAlignment</dfn>() <em>const</em> {</td></tr>
+<tr><th id="89">89</th><td>    <b>return</b> <a class="member" href="#llvm::TargetFrameLowering::TransientStackAlignment" title='llvm::TargetFrameLowering::TransientStackAlignment' data-ref="llvm::TargetFrameLowering::TransientStackAlignment">TransientStackAlignment</a>;</td></tr>
+<tr><th id="90">90</th><td>  }</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>  <i class="doc">/// isStackRealignable - This method returns whether the stack can be</i></td></tr>
+<tr><th id="93">93</th><td><i class="doc">  /// realigned.</i></td></tr>
+<tr><th id="94">94</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm19TargetFrameLowering18isStackRealignableEv" title='llvm::TargetFrameLowering::isStackRealignable' data-ref="_ZNK4llvm19TargetFrameLowering18isStackRealignableEv">isStackRealignable</dfn>() <em>const</em> {</td></tr>
+<tr><th id="95">95</th><td>    <b>return</b> <a class="member" href="#llvm::TargetFrameLowering::StackRealignable" title='llvm::TargetFrameLowering::StackRealignable' data-ref="llvm::TargetFrameLowering::StackRealignable">StackRealignable</a>;</td></tr>
+<tr><th id="96">96</th><td>  }</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td>  <i class="doc">/// Return the skew that has to be applied to stack alignment under</i></td></tr>
+<tr><th id="99">99</th><td><i class="doc">  /// certain conditions (e.g. stack was adjusted before function<span class="command"> \p</span> <span class="arg">MF</span></i></td></tr>
+<tr><th id="100">100</th><td><i class="doc">  /// was called).</i></td></tr>
+<tr><th id="101">101</th><td>  <b>virtual</b> <em>unsigned</em> <dfn class="virtual decl" id="_ZNK4llvm19TargetFrameLowering21getStackAlignmentSkewERKNS_15MachineFunctionE" title='llvm::TargetFrameLowering::getStackAlignmentSkew' data-ref="_ZNK4llvm19TargetFrameLowering21getStackAlignmentSkewERKNS_15MachineFunctionE">getStackAlignmentSkew</dfn>(<em>const</em> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col1 decl" id="281MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="281MF">MF</dfn>) <em>const</em>;</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>  <i class="doc">/// getOffsetOfLocalArea - This method returns the offset of the local area</i></td></tr>
+<tr><th id="104">104</th><td><i class="doc">  /// from the stack pointer on entrance to a function.</i></td></tr>
+<tr><th id="105">105</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="106">106</th><td>  <em>int</em> <dfn class="decl def" id="_ZNK4llvm19TargetFrameLowering20getOffsetOfLocalAreaEv" title='llvm::TargetFrameLowering::getOffsetOfLocalArea' data-ref="_ZNK4llvm19TargetFrameLowering20getOffsetOfLocalAreaEv">getOffsetOfLocalArea</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::TargetFrameLowering::LocalAreaOffset" title='llvm::TargetFrameLowering::LocalAreaOffset' data-ref="llvm::TargetFrameLowering::LocalAreaOffset">LocalAreaOffset</a>; }</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>  <i class="doc">/// isFPCloseToIncomingSP - Return true if the frame pointer is close to</i></td></tr>
+<tr><th id="109">109</th><td><i class="doc">  /// the incoming stack pointer, false if it is close to the post-prologue</i></td></tr>
+<tr><th id="110">110</th><td><i class="doc">  /// stack pointer.</i></td></tr>
+<tr><th id="111">111</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering21isFPCloseToIncomingSPEv" title='llvm::TargetFrameLowering::isFPCloseToIncomingSP' data-ref="_ZNK4llvm19TargetFrameLowering21isFPCloseToIncomingSPEv">isFPCloseToIncomingSP</dfn>() <em>const</em> { <b>return</b> <b>true</b>; }</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td>  <i class="doc">/// assignCalleeSavedSpillSlots - Allows target to override spill slot</i></td></tr>
+<tr><th id="114">114</th><td><i class="doc">  /// assignment logic.  If implemented, assignCalleeSavedSpillSlots() should</i></td></tr>
+<tr><th id="115">115</th><td><i class="doc">  /// assign frame slots to all CSI entries and return true.  If this method</i></td></tr>
+<tr><th id="116">116</th><td><i class="doc">  /// returns false, spill slots will be assigned using generic implementation.</i></td></tr>
+<tr><th id="117">117</th><td><i class="doc">  /// assignCalleeSavedSpillSlots() may add, delete or rearrange elements of</i></td></tr>
+<tr><th id="118">118</th><td><i class="doc">  /// CSI.</i></td></tr>
+<tr><th id="119">119</th><td>  <b>virtual</b> <em>bool</em></td></tr>
+<tr><th id="120">120</th><td>  <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaIS7_EE" title='llvm::TargetFrameLowering::assignCalleeSavedSpillSlots' data-ref="_ZNK4llvm19TargetFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaIS7_EE">assignCalleeSavedSpillSlots</dfn>(<a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col2 decl" id="282MF" title='MF' data-type='llvm::MachineFunction &amp;' data-ref="282MF">MF</dfn>,</td></tr>
+<tr><th id="121">121</th><td>                              <em>const</em> <a class="type" href="TargetRegisterInfo.h.html#llvm::TargetRegisterInfo" title='llvm::TargetRegisterInfo' data-ref="llvm::TargetRegisterInfo">TargetRegisterInfo</a> *<dfn class="local col3 decl" id="283TRI" title='TRI' data-type='const llvm::TargetRegisterInfo *' data-ref="283TRI">TRI</dfn>,</td></tr>
+<tr><th id="122">122</th><td>                              <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="type" href="MachineFrameInfo.h.html#llvm::CalleeSavedInfo" title='llvm::CalleeSavedInfo' data-ref="llvm::CalleeSavedInfo">CalleeSavedInfo</a>&gt; &amp;<dfn class="local col4 decl" id="284CSI" title='CSI' data-type='std::vector&lt;CalleeSavedInfo&gt; &amp;' data-ref="284CSI">CSI</dfn>) <em>const</em> {</td></tr>
+<tr><th id="123">123</th><td>    <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="124">124</th><td>  }</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>  <i class="doc">/// getCalleeSavedSpillSlots - This method returns a pointer to an array of</i></td></tr>
+<tr><th id="127">127</th><td><i class="doc">  /// pairs, that contains an entry for each callee saved register that must be</i></td></tr>
+<tr><th id="128">128</th><td><i class="doc">  /// spilled to a particular stack location if it is spilled.</i></td></tr>
+<tr><th id="129">129</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="130">130</th><td><i class="doc">  /// Each entry in this array contains a &lt;register,offset&gt; pair, indicating the</i></td></tr>
+<tr><th id="131">131</th><td><i class="doc">  /// fixed offset from the incoming stack pointer that each register should be</i></td></tr>
+<tr><th id="132">132</th><td><i class="doc">  /// spilled at. If a register is not listed here, the code generator is</i></td></tr>
+<tr><th id="133">133</th><td><i class="doc">  /// allowed to spill it anywhere it chooses.</i></td></tr>
+<tr><th id="134">134</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="135">135</th><td>  <b>virtual</b> <em>const</em> <a class="type" href="#llvm::TargetFrameLowering::SpillSlot" title='llvm::TargetFrameLowering::SpillSlot' data-ref="llvm::TargetFrameLowering::SpillSlot">SpillSlot</a> *</td></tr>
+<tr><th id="136">136</th><td>  <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering24getCalleeSavedSpillSlotsERj" title='llvm::TargetFrameLowering::getCalleeSavedSpillSlots' data-ref="_ZNK4llvm19TargetFrameLowering24getCalleeSavedSpillSlotsERj">getCalleeSavedSpillSlots</dfn>(<em>unsigned</em> &amp;<dfn class="local col5 decl" id="285NumEntries" title='NumEntries' data-type='unsigned int &amp;' data-ref="285NumEntries">NumEntries</dfn>) <em>const</em> {</td></tr>
+<tr><th id="137">137</th><td>    <a class="local col5 ref" href="#285NumEntries" title='NumEntries' data-ref="285NumEntries">NumEntries</a> = <var>0</var>;</td></tr>
+<tr><th id="138">138</th><td>    <b>return</b> <b>nullptr</b>;</td></tr>
+<tr><th id="139">139</th><td>  }</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td>  <i class="doc">/// targetHandlesStackFrameRounding - Returns true if the target is</i></td></tr>
+<tr><th id="142">142</th><td><i class="doc">  /// responsible for rounding up the stack frame (probably at emitPrologue</i></td></tr>
+<tr><th id="143">143</th><td><i class="doc">  /// time).</i></td></tr>
+<tr><th id="144">144</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering31targetHandlesStackFrameRoundingEv" title='llvm::TargetFrameLowering::targetHandlesStackFrameRounding' data-ref="_ZNK4llvm19TargetFrameLowering31targetHandlesStackFrameRoundingEv">targetHandlesStackFrameRounding</dfn>() <em>const</em> {</td></tr>
+<tr><th id="145">145</th><td>    <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="146">146</th><td>  }</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td>  <i class="doc">/// Returns true if the target will correctly handle shrink wrapping.</i></td></tr>
+<tr><th id="149">149</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering20enableShrinkWrappingERKNS_15MachineFunctionE" title='llvm::TargetFrameLowering::enableShrinkWrapping' data-ref="_ZNK4llvm19TargetFrameLowering20enableShrinkWrappingERKNS_15MachineFunctionE">enableShrinkWrapping</dfn>(<em>const</em> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col6 decl" id="286MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="286MF">MF</dfn>) <em>const</em> {</td></tr>
+<tr><th id="150">150</th><td>    <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="151">151</th><td>  }</td></tr>
+<tr><th id="152">152</th><td></td></tr>
+<tr><th id="153">153</th><td>  <i class="doc">/// Returns true if the stack slot holes in the fixed and callee-save stack</i></td></tr>
+<tr><th id="154">154</th><td><i class="doc">  /// area should be used when allocating other stack locations to reduce stack</i></td></tr>
+<tr><th id="155">155</th><td><i class="doc">  /// size.</i></td></tr>
+<tr><th id="156">156</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering25enableStackSlotScavengingERKNS_15MachineFunctionE" title='llvm::TargetFrameLowering::enableStackSlotScavenging' data-ref="_ZNK4llvm19TargetFrameLowering25enableStackSlotScavengingERKNS_15MachineFunctionE">enableStackSlotScavenging</dfn>(<em>const</em> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col7 decl" id="287MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="287MF">MF</dfn>) <em>const</em> {</td></tr>
+<tr><th id="157">157</th><td>    <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="158">158</th><td>  }</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td>  <i class="doc">/// Returns true if the target can safely skip saving callee-saved registers</i></td></tr>
+<tr><th id="161">161</th><td><i class="doc">  /// for noreturn nounwind functions.</i></td></tr>
+<tr><th id="162">162</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl" id="_ZNK4llvm19TargetFrameLowering20enableCalleeSaveSkipERKNS_15MachineFunctionE" title='llvm::TargetFrameLowering::enableCalleeSaveSkip' data-ref="_ZNK4llvm19TargetFrameLowering20enableCalleeSaveSkipERKNS_15MachineFunctionE">enableCalleeSaveSkip</dfn>(<em>const</em> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col8 decl" id="288MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="288MF">MF</dfn>) <em>const</em>;</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>  <i class="doc">/// emitProlog/emitEpilog - These methods insert prolog and epilog code into</i></td></tr>
+<tr><th id="165">165</th><td><i class="doc">  /// the function.</i></td></tr>
+<tr><th id="166">166</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZNK4llvm19TargetFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE" title='llvm::TargetFrameLowering::emitPrologue' data-ref="_ZNK4llvm19TargetFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE">emitPrologue</dfn>(<a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col9 decl" id="289MF" title='MF' data-type='llvm::MachineFunction &amp;' data-ref="289MF">MF</dfn>,</td></tr>
+<tr><th id="167">167</th><td>                            <a class="type" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock" title='llvm::MachineBasicBlock' data-ref="llvm::MachineBasicBlock">MachineBasicBlock</a> &amp;<dfn class="local col0 decl" id="290MBB" title='MBB' data-type='llvm::MachineBasicBlock &amp;' data-ref="290MBB">MBB</dfn>) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="168">168</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZNK4llvm19TargetFrameLowering12emitEpilogueERNS_15MachineFunctionERNS_17MachineBasicBlockE" title='llvm::TargetFrameLowering::emitEpilogue' data-ref="_ZNK4llvm19TargetFrameLowering12emitEpilogueERNS_15MachineFunctionERNS_17MachineBasicBlockE">emitEpilogue</dfn>(<a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col1 decl" id="291MF" title='MF' data-type='llvm::MachineFunction &amp;' data-ref="291MF">MF</dfn>,</td></tr>
+<tr><th id="169">169</th><td>                            <a class="type" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock" title='llvm::MachineBasicBlock' data-ref="llvm::MachineBasicBlock">MachineBasicBlock</a> &amp;<dfn class="local col2 decl" id="292MBB" title='MBB' data-type='llvm::MachineBasicBlock &amp;' data-ref="292MBB">MBB</dfn>) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td>  <i class="doc">/// Replace a StackProbe stub (if any) with the actual probe code inline</i></td></tr>
+<tr><th id="172">172</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering16inlineStackProbeERNS_15MachineFunctionERNS_17MachineBasicBlockE" title='llvm::TargetFrameLowering::inlineStackProbe' data-ref="_ZNK4llvm19TargetFrameLowering16inlineStackProbeERNS_15MachineFunctionERNS_17MachineBasicBlockE">inlineStackProbe</dfn>(<a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col3 decl" id="293MF" title='MF' data-type='llvm::MachineFunction &amp;' data-ref="293MF">MF</dfn>,</td></tr>
+<tr><th id="173">173</th><td>                                <a class="type" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock" title='llvm::MachineBasicBlock' data-ref="llvm::MachineBasicBlock">MachineBasicBlock</a> &amp;<dfn class="local col4 decl" id="294PrologueMBB" title='PrologueMBB' data-type='llvm::MachineBasicBlock &amp;' data-ref="294PrologueMBB">PrologueMBB</dfn>) <em>const</em> {}</td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td>  <i class="doc">/// Adjust the prologue to have the function use segmented stacks. This works</i></td></tr>
+<tr><th id="176">176</th><td><i class="doc">  /// by adding a check even before the "normal" function prologue.</i></td></tr>
+<tr><th id="177">177</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering24adjustForSegmentedStacksERNS_15MachineFunctionERNS_17MachineBasicBlockE" title='llvm::TargetFrameLowering::adjustForSegmentedStacks' data-ref="_ZNK4llvm19TargetFrameLowering24adjustForSegmentedStacksERNS_15MachineFunctionERNS_17MachineBasicBlockE">adjustForSegmentedStacks</dfn>(<a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col5 decl" id="295MF" title='MF' data-type='llvm::MachineFunction &amp;' data-ref="295MF">MF</dfn>,</td></tr>
+<tr><th id="178">178</th><td>                                        <a class="type" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock" title='llvm::MachineBasicBlock' data-ref="llvm::MachineBasicBlock">MachineBasicBlock</a> &amp;<dfn class="local col6 decl" id="296PrologueMBB" title='PrologueMBB' data-type='llvm::MachineBasicBlock &amp;' data-ref="296PrologueMBB">PrologueMBB</dfn>) <em>const</em> {}</td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td>  <i class="doc">/// Adjust the prologue to add Erlang Run-Time System (ERTS) specific code in</i></td></tr>
+<tr><th id="181">181</th><td><i class="doc">  /// the assembly prologue to explicitly handle the stack.</i></td></tr>
+<tr><th id="182">182</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering21adjustForHiPEPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE" title='llvm::TargetFrameLowering::adjustForHiPEPrologue' data-ref="_ZNK4llvm19TargetFrameLowering21adjustForHiPEPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE">adjustForHiPEPrologue</dfn>(<a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col7 decl" id="297MF" title='MF' data-type='llvm::MachineFunction &amp;' data-ref="297MF">MF</dfn>,</td></tr>
+<tr><th id="183">183</th><td>                                     <a class="type" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock" title='llvm::MachineBasicBlock' data-ref="llvm::MachineBasicBlock">MachineBasicBlock</a> &amp;<dfn class="local col8 decl" id="298PrologueMBB" title='PrologueMBB' data-type='llvm::MachineBasicBlock &amp;' data-ref="298PrologueMBB">PrologueMBB</dfn>) <em>const</em> {}</td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td>  <i class="doc">/// spillCalleeSavedRegisters - Issues instruction(s) to spill all callee</i></td></tr>
+<tr><th id="186">186</th><td><i class="doc">  /// saved registers and returns true if it isn't possible / profitable to do</i></td></tr>
+<tr><th id="187">187</th><td><i class="doc">  /// so by issuing a series of store instructions via</i></td></tr>
+<tr><th id="188">188</th><td><i class="doc">  /// storeRegToStackSlot(). Returns false otherwise.</i></td></tr>
+<tr><th id="189">189</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering25spillCalleeSavedRegistersERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKSt6vectorI2954271" title='llvm::TargetFrameLowering::spillCalleeSavedRegisters' data-ref="_ZNK4llvm19TargetFrameLowering25spillCalleeSavedRegistersERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKSt6vectorI2954271">spillCalleeSavedRegisters</dfn>(<a class="type" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock" title='llvm::MachineBasicBlock' data-ref="llvm::MachineBasicBlock">MachineBasicBlock</a> &amp;<dfn class="local col9 decl" id="299MBB" title='MBB' data-type='llvm::MachineBasicBlock &amp;' data-ref="299MBB">MBB</dfn>,</td></tr>
+<tr><th id="190">190</th><td>                                         <a class="type" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock" title='llvm::MachineBasicBlock' data-ref="llvm::MachineBasicBlock">MachineBasicBlock</a>::<a class="typedef" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock::iterator" title='llvm::MachineBasicBlock::iterator' data-type='MachineInstrBundleIterator&lt;llvm::MachineInstr&gt;' data-ref="llvm::MachineBasicBlock::iterator">iterator</a> <dfn class="local col0 decl" id="300MI" title='MI' data-type='MachineBasicBlock::iterator' data-ref="300MI">MI</dfn>,</td></tr>
+<tr><th id="191">191</th><td>                                        <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="type" href="MachineFrameInfo.h.html#llvm::CalleeSavedInfo" title='llvm::CalleeSavedInfo' data-ref="llvm::CalleeSavedInfo">CalleeSavedInfo</a>&gt; &amp;<dfn class="local col1 decl" id="301CSI" title='CSI' data-type='const std::vector&lt;CalleeSavedInfo&gt; &amp;' data-ref="301CSI">CSI</dfn>,</td></tr>
+<tr><th id="192">192</th><td>                                         <em>const</em> <a class="type" href="TargetRegisterInfo.h.html#llvm::TargetRegisterInfo" title='llvm::TargetRegisterInfo' data-ref="llvm::TargetRegisterInfo">TargetRegisterInfo</a> *<dfn class="local col2 decl" id="302TRI" title='TRI' data-type='const llvm::TargetRegisterInfo *' data-ref="302TRI">TRI</dfn>) <em>const</em> {</td></tr>
+<tr><th id="193">193</th><td>    <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="194">194</th><td>  }</td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td>  <i class="doc">/// restoreCalleeSavedRegisters - Issues instruction(s) to restore all callee</i></td></tr>
+<tr><th id="197">197</th><td><i class="doc">  /// saved registers and returns true if it isn't possible / profitable to do</i></td></tr>
+<tr><th id="198">198</th><td><i class="doc">  /// so by issuing a series of load instructions via loadRegToStackSlot().</i></td></tr>
+<tr><th id="199">199</th><td><i class="doc">  /// If it returns true, and any of the registers in CSI is not restored,</i></td></tr>
+<tr><th id="200">200</th><td><i class="doc">  /// it sets the corresponding Restored flag in CSI to false.</i></td></tr>
+<tr><th id="201">201</th><td><i class="doc">  /// Returns false otherwise.</i></td></tr>
+<tr><th id="202">202</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering27restoreCalleeSavedRegistersERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERSt6vector12353386" title='llvm::TargetFrameLowering::restoreCalleeSavedRegisters' data-ref="_ZNK4llvm19TargetFrameLowering27restoreCalleeSavedRegistersERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERSt6vector12353386">restoreCalleeSavedRegisters</dfn>(<a class="type" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock" title='llvm::MachineBasicBlock' data-ref="llvm::MachineBasicBlock">MachineBasicBlock</a> &amp;<dfn class="local col3 decl" id="303MBB" title='MBB' data-type='llvm::MachineBasicBlock &amp;' data-ref="303MBB">MBB</dfn>,</td></tr>
+<tr><th id="203">203</th><td>                                           <a class="type" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock" title='llvm::MachineBasicBlock' data-ref="llvm::MachineBasicBlock">MachineBasicBlock</a>::<a class="typedef" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock::iterator" title='llvm::MachineBasicBlock::iterator' data-type='MachineInstrBundleIterator&lt;llvm::MachineInstr&gt;' data-ref="llvm::MachineBasicBlock::iterator">iterator</a> <dfn class="local col4 decl" id="304MI" title='MI' data-type='MachineBasicBlock::iterator' data-ref="304MI">MI</dfn>,</td></tr>
+<tr><th id="204">204</th><td>                                           <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="type" href="MachineFrameInfo.h.html#llvm::CalleeSavedInfo" title='llvm::CalleeSavedInfo' data-ref="llvm::CalleeSavedInfo">CalleeSavedInfo</a>&gt; &amp;<dfn class="local col5 decl" id="305CSI" title='CSI' data-type='std::vector&lt;CalleeSavedInfo&gt; &amp;' data-ref="305CSI">CSI</dfn>,</td></tr>
+<tr><th id="205">205</th><td>                                        <em>const</em> <a class="type" href="TargetRegisterInfo.h.html#llvm::TargetRegisterInfo" title='llvm::TargetRegisterInfo' data-ref="llvm::TargetRegisterInfo">TargetRegisterInfo</a> *<dfn class="local col6 decl" id="306TRI" title='TRI' data-type='const llvm::TargetRegisterInfo *' data-ref="306TRI">TRI</dfn>) <em>const</em> {</td></tr>
+<tr><th id="206">206</th><td>    <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="207">207</th><td>  }</td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td>  <i class="doc">/// Return true if the target wants to keep the frame pointer regardless of</i></td></tr>
+<tr><th id="210">210</th><td><i class="doc">  /// the function attribute "frame-pointer".</i></td></tr>
+<tr><th id="211">211</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering16keepFramePointerERKNS_15MachineFunctionE" title='llvm::TargetFrameLowering::keepFramePointer' data-ref="_ZNK4llvm19TargetFrameLowering16keepFramePointerERKNS_15MachineFunctionE">keepFramePointer</dfn>(<em>const</em> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col7 decl" id="307MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="307MF">MF</dfn>) <em>const</em> {</td></tr>
+<tr><th id="212">212</th><td>    <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="213">213</th><td>  }</td></tr>
+<tr><th id="214">214</th><td></td></tr>
+<tr><th id="215">215</th><td>  <i class="doc">/// hasFP - Return true if the specified function should have a dedicated</i></td></tr>
+<tr><th id="216">216</th><td><i class="doc">  /// frame pointer register. For most targets this is true only if the function</i></td></tr>
+<tr><th id="217">217</th><td><i class="doc">  /// has variable sized allocas or if frame pointer elimination is disabled.</i></td></tr>
+<tr><th id="218">218</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl" id="_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE" title='llvm::TargetFrameLowering::hasFP' data-ref="_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE">hasFP</dfn>(<em>const</em> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col8 decl" id="308MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="308MF">MF</dfn>) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="219">219</th><td></td></tr>
+<tr><th id="220">220</th><td>  <i class="doc">/// hasReservedCallFrame - Under normal circumstances, when a frame pointer is</i></td></tr>
+<tr><th id="221">221</th><td><i class="doc">  /// not required, we reserve argument space for call sites in the function</i></td></tr>
+<tr><th id="222">222</th><td><i class="doc">  /// immediately on entry to the current function. This eliminates the need for</i></td></tr>
+<tr><th id="223">223</th><td><i class="doc">  /// add/sub sp brackets around call sites. Returns true if the call frame is</i></td></tr>
+<tr><th id="224">224</th><td><i class="doc">  /// included as part of the stack frame.</i></td></tr>
+<tr><th id="225">225</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering20hasReservedCallFrameERKNS_15MachineFunctionE" title='llvm::TargetFrameLowering::hasReservedCallFrame' data-ref="_ZNK4llvm19TargetFrameLowering20hasReservedCallFrameERKNS_15MachineFunctionE">hasReservedCallFrame</dfn>(<em>const</em> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col9 decl" id="309MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="309MF">MF</dfn>) <em>const</em> {</td></tr>
+<tr><th id="226">226</th><td>    <b>return</b> !<a class="virtual member" href="#_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE" title='llvm::TargetFrameLowering::hasFP' data-ref="_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE">hasFP</a>(<a class="local col9 ref" href="#309MF" title='MF' data-ref="309MF">MF</a>);</td></tr>
+<tr><th id="227">227</th><td>  }</td></tr>
+<tr><th id="228">228</th><td></td></tr>
+<tr><th id="229">229</th><td>  <i class="doc">/// canSimplifyCallFramePseudos - When possible, it's best to simplify the</i></td></tr>
+<tr><th id="230">230</th><td><i class="doc">  /// call frame pseudo ops before doing frame index elimination. This is</i></td></tr>
+<tr><th id="231">231</th><td><i class="doc">  /// possible only when frame index references between the pseudos won't</i></td></tr>
+<tr><th id="232">232</th><td><i class="doc">  /// need adjusting for the call frame adjustments. Normally, that's true</i></td></tr>
+<tr><th id="233">233</th><td><i class="doc">  /// if the function has a reserved call frame or a frame pointer. Some</i></td></tr>
+<tr><th id="234">234</th><td><i class="doc">  /// targets (Thumb2, for example) may have more complicated criteria,</i></td></tr>
+<tr><th id="235">235</th><td><i class="doc">  /// however, and can override this behavior.</i></td></tr>
+<tr><th id="236">236</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering27canSimplifyCallFramePseudosERKNS_15MachineFunctionE" title='llvm::TargetFrameLowering::canSimplifyCallFramePseudos' data-ref="_ZNK4llvm19TargetFrameLowering27canSimplifyCallFramePseudosERKNS_15MachineFunctionE">canSimplifyCallFramePseudos</dfn>(<em>const</em> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col0 decl" id="310MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="310MF">MF</dfn>) <em>const</em> {</td></tr>
+<tr><th id="237">237</th><td>    <b>return</b> <a class="virtual member" href="#_ZNK4llvm19TargetFrameLowering20hasReservedCallFrameERKNS_15MachineFunctionE" title='llvm::TargetFrameLowering::hasReservedCallFrame' data-ref="_ZNK4llvm19TargetFrameLowering20hasReservedCallFrameERKNS_15MachineFunctionE">hasReservedCallFrame</a>(<a class="local col0 ref" href="#310MF" title='MF' data-ref="310MF">MF</a>) || <a class="virtual member" href="#_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE" title='llvm::TargetFrameLowering::hasFP' data-ref="_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE">hasFP</a>(<a class="local col0 ref" href="#310MF" title='MF' data-ref="310MF">MF</a>);</td></tr>
+<tr><th id="238">238</th><td>  }</td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td>  <i>// needsFrameIndexResolution - Do we need to perform FI resolution for</i></td></tr>
+<tr><th id="241">241</th><td><i>  // this function. Normally, this is required only when the function</i></td></tr>
+<tr><th id="242">242</th><td><i>  // has any stack objects. However, targets may want to override this.</i></td></tr>
+<tr><th id="243">243</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl" id="_ZNK4llvm19TargetFrameLowering25needsFrameIndexResolutionERKNS_15MachineFunctionE" title='llvm::TargetFrameLowering::needsFrameIndexResolution' data-ref="_ZNK4llvm19TargetFrameLowering25needsFrameIndexResolutionERKNS_15MachineFunctionE">needsFrameIndexResolution</dfn>(<em>const</em> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col1 decl" id="311MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="311MF">MF</dfn>) <em>const</em>;</td></tr>
+<tr><th id="244">244</th><td></td></tr>
+<tr><th id="245">245</th><td>  <i class="doc">/// getFrameIndexReference - This method should return the base register</i></td></tr>
+<tr><th id="246">246</th><td><i class="doc">  /// and offset used to reference a frame index location. The offset is</i></td></tr>
+<tr><th id="247">247</th><td><i class="doc">  /// returned directly, and the base register is returned via FrameReg.</i></td></tr>
+<tr><th id="248">248</th><td>  <b>virtual</b> <em>int</em> <dfn class="virtual decl" id="_ZNK4llvm19TargetFrameLowering22getFrameIndexReferenceERKNS_15MachineFunctionEiRj" title='llvm::TargetFrameLowering::getFrameIndexReference' data-ref="_ZNK4llvm19TargetFrameLowering22getFrameIndexReferenceERKNS_15MachineFunctionEiRj">getFrameIndexReference</dfn>(<em>const</em> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col2 decl" id="312MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="312MF">MF</dfn>, <em>int</em> <dfn class="local col3 decl" id="313FI" title='FI' data-type='int' data-ref="313FI">FI</dfn>,</td></tr>
+<tr><th id="249">249</th><td>                                     <em>unsigned</em> &amp;<dfn class="local col4 decl" id="314FrameReg" title='FrameReg' data-type='unsigned int &amp;' data-ref="314FrameReg">FrameReg</dfn>) <em>const</em>;</td></tr>
+<tr><th id="250">250</th><td></td></tr>
+<tr><th id="251">251</th><td>  <i class="doc">/// Same as<span class="command"> \c</span> <span class="arg">getFrameIndexReference,</span> except that the stack pointer (as</i></td></tr>
+<tr><th id="252">252</th><td><i class="doc">  /// opposed to the frame pointer) will be the preferred value for<span class="command"> \p</span></i></td></tr>
+<tr><th id="253">253</th><td><i class="doc">  /// <span class="arg">FrameReg.</span> This is generally used for emitting statepoint or EH tables that</i></td></tr>
+<tr><th id="254">254</th><td><i class="doc">  /// use offsets from RSP.  If<span class="command"> \p</span> <span class="arg">IgnoreSPUpdates</span> is true, the returned</i></td></tr>
+<tr><th id="255">255</th><td><i class="doc">  /// offset is only guaranteed to be valid with respect to the value of SP at</i></td></tr>
+<tr><th id="256">256</th><td><i class="doc">  /// the end of the prologue.</i></td></tr>
+<tr><th id="257">257</th><td>  <b>virtual</b> <em>int</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering30getFrameIndexReferencePreferSPERKNS_15MachineFunctionEiRjb" title='llvm::TargetFrameLowering::getFrameIndexReferencePreferSP' data-ref="_ZNK4llvm19TargetFrameLowering30getFrameIndexReferencePreferSPERKNS_15MachineFunctionEiRjb">getFrameIndexReferencePreferSP</dfn>(<em>const</em> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col5 decl" id="315MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="315MF">MF</dfn>, <em>int</em> <dfn class="local col6 decl" id="316FI" title='FI' data-type='int' data-ref="316FI">FI</dfn>,</td></tr>
+<tr><th id="258">258</th><td>                                             <em>unsigned</em> &amp;<dfn class="local col7 decl" id="317FrameReg" title='FrameReg' data-type='unsigned int &amp;' data-ref="317FrameReg">FrameReg</dfn>,</td></tr>
+<tr><th id="259">259</th><td>                                             <em>bool</em> <dfn class="local col8 decl" id="318IgnoreSPUpdates" title='IgnoreSPUpdates' data-type='bool' data-ref="318IgnoreSPUpdates">IgnoreSPUpdates</dfn>) <em>const</em> {</td></tr>
+<tr><th id="260">260</th><td>    <i>// Always safe to dispatch to getFrameIndexReference.</i></td></tr>
+<tr><th id="261">261</th><td>    <b>return</b> <a class="virtual member" href="#_ZNK4llvm19TargetFrameLowering22getFrameIndexReferenceERKNS_15MachineFunctionEiRj" title='llvm::TargetFrameLowering::getFrameIndexReference' data-ref="_ZNK4llvm19TargetFrameLowering22getFrameIndexReferenceERKNS_15MachineFunctionEiRj">getFrameIndexReference</a>(<a class="local col5 ref" href="#315MF" title='MF' data-ref="315MF">MF</a>, <a class="local col6 ref" href="#316FI" title='FI' data-ref="316FI">FI</a>, <span class='refarg'><a class="local col7 ref" href="#317FrameReg" title='FrameReg' data-ref="317FrameReg">FrameReg</a></span>);</td></tr>
+<tr><th id="262">262</th><td>  }</td></tr>
+<tr><th id="263">263</th><td></td></tr>
+<tr><th id="264">264</th><td>  <i class="doc">/// getNonLocalFrameIndexReference - This method returns the offset used to</i></td></tr>
+<tr><th id="265">265</th><td><i class="doc">  /// reference a frame index location. The offset can be from either FP/BP/SP</i></td></tr>
+<tr><th id="266">266</th><td><i class="doc">  /// based on which base register is returned by llvm.localaddress.</i></td></tr>
+<tr><th id="267">267</th><td>  <b>virtual</b> <em>int</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering30getNonLocalFrameIndexReferenceERKNS_15MachineFunctionEi" title='llvm::TargetFrameLowering::getNonLocalFrameIndexReference' data-ref="_ZNK4llvm19TargetFrameLowering30getNonLocalFrameIndexReferenceERKNS_15MachineFunctionEi">getNonLocalFrameIndexReference</dfn>(<em>const</em> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col9 decl" id="319MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="319MF">MF</dfn>,</td></tr>
+<tr><th id="268">268</th><td>                                       <em>int</em> <dfn class="local col0 decl" id="320FI" title='FI' data-type='int' data-ref="320FI">FI</dfn>) <em>const</em> {</td></tr>
+<tr><th id="269">269</th><td>    <i>// By default, dispatch to getFrameIndexReference. Interested targets can</i></td></tr>
+<tr><th id="270">270</th><td><i>    // override this.</i></td></tr>
+<tr><th id="271">271</th><td>    <em>unsigned</em> <dfn class="local col1 decl" id="321FrameReg" title='FrameReg' data-type='unsigned int' data-ref="321FrameReg">FrameReg</dfn>;</td></tr>
+<tr><th id="272">272</th><td>    <b>return</b> <a class="virtual member" href="#_ZNK4llvm19TargetFrameLowering22getFrameIndexReferenceERKNS_15MachineFunctionEiRj" title='llvm::TargetFrameLowering::getFrameIndexReference' data-ref="_ZNK4llvm19TargetFrameLowering22getFrameIndexReferenceERKNS_15MachineFunctionEiRj">getFrameIndexReference</a>(<a class="local col9 ref" href="#319MF" title='MF' data-ref="319MF">MF</a>, <a class="local col0 ref" href="#320FI" title='FI' data-ref="320FI">FI</a>, <span class='refarg'><a class="local col1 ref" href="#321FrameReg" title='FrameReg' data-ref="321FrameReg">FrameReg</a></span>);</td></tr>
+<tr><th id="273">273</th><td>  }</td></tr>
+<tr><th id="274">274</th><td></td></tr>
+<tr><th id="275">275</th><td>  <i class="doc">/// This method determines which of the registers reported by</i></td></tr>
+<tr><th id="276">276</th><td><i class="doc">  /// TargetRegisterInfo::getCalleeSavedRegs() should actually get saved.</i></td></tr>
+<tr><th id="277">277</th><td><i class="doc">  /// The default implementation checks populates the<span class="command"> \p</span> <span class="arg">SavedRegs</span> bitset with</i></td></tr>
+<tr><th id="278">278</th><td><i class="doc">  /// all registers which are modified in the function, targets may override</i></td></tr>
+<tr><th id="279">279</th><td><i class="doc">  /// this function to save additional registers.</i></td></tr>
+<tr><th id="280">280</th><td><i class="doc">  /// This method also sets up the register scavenger ensuring there is a free</i></td></tr>
+<tr><th id="281">281</th><td><i class="doc">  /// register or a frameindex available.</i></td></tr>
+<tr><th id="282">282</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZNK4llvm19TargetFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE" title='llvm::TargetFrameLowering::determineCalleeSaves' data-ref="_ZNK4llvm19TargetFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE">determineCalleeSaves</dfn>(<a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col2 decl" id="322MF" title='MF' data-type='llvm::MachineFunction &amp;' data-ref="322MF">MF</dfn>, <a class="type" href="../ADT/BitVector.h.html#llvm::BitVector" title='llvm::BitVector' data-ref="llvm::BitVector">BitVector</a> &amp;<dfn class="local col3 decl" id="323SavedRegs" title='SavedRegs' data-type='llvm::BitVector &amp;' data-ref="323SavedRegs">SavedRegs</dfn>,</td></tr>
+<tr><th id="283">283</th><td>                                    <a class="type" href="#llvm::RegScavenger" title='llvm::RegScavenger' data-ref="llvm::RegScavenger">RegScavenger</a> *<dfn class="local col4 decl" id="324RS" title='RS' data-type='llvm::RegScavenger *' data-ref="324RS">RS</dfn> = <b>nullptr</b>) <em>const</em>;</td></tr>
+<tr><th id="284">284</th><td></td></tr>
+<tr><th id="285">285</th><td>  <i class="doc">/// processFunctionBeforeFrameFinalized - This method is called immediately</i></td></tr>
+<tr><th id="286">286</th><td><i class="doc">  /// before the specified function's frame layout (MF.getFrameInfo()) is</i></td></tr>
+<tr><th id="287">287</th><td><i class="doc">  /// finalized.  Once the frame is finalized, MO_FrameIndex operands are</i></td></tr>
+<tr><th id="288">288</th><td><i class="doc">  /// replaced with direct constants.  This method is optional.</i></td></tr>
+<tr><th id="289">289</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="290">290</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering35processFunctionBeforeFrameFinalizedERNS_15MachineFunctionEPNS_12RegScavengerE" title='llvm::TargetFrameLowering::processFunctionBeforeFrameFinalized' data-ref="_ZNK4llvm19TargetFrameLowering35processFunctionBeforeFrameFinalizedERNS_15MachineFunctionEPNS_12RegScavengerE">processFunctionBeforeFrameFinalized</dfn>(<a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col5 decl" id="325MF" title='MF' data-type='llvm::MachineFunction &amp;' data-ref="325MF">MF</dfn>,</td></tr>
+<tr><th id="291">291</th><td>                                             <a class="type" href="#llvm::RegScavenger" title='llvm::RegScavenger' data-ref="llvm::RegScavenger">RegScavenger</a> *<dfn class="local col6 decl" id="326RS" title='RS' data-type='llvm::RegScavenger *' data-ref="326RS">RS</dfn> = <b>nullptr</b>) <em>const</em> {</td></tr>
+<tr><th id="292">292</th><td>  }</td></tr>
+<tr><th id="293">293</th><td></td></tr>
+<tr><th id="294">294</th><td>  <b>virtual</b> <em>unsigned</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering25getWinEHParentFrameOffsetERKNS_15MachineFunctionE" title='llvm::TargetFrameLowering::getWinEHParentFrameOffset' data-ref="_ZNK4llvm19TargetFrameLowering25getWinEHParentFrameOffsetERKNS_15MachineFunctionE">getWinEHParentFrameOffset</dfn>(<em>const</em> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col7 decl" id="327MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="327MF">MF</dfn>) <em>const</em> {</td></tr>
+<tr><th id="295">295</th><td>    <a class="ref" href="../Support/ErrorHandling.h.html#_ZN4llvm18report_fatal_errorEPKcb" title='llvm::report_fatal_error' data-ref="_ZN4llvm18report_fatal_errorEPKcb">report_fatal_error</a>(<q>"WinEH not implemented for this target"</q>);</td></tr>
+<tr><th id="296">296</th><td>  }</td></tr>
+<tr><th id="297">297</th><td></td></tr>
+<tr><th id="298">298</th><td>  <i class="doc">/// This method is called during prolog/epilog code insertion to eliminate</i></td></tr>
+<tr><th id="299">299</th><td><i class="doc">  /// call frame setup and destroy pseudo instructions (but only if the Target</i></td></tr>
+<tr><th id="300">300</th><td><i class="doc">  /// is using them).  It is responsible for eliminating these instructions,</i></td></tr>
+<tr><th id="301">301</th><td><i class="doc">  /// replacing them with concrete instructions.  This method need only be</i></td></tr>
+<tr><th id="302">302</th><td><i class="doc">  /// implemented if using call frame setup/destroy pseudo instructions.</i></td></tr>
+<tr><th id="303">303</th><td><i class="doc">  /// Returns an iterator pointing to the instruction after the replaced one.</i></td></tr>
+<tr><th id="304">304</th><td>  <b>virtual</b> <a class="type" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock" title='llvm::MachineBasicBlock' data-ref="llvm::MachineBasicBlock">MachineBasicBlock</a>::<a class="typedef" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock::iterator" title='llvm::MachineBasicBlock::iterator' data-type='MachineInstrBundleIterator&lt;llvm::MachineInstr&gt;' data-ref="llvm::MachineBasicBlock::iterator">iterator</a></td></tr>
+<tr><th id="305">305</th><td>  <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering29eliminateCallFramePseudoInstrERNS_15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE" title='llvm::TargetFrameLowering::eliminateCallFramePseudoInstr' data-ref="_ZNK4llvm19TargetFrameLowering29eliminateCallFramePseudoInstrERNS_15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE">eliminateCallFramePseudoInstr</dfn>(<a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col8 decl" id="328MF" title='MF' data-type='llvm::MachineFunction &amp;' data-ref="328MF">MF</dfn>,</td></tr>
+<tr><th id="306">306</th><td>                                <a class="type" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock" title='llvm::MachineBasicBlock' data-ref="llvm::MachineBasicBlock">MachineBasicBlock</a> &amp;<dfn class="local col9 decl" id="329MBB" title='MBB' data-type='llvm::MachineBasicBlock &amp;' data-ref="329MBB">MBB</dfn>,</td></tr>
+<tr><th id="307">307</th><td>                                <a class="type" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock" title='llvm::MachineBasicBlock' data-ref="llvm::MachineBasicBlock">MachineBasicBlock</a>::<a class="typedef" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock::iterator" title='llvm::MachineBasicBlock::iterator' data-type='MachineInstrBundleIterator&lt;llvm::MachineInstr&gt;' data-ref="llvm::MachineBasicBlock::iterator">iterator</a> <dfn class="local col0 decl" id="330MI" title='MI' data-type='MachineBasicBlock::iterator' data-ref="330MI">MI</dfn>) <em>const</em> {</td></tr>
+<tr><th id="308">308</th><td>    <a class="macro" href="../Support/ErrorHandling.h.html#135" title="::llvm::llvm_unreachable_internal(&quot;Call Frame Pseudo Instructions do not exist on this &quot; &quot;target!&quot;, &quot;/root/cheri/llvm-project/llvm/include/llvm/CodeGen/TargetFrameLowering.h&quot;, 309)" data-ref="_M/llvm_unreachable">llvm_unreachable</a>(<q>"Call Frame Pseudo Instructions do not exist on this "</q></td></tr>
+<tr><th id="309">309</th><td>                     <q>"target!"</q>);</td></tr>
+<tr><th id="310">310</th><td>  }</td></tr>
+<tr><th id="311">311</th><td></td></tr>
+<tr><th id="312">312</th><td></td></tr>
+<tr><th id="313">313</th><td>  <i class="doc">/// Order the symbols in the local stack frame.</i></td></tr>
+<tr><th id="314">314</th><td><i class="doc">  /// The list of objects that we want to order is in<span class="command"> \p</span> <span class="arg">objectsToAllocate</span> as</i></td></tr>
+<tr><th id="315">315</th><td><i class="doc">  /// indices into the MachineFrameInfo. The array can be reordered in any way</i></td></tr>
+<tr><th id="316">316</th><td><i class="doc">  /// upon return. The contents of the array, however, may not be modified (i.e.</i></td></tr>
+<tr><th id="317">317</th><td><i class="doc">  /// only their order may be changed).</i></td></tr>
+<tr><th id="318">318</th><td><i class="doc">  /// By default, just maintain the original order.</i></td></tr>
+<tr><th id="319">319</th><td>  <b>virtual</b> <em>void</em></td></tr>
+<tr><th id="320">320</th><td>  <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering17orderFrameObjectsERKNS_15MachineFunctionERNS_15SmallVectorImplIiEE" title='llvm::TargetFrameLowering::orderFrameObjects' data-ref="_ZNK4llvm19TargetFrameLowering17orderFrameObjectsERKNS_15MachineFunctionERNS_15SmallVectorImplIiEE">orderFrameObjects</dfn>(<em>const</em> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col1 decl" id="331MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="331MF">MF</dfn>,</td></tr>
+<tr><th id="321">321</th><td>                    <a class="type" href="../ADT/SmallVector.h.html#llvm::SmallVectorImpl" title='llvm::SmallVectorImpl' data-ref="llvm::SmallVectorImpl">SmallVectorImpl</a>&lt;<em>int</em>&gt; &amp;<dfn class="local col2 decl" id="332objectsToAllocate" title='objectsToAllocate' data-type='SmallVectorImpl&lt;int&gt; &amp;' data-ref="332objectsToAllocate">objectsToAllocate</dfn>) <em>const</em> {</td></tr>
+<tr><th id="322">322</th><td>  }</td></tr>
+<tr><th id="323">323</th><td></td></tr>
+<tr><th id="324">324</th><td>  <i class="doc">/// Check whether or not the given<span class="command"> \p</span> <span class="arg">MBB</span> can be used as a prologue</i></td></tr>
+<tr><th id="325">325</th><td><i class="doc">  /// for the target.</i></td></tr>
+<tr><th id="326">326</th><td><i class="doc">  /// The prologue will be inserted first in this basic block.</i></td></tr>
+<tr><th id="327">327</th><td><i class="doc">  /// This method is used by the shrink-wrapping pass to decide if</i></td></tr>
+<tr><th id="328">328</th><td><i class="doc">  ///<span class="command"> \p</span> <span class="arg">MBB</span> will be correctly handled by the target.</i></td></tr>
+<tr><th id="329">329</th><td><i class="doc">  /// As soon as the target enable shrink-wrapping without overriding</i></td></tr>
+<tr><th id="330">330</th><td><i class="doc">  /// this method, we assume that each basic block is a valid</i></td></tr>
+<tr><th id="331">331</th><td><i class="doc">  /// prologue.</i></td></tr>
+<tr><th id="332">332</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering16canUseAsPrologueERKNS_17MachineBasicBlockE" title='llvm::TargetFrameLowering::canUseAsPrologue' data-ref="_ZNK4llvm19TargetFrameLowering16canUseAsPrologueERKNS_17MachineBasicBlockE">canUseAsPrologue</dfn>(<em>const</em> <a class="type" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock" title='llvm::MachineBasicBlock' data-ref="llvm::MachineBasicBlock">MachineBasicBlock</a> &amp;<dfn class="local col3 decl" id="333MBB" title='MBB' data-type='const llvm::MachineBasicBlock &amp;' data-ref="333MBB">MBB</dfn>) <em>const</em> {</td></tr>
+<tr><th id="333">333</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="334">334</th><td>  }</td></tr>
+<tr><th id="335">335</th><td></td></tr>
+<tr><th id="336">336</th><td>  <i class="doc">/// Check whether or not the given<span class="command"> \p</span> <span class="arg">MBB</span> can be used as a epilogue</i></td></tr>
+<tr><th id="337">337</th><td><i class="doc">  /// for the target.</i></td></tr>
+<tr><th id="338">338</th><td><i class="doc">  /// The epilogue will be inserted before the first terminator of that block.</i></td></tr>
+<tr><th id="339">339</th><td><i class="doc">  /// This method is used by the shrink-wrapping pass to decide if</i></td></tr>
+<tr><th id="340">340</th><td><i class="doc">  ///<span class="command"> \p</span> <span class="arg">MBB</span> will be correctly handled by the target.</i></td></tr>
+<tr><th id="341">341</th><td><i class="doc">  /// As soon as the target enable shrink-wrapping without overriding</i></td></tr>
+<tr><th id="342">342</th><td><i class="doc">  /// this method, we assume that each basic block is a valid</i></td></tr>
+<tr><th id="343">343</th><td><i class="doc">  /// epilogue.</i></td></tr>
+<tr><th id="344">344</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl def" id="_ZNK4llvm19TargetFrameLowering16canUseAsEpilogueERKNS_17MachineBasicBlockE" title='llvm::TargetFrameLowering::canUseAsEpilogue' data-ref="_ZNK4llvm19TargetFrameLowering16canUseAsEpilogueERKNS_17MachineBasicBlockE">canUseAsEpilogue</dfn>(<em>const</em> <a class="type" href="MachineBasicBlock.h.html#llvm::MachineBasicBlock" title='llvm::MachineBasicBlock' data-ref="llvm::MachineBasicBlock">MachineBasicBlock</a> &amp;<dfn class="local col4 decl" id="334MBB" title='MBB' data-type='const llvm::MachineBasicBlock &amp;' data-ref="334MBB">MBB</dfn>) <em>const</em> {</td></tr>
+<tr><th id="345">345</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="346">346</th><td>  }</td></tr>
+<tr><th id="347">347</th><td></td></tr>
+<tr><th id="348">348</th><td>  <i class="doc">/// Check if given function is safe for not having callee saved registers.</i></td></tr>
+<tr><th id="349">349</th><td><i class="doc">  /// This is used when interprocedural register allocation is enabled.</i></td></tr>
+<tr><th id="350">350</th><td>  <em>static</em> <em>bool</em> <dfn class="decl def" id="_ZN4llvm19TargetFrameLowering17isSafeForNoCSROptERKNS_8FunctionE" title='llvm::TargetFrameLowering::isSafeForNoCSROpt' data-ref="_ZN4llvm19TargetFrameLowering17isSafeForNoCSROptERKNS_8FunctionE">isSafeForNoCSROpt</dfn>(<em>const</em> <a class="type" href="../IR/Function.h.html#llvm::Function" title='llvm::Function' data-ref="llvm::Function">Function</a> &amp;<dfn class="local col5 decl" id="335F" title='F' data-type='const llvm::Function &amp;' data-ref="335F">F</dfn>) {</td></tr>
+<tr><th id="351">351</th><td>    <b>if</b> (!F.hasLocalLinkage() || F.hasAddressTaken() ||</td></tr>
+<tr><th id="352">352</th><td>        !F.hasFnAttribute(Attribute::<span class='error' title="no member named &apos;NoRecurse&apos; in &apos;llvm::Attribute&apos;">NoRecurse</span>))</td></tr>
+<tr><th id="353">353</th><td>      <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="354">354</th><td>    <i>// Function should not be optimized as tail call.</i></td></tr>
+<tr><th id="355">355</th><td>    <b>for</b> (<em>const</em> <a class="type" href="../IR/User.h.html#llvm::User" title='llvm::User' data-ref="llvm::User">User</a> *<dfn class="local col6 decl" id="336U" title='U' data-type='const llvm::User *' data-ref="336U">U</dfn> : <a class="local col5 ref" href="#335F" title='F' data-ref="335F">F</a>.<a class="ref" href="../IR/Value.h.html#_ZNK4llvm5Value5usersEv" title='llvm::Value::users' data-ref="_ZNK4llvm5Value5usersEv">users</a>())</td></tr>
+<tr><th id="356">356</th><td>      <b>if</b> (<em>auto</em> <a class="ref fake" href="../IR/CallSite.h.html#_ZNK4llvm12CallSiteBasecvbEv" title='llvm::CallSiteBase::operator bool' data-ref="_ZNK4llvm12CallSiteBasecvbEv"></a><dfn class="local col7 decl" id="337CS" title='CS' data-type='llvm::ImmutableCallSite' data-ref="337CS"><a class="local col7 ref" href="#337CS" title='CS' data-ref="337CS">CS</a></dfn> = <a class="type" href="../IR/CallSite.h.html#llvm::ImmutableCallSite" title='llvm::ImmutableCallSite' data-ref="llvm::ImmutableCallSite">ImmutableCallSite</a><a class="ref" href="../IR/CallSite.h.html#_ZN4llvm17ImmutableCallSiteC1EPKNS_5ValueE" title='llvm::ImmutableCallSite::ImmutableCallSite' data-ref="_ZN4llvm17ImmutableCallSiteC1EPKNS_5ValueE">(</a><a class="local col6 ref" href="#336U" title='U' data-ref="336U">U</a>))</td></tr>
+<tr><th id="357">357</th><td>        <b>if</b> (<a class="local col7 ref" href="#337CS" title='CS' data-ref="337CS">CS</a>.<a class="ref" href="../IR/CallSite.h.html#_ZNK4llvm12CallSiteBase10isTailCallEv" title='llvm::CallSiteBase::isTailCall' data-ref="_ZNK4llvm12CallSiteBase10isTailCallEv">isTailCall</a>())</td></tr>
+<tr><th id="358">358</th><td>          <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="359">359</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="360">360</th><td>  }</td></tr>
+<tr><th id="361">361</th><td></td></tr>
+<tr><th id="362">362</th><td>  <i class="doc">/// Return initial CFA offset value i.e. the one valid at the beginning of the</i></td></tr>
+<tr><th id="363">363</th><td><i class="doc">  /// function (before any stack operations).</i></td></tr>
+<tr><th id="364">364</th><td>  <b>virtual</b> <em>int</em> <dfn class="virtual decl" id="_ZNK4llvm19TargetFrameLowering19getInitialCFAOffsetERKNS_15MachineFunctionE" title='llvm::TargetFrameLowering::getInitialCFAOffset' data-ref="_ZNK4llvm19TargetFrameLowering19getInitialCFAOffsetERKNS_15MachineFunctionE">getInitialCFAOffset</dfn>(<em>const</em> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col8 decl" id="338MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="338MF">MF</dfn>) <em>const</em>;</td></tr>
+<tr><th id="365">365</th><td></td></tr>
+<tr><th id="366">366</th><td>  <i class="doc">/// Return initial CFA register value i.e. the one valid at the beginning of</i></td></tr>
+<tr><th id="367">367</th><td><i class="doc">  /// the function (before any stack operations).</i></td></tr>
+<tr><th id="368">368</th><td>  <b>virtual</b> <em>unsigned</em> <dfn class="virtual decl" id="_ZNK4llvm19TargetFrameLowering21getInitialCFARegisterERKNS_15MachineFunctionE" title='llvm::TargetFrameLowering::getInitialCFARegister' data-ref="_ZNK4llvm19TargetFrameLowering21getInitialCFARegisterERKNS_15MachineFunctionE">getInitialCFARegister</dfn>(<em>const</em> <a class="type" href="MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction">MachineFunction</a> &amp;<dfn class="local col9 decl" id="339MF" title='MF' data-type='const llvm::MachineFunction &amp;' data-ref="339MF">MF</dfn>) <em>const</em>;</td></tr>
+<tr><th id="369">369</th><td>};</td></tr>
+<tr><th id="370">370</th><td></td></tr>
+<tr><th id="371">371</th><td>} <i>// End llvm namespace</i></td></tr>
+<tr><th id="372">372</th><td></td></tr>
+<tr><th id="373">373</th><td><u>#<span data-ppcond="13">endif</span></u></td></tr>
+<tr><th id="374">374</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../lib/CodeGen/AsmPrinter/AsmPrinter.cpp.html'>llvm/llvm/lib/CodeGen/AsmPrinter/AsmPrinter.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

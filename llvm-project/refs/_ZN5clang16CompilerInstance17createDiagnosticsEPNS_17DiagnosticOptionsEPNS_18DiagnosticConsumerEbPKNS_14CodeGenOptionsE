@@ -1,0 +1,29 @@
+<dec f='llvm/clang/include/clang/Frontend/CompilerInstance.h' l='625' type='static IntrusiveRefCntPtr&lt;clang::DiagnosticsEngine&gt; clang::CompilerInstance::createDiagnostics(clang::DiagnosticOptions * Opts, clang::DiagnosticConsumer * Client = nullptr, bool ShouldOwnClient = true, const clang::CodeGenOptions * CodeGenOpts = nullptr)'/>
+<doc f='llvm/clang/include/clang/Frontend/CompilerInstance.h' l='606'>/// Create a DiagnosticsEngine object with a the TextDiagnosticPrinter.
+  ///
+  /// If no diagnostic client is provided, this creates a
+  /// DiagnosticConsumer that is owned by the returned diagnostic
+  /// object, if using directly the caller is responsible for
+  /// releasing the returned DiagnosticsEngine&apos;s client eventually.
+  ///
+  /// \param Opts - The diagnostic options; note that the created text
+  /// diagnostic object contains a reference to these options.
+  ///
+  /// \param Client If non-NULL, a diagnostic client that will be
+  /// attached to (and, then, owned by) the returned DiagnosticsEngine
+  /// object.
+  ///
+  /// \param CodeGenOpts If non-NULL, the code gen options in use, which may be
+  /// used by some diagnostics printers (for logging purposes only).
+  ///
+  /// \return The new object on success, or null on failure.</doc>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='261' u='c' c='_ZN5clang16CompilerInstance17createDiagnosticsEPNS_18DiagnosticConsumerEb'/>
+<def f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='265' ll='297' type='static IntrusiveRefCntPtr&lt;clang::DiagnosticsEngine&gt; clang::CompilerInstance::createDiagnostics(clang::DiagnosticOptions * Opts, clang::DiagnosticConsumer * Client = nullptr, bool ShouldOwnClient = true, const clang::CodeGenOptions * CodeGenOpts = nullptr)'/>
+<use f='llvm/clang/lib/Frontend/CreateInvocationFromCommandLine.cpp' l='38' u='c' c='_ZN5clang31createInvocationFromCommandLineEN4llvm8ArrayRefIPKcEENS0_18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEENS5_INS0_3vfs10FileSystemEEE'/>
+<use f='llvm/clang/lib/Tooling/Tooling.cpp' l='549' u='c' c='_ZN12_GLOBAL__N_116ASTBuilderAction13runInvocationESt10shared_ptrIN5clang18CompilerInvocationEEPNS2_11FileManagerES1_INS2_22PCHContainerOperationsEEPN2799522'/>
+<use f='llvm/clang/tools/c-index-test/core_main.cpp' l='215' u='c' c='_ZL18printSourceSymbolsPKcN4llvm8ArrayRefIS0_EEbb'/>
+<use f='llvm/clang/tools/c-index-test/core_main.cpp' l='262' u='c' c='_ZL28printSourceSymbolsFromModuleN4llvm9StringRefES0_'/>
+<use f='llvm/clang/tools/diagtool/ShowEnabledWarnings.cpp' l='76' u='c' c='_ZL17createDiagnosticsjPPc'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='3353' u='c' c='clang_createTranslationUnit2'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='3427' u='c' c='_ZL31clang_parseTranslationUnit_ImplPvPKcPKS1_iN4llvm8ArrayRefI13CXUnsavedFileEEjPP21CXTranslationUnitImpl'/>
+<use f='llvm/clang/tools/libclang/Indexing.cpp' l='458' u='c' c='_ZL26clang_indexSourceFile_ImplPvS_P16IndexerCallbacksjjPKcPKS3_iN4llvm8ArrayRefI13CXUnsavedFileEEPP21CXTranslationUnitImplj'/>

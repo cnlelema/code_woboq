@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/Support/Signals.h' l='74' type='void llvm::sys::SetInterruptFunction(void (*)() IF)'/>
+<doc f='llvm/llvm/include/llvm/Support/Signals.h' l='65'>/// This function registers a function to be called when the user &quot;interrupts&quot;
+  /// the program (typically by pressing ctrl-c).  When the user interrupts the
+  /// program, the specified interrupt function is called instead of the program
+  /// being killed, and the interrupt function automatically disabled.  Note
+  /// that interrupt functions are not allowed to call any non-reentrant
+  /// functions.  An null interrupt function pointer disables the current
+  /// installed function.  Note also that the handler may be executed on a
+  /// different thread on some platforms.
+  /// Register a function to be called when ctrl-c is pressed.</doc>
+<def f='llvm/llvm/lib/Support/Unix/Signals.inc' l='363' ll='366' type='void llvm::sys::SetInterruptFunction(void (*)() IF)'/>
+<use f='llvm/llvm/tools/bugpoint/bugpoint.cpp' l='153' u='c' c='main'/>

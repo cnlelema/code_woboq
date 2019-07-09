@@ -1,0 +1,18 @@
+<def f='llvm/clang/lib/CodeGen/CGCXXABI.h' l='106' type='bool clang::CodeGen::CGCXXABI::HasThisReturn(clang::GlobalDecl GD) const'/>
+<doc f='llvm/clang/lib/CodeGen/CGCXXABI.h' l='100'>/// Returns true if the given constructor or destructor is one of the
+  /// kinds that the ABI says returns &apos;this&apos; (only applies when called
+  /// non-virtually for destructors).
+  ///
+  /// There currently is no way to indicate if a destructor returns &apos;this&apos;
+  /// when called virtually, and code generation does not support the case.</doc>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='354' u='c' c='_ZN5clang7CodeGen12CodeGenTypes29arrangeCXXStructorDeclarationENS_10GlobalDeclE'/>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='420' u='c' c='_ZN5clang7CodeGen12CodeGenTypes25arrangeCXXConstructorCallERKNS0_11CallArgListEPKNS_18CXXConstructorDeclENS_11CXXCtorTypeEjjb'/>
+<use f='llvm/clang/lib/CodeGen/CGDeclCXX.cpp' l='110' u='c' c='_ZL15EmitDeclDestroyRN5clang7CodeGen15CodeGenFunctionERKNS_7VarDeclENS0_15ConstantAddressE'/>
+<use f='llvm/clang/lib/CodeGen/CGVTables.cpp' l='238' u='c' c='_ZN5clang7CodeGen15CodeGenFunction10StartThunkEPN4llvm8FunctionENS_10GlobalDeclERKNS0_14CGFunctionInfoEb'/>
+<use f='llvm/clang/lib/CodeGen/CGVTables.cpp' l='345' u='c' c='_ZN5clang7CodeGen15CodeGenFunction25EmitCallAndReturnForThunkEN4llvm14FunctionCalleeEPKNS_9ThunkInfoEb'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenFunction.cpp' l='1118' u='c' c='_ZN5clang7CodeGen15CodeGenFunction20BuildFunctionArgListENS_10GlobalDeclERNS0_15FunctionArgListE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='1912' u='c' c='_ZN5clang7CodeGen13CodeGenModule21SetFunctionAttributesENS_10GlobalDeclEPN4llvm8FunctionEbb'/>
+<ovr f='llvm/clang/lib/CodeGen/ItaniumCXXABI.cpp' l='427' c='_ZNK12_GLOBAL__N_19ARMCXXABI13HasThisReturnEN5clang10GlobalDeclE'/>
+<ovr f='llvm/clang/lib/CodeGen/ItaniumCXXABI.cpp' l='464' c='_ZNK12_GLOBAL__N_117WebAssemblyCXXABI13HasThisReturnEN5clang10GlobalDeclE'/>
+<use f='llvm/clang/lib/CodeGen/ItaniumCXXABI.cpp' l='1620' u='c' c='_ZN12_GLOBAL__N_113ItaniumCXXABI26EmitInstanceFunctionPrologERN5clang7CodeGen15CodeGenFunctionE'/>
+<ovr f='llvm/clang/lib/CodeGen/MicrosoftCXXABI.cpp' l='1055' c='_ZNK12_GLOBAL__N_115MicrosoftCXXABI13HasThisReturnEN5clang10GlobalDeclE'/>

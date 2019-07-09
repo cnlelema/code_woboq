@@ -1,0 +1,31 @@
+<def f='llvm/llvm/include/llvm/MC/MCFixup.h' l='74' ll='167'/>
+<size>24</size>
+<doc f='llvm/llvm/include/llvm/MC/MCFixup.h' l='60'>/// Encode information on a single operation to perform on a byte
+/// sequence (e.g., an encoded instruction) which requires assemble- or run-
+/// time patching.
+///
+/// Fixups are used any time the target instruction encoder needs to represent
+/// some value in an instruction which is not yet concrete. The encoder will
+/// encode the instruction assuming the value is 0, and emit a fixup which
+/// communicates to the assembler backend how it should rewrite the encoded
+/// value.
+///
+/// During the process of relaxation, the assembler will apply fixups as
+/// symbolic values become concrete. When relaxation is complete, any remaining
+/// fixups become relocations in the object file (or errors, if the fixup cannot
+/// be encoded on the target).</doc>
+<mbr r='llvm::MCFixup::Value' o='0' t='const llvm::MCExpr *'/>
+<mbr r='llvm::MCFixup::Offset' o='64' t='uint32_t'/>
+<mbr r='llvm::MCFixup::Kind' o='96' t='unsigned int'/>
+<mbr r='llvm::MCFixup::Loc' o='128' t='llvm::SMLoc'/>
+<fun r='_ZN4llvm7MCFixup6createEjPKNS_6MCExprENS_11MCFixupKindENS_5SMLocE'/>
+<fun r='_ZN4llvm7MCFixup12createAddForERKS0_'/>
+<fun r='_ZN4llvm7MCFixup12createSubForERKS0_'/>
+<fun r='_ZNK4llvm7MCFixup7getKindEv'/>
+<fun r='_ZNK4llvm7MCFixup9getOffsetEv'/>
+<fun r='_ZN4llvm7MCFixup9setOffsetEj'/>
+<fun r='_ZNK4llvm7MCFixup8getValueEv'/>
+<fun r='_ZN4llvm7MCFixup14getKindForSizeEjb'/>
+<fun r='_ZN4llvm7MCFixup17getAddKindForKindEj'/>
+<fun r='_ZN4llvm7MCFixup17getSubKindForKindEj'/>
+<fun r='_ZNK4llvm7MCFixup6getLocEv'/>

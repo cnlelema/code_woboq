@@ -1,0 +1,29 @@
+<dec f='llvm/clang/include/clang/AST/Expr.h' l='595' type='bool clang::Expr::EvaluateAsRValue(clang::Expr::EvalResult &amp; Result, const clang::ASTContext &amp; Ctx, bool InConstantContext = false) const'/>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='589'>/// EvaluateAsRValue - Return true if this is a constant which we can fold to
+  /// an rvalue using any crazy technique (that has nothing to do with language
+  /// standards) that we want to, even if the expression has side-effects. If
+  /// this function returns true, it returns the folded constant in Result. If
+  /// the expression is a glvalue, an lvalue-to-rvalue conversion will be
+  /// applied.</doc>
+<def f='llvm/clang/lib/AST/ExprConstant.cpp' l='12010' ll='12017' type='bool clang::Expr::EvaluateAsRValue(clang::Expr::EvalResult &amp; Result, const clang::ASTContext &amp; Ctx, bool InConstantContext = false) const'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='12024' u='c' c='_ZNK5clang4Expr26EvaluateAsBooleanConditionERbRKNS_10ASTContextE'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='12053' u='c' c='_ZNK5clang4Expr15EvaluateAsFloatERN4llvm7APFloatERKNS_10ASTContextENS0_15SideEffectsKindE'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='12149' u='c' c='_ZNK5clang4Expr13isEvaluatableERKNS_10ASTContextENS0_15SideEffectsKindE'/>
+<doc f='llvm/clang/lib/AST/ExprConstant.cpp' l='12005'>/// EvaluateAsRValue - Return true if this is a constant which we can fold using
+/// any crazy technique (that has nothing to do with language standards) that
+/// we want to.  If this function returns true, it returns the folded constant
+/// in Result. If this expression is a glvalue, an lvalue-to-rvalue conversion
+/// will be applied to the result.</doc>
+<use f='llvm/clang/lib/Analysis/CFG.cpp' l='1109' u='c' c='_ZN12_GLOBAL__N_110CFGBuilder11tryEvaluateEPN5clang4ExprERNS2_10EvalResultE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='1653' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='2319' u='c' c='_ZN5clang7CodeGen15CodeGenFunction17tryEmitAsConstantEPNS_11DeclRefExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprConstant.cpp' l='1578' u='c' c='_ZN5clang7CodeGen15ConstantEmitter14tryEmitPrivateEPKNS_4ExprENS_8QualTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprScalar.cpp' l='2339' u='c' c='_ZN12_GLOBAL__N_117ScalarExprEmitter13VisitCastExprEPN5clang8CastExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmt.cpp' l='1893' u='c' c='_ZN5clang7CodeGen15CodeGenFunction12EmitAsmInputERKNS_10TargetInfo14ConstraintInfoEPKNS_4ExprERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='5061' u='c' c='_ZN5clang7CodeGen13CodeGenModule24GetAddrOfGlobalTemporaryEPKNS_24MaterializeTemporaryExprEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='10049' u='c' c='_ZL12GetExprRangeRN5clang10ASTContextEPKNS_4ExprEj'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='11348' u='c' c='_ZL23CheckImplicitConversionRN5clang4SemaEPNS_4ExprENS_8QualTypeENS_14SourceLocationEPb'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='14916' u='c' c='_ZN5clang4Sema31VerifyIntegerConstantExpressionEPNS_4ExprEPN4llvm6APSIntERNS0_18VerifyICEDiagnoserEb'/>
+<use f='llvm/clang/lib/Sema/SemaStmtAsm.cpp' l='711' u='c' c='_ZN5clang4Sema27FillInlineAsmIdentifierInfoEPNS_4ExprERN4llvm23InlineAsmIdentifierInfoE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='5736' u='c' c='_ZL34isNullPointerValueTemplateArgumentRN5clang4SemaEPNS_23NonTypeTemplateParmDeclENS_8QualTypeEPNS_4ExprEPNS_4DeclE'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='3785' u='c' c='_ZL12evaluateExprPN5clang4ExprE8CXCursor'/>

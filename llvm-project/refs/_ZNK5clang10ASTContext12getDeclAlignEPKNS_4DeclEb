@@ -1,0 +1,15 @@
+<dec f='llvm/clang/include/clang/AST/ASTContext.h' l='2247' type='clang::CharUnits clang::ASTContext::getDeclAlign(const clang::Decl * D, bool ForAlignof = false) const'/>
+<doc f='llvm/clang/include/clang/AST/ASTContext.h' l='2237'>/// Return a conservative estimate of the alignment of the specified
+  /// decl \p D.
+  ///
+  /// \pre \p D must not be a bitfield type, as bitfields do not have a valid
+  /// alignment.
+  ///
+  /// If \p ForAlignof, references are treated like their underlying type
+  /// and  large arrays don&apos;t get any special treatment. If not \p ForAlignof
+  /// it computes the value expected by CodeGen: references are treated like
+  /// pointers and large arrays get extra alignment.</doc>
+<def f='llvm/clang/lib/AST/ASTContext.cpp' l='1561' ll='1655' type='clang::CharUnits clang::ASTContext::getDeclAlign(const clang::Decl * D, bool ForAlignof = false) const'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntimeNVPTX.cpp' l='2277' u='c' c='_ZN5clang7CodeGen20CGOpenMPRuntimeNVPTX21emitGenericVarsPrologERNS0_15CodeGenFunctionENS_14SourceLocationEb'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='4019' u='c' c='_ZN5clang4Sema26CheckAlignasUnderalignmentEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='4022' u='c' c='_ZN5clang4Sema26CheckAlignasUnderalignmentEPNS_4DeclE'/>

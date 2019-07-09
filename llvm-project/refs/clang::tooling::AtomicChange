@@ -1,0 +1,52 @@
+<def f='llvm/clang/include/clang/Tooling/Refactoring/AtomicChange.h' l='36' ll='138'/>
+<size>192</size>
+<doc f='llvm/clang/include/clang/Tooling/Refactoring/AtomicChange.h' l='26'>/// An atomic change is used to create and group a set of source edits,
+/// e.g. replacements or header insertions. Edits in an AtomicChange should be
+/// related, e.g. replacements for the same type reference and the corresponding
+/// header insertion/deletion.
+///
+/// An AtomicChange is uniquely identified by a key and will either be fully
+/// applied or not applied at all.
+///
+/// Calling setError on an AtomicChange stores the error message and marks it as
+/// bad, i.e. none of its source edits will be applied.</doc>
+<fun r='_ZN5clang7tooling12AtomicChangeC1ERKNS_13SourceManagerENS_14SourceLocationE'/>
+<fun r='_ZN5clang7tooling12AtomicChangeC1EN4llvm9StringRefES3_'/>
+<fun r='_ZN5clang7tooling12AtomicChangeC1EOS1_'/>
+<fun r='_ZN5clang7tooling12AtomicChangeC1ERKS1_'/>
+<fun r='_ZN5clang7tooling12AtomicChangeaSEOS1_'/>
+<fun r='_ZN5clang7tooling12AtomicChangeaSERKS1_'/>
+<fun r='_ZNK5clang7tooling12AtomicChangeeqERKS1_'/>
+<fun r='_ZN5clang7tooling12AtomicChange12toYAMLStringEv'/>
+<fun r='_ZN5clang7tooling12AtomicChange15convertFromYAMLEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang7tooling12AtomicChange6getKeyEv'/>
+<fun r='_ZNK5clang7tooling12AtomicChange11getFilePathEv'/>
+<fun r='_ZN5clang7tooling12AtomicChange8setErrorEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang7tooling12AtomicChange8hasErrorEv'/>
+<fun r='_ZNK5clang7tooling12AtomicChange8getErrorEv'/>
+<fun r='_ZN5clang7tooling12AtomicChange7replaceERKNS_13SourceManagerERKNS_15CharSourceRangeEN4llvm9StringRefE'/>
+<fun r='_ZN5clang7tooling12AtomicChange7replaceERKNS_13SourceManagerENS_14SourceLocationEjN4llvm9StringRefE'/>
+<fun r='_ZN5clang7tooling12AtomicChange6insertERKNS_13SourceManagerENS_14SourceLocationEN4llvm9StringRefEb'/>
+<fun r='_ZN5clang7tooling12AtomicChange9addHeaderEN4llvm9StringRefE'/>
+<fun r='_ZN5clang7tooling12AtomicChange12removeHeaderEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang7tooling12AtomicChange15getReplacementsEv'/>
+<fun r='_ZNK5clang7tooling12AtomicChange18getInsertedHeadersEv'/>
+<fun r='_ZNK5clang7tooling12AtomicChange17getRemovedHeadersEv'/>
+<fun r='_ZN5clang7tooling12AtomicChangeC1Ev'/>
+<fun r='_ZN5clang7tooling12AtomicChangeC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_St6vectorIS7_SaIS7_EESA_NS0_12ReplacementsE'/>
+<mbr r='clang::tooling::AtomicChange::Key' o='0' t='std::string'/>
+<mbr r='clang::tooling::AtomicChange::FilePath' o='256' t='std::string'/>
+<mbr r='clang::tooling::AtomicChange::Error' o='512' t='std::string'/>
+<mbr r='clang::tooling::AtomicChange::InsertedHeaders' o='768' t='std::vector&lt;std::string&gt;'/>
+<mbr r='clang::tooling::AtomicChange::RemovedHeaders' o='960' t='std::vector&lt;std::string&gt;'/>
+<mbr r='clang::tooling::AtomicChange::Replaces' o='1152' t='tooling::Replacements'/>
+<fun r='_ZN5clang7tooling12AtomicChangeC1ERKNS_13SourceManagerENS_14SourceLocationE'/>
+<fun r='_ZN5clang7tooling12AtomicChangeC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_St6vectorIS7_SaIS7_EESA_NS0_12ReplacementsE'/>
+<fun r='_ZNK5clang7tooling12AtomicChangeeqERKS1_'/>
+<fun r='_ZN5clang7tooling12AtomicChange12toYAMLStringEv'/>
+<fun r='_ZN5clang7tooling12AtomicChange15convertFromYAMLEN4llvm9StringRefE'/>
+<fun r='_ZN5clang7tooling12AtomicChange7replaceERKNS_13SourceManagerERKNS_15CharSourceRangeEN4llvm9StringRefE'/>
+<fun r='_ZN5clang7tooling12AtomicChange7replaceERKNS_13SourceManagerENS_14SourceLocationEjN4llvm9StringRefE'/>
+<fun r='_ZN5clang7tooling12AtomicChange6insertERKNS_13SourceManagerENS_14SourceLocationEN4llvm9StringRefEb'/>
+<fun r='_ZN5clang7tooling12AtomicChange9addHeaderEN4llvm9StringRefE'/>
+<fun r='_ZN5clang7tooling12AtomicChange12removeHeaderEN4llvm9StringRefE'/>

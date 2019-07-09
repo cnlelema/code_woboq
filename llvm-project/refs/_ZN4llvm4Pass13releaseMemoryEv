@@ -1,0 +1,64 @@
+<dec f='llvm/llvm/include/llvm/Pass.h' l='157' type='void llvm::Pass::releaseMemory()'/>
+<doc f='llvm/llvm/include/llvm/Pass.h' l='147'>/// releaseMemory() - This member can be implemented by a pass if it wants to
+  /// be able to release its memory when it is no longer needed.  The default
+  /// behavior of passes is to hold onto memory for the entire duration of their
+  /// lifetime (which is the entire compile time).  For pipelined passes, this
+  /// is not a big deal because that memory gets recycled every time the pass is
+  /// invoked on another program unit.  For IP passes, it is more important to
+  /// free memory when it is unused.
+  ///
+  /// Optionally implement this function to release pass memory when it is no
+  /// longer used.</doc>
+<ovr f='llvm/llvm/include/llvm/Analysis/AssumptionCache.h' l='222' c='_ZN4llvm22AssumptionCacheTracker13releaseMemoryEv'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='1156' c='_ZN4llvm19LoopInfoWrapperPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/include/llvm/IR/Dominators.h' l='280' c='_ZN4llvm24DominatorTreeWrapperPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/PostDominators.h' l='86' c='_ZN4llvm28PostDominatorTreeWrapperPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/BlockFrequencyInfo.cpp' l='316' c='_ZN4llvm29BlockFrequencyInfoWrapperPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/BranchProbabilityInfo.cpp' l='1022' c='_ZN4llvm32BranchProbabilityInfoWrapperPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/CallGraph.cpp' l='281' c='_ZN4llvm20CallGraphWrapperPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/DemandedBits.cpp' l='302' c='_ZN4llvm23DemandedBitsWrapperPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='158' c='_ZN4llvm29DependenceAnalysisWrapperPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/DominanceFrontier.cpp' l='43' c='_ZN4llvm28DominanceFrontierWrapperPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/IVUsers.cpp' l='380' c='_ZN4llvm18IVUsersWrapperPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/LoopAccessAnalysis.h' l='740' c='_ZN4llvm24LoopAccessLegacyAnalysis13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/IntervalPartition.cpp' l='33' c='_ZN4llvm17IntervalPartition13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/LazyBlockFrequencyInfo.cpp' l='52' c='_ZN4llvm26LazyBlockFrequencyInfoPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/LazyBranchProbabilityInfo.cpp' l='54' c='_ZN4llvm29LazyBranchProbabilityInfoPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/LazyValueInfo.cpp' l='1617' c='_ZN4llvm24LazyValueInfoWrapperPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/MemDepPrinter.cpp' l='55' c='_ZN12_GLOBAL__N_113MemDepPrinter13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/MemDerefPrinter.cpp' l='34' c='_ZN12_GLOBAL__N_115MemDerefPrinter13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/MemoryDependenceAnalysis.cpp' l='1777' c='_ZN4llvm27MemoryDependenceWrapperPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/MemorySSA.cpp' l='2248' c='_ZN4llvm20MemorySSAWrapperPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/PhiValues.cpp' l='201' c='_ZN4llvm20PhiValuesWrapperPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/RegionInfo.cpp' l='136' c='_ZN4llvm14RegionInfoPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='11952' c='_ZN4llvm26ScalarEvolutionWrapperPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/include/llvm/CodeGen/MachineLoopInfo.h' l='137' c='_ZN4llvm15MachineLoopInfo13releaseMemoryEv'/>
+<ovr f='llvm/llvm/include/llvm/CodeGen/GlobalISel/CSEInfo.h' l='234' c='_ZN4llvm27GISelCSEAnalysisWrapperPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/LazyMachineBlockFrequencyInfo.cpp' l='49' c='_ZN4llvm33LazyMachineBlockFrequencyInfoPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/LiveDebugVariables.cpp' l='991' c='_ZN4llvm18LiveDebugVariables13releaseMemoryEv'/>
+<ovr f='llvm/llvm/include/llvm/CodeGen/LiveVariables.h' l='266' c='_ZN4llvm13LiveVariables13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='108' c='_ZN4llvm13LiveIntervals13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/LiveRegMatrix.cpp' l='69' c='_ZN4llvm13LiveRegMatrix13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/LiveStacks.cpp' l='42' c='_ZN4llvm10LiveStacks13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/MachineBlockFrequencyInfo.cpp' l='210' c='_ZN4llvm25MachineBlockFrequencyInfo13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/MachineCSE.cpp' l='88' c='_ZN12_GLOBAL__N_110MachineCSE13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/MachineDominanceFrontier.cpp' l='45' c='_ZN4llvm24MachineDominanceFrontier13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/MachineDominators.cpp' l='61' c='_ZN4llvm20MachineDominatorTree13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/MachineLICM.cpp' l='160' c='_ZN12_GLOBAL__N_115MachineLICMBase13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/MachineRegionInfo.cpp' l='97' c='_ZN4llvm21MachineRegionInfoPass13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/MachineSink.cpp' l='131' c='_ZN12_GLOBAL__N_114MachineSinking13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/MachineTraceMetrics.cpp' l='79' c='_ZN4llvm19MachineTraceMetrics13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/ReachingDefAnalysis.cpp' l='165' c='_ZN4llvm19ReachingDefAnalysis13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/RegAllocBasic.cpp' l='196' c='_ZN12_GLOBAL__N_17RABasic13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/RegAllocGreedy.cpp' l='675' c='_ZN12_GLOBAL__N_18RAGreedy13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/RegisterCoalescer.cpp' l='3662' c='_ZN12_GLOBAL__N_117RegisterCoalescer13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/SlotIndexes.cpp' l='32' c='_ZN4llvm11SlotIndexes13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/CodeGen/SpillPlacement.cpp' l='219' c='_ZN4llvm14SpillPlacement13releaseMemoryEv'/>
+<use f='llvm/llvm/lib/IR/LegacyPassManager.cpp' l='1048' u='c' c='_ZN4llvm13PMDataManager8freePassEPNS_4PassENS_9StringRefENS_19PassDebuggingStringE'/>
+<use f='llvm/llvm/lib/IR/LegacyPassManager.cpp' l='1574' u='c' c='_ZN4llvm6legacy23FunctionPassManagerImpl21releaseMemoryOnTheFlyEv'/>
+<def f='llvm/llvm/lib/IR/Pass.cpp' l='100' ll='102' type='void llvm::Pass::releaseMemory()'/>
+<ovr f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyCFGStackify.cpp' l='1335' c='_ZN12_GLOBAL__N_122WebAssemblyCFGStackify13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyExceptionInfo.cpp' l='82' c='_ZN4llvm24WebAssemblyExceptionInfo13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Transforms/ObjCARC/ObjCARCOpts.cpp' l='2304' c='_ZN12_GLOBAL__N_110ObjCARCOpt13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='144' c='_ZN12_GLOBAL__N_113JumpThreading13releaseMemoryEv'/>
+<ovr f='llvm/llvm/lib/Transforms/Scalar/LoopUnswitch.cpp' l='231' c='_ZN12_GLOBAL__N_112LoopUnswitch13releaseMemoryEv'/>

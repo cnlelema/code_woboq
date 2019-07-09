@@ -1,0 +1,29 @@
+<dec f='llvm/llvm/include/llvm/Analysis/DomTreeUpdater.h' l='201' type='void llvm::DomTreeUpdater::deleteBB(llvm::BasicBlock * DelBB)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/DomTreeUpdater.h' l='194'>/// Delete DelBB. DelBB will be removed from its Parent and
+  /// erased from available trees if it exists and finally get deleted.
+  /// Under Eager UpdateStrategy, DelBB will be processed immediately.
+  /// Under Lazy UpdateStrategy, DelBB will be queued until a flush event and
+  /// all available trees are up-to-date. Assert if any instruction of DelBB is
+  /// modified while awaiting deletion. When both DT and PDT are nullptrs, DelBB
+  /// will be queued until flush() is called.</doc>
+<def f='llvm/llvm/lib/Analysis/DomTreeUpdater.cpp' l='178' ll='188' type='void llvm::DomTreeUpdater::deleteBB(llvm::BasicBlock * DelBB)'/>
+<doc f='llvm/llvm/lib/Analysis/DomTreeUpdater.cpp' l='173'>// The DT and PDT require the nodes related to updates
+// are not deleted when update functions are called.
+// So BasicBlock deletions must be pended when the
+// UpdateStrategy is Lazy. When the UpdateStrategy is
+// Eager, the BasicBlock will be deleted immediately.</doc>
+<use f='llvm/llvm/lib/Transforms/Scalar/CallSiteSplitting.cpp' l='376' u='c' c='_ZL13splitCallSiteN4llvm8CallSiteERKNS_15SmallVectorImplISt4pairIPNS_10BasicBlockENS_11SmallVectorIS2_IPNS_8ICmpInstEjELj2EEEEEERNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopFuse.cpp' l='1098' u='c' c='_ZN9LoopFuser13performFusionERK15FusionCandidateS2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopSimplifyCFG.cpp' l='468' u='c' c='_ZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl20deleteDeadLoopBlocksEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SCCP.cpp' l='2130' u='c' c='_ZN4llvm9runIPSCCPERNS_6ModuleERKNS_10DataLayoutEPKNS_17TargetLibraryInfoENS_12function_refIFNS_20AnalysisResultsForFnERNS_8FunctionEEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/TailRecursionElimination.cpp' l='723' u='c' c='_ZL24foldReturnAndProcessPredPN4llvm10BasicBlockEPNS_10ReturnInstERS1_RbRNS_15SmallVectorImplIPNS_7PHINodeEEEbPKNS_19TargetTransformInfoEPNS_9AAResult7648880'/>
+<use f='llvm/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp' l='112' u='c' c='_ZN4llvm16DeleteDeadBlocksENS_8ArrayRefIPNS_10BasicBlockEEEPNS_14DomTreeUpdaterEb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp' l='276' u='c' c='_ZN4llvm25MergeBlockIntoPredecessorEPNS_10BasicBlockEPNS_14DomTreeUpdaterEPNS_8LoopInfoEPNS_16MemorySSAUpdaterEPNS_23MemoryDependenceResultsE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='742' u='c' c='_ZN4llvm27MergeBasicBlockIntoOnlyPredEPNS_10BasicBlockEPNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1084' u='c' c='_ZN4llvm39TryToSimplifyUncondBranchFromEmptyBlockEPNS_10BasicBlockEPNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='2295' u='c' c='_ZN4llvm23removeUnreachableBlocksERNS_8FunctionEPNS_13LazyValueInfoEPNS_14DomTreeUpdaterEPNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/unittests/Analysis/DomTreeUpdaterTest.cpp' l='209' u='c' c='_ZN45DomTreeUpdater_EagerUpdateReplaceEntryBB_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/DomTreeUpdaterTest.cpp' l='295' u='c' c='_ZN47DomTreeUpdater_LazyUpdateDTBasicOperations_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/DomTreeUpdaterTest.cpp' l='588' u='c' c='_ZN44DomTreeUpdater_LazyUpdateReplaceEntryBB_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/DomTreeUpdaterTest.cpp' l='677' u='c' c='_ZN38DomTreeUpdater_LazyUpdateStepTest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Analysis/DomTreeUpdaterTest.cpp' l='724' u='c' c='_ZN30DomTreeUpdater_NoTreeTest_Test8TestBodyEv'/>

@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/lib/Transforms/Coroutines/CoroInternal.h' l='37'/>
+<doc f='llvm/llvm/lib/Transforms/Coroutines/CoroInternal.h' l='28'>// CoroEarly pass marks every function that has coro.begin with a string
+// attribute &quot;coroutine.presplit&quot;=&quot;0&quot;. CoroSplit pass processes the coroutine
+// twice. First, it lets it go through complete IPO optimization pipeline as a
+// single function. It forces restart of the pipeline by inserting an indirect
+// call to an empty function &quot;coro.devirt.trigger&quot; which is devirtualized by
+// CoroElide pass that triggers a restart of the pipeline by CGPassManager.
+// When CoroSplit pass sees the same coroutine the second time, it splits it up,
+// adds coroutine subfunctions to the SCC to be processed by IPO pipeline.</doc>
+<use f='llvm/llvm/lib/Transforms/Coroutines/CoroEarly.cpp' l='185' u='c'/>
+<use f='llvm/llvm/lib/Transforms/Coroutines/CoroElide.cpp' l='299' u='c'/>
+<use f='llvm/llvm/lib/Transforms/Coroutines/CoroSplit.cpp' l='839' u='c'/>
+<use f='llvm/llvm/lib/Transforms/Coroutines/CoroSplit.cpp' l='914' u='c'/>
+<use f='llvm/llvm/lib/Transforms/Coroutines/CoroSplit.cpp' l='924' u='c'/>
+<use f='llvm/llvm/lib/Transforms/Coroutines/CoroSplit.cpp' l='932' u='c'/>

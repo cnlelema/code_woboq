@@ -1,0 +1,13 @@
+<def f='llvm/clang/include/clang/AST/OpenMPClause.h' l='2953' ll='2955' type='MutableArrayRef&lt;clang::Expr *&gt; clang::OMPLinearClause::getPrivates()'/>
+<doc f='llvm/clang/include/clang/AST/OpenMPClause.h' l='2941'>/// Gets the list of initial values for linear variables.
+  ///
+  /// There are NumVars expressions with initial values allocated after the
+  /// varlist, they are followed by NumVars update expressions (used to update
+  /// the linear variable&apos;s value on current iteration) and they are followed by
+  /// NumVars final expressions (used to calculate the linear variable&apos;s
+  /// value after the loop body). After these lists, there are 2 helper
+  /// expressions - linear step and a helper to calculate it before the
+  /// loop body (used when the linear step is not constant):
+  ///
+  /// { Vars[] /* in OMPVarListClause */; Privates[]; Inits[]; Updates[];
+  /// Finals[]; Step; CalcStep; }</doc>

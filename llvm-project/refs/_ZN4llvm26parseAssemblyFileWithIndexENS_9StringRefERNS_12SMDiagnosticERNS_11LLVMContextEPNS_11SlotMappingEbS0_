@@ -1,0 +1,19 @@
+<dec f='llvm/llvm/include/llvm/AsmParser/Parser.h' l='94' type='llvm::ParsedModuleAndIndex llvm::parseAssemblyFileWithIndex(llvm::StringRef Filename, llvm::SMDiagnostic &amp; Err, llvm::LLVMContext &amp; Context, llvm::SlotMapping * Slots = nullptr, bool UpgradeDebugInfo = true, llvm::StringRef DataLayoutString = &quot;&quot;)'/>
+<def f='llvm/llvm/lib/AsmParser/Parser.cpp' l='85' ll='99' type='llvm::ParsedModuleAndIndex llvm::parseAssemblyFileWithIndex(llvm::StringRef Filename, llvm::SMDiagnostic &amp; Err, llvm::LLVMContext &amp; Context, llvm::SlotMapping * Slots = nullptr, bool UpgradeDebugInfo = true, llvm::StringRef DataLayoutString = &quot;&quot;)'/>
+<doc f='llvm/llvm/include/llvm/AsmParser/Parser.h' l='77'>/// This function is a main interface to the LLVM Assembly Parser. It parses
+/// an ASCII file that (presumably) contains LLVM Assembly code, including
+/// a module summary. It returns a Module (intermediate representation) and
+/// a ModuleSummaryIndex with the corresponding features. Note that this does
+/// not verify that the generated Module or Index are valid, so you should
+/// run the verifier after parsing the file to check that they are okay.
+/// Parse LLVM Assembly from a file
+/// \param Filename The name of the file to parse
+/// \param Err Error result info.
+/// \param Context Context in which to allocate globals info.
+/// \param Slots The optional slot mapping that will be initialized during
+///              parsing.
+/// \param UpgradeDebugInfo Run UpgradeDebugInfo, which runs the Verifier.
+///                         This option should only be set to false by llvm-as
+///                         for use inside the LLVM testuite!
+/// \param DataLayoutString Override datalayout in the llvm assembly.</doc>
+<use f='llvm/llvm/tools/llvm-as/llvm-as.cpp' l='122' u='c' c='main'/>

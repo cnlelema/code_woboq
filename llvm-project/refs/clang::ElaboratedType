@@ -1,0 +1,24 @@
+<inh f='llvm/clang/include/clang/AST/Type.h' l='5162' c='clang::TypeWithKeyword'/>
+<inh f='llvm/llvm/include/llvm/ADT/FoldingSet.h' l='135' c='llvm::FoldingSetBase::Node'/>
+<inh f='llvm/llvm/include/llvm/Support/TrailingObjects.h' l='233' c='llvm::TrailingObjects'/>
+<def f='llvm/clang/include/clang/AST/Type.h' l='5213' ll='5282'/>
+<size>48</size>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='5205'>/// Represents a type that was referred to using an elaborated type
+/// keyword, e.g., struct S, or via a qualified name, e.g., N::M::type,
+/// or both.
+///
+/// This type is used to keep track of a type name as written in the
+/// source code, including tag keywords and any nested-name-specifiers.
+/// The type itself is always &quot;sugar&quot;, used to express what was written
+/// in the source code but containing no additional semantic information.</doc>
+<mbr r='clang::ElaboratedType::NNS' o='256' t='clang::NestedNameSpecifier *'/>
+<mbr r='clang::ElaboratedType::NamedType' o='320' t='clang::QualType'/>
+<fun r='_ZN5clang14ElaboratedTypeC1ENS_21ElaboratedTypeKeywordEPNS_19NestedNameSpecifierENS_8QualTypeES4_PNS_7TagDeclE'/>
+<fun r='_ZNK5clang14ElaboratedType12getQualifierEv'/>
+<fun r='_ZNK5clang14ElaboratedType12getNamedTypeEv'/>
+<fun r='_ZNK5clang14ElaboratedType7desugarEv'/>
+<fun r='_ZNK5clang14ElaboratedType9isSugaredEv'/>
+<fun r='_ZNK5clang14ElaboratedType15getOwnedTagDeclEv'/>
+<fun r='_ZN5clang14ElaboratedType7ProfileERN4llvm16FoldingSetNodeIDE'/>
+<fun r='_ZN5clang14ElaboratedType7ProfileERN4llvm16FoldingSetNodeIDENS_21ElaboratedTypeKeywordEPNS_19NestedNameSpecifierENS_8QualTypeEPNS_7TagDeclE'/>
+<fun r='_ZN5clang14ElaboratedType7classofEPKNS_4TypeE'/>

@@ -1,0 +1,32 @@
+<dec f='llvm/llvm/include/llvm/Support/CommandLine.h' l='1968' type='bool llvm::cl::ExpandResponseFiles(llvm::StringSaver &amp; Saver, TokenizerCallback Tokenizer, SmallVectorImpl&lt;const char *&gt; &amp; Argv, bool MarkEOLs = false, bool RelativeNames = false)'/>
+<doc f='llvm/llvm/include/llvm/Support/CommandLine.h' l='1952'>/// Expand response files on a command line recursively using the given
+/// StringSaver and tokenization strategy.  Argv should contain the command line
+/// before expansion and will be modified in place. If requested, Argv will
+/// also be populated with nullptrs indicating where each response file line
+/// ends, which is useful for the &quot;/link&quot; argument that needs to consume all
+/// remaining arguments only until the next end of line, when in a response
+/// file.
+///
+/// \param [in] Saver Delegates back to the caller for saving parsed strings.
+/// \param [in] Tokenizer Tokenization strategy. Typically Unix or Windows.
+/// \param [in,out] Argv Command line into which to expand response files.
+/// \param [in] MarkEOLs Mark end of lines and the end of the response file
+/// with nullptrs in the Argv vector.
+/// \param [in] RelativeNames true if names of nested response files must be
+/// resolved relative to including file.
+/// \return true if all @files were expanded successfully or there were none.</doc>
+<use f='llvm/clang/tools/driver/driver.cpp' l='369' u='c' c='main'/>
+<use f='llvm/lld/ELF/DriverUtils.cpp' l='127' u='c' c='_ZN3lld3elf11ELFOptTable5parseEN4llvm8ArrayRefIPKcEE'/>
+<use f='llvm/lld/MinGW/Driver.cpp' l='102' u='c' c='_ZN12_GLOBAL__N_113MinGWOptTable5parseEN4llvm8ArrayRefIPKcEE'/>
+<use f='llvm/lld/tools/lld/lld.cpp' l='85' u='c' c='_ZL10isPETargetRSt6vectorIPKcSaIS1_EE'/>
+<use f='llvm/lld/wasm/Driver.cpp' l='167' u='c' c='_ZN12_GLOBAL__N_112WasmOptTable5parseEN4llvm8ArrayRefIPKcEE'/>
+<def f='llvm/llvm/lib/Support/CommandLine.cpp' l='1097' ll='1179' type='bool llvm::cl::ExpandResponseFiles(llvm::StringSaver &amp; Saver, TokenizerCallback Tokenizer, SmallVectorImpl&lt;const char *&gt; &amp; Argv, bool MarkEOLs = false, bool RelativeNames = false)'/>
+<use f='llvm/llvm/lib/Support/CommandLine.cpp' l='1186' u='c' c='_ZN4llvm2cl14readConfigFileENS_9StringRefERNS_11StringSaverERNS_15SmallVectorImplIPKcEE'/>
+<use f='llvm/llvm/lib/Support/CommandLine.cpp' l='1266' u='c' c='_ZN12_GLOBAL__N_117CommandLineParser23ParseCommandLineOptionsEiPKPKcN4llvm9StringRefEPNS5_11raw_ostreamEb'/>
+<doc f='llvm/llvm/lib/Support/CommandLine.cpp' l='1095'>/// Expand response files on a command line recursively using the given
+/// StringSaver and tokenization strategy.</doc>
+<use f='llvm/llvm/lib/ToolDrivers/llvm-lib/LibDriver.cpp' l='150' u='c' c='_ZN4llvm13libDriverMainENS_8ArrayRefIPKcEE'/>
+<use f='llvm/llvm/tools/llvm-ar/llvm-ar.cpp' l='1047' u='c' c='_ZL7ar_mainiPPc'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='832' u='c' c='_ZN12_GLOBAL__N_134CommandLineTest_ResponseFiles_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='908' u='c' c='_ZN12_GLOBAL__N_143CommandLineTest_RecursiveResponseFiles_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/CommandLineTest.cpp' l='946' u='c' c='_ZN12_GLOBAL__N_145CommandLineTest_ResponseFilesAtArguments_Test8TestBodyEv'/>

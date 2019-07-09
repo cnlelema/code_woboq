@@ -1,0 +1,26 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/Cloning.h' l='126' type='llvm::Function * llvm::CloneFunction(llvm::Function * F, ValueToValueMapTy &amp; VMap, llvm::ClonedCodeInfo * CodeInfo = nullptr)'/>
+<use f='llvm/clang/lib/CodeGen/CGVTables.cpp' l='175' u='c' c='_ZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS0_14CGFunctionInfoENS_10GlobalDeclERKNS_9ThunkInfoE'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/Cloning.h' l='114'>/// Return a copy of the specified function and add it to that
+/// function&apos;s module.  Also, any references specified in the VMap are changed
+/// to refer to their mapped value instead of the original one.  If any of the
+/// arguments to the function are in the VMap, the arguments are deleted from
+/// the resultant function.  The VMap is updated to include mappings from all of
+/// the instructions and basicblocks in the function from their old to new
+/// values.  The final argument captures information about the cloned code if
+/// non-null.
+///
+/// VMap contains no non-identity GlobalValue mappings and debug info metadata
+/// will not be cloned.
+///</doc>
+<use f='llvm/llvm/lib/Transforms/IPO/FunctionImport.cpp' l='1055' u='c' c='_ZL23replaceAliasWithAliaseePN4llvm6ModuleEPNS_11GlobalAliasE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='973' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl14FunctionClonerC1EPN4llvm8FunctionEPNS_21FunctionOutliningInfoERNS2_25OptimizationRemarkEmitterENS2_12function_r14547055'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='998' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl14FunctionClonerC1EPN4llvm8FunctionEPNS_32FunctionOutliningMultiRegionInfoERNS2_25OptimizationRemarkEmitterENS2_19670145'/>
+<def f='llvm/llvm/lib/Transforms/Utils/CloneFunction.cpp' l='222' ll='254' type='llvm::Function * llvm::CloneFunction(llvm::Function * F, ValueToValueMapTy &amp; VMap, llvm::ClonedCodeInfo * CodeInfo = nullptr)'/>
+<doc f='llvm/llvm/lib/Transforms/Utils/CloneFunction.cpp' l='215'>/// Return a copy of the specified function and add it to that function&apos;s
+/// module.  Also, any references specified in the VMap are changed to refer to
+/// their mapped value instead of the original one.  If any of the arguments to
+/// the function are in the VMap, the arguments are deleted from the resultant
+/// function.  The VMap is updated to include mappings from all of the
+/// instructions and basicblocks in the function from their old to new values.
+///</doc>
+<use f='llvm/llvm/unittests/Transforms/Utils/CloningTest.cpp' l='449' u='c' c='_ZN12_GLOBAL__N_19CloneFunc13CreateNewFuncEv'/>

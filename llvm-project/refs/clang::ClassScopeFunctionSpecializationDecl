@@ -1,0 +1,32 @@
+<inh f='llvm/clang/include/clang/AST/DeclBase.h' l='88' c='clang::Decl'/>
+<def f='llvm/clang/include/clang/AST/DeclTemplate.h' l='2483' ll='2528'/>
+<size>1</size>
+<doc f='llvm/clang/include/clang/AST/DeclTemplate.h' l='2466'>/// Declaration of a function specialization at template class scope.
+///
+/// For example:
+/// \code
+/// template &lt;class T&gt;
+/// class A {
+///    template &lt;class U&gt; void foo(U a) { }
+///    template&lt;&gt; void foo(int a) { }
+/// }
+/// \endcode
+///
+/// &quot;template&lt;&gt; foo(int a)&quot; will be saved in Specialization as a normal
+/// CXXMethodDecl. Then during an instantiation of class A, it will be
+/// transformed into an actual function specialization.
+///
+/// FIXME: This is redundant; we could store the same information directly on
+/// the CXXMethodDecl as a DependentFunctionTemplateSpecializationInfo.</doc>
+<mbr r='clang::ClassScopeFunctionSpecializationDecl::Specialization' t='clang::CXXMethodDecl *'/>
+<mbr r='clang::ClassScopeFunctionSpecializationDecl::TemplateArgs' t='const clang::ASTTemplateArgumentListInfo *'/>
+<fun r='_ZN5clang36ClassScopeFunctionSpecializationDeclC1EPNS_11DeclContextENS_14SourceLocationEPNS_13CXXMethodDeclEPKNS_27ASTTemplateArgumentListInfoE'/>
+<fun r='_ZN5clang36ClassScopeFunctionSpecializationDeclC1ENS_4Decl10EmptyShellE'/>
+<fun r='_ZN5clang36ClassScopeFunctionSpecializationDecl6anchorEv'/>
+<fun r='_ZNK5clang36ClassScopeFunctionSpecializationDecl17getSpecializationEv'/>
+<fun r='_ZNK5clang36ClassScopeFunctionSpecializationDecl23hasExplicitTemplateArgsEv'/>
+<fun r='_ZNK5clang36ClassScopeFunctionSpecializationDecl24getTemplateArgsAsWrittenEv'/>
+<fun r='_ZN5clang36ClassScopeFunctionSpecializationDecl6CreateERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationEPNS_13CXXMethodDeclEbRKNS_24TemplateArgumentListInfoE'/>
+<fun r='_ZN5clang36ClassScopeFunctionSpecializationDecl18CreateDeserializedERNS_10ASTContextEj'/>
+<fun r='_ZN5clang36ClassScopeFunctionSpecializationDecl7classofEPKNS_4DeclE'/>
+<fun r='_ZN5clang36ClassScopeFunctionSpecializationDecl11classofKindENS_4Decl4KindE'/>

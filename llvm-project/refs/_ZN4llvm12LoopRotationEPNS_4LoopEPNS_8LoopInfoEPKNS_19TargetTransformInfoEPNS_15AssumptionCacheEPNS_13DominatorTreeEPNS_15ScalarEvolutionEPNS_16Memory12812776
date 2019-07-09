@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/LoopRotationUtils.h' l='33' type='bool llvm::LoopRotation(llvm::Loop * L, llvm::LoopInfo * LI, const llvm::TargetTransformInfo * TTI, llvm::AssumptionCache * AC, llvm::DominatorTree * DT, llvm::ScalarEvolution * SE, llvm::MemorySSAUpdater * MSSAU, const llvm::SimplifyQuery &amp; SQ, bool RotationOnly, unsigned int Threshold, bool IsUtilMode)'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopRotation.cpp' l='47' u='c' c='_ZN4llvm14LoopRotatePass3runERNS_4LoopERNS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEES5_RNS_10LPMUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopRotation.cpp' l='107' u='c' c='_ZN12_GLOBAL__N_120LoopRotateLegacyPass9runOnLoopEPN4llvm4LoopERNS1_13LPPassManagerE'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/LoopRotationUtils.h' l='27'>/// Convert a loop into a loop with bottom test. It may
+/// perform loop latch simplication as well if the flag RotationOnly
+/// is false. The flag Threshold represents the size threshold of the loop
+/// header. If the loop header&apos;s size exceeds the threshold, the loop rotation
+/// will give up. The flag IsUtilMode controls the heuristic used in the
+/// LoopRotation. If it is true, the profitability heuristic will be ignored.</doc>
+<def f='llvm/llvm/lib/Transforms/Utils/LoopRotationUtils.cpp' l='672' ll='686' type='bool llvm::LoopRotation(llvm::Loop * L, llvm::LoopInfo * LI, const llvm::TargetTransformInfo * TTI, llvm::AssumptionCache * AC, llvm::DominatorTree * DT, llvm::ScalarEvolution * SE, llvm::MemorySSAUpdater * MSSAU, const llvm::SimplifyQuery &amp; SQ, bool RotationOnly = true, unsigned int Threshold = unsigned int(-1), bool IsUtilMode = true)'/>
+<doc f='llvm/llvm/lib/Transforms/Utils/LoopRotationUtils.cpp' l='671'>/// The utility to convert a loop into a loop with bottom test.</doc>

@@ -1,0 +1,71 @@
+<def f='llvm/clang/include/clang/AST/Type.h' l='5919' ll='5921' type='const clang::ObjCObjectType * clang::ObjCObjectPointerType::getObjectType() const'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5935' u='c' c='_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5941' u='c' c='_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5947' u='c' c='_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5952' u='c' c='_ZNK5clang21ObjCObjectPointerType19isObjCIdOrClassTypeEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5958' u='c' c='_ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5964' u='c' c='_ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5968' u='c' c='_ZNK5clang21ObjCObjectPointerType12isKindOfTypeEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5971' u='c' c='_ZNK5clang21ObjCObjectPointerType13isSpecializedEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5975' u='c' c='_ZNK5clang21ObjCObjectPointerType22isSpecializedAsWrittenEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5979' u='c' c='_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5987' u='c' c='_ZNK5clang21ObjCObjectPointerType11getTypeArgsEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='5992' u='c' c='_ZNK5clang21ObjCObjectPointerType20getTypeArgsAsWrittenEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='6004' u='c' c='_ZNK5clang21ObjCObjectPointerType10qual_beginEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='6008' u='c' c='_ZNK5clang21ObjCObjectPointerType8qual_endEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='6011' u='c' c='_ZNK5clang21ObjCObjectPointerType10qual_emptyEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='6015' u='c' c='_ZNK5clang21ObjCObjectPointerType15getNumProtocolsEv'/>
+<use f='llvm/clang/include/clang/AST/Type.h' l='6020' u='c' c='_ZNK5clang21ObjCObjectPointerType11getProtocolEj'/>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='5896'>/// Gets the type pointed to by this ObjC pointer.  Always returns non-null.
+  ///
+  /// This method is equivalent to getPointeeType() except that
+  /// it discards any typedefs (or other sugar) between this
+  /// type and the &quot;outermost&quot; object type.  So for:
+  /// \code
+  ///   \@class A; \@protocol P; \@protocol Q;
+  ///   typedef A&lt;P&gt; AP;
+  ///   typedef A A1;
+  ///   typedef A1&lt;P&gt; A1P;
+  ///   typedef A1P&lt;Q&gt; A1PQ;
+  /// \endcode
+  /// For &apos;A*&apos;, getObjectType() will return &apos;A&apos;.
+  /// For &apos;A&lt;P&gt;*&apos;, getObjectType() will return &apos;A&lt;P&gt;&apos;.
+  /// For &apos;AP*&apos;, getObjectType() will return &apos;A&lt;P&gt;&apos;.
+  /// For &apos;A1*&apos;, getObjectType() will return &apos;A&apos;.
+  /// For &apos;A1&lt;P&gt;*&apos;, getObjectType() will return &apos;A1&lt;P&gt;&apos;.
+  /// For &apos;A1P*&apos;, getObjectType() will return &apos;A1&lt;P&gt;&apos;.
+  /// For &apos;A1PQ*&apos;, getObjectType() will return &apos;A1&lt;Q&gt;&apos;, because
+  ///   adding protocols to a protocol-qualified base discards the
+  ///   old qualifiers (for now).  But if it didn&apos;t, getObjectType()
+  ///   would return &apos;A1P&lt;Q&gt;&apos; (and we&apos;d have to make iterating over
+  ///   qualifiers more complicated).</doc>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='4671' u='c' c='_ZNK5clang10ASTContext27applyObjCProtocolQualifiersENS_8QualTypeEN4llvm8ArrayRefIPNS_16ObjCProtocolDeclEEERbb'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='8178' u='c' c='_ZN5clang10ASTContext23canAssignObjCInterfacesEPKNS_21ObjCObjectPointerTypeES3_'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='8179' u='c' c='_ZN5clang10ASTContext23canAssignObjCInterfacesEPKNS_21ObjCObjectPointerTypeES3_'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='8295' u='c' c='_ZL26getIntersectionOfProtocolsRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclEPKNS_21ObjCObjectPointerTypeES7_RN4llvm15SmallVectorImplIPNS_16ObjCProtocolDeclEEE'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='8296' u='c' c='_ZL26getIntersectionOfProtocolsRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclEPKNS_21ObjCObjectPointerTypeES7_RN4llvm15SmallVectorImplIPNS_16ObjCProtocolDeclEEE'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='8414' u='c' c='_ZN5clang10ASTContext23areCommonBaseCompatibleEPKNS_21ObjCObjectPointerTypeES3_'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='8415' u='c' c='_ZN5clang10ASTContext23areCommonBaseCompatibleEPKNS_21ObjCObjectPointerTypeES3_'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='623' u='c' c='_ZNK5clang4Type26isObjCIdOrObjectKindOfTypeERKNS_10ASTContextERPKNS_14ObjCObjectTypeE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='764' u='c' c='_ZNK5clang21ObjCObjectPointerType27stripObjCKindOfTypeAndQualsERKNS_10ASTContextE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='1359' u='c' c='_ZN12_GLOBAL__N_124SubstObjCTypeArgsVisitor19VisitAttributedTypeEPKN5clang14AttributedTypeE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='1472' u='c' c='_ZNK5clang4Type20getObjCSubstitutionsEPKNS_11DeclContextE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='1596' u='c' c='_ZNK5clang21ObjCObjectPointerType16getInterfaceTypeEv'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='1605' u='c' c='_ZNK5clang21ObjCObjectPointerType17getSuperClassTypeEv'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='4061' u='c' c='_ZNK5clang4Type33isObjCARCImplicitlyUnretainedTypeEv'/>
+<use f='llvm/clang/lib/CodeGen/CGExprScalar.cpp' l='2976' u='c' c='_ZN12_GLOBAL__N_117ScalarExprEmitter23EmitScalarPrePostIncDecEPKN5clang13UnaryOperatorENS1_7CodeGen6LValueEbb'/>
+<use f='llvm/clang/lib/CodeGen/CGObjC.cpp' l='219' u='c' c='_ZN5clang7CodeGen15CodeGenFunction25EmitObjCCollectionLiteralEPKNS_4ExprEPKNS_14ObjCMethodDeclE'/>
+<use f='llvm/clang/lib/CodeGen/CGObjCGNU.cpp' l='2389' u='c' c='_ZN12_GLOBAL__N_19CGObjCGNU9GetEHTypeEN5clang8QualTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CGObjCMac.cpp' l='4656' u='c' c='_ZN12_GLOBAL__N_19CGObjCMac25EmitTryOrSynchronizedStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_4StmtE'/>
+<use f='llvm/clang/lib/Index/IndexBody.cpp' l='277' u='c' c='_ZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='154' u='c' c='_ZL14isNSStringTypeN5clang8QualTypeERNS_10ASTContextE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclObjC.cpp' l='52' u='c' c='_ZN5clang4Sema15checkInitMethodEPNS_14ObjCMethodDeclENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExprMember.cpp' l='1196' u='c' c='_ZL34ShouldTryAgainWithRedefinitionTypeRN5clang4SemaERNS_12ActionResultIPNS_4ExprELb1EEE'/>
+<use f='llvm/clang/lib/Sema/SemaExprMember.cpp' l='1210' u='c' c='_ZL34ShouldTryAgainWithRedefinitionTypeRN5clang4SemaERNS_12ActionResultIPNS_4ExprELb1EEE'/>
+<use f='llvm/clang/lib/Sema/SemaExprMember.cpp' l='1491' u='c' c='_ZL16LookupMemberExprRN5clang4SemaERNS_12LookupResultERNS_12ActionResultIPNS_4ExprELb1EEERbNS_14SourceLocationERNS_12CXXScopeSpecEPNS_4DeclEbSA_'/>
+<use f='llvm/clang/lib/Sema/SemaExprObjC.cpp' l='3145' u='c' c='_ZN5clang4Sema20BuildInstanceMessageEPNS_4ExprENS_8QualTypeENS_14SourceLocationENS_8SelectorEPNS_14ObjCMethodDeclES4_N4llvm8ArrayRefIS4_EES4_NS8_15MutableArrayRefIS2_EEb'/>
+<use f='llvm/clang/lib/Sema/SemaExprObjC.cpp' l='3825' u='c' c='_ZL21CheckObjCBridgeNSCastRN5clang4SemaENS_8QualTypeEPNS_4ExprERbb'/>
+<use f='llvm/clang/lib/Sema/SemaExprObjC.cpp' l='3891' u='c' c='_ZL21CheckObjCBridgeCFCastRN5clang4SemaENS_8QualTypeEPNS_4ExprERbb'/>
+<use f='llvm/clang/lib/Sema/SemaObjCProperty.cpp' l='601' u='c' c='_ZN5clang4Sema18CreatePropertyDeclEPNS_5ScopeEPNS_17ObjCContainerDeclENS_14SourceLocationES5_RNS_15FieldDeclaratorENS_8SelectorES5_S8_S5_bjjNS_8QualTy13753222'/>
+<use f='llvm/clang/lib/Sema/SemaStmt.cpp' l='1819' u='c' c='_ZN5clang4Sema29CheckObjCForCollectionOperandENS_14SourceLocationEPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='6704' u='c' c='_ZL19checkObjCKindOfTypeRN12_GLOBAL__N_119TypeProcessingStateERN5clang8QualTypeERNS2_10ParsedAttrE'/>

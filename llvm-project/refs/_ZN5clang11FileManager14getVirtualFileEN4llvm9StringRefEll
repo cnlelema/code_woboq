@@ -1,0 +1,29 @@
+<dec f='llvm/clang/include/clang/Basic/FileManager.h' l='230' type='const clang::FileEntry * clang::FileManager::getVirtualFile(llvm::StringRef Filename, off_t Size, time_t ModificationTime)'/>
+<doc f='llvm/clang/include/clang/Basic/FileManager.h' l='226'>/// Retrieve a file entry for a &quot;virtual&quot; file that acts as
+  /// if there were a file with the given name on disk.
+  ///
+  /// The file itself is not accessed.</doc>
+<def f='llvm/clang/lib/Basic/FileManager.cpp' l='277' ll='340' type='const clang::FileEntry * clang::FileManager::getVirtualFile(llvm::StringRef Filename, off_t Size, time_t ModificationTime)'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='328' u='c' c='_ZL23InitializeFileRemappingRN5clang17DiagnosticsEngineERNS_13SourceManagerERNS_11FileManagerERKNS_19PreprocessorOptionsE'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='353' u='c' c='_ZL23InitializeFileRemappingRN5clang17DiagnosticsEngineERNS_13SourceManagerERNS_11FileManagerERKNS_19PreprocessorOptionsE'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='852' u='c' c='_ZN5clang16CompilerInstance23InitializeSourceManagerERKNS_17FrontendInputFileERNS_17DiagnosticsEngineERNS_11FileManagerERNS_13SourceManagerEPNS_12Head4928312'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='872' u='c' c='_ZN5clang16CompilerInstance23InitializeSourceManagerERKNS_17FrontendInputFileERNS_17DiagnosticsEngineERNS_11FileManagerERNS_13SourceManagerEPNS_12Head4928312'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='1212' u='c' c='_ZL17compileModuleImplRN5clang16CompilerInstanceENS_14SourceLocationEPNS_6ModuleEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='2001' u='c' c='_ZN5clang16CompilerInstance20loadModuleFromSourceENS_14SourceLocationEN4llvm9StringRefES3_'/>
+<use f='llvm/clang/lib/Lex/HeaderSearch.cpp' l='1438' u='c' c='_ZN5clang12HeaderSearch17loadModuleMapFileEPKNS_9FileEntryEbNS_6FileIDEPjN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Serialization/ASTReader.cpp' l='2135' u='c' c='_ZN5clang9ASTReader12getInputFileERNS_13serialization10ModuleFileEjb'/>
+<use f='llvm/clang/lib/Serialization/ModuleManager.cpp' l='282' u='c' c='_ZN5clang13serialization13ModuleManager17addInMemoryBufferEN4llvm9StringRefESt10unique_ptrINS2_12MemoryBufferESt14default_deleteIS5_EE'/>
+<use f='llvm/clang/tools/libclang/CXLoadedDiagnostic.cpp' l='346' u='c' c='_ZN12_GLOBAL__N_110DiagLoader19visitFilenameRecordEjjjN4llvm9StringRefE'/>
+<use f='llvm/clang/unittests/Basic/FileManagerTest.cpp' l='92' u='c' c='_ZN12_GLOBAL__N_159FileManagerTest_getVirtualFileSetsTheDirFieldCorrectly_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Basic/FileManagerTest.cpp' l='99' u='c' c='_ZN12_GLOBAL__N_159FileManagerTest_getVirtualFileSetsTheDirFieldCorrectly_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Basic/FileManagerTest.cpp' l='125' u='c' c='_ZN12_GLOBAL__N_170FileManagerTest_getVirtualFileCreatesDirectoryEntriesForAncestors_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Basic/FileManagerTest.cpp' l='177' u='c' c='_ZN12_GLOBAL__N_171FileManagerTest_getFileReturnsValidFileEntryForExistingVirtualFile_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Basic/FileManagerTest.cpp' l='218' u='c' c='_ZN12_GLOBAL__N_157FileManagerTest_getFileReturnsNULLForNonexistentFile_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Basic/FileManagerTest.cpp' l='250' u='c' c='_ZN12_GLOBAL__N_170FileManagerTest_getFileReturnsSameFileEntryForAliasedVirtualFiles_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Basic/FileManagerTest.cpp' l='251' u='c' c='_ZN12_GLOBAL__N_170FileManagerTest_getFileReturnsSameFileEntryForAliasedVirtualFiles_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Basic/FileManagerTest.cpp' l='269' u='c' c='_ZN12_GLOBAL__N_152FileManagerTest_getVirtualFileWithDifferentName_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Basic/FileManagerTest.cpp' l='340' u='c' c='_ZN12_GLOBAL__N_152FileManagerTest_getVirtualFileFillsRealPathName_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Basic/SourceManagerTest.cpp' l='169' u='c' c='_ZN12_GLOBAL__N_140SourceManagerTest_locationPrintTest_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Basic/SourceManagerTest.cpp' l='173' u='c' c='_ZN12_GLOBAL__N_140SourceManagerTest_locationPrintTest_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Basic/SourceManagerTest.cpp' l='225' u='c' c='_ZN12_GLOBAL__N_150SourceManagerTest_getMacroArgExpandedLocation_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/Basic/SourceManagerTest.cpp' l='343' u='c' c='_ZN12_GLOBAL__N_166SourceManagerTest_isBeforeInTranslationUnitWithMacroInInclude_Test8TestBodyEv'/>

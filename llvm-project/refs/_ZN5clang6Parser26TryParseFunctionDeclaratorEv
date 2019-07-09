@@ -1,0 +1,16 @@
+<dec f='llvm/clang/include/clang/Parse/Parser.h' l='2356' type='clang::Parser::TPResult clang::Parser::TryParseFunctionDeclarator()'/>
+<use f='llvm/clang/lib/Parse/ParseTentative.cpp' l='990' u='c' c='_ZN5clang6Parser18TryParseDeclaratorEbbb'/>
+<use f='llvm/clang/lib/Parse/ParseTentative.cpp' l='1029' u='c' c='_ZN5clang6Parser18TryParseDeclaratorEbbb'/>
+<def f='llvm/clang/lib/Parse/ParseTentative.cpp' l='2013' ll='2060' type='Parser::TPResult clang::Parser::TryParseFunctionDeclarator()'/>
+<doc f='llvm/clang/lib/Parse/ParseTentative.cpp' l='2001'>/// TryParseFunctionDeclarator - We parsed a &apos;(&apos; and we want to try to continue
+/// parsing as a function declarator.
+/// If TryParseFunctionDeclarator fully parsed the function declarator, it will
+/// return TPResult::Ambiguous, otherwise it will return either False() or
+/// Error().
+///
+/// &apos;(&apos; parameter-declaration-clause &apos;)&apos; cv-qualifier-seq[opt]
+///         exception-specification[opt]
+///
+/// exception-specification:
+///   &apos;throw&apos; &apos;(&apos; type-id-list[opt] &apos;)&apos;
+///</doc>

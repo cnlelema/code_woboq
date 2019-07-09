@@ -1,0 +1,42 @@
+<def f='llvm/llvm/include/llvm/MC/MCInstrDesc.h' l='399' type='bool llvm::MCInstrDesc::mayLoad() const'/>
+<doc f='llvm/llvm/include/llvm/MC/MCInstrDesc.h' l='392'>//===--------------------------------------------------------------------===//
+  // Side Effect Analysis
+  //===--------------------------------------------------------------------===//
+
+  /// Return true if this instruction could possibly read memory.
+  /// Instructions with this flag set are not necessarily simple load
+  /// instructions, they may load a value and modify it, for example.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/ScheduleDAGSDNodes.cpp' l='316' u='c' c='_ZN4llvm18ScheduleDAGSDNodes12ClusterNodesEv'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGISel.cpp' l='3490' u='c' c='_ZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS_6SDNodeEPKhj'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AsmParser/AMDGPUAsmParser.cpp' l='2754' u='c' c='_ZN12_GLOBAL__N_115AMDGPUAsmParser23validateMIMGAtomicDMaskERKN4llvm6MCInstE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='3503' u='c' c='_ZNK4llvm16ARMBaseInstrInfo14getNumMicroOpsEPKNS_18InstrItineraryDataERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='4222' u='c' c='_ZNK4llvm16ARMBaseInstrInfo17getOperandLatencyEPKNS_18InstrItineraryDataEPNS_6SDNodeEjS5_j'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonConstExtenders.cpp' l='873' u='c' c='_ZNK12_GLOBAL__N_121HexagonConstExtenders15getRegOffOpcodeEj'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonConstExtenders.cpp' l='1066' u='c' c='_ZNK12_GLOBAL__N_121HexagonConstExtenders14getOffsetRangeENS0_8RegisterERKN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='2988' u='c' c='_ZNK4llvm16HexagonInstrInfo19hasNonExtEquivalentERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='4233' u='c' c='_ZNK4llvm16HexagonInstrInfo15getNonExtOpcodeERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonOptAddrMode.cpp' l='128' u='c' c='_ZN12_GLOBAL__N_118HexagonOptAddrMode10hasRepFormERN4llvm12MachineInstrEj'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonOptAddrMode.cpp' l='194' u='c' c='_ZN12_GLOBAL__N_118HexagonOptAddrMode15canRemoveAddaslEN4llvm3rdf8NodeAddrIPNS2_8StmtNodeEEERNS1_12MachineInstrERKNS1_11SmallVectorINS3_IPNS2_8NodeBaseEEELj4EEE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonOptAddrMode.cpp' l='357' u='c' c='_ZN12_GLOBAL__N_118HexagonOptAddrMode14processAddUsesEN4llvm3rdf8NodeAddrIPNS2_8StmtNodeEEEPNS1_12MachineInstrERKNS1_11SmallVectorINS3_IPNS2_8NodeBaseEEELj4EEE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonOptAddrMode.cpp' l='362' u='c' c='_ZN12_GLOBAL__N_118HexagonOptAddrMode14processAddUsesEN4llvm3rdf8NodeAddrIPNS2_8StmtNodeEEEPNS1_12MachineInstrERKNS1_11SmallVectorINS3_IPNS2_8NodeBaseEEELj4EEE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonOptAddrMode.cpp' l='368' u='c' c='_ZN12_GLOBAL__N_118HexagonOptAddrMode14processAddUsesEN4llvm3rdf8NodeAddrIPNS2_8StmtNodeEEEPNS1_12MachineInstrERKNS1_11SmallVectorINS3_IPNS2_8NodeBaseEEELj4EEE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonOptAddrMode.cpp' l='417' u='c' c='_ZN12_GLOBAL__N_118HexagonOptAddrMode13updateAddUsesEPN4llvm12MachineInstrES3_'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonOptAddrMode.cpp' l='419' u='c' c='_ZN12_GLOBAL__N_118HexagonOptAddrMode13updateAddUsesEPN4llvm12MachineInstrES3_'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonOptAddrMode.cpp' l='444' u='c' c='_ZN12_GLOBAL__N_118HexagonOptAddrMode11analyzeUsesEjRKN4llvm11SmallVectorINS1_3rdf8NodeAddrIPNS3_8NodeBaseEEELj4EEERNS1_8DenseMapIPNS1_12MachineInstrE1280098'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonOptAddrMode.cpp' l='639' u='c' c='_ZN12_GLOBAL__N_118HexagonOptAddrMode12changeAddAslEN4llvm3rdf8NodeAddrIPNS2_7UseNodeEEEPNS1_12MachineInstrERKNS1_14MachineOperandEj'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonOptAddrMode.cpp' l='673' u='c' c='_ZN12_GLOBAL__N_118HexagonOptAddrMode10xformUseMIEPN4llvm12MachineInstrES3_NS1_3rdf8NodeAddrIPNS4_7UseNodeEEEj'/>
+<use f='llvm/llvm/lib/Target/Hexagon/MCTargetDesc/HexagonMCChecker.cpp' l='464' u='c' c='_ZN4llvm16HexagonMCChecker14checkNewValuesEv'/>
+<use f='llvm/llvm/lib/Target/Hexagon/MCTargetDesc/HexagonMCChecker.cpp' l='554' u='c' c='_ZN4llvm16HexagonMCChecker20checkRegisterCurDefsEv'/>
+<use f='llvm/llvm/lib/Target/Hexagon/MCTargetDesc/HexagonShuffler.cpp' l='155' u='c' c='_ZN4llvm18HexagonCVIResourceC1EPNS_8DenseMapIjSt4pairIjjENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS3_EEEERKNS_11MCInstrInfoEjPKNS_6MCInstE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/MCTargetDesc/HexagonShuffler.cpp' l='379' u='c' c='_ZN4llvm15HexagonShuffler5checkEv'/>
+<use f='llvm/llvm/lib/Target/Hexagon/MCTargetDesc/HexagonShuffler.cpp' l='438' u='c' c='_ZN4llvm15HexagonShuffler5checkEv'/>
+<use f='llvm/llvm/lib/Target/Mips/AsmParser/MipsAsmParser.cpp' l='2286' u='c' c='_ZN12_GLOBAL__N_113MipsAsmParser18processInstructionERN4llvm6MCInstENS1_5SMLocERNS1_10MCStreamerEPKNS1_15MCSubtargetInfoE'/>
+<use f='llvm/llvm/lib/Target/Mips/AsmParser/MipsAsmParser.cpp' l='2303' u='c' c='_ZN12_GLOBAL__N_113MipsAsmParser18processInstructionERN4llvm6MCInstENS1_5SMLocERNS1_10MCStreamerEPKNS1_15MCSubtargetInfoE'/>
+<use f='llvm/llvm/lib/Target/Mips/AsmParser/MipsAsmParser.cpp' l='2313' u='c' c='_ZN12_GLOBAL__N_113MipsAsmParser18processInstructionERN4llvm6MCInstENS1_5SMLocERNS1_10MCStreamerEPKNS1_15MCSubtargetInfoE'/>
+<use f='llvm/llvm/lib/Target/Mips/AsmParser/MipsAsmParser.cpp' l='2317' u='c' c='_ZN12_GLOBAL__N_113MipsAsmParser18processInstructionERN4llvm6MCInstENS1_5SMLocERNS1_10MCStreamerEPKNS1_15MCSubtargetInfoE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCHazardRecognizers.cpp' l='33' u='c' c='_ZN4llvm34PPCDispatchGroupSBHazardRecognizer16isLoadAfterStoreEPNS_5SUnitE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCHazardRecognizers.cpp' l='284' u='c' c='_ZN4llvm22PPCHazardRecognizer97012GetInstrTypeEjRbS1_S1_S1_S1_'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZInstrBuilder.h' l='32' u='c' c='_ZN4llvmL17addFrameReferenceERKNS_19MachineInstrBuilderEi'/>
+<use f='llvm/llvm/lib/Target/X86/X86InstrBuilder.h' l='204' u='c' c='_ZN4llvmL17addFrameReferenceERKNS_19MachineInstrBuilderEii'/>
+<use f='llvm/llvm/tools/llvm-cfi-verify/lib/FileAnalysis.cpp' l='328' u='c' c='_ZNK4llvm10cfi_verify12FileAnalysis24indirectCFOperandClobberERKNS0_11GraphResultE'/>
+<use f='llvm/llvm/tools/llvm-cfi-verify/lib/FileAnalysis.cpp' l='344' u='c' c='_ZNK4llvm10cfi_verify12FileAnalysis24indirectCFOperandClobberERKNS0_11GraphResultE'/>

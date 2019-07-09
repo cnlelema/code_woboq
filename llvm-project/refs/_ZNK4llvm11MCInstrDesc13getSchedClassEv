@@ -1,0 +1,55 @@
+<def f='llvm/llvm/include/llvm/MC/MCInstrDesc.h' l='582' type='unsigned int llvm::MCInstrDesc::getSchedClass() const'/>
+<doc f='llvm/llvm/include/llvm/MC/MCInstrDesc.h' l='578'>/// Return the scheduling class for this instruction.  The
+  /// scheduling class is an index into the InstrItineraryData table.  This
+  /// returns zero if there is no known scheduling information for the
+  /// instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/DFAPacketizer.cpp' l='130' u='c' c='_ZN4llvm13DFAPacketizer19canReserveResourcesEPKNS_11MCInstrDescE'/>
+<use f='llvm/llvm/lib/CodeGen/DFAPacketizer.cpp' l='140' u='c' c='_ZN4llvm13DFAPacketizer16reserveResourcesEPKNS_11MCInstrDescE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineCombiner.cpp' l='362' u='c' c='_ZN12_GLOBAL__N_115MachineCombiner13instr2instrSCERN4llvm15SmallVectorImplIPNS1_12MachineInstrEEERNS2_IPKNS1_16MCSchedClassDescEEE'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='873' u='c' c='_ZNK12_GLOBAL__N_114FuncUnitSorter12minFuncUnitsEPKN4llvm12MachineInstrERj'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='920' u='c' c='_ZN12_GLOBAL__N_114FuncUnitSorter21calcCriticalResourcesERN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='3985' u='c' c='_ZNK4llvm15ResourceManager19canReserveResourcesEPKNS_11MCInstrDescE'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='4021' u='c' c='_ZN4llvm15ResourceManager16reserveResourcesEPKNS_11MCInstrDescE'/>
+<use f='llvm/llvm/lib/CodeGen/ScoreboardHazardRecognizer.cpp' l='127' u='c' c='_ZN4llvm26ScoreboardHazardRecognizer13getHazardTypeEPNS_5SUnitEi'/>
+<use f='llvm/llvm/lib/CodeGen/ScoreboardHazardRecognizer.cpp' l='186' u='c' c='_ZN4llvm26ScoreboardHazardRecognizer15EmitInstructionEPNS_5SUnitE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='1041' u='c' c='_ZNK4llvm15TargetInstrInfo17getOperandLatencyEPKNS_18InstrItineraryDataEPNS_6SDNodeEjS5_j'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='1044' u='c' c='_ZNK4llvm15TargetInstrInfo17getOperandLatencyEPKNS_18InstrItineraryDataEPNS_6SDNodeEjS5_j'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='1056' u='c' c='_ZNK4llvm15TargetInstrInfo15getInstrLatencyEPKNS_18InstrItineraryDataEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='1068' u='c' c='_ZNK4llvm15TargetInstrInfo14getNumMicroOpsEPKNS_18InstrItineraryDataERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='1102' u='c' c='_ZNK4llvm15TargetInstrInfo15getInstrLatencyEPKNS_18InstrItineraryDataERKNS_12MachineInstrEPj'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='1112' u='c' c='_ZNK4llvm15TargetInstrInfo16hasLowDefLatencyERKNS_16TargetSchedModelERKNS_12MachineInstrEj'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='1124' u='c' c='_ZNK4llvm15TargetInstrInfo17getOperandLatencyEPKNS_18InstrItineraryDataERKNS_12MachineInstrEjS6_j'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='1125' u='c' c='_ZNK4llvm15TargetInstrInfo17getOperandLatencyEPKNS_18InstrItineraryDataERKNS_12MachineInstrEjS6_j'/>
+<use f='llvm/llvm/lib/CodeGen/TargetSchedule.cpp' l='110' u='c' c='_ZNK4llvm16TargetSchedModel14getNumMicroOpsEPKNS_12MachineInstrEPKNS_16MCSchedClassDescE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetSchedule.cpp' l='135' u='c' c='_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetSchedule.cpp' l='198' u='c' c='_ZNK4llvm16TargetSchedModel21computeOperandLatencyEPKNS_12MachineInstrEjS3_j'/>
+<use f='llvm/llvm/lib/CodeGen/TargetSchedule.cpp' l='262' u='c' c='_ZNK4llvm16TargetSchedModel19computeInstrLatencyEj'/>
+<use f='llvm/llvm/lib/CodeGen/TargetSchedule.cpp' l='327' u='c' c='_ZNK4llvm16TargetSchedModel27computeReciprocalThroughputEPKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetSchedule.cpp' l='340' u='c' c='_ZNK4llvm16TargetSchedModel27computeReciprocalThroughputEj'/>
+<use f='llvm/llvm/lib/MC/MCDisassembler/Disassembler.cpp' l='176' u='c' c='_ZL19getItineraryLatencyPN4llvm17LLVMDisasmContextERKNS_6MCInstE'/>
+<use f='llvm/llvm/lib/MC/MCDisassembler/Disassembler.cpp' l='203' u='c' c='_ZL10getLatencyPN4llvm17LLVMDisasmContextERKNS_6MCInstE'/>
+<use f='llvm/llvm/lib/MC/MCSchedule.cpp' l='70' u='c' c='_ZNK4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_11MCInstrInfoERKNS_6MCInstE'/>
+<use f='llvm/llvm/lib/MC/MCSchedule.cpp' l='113' u='c' c='_ZNK4llvm12MCSchedModel23getReciprocalThroughputERKNS_15MCSubtargetInfoERKNS_11MCInstrInfoERKNS_6MCInstE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64SIMDInstrOpt.cpp' l='227' u='c' c='_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt17shouldReplaceInstEPN4llvm15MachineFunctionEPKNS1_11MCInstrDescERNS1_15SmallVectorImplIS6_EE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64SIMDInstrOpt.cpp' l='242' u='c' c='_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt17shouldReplaceInstEPN4llvm15MachineFunctionEPKNS1_11MCInstrDescERNS1_15SmallVectorImplIS6_EE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='3197' u='c' c='_ZL23getNumMicroOpsSwiftLdStPKN4llvm18InstrItineraryDataERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='3500' u='c' c='_ZNK4llvm16ARMBaseInstrInfo14getNumMicroOpsEPKNS_18InstrItineraryDataERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='3774' u='c' c='_ZNK4llvm16ARMBaseInstrInfo17getOperandLatencyEPKNS_18InstrItineraryDataERKNS_11MCInstrDescEjjS6_jj'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='3775' u='c' c='_ZNK4llvm16ARMBaseInstrInfo17getOperandLatencyEPKNS_18InstrItineraryDataERKNS_11MCInstrDescEjjS6_jj'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='4225' u='c' c='_ZNK4llvm16ARMBaseInstrInfo17getOperandLatencyEPKNS_18InstrItineraryDataEPNS_6SDNodeEjS5_j'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='4517' u='c' c='_ZNK4llvm16ARMBaseInstrInfo15getInstrLatencyEPKNS_18InstrItineraryDataERKNS_12MachineInstrEPj'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='4584' u='c' c='_ZNK4llvm16ARMBaseInstrInfo16hasLowDefLatencyERKNS_16TargetSchedModelERKNS_12MachineInstrEj'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='1510' u='c' c='_ZNK4llvm17ARMTargetLowering23getSchedulingPreferenceEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='2143' u='c' c='_ZNK4llvm16HexagonInstrInfo18isEarlySourceInstrERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='2335' u='c' c='_ZNK4llvm16HexagonInstrInfo17isLateResultInstrERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='2584' u='c' c='_ZNK4llvm16HexagonInstrInfo5isTC1ERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='2589' u='c' c='_ZNK4llvm16HexagonInstrInfo5isTC2ERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='2594' u='c' c='_ZNK4llvm16HexagonInstrInfo10isTC2EarlyERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='2599' u='c' c='_ZNK4llvm16HexagonInstrInfo6isTC4xERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='4073' u='c' c='_ZNK4llvm16HexagonInstrInfo26getInstrTimingClassLatencyEPKNS_18InstrItineraryDataERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='4323' u='c' c='_ZNK4llvm16HexagonInstrInfo8getUnitsERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonVLIWPacketizer.cpp' l='1052' u='c' c='_ZN4llvm21HexagonPacketizerList23ignorePseudoInstructionERKNS_12MachineInstrEPKNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/MCTargetDesc/HexagonMCInstrInfo.cpp' l='402' u='c' c='_ZN4llvm18HexagonMCInstrInfo8getUnitsERKNS_11MCInstrInfoERKNS_15MCSubtargetInfoERKNS_6MCInstE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/MCTargetDesc/HexagonMCInstrInfo.cpp' l='413' u='c' c='_ZN4llvm18HexagonMCInstrInfo21getOtherReservedSlotsERKNS_11MCInstrInfoERKNS_15MCSubtargetInfoERKNS_6MCInstE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCHazardRecognizers.cpp' l='90' u='c' c='_ZN4llvm34PPCDispatchGroupSBHazardRecognizer13mustComeFirstEPKNS_11MCInstrDescERj'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp' l='160' u='c' c='_ZNK4llvm12PPCInstrInfo15getInstrLatencyEPKNS_18InstrItineraryDataERKNS_12MachineInstrEPj'/>

@@ -1,0 +1,41 @@
+<def f='llvm/clang/include/clang/Tooling/Refactoring/Transformer.h' l='83' ll='87'/>
+<size>96</size>
+<doc f='llvm/clang/include/clang/Tooling/Refactoring/Transformer.h' l='47'>// Description of a source-code edit, expressed in terms of an AST node.
+// Includes: an ID for the (bound) node, a selector for source related to the
+// node, a replacement and, optionally, an explanation for the edit.
+//
+// * Target: the source code impacted by the rule. This identifies an AST node,
+//   or part thereof (\c Part), whose source range indicates the extent of the
+//   replacement applied by the replacement term.  By default, the extent is the
+//   node matched by the pattern term (\c NodePart::Node). Target&apos;s are typed
+//   (\c Kind), which guides the determination of the node extent.
+//
+// * Replacement: a function that produces a replacement string for the target,
+//   based on the match result.
+//
+// * Note: (optional) a note specifically for this edit, potentially referencing
+//   elements of the match.  This will be displayed to the user, where possible;
+//   for example, in clang-tidy diagnostics.  Use of notes should be rare --
+//   explanations of the entire rewrite should be set in the rule
+//   (`RewriteRule::Explanation`) instead.  Notes serve the rare cases wherein
+//   edit-specific diagnostics are required.
+//
+// `ASTEdit` should be built using the `change` convenience functions. For
+// example,
+// \code
+//   change(name(fun), text(&quot;Frodo&quot;))
+// \endcode
+// Or, if we use Stencil for the TextGenerator:
+// \code
+//   using stencil::cat;
+//   change(statement(thenNode), cat(&quot;{&quot;, thenNode, &quot;}&quot;))
+//   change(callArgs(call), cat(x, &quot;,&quot;, y))
+// \endcode
+// Or, if you are changing the node corresponding to the rule&apos;s matcher, you can
+// use the single-argument override of \c change:
+// \code
+//   change(cat(&quot;different_expr&quot;))
+// \endcode</doc>
+<mbr r='clang::tooling::ASTEdit::TargetRange' o='0' t='RangeSelector'/>
+<mbr r='clang::tooling::ASTEdit::Replacement' o='256' t='TextGenerator'/>
+<mbr r='clang::tooling::ASTEdit::Note' o='512' t='TextGenerator'/>

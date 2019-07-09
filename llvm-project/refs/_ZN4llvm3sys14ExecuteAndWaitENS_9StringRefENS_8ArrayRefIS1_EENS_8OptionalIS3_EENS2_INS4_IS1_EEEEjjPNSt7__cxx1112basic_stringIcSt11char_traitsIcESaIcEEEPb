@@ -1,0 +1,28 @@
+<dec f='llvm/llvm/include/llvm/Support/Program.h' l='88' type='int llvm::sys::ExecuteAndWait(llvm::StringRef Program, ArrayRef&lt;llvm::StringRef&gt; Args, Optional&lt;ArrayRef&lt;llvm::StringRef&gt; &gt; Env, ArrayRef&lt;Optional&lt;llvm::StringRef&gt; &gt; Redirects = {}, unsigned int SecondsToWait = 0, unsigned int MemoryLimit = 0, std::string * ErrMsg = nullptr, bool * ExecutionFailed = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Support/Program.h' l='77'>/// This function executes the program using the arguments provided.  The
+  /// invoked program will inherit the stdin, stdout, and stderr file
+  /// descriptors, the environment and other configuration settings of the
+  /// invoking program.
+  /// This function waits for the program to finish, so should be avoided in
+  /// library functions that aren&apos;t expected to block. Consider using
+  /// ExecuteNoWait() instead.
+  /// \returns an integer result code indicating the status of the program.
+  /// A zero or positive value indicates the result code of the program.
+  /// -1 indicates failure to execute
+  /// -2 indicates a crash during execution or timeout</doc>
+<use f='llvm/clang/lib/Driver/Job.cpp' l='341' u='c' c='_ZNK5clang6driver7Command7ExecuteEN4llvm8ArrayRefINS2_8OptionalINS2_9StringRefEEEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb'/>
+<use f='llvm/clang/lib/Driver/Job.cpp' l='368' u='c' c='_ZNK5clang6driver7Command7ExecuteEN4llvm8ArrayRefINS2_8OptionalINS2_9StringRefEEEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb'/>
+<use f='llvm/clang/tools/clang-offload-bundler/ClangOffloadBundler.cpp' l='570' u='c' c='_ZN17ObjectFileHandler14WriteBundleEndERN4llvm14raw_fd_ostreamENS0_9StringRefE'/>
+<use f='llvm/lld/COFF/DriverUtils.cpp' l='63' u='c' c='_ZN3lld4coff12_GLOBAL__N_18Executor3runEv'/>
+<use f='llvm/llvm/lib/Support/GraphWriter.cpp' l='97' u='c' c='_ZL15ExecGraphViewerN4llvm9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<def f='llvm/llvm/lib/Support/Program.cpp' l='30' ll='49' type='int llvm::sys::ExecuteAndWait(llvm::StringRef Program, ArrayRef&lt;llvm::StringRef&gt; Args, Optional&lt;ArrayRef&lt;llvm::StringRef&gt; &gt; Env = None, ArrayRef&lt;Optional&lt;llvm::StringRef&gt; &gt; Redirects = {}, unsigned int SecondsToWait = 0, unsigned int MemoryLimit = 0, std::string * ErrMsg = nullptr, bool * ExecutionFailed = nullptr)'/>
+<use f='llvm/llvm/lib/Support/Signals.cpp' l='169' u='c' c='_ZL25printSymbolizedStackTraceN4llvm9StringRefEPPviRNS_11raw_ostreamE'/>
+<use f='llvm/llvm/tools/bugpoint/OptimizerDriver.cpp' l='242' u='c' c='_ZNK4llvm9BugDriver9runPassesERNS_6ModuleERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERS9_bbjPKPKc'/>
+<use f='llvm/llvm/tools/bugpoint/ToolRunner.cpp' l='62' u='c' c='_ZL21RunProgramWithTimeoutN4llvm9StringRefENS_8ArrayRefIS0_EES0_S0_S0_jjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/tools/bugpoint/ToolRunner.cpp' l='79' u='c' c='_ZL29RunProgramRemotelyWithTimeoutN4llvm9StringRefENS_8ArrayRefIS0_EES0_S0_S0_jj'/>
+<use f='llvm/llvm/tools/dsymutil/MachOUtils.cpp' l='67' u='c' c='_ZN4llvm8dsymutil10MachOUtilsL7runLipoENS_9StringRefERNS_15SmallVectorImplIS2_EE'/>
+<use f='llvm/llvm/tools/llvm-cov/CodeCoverage.cpp' l='481' u='c' c='_ZN12_GLOBAL__N_116CodeCoverageTool15demangleSymbolsERKN4llvm8coverage15CoverageMappingE'/>
+<use f='llvm/llvm/unittests/Support/ProgramTest.cpp' l='185' u='c' c='_ZN12_GLOBAL__N_146ProgramEnvTest_CreateProcessTrailingSlash_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/ProgramTest.cpp' l='266' u='c' c='_ZN12_GLOBAL__N_145ProgramEnvTest_TestExecuteAndWaitTimeout_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/ProgramTest.cpp' l='278' u='c' c='_ZN12_GLOBAL__N_136ProgramTest_TestExecuteNegative_Test8TestBodyEv'/>
+<use f='llvm/llvm/utils/not/not.cpp' l='47' u='c' c='main'/>

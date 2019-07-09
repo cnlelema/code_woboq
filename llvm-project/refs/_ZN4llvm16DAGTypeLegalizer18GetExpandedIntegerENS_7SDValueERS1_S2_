@@ -1,0 +1,56 @@
+<dec f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.h' l='401' type='void llvm::DAGTypeLegalizer::GetExpandedInteger(llvm::SDValue Op, llvm::SDValue &amp; Lo, llvm::SDValue &amp; Hi)'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.h' l='921' u='c' c='_ZN4llvm16DAGTypeLegalizer10GetSplitOpENS_7SDValueERS1_S2_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.h' l='948' u='c' c='_ZN4llvm16DAGTypeLegalizer13GetExpandedOpENS_7SDValueERS1_S2_'/>
+<doc f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.h' l='391'>//===--------------------------------------------------------------------===//
+  // Integer Expansion Support: LegalizeIntegerTypes.cpp
+  //===--------------------------------------------------------------------===//
+
+  /// Given a processed operand Op which was expanded into two integers of half
+  /// the size, this returns the two halves. The low bits of Op are exactly
+  /// equal to the bits of Lo; the high bits exactly equal Hi.
+  /// For example, if Op is an i64 which was expanded into two i32&apos;s, then this
+  /// method returns the two i32&apos;s, with Lo being equal to the lower 32 bits of
+  /// Op, and Hi being equal to the upper 32 bits.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1771' u='c' c='_ZN4llvm16DAGTypeLegalizer21ExpandShiftByConstantEPNS_6SDNodeERKNS_5APIntERNS_7SDValueES7_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1875' u='c' c='_ZN4llvm16DAGTypeLegalizer29ExpandShiftWithKnownAmountBitEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1954' u='c' c='_ZN4llvm16DAGTypeLegalizer31ExpandShiftWithUnknownAmountBitEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2043' u='c' c='_ZN4llvm16DAGTypeLegalizer19ExpandIntRes_MINMAXEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2044' u='c' c='_ZN4llvm16DAGTypeLegalizer19ExpandIntRes_MINMAXEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2072' u='c' c='_ZN4llvm16DAGTypeLegalizer19ExpandIntRes_ADDSUBEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2073' u='c' c='_ZN4llvm16DAGTypeLegalizer19ExpandIntRes_ADDSUBEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2199' u='c' c='_ZN4llvm16DAGTypeLegalizer20ExpandIntRes_ADDSUBCEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2200' u='c' c='_ZN4llvm16DAGTypeLegalizer20ExpandIntRes_ADDSUBCEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2225' u='c' c='_ZN4llvm16DAGTypeLegalizer20ExpandIntRes_ADDSUBEEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2226' u='c' c='_ZN4llvm16DAGTypeLegalizer20ExpandIntRes_ADDSUBEEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2255' u='c' c='_ZN4llvm16DAGTypeLegalizer21ExpandIntRes_UADDSUBOEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2256' u='c' c='_ZN4llvm16DAGTypeLegalizer21ExpandIntRes_UADDSUBOEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2290' u='c' c='_ZN4llvm16DAGTypeLegalizer24ExpandIntRes_ADDSUBCARRYEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2291' u='c' c='_ZN4llvm16DAGTypeLegalizer24ExpandIntRes_ADDSUBCARRYEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2331' u='c' c='_ZN4llvm16DAGTypeLegalizer23ExpandIntRes_AssertSextEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2354' u='c' c='_ZN4llvm16DAGTypeLegalizer23ExpandIntRes_AssertZextEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2374' u='c' c='_ZN4llvm16DAGTypeLegalizer23ExpandIntRes_BITREVERSEEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2382' u='c' c='_ZN4llvm16DAGTypeLegalizer18ExpandIntRes_BSWAPEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2412' u='c' c='_ZN4llvm16DAGTypeLegalizer16ExpandIntRes_ABSEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2424' u='c' c='_ZN4llvm16DAGTypeLegalizer17ExpandIntRes_CTLZEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2444' u='c' c='_ZN4llvm16DAGTypeLegalizer18ExpandIntRes_CTPOPEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2455' u='c' c='_ZN4llvm16DAGTypeLegalizer17ExpandIntRes_CTTZEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2684' u='c' c='_ZN4llvm16DAGTypeLegalizer20ExpandIntRes_LogicalEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2685' u='c' c='_ZN4llvm16DAGTypeLegalizer20ExpandIntRes_LogicalEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2697' u='c' c='_ZN4llvm16DAGTypeLegalizer16ExpandIntRes_MULEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2698' u='c' c='_ZN4llvm16DAGTypeLegalizer16ExpandIntRes_MULEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2826' u='c' c='_ZN4llvm16DAGTypeLegalizer19ExpandIntRes_MULFIXEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2827' u='c' c='_ZN4llvm16DAGTypeLegalizer19ExpandIntRes_MULFIXEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3095' u='c' c='_ZN4llvm16DAGTypeLegalizer18ExpandIntRes_ShiftEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3196' u='c' c='_ZN4llvm16DAGTypeLegalizer30ExpandIntRes_SIGN_EXTEND_INREGEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3548' u='c' c='_ZN4llvm16DAGTypeLegalizer26IntegerExpandSetCCOperandsERNS_7SDValueES2_RNS_3ISD8CondCodeERKNS_5SDLocE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3549' u='c' c='_ZN4llvm16DAGTypeLegalizer26IntegerExpandSetCCOperandsERNS_7SDValueES2_RNS_3ISD8CondCodeERKNS_5SDLocE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3750' u='c' c='_ZN4llvm16DAGTypeLegalizer22ExpandIntOp_SETCCCARRYEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3751' u='c' c='_ZN4llvm16DAGTypeLegalizer22ExpandIntOp_SETCCCARRYEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3765' u='c' c='_ZN4llvm16DAGTypeLegalizer17ExpandIntOp_ShiftEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3774' u='c' c='_ZN4llvm16DAGTypeLegalizer22ExpandIntOp_RETURNADDREPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3807' u='c' c='_ZN4llvm16DAGTypeLegalizer17ExpandIntOp_STOREEPNS_11StoreSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3814' u='c' c='_ZN4llvm16DAGTypeLegalizer17ExpandIntOp_STOREEPNS_11StoreSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3834' u='c' c='_ZN4llvm16DAGTypeLegalizer17ExpandIntOp_STOREEPNS_11StoreSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3872' u='c' c='_ZN4llvm16DAGTypeLegalizer20ExpandIntOp_TRUNCATEEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3913' u='c' c='_ZN4llvm16DAGTypeLegalizer22ExpandIntOp_UINT_TO_FPEPNS_6SDNodeE'/>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.cpp' l='760' ll='766' type='void llvm::DAGTypeLegalizer::GetExpandedInteger(llvm::SDValue Op, llvm::SDValue &amp; Lo, llvm::SDValue &amp; Hi)'/>

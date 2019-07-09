@@ -1,0 +1,43 @@
+<inh f='llvm/llvm/include/llvm/CodeGen/DebugHandlerBase.h' l='53' c='llvm::DebugHandlerBase'/>
+<def f='llvm/llvm/lib/Target/BPF/BTFDebug.h' l='222' ll='318'/>
+<size>840</size>
+<doc f='llvm/llvm/lib/Target/BPF/BTFDebug.h' l='221'>/// Collect and emit BTF information.</doc>
+<mbr r='llvm::BTFDebug::OS' o='3776' t='llvm::MCStreamer &amp;'/>
+<mbr r='llvm::BTFDebug::SkipInstruction' o='3840' t='bool'/>
+<mbr r='llvm::BTFDebug::LineInfoGenerated' o='3848' t='bool'/>
+<mbr r='llvm::BTFDebug::SecNameOff' o='3872' t='uint32_t'/>
+<mbr r='llvm::BTFDebug::ArrayIndexTypeId' o='3904' t='uint32_t'/>
+<mbr r='llvm::BTFDebug::StringTable' o='3968' t='llvm::BTFStringTable'/>
+<mbr r='llvm::BTFDebug::TypeEntries' o='4672' t='std::vector&lt;std::unique_ptr&lt;BTFTypeBase&gt; &gt;'/>
+<mbr r='llvm::BTFDebug::DIToIdMap' o='4864' t='std::unordered_map&lt;const DIType *, uint32_t&gt;'/>
+<mbr r='llvm::BTFDebug::FuncInfoTable' o='5312' t='std::map&lt;uint32_t, std::vector&lt;BTFFuncInfo&gt; &gt;'/>
+<mbr r='llvm::BTFDebug::LineInfoTable' o='5696' t='std::map&lt;uint32_t, std::vector&lt;BTFLineInfo&gt; &gt;'/>
+<mbr r='llvm::BTFDebug::FileContent' o='6080' t='StringMap&lt;std::vector&lt;std::string&gt; &gt;'/>
+<mbr r='llvm::BTFDebug::DataSecEntries' o='6336' t='std::map&lt;std::string, std::unique_ptr&lt;BTFKindDataSec&gt; &gt;'/>
+<fun r='_ZN4llvm8BTFDebug7addTypeESt10unique_ptrINS_11BTFTypeBaseESt14default_deleteIS2_EEPKNS_6DITypeE'/>
+<fun r='_ZN4llvm8BTFDebug7addTypeESt10unique_ptrINS_11BTFTypeBaseESt14default_deleteIS2_EE'/>
+<fun r='_ZN4llvm8BTFDebug14visitTypeEntryEPKNS_6DITypeE'/>
+<fun r='_ZN4llvm8BTFDebug14visitTypeEntryEPKNS_6DITypeERj'/>
+<fun r='_ZN4llvm8BTFDebug14visitBasicTypeEPKNS_11DIBasicTypeERj'/>
+<fun r='_ZN4llvm8BTFDebug19visitSubroutineTypeEPKNS_16DISubroutineTypeEbRKSt13unordered_mapIjNS_9StringRefESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEERj'/>
+<fun r='_ZN4llvm8BTFDebug16visitFwdDeclTypeEPKNS_15DICompositeTypeEbRj'/>
+<fun r='_ZN4llvm8BTFDebug18visitCompositeTypeEPKNS_15DICompositeTypeERj'/>
+<fun r='_ZN4llvm8BTFDebug15visitStructTypeEPKNS_15DICompositeTypeEbRj'/>
+<fun r='_ZN4llvm8BTFDebug14visitArrayTypeEPKNS_15DICompositeTypeERj'/>
+<fun r='_ZN4llvm8BTFDebug13visitEnumTypeEPKNS_15DICompositeTypeERj'/>
+<fun r='_ZN4llvm8BTFDebug16visitDerivedTypeEPKNS_13DIDerivedTypeERj'/>
+<fun r='_ZN4llvm8BTFDebug19populateFileContentEPKNS_12DISubprogramE'/>
+<fun r='_ZN4llvm8BTFDebug17constructLineInfoEPKNS_12DISubprogramEPNS_8MCSymbolEjj'/>
+<fun r='_ZN4llvm8BTFDebug14processGlobalsEv'/>
+<fun r='_ZN4llvm8BTFDebug16emitCommonHeaderEv'/>
+<fun r='_ZN4llvm8BTFDebug14emitBTFSectionEv'/>
+<fun r='_ZN4llvm8BTFDebug17emitBTFExtSectionEv'/>
+<fun r='_ZN4llvm8BTFDebug17beginFunctionImplEPKNS_15MachineFunctionE'/>
+<fun r='_ZN4llvm8BTFDebug15endFunctionImplEPKNS_15MachineFunctionE'/>
+<fun r='_ZN4llvm8BTFDebugC1EPNS_10AsmPrinterE'/>
+<fun r='_ZN4llvm8BTFDebug19getArrayIndexTypeIdEv'/>
+<fun r='_ZN4llvm8BTFDebug9addStringENS_9StringRefE'/>
+<fun r='_ZN4llvm8BTFDebug9getTypeIdEPKNS_6DITypeE'/>
+<fun r='_ZN4llvm8BTFDebug13setSymbolSizeEPKNS_8MCSymbolEm'/>
+<fun r='_ZN4llvm8BTFDebug16beginInstructionEPKNS_12MachineInstrE'/>
+<fun r='_ZN4llvm8BTFDebug9endModuleEv'/>

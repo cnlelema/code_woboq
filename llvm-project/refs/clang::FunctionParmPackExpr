@@ -1,0 +1,35 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<inh f='llvm/llvm/include/llvm/Support/TrailingObjects.h' l='233' c='llvm::TrailingObjects'/>
+<def f='llvm/clang/include/clang/AST/ExprCXX.h' l='4238' ll='4298'/>
+<size>32</size>
+<doc f='llvm/clang/include/clang/AST/ExprCXX.h' l='4224'>/// Represents a reference to a function parameter pack or init-capture pack
+/// that has been substituted but not yet expanded.
+///
+/// When a pack expansion contains multiple parameter packs at different levels,
+/// this node is used to represent a function parameter pack at an outer level
+/// which we have already substituted to refer to expanded parameters, but where
+/// the containing pack expansion cannot yet be expanded.
+///
+/// \code
+/// template&lt;typename...Ts&gt; struct S {
+///   template&lt;typename...Us&gt; auto f(Ts ...ts) -&gt; decltype(g(Us(ts)...));
+/// };
+/// template struct S&lt;int, int&gt;;
+/// \endcode</doc>
+<mbr r='clang::FunctionParmPackExpr::ParamPack' o='128' t='clang::VarDecl *'/>
+<mbr r='clang::FunctionParmPackExpr::NameLoc' o='192' t='clang::SourceLocation'/>
+<mbr r='clang::FunctionParmPackExpr::NumParameters' o='224' t='unsigned int'/>
+<fun r='_ZN5clang20FunctionParmPackExprC1ENS_8QualTypeEPNS_7VarDeclENS_14SourceLocationEjPKS3_'/>
+<fun r='_ZN5clang20FunctionParmPackExpr6CreateERKNS_10ASTContextENS_8QualTypeEPNS_7VarDeclENS_14SourceLocationEN4llvm8ArrayRefIS6_EE'/>
+<fun r='_ZN5clang20FunctionParmPackExpr11CreateEmptyERKNS_10ASTContextEj'/>
+<fun r='_ZNK5clang20FunctionParmPackExpr16getParameterPackEv'/>
+<fun r='_ZNK5clang20FunctionParmPackExpr24getParameterPackLocationEv'/>
+<fun r='_ZNK5clang20FunctionParmPackExpr5beginEv'/>
+<fun r='_ZNK5clang20FunctionParmPackExpr3endEv'/>
+<fun r='_ZNK5clang20FunctionParmPackExpr16getNumExpansionsEv'/>
+<fun r='_ZNK5clang20FunctionParmPackExpr12getExpansionEj'/>
+<fun r='_ZNK5clang20FunctionParmPackExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang20FunctionParmPackExpr9getEndLocEv'/>
+<fun r='_ZN5clang20FunctionParmPackExpr7classofEPKNS_4StmtE'/>
+<fun r='_ZN5clang20FunctionParmPackExpr8childrenEv'/>
+<fun r='_ZNK5clang20FunctionParmPackExpr8childrenEv'/>

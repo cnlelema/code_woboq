@@ -1,0 +1,47 @@
+<def f='llvm/clang/include/clang/CrossTU/CrossTranslationUnit.h' l='104' ll='185'/>
+<size>152</size>
+<doc f='llvm/clang/include/clang/CrossTU/CrossTranslationUnit.h' l='94'>/// This class is used for tools that requires cross translation
+///        unit capability.
+///
+/// This class can load definitions from external AST files.
+/// The loaded definition will be merged back to the original AST using the
+/// AST Importer.
+/// In order to use this class, an index file is required that describes
+/// the locations of the AST files for each definition.
+///
+/// Note that this class also implements caching.</doc>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContextC1ERNS_16CompilerInstanceE'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContextD1Ev'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext20getCrossTUDefinitionEPKNS_12FunctionDeclEN4llvm9StringRefES6_b'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext20getCrossTUDefinitionEPKNS_7VarDeclEN4llvm9StringRefES6_b'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext15loadExternalASTEN4llvm9StringRefES3_S3_b'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext16importDefinitionEPKNS_12FunctionDeclE'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext16importDefinitionEPKNS_7VarDeclE'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext13getLookupNameEPKNS_9NamedDeclE'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext22emitCrossTUDiagnosticsERKNS0_10IndexErrorE'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext19lazyInitLookupTableEPNS_19TranslationUnitDeclE'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext22getOrCreateASTImporterERNS_10ASTContextE'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext24getCrossTUDefinitionImplEPKT_N4llvm9StringRefES6_b'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext20findDefInDeclContextEPKNS_11DeclContextEN4llvm9StringRefE'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext20importDefinitionImplEPKT_'/>
+<mbr r='clang::cross_tu::CrossTranslationUnitContext::FileASTUnitMap' o='0' t='llvm::StringMap&lt;std::unique_ptr&lt;clang::ASTUnit&gt; &gt;'/>
+<mbr r='clang::cross_tu::CrossTranslationUnitContext::NameASTUnitMap' o='256' t='llvm::StringMap&lt;clang::ASTUnit *&gt;'/>
+<mbr r='clang::cross_tu::CrossTranslationUnitContext::NameFileMap' o='512' t='llvm::StringMap&lt;std::string&gt;'/>
+<mbr r='clang::cross_tu::CrossTranslationUnitContext::ASTUnitImporterMap' o='768' t='llvm::DenseMap&lt;TranslationUnitDecl *, std::unique_ptr&lt;ASTImporter&gt; &gt;'/>
+<mbr r='clang::cross_tu::CrossTranslationUnitContext::CI' o='1024' t='clang::CompilerInstance &amp;'/>
+<mbr r='clang::cross_tu::CrossTranslationUnitContext::Context' o='1088' t='clang::ASTContext &amp;'/>
+<mbr r='clang::cross_tu::CrossTranslationUnitContext::LookupTable' o='1152' t='std::unique_ptr&lt;ASTImporterLookupTable&gt;'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContextC1ERNS_16CompilerInstanceE'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContextD1Ev'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext13getLookupNameEPKNS_9NamedDeclE'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext20findDefInDeclContextEPKNS_11DeclContextEN4llvm9StringRefE'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext24getCrossTUDefinitionImplEPKT_N4llvm9StringRefES6_b'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext20getCrossTUDefinitionEPKNS_12FunctionDeclEN4llvm9StringRefES6_b'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext20getCrossTUDefinitionEPKNS_7VarDeclEN4llvm9StringRefES6_b'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext22emitCrossTUDiagnosticsERKNS0_10IndexErrorE'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext15loadExternalASTEN4llvm9StringRefES3_S3_b'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext20importDefinitionImplEPKT_'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext16importDefinitionEPKNS_12FunctionDeclE'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext16importDefinitionEPKNS_7VarDeclE'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext19lazyInitLookupTableEPNS_19TranslationUnitDeclE'/>
+<fun r='_ZN5clang8cross_tu27CrossTranslationUnitContext22getOrCreateASTImporterERNS_10ASTContextE'/>

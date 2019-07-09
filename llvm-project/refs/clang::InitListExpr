@@ -1,0 +1,101 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<def f='llvm/clang/include/clang/AST/Expr.h' l='4315' ll='4527'/>
+<size>64</size>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='4270'>/// Describes an C or C++ initializer list.
+///
+/// InitListExpr describes an initializer list, which can be used to
+/// initialize objects of different types, including
+/// struct/class/union types, arrays, and vectors. For example:
+///
+/// @code
+/// struct foo x = { 1, { 2, 3 } };
+/// @endcode
+///
+/// Prior to semantic analysis, an initializer list will represent the
+/// initializer list as written by the user, but will have the
+/// placeholder type &quot;void&quot;. This initializer list is called the
+/// syntactic form of the initializer, and may contain C99 designated
+/// initializers (represented as DesignatedInitExprs), initializations
+/// of subobject members without explicit braces, and so on. Clients
+/// interested in the original syntax of the initializer list should
+/// use the syntactic form of the initializer list.
+///
+/// After semantic analysis, the initializer list will represent the
+/// semantic form of the initializer, where the initializations of all
+/// subobjects are made explicit with nested InitListExpr nodes and
+/// C99 designators have been eliminated by placing the designated
+/// initializations into the subobject they initialize. Additionally,
+/// any &quot;holes&quot; in the initialization, where no initializer has been
+/// specified for a particular subobject, will be replaced with
+/// implicitly-generated ImplicitValueInitExpr expressions that
+/// value-initialize the subobjects. Note, however, that the
+/// initializer lists may still have fewer initializers than there are
+/// elements to initialize within the object.
+///
+/// After semantic analysis has completed, given an initializer list,
+/// method isSemanticForm() returns true if and only if this is the
+/// semantic form of the initializer list (note: the same AST node
+/// may at the same time be the syntactic form).
+/// Given the semantic form of the initializer list, one can retrieve
+/// the syntactic form of that initializer list (when different)
+/// using method getSyntacticForm(); the method returns null if applied
+/// to a initializer list which is already in syntactic form.
+/// Similarly, given the syntactic form (i.e., an initializer list such
+/// that isSemanticForm() returns false), one can retrieve the semantic
+/// form using method getSemanticForm().
+/// Since many initializer lists have the same syntactic and semantic forms,
+/// getSyntacticForm() may return NULL, indicating that the current
+/// semantic initializer list also serves as its syntactic form.</doc>
+<mbr r='clang::InitListExpr::InitExprs' o='128' t='InitExprsTy'/>
+<mbr r='clang::InitListExpr::LBraceLoc' o='320' t='clang::SourceLocation'/>
+<mbr r='clang::InitListExpr::RBraceLoc' o='352' t='clang::SourceLocation'/>
+<mbr r='clang::InitListExpr::AltForm' o='384' t='llvm::PointerIntPair&lt;InitListExpr *, 1, bool&gt;'/>
+<mbr r='clang::InitListExpr::ArrayFillerOrUnionFieldInit' o='448' t='llvm::PointerUnion&lt;Expr *, FieldDecl *&gt;'/>
+<fun r='_ZN5clang12InitListExprC1ERKNS_10ASTContextENS_14SourceLocationEN4llvm8ArrayRefIPNS_4ExprEEES4_'/>
+<fun r='_ZN5clang12InitListExprC1ENS_4Stmt10EmptyShellE'/>
+<fun r='_ZNK5clang12InitListExpr11getNumInitsEv'/>
+<fun r='_ZN5clang12InitListExpr8getInitsEv'/>
+<fun r='_ZNK5clang12InitListExpr8getInitsEv'/>
+<fun r='_ZN5clang12InitListExpr5initsEv'/>
+<fun r='_ZNK5clang12InitListExpr5initsEv'/>
+<fun r='_ZNK5clang12InitListExpr7getInitEj'/>
+<fun r='_ZN5clang12InitListExpr7getInitEj'/>
+<fun r='_ZN5clang12InitListExpr7setInitEjPNS_4ExprE'/>
+<fun r='_ZN5clang12InitListExpr12reserveInitsERKNS_10ASTContextEj'/>
+<fun r='_ZN5clang12InitListExpr11resizeInitsERKNS_10ASTContextEj'/>
+<fun r='_ZN5clang12InitListExpr10updateInitERKNS_10ASTContextEjPNS_4ExprE'/>
+<fun r='_ZN5clang12InitListExpr14getArrayFillerEv'/>
+<fun r='_ZNK5clang12InitListExpr14getArrayFillerEv'/>
+<fun r='_ZN5clang12InitListExpr14setArrayFillerEPNS_4ExprE'/>
+<fun r='_ZNK5clang12InitListExpr14hasArrayFillerEv'/>
+<fun r='_ZN5clang12InitListExpr26getInitializedFieldInUnionEv'/>
+<fun r='_ZNK5clang12InitListExpr26getInitializedFieldInUnionEv'/>
+<fun r='_ZN5clang12InitListExpr26setInitializedFieldInUnionEPNS_9FieldDeclE'/>
+<fun r='_ZNK5clang12InitListExpr10isExplicitEv'/>
+<fun r='_ZNK5clang12InitListExpr19isStringLiteralInitEv'/>
+<fun r='_ZNK5clang12InitListExpr13isTransparentEv'/>
+<fun r='_ZNK5clang12InitListExpr26isIdiomaticZeroInitializerERKNS_11LangOptionsE'/>
+<fun r='_ZNK5clang12InitListExpr12getLBraceLocEv'/>
+<fun r='_ZN5clang12InitListExpr12setLBraceLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang12InitListExpr12getRBraceLocEv'/>
+<fun r='_ZN5clang12InitListExpr12setRBraceLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang12InitListExpr14isSemanticFormEv'/>
+<fun r='_ZNK5clang12InitListExpr15getSemanticFormEv'/>
+<fun r='_ZNK5clang12InitListExpr15isSyntacticFormEv'/>
+<fun r='_ZNK5clang12InitListExpr16getSyntacticFormEv'/>
+<fun r='_ZN5clang12InitListExpr16setSyntacticFormEPS0_'/>
+<fun r='_ZNK5clang12InitListExpr23hadArrayRangeDesignatorEv'/>
+<fun r='_ZN5clang12InitListExpr23sawArrayRangeDesignatorEb'/>
+<fun r='_ZNK5clang12InitListExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang12InitListExpr9getEndLocEv'/>
+<fun r='_ZN5clang12InitListExpr7classofEPKNS_4StmtE'/>
+<fun r='_ZN5clang12InitListExpr8childrenEv'/>
+<fun r='_ZNK5clang12InitListExpr8childrenEv'/>
+<fun r='_ZN5clang12InitListExpr5beginEv'/>
+<fun r='_ZNK5clang12InitListExpr5beginEv'/>
+<fun r='_ZN5clang12InitListExpr3endEv'/>
+<fun r='_ZNK5clang12InitListExpr3endEv'/>
+<fun r='_ZN5clang12InitListExpr6rbeginEv'/>
+<fun r='_ZNK5clang12InitListExpr6rbeginEv'/>
+<fun r='_ZN5clang12InitListExpr4rendEv'/>
+<fun r='_ZNK5clang12InitListExpr4rendEv'/>

@@ -1,0 +1,11 @@
+<dec f='llvm/lld/ELF/SyntheticSections.h' l='589' type='void lld::elf::SymbolTableBaseSection::sortSymTabSymbols()'/>
+<use f='llvm/lld/ELF/SyntheticSections.cpp' l='2003' u='c' c='_ZN3lld3elf22SymbolTableBaseSection16finalizeContentsEv'/>
+<use f='llvm/lld/ELF/SyntheticSections.cpp' l='2017' u='c' c='_ZN3lld3elf22SymbolTableBaseSection16finalizeContentsEv'/>
+<def f='llvm/lld/ELF/SyntheticSections.cpp' l='2043' ll='2065' type='void lld::elf::SymbolTableBaseSection::sortSymTabSymbols()'/>
+<doc f='llvm/lld/ELF/SyntheticSections.cpp' l='2036'>// The ELF spec requires that all local symbols precede global symbols, so we
+// sort symbol entries in this function. (For .dynsym, we don&apos;t do that because
+// symbols for dynamic linking are inherently all globals.)
+//
+// Aside from above, we put local symbols in groups starting with the STT_FILE
+// symbol. That is convenient for purpose of identifying where are local symbols
+// coming from.</doc>

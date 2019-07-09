@@ -1,0 +1,27 @@
+<def f='llvm/llvm/include/llvm/CodeGen/MachineRegisterInfo.h' l='909' ll='911' type='void llvm::MachineRegisterInfo::addLiveIn(unsigned int Reg, unsigned int vreg = 0)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineRegisterInfo.h' l='903'>//===--------------------------------------------------------------------===//
+  // LiveIn Management
+  //===--------------------------------------------------------------------===//
+
+  /// addLiveIn - Add the specified register as a live-in.  Note that it
+  /// is an error to add the same register to the same set more than once.</doc>
+<use f='llvm/llvm/lib/CodeGen/MIRParser/MIRParser.cpp' l='507' u='c' c='_ZN4llvm13MIRParserImpl17parseRegisterInfoERNS_25PerFunctionMIParsingStateERKNS_4yaml15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineFunction.cpp' l='594' u='c' c='_ZN4llvm15MachineFunction9addLiveInEjPKNS_19TargetRegisterClassE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUCallLowering.cpp' l='239' u='c' c='_ZNK4llvm18AMDGPUCallLowering20lowerFormalArgumentsERNS_16MachineIRBuilderERKNS_8FunctionENS_8ArrayRefIjEE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUCallLowering.cpp' l='352' u='c' c='_ZNK4llvm18AMDGPUCallLowering20lowerFormalArgumentsERNS_16MachineIRBuilderERKNS_8FunctionENS_8ArrayRefIjEE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUISelLowering.cpp' l='4189' u='c' c='_ZNK4llvm20AMDGPUTargetLowering20CreateLiveInRegisterERNS_12SelectionDAGEPKNS_19TargetRegisterClassEjNS_3EVTERKNS_5SDLocEb'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIFrameLowering.cpp' l='63' u='c' c='_ZNK4llvm15SIFrameLowering19emitFlatScratchInitERKNS_12GCNSubtargetERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIFrameLowering.cpp' l='296' u='c' c='_ZNK4llvm15SIFrameLowering25emitEntryFunctionPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIFrameLowering.cpp' l='488' u='c' c='_ZNK4llvm15SIFrameLowering29emitEntryFunctionScratchSetupERKNS_12GCNSubtargetERNS_15MachineFunctionERNS_17MachineBasicBlockEPNS_21SIMachineFunctionInf6856427'/>
+<use f='llvm/llvm/lib/Target/BPF/BPFISelLowering.cpp' l='242' u='c' c='_ZNK4llvm17BPFTargetLowering20LowerFormalArgumentsENS_7SDValueEjbRKNS_15SmallVectorImplINS_3ISD8InputArgEEERKNS_5SDLocERNS_12SelectionDAGERNS2_IS1_EE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonISelLowering.cpp' l='760' u='c' c='_ZNK4llvm21HexagonTargetLowering20LowerFormalArgumentsENS_7SDValueEjbRKNS_15SmallVectorImplINS_3ISD8InputArgEEERKNS_5SDLocERNS_12SelectionDAGERNS2_IS1_EE'/>
+<use f='llvm/llvm/lib/Target/Lanai/LanaiISelLowering.cpp' l='463' u='c' c='_ZNK4llvm19LanaiTargetLowering17LowerCCCArgumentsENS_7SDValueEjbRKNS_15SmallVectorImplINS_3ISD8InputArgEEERKNS_5SDLocERNS_12SelectionDAGERNS2_IS1_EE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsISelLowering.cpp' l='1482' u='c' c='_ZL9addLiveInRN4llvm15MachineFunctionEjPKNS_19TargetRegisterClassE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsMachineFunction.cpp' l='199' u='c' c='_ZN4llvm16MipsFunctionInfo17initGlobalBaseRegEv'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsMachineFunction.cpp' l='286' u='c' c='_ZN4llvm16MipsFunctionInfo20initCapGlobalBaseRegEv'/>
+<use f='llvm/llvm/lib/Target/Sparc/SparcISelLowering.cpp' l='421' u='c' c='_ZNK4llvm19SparcTargetLowering23LowerFormalArguments_32ENS_7SDValueEjbRKNS_15SmallVectorImplINS_3ISD8InputArgEEERKNS_5SDLocERNS_12SelectionDAGERNS2_IS1_EE'/>
+<use f='llvm/llvm/lib/Target/Sparc/SparcISelLowering.cpp' l='449' u='c' c='_ZNK4llvm19SparcTargetLowering23LowerFormalArguments_32ENS_7SDValueEjbRKNS_15SmallVectorImplINS_3ISD8InputArgEEERKNS_5SDLocERNS_12SelectionDAGERNS2_IS1_EE'/>
+<use f='llvm/llvm/lib/Target/Sparc/SparcISelLowering.cpp' l='556' u='c' c='_ZNK4llvm19SparcTargetLowering23LowerFormalArguments_32ENS_7SDValueEjbRKNS_15SmallVectorImplINS_3ISD8InputArgEEERKNS_5SDLocERNS_12SelectionDAGERNS2_IS1_EE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='1321' u='c' c='_ZNK4llvm21SystemZTargetLowering20LowerFormalArgumentsENS_7SDValueEjbRKNS_15SmallVectorImplINS_3ISD8InputArgEEERKNS_5SDLocERNS_12SelectionDAGERNS2_IS1_EE'/>
+<use f='llvm/llvm/lib/Target/XCore/XCoreISelLowering.cpp' l='1311' u='c' c='_ZNK4llvm19XCoreTargetLowering17LowerCCCArgumentsENS_7SDValueEjbRKNS_15SmallVectorImplINS_3ISD8InputArgEEERKNS_5SDLocERNS_12SelectionDAGERNS2_IS1_EE'/>
+<use f='llvm/llvm/lib/Target/XCore/XCoreISelLowering.cpp' l='1362' u='c' c='_ZNK4llvm19XCoreTargetLowering17LowerCCCArgumentsENS_7SDValueEjbRKNS_15SmallVectorImplINS_3ISD8InputArgEEERKNS_5SDLocERNS_12SelectionDAGERNS2_IS1_EE'/>

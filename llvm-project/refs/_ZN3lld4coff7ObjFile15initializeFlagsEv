@@ -1,0 +1,8 @@
+<dec f='llvm/lld/COFF/InputFiles.h' l='188' type='void lld::coff::ObjFile::initializeFlags()'/>
+<use f='llvm/lld/COFF/InputFiles.cpp' l='133' u='c' c='_ZN3lld4coff7ObjFile5parseEv'/>
+<def f='llvm/lld/COFF/InputFiles.cpp' l='627' ll='667' type='void lld::coff::ObjFile::initializeFlags()'/>
+<doc f='llvm/lld/COFF/InputFiles.cpp' l='622'>// OBJ files systematically store critical informations in a .debug$S stream,
+// even if the TU was compiled with no debug info. At least two records are
+// always there. S_OBJNAME stores a 32-bit signature, which is loaded into the
+// PCHSignature member. S_COMPILE3 stores compile-time cmd-line flags. This is
+// currently used to initialize the HotPatchable member.</doc>

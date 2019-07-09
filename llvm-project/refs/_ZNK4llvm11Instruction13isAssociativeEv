@@ -1,0 +1,21 @@
+<dec f='llvm/llvm/include/llvm/IR/Instruction.h' l='475' type='bool llvm::Instruction::isAssociative() const'/>
+<doc f='llvm/llvm/include/llvm/IR/Instruction.h' l='465'>//===--------------------------------------------------------------------===//
+  // Predicates and helper methods.
+  //===--------------------------------------------------------------------===//
+
+  /// Return true if the instruction is associative:
+  ///
+  ///   Associative operators satisfy:  x op (y op z) === (x op y) op z
+  ///
+  /// In LLVM, the Add, Mul, And, Or, and Xor operators are associative.
+  ///</doc>
+<def f='llvm/llvm/lib/IR/Instruction.cpp' l='633' ll='646' type='bool llvm::Instruction::isAssociative() const'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='318' u='c' c='_ZN4llvm12InstCombiner32SimplifyAssociativeOrCommutativeERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='369' u='c' c='_ZN4llvm12InstCombiner32SimplifyAssociativeOrCommutativeERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopRerollPass.cpp' l='1346' u='c' c='_ZN12_GLOBAL__N_110LoopReroll14DAGRootTracker8validateERNS0_16ReductionTrackerE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopRerollPass.cpp' l='1516' u='c' c='_ZN12_GLOBAL__N_110LoopReroll16ReductionTracker16validateSelectedEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/Reassociate.cpp' l='452' u='c' c='_ZL17LinearizeExprTreePN4llvm14BinaryOperatorERNS_15SmallVectorImplISt4pairIPNS_5ValueENS_5APIntEEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/Reassociate.cpp' l='2115' u='c' c='_ZN4llvm15ReassociatePass12OptimizeInstEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/Reassociate.cpp' l='2276' u='c' c='_ZN4llvm15ReassociatePass12BuildPairMapERNS_25ReversePostOrderTraversalIPNS_8FunctionENS_11GraphTraitsIS3_EEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/TailRecursionElimination.cpp' l='423' u='c' c='_ZL32canTransformAccumulatorRecursionPN4llvm11InstructionEPNS_8CallInstE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp' l='5711' u='c' c='_ZNK12_GLOBAL__N_119HorizontalReduction13OperationData13isAssociativeEPN4llvm11InstructionE'/>

@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/include/llvm/Analysis/BasicAliasAnalysis.h' l='198' type='llvm::AliasResult llvm::BasicAAResult::aliasGEP(const llvm::GEPOperator * V1, llvm::LocationSize V1Size, const llvm::AAMDNodes &amp; V1AAInfo, const llvm::Value * V2, llvm::LocationSize V2Size, const llvm::AAMDNodes &amp; V2AAInfo, const llvm::Value * UnderlyingV1, const llvm::Value * UnderlyingV2, llvm::AAQueryInfo &amp; AAQI)'/>
+<def f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='1290' ll='1511' type='llvm::AliasResult llvm::BasicAAResult::aliasGEP(const llvm::GEPOperator * GEP1, llvm::LocationSize V1Size, const llvm::AAMDNodes &amp; V1AAInfo, const llvm::Value * V2, llvm::LocationSize V2Size, const llvm::AAMDNodes &amp; V2AAInfo, const llvm::Value * UnderlyingV1, const llvm::Value * UnderlyingV2, llvm::AAQueryInfo &amp; AAQI)'/>
+<use f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='1822' u='c' c='_ZN4llvm13BasicAAResult10aliasCheckEPKNS_5ValueENS_12LocationSizeENS_9AAMDNodesES3_S4_S5_RNS_11AAQueryInfoES3_S3_'/>
+<doc f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='1284'>/// Provides a bunch of ad-hoc rules to disambiguate a GEP instruction against
+/// another pointer.
+///
+/// We know that V1 is a GEP, but we don&apos;t know anything about V2.
+/// UnderlyingV1 is GetUnderlyingObject(GEP1, DL), UnderlyingV2 is the same for
+/// V2.</doc>

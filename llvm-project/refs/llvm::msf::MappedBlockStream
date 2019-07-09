@@ -1,0 +1,36 @@
+<inh f='llvm/llvm/include/llvm/Support/BinaryStream.h' l='35' c='llvm::BinaryStream'/>
+<def f='llvm/llvm/include/llvm/DebugInfo/MSF/MappedBlockStream.h' l='39' ll='105'/>
+<size>128</size>
+<doc f='llvm/llvm/include/llvm/DebugInfo/MSF/MappedBlockStream.h' l='29'>/// MappedBlockStream represents data stored in an MSF file into chunks of a
+/// particular size (called the Block Size), and whose chunks may not be
+/// necessarily contiguous.  The arrangement of these chunks MSF the file
+/// is described by some other metadata contained within the MSF file.  In
+/// the case of a standard MSF Stream, the layout of the stream&apos;s blocks
+/// is described by the MSF &quot;directory&quot;, but in the case of the directory
+/// itself, the layout is described by an array at a fixed location within
+/// the MSF.  MappedBlockStream provides methods for reading from and writing
+/// to one of these streams transparently, as if it were a contiguous sequence
+/// of bytes.</doc>
+<fun r='_ZN4llvm3msf17MappedBlockStream12createStreamEjRKNS0_15MSFStreamLayoutENS_15BinaryStreamRefERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEE'/>
+<fun r='_ZN4llvm3msf17MappedBlockStream19createIndexedStreamERKNS0_9MSFLayoutENS_15BinaryStreamRefEjRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEE'/>
+<fun r='_ZN4llvm3msf17MappedBlockStream15createFpmStreamERKNS0_9MSFLayoutENS_15BinaryStreamRefERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEE'/>
+<fun r='_ZN4llvm3msf17MappedBlockStream21createDirectoryStreamERKNS0_9MSFLayoutENS_15BinaryStreamRefERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEE'/>
+<fun r='_ZNK4llvm3msf17MappedBlockStream9getEndianEv'/>
+<fun r='_ZN4llvm3msf17MappedBlockStream9readBytesEjjRNS_8ArrayRefIhEE'/>
+<fun r='_ZN4llvm3msf17MappedBlockStream26readLongestContiguousChunkEjRNS_8ArrayRefIhEE'/>
+<fun r='_ZN4llvm3msf17MappedBlockStream9getLengthEv'/>
+<fun r='_ZN4llvm3msf17MappedBlockStream12getAllocatorEv'/>
+<fun r='_ZN4llvm3msf17MappedBlockStream15invalidateCacheEv'/>
+<fun r='_ZNK4llvm3msf17MappedBlockStream12getBlockSizeEv'/>
+<fun r='_ZNK4llvm3msf17MappedBlockStream12getNumBlocksEv'/>
+<fun r='_ZNK4llvm3msf17MappedBlockStream15getStreamLengthEv'/>
+<fun r='_ZN4llvm3msf17MappedBlockStreamC1EjRKNS0_15MSFStreamLayoutENS_15BinaryStreamRefERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEE'/>
+<fun r='_ZNK4llvm3msf17MappedBlockStream15getStreamLayoutEv'/>
+<fun r='_ZNK4llvm3msf17MappedBlockStream18fixCacheAfterWriteEjNS_8ArrayRefIhEE'/>
+<fun r='_ZN4llvm3msf17MappedBlockStream9readBytesEjNS_15MutableArrayRefIhEE'/>
+<fun r='_ZN4llvm3msf17MappedBlockStream19tryReadContiguouslyEjjRNS_8ArrayRefIhEE'/>
+<mbr r='llvm::msf::MappedBlockStream::BlockSize' o='64' t='const uint32_t'/>
+<mbr r='llvm::msf::MappedBlockStream::StreamLayout' o='128' t='const llvm::msf::MSFStreamLayout'/>
+<mbr r='llvm::msf::MappedBlockStream::MsfData' o='384' t='llvm::BinaryStreamRef'/>
+<mbr r='llvm::msf::MappedBlockStream::Allocator' o='704' t='BumpPtrAllocator &amp;'/>
+<mbr r='llvm::msf::MappedBlockStream::CacheMap' o='768' t='DenseMap&lt;uint32_t, std::vector&lt;CacheEntry&gt; &gt;'/>

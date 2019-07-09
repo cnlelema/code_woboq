@@ -1,0 +1,122 @@
+<inh f='llvm/clang/include/clang/AST/AttrVisitor.h' l='69' c='clang::ConstAttrVisitor'/>
+<inh f='llvm/clang/include/clang/AST/CommentVisitor.h' l='62' c='clang::comments::ConstCommentVisitor'/>
+<inh f='llvm/clang/include/clang/AST/TemplateArgumentVisitor.h' l='92' c='clang::ConstTemplateArgumentVisitor'/>
+<inh f='llvm/clang/include/clang/AST/StmtVisitor.h' l='192' c='clang::ConstStmtVisitor'/>
+<inh f='llvm/clang/include/clang/AST/TypeVisitor.h' l='64' c='clang::TypeVisitor'/>
+<inh f='llvm/clang/include/clang/AST/DeclVisitor.h' l='73' c='clang::ConstDeclVisitor'/>
+<inh f='llvm/clang/include/clang/AST/JSONNodeDumper.h' l='29' c='clang::NodeStreamer'/>
+<def f='llvm/clang/include/clang/AST/JSONNodeDumper.h' l='112' ll='289'/>
+<size>1272</size>
+<doc f='llvm/clang/include/clang/AST/JSONNodeDumper.h' l='107'>// Dumps AST nodes in JSON format. There is no implied stability for the
+// content or format of the dump between major releases of Clang, other than it
+// being valid JSON output. Further, there is no requirement that the
+// information dumped is a complete representation of the AST, only that the
+// information presented is correct.</doc>
+<mbr r='clang::JSONNodeDumper::SM' o='9664' t='const clang::SourceManager &amp;'/>
+<mbr r='clang::JSONNodeDumper::Ctx' o='9728' t='clang::ASTContext &amp;'/>
+<mbr r='clang::JSONNodeDumper::PrintPolicy' o='9792' t='clang::PrintingPolicy'/>
+<mbr r='clang::JSONNodeDumper::Traits' o='10112' t='const comments::CommandTraits *'/>
+<fun r='_ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb'/>
+<fun r='_ZN5clang14JSONNodeDumper24createBareSourceLocationENS_14SourceLocationE'/>
+<fun r='_ZN5clang14JSONNodeDumper20createSourceLocationENS_14SourceLocationE'/>
+<fun r='_ZN5clang14JSONNodeDumper17createSourceRangeENS_11SourceRangeE'/>
+<fun r='_ZN5clang14JSONNodeDumper27createPointerRepresentationEPKv'/>
+<fun r='_ZN5clang14JSONNodeDumper14createQualTypeENS_8QualTypeEb'/>
+<fun r='_ZN5clang14JSONNodeDumper17createBareDeclRefEPKNS_4DeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper29createCXXRecordDefinitionDataEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper22createCXXBaseSpecifierERKNS_16CXXBaseSpecifierE'/>
+<fun r='_ZN5clang14JSONNodeDumper21createAccessSpecifierENS_15AccessSpecifierE'/>
+<fun r='_ZN5clang14JSONNodeDumper14createCastPathEPKNS_8CastExprE'/>
+<fun r='_ZN5clang14JSONNodeDumper21writePreviousDeclImplEz'/>
+<fun r='_ZN5clang14JSONNodeDumper21writePreviousDeclImplEPKNS_9MergeableIT_EE'/>
+<fun r='_ZN5clang14JSONNodeDumper21writePreviousDeclImplEPKNS_12RedeclarableIT_EE'/>
+<fun r='_ZN5clang14JSONNodeDumper22addPreviousDeclarationEPKNS_4DeclE'/>
+<fun r='_ZNK5clang14JSONNodeDumper21getCommentCommandNameEj'/>
+<fun r='_ZN5clang14JSONNodeDumperC1ERN4llvm11raw_ostreamERKNS_13SourceManagerERNS_10ASTContextERKNS_14PrintingPolicyEPKNS_8comments13CommandTraitsE'/>
+<fun r='_ZN5clang14JSONNodeDumper5VisitEPKNS_4AttrE'/>
+<fun r='_ZN5clang14JSONNodeDumper5VisitEPKNS_4StmtE'/>
+<fun r='_ZN5clang14JSONNodeDumper5VisitEPKNS_4TypeE'/>
+<fun r='_ZN5clang14JSONNodeDumper5VisitENS_8QualTypeE'/>
+<fun r='_ZN5clang14JSONNodeDumper5VisitEPKNS_4DeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper5VisitEPKNS_8comments7CommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14JSONNodeDumper5VisitERKNS_16TemplateArgumentENS_11SourceRangeEPKNS_4DeclEN4llvm9StringRefE'/>
+<fun r='_ZN5clang14JSONNodeDumper5VisitEPKNS_18CXXCtorInitializerE'/>
+<fun r='_ZN5clang14JSONNodeDumper5VisitEPKNS_9OMPClauseE'/>
+<fun r='_ZN5clang14JSONNodeDumper5VisitERKNS_9BlockDecl7CaptureE'/>
+<fun r='_ZN5clang14JSONNodeDumper5VisitERKNS_20GenericSelectionExpr13AssociationTyILb1EEE'/>
+<fun r='_ZN5clang14JSONNodeDumper16VisitTypedefTypeEPKNS_11TypedefTypeE'/>
+<fun r='_ZN5clang14JSONNodeDumper17VisitFunctionTypeEPKNS_12FunctionTypeE'/>
+<fun r='_ZN5clang14JSONNodeDumper22VisitFunctionProtoTypeEPKNS_17FunctionProtoTypeE'/>
+<fun r='_ZN5clang14JSONNodeDumper14VisitNamedDeclEPKNS_9NamedDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper16VisitTypedefDeclEPKNS_11TypedefDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper18VisitTypeAliasDeclEPKNS_13TypeAliasDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper18VisitNamespaceDeclEPKNS_13NamespaceDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper23VisitUsingDirectiveDeclEPKNS_18UsingDirectiveDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper23VisitNamespaceAliasDeclEPKNS_18NamespaceAliasDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper14VisitUsingDeclEPKNS_9UsingDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper20VisitUsingShadowDeclEPKNS_15UsingShadowDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper12VisitVarDeclEPKNS_7VarDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper14VisitFieldDeclEPKNS_9FieldDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper17VisitFunctionDeclEPKNS_12FunctionDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper13VisitEnumDeclEPKNS_8EnumDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper21VisitEnumConstantDeclEPKNS_16EnumConstantDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper15VisitRecordDeclEPKNS_10RecordDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper25VisitTemplateTypeParmDeclEPKNS_20TemplateTypeParmDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper28VisitNonTypeTemplateParmDeclEPKNS_23NonTypeTemplateParmDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper29VisitTemplateTemplateParmDeclEPKNS_24TemplateTemplateParmDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper20VisitLinkageSpecDeclEPKNS_15LinkageSpecDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper19VisitAccessSpecDeclEPKNS_14AccessSpecDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper15VisitFriendDeclEPKNS_10FriendDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper17VisitObjCIvarDeclEPKNS_12ObjCIvarDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper19VisitObjCMethodDeclEPKNS_14ObjCMethodDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper22VisitObjCTypeParamDeclEPKNS_17ObjCTypeParamDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper21VisitObjCCategoryDeclEPKNS_16ObjCCategoryDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper25VisitObjCCategoryImplDeclEPKNS_20ObjCCategoryImplDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper21VisitObjCProtocolDeclEPKNS_16ObjCProtocolDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper22VisitObjCInterfaceDeclEPKNS_17ObjCInterfaceDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper27VisitObjCImplementationDeclEPKNS_22ObjCImplementationDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper28VisitObjCCompatibleAliasDeclEPKNS_23ObjCCompatibleAliasDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper21VisitObjCPropertyDeclEPKNS_16ObjCPropertyDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper25VisitObjCPropertyImplDeclEPKNS_20ObjCPropertyImplDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper14VisitBlockDeclEPKNS_9BlockDeclE'/>
+<fun r='_ZN5clang14JSONNodeDumper16VisitDeclRefExprEPKNS_11DeclRefExprE'/>
+<fun r='_ZN5clang14JSONNodeDumper19VisitPredefinedExprEPKNS_14PredefinedExprE'/>
+<fun r='_ZN5clang14JSONNodeDumper18VisitUnaryOperatorEPKNS_13UnaryOperatorE'/>
+<fun r='_ZN5clang14JSONNodeDumper19VisitBinaryOperatorEPKNS_14BinaryOperatorE'/>
+<fun r='_ZN5clang14JSONNodeDumper27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE'/>
+<fun r='_ZN5clang14JSONNodeDumper15VisitMemberExprEPKNS_10MemberExprE'/>
+<fun r='_ZN5clang14JSONNodeDumper15VisitCXXNewExprEPKNS_10CXXNewExprE'/>
+<fun r='_ZN5clang14JSONNodeDumper18VisitCXXDeleteExprEPKNS_13CXXDeleteExprE'/>
+<fun r='_ZN5clang14JSONNodeDumper16VisitCXXThisExprEPKNS_11CXXThisExprE'/>
+<fun r='_ZN5clang14JSONNodeDumper13VisitCastExprEPKNS_8CastExprE'/>
+<fun r='_ZN5clang14JSONNodeDumper21VisitImplicitCastExprEPKNS_16ImplicitCastExprE'/>
+<fun r='_ZN5clang14JSONNodeDumper13VisitCallExprEPKNS_8CallExprE'/>
+<fun r='_ZN5clang14JSONNodeDumper29VisitUnaryExprOrTypeTraitExprEPKNS_24UnaryExprOrTypeTraitExprE'/>
+<fun r='_ZN5clang14JSONNodeDumper19VisitSizeOfPackExprEPKNS_14SizeOfPackExprE'/>
+<fun r='_ZN5clang14JSONNodeDumper25VisitUnresolvedLookupExprEPKNS_20UnresolvedLookupExprE'/>
+<fun r='_ZN5clang14JSONNodeDumper18VisitAddrLabelExprEPKNS_13AddrLabelExprE'/>
+<fun r='_ZN5clang14JSONNodeDumper18VisitCXXTypeidExprEPKNS_13CXXTypeidExprE'/>
+<fun r='_ZN5clang14JSONNodeDumper19VisitIntegerLiteralEPKNS_14IntegerLiteralE'/>
+<fun r='_ZN5clang14JSONNodeDumper21VisitCharacterLiteralEPKNS_16CharacterLiteralE'/>
+<fun r='_ZN5clang14JSONNodeDumper22VisitFixedPointLiteralEPKNS_17FixedPointLiteralE'/>
+<fun r='_ZN5clang14JSONNodeDumper20VisitFloatingLiteralEPKNS_15FloatingLiteralE'/>
+<fun r='_ZN5clang14JSONNodeDumper18VisitStringLiteralEPKNS_13StringLiteralE'/>
+<fun r='_ZN5clang14JSONNodeDumper23VisitCXXBoolLiteralExprEPKNS_18CXXBoolLiteralExprE'/>
+<fun r='_ZN5clang14JSONNodeDumper11VisitIfStmtEPKNS_6IfStmtE'/>
+<fun r='_ZN5clang14JSONNodeDumper15VisitSwitchStmtEPKNS_10SwitchStmtE'/>
+<fun r='_ZN5clang14JSONNodeDumper13VisitCaseStmtEPKNS_8CaseStmtE'/>
+<fun r='_ZN5clang14JSONNodeDumper14VisitLabelStmtEPKNS_9LabelStmtE'/>
+<fun r='_ZN5clang14JSONNodeDumper13VisitGotoStmtEPKNS_8GotoStmtE'/>
+<fun r='_ZN5clang14JSONNodeDumper14VisitWhileStmtEPKNS_9WhileStmtE'/>
+<fun r='_ZN5clang14JSONNodeDumper20VisitObjCAtCatchStmtEPKNS_15ObjCAtCatchStmtE'/>
+<fun r='_ZN5clang14JSONNodeDumper16visitTextCommentEPKNS_8comments11TextCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14JSONNodeDumper25visitInlineCommandCommentEPKNS_8comments20InlineCommandCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14JSONNodeDumper24visitHTMLStartTagCommentEPKNS_8comments19HTMLStartTagCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14JSONNodeDumper22visitHTMLEndTagCommentEPKNS_8comments17HTMLEndTagCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14JSONNodeDumper24visitBlockCommandCommentEPKNS_8comments19BlockCommandCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14JSONNodeDumper24visitParamCommandCommentEPKNS_8comments19ParamCommandCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14JSONNodeDumper25visitTParamCommandCommentEPKNS_8comments20TParamCommandCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14JSONNodeDumper25visitVerbatimBlockCommentEPKNS_8comments20VerbatimBlockCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14JSONNodeDumper29visitVerbatimBlockLineCommentEPKNS_8comments24VerbatimBlockLineCommentEPKNS1_11FullCommentE'/>
+<fun r='_ZN5clang14JSONNodeDumper24visitVerbatimLineCommentEPKNS_8comments19VerbatimLineCommentEPKNS1_11FullCommentE'/>

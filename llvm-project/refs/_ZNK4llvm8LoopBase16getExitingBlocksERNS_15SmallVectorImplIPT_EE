@@ -1,0 +1,38 @@
+<dec f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='252' type='void llvm::LoopBase::getExitingBlocks(SmallVectorImpl&lt;BlockT *&gt; &amp; ExitingBlocks) const'/>
+<doc f='llvm/llvm/include/llvm/Analysis/LoopInfo.h' l='241'>//===--------------------------------------------------------------------===//
+  // APIs for simple analysis of the loop.
+  //
+  // Note that all of these methods can fail on general loops (ie, there may not
+  // be a preheader, etc).  For best success, the loop simplification and
+  // induction variable canonicalization pass should be used to normalize loops
+  // for easy analysis.  These methods assume canonical loops.
+
+  /// Return all blocks inside the loop that have successors outside of the
+  /// loop. These are the blocks _inside of the current loop_ which branch out.
+  /// The returned list is always unique.</doc>
+<def f='llvm/llvm/include/llvm/Analysis/LoopInfoImpl.h' l='33' ll='44' type='void llvm::LoopBase::getExitingBlocks(SmallVectorImpl&lt;BlockT *&gt; &amp; ExitingBlocks) const'/>
+<use f='llvm/llvm/include/llvm/Analysis/LoopInfoImpl.h' l='52' u='c' c='_ZNK4llvm8LoopBase15getExitingBlockEv'/>
+<doc f='llvm/llvm/include/llvm/Analysis/LoopInfoImpl.h' l='26'>//===----------------------------------------------------------------------===//
+// APIs for simple analysis of the loop. See header notes.
+
+/// getExitingBlocks - Return all blocks inside the loop that have successors
+/// outside of the loop.  These are the blocks _inside of the current loop_
+/// which branch out.  The returned list is always unique.
+///</doc>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='7017' u='c' c='_ZN4llvm15ScalarEvolution25computeBackedgeTakenCountEPKNS_4LoopEb'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='2089' u='c' c='_ZN4llvm12SCEVExpander27getRelatedExistingExpansionEPKNS_4SCEVEPKNS_11InstructionEPNS_4LoopE'/>
+<use f='llvm/llvm/lib/CodeGen/HardwareLoops.cpp' l='234' u='c' c='_ZN12_GLOBAL__N_113HardwareLoops14TryConvertLoopERN4llvm19TargetTransformInfo16HardwareLoopInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineLICM.cpp' l='621' u='c' c='_ZN12_GLOBAL__N_115MachineLICMBase21IsGuaranteedToExecuteEPN4llvm17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/CodeGen/ShrinkWrap.cpp' l='418' u='c' c='_ZN12_GLOBAL__N_110ShrinkWrap23updateSaveRestorePointsERN4llvm17MachineBasicBlockEPNS1_12RegScavengerE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDILCFGStructurizer.cpp' l='722' u='c' c='_ZN12_GLOBAL__N_121AMDGPUCFGStructurizer7prepareEv'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDILCFGStructurizer.cpp' l='1041' u='c' c='_ZN12_GLOBAL__N_121AMDGPUCFGStructurizer9mergeLoopEPN4llvm11MachineLoopE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMTargetTransformInfo.cpp' l='871' u='c' c='_ZN4llvm10ARMTTIImpl23getUnrollingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERNS_19TargetTransformInfo20UnrollingPreferencesE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCTargetTransformInfo.cpp' l='521' u='c' c='_ZN4llvm10PPCTTIImpl24isHardwareLoopProfitableEPNS_4LoopERNS_15ScalarEvolutionERNS_15AssumptionCacheEPNS_17TargetLibraryInfoERNS_19TargetTransformInfo16HardwareLoopInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/InstrProfiling.cpp' l='303' u='c' c='_ZN12_GLOBAL__N_118PGOCounterPromoter32allowSpeculativeCounterPromotionEPN4llvm4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/InstrProfiling.cpp' l='330' u='c' c='_ZN12_GLOBAL__N_118PGOCounterPromoter27getMaxNumOfPromotionsInLoopEPN4llvm4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='798' u='c' c='_ZN12_GLOBAL__N_114IndVarSimplify16canLoopBeDeletedEPN4llvm4LoopERNS1_11SmallVectorINS_10RewritePhiELj8EEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopDeletion.cpp' l='174' u='c' c='_ZL16deleteLoopIfDeadPN4llvm4LoopERNS_13DominatorTreeERNS_15ScalarEvolutionERNS_8LoopInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='2370' u='c' c='_ZN12_GLOBAL__N_111LSRInstance20OptimizeLoopTermCondEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='5075' u='c' c='_ZNK12_GLOBAL__N_111LSRInstance29AdjustInsertPositionForExpandEN4llvm14ilist_iteratorINS1_12ilist_detail12node_optionsINS1_11InstructionELb1ELb0EvEELb11428549'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopSimplify.cpp' l='518' u='c' c='_ZL15simplifyOneLoopPN4llvm4LoopERNS_15SmallVectorImplIS1_EEPNS_13DominatorTreeEPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_15AssumptionCacheEPNS_16MemorySSAUpdaterEb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnrollRuntime.cpp' l='499' u='c' c='_ZL32canProfitablyUnrollMultiExitLoopPN4llvm4LoopERNS_15SmallVectorImplIPNS_10BasicBlockEEES4_bb'/>

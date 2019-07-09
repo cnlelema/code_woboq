@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/ExecutionEngine/ExecutionEngine.h' l='283' type='void llvm::ExecutionEngine::runStaticConstructorsDestructors(bool isDtors)'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/ExecutionEngine.h' l='279'>/// runStaticConstructorsDestructors - This method is used to execute all of
+  /// the static constructors or destructors for a program.
+  ///
+  /// \param isDtors - Run the destructors instead of constructors.</doc>
+<use f='llvm/clang/tools/clang-fuzzer/handle-llvm/handle_llvm.cpp' l='172' u='c' c='_ZL19CreateAndRunJITFuncRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm10CodeGenOpt5LevelE'/>
+<use f='llvm/clang/tools/clang-fuzzer/handle-llvm/handle_llvm.cpp' l='195' u='c' c='_ZL19CreateAndRunJITFuncRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm10CodeGenOpt5LevelE'/>
+<def f='llvm/llvm/lib/ExecutionEngine/ExecutionEngine.cpp' l='409' ll='413' type='void llvm::ExecutionEngine::runStaticConstructorsDestructors(bool isDtors)'/>
+<use f='llvm/llvm/lib/ExecutionEngine/ExecutionEngineBindings.cpp' l='222' u='c' c='LLVMRunStaticConstructors'/>
+<use f='llvm/llvm/lib/ExecutionEngine/ExecutionEngineBindings.cpp' l='227' u='c' c='LLVMRunStaticDestructors'/>
+<ovr f='llvm/llvm/lib/ExecutionEngine/MCJIT/MCJIT.cpp' l='449' c='_ZN4llvm5MCJIT32runStaticConstructorsDestructorsEb'/>
+<ovr f='llvm/llvm/lib/ExecutionEngine/Orc/OrcMCJITReplacement.cpp' l='126' c='_ZN4llvm3orc19OrcMCJITReplacement32runStaticConstructorsDestructorsEb'/>
+<use f='llvm/llvm/tools/lli/lli.cpp' l='606' u='c' c='main'/>
+<use f='llvm/llvm/tools/lli/lli.cpp' l='619' u='c' c='main'/>

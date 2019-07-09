@@ -1,0 +1,98 @@
+<def f='llvm/clang/include/clang/AST/ASTImporter.h' l='83' ll='418'/>
+<size>280</size>
+<doc f='llvm/clang/include/clang/AST/ASTImporter.h' l='81'>/// Imports selected nodes from one AST context into another context,
+  /// merging AST nodes where appropriate.</doc>
+<mbr r='clang::ASTImporter::LookupTable' o='64' t='clang::ASTImporterLookupTable *'/>
+<mbr r='clang::ASTImporter::ToContext' o='128' t='clang::ASTContext &amp;'/>
+<mbr r='clang::ASTImporter::FromContext' o='192' t='clang::ASTContext &amp;'/>
+<mbr r='clang::ASTImporter::ToFileManager' o='256' t='clang::FileManager &amp;'/>
+<mbr r='clang::ASTImporter::FromFileManager' o='320' t='clang::FileManager &amp;'/>
+<mbr r='clang::ASTImporter::Minimal' o='384' t='bool'/>
+<mbr r='clang::ASTImporter::LastDiagFromFrom' o='392' t='bool'/>
+<mbr r='clang::ASTImporter::ImportedTypes' o='448' t='llvm::DenseMap&lt;const Type *, const Type *&gt;'/>
+<mbr r='clang::ASTImporter::ImportedDecls' o='704' t='llvm::DenseMap&lt;Decl *, Decl *&gt;'/>
+<mbr r='clang::ASTImporter::ImportedFromDecls' o='960' t='llvm::DenseMap&lt;Decl *, Decl *&gt;'/>
+<mbr r='clang::ASTImporter::ImportedStmts' o='1216' t='llvm::DenseMap&lt;Stmt *, Stmt *&gt;'/>
+<mbr r='clang::ASTImporter::ImportedFileIDs' o='1472' t='llvm::DenseMap&lt;FileID, FileID&gt;'/>
+<mbr r='clang::ASTImporter::ImportedCXXBaseSpecifiers' o='1728' t='ImportedCXXBaseSpecifierMap'/>
+<mbr r='clang::ASTImporter::NonEquivalentDecls' o='1984' t='NonEquivalentDeclSet'/>
+<fun r='_ZN5clang11ASTImporter16findDeclsInToCtxEPNS_11DeclContextENS_15DeclarationNameE'/>
+<fun r='_ZN5clang11ASTImporter16AddToLookupTableEPNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporter10ImportImplEPNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporterC1ERNS_10ASTContextERNS_11FileManagerES2_S4_bPNS_22ASTImporterLookupTableE'/>
+<fun r='_ZN5clang11ASTImporterD1Ev'/>
+<fun r='_ZNK5clang11ASTImporter15isMinimalImportEv'/>
+<fun r='_ZN5clang11ASTImporter10importIntoERT_RKS1_'/>
+<fun r='_ZN5clang11ASTImporter6ImportENS_8QualTypeE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPNS_14TypeSourceInfoE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPKNS_4AttrE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPKNS_4DeclE'/>
+<fun r='_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporter13ImportContextEPNS_11DeclContextE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPNS_4ExprE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPNS_4StmtE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPNS_19NestedNameSpecifierE'/>
+<fun r='_ZN5clang11ASTImporter6ImportENS_22NestedNameSpecifierLocE'/>
+<fun r='_ZN5clang11ASTImporter6ImportENS_12TemplateNameE'/>
+<fun r='_ZN5clang11ASTImporter6ImportENS_14SourceLocationE'/>
+<fun r='_ZN5clang11ASTImporter6ImportENS_11SourceRangeE'/>
+<fun r='_ZN5clang11ASTImporter6ImportENS_15DeclarationNameE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang11ASTImporter6ImportENS_8SelectorE'/>
+<fun r='_ZN5clang11ASTImporter6ImportENS_6FileIDEb'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPNS_18CXXCtorInitializerE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPKNS_16CXXBaseSpecifierE'/>
+<fun r='_ZN5clang11ASTImporter16ImportDefinitionEPNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporter18HandleNameConflictENS_15DeclarationNameEPNS_11DeclContextEjPPNS_9NamedDeclEj'/>
+<fun r='_ZNK5clang11ASTImporter12getToContextEv'/>
+<fun r='_ZNK5clang11ASTImporter14getFromContextEv'/>
+<fun r='_ZNK5clang11ASTImporter16getToFileManagerEv'/>
+<fun r='_ZNK5clang11ASTImporter18getFromFileManagerEv'/>
+<fun r='_ZN5clang11ASTImporter6ToDiagENS_14SourceLocationEj'/>
+<fun r='_ZN5clang11ASTImporter8FromDiagENS_14SourceLocationEj'/>
+<fun r='_ZN5clang11ASTImporter21getNonEquivalentDeclsEv'/>
+<fun r='_ZN5clang11ASTImporter12CompleteDeclEPNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporter8ImportedEPNS_4DeclES2_'/>
+<fun r='_ZN5clang11ASTImporter20RegisterImportedDeclEPNS_4DeclES2_'/>
+<fun r='_ZN5clang11ASTImporter11MapImportedEPNS_4DeclES2_'/>
+<fun r='_ZN5clang11ASTImporter15GetOriginalDeclEPNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporter24IsStructurallyEquivalentENS_8QualTypeES1_b'/>
+<fun r='_ZN5clang11ASTImporter13getFieldIndexEPNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporterC1ERNS_10ASTContextERNS_11FileManagerES2_S4_bPNS_22ASTImporterLookupTableE'/>
+<fun r='_ZN5clang11ASTImporterD1Ev'/>
+<fun r='_ZN5clang11ASTImporter13getFieldIndexEPNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporter16findDeclsInToCtxEPNS_11DeclContextENS_15DeclarationNameE'/>
+<fun r='_ZN5clang11ASTImporter16AddToLookupTableEPNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporter10ImportImplEPNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporter20RegisterImportedDeclEPNS_4DeclES2_'/>
+<fun r='_ZN5clang11ASTImporter6ImportENS_8QualTypeE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPNS_14TypeSourceInfoE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPKNS_4AttrE'/>
+<fun r='_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporter13ImportContextEPNS_11DeclContextE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPNS_4ExprE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPNS_4StmtE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPNS_19NestedNameSpecifierE'/>
+<fun r='_ZN5clang11ASTImporter6ImportENS_22NestedNameSpecifierLocE'/>
+<fun r='_ZN5clang11ASTImporter6ImportENS_12TemplateNameE'/>
+<fun r='_ZN5clang11ASTImporter6ImportENS_14SourceLocationE'/>
+<fun r='_ZN5clang11ASTImporter6ImportENS_11SourceRangeE'/>
+<fun r='_ZN5clang11ASTImporter6ImportENS_6FileIDEb'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPNS_18CXXCtorInitializerE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPKNS_16CXXBaseSpecifierE'/>
+<fun r='_ZN5clang11ASTImporter16ImportDefinitionEPNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporter6ImportENS_15DeclarationNameE'/>
+<fun r='_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang11ASTImporter6ImportENS_8SelectorE'/>
+<fun r='_ZN5clang11ASTImporter18HandleNameConflictENS_15DeclarationNameEPNS_11DeclContextEjPPNS_9NamedDeclEj'/>
+<fun r='_ZN5clang11ASTImporter6ToDiagENS_14SourceLocationEj'/>
+<fun r='_ZN5clang11ASTImporter8FromDiagENS_14SourceLocationEj'/>
+<fun r='_ZN5clang11ASTImporter12CompleteDeclEPNS_4DeclE'/>
+<fun r='_ZN5clang11ASTImporter11MapImportedEPNS_4DeclES2_'/>
+<fun r='_ZN5clang11ASTImporter24IsStructurallyEquivalentENS_8QualTypeES1_b'/>
+<ovr f='llvm/clang/lib/AST/ExternalASTMerger.cpp' l='99' c='(anonymousnamespace)::LazyASTImporter'/>
+<ovr f='llvm/clang/unittests/AST/ASTImporterTest.cpp' l='294' c='clang::ast_matchers::(anonymousnamespace)::RedirectingImporter'/>

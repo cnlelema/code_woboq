@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/include/llvm/ExecutionEngine/Orc/Core.h' l='598' type='llvm::Error llvm::orc::JITDylib::remove(const SymbolNameSet &amp; Names)'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/Orc/Core.h' l='588'>/// Tries to remove the given symbols.
+  ///
+  /// If any symbols are not defined in this JITDylib this method will return
+  /// a SymbolsNotFound error covering the missing symbols.
+  ///
+  /// If all symbols are found but some symbols are in the process of being
+  /// materialized this method will return a SymbolsCouldNotBeRemoved error.
+  ///
+  /// On success, all symbols are removed. On failure, the JITDylib state is
+  /// left unmodified (no symbols are removed).</doc>
+<def f='llvm/llvm/lib/ExecutionEngine/Orc/Core.cpp' l='1099' ll='1152' type='llvm::Error llvm::orc::JITDylib::remove(const SymbolNameSet &amp; Names)'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='143' u='c' c='_ZN12_GLOBAL__N_143CoreAPIsStandardTest_RemoveSymbolsTest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='152' u='c' c='_ZN12_GLOBAL__N_143CoreAPIsStandardTest_RemoveSymbolsTest_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/CoreAPIsTest.cpp' l='164' u='c' c='_ZN12_GLOBAL__N_143CoreAPIsStandardTest_RemoveSymbolsTest_Test8TestBodyEv'/>

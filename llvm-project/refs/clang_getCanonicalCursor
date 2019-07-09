@@ -1,0 +1,26 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='4444' type='CXCursor clang_getCanonicalCursor(CXCursor )'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='4420'>/**
+ * Retrieve the canonical cursor corresponding to the given cursor.
+ *
+ * In the C family of languages, many kinds of entities can be declared several
+ * times within a single translation unit. For example, a structure type can
+ * be forward-declared (possibly multiple times) and later defined:
+ *
+ * \code
+ * struct X;
+ * struct X;
+ * struct X {
+ *   int member;
+ * };
+ * \endcode
+ *
+ * The declarations and the definition of \c X are represented by three
+ * different cursors, all of which are declarations of the same underlying
+ * entity. One of these cursor is considered the &quot;canonical&quot; cursor, which
+ * is effectively the representative for the underlying entity. One can
+ * determine if two cursors are declarations of the same underlying entity by
+ * comparing their canonical cursors.
+ *
+ * \returns The canonical cursor for the entity referred to by the given cursor.
+ */</doc>
+<def f='llvm/clang/tools/libclang/CIndex.cpp' l='6432' ll='6449' type='CXCursor clang_getCanonicalCursor(CXCursor C)'/>

@@ -1,0 +1,25 @@
+<dec f='llvm/llvm/include/llvm/Passes/PassBuilder.h' l='204' type='3'/>
+<use f='llvm/clang/lib/CodeGen/BackendUtil.cpp' l='961' u='r' c='_ZL10mapToLevelRKN5clang14CodeGenOptionsE'/>
+<doc f='llvm/llvm/include/llvm/Passes/PassBuilder.h' l='190'>/// Optimize for fast execution as much as possible.
+    ///
+    /// This mode is significantly more aggressive in trading off compile time
+    /// and code size to get execution time improvements. The core idea is that
+    /// this mode should include any optimization that helps execution time on
+    /// balance across a diverse collection of benchmarks, even if it increases
+    /// code size or compile time for some benchmarks without corresponding
+    /// improvements to execution time.
+    ///
+    /// Despite being willing to trade more compile time off to get improved
+    /// execution time, this mode still tries to avoid superlinear growth in
+    /// order to make even significantly slower compile times at least scale
+    /// reasonably. This does not preclude very substantial constant factor
+    /// costs though.</doc>
+<use f='llvm/llvm/lib/LTO/LTOBackend.cpp' l='207' u='r' c='_ZN12_GLOBAL__N_1L14runNewPMPassesERN4llvm3lto6ConfigERNS0_6ModuleEPNS0_13TargetMachineEjbPNS0_18ModuleSummaryIndexEPKS8_'/>
+<use f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='237' c='_ZL19isOptimizingForSizeN4llvm11PassBuilder17OptimizationLevelE'/>
+<use f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='411' u='r' c='_ZN4llvm11PassBuilder35buildFunctionSimplificationPipelineENS0_17OptimizationLevelENS0_12ThinLTOPhaseEb'/>
+<use f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='529' u='r' c='_ZN4llvm11PassBuilder35buildFunctionSimplificationPipelineENS0_17OptimizationLevelENS0_12ThinLTOPhaseEb'/>
+<use f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='604' u='r' c='_ZL27getInlineParamsFromOptLevelN4llvm11PassBuilder17OptimizationLevelE'/>
+<use f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='653' u='r' c='_ZN4llvm11PassBuilder33buildModuleSimplificationPipelineENS0_17OptimizationLevelENS0_12ThinLTOPhaseEb'/>
+<use f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='772' u='r' c='_ZN4llvm11PassBuilder33buildModuleSimplificationPipelineENS0_17OptimizationLevelENS0_12ThinLTOPhaseEb'/>
+<use f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='1189' u='r' c='_ZN4llvm11PassBuilder23buildLTODefaultPipelineENS0_17OptimizationLevelEbPNS_18ModuleSummaryIndexE'/>
+<use f='llvm/llvm/lib/Passes/PassBuilder.cpp' l='1797' u='r' c='_ZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEbb'/>

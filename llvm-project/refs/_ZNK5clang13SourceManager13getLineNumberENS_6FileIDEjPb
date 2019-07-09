@@ -1,0 +1,42 @@
+<dec f='llvm/clang/include/clang/Basic/SourceManager.h' l='1369' type='unsigned int clang::SourceManager::getLineNumber(clang::FileID FID, unsigned int FilePos, bool * Invalid = nullptr) const'/>
+<doc f='llvm/clang/include/clang/Basic/SourceManager.h' l='1363'>/// Given a SourceLocation, return the spelling line number
+  /// for the position indicated.
+  ///
+  /// This requires building and caching a table of line offsets for the
+  /// MemoryBuffer, so this is not cheap: use only when about to emit a
+  /// diagnostic.</doc>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='255' u='c' c='_ZNK5clang10ASTContext27getRawCommentForDeclNoCacheEPKNS_4DeclE'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='256' u='c' c='_ZNK5clang10ASTContext27getRawCommentForDeclNoCacheEPKNS_4DeclE'/>
+<use f='llvm/clang/lib/Basic/SourceLocation.cpp' l='194' u='c' c='_ZNK5clang13FullSourceLoc13getLineNumberEPb'/>
+<def f='llvm/clang/lib/Basic/SourceManager.cpp' l='1249' ll='1341' type='unsigned int clang::SourceManager::getLineNumber(clang::FileID FID, unsigned int FilePos, bool * Invalid = nullptr) const'/>
+<use f='llvm/clang/lib/Basic/SourceManager.cpp' l='1347' u='c' c='_ZNK5clang13SourceManager21getSpellingLineNumberENS_14SourceLocationEPb'/>
+<use f='llvm/clang/lib/Basic/SourceManager.cpp' l='1353' u='c' c='_ZNK5clang13SourceManager22getExpansionLineNumberENS_14SourceLocationEPb'/>
+<use f='llvm/clang/lib/Basic/SourceManager.cpp' l='1440' u='c' c='_ZNK5clang13SourceManager14getPresumedLocENS_14SourceLocationEb'/>
+<use f='llvm/clang/lib/Basic/SourceManager.cpp' l='1468' u='c' c='_ZNK5clang13SourceManager14getPresumedLocENS_14SourceLocationEb'/>
+<doc f='llvm/clang/lib/Basic/SourceManager.cpp' l='1245'>/// getLineNumber - Given a SourceLocation, return the spelling line number
+/// for the position indicated.  This requires building and caching a table of
+/// line offsets for the MemoryBuffer, so this is not cheap: use only when
+/// about to emit a diagnostic.</doc>
+<use f='llvm/clang/lib/Frontend/Rewrite/InclusionRewriter.cpp' l='449' u='c' c='_ZN12_GLOBAL__N_117InclusionRewriter7ProcessEN5clang6FileIDENS1_6SrcMgr18CharacteristicKindEPKNS1_15DirectoryLookupE'/>
+<use f='llvm/clang/lib/Frontend/TextDiagnostic.cpp' l='1085' u='c' c='_ZL23buildFixItInsertionLineN5clang6FileIDEjRKN12_GLOBAL__N_115SourceColumnMapEN4llvm8ArrayRefINS_9FixItHintEEERKNS_13SourceManagerEPKNS_17DiagnosticOptionsE'/>
+<use f='llvm/clang/lib/Frontend/TextDiagnostic.cpp' l='1355' u='c' c='_ZN5clang14TextDiagnostic19emitParseableFixitsEN4llvm8ArrayRefINS_9FixItHintEEERKNS_13SourceManagerE'/>
+<use f='llvm/clang/lib/Frontend/TextDiagnostic.cpp' l='1357' u='c' c='_ZN5clang14TextDiagnostic19emitParseableFixitsEN4llvm8ArrayRefINS_9FixItHintEEERKNS_13SourceManagerE'/>
+<use f='llvm/clang/lib/Index/CommentToXML.cpp' l='889' u='c' c='_ZN12_GLOBAL__N_124CommentASTToXMLConverter16visitFullCommentEPKN5clang8comments11FullCommentE'/>
+<use f='llvm/clang/lib/Parse/ParseStmtAsm.cpp' l='422' u='c' c='_ZN5clang6Parser26ParseMicrosoftAsmStatementENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseStmtAsm.cpp' l='450' u='c' c='_ZN5clang6Parser26ParseMicrosoftAsmStatementENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseStmtAsm.cpp' l='458' u='c' c='_ZN5clang6Parser26ParseMicrosoftAsmStatementENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseStmtAsm.cpp' l='473' u='c' c='_ZN5clang6Parser26ParseMicrosoftAsmStatementENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseStmtAsm.cpp' l='479' u='c' c='_ZN5clang6Parser26ParseMicrosoftAsmStatementENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Rewrite/Rewriter.cpp' l='251' u='c' c='_ZN5clang8Rewriter10InsertTextENS_14SourceLocationEN4llvm9StringRefEbb'/>
+<use f='llvm/clang/lib/Rewrite/Rewriter.cpp' l='352' u='c' c='_ZN5clang8Rewriter19IncreaseIndentationENS_15CharSourceRangeENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Rewrite/Rewriter.cpp' l='353' u='c' c='_ZN5clang8Rewriter19IncreaseIndentationENS_15CharSourceRangeENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Rewrite/Rewriter.cpp' l='354' u='c' c='_ZN5clang8Rewriter19IncreaseIndentationENS_15CharSourceRangeENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/CodeCompleteConsumer.cpp' l='585' u='c' c='_ZN5clang28PrintingCodeCompleteConsumer26ProcessCodeCompleteResultsERNS_4SemaENS_21CodeCompletionContextEPNS_20CodeCompletionResultEj'/>
+<use f='llvm/clang/lib/Sema/CodeCompleteConsumer.cpp' l='587' u='c' c='_ZN5clang28PrintingCodeCompleteConsumer26ProcessCodeCompleteResultsERNS_4SemaENS_21CodeCompletionContextEPNS_20CodeCompletionResultEj'/>
+<use f='llvm/clang/tools/c-index-test/core_main.cpp' l='105' u='c' c='_ZN12_GLOBAL__N_122PrintIndexDataConsumer19handleDeclOccurenceEPKN5clang4DeclEjN4llvm8ArrayRefINS1_5index14SymbolRelationEEENS1_14SourceLocationENS7_14485694'/>
+<use f='llvm/clang/tools/c-index-test/core_main.cpp' l='143' u='c' c='_ZN12_GLOBAL__N_122PrintIndexDataConsumer21handleModuleOccurenceEPKN5clang10ImportDeclEPKNS1_6ModuleEjNS1_14SourceLocationE'/>
+<use f='llvm/clang/tools/c-index-test/core_main.cpp' l='166' u='c' c='_ZN12_GLOBAL__N_122PrintIndexDataConsumer20handleMacroOccurenceEPKN5clang14IdentifierInfoEPKNS1_9MacroInfoEjNS1_14SourceLocationE'/>
+<use f='llvm/clang/tools/libclang/CXIndexDataConsumer.cpp' l='1145' u='c' c='_ZN5clang7cxindex19CXIndexDataConsumer12translateLocENS_14SourceLocationEPPvS4_PjS5_S5_'/>
+<use f='llvm/clang/tools/libclang/CXSourceLocation.cpp' l='332' u='c' c='clang_getSpellingLocation'/>
+<use f='llvm/clang/tools/libclang/CXSourceLocation.cpp' l='368' u='c' c='clang_getFileLocation'/>
+<use f='llvm/clang/unittests/Index/IndexTests.cpp' l='42' u='c' c='_ZN5clang5index12_GLOBAL__N_18Position18fromSourceLocationENS_14SourceLocationERKNS_13SourceManagerE'/>

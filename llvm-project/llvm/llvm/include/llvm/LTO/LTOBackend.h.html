@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>LTOBackend.h source code [llvm/llvm/include/llvm/LTO/LTOBackend.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/LTO/LTOBackend.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>LTO</a>/<a href='LTOBackend.h.html'>LTOBackend.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-LTOBackend.h - LLVM Link Time Optimizer Backend ---------------------===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file implements the "backend" phase of LTO, i.e. it performs</i></td></tr>
+<tr><th id="10">10</th><td><i>// optimization and code generation on a loaded module. It is generally used</i></td></tr>
+<tr><th id="11">11</th><td><i>// internally by the LTO class but can also be used independently, for example</i></td></tr>
+<tr><th id="12">12</th><td><i>// to implement a standalone ThinLTO backend.</i></td></tr>
+<tr><th id="13">13</th><td><i>//</i></td></tr>
+<tr><th id="14">14</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/LLVM_LTO_LTOBACKEND_H">LLVM_LTO_LTOBACKEND_H</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/LLVM_LTO_LTOBACKEND_H" data-ref="_M/LLVM_LTO_LTOBACKEND_H">LLVM_LTO_LTOBACKEND_H</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../ADT/MapVector.h.html">"llvm/ADT/MapVector.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../IR/DiagnosticInfo.h.html">"llvm/IR/DiagnosticInfo.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../IR/ModuleSummaryIndex.h.html">"llvm/IR/ModuleSummaryIndex.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="LTO.h.html">"llvm/LTO/LTO.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../Support/MemoryBuffer.h.html">"llvm/Support/MemoryBuffer.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../Target/TargetOptions.h.html">"llvm/Target/TargetOptions.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../Transforms/IPO/FunctionImport.h.html">"llvm/Transforms/IPO/FunctionImport.h"</a></u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><b>class</b> <a class="type" href="../Bitcode/BitcodeReader.h.html#llvm::BitcodeModule" title='llvm::BitcodeModule' data-ref="llvm::BitcodeModule" id="llvm::BitcodeModule">BitcodeModule</a>;</td></tr>
+<tr><th id="30">30</th><td><b>class</b> <a class="type" href="../Support/Error.h.html#llvm::Error" title='llvm::Error' data-ref="llvm::Error" id="llvm::Error">Error</a>;</td></tr>
+<tr><th id="31">31</th><td><b>class</b> <a class="type" href="../IR/Module.h.html#llvm::Module" title='llvm::Module' data-ref="llvm::Module" id="llvm::Module">Module</a>;</td></tr>
+<tr><th id="32">32</th><td><b>class</b> <a class="type" href="../Support/TargetRegistry.h.html#llvm::Target" title='llvm::Target' data-ref="llvm::Target" id="llvm::Target">Target</a>;</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><b>namespace</b> <span class="namespace">lto</span> {</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><i class="doc">/// Runs a regular LTO backend. The regular LTO backend can also act as the</i></td></tr>
+<tr><th id="37">37</th><td><i class="doc">/// regular LTO phase of ThinLTO, which may need to access the combined index.</i></td></tr>
+<tr><th id="38">38</th><td><a class="type" href="../Support/Error.h.html#llvm::Error" title='llvm::Error' data-ref="llvm::Error">Error</a> <dfn class="decl" id="_ZN4llvm3lto7backendERNS0_6ConfigESt8functionIFSt10unique_ptrINS0_18NativeObjectStreamESt14default_deleteIS5_EEjEEjS4_INS_6ModuleES6_ISB_EERNS_18ModuleSummaryIndexE" title='llvm::lto::backend' data-ref="_ZN4llvm3lto7backendERNS0_6ConfigESt8functionIFSt10unique_ptrINS0_18NativeObjectStreamESt14default_deleteIS5_EEjEEjS4_INS_6ModuleES6_ISB_EERNS_18ModuleSummaryIndexE">backend</dfn>(<a class="type" href="Config.h.html#llvm::lto::Config" title='llvm::lto::Config' data-ref="llvm::lto::Config">Config</a> &amp;<dfn class="local col8 decl" id="5708C" title='C' data-type='llvm::lto::Config &amp;' data-ref="5708C">C</dfn>, <a class="typedef" href="LTO.h.html#llvm::lto::AddStreamFn" title='llvm::lto::AddStreamFn' data-type='std::function&lt;std::unique_ptr&lt;NativeObjectStream&gt; (unsigned int)&gt;' data-ref="llvm::lto::AddStreamFn">AddStreamFn</a> <dfn class="local col9 decl" id="5709AddStream" title='AddStream' data-type='AddStreamFn' data-ref="5709AddStream">AddStream</dfn>,</td></tr>
+<tr><th id="39">39</th><td>              <em>unsigned</em> <dfn class="local col0 decl" id="5710ParallelCodeGenParallelismLevel" title='ParallelCodeGenParallelismLevel' data-type='unsigned int' data-ref="5710ParallelCodeGenParallelismLevel">ParallelCodeGenParallelismLevel</dfn>,</td></tr>
+<tr><th id="40">40</th><td>              <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="../IR/Module.h.html#llvm::Module" title='llvm::Module' data-ref="llvm::Module">Module</a>&gt; <dfn class="local col1 decl" id="5711M" title='M' data-type='std::unique_ptr&lt;Module&gt;' data-ref="5711M">M</dfn>, <a class="type" href="../IR/ModuleSummaryIndex.h.html#llvm::ModuleSummaryIndex" title='llvm::ModuleSummaryIndex' data-ref="llvm::ModuleSummaryIndex">ModuleSummaryIndex</a> &amp;<dfn class="local col2 decl" id="5712CombinedIndex" title='CombinedIndex' data-type='llvm::ModuleSummaryIndex &amp;' data-ref="5712CombinedIndex">CombinedIndex</dfn>);</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><i class="doc">/// Runs a ThinLTO backend.</i></td></tr>
+<tr><th id="43">43</th><td><a class="type" href="../Support/Error.h.html#llvm::Error" title='llvm::Error' data-ref="llvm::Error">Error</a> <dfn class="decl" id="_ZN4llvm3lto11thinBackendERNS0_6ConfigEjSt8functionIFSt10unique_ptrINS0_18NativeObjectStreamESt14default_deleteIS5_EEjEERNS_6ModuleERKNS_18ModuleSumma11234596" title='llvm::lto::thinBackend' data-ref="_ZN4llvm3lto11thinBackendERNS0_6ConfigEjSt8functionIFSt10unique_ptrINS0_18NativeObjectStreamESt14default_deleteIS5_EEjEERNS_6ModuleERKNS_18ModuleSumma11234596">thinBackend</dfn>(<a class="type" href="Config.h.html#llvm::lto::Config" title='llvm::lto::Config' data-ref="llvm::lto::Config">Config</a> &amp;<dfn class="local col3 decl" id="5713C" title='C' data-type='llvm::lto::Config &amp;' data-ref="5713C">C</dfn>, <em>unsigned</em> <dfn class="local col4 decl" id="5714Task" title='Task' data-type='unsigned int' data-ref="5714Task">Task</dfn>, <a class="typedef" href="LTO.h.html#llvm::lto::AddStreamFn" title='llvm::lto::AddStreamFn' data-type='std::function&lt;std::unique_ptr&lt;NativeObjectStream&gt; (unsigned int)&gt;' data-ref="llvm::lto::AddStreamFn">AddStreamFn</a> <dfn class="local col5 decl" id="5715AddStream" title='AddStream' data-type='AddStreamFn' data-ref="5715AddStream">AddStream</dfn>, <a class="type" href="../IR/Module.h.html#llvm::Module" title='llvm::Module' data-ref="llvm::Module">Module</a> &amp;<dfn class="local col6 decl" id="5716M" title='M' data-type='llvm::Module &amp;' data-ref="5716M">M</dfn>,</td></tr>
+<tr><th id="44">44</th><td>                  <em>const</em> <a class="type" href="../IR/ModuleSummaryIndex.h.html#llvm::ModuleSummaryIndex" title='llvm::ModuleSummaryIndex' data-ref="llvm::ModuleSummaryIndex">ModuleSummaryIndex</a> &amp;<dfn class="local col7 decl" id="5717CombinedIndex" title='CombinedIndex' data-type='const llvm::ModuleSummaryIndex &amp;' data-ref="5717CombinedIndex">CombinedIndex</dfn>,</td></tr>
+<tr><th id="45">45</th><td>                  <em>const</em> <a class="type" href="../Transforms/IPO/FunctionImport.h.html#llvm::FunctionImporter" title='llvm::FunctionImporter' data-ref="llvm::FunctionImporter">FunctionImporter</a>::<a class="typedef" href="../Transforms/IPO/FunctionImport.h.html#llvm::FunctionImporter::ImportMapTy" title='llvm::FunctionImporter::ImportMapTy' data-type='StringMap&lt;FunctionsToImportTy&gt;' data-ref="llvm::FunctionImporter::ImportMapTy">ImportMapTy</a> &amp;<dfn class="local col8 decl" id="5718ImportList" title='ImportList' data-type='const FunctionImporter::ImportMapTy &amp;' data-ref="5718ImportList">ImportList</dfn>,</td></tr>
+<tr><th id="46">46</th><td>                  <em>const</em> <a class="typedef" href="../IR/ModuleSummaryIndex.h.html#llvm::GVSummaryMapTy" title='llvm::GVSummaryMapTy' data-type='DenseMap&lt;GlobalValue::GUID, llvm::GlobalValueSummary *&gt;' data-ref="llvm::GVSummaryMapTy">GVSummaryMapTy</a> &amp;<dfn class="local col9 decl" id="5719DefinedGlobals" title='DefinedGlobals' data-type='const GVSummaryMapTy &amp;' data-ref="5719DefinedGlobals">DefinedGlobals</dfn>,</td></tr>
+<tr><th id="47">47</th><td>                  <a class="type" href="../ADT/MapVector.h.html#llvm::MapVector" title='llvm::MapVector' data-ref="llvm::MapVector">MapVector</a>&lt;<a class="type" href="../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a>, <a class="type" href="../Bitcode/BitcodeReader.h.html#llvm::BitcodeModule" title='llvm::BitcodeModule' data-ref="llvm::BitcodeModule">BitcodeModule</a>&gt; &amp;<dfn class="local col0 decl" id="5720ModuleMap" title='ModuleMap' data-type='MapVector&lt;llvm::StringRef, llvm::BitcodeModule&gt; &amp;' data-ref="5720ModuleMap">ModuleMap</dfn>);</td></tr>
+<tr><th id="48">48</th><td>}</td></tr>
+<tr><th id="49">49</th><td>}</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><u>#<span data-ppcond="16">endif</span></u></td></tr>
+<tr><th id="52">52</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../clang/lib/CodeGen/BackendUtil.cpp.html'>llvm/clang/lib/CodeGen/BackendUtil.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

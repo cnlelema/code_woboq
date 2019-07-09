@@ -1,0 +1,70 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<inh f='llvm/llvm/include/llvm/Support/TrailingObjects.h' l='233' c='llvm::TrailingObjects'/>
+<def f='llvm/clang/include/clang/AST/Expr.h' l='1092' ll='1314'/>
+<size>32</size>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='1069'>/// A reference to a declared variable, function, enum, etc.
+/// [C99 6.5.1p2]
+///
+/// This encodes all the information about how a declaration is referenced
+/// within an expression.
+///
+/// There are several optional constructs attached to DeclRefExprs only when
+/// they apply in order to conserve memory. These are laid out past the end of
+/// the object, and flags in the DeclRefExprBitfield track whether they exist:
+///
+///   DeclRefExprBits.HasQualifier:
+///       Specifies when this declaration reference expression has a C++
+///       nested-name-specifier.
+///   DeclRefExprBits.HasFoundDecl:
+///       Specifies when this declaration reference expression has a record of
+///       a NamedDecl (different from the referenced ValueDecl) which was found
+///       during name lookup and/or overload resolution.
+///   DeclRefExprBits.HasTemplateKWAndArgsInfo:
+///       Specifies when this declaration reference expression has an explicit
+///       C++ template keyword and/or template argument list.
+///   DeclRefExprBits.RefersToEnclosingVariableOrCapture
+///       Specifies when this declaration reference expression (validly)
+///       refers to an enclosed local or a captured variable.</doc>
+<mbr r='clang::DeclRefExpr::D' o='128' t='clang::ValueDecl *'/>
+<mbr r='clang::DeclRefExpr::DNLoc' o='192' t='clang::DeclarationNameLoc'/>
+<fun r='_ZNK5clang11DeclRefExpr18numTrailingObjectsEN4llvm25trailing_objects_internal19TrailingObjectsBase13OverloadTokenINS_22NestedNameSpecifierLocEEE'/>
+<fun r='_ZNK5clang11DeclRefExpr18numTrailingObjectsEN4llvm25trailing_objects_internal19TrailingObjectsBase13OverloadTokenIPNS_9NamedDeclEEE'/>
+<fun r='_ZNK5clang11DeclRefExpr18numTrailingObjectsEN4llvm25trailing_objects_internal19TrailingObjectsBase13OverloadTokenINS_24ASTTemplateKWAndArgsInfoEEE'/>
+<fun r='_ZNK5clang11DeclRefExpr12hasFoundDeclEv'/>
+<fun r='_ZN5clang11DeclRefExprC1ERKNS_10ASTContextENS_22NestedNameSpecifierLocENS_14SourceLocationEPNS_9ValueDeclEbRKNS_19DeclarationNameInfoEPNS_9NamedDeclEP6599683'/>
+<fun r='_ZN5clang11DeclRefExprC1ENS_4Stmt10EmptyShellE'/>
+<fun r='_ZN5clang11DeclRefExpr17computeDependenceERKNS_10ASTContextE'/>
+<fun r='_ZN5clang11DeclRefExprC1ERKNS_10ASTContextEPNS_9ValueDeclEbNS_8QualTypeENS_13ExprValueKindENS_14SourceLocationERKNS_18DeclarationNameLocENS_15NonOdrUseReasonE'/>
+<fun r='_ZN5clang11DeclRefExpr6CreateERKNS_10ASTContextENS_22NestedNameSpecifierLocENS_14SourceLocationEPNS_9ValueDeclEbS5_NS_8QualTypeENS_13ExprValueKindEPNS13517472'/>
+<fun r='_ZN5clang11DeclRefExpr6CreateERKNS_10ASTContextENS_22NestedNameSpecifierLocENS_14SourceLocationEPNS_9ValueDeclEbRKNS_19DeclarationNameInfoENS_8QualTyp2914507'/>
+<fun r='_ZN5clang11DeclRefExpr11CreateEmptyERKNS_10ASTContextEbbbj'/>
+<fun r='_ZN5clang11DeclRefExpr7getDeclEv'/>
+<fun r='_ZNK5clang11DeclRefExpr7getDeclEv'/>
+<fun r='_ZN5clang11DeclRefExpr7setDeclEPNS_9ValueDeclE'/>
+<fun r='_ZNK5clang11DeclRefExpr11getNameInfoEv'/>
+<fun r='_ZNK5clang11DeclRefExpr11getLocationEv'/>
+<fun r='_ZN5clang11DeclRefExpr11setLocationENS_14SourceLocationE'/>
+<fun r='_ZNK5clang11DeclRefExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang11DeclRefExpr9getEndLocEv'/>
+<fun r='_ZNK5clang11DeclRefExpr12hasQualifierEv'/>
+<fun r='_ZNK5clang11DeclRefExpr15getQualifierLocEv'/>
+<fun r='_ZNK5clang11DeclRefExpr12getQualifierEv'/>
+<fun r='_ZN5clang11DeclRefExpr12getFoundDeclEv'/>
+<fun r='_ZNK5clang11DeclRefExpr12getFoundDeclEv'/>
+<fun r='_ZNK5clang11DeclRefExpr24hasTemplateKWAndArgsInfoEv'/>
+<fun r='_ZNK5clang11DeclRefExpr21getTemplateKeywordLocEv'/>
+<fun r='_ZNK5clang11DeclRefExpr12getLAngleLocEv'/>
+<fun r='_ZNK5clang11DeclRefExpr12getRAngleLocEv'/>
+<fun r='_ZNK5clang11DeclRefExpr18hasTemplateKeywordEv'/>
+<fun r='_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv'/>
+<fun r='_ZNK5clang11DeclRefExpr25copyTemplateArgumentsIntoERNS_24TemplateArgumentListInfoE'/>
+<fun r='_ZNK5clang11DeclRefExpr15getTemplateArgsEv'/>
+<fun r='_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv'/>
+<fun r='_ZNK5clang11DeclRefExpr18template_argumentsEv'/>
+<fun r='_ZNK5clang11DeclRefExpr21hadMultipleCandidatesEv'/>
+<fun r='_ZN5clang11DeclRefExpr24setHadMultipleCandidatesEb'/>
+<fun r='_ZNK5clang11DeclRefExpr11isNonOdrUseEv'/>
+<fun r='_ZNK5clang11DeclRefExpr34refersToEnclosingVariableOrCaptureEv'/>
+<fun r='_ZN5clang11DeclRefExpr7classofEPKNS_4StmtE'/>
+<fun r='_ZN5clang11DeclRefExpr8childrenEv'/>
+<fun r='_ZNK5clang11DeclRefExpr8childrenEv'/>

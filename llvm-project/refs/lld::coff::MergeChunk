@@ -1,0 +1,32 @@
+<inh f='llvm/lld/COFF/Chunks.h' l='145' c='lld::coff::NonSectionChunk'/>
+<def f='llvm/lld/COFF/Chunks.h' l='405' ll='423'/>
+<size>104</size>
+<doc f='llvm/lld/COFF/Chunks.h' l='396'>// This class is used to implement an lld-specific feature (not implemented in
+// MSVC) that minimizes the output size by finding string literals sharing tail
+// parts and merging them.
+//
+// If string tail merging is enabled and a section is identified as containing a
+// string literal, it is added to a MergeChunk with an appropriate alignment.
+// The MergeChunk then tail merges the strings using the StringTableBuilder
+// class and assigns RVAs and section offsets to each of the member chunks based
+// on the offsets assigned by the StringTableBuilder.</doc>
+<fun r='_ZN3lld4coff10MergeChunkC1Ej'/>
+<fun r='_ZN3lld4coff10MergeChunk10addSectionEPNS0_12SectionChunkE'/>
+<fun r='_ZN3lld4coff10MergeChunk16finalizeContentsEv'/>
+<fun r='_ZN3lld4coff10MergeChunk20assignSubsectionRVAsEv'/>
+<fun r='_ZNK3lld4coff10MergeChunk24getOutputCharacteristicsEv'/>
+<fun r='_ZNK3lld4coff10MergeChunk14getSectionNameEv'/>
+<fun r='_ZNK3lld4coff10MergeChunk7getSizeEv'/>
+<fun r='_ZNK3lld4coff10MergeChunk7writeToEPh'/>
+<smbr r='lld::coff::MergeChunk::Instances' t='lld::coff::MergeChunk *[14]'/>
+<mbr r='lld::coff::MergeChunk::Sections' o='128' t='std::vector&lt;SectionChunk *&gt;'/>
+<mbr r='lld::coff::MergeChunk::Builder' o='320' t='llvm::StringTableBuilder'/>
+<mbr r='lld::coff::MergeChunk::Finalized' o='768' t='bool'/>
+<smbr r='lld::coff::MergeChunk::Instances' t='lld::coff::MergeChunk *[14]'/>
+<fun r='_ZN3lld4coff10MergeChunkC1Ej'/>
+<fun r='_ZN3lld4coff10MergeChunk10addSectionEPNS0_12SectionChunkE'/>
+<fun r='_ZN3lld4coff10MergeChunk16finalizeContentsEv'/>
+<fun r='_ZN3lld4coff10MergeChunk20assignSubsectionRVAsEv'/>
+<fun r='_ZNK3lld4coff10MergeChunk24getOutputCharacteristicsEv'/>
+<fun r='_ZNK3lld4coff10MergeChunk7getSizeEv'/>
+<fun r='_ZNK3lld4coff10MergeChunk7writeToEPh'/>

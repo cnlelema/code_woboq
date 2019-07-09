@@ -1,0 +1,12 @@
+<dec f='llvm/clang/include/clang/AST/Expr.h' l='836' type='clang::Expr * clang::Expr::IgnoreParenLValueCasts()'/>
+<use f='llvm/clang/include/clang/AST/Expr.h' l='838' u='c' c='_ZNK5clang4Expr22IgnoreParenLValueCastsEv'/>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='828'>/// Skip past any parentheses and lvalue casts which might surround this
+  /// expression until reaching a fixed point. Skips:
+  /// * What IgnoreParens() skips
+  /// * What IgnoreCasts() skips, except that only lvalue-to-rvalue
+  ///   casts are skipped
+  /// FIXME: This is intended purely as a temporary workaround for code
+  /// that hasn&apos;t yet been rewritten to do the right thing about those
+  /// casts, and may disappear along with the last internal use.</doc>
+<def f='llvm/clang/lib/AST/Expr.cpp' l='2896' ll='2899' type='clang::Expr * clang::Expr::IgnoreParenLValueCasts()'/>
+<use f='llvm/clang/lib/Sema/SemaExprObjC.cpp' l='1769' u='c' c='_ZN5clang4Sema10isSelfExprEPNS_4ExprEPKNS_14ObjCMethodDeclE'/>

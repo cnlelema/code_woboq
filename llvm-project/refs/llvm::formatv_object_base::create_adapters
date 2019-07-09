@@ -1,0 +1,10 @@
+<def f='llvm/llvm/include/llvm/Support/FormatVariadic.h' l='73' ll='78'/>
+<size>1</size>
+<doc f='llvm/llvm/include/llvm/Support/FormatVariadic.h' l='66'>// The parameters are stored in a std::tuple, which does not provide runtime
+  // indexing capabilities.  In order to enable runtime indexing, we use this
+  // structure to put the parameters into a std::vector.  Since the parameters
+  // are not all the same type, we use some type-erasure by wrapping the
+  // parameters in a template class that derives from a non-template superclass.
+  // Essentially, we are converting a std::tuple&lt;Derived&lt;Ts...&gt;&gt; to a
+  // std::vector&lt;Base*&gt;.</doc>
+<fun r='_ZN4llvm19formatv_object_base15create_adaptersclEDpRT_'/>

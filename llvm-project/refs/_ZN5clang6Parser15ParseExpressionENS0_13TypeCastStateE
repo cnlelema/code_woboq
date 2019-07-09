@@ -1,0 +1,125 @@
+<dec f='llvm/clang/include/clang/Parse/Parser.h' l='1631' type='ExprResult clang::Parser::ParseExpression(clang::Parser::TypeCastState isTypeCast = NotTypeCast)'/>
+<use f='llvm/clang/lib/Parse/ParseDecl.cpp' l='2081' u='c' c='_ZN5clang6Parser14ParseDeclGroupERNS_15ParsingDeclSpecENS_17DeclaratorContextEPNS_14SourceLocationEPNS0_12ForRangeInitE'/>
+<use f='llvm/clang/lib/Parse/ParseDeclCXX.cpp' l='979' u='c' c='_ZN5clang6Parser22ParseDecltypeSpecifierERNS_8DeclSpecE'/>
+<def f='llvm/clang/lib/Parse/ParseExpr.cpp' l='122' ll='125' type='ExprResult clang::Parser::ParseExpression(clang::Parser::TypeCastState isTypeCast = NotTypeCast)'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='355' u='c' c='_ZN5clang6Parser26ParseRHSOfBinaryExpressionENS_12ActionResultIPNS_4ExprELb1EEENS_4prec5LevelE'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='1412' u='c' c='_ZN5clang6Parser19ParseCastExpressionEbbRbNS0_13TypeCastStateEb'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='1580' u='c' c='_ZN5clang6Parser28ParsePostfixExpressionSuffixENS_12ActionResultIPNS_4ExprELb1EEE'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='1586' u='c' c='_ZN5clang6Parser28ParsePostfixExpressionSuffixENS_12ActionResultIPNS_4ExprELb1EEE'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='1589' u='c' c='_ZN5clang6Parser28ParsePostfixExpressionSuffixENS_12ActionResultIPNS_4ExprELb1EEE'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='2183' u='c' c='_ZN5clang6Parser29ParseBuiltinPrimaryExpressionEv'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='2660' u='c' c='_ZN5clang6Parser20ParseParenExpressionERNS0_16ParenParseOptionEbbRNS_9OpaquePtrINS_8QualTypeEEERNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseExpr.cpp' l='2871' u='c' c='_ZN5clang6Parser19ParseFoldExpressionENS_12ActionResultIPNS_4ExprELb1EEERNS_24BalancedDelimiterTrackerE'/>
+<doc f='llvm/clang/lib/Parse/ParseExpr.cpp' l='34'>/// Simple precedence-based parser for binary/ternary operators.
+///
+/// Note: we diverge from the C99 grammar when parsing the assignment-expression
+/// production.  C99 specifies that the LHS of an assignment operator should be
+/// parsed as a unary-expression, but consistency dictates that it be a
+/// conditional-expession.  In practice, the important thing here is that the
+/// LHS of an assignment has to be an l-value, which productions between
+/// unary-expression and conditional-expression don&apos;t produce.  Because we want
+/// consistency, we parse the LHS as a conditional-expression, then check for
+/// l-value-ness in semantic analysis stages.
+///
+/// \verbatim
+///       pm-expression: [C++ 5.5]
+///         cast-expression
+///         pm-expression &apos;.*&apos; cast-expression
+///         pm-expression &apos;-&gt;*&apos; cast-expression
+///
+///       multiplicative-expression: [C99 6.5.5]
+///     Note: in C++, apply pm-expression instead of cast-expression
+///         cast-expression
+///         multiplicative-expression &apos;*&apos; cast-expression
+///         multiplicative-expression &apos;/&apos; cast-expression
+///         multiplicative-expression &apos;%&apos; cast-expression
+///
+///       additive-expression: [C99 6.5.6]
+///         multiplicative-expression
+///         additive-expression &apos;+&apos; multiplicative-expression
+///         additive-expression &apos;-&apos; multiplicative-expression
+///
+///       shift-expression: [C99 6.5.7]
+///         additive-expression
+///         shift-expression &apos;&lt;&lt;&apos; additive-expression
+///         shift-expression &apos;&gt;&gt;&apos; additive-expression
+///
+///       compare-expression: [C++20 expr.spaceship]
+///         shift-expression
+///         compare-expression &apos;&lt;=&gt;&apos; shift-expression
+///
+///       relational-expression: [C99 6.5.8]
+///         compare-expression
+///         relational-expression &apos;&lt;&apos; compare-expression
+///         relational-expression &apos;&gt;&apos; compare-expression
+///         relational-expression &apos;&lt;=&apos; compare-expression
+///         relational-expression &apos;&gt;=&apos; compare-expression
+///
+///       equality-expression: [C99 6.5.9]
+///         relational-expression
+///         equality-expression &apos;==&apos; relational-expression
+///         equality-expression &apos;!=&apos; relational-expression
+///
+///       AND-expression: [C99 6.5.10]
+///         equality-expression
+///         AND-expression &apos;&amp;&apos; equality-expression
+///
+///       exclusive-OR-expression: [C99 6.5.11]
+///         AND-expression
+///         exclusive-OR-expression &apos;^&apos; AND-expression
+///
+///       inclusive-OR-expression: [C99 6.5.12]
+///         exclusive-OR-expression
+///         inclusive-OR-expression &apos;|&apos; exclusive-OR-expression
+///
+///       logical-AND-expression: [C99 6.5.13]
+///         inclusive-OR-expression
+///         logical-AND-expression &apos;&amp;&amp;&apos; inclusive-OR-expression
+///
+///       logical-OR-expression: [C99 6.5.14]
+///         logical-AND-expression
+///         logical-OR-expression &apos;||&apos; logical-AND-expression
+///
+///       conditional-expression: [C99 6.5.15]
+///         logical-OR-expression
+///         logical-OR-expression &apos;?&apos; expression &apos;:&apos; conditional-expression
+/// [GNU]   logical-OR-expression &apos;?&apos; &apos;:&apos; conditional-expression
+/// [C++] the third operand is an assignment-expression
+///
+///       assignment-expression: [C99 6.5.16]
+///         conditional-expression
+///         unary-expression assignment-operator assignment-expression
+/// [C++]   throw-expression [C++ 15]
+///
+///       assignment-operator: one of
+///         = *= /= %= += -= &lt;&lt;= &gt;&gt;= &amp;= ^= |=
+///
+///       expression: [C99 6.5.17]
+///         assignment-expression ...[opt]
+///         expression &apos;,&apos; assignment-expression ...[opt]
+/// \endverbatim</doc>
+<use f='llvm/clang/lib/Parse/ParseExprCXX.cpp' l='1470' u='c' c='_ZN5clang6Parser13ParseCXXCastsEv'/>
+<use f='llvm/clang/lib/Parse/ParseExprCXX.cpp' l='1534' u='c' c='_ZN5clang6Parser14ParseCXXTypeidEv'/>
+<use f='llvm/clang/lib/Parse/ParseExprCXX.cpp' l='1585' u='c' c='_ZN5clang6Parser14ParseCXXUuidofEv'/>
+<use f='llvm/clang/lib/Parse/ParseExprCXX.cpp' l='1892' u='c' c='_ZN5clang6Parser17ParseCXXConditionEPNS_12ActionResultIPNS_4StmtELb1EEENS_14SourceLocationENS_4Sema13ConditionKindEPNS0_12ForRangeInfoE'/>
+<use f='llvm/clang/lib/Parse/ParseExprCXX.cpp' l='3022' u='c' c='_ZN5clang6Parser24ParseDirectNewDeclaratorERNS_10DeclaratorE'/>
+<use f='llvm/clang/lib/Parse/ParseExprCXX.cpp' l='3304' u='c' c='_ZN5clang6Parser19ParseArrayTypeTraitEv'/>
+<use f='llvm/clang/lib/Parse/ParseExprCXX.cpp' l='3328' u='c' c='_ZN5clang6Parser20ParseExpressionTraitEv'/>
+<use f='llvm/clang/lib/Parse/ParseExprCXX.cpp' l='3470' u='c' c='_ZN5clang6Parser32ParseCXXAmbiguousParenExpressionERNS0_16ParenParseOptionERNS_9OpaquePtrINS_8QualTypeEEERNS_24BalancedDelimiterTrackerERNS_25ColonProtectionRAIIObjectE'/>
+<use f='llvm/clang/lib/Parse/ParseObjc.cpp' l='2428' u='c' c='_ZN5clang6Parser18ParseObjCThrowStmtENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseObjc.cpp' l='2452' u='c' c='_ZN5clang6Parser25ParseObjCSynchronizedStmtENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseObjc.cpp' l='2910' u='c' c='_ZN5clang6Parser26ParseObjCXXMessageReceiverERbRPv'/>
+<use f='llvm/clang/lib/Parse/ParseObjc.cpp' l='3100' u='c' c='_ZN5clang6Parser26ParseObjCMessageExpressionEv'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='417' u='c' c='_ZN5clang6Parser18ParseExprStatementENS0_17ParsedStmtContextE'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='513' u='c' c='_ZN5clang6Parser19ParseSEHExceptBlockENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='1137' u='c' c='_ZN5clang6Parser25ParseParenExprOrConditionEPNS_12ActionResultIPNS_4StmtELb1EEERNS_4Sema15ConditionResultENS_14SourceLocationENS6_13ConditionKindE'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='1536' u='c' c='_ZN5clang6Parser16ParseDoStatementEv'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='1673' u='c' c='_ZN5clang6Parser17ParseForStatementEPNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='1717' u='c' c='_ZN5clang6Parser17ParseForStatementEPNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='1723' u='c' c='_ZN5clang6Parser17ParseForStatementEPNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='1753' u='c' c='_ZN5clang6Parser17ParseForStatementEPNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='1807' u='c' c='_ZN5clang6Parser17ParseForStatementEPNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='1833' u='c' c='_ZN5clang6Parser17ParseForStatementEPNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='1944' u='c' c='_ZN5clang6Parser18ParseGotoStatementEv'/>
+<use f='llvm/clang/lib/Parse/ParseStmt.cpp' l='2013' u='c' c='_ZN5clang6Parser20ParseReturnStatementEv'/>
+<use f='llvm/clang/lib/Parse/ParseStmtAsm.cpp' l='922' u='c' c='_ZN5clang6Parser19ParseAsmOperandsOptERN4llvm15SmallVectorImplIPNS_14IdentifierInfoEEERNS2_IPNS_4ExprEEESA_'/>

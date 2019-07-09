@@ -1,0 +1,44 @@
+<dec f='llvm/clang/include/clang/Frontend/CompilerInstance.h' l='228' type='bool clang::CompilerInstance::ExecuteAction(clang::FrontendAction &amp; Act)'/>
+<doc f='llvm/clang/include/clang/Frontend/CompilerInstance.h' l='195'>/// @name High-Level Operations
+  /// {
+
+  /// ExecuteAction - Execute the provided action against the compiler&apos;s
+  /// CompilerInvocation object.
+  ///
+  /// This function makes the following assumptions:
+  ///
+  ///  - The invocation options should be initialized. This function does not
+  ///    handle the &apos;-help&apos; or &apos;-version&apos; options, clients should handle those
+  ///    directly.
+  ///
+  ///  - The diagnostics engine should have already been created by the client.
+  ///
+  ///  - No other CompilerInstance state should have been initialized (this is
+  ///    an unchecked error).
+  ///
+  ///  - Clients should have initialized any LLVM target features that may be
+  ///    required.
+  ///
+  ///  - Clients should eventually call llvm_shutdown() upon the completion of
+  ///    this routine to ensure that any managed objects are properly destroyed.
+  ///
+  /// Note that this routine may write output to &apos;stderr&apos;.
+  ///
+  /// \param Act - The action to execute.
+  /// \return - True on success.
+  //
+  // FIXME: This function should take the stream to write any debugging /
+  // verbose output to as an argument.
+  //
+  // FIXME: Eliminate the llvm_shutdown requirement, that should either be part
+  // of the context or else not CompilerInstance specific.</doc>
+<use f='llvm/clang/examples/clang-interpreter/main.cpp' l='200' u='c' c='main'/>
+<def f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='886' ll='1002' type='bool clang::CompilerInstance::ExecuteAction(clang::FrontendAction &amp; Act)'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='1130' u='c' c='_ZL17compileModuleImplRN5clang16CompilerInstanceENS_14SourceLocationEN4llvm9StringRefENS_17FrontendInputFileES4_S4_NS3_12function_refIFvS1_EEES8_'/>
+<doc f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='884'>// High-Level Operations</doc>
+<use f='llvm/clang/lib/Frontend/Rewrite/FrontendActions.cpp' l='258' u='c' c='_ZN5clang21RewriteIncludesAction22RewriteImportsListener15visitModuleFileEN4llvm9StringRefENS_13serialization10ModuleKindE'/>
+<use f='llvm/clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp' l='287' u='c' c='_ZN5clang25ExecuteCompilerInvocationEPNS_16CompilerInstanceE'/>
+<use f='llvm/clang/lib/Tooling/Tooling.cpp' l='369' u='c' c='_ZN5clang7tooling21FrontendActionFactory13runInvocationESt10shared_ptrINS_18CompilerInvocationEEPNS_11FileManagerES2_INS_22PCHContainerOperationsEEPNS9174026'/>
+<use f='llvm/clang/tools/clang-scan-deps/ClangScanDeps.cpp' l='57' u='c' c='_ZN12_GLOBAL__N_120PreprocessorOnlyTool13runInvocationESt10shared_ptrIN5clang18CompilerInvocationEEPNS2_11FileManagerES1_INS2_22PCHContainerOperations8323442'/>
+<use f='llvm/clang/unittests/AST/ExternalASTSourceTest.cpp' l='61' u='c' c='_Z21testExternalASTSourcePN5clang17ExternalASTSourceEN4llvm9StringRefE'/>
+<use f='llvm/clang/unittests/Tooling/Syntax/TokensTest.cpp' l='129' u='c' c='_ZN12_GLOBAL__N_118TokenCollectorTest12recordTokensEN4llvm9StringRefE'/>

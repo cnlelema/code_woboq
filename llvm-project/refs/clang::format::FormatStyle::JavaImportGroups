@@ -1,0 +1,38 @@
+<dec f='llvm/clang/include/clang/Format/Format.h' l='1317' type='std::vector&lt;std::string&gt;'/>
+<use f='llvm/clang/include/clang/Format/Format.h' l='1948' u='r' c='_ZNK5clang6format11FormatStyleeqERKS1_'/>
+<use f='llvm/clang/include/clang/Format/Format.h' l='1948' u='r' c='_ZNK5clang6format11FormatStyleeqERKS1_'/>
+<offset>2688</offset>
+<doc f='llvm/clang/include/clang/Format/Format.h' l='1288'>/// A vector of prefixes ordered by the desired groups for Java imports.
+  ///
+  /// Each group is separated by a newline. Static imports will also follow the
+  /// same grouping convention above all non-static imports. One group&apos;s prefix
+  /// can be a subset of another - the longest prefix is always matched. Within
+  /// a group, the imports are ordered lexicographically.
+  ///
+  /// In the .clang-format configuration file, this can be configured like
+  /// in the following yaml example. This will result in imports being
+  /// formatted as in the Java example below.
+  /// \code{.yaml}
+  ///   JavaImportGroups: [&apos;com.example&apos;, &apos;com&apos;, &apos;org&apos;]
+  /// \endcode
+  ///
+  /// \code{.java}
+  ///    import static com.example.function1;
+  ///
+  ///    import static com.test.function2;
+  ///
+  ///    import static org.example.function3;
+  ///
+  ///    import com.example.ClassA;
+  ///    import com.example.Test;
+  ///    import com.example.a.ClassB;
+  ///
+  ///    import com.test.ClassC;
+  ///
+  ///    import org.example.ClassD;
+  /// \endcode</doc>
+<use f='llvm/clang/lib/Format/Format.cpp' l='449' u='a' c='_ZN4llvm4yaml13MappingTraitsIN5clang6format11FormatStyleEE7mappingERNS0_2IOERS4_'/>
+<use f='llvm/clang/lib/Format/Format.cpp' l='906' u='w' c='_ZN5clang6format16getChromiumStyleENS0_11FormatStyle12LanguageKindE'/>
+<use f='llvm/clang/lib/Format/Format.cpp' l='1930' u='m' c='_ZN5clang6formatL19findJavaImportGroupERKNS0_11FormatStyleEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Format/Format.cpp' l='1931' u='m' c='_ZN5clang6formatL19findJavaImportGroupERKNS0_11FormatStyleEN4llvm9StringRefE'/>
+<use f='llvm/clang/unittests/Format/SortImportsTestJava.cpp' l='34' u='w' c='_ZN5clang6format12_GLOBAL__N_119SortImportsTestJavaC1Ev'/>

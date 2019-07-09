@@ -1,0 +1,18 @@
+<def f='llvm/llvm/include/llvm/ADT/EpochTracker.h' l='57' ll='76'/>
+<ovr f='llvm/llvm/include/llvm/ADT/DenseMap.h' l='1178' c='llvm::DenseMapIterator'/>
+<ovr f='llvm/llvm/include/llvm/ADT/SmallPtrSet.h' l='266' c='llvm::SmallPtrSetIterator'/>
+<size>16</size>
+<doc f='llvm/llvm/include/llvm/ADT/EpochTracker.h' l='49'>/// A base class for iterator classes (&quot;handles&quot;) that wish to poll for
+  /// iterator invalidating modifications in the underlying data structure.
+  /// When LLVM is built without asserts, this class is empty and does nothing.
+  ///
+  /// HandleBase does not track the parent data structure by itself.  It expects
+  /// the routines modifying the data structure to call incrementEpoch when they
+  /// make an iterator-invalidating modification.
+  ///</doc>
+<mbr r='llvm::DebugEpochBase::HandleBase::EpochAddress' o='0' t='const uint64_t *'/>
+<mbr r='llvm::DebugEpochBase::HandleBase::EpochAtCreation' o='64' t='uint64_t'/>
+<fun r='_ZN4llvm14DebugEpochBase10HandleBaseC1Ev'/>
+<fun r='_ZN4llvm14DebugEpochBase10HandleBaseC1EPKS0_'/>
+<fun r='_ZNK4llvm14DebugEpochBase10HandleBase14isHandleInSyncEv'/>
+<fun r='_ZNK4llvm14DebugEpochBase10HandleBase15getEpochAddressEv'/>

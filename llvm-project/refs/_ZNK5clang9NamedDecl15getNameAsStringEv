@@ -1,0 +1,36 @@
+<def f='llvm/clang/include/clang/AST/Decl.h' l='291' type='std::string clang::NamedDecl::getNameAsString() const'/>
+<doc f='llvm/clang/include/clang/AST/Decl.h' l='280'>/// Get a human-readable name for the declaration, even if it is one of the
+  /// special kinds of names (C++ constructor, Objective-C selector, etc).
+  ///
+  /// Creating this name requires expensive string manipulation, so it should
+  /// be called only when performance doesn&apos;t matter. For simple declarations,
+  /// getNameAsCString() should suffice.
+  //
+  // FIXME: This function should be renamed to indicate that it is not just an
+  // alternate form of getName(), and clients should move as appropriate.
+  //
+  // FIXME: Deprecated, move clients to getName().</doc>
+<use f='llvm/clang/examples/PrintFunctionNames/PrintFunctionNames.cpp' l='38' u='c' c='_ZN12_GLOBAL__N_122PrintFunctionsConsumer18HandleTopLevelDeclEN5clang12DeclGroupRefE'/>
+<use f='llvm/clang/lib/AST/JSONNodeDumper.cpp' l='485' u='c' c='_ZN5clang14JSONNodeDumper14VisitNamedDeclEPKNS_9NamedDeclE'/>
+<use f='llvm/clang/lib/AST/TextNodeDumper.cpp' l='427' u='c' c='_ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE'/>
+<use f='llvm/clang/lib/Analysis/CallGraph.cpp' l='234' u='c' c='_ZN4llvm14DOTGraphTraitsIPKN5clang9CallGraphEE12getNodeLabelEPKNS1_13CallGraphNodeES4_'/>
+<use f='llvm/clang/lib/Analysis/ThreadSafety.cpp' l='1632' u='c' c='_ZN12_GLOBAL__N_112BuildLockset18warnIfMutexNotHeldEPKN5clang9NamedDeclEPKNS1_4ExprENS1_12threadSafety10AccessKindEPS5_NS8_22ProtectedOperationKindEN42126717'/>
+<use f='llvm/clang/lib/Analysis/ThreadSafety.cpp' l='1689' u='c' c='_ZN12_GLOBAL__N_112BuildLockset15warnIfMutexHeldEPKN5clang9NamedDeclEPKNS1_4ExprEPS5_N4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Frontend/FrontendAction.cpp' l='117' u='c' c='_ZN12_GLOBAL__N_124DeserializedDeclsChecker8DeclReadEjPKN5clang4DeclE'/>
+<use f='llvm/clang/lib/Frontend/FrontendAction.cpp' l='122' u='c' c='_ZN12_GLOBAL__N_124DeserializedDeclsChecker8DeclReadEjPKN5clang4DeclE'/>
+<use f='llvm/clang/lib/Index/FileIndexRecord.cpp' l='54' u='c' c='_ZNK5clang5index15FileIndexRecord5printERN4llvm11raw_ostreamE'/>
+<use f='llvm/clang/lib/Sema/SemaCodeComplete.cpp' l='3157' u='c' c='_ZL17AddTypedNameChunkRN5clang10ASTContextERKNS_14PrintingPolicyEPKNS_9NamedDeclERNS_21CodeCompletionBuilderE'/>
+<use f='llvm/clang/lib/Sema/SemaCodeComplete.cpp' l='3176' u='c' c='_ZL17AddTypedNameChunkRN5clang10ASTContextERKNS_14PrintingPolicyEPKNS_9NamedDeclERNS_21CodeCompletionBuilderE'/>
+<use f='llvm/clang/lib/Sema/SemaCodeComplete.cpp' l='3343' u='c' c='_ZN5clang20CodeCompletionResult33createCodeCompletionStringForDeclERNS_12PreprocessorERNS_10ASTContextERNS_21CodeCompletionBuilderEbRKNS_21CodeComplet12797221'/>
+<use f='llvm/clang/lib/Sema/SemaCodeComplete.cpp' l='3523' u='c' c='_ZN5clang20CodeCompletionResult33createCodeCompletionStringForDeclERNS_12PreprocessorERNS_10ASTContextERNS_21CodeCompletionBuilderEbRKNS_21CodeComplet12797221'/>
+<use f='llvm/clang/lib/Tooling/Refactoring/ASTSelection.cpp' l='222' u='c' c='_ZL4dumpRKN5clang7tooling15SelectedASTNodeERN4llvm11raw_ostreamEj'/>
+<use f='llvm/clang/lib/Tooling/Refactoring/Rename/RenamingAction.cpp' l='49' u='c' c='_ZN5clang7tooling12_GLOBAL__N_121findSymbolOccurrencesEPKNS_9NamedDeclERNS0_22RefactoringRuleContextE'/>
+<use f='llvm/clang/include/clang/Tooling/Refactoring/RecursiveSymbolVisitor.h' l='126' u='c' c='_ZN5clang7tooling22RecursiveSymbolVisitor5visitEPKNS_9NamedDeclENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Tooling/Refactoring/Rename/USRFindingAction.cpp' l='240' u='c' c='_ZN5clang7tooling24NamedDeclFindingConsumer10FindSymbolERNS_10ASTContextERKNS_13SourceManagerEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='4505' u='c' c='clang_getCursorSpelling'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='4526' u='c' c='clang_getCursorSpelling'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='4535' u='c' c='clang_getCursorSpelling'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersTest.h' l='356' u='c' c='_ZN5clang12ast_matchers17VerifyIdIsBoundTo3runEPKNS0_10BoundNodesE'/>
+<use f='llvm/clang/unittests/Tooling/LexicallyOrderedRecursiveASTVisitorTest.cpp' l='82' u='c' c='_ZN12_GLOBAL__N_127LexicallyOrderedDeclVisitor14VisitNamedDeclEPKN5clang9NamedDeclE'/>
+<use f='llvm/clang/unittests/Tooling/LexicallyOrderedRecursiveASTVisitorTest.cpp' l='95' u='c' c='_ZN12_GLOBAL__N_127LexicallyOrderedDeclVisitor16VisitDeclRefExprEPKN5clang11DeclRefExprE'/>
+<use f='llvm/clang/unittests/Tooling/ToolingTest.cpp' l='244' u='c' c='_ZN5clang7tooling16SkipBodyConsumer22shouldSkipFunctionBodyEPNS_4DeclE'/>

@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='222' type='bool llvm::simplifyCFG(llvm::BasicBlock * BB, const llvm::TargetTransformInfo &amp; TTI, const llvm::SimplifyCFGOptions &amp; Options = {}, SmallPtrSetImpl&lt;llvm::BasicBlock *&gt; * LoopHeaders = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='216'>/// This function is used to do simplification of a CFG.  For example, it
+/// adjusts branches to branches to eliminate the extra hop, it eliminates
+/// unreachable basic blocks, and does other peephole optimization of the CFG.
+/// It returns true if a modification was made, possibly deleting the basic
+/// block that was pointed to. LoopHeaders is an optional input parameter
+/// providing the set of loop headers that SimplifyCFG should not eliminate.</doc>
+<use f='llvm/llvm/lib/CodeGen/DwarfEHPrepare.cpp' l='174' u='c' c='_ZN12_GLOBAL__N_114DwarfEHPrepare23pruneUnreachableResumesERN4llvm8FunctionERNS1_15SmallVectorImplIPNS1_10ResumeInstEEERNS4_IPNS1_14LandingPadInstEEE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUUnifyDivergentExitNodes.cpp' l='154' u='c' c='_ZL19unifyReturnBlockSetRN4llvm8FunctionENS_8ArrayRefIPNS_10BasicBlockEEERKNS_19TargetTransformInfoENS_9StringRefE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SimplifyCFGPass.cpp' l='163' u='c' c='_ZL22iterativelySimplifyCFGRN4llvm8FunctionERKNS_19TargetTransformInfoERKNS_18SimplifyCFGOptionsE'/>
+<def f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='6138' ll='6144' type='bool llvm::simplifyCFG(llvm::BasicBlock * BB, const llvm::TargetTransformInfo &amp; TTI, const llvm::SimplifyCFGOptions &amp; Options = {}, SmallPtrSetImpl&lt;llvm::BasicBlock *&gt; * LoopHeaders = nullptr)'/>
+<use f='llvm/llvm/tools/bugpoint/CrashDebugger.cpp' l='699' u='c' c='_ZN12_GLOBAL__N_117ReduceSimplifyCFG10TestBlocksERSt6vectorIPKN4llvm10BasicBlockESaIS5_EE'/>

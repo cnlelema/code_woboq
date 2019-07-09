@@ -1,0 +1,21 @@
+<dec f='llvm/llvm/include/llvm/IRReader/IRReader.h' l='67' type='std::unique_ptr&lt;Module&gt; llvm::parseIRFile(llvm::StringRef Filename, llvm::SMDiagnostic &amp; Err, llvm::LLVMContext &amp; Context, bool UpgradeDebugInfo = true, llvm::StringRef DataLayoutString = &quot;&quot;)'/>
+<doc f='llvm/llvm/include/llvm/IRReader/IRReader.h' l='60'>/// If the given file holds a bitcode image, return a Module for it.
+/// Otherwise, attempt to parse it as LLVM Assembly and return a Module
+/// for it.
+/// \param UpgradeDebugInfo Run UpgradeDebugInfo, which runs the Verifier.
+///                         This option should only be set to false by llvm-as
+///                         for use inside the LLVM testuite!
+/// \param DataLayoutString Override datalayout in the llvm assembly.</doc>
+<def f='llvm/llvm/lib/IRReader/IRReader.cpp' l='95' ll='109' type='std::unique_ptr&lt;Module&gt; llvm::parseIRFile(llvm::StringRef Filename, llvm::SMDiagnostic &amp; Err, llvm::LLVMContext &amp; Context, bool UpgradeDebugInfo = true, llvm::StringRef DataLayoutString = &quot;&quot;)'/>
+<use f='llvm/llvm/tools/bugpoint/BugDriver.cpp' l='95' u='c' c='_ZN4llvm14parseInputFileENS_9StringRefERNS_11LLVMContextE'/>
+<use f='llvm/llvm/tools/llc/llc.cpp' l='420' u='c' c='_ZL13compileModulePPcRN4llvm11LLVMContextE'/>
+<use f='llvm/llvm/tools/lli/lli.cpp' l='390' u='c' c='main'/>
+<use f='llvm/llvm/tools/lli/lli.cpp' l='472' u='c' c='main'/>
+<use f='llvm/llvm/tools/lli/lli.cpp' l='761' u='c' c='_Z13runOrcLazyJITPKc'/>
+<use f='llvm/llvm/tools/lli/lli.cpp' l='832' u='c' c='_Z13runOrcLazyJITPKc'/>
+<use f='llvm/llvm/tools/llvm-cat/llvm-cat.cpp' l='76' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-diff/llvm-diff.cpp' l='35' u='c' c='_ZL10readModuleRN4llvm11LLVMContextENS_9StringRefE'/>
+<use f='llvm/llvm/tools/llvm-link/llvm-link.cpp' l='125' u='c' c='_ZL8loadFilePKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm11LLVMContextEb'/>
+<use f='llvm/llvm/tools/llvm-split/llvm-split.cpp' l='47' u='c' c='main'/>
+<use f='llvm/llvm/tools/opt/opt.cpp' l='584' u='c' c='main'/>
+<use f='llvm/llvm/tools/verify-uselistorder/verify-uselistorder.cpp' l='540' u='c' c='main'/>

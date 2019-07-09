@@ -1,0 +1,49 @@
+<dec f='llvm/llvm/lib/AsmParser/LLParser.h' l='283' type='bool llvm::LLParser::ParseOptionalCallingConv(unsigned int &amp; CC)'/>
+<def f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='1962' ll='2015' type='bool llvm::LLParser::ParseOptionalCallingConv(unsigned int &amp; CC)'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='5291' u='c' c='_ZN4llvm8LLParser19ParseFunctionHeaderERPNS_8FunctionEb'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='6013' u='c' c='_ZN4llvm8LLParser11ParseInvokeERPNS_11InstructionERNS0_16PerFunctionStateE'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='6323' u='c' c='_ZN4llvm8LLParser11ParseCallBrERPNS_11InstructionERNS0_16PerFunctionStateE'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='6741' u='c' c='_ZN4llvm8LLParser9ParseCallERPNS_11InstructionERNS0_16PerFunctionStateENS_8CallInst12TailCallKindE'/>
+<doc f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='1919'>/// ParseOptionalCallingConv
+///   ::= /*empty*/
+///   ::= &apos;ccc&apos;
+///   ::= &apos;fastcc&apos;
+///   ::= &apos;intel_ocl_bicc&apos;
+///   ::= &apos;coldcc&apos;
+///   ::= &apos;x86_stdcallcc&apos;
+///   ::= &apos;x86_fastcallcc&apos;
+///   ::= &apos;x86_thiscallcc&apos;
+///   ::= &apos;x86_vectorcallcc&apos;
+///   ::= &apos;arm_apcscc&apos;
+///   ::= &apos;arm_aapcscc&apos;
+///   ::= &apos;arm_aapcs_vfpcc&apos;
+///   ::= &apos;aarch64_vector_pcs&apos;
+///   ::= &apos;msp430_intrcc&apos;
+///   ::= &apos;avr_intrcc&apos;
+///   ::= &apos;avr_signalcc&apos;
+///   ::= &apos;ptx_kernel&apos;
+///   ::= &apos;ptx_device&apos;
+///   ::= &apos;spir_func&apos;
+///   ::= &apos;spir_kernel&apos;
+///   ::= &apos;x86_64_sysvcc&apos;
+///   ::= &apos;win64cc&apos;
+///   ::= &apos;webkit_jscc&apos;
+///   ::= &apos;anyregcc&apos;
+///   ::= &apos;preserve_mostcc&apos;
+///   ::= &apos;preserve_allcc&apos;
+///   ::= &apos;ghccc&apos;
+///   ::= &apos;swiftcc&apos;
+///   ::= &apos;x86_intrcc&apos;
+///   ::= &apos;hhvmcc&apos;
+///   ::= &apos;hhvm_ccc&apos;
+///   ::= &apos;cxx_fast_tlscc&apos;
+///   ::= &apos;amdgpu_vs&apos;
+///   ::= &apos;amdgpu_ls&apos;
+///   ::= &apos;amdgpu_hs&apos;
+///   ::= &apos;amdgpu_es&apos;
+///   ::= &apos;amdgpu_gs&apos;
+///   ::= &apos;amdgpu_ps&apos;
+///   ::= &apos;amdgpu_cs&apos;
+///   ::= &apos;amdgpu_kernel&apos;
+///   ::= &apos;cc&apos; UINT
+///</doc>

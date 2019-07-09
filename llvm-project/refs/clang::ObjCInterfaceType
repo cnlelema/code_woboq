@@ -1,0 +1,21 @@
+<inh f='llvm/clang/include/clang/AST/Type.h' l='5622' c='clang::ObjCObjectType'/>
+<def f='llvm/clang/include/clang/AST/Type.h' l='5822' ll='5855'/>
+<size>48</size>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='5810'>/// Interfaces are the core concept in Objective-C for object oriented design.
+/// They basically correspond to C++ classes.  There are two kinds of interface
+/// types: normal interfaces like `NSString`, and qualified interfaces, which
+/// are qualified with a protocol list like `NSString&lt;NSCopyable, NSAmazing&gt;`.
+///
+/// ObjCInterfaceType guarantees the following properties when considered
+/// as a subtype of its superclass, ObjCObjectType:
+///   - There are no protocol qualifiers.  To reinforce this, code which
+///     tries to invoke the protocol methods via an ObjCInterfaceType will
+///     fail to compile.
+///   - It is its own base type.  That is, if T is an ObjCInterfaceType*,
+///     T-&gt;getBaseType() == QualType(T, 0).</doc>
+<mbr r='clang::ObjCInterfaceType::Decl' o='320' t='clang::ObjCInterfaceDecl *'/>
+<fun r='_ZN5clang17ObjCInterfaceTypeC1EPKNS_17ObjCInterfaceDeclE'/>
+<fun r='_ZNK5clang17ObjCInterfaceType7getDeclEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceType9isSugaredEv'/>
+<fun r='_ZNK5clang17ObjCInterfaceType7desugarEv'/>
+<fun r='_ZN5clang17ObjCInterfaceType7classofEPKNS_4TypeE'/>

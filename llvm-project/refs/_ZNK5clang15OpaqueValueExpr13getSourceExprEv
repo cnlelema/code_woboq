@@ -1,0 +1,68 @@
+<def f='llvm/clang/include/clang/AST/Expr.h' l='1054' type='clang::Expr * clang::OpaqueValueExpr::getSourceExpr() const'/>
+<use f='llvm/clang/include/clang/AST/Expr.h' l='3750' u='c' c='_ZN5clang25BinaryConditionalOperatorC1EPNS_4ExprEPNS_15OpaqueValueExprES2_S2_S2_NS_14SourceLocationES5_NS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE'/>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='1046'>/// The source expression of an opaque value expression is the
+  /// expression which originally generated the value.  This is
+  /// provided as a convenience for analyses that don&apos;t wish to
+  /// precisely model the execution behavior of the program.
+  ///
+  /// The source expression is typically set when building the
+  /// expression which binds the opaque value expression in the first
+  /// place.</doc>
+<use f='llvm/clang/include/clang/AST/RecursiveASTVisitor.h' l='2340' u='c' c='_ZN5clang19RecursiveASTVisitor24TraversePseudoObjectExprEPNS_16PseudoObjectExprEPN4llvm15SmallVectorImplINS3_14PointerIntPairIPNS_4StmtELj1EbNS3_21Poi10075871'/>
+<use f='llvm/clang/include/clang/AST/RecursiveASTVisitor.h' l='2518' u='c' c='_ZN5clang19RecursiveASTVisitor25TraverseArrayInitLoopExprEPNS_17ArrayInitLoopExprEPN4llvm15SmallVectorImplINS3_14PointerIntPairIPNS_4StmtELj1EbNS3_21P8711161'/>
+<use f='llvm/clang/include/clang/AST/RecursiveASTVisitor.h' l='2518' u='c' c='_ZN5clang19RecursiveASTVisitor25TraverseArrayInitLoopExprEPNS_17ArrayInitLoopExprEPN4llvm15SmallVectorImplINS3_14PointerIntPairIPNS_4StmtELj1EbNS3_21P8711161'/>
+<use f='llvm/clang/include/clang/AST/ASTNodeTraverser.h' l='607' u='c' c='_ZN5clang16ASTNodeTraverser20VisitOpaqueValueExprEPKNS_15OpaqueValueExprE'/>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='6564' u='c' c='_ZN5clang15ASTNodeImporter20VisitOpaqueValueExprEPNS_15OpaqueValueExprE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='3666' u='c' c='_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE'/>
+<use f='llvm/clang/lib/AST/Expr.cpp' l='4334' u='c' c='_ZN5clang16PseudoObjectExprC1ENS_8QualTypeENS_13ExprValueKindEPNS_4ExprEN4llvm8ArrayRefIS4_EEj'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='5561' u='c' c='_ZN12_GLOBAL__N_117ExprEvaluatorBase20VisitOpaqueValueExprEPKN5clang15OpaqueValueExprE'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='8059' u='c' c='_ZN12_GLOBAL__N_118ArrayExprEvaluator22VisitArrayInitLoopExprEPKN5clang17ArrayInitLoopExprE'/>
+<use f='llvm/clang/lib/AST/StmtPrinter.cpp' l='2389' u='c' c='_ZN12_GLOBAL__N_111StmtPrinter20VisitOpaqueValueExprEPN5clang15OpaqueValueExprE'/>
+<use f='llvm/clang/include/clang/ASTMatchers/ASTMatchersInternal.h' l='1789' u='c' c='_ZN5clang12ast_matchers8internal26GetSourceExpressionMatcher3getERKT_'/>
+<use f='llvm/clang/lib/Analysis/AnalysisDeclContext.cpp' l='619' u='c' c='_ZN12_GLOBAL__N_125FindBlockDeclRefExprsVals21VisitPseudoObjectExprEPN5clang16PseudoObjectExprE'/>
+<use f='llvm/clang/lib/Analysis/CFG.cpp' l='3546' u='c' c='_ZN12_GLOBAL__N_110CFGBuilder21VisitPseudoObjectExprEPN5clang16PseudoObjectExprE'/>
+<use f='llvm/clang/lib/Analysis/LiveVariables.cpp' l='245' u='c' c='_ZL15LookThroughStmtPKN5clang4StmtE'/>
+<use f='llvm/clang/lib/Analysis/UninitializedValues.cpp' l='399' u='c' c='_ZN12_GLOBAL__N_112ClassifyRefs8classifyEPKN5clang4ExprENS0_5ClassE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenFunction.h' l='1173' u='c' c='_ZN5clang7CodeGen15CodeGenFunction18OpaqueValueMappingC1ERS1_PKNS_15OpaqueValueExprE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenFunction.h' l='1175' u='c' c='_ZN5clang7CodeGen15CodeGenFunction18OpaqueValueMappingC1ERS1_PKNS_15OpaqueValueExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='5275' u='c' c='_ZN5clang7CodeGen15CodeGenFunction30getOrCreateOpaqueLValueMappingEPKNS_15OpaqueValueExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='5289' u='c' c='_ZN5clang7CodeGen15CodeGenFunction30getOrCreateOpaqueRValueMappingEPKNS_15OpaqueValueExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='5981' u='c' c='_ZL20emitPseudoObjectExprRN5clang7CodeGen15CodeGenFunctionEPKNS_16PseudoObjectExprEbNS0_12AggValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='5989' u='c' c='_ZL20emitPseudoObjectExprRN5clang7CodeGen15CodeGenFunctionEPKNS_16PseudoObjectExprEbNS0_12AggValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprAgg.cpp' l='643' u='c' c='_ZN12_GLOBAL__N_114AggExprEmitter20VisitOpaqueValueExprEPN5clang15OpaqueValueExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprAgg.cpp' l='1091' u='c' c='_ZL13isBlockVarRefPKN5clang4ExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprCXX.cpp' l='2099' u='c' c='_ZL25isGLValueFromPointerDerefPKN5clang4ExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGObjC.cpp' l='294' u='c' c='_ZL42shouldExtendReceiverForInnerPointerMessagePKN5clang15ObjCMessageExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGObjC.cpp' l='295' u='c' c='_ZL42shouldExtendReceiverForInnerPointerMessagePKN5clang15ObjCMessageExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGObjC.cpp' l='304' u='c' c='_ZL42shouldExtendReceiverForInnerPointerMessagePKN5clang15ObjCMessageExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGObjC.cpp' l='305' u='c' c='_ZL42shouldExtendReceiverForInnerPointerMessagePKN5clang15ObjCMessageExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGObjC.cpp' l='2950' u='c' c='_ZN12_GLOBAL__N_114ARCExprEmitter21visitPseudoObjectExprEPKN5clang16PseudoObjectExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGObjC.cpp' l='2956' u='c' c='_ZN12_GLOBAL__N_114ARCExprEmitter21visitPseudoObjectExprEPKN5clang16PseudoObjectExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='783' u='c' c='_ZL16getReductionInitPKN5clang4ExprE'/>
+<use f='llvm/clang/lib/CodeGen/CGOpenMPRuntime.cpp' l='5523' u='c' c='_ZL21emitReductionCombinerRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/ScopeInfo.cpp' l='121' u='c' c='_ZN5clang4sema17FunctionScopeInfo19WeakObjectProfileTyC1EPKNS_19ObjCPropertyRefExprE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='10261' u='c' c='_ZL12GetExprRangeRN5clang10ASTContextEPKNS_4ExprEj'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='11690' u='c' c='_ZL26AnalyzeImplicitConversionsRN5clang4SemaEPNS_4ExprENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='13133' u='c' c='_ZL20findRetainCycleOwnerRN5clang4SemaEPNS_4ExprERN12_GLOBAL__N_116RetainCycleOwnerE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='13175' u='c' c='_ZN12_GLOBAL__N_118FindCaptureVisitor20VisitOpaqueValueExprEPN5clang15OpaqueValueExprE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='13176' u='c' c='_ZN12_GLOBAL__N_118FindCaptureVisitor20VisitOpaqueValueExprEPN5clang15OpaqueValueExprE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='13386' u='c' c='_ZN5clang4Sema26CheckObjCCircularContainerEPNS_15ObjCMessageExprE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='13401' u='c' c='_ZN5clang4Sema26CheckObjCCircularContainerEPNS_15ObjCMessageExprE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='10784' u='c' c='_ZN12_GLOBAL__N_120SelfReferenceChecker11HandleValueEPN5clang4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='130' u='c' c='_ZN12_GLOBAL__N_127CheckDefaultArgumentVisitor21VisitPseudoObjectExprEPN5clang16PseudoObjectExprE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='3432' u='c' c='_ZN12_GLOBAL__N_125UninitializedFieldVisitor11HandleValueEPN5clang4ExprEb'/>
+<use f='llvm/clang/lib/Sema/TreeTransform.h' l='9416' u='c' c='_ZN5clang13TreeTransform24TransformOpaqueValueExprEPNS_15OpaqueValueExprE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='14420' u='c' c='_ZN5clang4Sema34ConversionToObjCStringLiteralCheckENS_8QualTypeERPNS_4ExprEb'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='14421' u='c' c='_ZN5clang4Sema34ConversionToObjCStringLiteralCheckENS_8QualTypeERPNS_4ExprEb'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='7308' u='c' c='_ZL23IsSpecialDiscardedValuePN5clang4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaPseudoObject.cpp' l='930' u='c' c='_ZN12_GLOBAL__N_121ObjCPropertyOpBuilder24buildAssignmentOperationEPN5clang5ScopeENS1_14SourceLocationENS1_18BinaryOperatorKindEPNS1_4ExprES7_'/>
+<use f='llvm/clang/lib/Sema/SemaPseudoObject.cpp' l='1019' u='c' c='_ZN12_GLOBAL__N_122ObjCSubscriptOpBuilder24buildAssignmentOperationEPN5clang5ScopeENS1_14SourceLocationENS1_18BinaryOperatorKindEPNS1_4ExprES7_'/>
+<use f='llvm/clang/lib/Sema/SemaPseudoObject.cpp' l='1634' u='c' c='_ZL36stripOpaqueValuesFromPseudoObjectRefRN5clang4SemaEPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaPseudoObject.cpp' l='1655' u='c' c='_ZN5clang4Sema21recreateSyntacticFormEPNS_16PseudoObjectExprE'/>
+<use f='llvm/clang/lib/Sema/SemaPseudoObject.cpp' l='1666' u='c' c='_ZN5clang4Sema21recreateSyntacticFormEPNS_16PseudoObjectExprE'/>
+<use f='llvm/clang/lib/Sema/SemaStmt.cpp' l='1387' u='c' c='_ZN12_GLOBAL__N_113DeclExtractor30VisitBinaryConditionalOperatorEPN5clang25BinaryConditionalOperatorE'/>
+<use f='llvm/clang/lib/Sema/SemaStmt.cpp' l='1464' u='c' c='_ZN12_GLOBAL__N_111DeclMatcher23CheckLValueToRValueCastEPN5clang4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaStmt.cpp' l='1484' u='c' c='_ZN12_GLOBAL__N_111DeclMatcher21VisitPseudoObjectExprEPN5clang16PseudoObjectExprE'/>
+<use f='llvm/clang/lib/Serialization/ASTWriterStmt.cpp' l='1816' u='c' c='_ZN5clang13ASTStmtWriter20VisitOpaqueValueExprEPNS_15OpaqueValueExprE'/>
+<use f='llvm/clang/lib/Tooling/Refactoring/ASTSelection.cpp' l='75' u='c' c='_ZN12_GLOBAL__N_118ASTSelectionFinder23TraverseOpaqueValueExprEPN5clang15OpaqueValueExprE'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='4333' u='c' c='_ZL15getDeclFromExprPKN5clang4StmtE'/>

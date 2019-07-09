@@ -1,0 +1,19 @@
+<dec f='llvm/llvm/include/llvm/Bitcode/BitcodeWriter.h' l='150' type='void llvm::WriteIndexToFile(const llvm::ModuleSummaryIndex &amp; Index, llvm::raw_ostream &amp; Out, const std::map&lt;std::string, GVSummaryMapTy&gt; * ModuleToSummariesForIndex = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Bitcode/BitcodeWriter.h' l='145'>/// Write the specified module summary index to the given raw output stream,
+  /// where it will be written in a new bitcode block. This is used when
+  /// writing the combined index file for ThinLTO. When writing a subset of the
+  /// index for a distributed backend, provide the \p ModuleToSummariesForIndex
+  /// map.</doc>
+<use f='llvm/lld/ELF/LTO.cpp' l='224' u='c' c='_ZL28thinLTOCreateEmptyIndexFilesv'/>
+<def f='llvm/llvm/lib/Bitcode/Writer/BitcodeWriter.cpp' l='4404' ll='4415' type='void llvm::WriteIndexToFile(const llvm::ModuleSummaryIndex &amp; Index, llvm::raw_ostream &amp; Out, const std::map&lt;std::string, GVSummaryMapTy&gt; * ModuleToSummariesForIndex = nullptr)'/>
+<doc f='llvm/llvm/lib/Bitcode/Writer/BitcodeWriter.cpp' l='4400'>// Write the specified module summary index to the given raw output stream,
+// where it will be written in a new bitcode block. This is used when
+// writing the combined index file for ThinLTO. When writing a subset of the
+// index for a distributed backend, provide a \p ModuleToSummariesForIndex map.</doc>
+<use f='llvm/llvm/lib/LTO/LTO.cpp' l='1207' u='c' c='_ZN12_GLOBAL__N_123WriteIndexesThinBackend5startEjN4llvm13BitcodeModuleERKNS1_9StringMapISt13unordered_setImSt4hashImESt8equal_toImESaImEENS1_15Malloc8350808'/>
+<use f='llvm/llvm/lib/LTO/LTOBackend.cpp' l='110' u='c' c='_ZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb'/>
+<use f='llvm/llvm/lib/LTO/ThinLTOCodeGenerator.cpp' l='908' u='c' c='_ZN4llvm20ThinLTOCodeGenerator3runEv'/>
+<use f='llvm/llvm/tools/llvm-as/llvm-as.cpp' l='107' u='c' c='_ZL15WriteOutputFilePKN4llvm6ModuleEPKNS_18ModuleSummaryIndexE'/>
+<use f='llvm/llvm/tools/llvm-lto/llvm-lto.cpp' l='425' u='c' c='_ZL32createCombinedModuleSummaryIndexv'/>
+<use f='llvm/llvm/tools/llvm-lto/llvm-lto.cpp' l='586' u='c' c='_ZN7thinlto17ThinLTOProcessing8thinLinkEv'/>
+<use f='llvm/llvm/tools/llvm-lto/llvm-lto.cpp' l='624' u='c' c='_ZN7thinlto17ThinLTOProcessing18distributedIndexesEv'/>

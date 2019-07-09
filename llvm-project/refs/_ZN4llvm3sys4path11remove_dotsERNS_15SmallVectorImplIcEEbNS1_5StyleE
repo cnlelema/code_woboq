@@ -1,0 +1,36 @@
+<dec f='llvm/llvm/include/llvm/Support/Path.h' l='451' type='bool llvm::sys::path::remove_dots(SmallVectorImpl&lt;char&gt; &amp; path, bool remove_dot_dot = false, llvm::sys::path::Style style = Style::native)'/>
+<doc f='llvm/llvm/include/llvm/Support/Path.h' l='445'>/// In-place remove any &apos;./&apos; and optionally &apos;../&apos; components from a path.
+///
+/// @param path processed path
+/// @param remove_dot_dot specify if &apos;../&apos; (except for leading &quot;../&quot;) should be
+/// removed
+/// @result True if path was changed</doc>
+<use f='llvm/clang/lib/Basic/FileManager.cpp' l='373' u='c' c='_ZN5clang11FileManager16fillRealPathNameEPNS_9FileEntryEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/CodeGen/CoverageMappingGen.cpp' l='1284' u='c' c='_ZN12_GLOBAL__N_117normalizeFilenameEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Frontend/CompilerInvocation.cpp' l='1986' u='c' c='_ZL21ParseHeaderSearchArgsRN5clang19HeaderSearchOptionsERN4llvm3opt7ArgListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/clang/lib/Frontend/ModuleDependencyCollector.cpp' l='197' u='c' c='_ZN5clang25ModuleDependencyCollector10copyToRootEN4llvm9StringRefES2_'/>
+<use f='llvm/clang/lib/Lex/HeaderSearch.cpp' l='1693' u='c' c='_ZN5clang12HeaderSearch31suggestPathToFileForDiagnosticsEN4llvm9StringRefES2_Pb'/>
+<use f='llvm/clang/lib/Serialization/ASTWriter.cpp' l='1346' u='c' c='_ZL18cleanPathForOutputRN5clang11FileManagerERN4llvm15SmallVectorImplIcEE'/>
+<use f='llvm/clang/lib/Tooling/JSONCompilationDatabase.cpp' l='376' u='c' c='_ZN5clang7tooling23JSONCompilationDatabase5parseERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/lld/COFF/Driver.cpp' l='1655' u='c' c='_ZN3lld4coff12LinkerDriver4linkEN4llvm8ArrayRefIPKcEE'/>
+<use f='llvm/lld/COFF/PDB.cpp' l='280' u='c' c='_ZL15pdbMakeAbsoluteRN4llvm15SmallVectorImplIcEE'/>
+<use f='llvm/lld/Common/Reproduce.cpp' l='28' u='c' c='_ZN3lld14relativeToRootEN4llvm9StringRefE'/>
+<use f='llvm/llvm/lib/Object/ArchiveWriter.cpp' l='503' u='c' c='_ZN4llvmL16canonicalizePathENS_9StringRefE'/>
+<def f='llvm/llvm/lib/Support/Path.cpp' l='716' ll='726' type='bool llvm::sys::path::remove_dots(SmallVectorImpl&lt;char&gt; &amp; path, bool remove_dot_dot = false, llvm::sys::path::Style style = Style::native)'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='705' u='c' c='_ZN4llvm3vfs18InMemoryFileSystem7addFileERKNS_5TwineElSt10unique_ptrINS_12MemoryBufferESt14default_deleteIS6_EENS_8OptionalIjEESB_NSA_INS_3sys2fs9file758498'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='815' u='c' c='_ZN4llvm3vfsL18lookupInMemoryNodeERKNS0_18InMemoryFileSystemEPNS0_6detail17InMemoryDirectoryERKNS_5TwineE'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='957' u='c' c='_ZN4llvm3vfs18InMemoryFileSystem26setCurrentWorkingDirectoryERKNS_5TwineE'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='973' u='c' c='_ZNK4llvm3vfs18InMemoryFileSystem11getRealPathERKNS_5TwineERNS_15SmallVectorImplIcEE'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='1309' u='c' c='_ZN4llvm3vfs27RedirectingFileSystemParser10parseEntryEPNS_4yaml4NodeEPNS0_21RedirectingFileSystemEb'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='1370' u='c' c='_ZN4llvm3vfs27RedirectingFileSystemParser10parseEntryEPNS_4yaml4NodeEPNS0_21RedirectingFileSystemEb'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='1611' u='c' c='_ZNK4llvm3vfs21RedirectingFileSystem10lookupPathERKNS_5TwineE'/>
+<use f='llvm/llvm/tools/llvm-cov/CodeCoverage.cpp' l='192' u='c' c='_ZN12_GLOBAL__N_116CodeCoverageTool16addCollectedPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/tools/llvm-cov/CoverageReport.cpp' l='182' u='c' c='_ZNK4llvm14CoverageReport6renderERKNS_19FileCoverageSummaryERNS_11raw_ostreamE'/>
+<use f='llvm/llvm/tools/llvm-cov/SourceCoverageView.cpp' l='44' u='c' c='_ZNK4llvm15CoveragePrinter13getOutputPathENS_9StringRefES1_bb'/>
+<use f='llvm/llvm/tools/llvm-cov/SourceCoverageView.cpp' l='159' u='c' c='_ZNK4llvm18SourceCoverageView13getSourceNameEv'/>
+<use f='llvm/llvm/tools/llvm-cov/SourceCoverageViewHTML.cpp' l='324' u='c' c='_ZNK4llvm19CoveragePrinterHTML15buildLinkToFileENS_9StringRefERKNS_19FileCoverageSummaryE'/>
+<use f='llvm/llvm/tools/llvm-dwarfdump/llvm-dwarfdump.cpp' l='538' u='c' c='_ZL12expandBundleRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/tools/sancov/sancov.cpp' l='566' u='c' c='_ZN12_GLOBAL__N_1L17normalizeFilenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1187' u='c' c='_ZN12_GLOBAL__N_1L11remove_dotsEN4llvm9StringRefEbNS0_3sys4path5StyleE'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1206' u='c' c='_ZN12_GLOBAL__N_123Support_RemoveDots_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='1224' u='c' c='_ZN12_GLOBAL__N_123Support_RemoveDots_Test8TestBodyEv'/>

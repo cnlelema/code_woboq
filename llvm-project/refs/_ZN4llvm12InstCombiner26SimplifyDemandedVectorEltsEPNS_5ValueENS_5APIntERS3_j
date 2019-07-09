@@ -1,0 +1,21 @@
+<dec f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='800' type='llvm::Value * llvm::InstCombiner::SimplifyDemandedVectorElts(llvm::Value * V, llvm::APInt DemandedElts, llvm::APInt &amp; UndefElts, unsigned int Depth = 0)'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1110' u='c' c='_ZN4llvm12InstCombiner19simplifyMaskedStoreERNS_13IntrinsicInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1148' u='c' c='_ZN4llvm12InstCombiner21simplifyMaskedScatterERNS_13IntrinsicInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1153' u='c' c='_ZN4llvm12InstCombiner21simplifyMaskedScatterERNS_13IntrinsicInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1862' u='c' c='_ZN4llvm12InstCombiner13visitCallInstERNS_8CallInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='1876' u='c' c='_ZN4llvm12InstCombiner13visitCallInstERNS_8CallInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineSelect.cpp' l='2148' u='c' c='_ZN4llvm12InstCombiner15visitSelectInstERNS_10SelectInstE'/>
+<def f='llvm/llvm/lib/Transforms/InstCombine/InstCombineSimplifyDemanded.cpp' l='1077' ll='1715' type='llvm::Value * llvm::InstCombiner::SimplifyDemandedVectorElts(llvm::Value * V, llvm::APInt DemandedElts, llvm::APInt &amp; UndefElts, unsigned int Depth = 0)'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineSimplifyDemanded.cpp' l='1156' u='c' c='_ZN4llvm12InstCombiner26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_j'/>
+<doc f='llvm/llvm/lib/Transforms/InstCombine/InstCombineSimplifyDemanded.cpp' l='1069'>/// The specified value produces a vector with any number of elements.
+/// DemandedElts contains the set of elements that are actually used by the
+/// caller. This method analyzes which elements of the operand are undef and
+/// returns that information in UndefElts.
+///
+/// If the information about demanded elements can be used to simplify the
+/// operation, the operation is simplified, then the resultant value is
+/// returned.  This returns null if no change was made.</doc>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineVectorOps.cpp' l='280' u='c' c='_ZN4llvm12InstCombiner23visitExtractElementInstERNS_18ExtractElementInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineVectorOps.cpp' l='931' u='c' c='_ZN4llvm12InstCombiner22visitInsertElementInstERNS_17InsertElementInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineVectorOps.cpp' l='1720' u='c' c='_ZN4llvm12InstCombiner22visitShuffleVectorInstERNS_17ShuffleVectorInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='1592' u='c' c='_ZN4llvm12InstCombiner22visitGetElementPtrInstERNS_17GetElementPtrInstE'/>

@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/SelectionDAG.h' l='1602' type='bool llvm::SelectionDAG::isSplatValue(llvm::SDValue V, const llvm::APInt &amp; DemandedElts, llvm::APInt &amp; UndefElts)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/SelectionDAG.h' l='1595'>/// Test whether \p V has a splatted value for all the demanded elements.
+  ///
+  /// On success \p UndefElts will indicate the elements that have UNDEF
+  /// values instead of the splat value, this is only guaranteed to be correct
+  /// for \p DemandedElts.
+  ///
+  /// NOTE: The function will return true for a demanded splat of UNDEF values.</doc>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='2294' ll='2374' type='bool llvm::SelectionDAG::isSplatValue(llvm::SDValue V, const llvm::APInt &amp; DemandedElts, llvm::APInt &amp; UndefElts)'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='2351' u='c' c='_ZN4llvm12SelectionDAG12isSplatValueENS_7SDValueERKNS_5APIntERS2_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='2364' u='c' c='_ZN4llvm12SelectionDAG12isSplatValueENS_7SDValueERKNS_5APIntERS2_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='2365' u='c' c='_ZN4llvm12SelectionDAG12isSplatValueENS_7SDValueERKNS_5APIntERS2_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='2384' u='c' c='_ZN4llvm12SelectionDAG12isSplatValueENS_7SDValueEb'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='2397' u='c' c='_ZN4llvm12SelectionDAG20getSplatSourceVectorENS_7SDValueERi'/>
+<doc f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='2292'>/// isSplatValue - Return true if the vector V has the same value
+/// across all DemandedElts.</doc>

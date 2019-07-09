@@ -1,0 +1,19 @@
+<dec f='llvm/llvm/lib/Transforms/InstCombine/InstCombineInternal.h' l='410' type='bool llvm::InstCombiner::shouldChangeType(llvm::Type * From, llvm::Type * To) const'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp' l='1553' u='c' c='_ZN4llvm12InstCombiner17narrowMaskedBinOpERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp' l='295' u='c' c='_ZN4llvm12InstCombiner20commonCastTransformsERNS_8CastInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp' l='497' u='c' c='_ZN4llvm12InstCombiner12narrowRotateERNS_9TruncInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp' l='582' u='c' c='_ZN4llvm12InstCombiner11narrowBinOpERNS_9TruncInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp' l='695' u='c' c='_ZN4llvm12InstCombiner10visitTruncERNS_9TruncInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp' l='822' u='c' c='_ZN4llvm12InstCombiner10visitTruncERNS_9TruncInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp' l='1103' u='c' c='_ZN4llvm12InstCombiner9visitZExtERNS_8ZExtInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp' l='1379' u='c' c='_ZN4llvm12InstCombiner9visitSExtERNS_8SExtInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombinePHI.cpp' l='751' u='c' c='_ZN4llvm12InstCombiner19FoldPHIArgOpIntoPHIERNS_7PHINodeE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineShifts.cpp' l='745' u='c' c='_ZN4llvm12InstCombiner9visitLShrERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineShifts.cpp' l='754' u='c' c='_ZN4llvm12InstCombiner9visitLShrERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineShifts.cpp' l='863' u='c' c='_ZN4llvm12InstCombiner9visitAShrERNS_14BinaryOperatorE'/>
+<def f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='187' ll='196' type='bool llvm::InstCombiner::shouldChangeType(llvm::Type * From, llvm::Type * To) const'/>
+<doc f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='182'>/// Return true if it is desirable to convert a computation from &apos;From&apos; to &apos;To&apos;.
+/// We don&apos;t want to convert from a legal to an illegal type or from a smaller
+/// to a larger illegal type. i1 is always treated as a legal type because it is
+/// a fundamental type in IR, and there are many specialized optimizations for
+/// i1 types.</doc>

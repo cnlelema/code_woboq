@@ -1,0 +1,45 @@
+<dec f='llvm/llvm/include/llvm/Support/DataExtractor.h' l='130' type='uint64_t llvm::DataExtractor::getUnsigned(uint32_t * offset_ptr, uint32_t byte_size) const'/>
+<use f='llvm/llvm/include/llvm/Support/DataExtractor.h' l='175' u='c' c='_ZNK4llvm13DataExtractor10getAddressEPj'/>
+<doc f='llvm/llvm/include/llvm/Support/DataExtractor.h' l='106'>/// Extract an unsigned integer of size \a byte_size from \a
+  /// *offset_ptr.
+  ///
+  /// Extract a single unsigned integer value and update the offset
+  /// pointed to by \a offset_ptr. The size of the extracted integer
+  /// is specified by the \a byte_size argument. \a byte_size should
+  /// have a value greater than or equal to one and less than or equal
+  /// to eight since the return value is 64 bits wide. Any
+  /// \a byte_size values less than 1 or greater than 8 will result in
+  /// nothing being extracted, and zero being returned.
+  ///
+  /// @param[in,out] offset_ptr
+  ///     A pointer to an offset within the data that will be advanced
+  ///     by the appropriate number of bytes if the value is extracted
+  ///     correctly. If the offset is out of bounds or there are not
+  ///     enough bytes to extract this value, the offset will be left
+  ///     unmodified.
+  ///
+  /// @param[in] byte_size
+  ///     The size in byte of the integer to extract.
+  ///
+  /// @return
+  ///     The unsigned integer value that was extracted, or zero on
+  ///     failure.</doc>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDataExtractor.cpp' l='20' u='c' c='_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPjPm'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDataExtractor.cpp' l='22' u='c' c='_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPjPm'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDataExtractor.cpp' l='45' u='c' c='_ZNK4llvm18DWARFDataExtractor17getEncodedPointerEPjhm'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDataExtractor.cpp' l='58' u='c' c='_ZNK4llvm18DWARFDataExtractor17getEncodedPointerEPjhm'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDataExtractor.cpp' l='61' u='c' c='_ZNK4llvm18DWARFDataExtractor17getEncodedPointerEPjhm'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDataExtractor.cpp' l='64' u='c' c='_ZNK4llvm18DWARFDataExtractor17getEncodedPointerEPjhm'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugArangeSet.cpp' l='85' u='c' c='_ZN4llvm19DWARFDebugArangeSet7extractENS_13DataExtractorEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugArangeSet.cpp' l='86' u='c' c='_ZN4llvm19DWARFDebugArangeSet7extractENS_13DataExtractorEPj'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugFrame.cpp' l='385' u='c' c='_ZN4llvm15DWARFDebugFrame5parseENS_18DWARFDataExtractorE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDebugLine.cpp' l='308' u='c' c='_ZN4llvm14DWARFDebugLine8Prologue5parseERKNS_18DWARFDataExtractorEPjRKNS_12DWARFContextEPKNS_9DWARFUnitE'/>
+<use f='llvm/llvm/lib/Object/Decompressor.cpp' l='60' u='c' c='_ZN4llvm6object12Decompressor27consumeCompressedZLibHeaderEbb'/>
+<use f='llvm/llvm/lib/Object/Decompressor.cpp' l='69' u='c' c='_ZN4llvm6object12Decompressor27consumeCompressedZLibHeaderEbb'/>
+<def f='llvm/llvm/lib/Support/DataExtractor.cpp' l='97' ll='110' type='uint64_t llvm::DataExtractor::getUnsigned(uint32_t * offset_ptr, uint32_t byte_size) const'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfLinker.cpp' l='474' u='c' c='_ZN4llvm8dsymutil11DwarfLinker17RelocationManager20findValidRelocsMachOERKNS_6object10SectionRefERKNS3_15MachOObjectFileERKNS0_14DebugMapObjectE'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfLinker.cpp' l='2035' u='c' c='_ZN4llvm8dsymutil11DwarfLinker23patchFrameInfoForObjectERKNS0_14DebugMapObjectERSt3mapImNS0_19DebugMapObjectRangeESt4lessImESaISt4pairIKmS6_EEERNS_12DWARFContextEj'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfStreamer.cpp' l='414' u='c' c='_ZN4llvm8dsymutil13DwarfStreamer20emitLocationsForUnitERKNS0_11CompileUnitERNS_12DWARFContextESt8functionIFvNS_9StringRefERNS_15SmallVectorImplIhEEEE'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfStreamer.cpp' l='415' u='c' c='_ZN4llvm8dsymutil13DwarfStreamer20emitLocationsForUnitERKNS0_11CompileUnitERNS_12DWARFContextESt8functionIFvNS_9StringRefERNS_15SmallVectorImplIhEEEE'/>
+<use f='llvm/llvm/tools/llvm-readobj/DwarfCFIEHPrinter.h' l='147' u='c' c='_ZNK4llvm10DwarfCFIEH14PrinterContext15printEHFrameHdrEmmm'/>
+<use f='llvm/llvm/tools/obj2yaml/dwarf2yaml.cpp' l='256' u='c' c='_Z14dumpDebugLinesRN4llvm12DWARFContextERNS_9DWARFYAML4DataE'/>

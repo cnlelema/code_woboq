@@ -1,0 +1,27 @@
+<def f='llvm/llvm/lib/Target/ARM/MCTargetDesc/ARMAddressingModes.h' l='110' ll='112' type='unsigned int llvm::ARM_AM::getSORegOpc(llvm::ARM_AM::ShiftOpc ShOp, unsigned int Imm)'/>
+<doc f='llvm/llvm/lib/Target/ARM/MCTargetDesc/ARMAddressingModes.h' l='96'>//===--------------------------------------------------------------------===//
+  // Addressing Mode #1: shift_operand with registers
+  //===--------------------------------------------------------------------===//
+  //
+  // This &apos;addressing mode&apos; is used for arithmetic instructions.  It can
+  // represent things like:
+  //   reg
+  //   reg [asr|lsl|lsr|ror|rrx] reg
+  //   reg [asr|lsl|lsr|ror|rrx] imm
+  //
+  // This is stored three operands [rega, regb, opc].  The first is the base
+  // reg, the second is the shift amount (or reg0 if not present or imm).  The
+  // third operand encodes the shift opcode and the imm if a reg isn&apos;t present.
+  //</doc>
+<use f='llvm/llvm/lib/Target/ARM/ARMBaseInstrInfo.cpp' l='198' u='c' c='_ZNK4llvm16ARMBaseInstrInfo21convertToThreeAddressERNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_17MachineBasicBlockELb1ELb0EvEELb0ELb0EEERN15499751'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFastISel.cpp' l='2729' u='c' c='_ZN12_GLOBAL__N_111ARMFastISel13ARMEmitIntExtEN4llvm3MVTEjS2_b'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFastISel.cpp' l='2817' u='c' c='_ZN12_GLOBAL__N_111ARMFastISel11SelectShiftEPKN4llvm11InstructionENS1_6ARM_AM8ShiftOpcE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFastISel.cpp' l='2820' u='c' c='_ZN12_GLOBAL__N_111ARMFastISel11SelectShiftEPKN4llvm11InstructionENS1_6ARM_AM8ShiftOpcE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp' l='528' u='c' c='_ZN12_GLOBAL__N_115ARMDAGToDAGISel23SelectImmShifterOperandEN4llvm7SDValueERS2_S3_b'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp' l='544' u='c' c='_ZN12_GLOBAL__N_115ARMDAGToDAGISel23SelectImmShifterOperandEN4llvm7SDValueERS2_S3_b'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp' l='571' u='c' c='_ZN12_GLOBAL__N_115ARMDAGToDAGISel23SelectRegShifterOperandEN4llvm7SDValueERS2_S3_S3_b'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp' l='2359' u='c' c='_ZN12_GLOBAL__N_115ARMDAGToDAGISel24tryV6T2BitfieldExtractOpEPN4llvm6SDNodeEb'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp' l='2752' u='c' c='_ZN12_GLOBAL__N_115ARMDAGToDAGISel6SelectEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp' l='2771' u='c' c='_ZN12_GLOBAL__N_115ARMDAGToDAGISel6SelectEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/Target/ARM/AsmParser/ARMAsmParser.cpp' l='2133' u='c' c='_ZNK12_GLOBAL__N_110ARMOperand24addRegShiftedRegOperandsERN4llvm6MCInstEj'/>
+<use f='llvm/llvm/lib/Target/ARM/AsmParser/ARMAsmParser.cpp' l='2144' u='c' c='_ZNK12_GLOBAL__N_110ARMOperand24addRegShiftedImmOperandsERN4llvm6MCInstEj'/>

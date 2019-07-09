@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Scalar/MemCpyOptimizer.h' l='67' type='bool llvm::MemCpyOptPass::processMemSetMemCpyDependence(llvm::MemCpyInst * M, llvm::MemSetInst * MDep)'/>
+<def f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='1099' ll='1150' type='bool llvm::MemCpyOptPass::processMemSetMemCpyDependence(llvm::MemCpyInst * MemCpy, llvm::MemSetInst * MemSet)'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='1253' u='c' c='_ZN4llvm13MemCpyOptPass13processMemCpyEPNS_10MemCpyInstE'/>
+<doc f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='1085'>/// We&apos;ve found that the (upward scanning) memory dependence of \p MemCpy is
+/// \p MemSet.  Try to simplify \p MemSet to only set the trailing bytes that
+/// weren&apos;t copied over by \p MemCpy.
+///
+/// In other words, transform:
+/// \code
+///   memset(dst, c, dst_size);
+///   memcpy(dst, src, src_size);
+/// \endcode
+/// into:
+/// \code
+///   memcpy(dst, src, src_size);
+///   memset(dst + src_size, c, dst_size &lt;= src_size ? 0 : dst_size - src_size);
+/// \endcode</doc>

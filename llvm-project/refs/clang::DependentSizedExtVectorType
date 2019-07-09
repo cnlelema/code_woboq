@@ -1,0 +1,27 @@
+<inh f='llvm/clang/include/clang/AST/Type.h' l='1428' c='clang::Type'/>
+<inh f='llvm/llvm/include/llvm/ADT/FoldingSet.h' l='135' c='llvm::FoldingSetBase::Node'/>
+<def f='llvm/clang/include/clang/AST/Type.h' l='3174' ll='3206'/>
+<size>64</size>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='3164'>/// Represents an extended vector type where either the type or size is
+/// dependent.
+///
+/// For example:
+/// \code
+/// template&lt;typename T, int Size&gt;
+/// class vector {
+///   typedef T __attribute__((ext_vector_type(Size))) type;
+/// }
+/// \endcode</doc>
+<mbr r='clang::DependentSizedExtVectorType::Context' o='256' t='const clang::ASTContext &amp;'/>
+<mbr r='clang::DependentSizedExtVectorType::SizeExpr' o='320' t='clang::Expr *'/>
+<mbr r='clang::DependentSizedExtVectorType::ElementType' o='384' t='clang::QualType'/>
+<mbr r='clang::DependentSizedExtVectorType::loc' o='448' t='clang::SourceLocation'/>
+<fun r='_ZN5clang27DependentSizedExtVectorTypeC1ERKNS_10ASTContextENS_8QualTypeES4_PNS_4ExprENS_14SourceLocationE'/>
+<fun r='_ZNK5clang27DependentSizedExtVectorType11getSizeExprEv'/>
+<fun r='_ZNK5clang27DependentSizedExtVectorType14getElementTypeEv'/>
+<fun r='_ZNK5clang27DependentSizedExtVectorType15getAttributeLocEv'/>
+<fun r='_ZNK5clang27DependentSizedExtVectorType9isSugaredEv'/>
+<fun r='_ZNK5clang27DependentSizedExtVectorType7desugarEv'/>
+<fun r='_ZN5clang27DependentSizedExtVectorType7classofEPKNS_4TypeE'/>
+<fun r='_ZN5clang27DependentSizedExtVectorType7ProfileERN4llvm16FoldingSetNodeIDE'/>
+<fun r='_ZN5clang27DependentSizedExtVectorType7ProfileERN4llvm16FoldingSetNodeIDERKNS_10ASTContextENS_8QualTypeEPNS_4ExprE'/>

@@ -1,0 +1,7 @@
+<def f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.h' l='229' ll='233' type='bool llvm::(anonymous namespace)::isDef32(const llvm::SDNode &amp; N)'/>
+<doc f='llvm/llvm/lib/Target/AArch64/AArch64ISelLowering.h' l='224'>// Any instruction that defines a 32-bit result zeros out the high half of the
+// register. Truncate can be lowered to EXTRACT_SUBREG. CopyFromReg may
+// be copying from a truncate. But any other 32-bit operation will zero-extend
+// up to 64 bits.
+// FIXME: X86 also checks for CMOV here. Do we need something similar?</doc>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64ISelDAGToDAG.cpp' l='652' u='c' c='_ZN12_GLOBAL__N_119AArch64DAGToDAGISel27SelectArithExtendedRegisterEN4llvm7SDValueERS2_S3_'/>

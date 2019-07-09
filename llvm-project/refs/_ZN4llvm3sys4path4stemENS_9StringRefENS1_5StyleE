@@ -1,0 +1,54 @@
+<dec f='llvm/llvm/include/llvm/Support/Path.h' l='317' type='llvm::StringRef llvm::sys::path::stem(llvm::StringRef path, llvm::sys::path::Style style = Style::native)'/>
+<doc f='llvm/llvm/include/llvm/Support/Path.h' l='301'>/// Get stem.
+///
+/// If filename contains a dot but not solely one or two dots, result is the
+/// substring of filename ending at (but not including) the last dot. Otherwise
+/// it is filename.
+///
+/// @code
+///   /foo/bar.txt =&gt; bar
+///   /foo/bar     =&gt; bar
+///   /foo/.txt    =&gt; &lt;empty&gt;
+///   /foo/.       =&gt; .
+///   /foo/..      =&gt; ..
+/// @endcode
+///
+/// @param path Input path.
+/// @result The stem of \a path.</doc>
+<use f='llvm/clang/lib/Driver/ToolChain.cpp' l='169' u='c' c='_ZL20normalizeProgramNameN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Clang.cpp' l='5162' u='c' c='_ZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKc'/>
+<use f='llvm/clang/lib/Driver/ToolChains/CommonArgs.cpp' l='801' u='c' c='_ZN5clang6driver5tools14SplitDebugNameERKN4llvm3opt7ArgListERKNS0_9InputInfoES9_'/>
+<use f='llvm/clang/lib/Driver/ToolChains/Fuchsia.cpp' l='51' u='c' c='_ZNK5clang6driver5tools7fuchsia6Linker12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKc'/>
+<use f='llvm/clang/lib/Driver/ToolChains/HIP.cpp' l='235' u='c' c='_ZNK5clang6driver5tools6AMDGCN6Linker12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKc'/>
+<use f='llvm/clang/lib/Driver/ToolChains/RTEMS.cpp' l='50' u='c' c='_ZNK5clang6driver5tools5rtems6Linker12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKc'/>
+<use f='llvm/clang/lib/Lex/HeaderSearch.cpp' l='446' u='c' c='_ZL18getTopFrameworkDirRN5clang11FileManagerEN4llvm9StringRefERNS2_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE'/>
+<use f='llvm/clang/lib/Lex/HeaderSearch.cpp' l='1395' u='c' c='_ZN5clang12HeaderSearch34findUsableModuleForFrameworkHeaderEPKNS_9FileEntryEN4llvm9StringRefEPNS_6ModuleEPNS_9ModuleMap11KnownHeaderEb'/>
+<use f='llvm/clang/lib/Lex/HeaderSearch.cpp' l='1598' u='c' c='_ZN5clang12HeaderSearch17collectAllModulesERN4llvm15SmallVectorImplIPNS_6ModuleEEE'/>
+<use f='llvm/clang/lib/Lex/ModuleMap.cpp' l='614' u='c' c='_ZN5clang9ModuleMap40findOrCreateModuleForHeaderInUmbrellaDirEPKNS_9FileEntryE'/>
+<use f='llvm/clang/lib/Lex/ModuleMap.cpp' l='632' u='c' c='_ZN5clang9ModuleMap40findOrCreateModuleForHeaderInUmbrellaDirEPKNS_9FileEntryE'/>
+<use f='llvm/clang/lib/Lex/ModuleMap.cpp' l='728' u='c' c='_ZNK5clang9ModuleMap27isHeaderUnavailableInModuleEPKNS_9FileEntryEPKNS_6ModuleE'/>
+<use f='llvm/clang/lib/Lex/ModuleMap.cpp' l='740' u='c' c='_ZNK5clang9ModuleMap27isHeaderUnavailableInModuleEPKNS_9FileEntryEPKNS_6ModuleE'/>
+<use f='llvm/clang/lib/Lex/ModuleMap.cpp' l='924' u='c' c='_ZN5clang9ModuleMap20inferFrameworkModuleEPKNS_14DirectoryEntryENS0_10AttributesEPNS_6ModuleE'/>
+<use f='llvm/clang/lib/Lex/ModuleMap.cpp' l='964' u='c' c='_ZN5clang9ModuleMap20inferFrameworkModuleEPKNS_14DirectoryEntryENS0_10AttributesEPNS_6ModuleE'/>
+<use f='llvm/clang/lib/Serialization/GlobalModuleIndex.cpp' l='213' u='c' c='_ZN5clang17GlobalModuleIndexC1ESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS3_EENS2_15BitstreamCursorE'/>
+<use f='llvm/clang/lib/Tooling/Inclusions/HeaderIncludes.cpp' l='180' u='c' c='_ZN5clang7tooling22IncludeCategoryManagerC1ERKNS0_12IncludeStyleEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Tooling/Inclusions/HeaderIncludes.cpp' l='206' u='c' c='_ZNK5clang7tooling22IncludeCategoryManager12isMainHeaderEN4llvm9StringRefE'/>
+<use f='llvm/clang/lib/Tooling/InterpolatingCompilationDatabase.cpp' l='246' u='c' c='_ZN5clang7tooling12_GLOBAL__N_119TransferableCommand13checkIsCLModeEN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE'/>
+<use f='llvm/clang/lib/Tooling/InterpolatingCompilationDatabase.cpp' l='336' u='c' c='_ZN5clang7tooling12_GLOBAL__N_19FileIndexC1ESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE'/>
+<use f='llvm/clang/lib/Tooling/InterpolatingCompilationDatabase.cpp' l='386' u='c' c='_ZNK5clang7tooling12_GLOBAL__N_19FileIndex15scoreCandidatesEN4llvm9StringRefE'/>
+<use f='llvm/clang/tools/driver/driver.cpp' l='262' u='c' c='_ZL22FixupDiagPrefixExeNamePN5clang21TextDiagnosticPrinterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/lld/Common/Args.cpp' l='80' u='c' c='_ZN3lld4args21getFilenameWithoutExeEN4llvm9StringRefE'/>
+<use f='llvm/lld/ELF/Driver.cpp' l='450' u='c' c='_ZN3lld3elf12LinkerDriver4mainEN4llvm8ArrayRefIPKcEE'/>
+<use f='llvm/lld/wasm/Driver.cpp' l='633' u='c' c='_ZN12_GLOBAL__N_112LinkerDriver4linkEN4llvm8ArrayRefIPKcEE'/>
+<def f='llvm/llvm/lib/Support/Path.cpp' l='567' ll='578' type='llvm::StringRef llvm::sys::path::stem(llvm::StringRef path, llvm::sys::path::Style style = Style::native)'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='653' u='c' c='_ZN4llvm3sys4path8has_stemERKNS_5TwineENS1_5StyleE'/>
+<use f='llvm/llvm/tools/dsymutil/dsymutil.cpp' l='191' u='c' c='_ZL15createPlistFileN4llvm9StringRefES0_'/>
+<use f='llvm/llvm/tools/llvm-ar/llvm-ar.cpp' l='1126' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-cov/gcov.cpp' l='30' u='c' c='_ZL14reportCoverageN4llvm9StringRefES0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bRKNS_4GCOV7OptionsE'/>
+<use f='llvm/llvm/tools/llvm-cov/gcov.cpp' l='33' u='c' c='_ZL14reportCoverageN4llvm9StringRefES0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bRKNS_4GCOV7OptionsE'/>
+<use f='llvm/llvm/tools/llvm-cov/llvm-cov.cpp' l='63' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-objcopy/llvm-objcopy.cpp' l='265' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-readobj/llvm-readobj.cpp' l='723' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-symbolizer/llvm-symbolizer.cpp' l='251' u='c' c='main'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='177' u='c' c='_ZN12_GLOBAL__N_117Support_Path_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='192' u='c' c='_ZN12_GLOBAL__N_117Support_Path_Test8TestBodyEv'/>

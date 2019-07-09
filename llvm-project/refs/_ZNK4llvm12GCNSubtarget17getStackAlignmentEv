@@ -1,0 +1,12 @@
+<def f='llvm/llvm/lib/Target/AMDGPU/AMDGPUSubtarget.h' l='744' ll='746' type='unsigned int llvm::GCNSubtarget::getStackAlignment() const'/>
+<doc f='llvm/llvm/lib/Target/AMDGPU/AMDGPUSubtarget.h' l='736'>// Scratch is allocated in 256 dword per wave blocks for the entire
+  // wavefront. When viewed from the perspecive of an arbitrary workitem, this
+  // is 4-byte aligned.
+  //
+  // Only 4-byte alignment is really needed to access anything. Transformations
+  // on the pointer value itself may rely on the alignment / known low bits of
+  // the pointer. Set this to something above the minimum to avoid needing
+  // dynamic realignment in common cases.</doc>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUSubtarget.cpp' l='257' u='c' c='_ZN4llvm12GCNSubtargetC1ERKNS_6TripleENS_9StringRefES4_RKNS_16GCNTargetMachineE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='2680' u='c' c='_ZNK4llvm16SITargetLowering9LowerCallERNS_14TargetLowering16CallLoweringInfoERNS_15SmallVectorImplINS_7SDValueEEE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='2699' u='c' c='_ZNK4llvm16SITargetLowering9LowerCallERNS_14TargetLowering16CallLoweringInfoERNS_15SmallVectorImplINS_7SDValueEEE'/>

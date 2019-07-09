@@ -1,0 +1,20 @@
+<dec f='llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFDie.h' l='219' type='Expected&lt;DWARFAddressRangesVector&gt; llvm::DWARFDie::getAddressRanges() const'/>
+<doc f='llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFDie.h' l='209'>/// Get the address ranges for this DIE.
+  ///
+  /// Get the hi/low PC range if both attributes are available or exrtracts the
+  /// non-contiguous address ranges from the DW_AT_ranges attribute.
+  ///
+  /// Extracts the range information from this DIE only. This call doesn&apos;t look
+  /// for the range in any DW_AT_specification or DW_AT_abstract_origin DIEs.
+  ///
+  /// \returns a address range vector that might be empty if no address range
+  /// information is available.</doc>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDie.cpp' l='348' u='c' c='_ZL13dumpAttributeRN4llvm11raw_ostreamERKNS_8DWARFDieEPjNS_5dwarf9AttributeENS6_4FormEjNS_13DIDumpOptionsE'/>
+<def f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDie.cpp' l='474' ll='489' type='Expected&lt;DWARFAddressRangesVector&gt; llvm::DWARFDie::getAddressRanges() const'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDie.cpp' l='496' u='c' c='_ZNK4llvm8DWARFDie28collectChildrenAddressRangesERSt6vectorINS_17DWARFAddressRangeESaIS2_EE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFDie.cpp' l='508' u='c' c='_ZNK4llvm8DWARFDie27addressRangeContainsAddressEm'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFUnit.cpp' l='583' u='c' c='_ZN4llvm9DWARFUnit20collectAddressRangesEv'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFUnit.cpp' l='593' u='c' c='_ZN4llvm9DWARFUnit19updateAddressDieMapENS_8DWARFDieE'/>
+<use f='llvm/llvm/lib/DebugInfo/DWARF/DWARFVerifier.cpp' l='359' u='c' c='_ZN4llvm13DWARFVerifier15verifyDieRangesERKNS_8DWARFDieERNS0_12DieRangeInfoE'/>
+<use f='llvm/llvm/tools/llvm-dwarfdump/Statistics.cpp' l='73' u='c' c='_ZL8getLowPCN4llvm8DWARFDieE'/>
+<use f='llvm/llvm/tools/llvm-dwarfdump/Statistics.cpp' l='229' u='c' c='_ZL21collectStatsRecursiveN4llvm8DWARFDieENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_mmjRNS_9StringMapI16PerFunctionStatsNS_15MallocAllocatorEEER11GlobalStats'/>

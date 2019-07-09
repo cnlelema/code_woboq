@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>IndexDataConsumer.h source code [llvm/clang/include/clang/Index/IndexDataConsumer.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="clang::index::IndexDataConsumer "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/clang/include/clang/Index/IndexDataConsumer.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>clang</a>/<a href='../..'>include</a>/<a href='..'>clang</a>/<a href='./'>Index</a>/<a href='IndexDataConsumer.h.html'>IndexDataConsumer.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===--- IndexDataConsumer.h - Abstract index data consumer -----*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLVM_CLANG_INDEX_INDEXDATACONSUMER_H">LLVM_CLANG_INDEX_INDEXDATACONSUMER_H</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLVM_CLANG_INDEX_INDEXDATACONSUMER_H" data-ref="_M/LLVM_CLANG_INDEX_INDEXDATACONSUMER_H">LLVM_CLANG_INDEX_INDEXDATACONSUMER_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="IndexSymbol.h.html">"clang/Index/IndexSymbol.h"</a></u></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../Lex/Preprocessor.h.html">"clang/Lex/Preprocessor.h"</a></u></td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><b>namespace</b> <span class="namespace">clang</span> {</td></tr>
+<tr><th id="16">16</th><td>  <b>class</b> <a class="type" href="../AST/ASTContext.h.html#clang::ASTContext" title='clang::ASTContext' data-ref="clang::ASTContext" id="clang::ASTContext">ASTContext</a>;</td></tr>
+<tr><th id="17">17</th><td>  <b>class</b> <a class="type" href="../AST/DeclBase.h.html#clang::DeclContext" title='clang::DeclContext' data-ref="clang::DeclContext" id="clang::DeclContext">DeclContext</a>;</td></tr>
+<tr><th id="18">18</th><td>  <b>class</b> <a class="type" href="../AST/Expr.h.html#clang::Expr" title='clang::Expr' data-ref="clang::Expr" id="clang::Expr">Expr</a>;</td></tr>
+<tr><th id="19">19</th><td>  <b>class</b> <a class="type" href="../Basic/SourceLocation.h.html#clang::FileID" title='clang::FileID' data-ref="clang::FileID" id="clang::FileID">FileID</a>;</td></tr>
+<tr><th id="20">20</th><td>  <b>class</b> <a class="type" href="../Basic/IdentifierTable.h.html#clang::IdentifierInfo" title='clang::IdentifierInfo' data-ref="clang::IdentifierInfo" id="clang::IdentifierInfo">IdentifierInfo</a>;</td></tr>
+<tr><th id="21">21</th><td>  <b>class</b> <a class="type" href="../AST/Decl.h.html#clang::ImportDecl" title='clang::ImportDecl' data-ref="clang::ImportDecl" id="clang::ImportDecl">ImportDecl</a>;</td></tr>
+<tr><th id="22">22</th><td>  <b>class</b> <a class="type" href="../Lex/MacroInfo.h.html#clang::MacroInfo" title='clang::MacroInfo' data-ref="clang::MacroInfo" id="clang::MacroInfo">MacroInfo</a>;</td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">index</span> {</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><b>class</b> <dfn class="type def" id="clang::index::IndexDataConsumer" title='clang::index::IndexDataConsumer' data-ref="clang::index::IndexDataConsumer">IndexDataConsumer</dfn> {</td></tr>
+<tr><th id="27">27</th><td><b>public</b>:</td></tr>
+<tr><th id="28">28</th><td>  <b>struct</b> <dfn class="type def" id="clang::index::IndexDataConsumer::ASTNodeInfo" title='clang::index::IndexDataConsumer::ASTNodeInfo' data-ref="clang::index::IndexDataConsumer::ASTNodeInfo">ASTNodeInfo</dfn> {</td></tr>
+<tr><th id="29">29</th><td>    <em>const</em> <a class="type" href="../AST/Expr.h.html#clang::Expr" title='clang::Expr' data-ref="clang::Expr">Expr</a> *<dfn class="decl" id="clang::index::IndexDataConsumer::ASTNodeInfo::OrigE" title='clang::index::IndexDataConsumer::ASTNodeInfo::OrigE' data-ref="clang::index::IndexDataConsumer::ASTNodeInfo::OrigE">OrigE</dfn>;</td></tr>
+<tr><th id="30">30</th><td>    <em>const</em> <a class="type" href="../AST/DeclBase.h.html#clang::Decl" title='clang::Decl' data-ref="clang::Decl">Decl</a> *<dfn class="decl" id="clang::index::IndexDataConsumer::ASTNodeInfo::OrigD" title='clang::index::IndexDataConsumer::ASTNodeInfo::OrigD' data-ref="clang::index::IndexDataConsumer::ASTNodeInfo::OrigD">OrigD</dfn>;</td></tr>
+<tr><th id="31">31</th><td>    <em>const</em> <a class="type" href="../AST/DeclBase.h.html#clang::Decl" title='clang::Decl' data-ref="clang::Decl">Decl</a> *<dfn class="decl" id="clang::index::IndexDataConsumer::ASTNodeInfo::Parent" title='clang::index::IndexDataConsumer::ASTNodeInfo::Parent' data-ref="clang::index::IndexDataConsumer::ASTNodeInfo::Parent">Parent</dfn>;</td></tr>
+<tr><th id="32">32</th><td>    <em>const</em> <a class="type" href="../AST/DeclBase.h.html#clang::DeclContext" title='clang::DeclContext' data-ref="clang::DeclContext">DeclContext</a> *<dfn class="decl" id="clang::index::IndexDataConsumer::ASTNodeInfo::ContainerDC" title='clang::index::IndexDataConsumer::ASTNodeInfo::ContainerDC' data-ref="clang::index::IndexDataConsumer::ASTNodeInfo::ContainerDC">ContainerDC</dfn>;</td></tr>
+<tr><th id="33">33</th><td>  };</td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td>  <b>virtual</b> <dfn class="virtual decl def" id="_ZN5clang5index17IndexDataConsumerD1Ev" title='clang::index::IndexDataConsumer::~IndexDataConsumer' data-ref="_ZN5clang5index17IndexDataConsumerD1Ev">~IndexDataConsumer</dfn>() {}</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZN5clang5index17IndexDataConsumer10initializeERNS_10ASTContextE" title='clang::index::IndexDataConsumer::initialize' data-ref="_ZN5clang5index17IndexDataConsumer10initializeERNS_10ASTContextE">initialize</dfn>(<a class="type" href="../AST/ASTContext.h.html#clang::ASTContext" title='clang::ASTContext' data-ref="clang::ASTContext">ASTContext</a> &amp;<dfn class="local col1 decl" id="1Ctx" title='Ctx' data-type='clang::ASTContext &amp;' data-ref="1Ctx">Ctx</dfn>) {}</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZN5clang5index17IndexDataConsumer15setPreprocessorESt10shared_ptrINS_12PreprocessorEE" title='clang::index::IndexDataConsumer::setPreprocessor' data-ref="_ZN5clang5index17IndexDataConsumer15setPreprocessorESt10shared_ptrINS_12PreprocessorEE">setPreprocessor</dfn>(<span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/shared_ptr_base.h.html#std::shared_ptr" title='std::shared_ptr' data-ref="std::shared_ptr">shared_ptr</a>&lt;<a class="type" href="../Lex/Preprocessor.h.html#clang::Preprocessor" title='clang::Preprocessor' data-ref="clang::Preprocessor">Preprocessor</a>&gt; <dfn class="local col2 decl" id="2PP" title='PP' data-type='std::shared_ptr&lt;Preprocessor&gt;' data-ref="2PP">PP</dfn>) {}</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td>  <i class="doc">/// <span class="command">\returns</span> true to continue indexing, or false to abort.</i></td></tr>
+<tr><th id="42">42</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl" id="_ZN5clang5index17IndexDataConsumer19handleDeclOccurenceEPKNS_4DeclEjN4llvm8ArrayRefINS0_14SymbolRelationEEENS_14SourceLocationENS1_11ASTNodeInfoE" title='clang::index::IndexDataConsumer::handleDeclOccurence' data-ref="_ZN5clang5index17IndexDataConsumer19handleDeclOccurenceEPKNS_4DeclEjN4llvm8ArrayRefINS0_14SymbolRelationEEENS_14SourceLocationENS1_11ASTNodeInfoE">handleDeclOccurence</dfn>(<em>const</em> <a class="type" href="../AST/DeclBase.h.html#clang::Decl" title='clang::Decl' data-ref="clang::Decl">Decl</a> *<dfn class="local col3 decl" id="3D" title='D' data-type='const clang::Decl *' data-ref="3D">D</dfn>, <a class="typedef" href="IndexSymbol.h.html#clang::index::SymbolRoleSet" title='clang::index::SymbolRoleSet' data-type='unsigned int' data-ref="clang::index::SymbolRoleSet">SymbolRoleSet</a> <dfn class="local col4 decl" id="4Roles" title='Roles' data-type='SymbolRoleSet' data-ref="4Roles">Roles</dfn>,</td></tr>
+<tr><th id="43">43</th><td>                                   <a class="type" href="../Basic/LLVM.h.html#llvm::ArrayRef" title='llvm::ArrayRef' data-ref="llvm::ArrayRef">ArrayRef</a>&lt;<a class="type" href="IndexSymbol.h.html#clang::index::SymbolRelation" title='clang::index::SymbolRelation' data-ref="clang::index::SymbolRelation">SymbolRelation</a>&gt; <dfn class="local col5 decl" id="5Relations" title='Relations' data-type='ArrayRef&lt;clang::index::SymbolRelation&gt;' data-ref="5Relations">Relations</dfn>,</td></tr>
+<tr><th id="44">44</th><td>                                   <a class="type" href="../Basic/SourceLocation.h.html#clang::SourceLocation" title='clang::SourceLocation' data-ref="clang::SourceLocation">SourceLocation</a> <dfn class="local col6 decl" id="6Loc" title='Loc' data-type='clang::SourceLocation' data-ref="6Loc">Loc</dfn>, <a class="type" href="#clang::index::IndexDataConsumer::ASTNodeInfo" title='clang::index::IndexDataConsumer::ASTNodeInfo' data-ref="clang::index::IndexDataConsumer::ASTNodeInfo">ASTNodeInfo</a> <dfn class="local col7 decl" id="7ASTNode" title='ASTNode' data-type='clang::index::IndexDataConsumer::ASTNodeInfo' data-ref="7ASTNode">ASTNode</dfn>);</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td>  <i class="doc">/// <span class="command">\returns</span> true to continue indexing, or false to abort.</i></td></tr>
+<tr><th id="47">47</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl" id="_ZN5clang5index17IndexDataConsumer20handleMacroOccurenceEPKNS_14IdentifierInfoEPKNS_9MacroInfoEjNS_14SourceLocationE" title='clang::index::IndexDataConsumer::handleMacroOccurence' data-ref="_ZN5clang5index17IndexDataConsumer20handleMacroOccurenceEPKNS_14IdentifierInfoEPKNS_9MacroInfoEjNS_14SourceLocationE">handleMacroOccurence</dfn>(<em>const</em> <a class="type" href="../Basic/IdentifierTable.h.html#clang::IdentifierInfo" title='clang::IdentifierInfo' data-ref="clang::IdentifierInfo">IdentifierInfo</a> *<dfn class="local col8 decl" id="8Name" title='Name' data-type='const clang::IdentifierInfo *' data-ref="8Name">Name</dfn>,</td></tr>
+<tr><th id="48">48</th><td>                                    <em>const</em> <a class="type" href="../Lex/MacroInfo.h.html#clang::MacroInfo" title='clang::MacroInfo' data-ref="clang::MacroInfo">MacroInfo</a> *<dfn class="local col9 decl" id="9MI" title='MI' data-type='const clang::MacroInfo *' data-ref="9MI">MI</dfn>, <a class="typedef" href="IndexSymbol.h.html#clang::index::SymbolRoleSet" title='clang::index::SymbolRoleSet' data-type='unsigned int' data-ref="clang::index::SymbolRoleSet">SymbolRoleSet</a> <dfn class="local col0 decl" id="10Roles" title='Roles' data-type='SymbolRoleSet' data-ref="10Roles">Roles</dfn>,</td></tr>
+<tr><th id="49">49</th><td>                                    <a class="type" href="../Basic/SourceLocation.h.html#clang::SourceLocation" title='clang::SourceLocation' data-ref="clang::SourceLocation">SourceLocation</a> <dfn class="local col1 decl" id="11Loc" title='Loc' data-type='clang::SourceLocation' data-ref="11Loc">Loc</dfn>);</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td>  <i class="doc">/// <span class="command">\returns</span> true to continue indexing, or false to abort.</i></td></tr>
+<tr><th id="52">52</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="53">53</th><td><i class="doc">  /// This will be called for each module reference in an import decl.</i></td></tr>
+<tr><th id="54">54</th><td><i class="doc">  /// For <span class="command">"@import</span> MyMod.SubMod", there will be a call for 'MyMod' with the</i></td></tr>
+<tr><th id="55">55</th><td><i class="doc">  /// 'reference' role, and a call for 'SubMod' with the 'declaration' role.</i></td></tr>
+<tr><th id="56">56</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl" id="_ZN5clang5index17IndexDataConsumer21handleModuleOccurenceEPKNS_10ImportDeclEPKNS_6ModuleEjNS_14SourceLocationE" title='clang::index::IndexDataConsumer::handleModuleOccurence' data-ref="_ZN5clang5index17IndexDataConsumer21handleModuleOccurenceEPKNS_10ImportDeclEPKNS_6ModuleEjNS_14SourceLocationE">handleModuleOccurence</dfn>(<em>const</em> <a class="type" href="../AST/Decl.h.html#clang::ImportDecl" title='clang::ImportDecl' data-ref="clang::ImportDecl">ImportDecl</a> *<dfn class="local col2 decl" id="12ImportD" title='ImportD' data-type='const clang::ImportDecl *' data-ref="12ImportD">ImportD</dfn>,</td></tr>
+<tr><th id="57">57</th><td>                                     <em>const</em> <a class="type" href="../Basic/Module.h.html#clang::Module" title='clang::Module' data-ref="clang::Module">Module</a> *<dfn class="local col3 decl" id="13Mod" title='Mod' data-type='const clang::Module *' data-ref="13Mod">Mod</dfn>,</td></tr>
+<tr><th id="58">58</th><td>                                     <a class="typedef" href="IndexSymbol.h.html#clang::index::SymbolRoleSet" title='clang::index::SymbolRoleSet' data-type='unsigned int' data-ref="clang::index::SymbolRoleSet">SymbolRoleSet</a> <dfn class="local col4 decl" id="14Roles" title='Roles' data-type='SymbolRoleSet' data-ref="14Roles">Roles</dfn>, <a class="type" href="../Basic/SourceLocation.h.html#clang::SourceLocation" title='clang::SourceLocation' data-ref="clang::SourceLocation">SourceLocation</a> <dfn class="local col5 decl" id="15Loc" title='Loc' data-type='clang::SourceLocation' data-ref="15Loc">Loc</dfn>);</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZN5clang5index17IndexDataConsumer6finishEv" title='clang::index::IndexDataConsumer::finish' data-ref="_ZN5clang5index17IndexDataConsumer6finishEv">finish</dfn>() {}</td></tr>
+<tr><th id="61">61</th><td>};</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>} <i>// namespace index</i></td></tr>
+<tr><th id="64">64</th><td>} <i>// namespace clang</i></td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><u>#<span data-ppcond="9">endif</span></u></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../lib/Index/IndexDecl.cpp.html'>llvm/clang/lib/Index/IndexDecl.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

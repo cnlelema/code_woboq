@@ -1,0 +1,24 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='6575' type='bool clang::Sema::CheckSpecializationInstantiationRedecl(clang::SourceLocation NewLoc, clang::TemplateSpecializationKind NewTSK, clang::NamedDecl * PrevDecl, clang::TemplateSpecializationKind PrevTSK, clang::SourceLocation PrevPtOfInstantiation, bool &amp; SuppressNew)'/>
+<def f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='7993' ll='8155' type='bool clang::Sema::CheckSpecializationInstantiationRedecl(clang::SourceLocation NewLoc, clang::TemplateSpecializationKind NewTSK, clang::NamedDecl * PrevDecl, clang::TemplateSpecializationKind PrevTSK, clang::SourceLocation PrevPointOfInstantiation, bool &amp; HasNoEffect)'/>
+<doc f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='7971'>/// Diagnose cases where we have an explicit template specialization
+/// before/after an explicit template instantiation, producing diagnostics
+/// for those cases where they are required and determining whether the
+/// new specialization/instantiation will have any effect.
+///
+/// \param NewLoc the location of the new explicit specialization or
+/// instantiation.
+///
+/// \param NewTSK the kind of the new explicit specialization or instantiation.
+///
+/// \param PrevDecl the previous declaration of the entity.
+///
+/// \param PrevTSK the kind of the old explicit specialization or instantiatin.
+///
+/// \param PrevPointOfInstantiation if valid, indicates where the previus
+/// declaration was instantiated (either implicitly or explicitly).
+///
+/// \param HasNoEffect will be set to true to indicate that the new
+/// specialization or instantiation has no effect and should be ignored.
+///
+/// \returns true if there was an error that should prevent the introduction of
+/// the new declaration into the AST, false otherwise.</doc>

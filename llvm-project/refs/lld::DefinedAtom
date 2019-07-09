@@ -1,0 +1,97 @@
+<inh f='llvm/lld/include/lld/Core/Atom.h' l='29' c='lld::Atom'/>
+<def f='llvm/lld/include/lld/Core/DefinedAtom.h' l='84' ll='370'/>
+<size>16</size>
+<doc f='llvm/lld/include/lld/Core/DefinedAtom.h' l='20'>/// The fundamental unit of linking.
+///
+/// A C function or global variable is an atom.  An atom has content and
+/// attributes. The content of a function atom is the instructions that
+/// implement the function.  The content of a global variable atom is its
+/// initial bytes.
+///
+/// Here are some example attribute sets for common atoms. If a particular
+/// attribute is not listed, the default values are:  definition=regular,
+/// sectionChoice=basedOnContent, scope=translationUnit, merge=no,
+/// deadStrip=normal, interposable=no
+///
+///  C function:  void foo() {} &lt;br&gt;
+///    name=foo, type=code, perm=r_x, scope=global
+///
+///  C static function:  staic void func() {} &lt;br&gt;
+///    name=func, type=code, perm=r_x
+///
+///  C global variable:  int count = 1; &lt;br&gt;
+///    name=count, type=data, perm=rw_, scope=global
+///
+///  C tentative definition:  int bar; &lt;br&gt;
+///    name=bar, type=zerofill, perm=rw_, scope=global,
+///    merge=asTentative, interposable=yesAndRuntimeWeak
+///
+///  Uninitialized C static variable:  static int stuff; &lt;br&gt;
+///    name=stuff, type=zerofill, perm=rw_
+///
+///  Weak C function:  __attribute__((weak)) void foo() {} &lt;br&gt;
+///    name=foo, type=code, perm=r_x, scope=global, merge=asWeak
+///
+///  Hidden C function:  __attribute__((visibility(&quot;hidden&quot;))) void foo() {}&lt;br&gt;
+///    name=foo, type=code, perm=r_x, scope=linkageUnit
+///
+///  No-dead-strip function:  __attribute__((used)) void foo() {} &lt;br&gt;
+///    name=foo, type=code, perm=r_x, scope=global, deadStrip=never
+///
+///  Non-inlined C++ inline method:  inline void Foo::doit() {} &lt;br&gt;
+///    name=_ZN3Foo4doitEv, type=code, perm=r_x, scope=global,
+///    mergeDupes=asWeak
+///
+///  Non-inlined C++ inline method whose address is taken:
+///     inline void Foo::doit() {} &lt;br&gt;
+///    name=_ZN3Foo4doitEv, type=code, perm=r_x, scope=global,
+///    mergeDupes=asAddressedWeak
+///
+///  literal c-string:  &quot;hello&quot; &lt;br&gt;
+///    name=&quot;&quot; type=cstring, perm=r__, scope=linkageUnit
+///
+///  literal double:  1.234 &lt;br&gt;
+///    name=&quot;&quot; type=literal8, perm=r__, scope=linkageUnit
+///
+///  constant:  { 1,2,3 } &lt;br&gt;
+///    name=&quot;&quot; type=constant, perm=r__, scope=linkageUnit
+///
+///  Pointer to initializer function:  &lt;br&gt;
+///    name=&quot;&quot; type=initializer, perm=rw_l,
+///    sectionChoice=customRequired
+///
+///  C function place in custom section:  __attribute__((section(&quot;__foo&quot;)))
+///                                       void foo() {} &lt;br&gt;
+///    name=foo, type=code, perm=r_x, scope=global,
+///    sectionChoice=customRequired, customSectionName=__foo
+///</doc>
+<fun r='_ZNK3lld11DefinedAtom7ordinalEv'/>
+<fun r='_ZNK3lld11DefinedAtom4sizeEv'/>
+<fun r='_ZNK3lld11DefinedAtom11sectionSizeEv'/>
+<fun r='_ZNK3lld11DefinedAtom5scopeEv'/>
+<fun r='_ZNK3lld11DefinedAtom12interposableEv'/>
+<fun r='_ZNK3lld11DefinedAtom5mergeEv'/>
+<fun r='_ZNK3lld11DefinedAtom11contentTypeEv'/>
+<fun r='_ZNK3lld11DefinedAtom9alignmentEv'/>
+<fun r='_ZNK3lld11DefinedAtom13sectionChoiceEv'/>
+<fun r='_ZNK3lld11DefinedAtom17customSectionNameEv'/>
+<fun r='_ZNK3lld11DefinedAtom9deadStripEv'/>
+<fun r='_ZNK3lld11DefinedAtom13dynamicExportEv'/>
+<fun r='_ZNK3lld11DefinedAtom9codeModelEv'/>
+<fun r='_ZNK3lld11DefinedAtom11permissionsEv'/>
+<fun r='_ZNK3lld11DefinedAtom10rawContentEv'/>
+<fun r='_ZNK3lld11DefinedAtom5beginEv'/>
+<fun r='_ZNK3lld11DefinedAtom3endEv'/>
+<fun r='_ZN3lld11DefinedAtom12addReferenceENS_9Reference13KindNamespaceENS1_8KindArchEtmPKNS_4AtomEl'/>
+<fun r='_ZN3lld11DefinedAtom7classofEPKNS_4AtomE'/>
+<fun r='_ZN3lld11DefinedAtom11permissionsENS0_11ContentTypeE'/>
+<fun r='_ZNK3lld11DefinedAtom17occupiesDiskSpaceEv'/>
+<fun r='_ZNK3lld11DefinedAtom28relocsToDefinedCanBeImplicitEv'/>
+<fun r='_ZN3lld11DefinedAtomC1Ev'/>
+<fun r='_ZN3lld11DefinedAtomD1Ev'/>
+<fun r='_ZNK3lld11DefinedAtom13derefIteratorEPKv'/>
+<fun r='_ZNK3lld11DefinedAtom17incrementIteratorERPKv'/>
+<fun r='_ZNK3lld11DefinedAtom11permissionsEv'/>
+<fun r='_ZN3lld11DefinedAtom11permissionsENS0_11ContentTypeE'/>
+<ovr f='llvm/lld/include/lld/Core/Simple.h' l='143' c='lld::SimpleDefinedAtom'/>
+<ovr f='llvm/lld/lib/ReaderWriter/YAML/ReaderWriterYAML.cpp' l='807' c='llvm::yaml::MappingTraits{constlld::DefinedAtom*}::NormalizedAtom'/>

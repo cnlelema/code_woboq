@@ -1,0 +1,31 @@
+<def f='llvm/llvm/unittests/IR/CFGBuilder.h' l='53' ll='89'/>
+<size>120</size>
+<doc f='llvm/llvm/unittests/IR/CFGBuilder.h' l='45'>/// \brief
+/// CFGBuilder builds IR with specific CFG, based on the supplied list of arcs.
+/// It&apos;s able to apply the provided updates and automatically modify the IR.
+///
+/// Internally it makes every basic block end with either SwitchInst or with
+/// UnreachableInst. When all arc to a BB are deleted, the BB remains in the
+/// function and doesn&apos;t get deleted.
+///</doc>
+<fun r='_ZN4llvm10CFGBuilderC1EPNS_8FunctionERKSt6vectorINS0_3ArcESaIS4_EES3_INS0_6UpdateESaIS9_EE'/>
+<fun r='_ZN4llvm10CFGBuilder13getOrAddBlockENS_9StringRefE'/>
+<fun r='_ZNK4llvm10CFGBuilder13getNextUpdateEv'/>
+<fun r='_ZN4llvm10CFGBuilder11applyUpdateEv'/>
+<fun r='_ZNK4llvm10CFGBuilder4dumpERNS_11raw_ostreamE'/>
+<fun r='_ZN4llvm10CFGBuilder8buildCFGERKSt6vectorINS0_3ArcESaIS2_EE'/>
+<fun r='_ZN4llvm10CFGBuilder7connectERKNS0_3ArcE'/>
+<fun r='_ZN4llvm10CFGBuilder10disconnectERKNS0_3ArcE'/>
+<mbr r='llvm::CFGBuilder::F' o='0' t='llvm::Function *'/>
+<mbr r='llvm::CFGBuilder::UpdateIdx' o='64' t='unsigned int'/>
+<mbr r='llvm::CFGBuilder::NameToBlock' o='128' t='StringMap&lt;llvm::BasicBlock *&gt;'/>
+<mbr r='llvm::CFGBuilder::Arcs' o='384' t='std::set&lt;Arc&gt;'/>
+<mbr r='llvm::CFGBuilder::Updates' o='768' t='std::vector&lt;Update&gt;'/>
+<fun r='_ZN4llvm10CFGBuilderC1EPNS_8FunctionERKSt6vectorINS0_3ArcESaIS4_EES3_INS0_6UpdateESaIS9_EE'/>
+<fun r='_ZN4llvm10CFGBuilder13getOrAddBlockENS_9StringRefE'/>
+<fun r='_ZN4llvm10CFGBuilder7connectERKNS0_3ArcE'/>
+<fun r='_ZN4llvm10CFGBuilder10disconnectERKNS0_3ArcE'/>
+<fun r='_ZN4llvm10CFGBuilder8buildCFGERKSt6vectorINS0_3ArcESaIS2_EE'/>
+<fun r='_ZNK4llvm10CFGBuilder13getNextUpdateEv'/>
+<fun r='_ZN4llvm10CFGBuilder11applyUpdateEv'/>
+<fun r='_ZNK4llvm10CFGBuilder4dumpERNS_11raw_ostreamE'/>

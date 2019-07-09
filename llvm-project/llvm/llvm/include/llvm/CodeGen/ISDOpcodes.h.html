@@ -1,0 +1,1102 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ISDOpcodes.h source code [llvm/llvm/include/llvm/CodeGen/ISDOpcodes.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::ISD::CondCode,llvm::ISD::LoadExtType,llvm::ISD::MemIndexedMode,llvm::ISD::NodeType "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/CodeGen/ISDOpcodes.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>CodeGen</a>/<a href='ISDOpcodes.h.html'>ISDOpcodes.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- llvm/CodeGen/ISDOpcodes.h - CodeGen opcodes -------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file declares codegen opcodes and related utilities.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#<span data-ppcond="13">ifndef</span> <span class="macro" data-ref="_M/LLVM_CODEGEN_ISDOPCODES_H">LLVM_CODEGEN_ISDOPCODES_H</span></u></td></tr>
+<tr><th id="14">14</th><td><u>#define <dfn class="macro" id="_M/LLVM_CODEGEN_ISDOPCODES_H" data-ref="_M/LLVM_CODEGEN_ISDOPCODES_H">LLVM_CODEGEN_ISDOPCODES_H</dfn></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="ValueTypes.h.html">"llvm/CodeGen/ValueTypes.h"</a></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><i class="doc">/// ISD namespace - This namespace contains an enum which represents all of the</i></td></tr>
+<tr><th id="21">21</th><td><i class="doc">/// SelectionDAG node types and value types.</i></td></tr>
+<tr><th id="22">22</th><td><i class="doc">///</i></td></tr>
+<tr><th id="23">23</th><td><b>namespace</b> <span class="namespace">ISD</span> {</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td>  <i>//===--------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="26">26</th><td><i>  /// ISD::NodeType enum - This enum defines the target-independent operators</i></td></tr>
+<tr><th id="27">27</th><td><i>  /// for a SelectionDAG.</i></td></tr>
+<tr><th id="28">28</th><td><i>  ///</i></td></tr>
+<tr><th id="29">29</th><td><i>  /// Targets may also define target-dependent operator codes for SDNodes. For</i></td></tr>
+<tr><th id="30">30</th><td><i>  /// example, on x86, these are the enum values in the X86ISD namespace.</i></td></tr>
+<tr><th id="31">31</th><td><i>  /// Targets should aim to use target-independent operators to model their</i></td></tr>
+<tr><th id="32">32</th><td><i>  /// instruction sets as much as possible, and only use target-dependent</i></td></tr>
+<tr><th id="33">33</th><td><i>  /// operators when they have special requirements.</i></td></tr>
+<tr><th id="34">34</th><td><i>  ///</i></td></tr>
+<tr><th id="35">35</th><td><i>  /// Finally, during and after selection proper, SNodes may use special</i></td></tr>
+<tr><th id="36">36</th><td><i>  /// operator codes that correspond directly with MachineInstr opcodes. These</i></td></tr>
+<tr><th id="37">37</th><td><i>  /// are used to represent selected instructions. See the isMachineOpcode()</i></td></tr>
+<tr><th id="38">38</th><td><i>  /// and getMachineOpcode() member functions of SDNode.</i></td></tr>
+<tr><th id="39">39</th><td><i>  ///</i></td></tr>
+<tr><th id="40">40</th><td>  <b>enum</b> <dfn class="type def" id="llvm::ISD::NodeType" title='llvm::ISD::NodeType' data-ref="llvm::ISD::NodeType">NodeType</dfn> {</td></tr>
+<tr><th id="41">41</th><td>    <i class="doc">/// DELETED_NODE - This is an illegal value that is used to catch</i></td></tr>
+<tr><th id="42">42</th><td><i class="doc">    /// errors.  This opcode is not a legal opcode for any node.</i></td></tr>
+<tr><th id="43">43</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::DELETED_NODE" title='llvm::ISD::NodeType::DELETED_NODE' data-ref="llvm::ISD::NodeType::DELETED_NODE">DELETED_NODE</dfn>,</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>    <i class="doc">/// EntryToken - This is the marker used to indicate the start of a region.</i></td></tr>
+<tr><th id="46">46</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::EntryToken" title='llvm::ISD::NodeType::EntryToken' data-ref="llvm::ISD::NodeType::EntryToken">EntryToken</dfn>,</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>    <i class="doc">/// TokenFactor - This node takes multiple tokens as input and produces a</i></td></tr>
+<tr><th id="49">49</th><td><i class="doc">    /// single token result. This is used to represent the fact that the operand</i></td></tr>
+<tr><th id="50">50</th><td><i class="doc">    /// operators are independent of each other.</i></td></tr>
+<tr><th id="51">51</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::TokenFactor" title='llvm::ISD::NodeType::TokenFactor' data-ref="llvm::ISD::NodeType::TokenFactor">TokenFactor</dfn>,</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>    <i class="doc">/// AssertSext, AssertZext - These nodes record if a register contains a</i></td></tr>
+<tr><th id="54">54</th><td><i class="doc">    /// value that has already been zero or sign extended from a narrower type.</i></td></tr>
+<tr><th id="55">55</th><td><i class="doc">    /// These nodes take two operands.  The first is the node that has already</i></td></tr>
+<tr><th id="56">56</th><td><i class="doc">    /// been extended, and the second is a value type node indicating the width</i></td></tr>
+<tr><th id="57">57</th><td><i class="doc">    /// of the extension</i></td></tr>
+<tr><th id="58">58</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::AssertSext" title='llvm::ISD::NodeType::AssertSext' data-ref="llvm::ISD::NodeType::AssertSext">AssertSext</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::AssertZext" title='llvm::ISD::NodeType::AssertZext' data-ref="llvm::ISD::NodeType::AssertZext">AssertZext</dfn>,</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>    <i class="doc">/// Various leaf nodes.</i></td></tr>
+<tr><th id="61">61</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::BasicBlock" title='llvm::ISD::NodeType::BasicBlock' data-ref="llvm::ISD::NodeType::BasicBlock">BasicBlock</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::VALUETYPE" title='llvm::ISD::NodeType::VALUETYPE' data-ref="llvm::ISD::NodeType::VALUETYPE">VALUETYPE</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::CONDCODE" title='llvm::ISD::NodeType::CONDCODE' data-ref="llvm::ISD::NodeType::CONDCODE">CONDCODE</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::Register" title='llvm::ISD::NodeType::Register' data-ref="llvm::ISD::NodeType::Register">Register</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::RegisterMask" title='llvm::ISD::NodeType::RegisterMask' data-ref="llvm::ISD::NodeType::RegisterMask">RegisterMask</dfn>,</td></tr>
+<tr><th id="62">62</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::Constant" title='llvm::ISD::NodeType::Constant' data-ref="llvm::ISD::NodeType::Constant">Constant</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::ConstantFP" title='llvm::ISD::NodeType::ConstantFP' data-ref="llvm::ISD::NodeType::ConstantFP">ConstantFP</dfn>,</td></tr>
+<tr><th id="63">63</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::GlobalAddress" title='llvm::ISD::NodeType::GlobalAddress' data-ref="llvm::ISD::NodeType::GlobalAddress">GlobalAddress</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::GlobalTLSAddress" title='llvm::ISD::NodeType::GlobalTLSAddress' data-ref="llvm::ISD::NodeType::GlobalTLSAddress">GlobalTLSAddress</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FrameIndex" title='llvm::ISD::NodeType::FrameIndex' data-ref="llvm::ISD::NodeType::FrameIndex">FrameIndex</dfn>,</td></tr>
+<tr><th id="64">64</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::JumpTable" title='llvm::ISD::NodeType::JumpTable' data-ref="llvm::ISD::NodeType::JumpTable">JumpTable</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::ConstantPool" title='llvm::ISD::NodeType::ConstantPool' data-ref="llvm::ISD::NodeType::ConstantPool">ConstantPool</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::ExternalSymbol" title='llvm::ISD::NodeType::ExternalSymbol' data-ref="llvm::ISD::NodeType::ExternalSymbol">ExternalSymbol</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::BlockAddress" title='llvm::ISD::NodeType::BlockAddress' data-ref="llvm::ISD::NodeType::BlockAddress">BlockAddress</dfn>,</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>    <i class="doc">/// The address of the GOT</i></td></tr>
+<tr><th id="67">67</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::GLOBAL_OFFSET_TABLE" title='llvm::ISD::NodeType::GLOBAL_OFFSET_TABLE' data-ref="llvm::ISD::NodeType::GLOBAL_OFFSET_TABLE">GLOBAL_OFFSET_TABLE</dfn>,</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td>    <i class="doc">/// FRAMEADDR, RETURNADDR - These nodes represent llvm.frameaddress and</i></td></tr>
+<tr><th id="70">70</th><td><i class="doc">    /// llvm.returnaddress on the DAG.  These nodes take one operand, the index</i></td></tr>
+<tr><th id="71">71</th><td><i class="doc">    /// of the frame or return address to return.  An index of zero corresponds</i></td></tr>
+<tr><th id="72">72</th><td><i class="doc">    /// to the current function's frame or return address, an index of one to</i></td></tr>
+<tr><th id="73">73</th><td><i class="doc">    /// the parent's frame or return address, and so on.</i></td></tr>
+<tr><th id="74">74</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FRAMEADDR" title='llvm::ISD::NodeType::FRAMEADDR' data-ref="llvm::ISD::NodeType::FRAMEADDR">FRAMEADDR</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::RETURNADDR" title='llvm::ISD::NodeType::RETURNADDR' data-ref="llvm::ISD::NodeType::RETURNADDR">RETURNADDR</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::ADDROFRETURNADDR" title='llvm::ISD::NodeType::ADDROFRETURNADDR' data-ref="llvm::ISD::NodeType::ADDROFRETURNADDR">ADDROFRETURNADDR</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::SPONENTRY" title='llvm::ISD::NodeType::SPONENTRY' data-ref="llvm::ISD::NodeType::SPONENTRY">SPONENTRY</dfn>,</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>    <i class="doc">/// LOCAL_RECOVER - Represents the llvm.localrecover intrinsic.</i></td></tr>
+<tr><th id="77">77</th><td><i class="doc">    /// Materializes the offset from the local object pointer of another</i></td></tr>
+<tr><th id="78">78</th><td><i class="doc">    /// function to a particular local object passed to llvm.localescape. The</i></td></tr>
+<tr><th id="79">79</th><td><i class="doc">    /// operand is the MCSymbol label used to represent this offset, since</i></td></tr>
+<tr><th id="80">80</th><td><i class="doc">    /// typically the offset is not known until after code generation of the</i></td></tr>
+<tr><th id="81">81</th><td><i class="doc">    /// parent.</i></td></tr>
+<tr><th id="82">82</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::LOCAL_RECOVER" title='llvm::ISD::NodeType::LOCAL_RECOVER' data-ref="llvm::ISD::NodeType::LOCAL_RECOVER">LOCAL_RECOVER</dfn>,</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>    <i class="doc">/// READ_REGISTER, WRITE_REGISTER - This node represents llvm.register on</i></td></tr>
+<tr><th id="85">85</th><td><i class="doc">    /// the DAG, which implements the named register global variables extension.</i></td></tr>
+<tr><th id="86">86</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::READ_REGISTER" title='llvm::ISD::NodeType::READ_REGISTER' data-ref="llvm::ISD::NodeType::READ_REGISTER">READ_REGISTER</dfn>,</td></tr>
+<tr><th id="87">87</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::WRITE_REGISTER" title='llvm::ISD::NodeType::WRITE_REGISTER' data-ref="llvm::ISD::NodeType::WRITE_REGISTER">WRITE_REGISTER</dfn>,</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td>    <i class="doc">/// FRAME_TO_ARGS_OFFSET - This node represents offset from frame pointer to</i></td></tr>
+<tr><th id="90">90</th><td><i class="doc">    /// first (possible) on-stack argument. This is needed for correct stack</i></td></tr>
+<tr><th id="91">91</th><td><i class="doc">    /// adjustment during unwind.</i></td></tr>
+<tr><th id="92">92</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FRAME_TO_ARGS_OFFSET" title='llvm::ISD::NodeType::FRAME_TO_ARGS_OFFSET' data-ref="llvm::ISD::NodeType::FRAME_TO_ARGS_OFFSET">FRAME_TO_ARGS_OFFSET</dfn>,</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td>    <i class="doc">/// EH_DWARF_CFA - This node represents the pointer to the DWARF Canonical</i></td></tr>
+<tr><th id="95">95</th><td><i class="doc">    /// Frame Address (CFA), generally the value of the stack pointer at the</i></td></tr>
+<tr><th id="96">96</th><td><i class="doc">    /// call site in the previous frame.</i></td></tr>
+<tr><th id="97">97</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::EH_DWARF_CFA" title='llvm::ISD::NodeType::EH_DWARF_CFA' data-ref="llvm::ISD::NodeType::EH_DWARF_CFA">EH_DWARF_CFA</dfn>,</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td>    <i class="doc">/// OUTCHAIN = EH_RETURN(INCHAIN, OFFSET, HANDLER) - This node represents</i></td></tr>
+<tr><th id="100">100</th><td><i class="doc">    /// 'eh_return' gcc dwarf builtin, which is used to return from</i></td></tr>
+<tr><th id="101">101</th><td><i class="doc">    /// exception. The general meaning is: adjust stack by OFFSET and pass</i></td></tr>
+<tr><th id="102">102</th><td><i class="doc">    /// execution to HANDLER. Many platform-related details also :)</i></td></tr>
+<tr><th id="103">103</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::EH_RETURN" title='llvm::ISD::NodeType::EH_RETURN' data-ref="llvm::ISD::NodeType::EH_RETURN">EH_RETURN</dfn>,</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td>    <i class="doc">/// RESULT, OUTCHAIN = EH_SJLJ_SETJMP(INCHAIN, buffer)</i></td></tr>
+<tr><th id="106">106</th><td><i class="doc">    /// This corresponds to the eh.sjlj.setjmp intrinsic.</i></td></tr>
+<tr><th id="107">107</th><td><i class="doc">    /// It takes an input chain and a pointer to the jump buffer as inputs</i></td></tr>
+<tr><th id="108">108</th><td><i class="doc">    /// and returns an outchain.</i></td></tr>
+<tr><th id="109">109</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::EH_SJLJ_SETJMP" title='llvm::ISD::NodeType::EH_SJLJ_SETJMP' data-ref="llvm::ISD::NodeType::EH_SJLJ_SETJMP">EH_SJLJ_SETJMP</dfn>,</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>    <i class="doc">/// OUTCHAIN = EH_SJLJ_LONGJMP(INCHAIN, buffer)</i></td></tr>
+<tr><th id="112">112</th><td><i class="doc">    /// This corresponds to the eh.sjlj.longjmp intrinsic.</i></td></tr>
+<tr><th id="113">113</th><td><i class="doc">    /// It takes an input chain and a pointer to the jump buffer as inputs</i></td></tr>
+<tr><th id="114">114</th><td><i class="doc">    /// and returns an outchain.</i></td></tr>
+<tr><th id="115">115</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::EH_SJLJ_LONGJMP" title='llvm::ISD::NodeType::EH_SJLJ_LONGJMP' data-ref="llvm::ISD::NodeType::EH_SJLJ_LONGJMP">EH_SJLJ_LONGJMP</dfn>,</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>    <i class="doc">/// OUTCHAIN = EH_SJLJ_SETUP_DISPATCH(INCHAIN)</i></td></tr>
+<tr><th id="118">118</th><td><i class="doc">    /// The target initializes the dispatch table here.</i></td></tr>
+<tr><th id="119">119</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::EH_SJLJ_SETUP_DISPATCH" title='llvm::ISD::NodeType::EH_SJLJ_SETUP_DISPATCH' data-ref="llvm::ISD::NodeType::EH_SJLJ_SETUP_DISPATCH">EH_SJLJ_SETUP_DISPATCH</dfn>,</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>    <i class="doc">/// TargetConstant* - Like Constant*, but the DAG does not do any folding,</i></td></tr>
+<tr><th id="122">122</th><td><i class="doc">    /// simplification, or lowering of the constant. They are used for constants</i></td></tr>
+<tr><th id="123">123</th><td><i class="doc">    /// which are known to fit in the immediate fields of their users, or for</i></td></tr>
+<tr><th id="124">124</th><td><i class="doc">    /// carrying magic numbers which are not values which need to be</i></td></tr>
+<tr><th id="125">125</th><td><i class="doc">    /// materialized in registers.</i></td></tr>
+<tr><th id="126">126</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::TargetConstant" title='llvm::ISD::NodeType::TargetConstant' data-ref="llvm::ISD::NodeType::TargetConstant">TargetConstant</dfn>,</td></tr>
+<tr><th id="127">127</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::TargetConstantFP" title='llvm::ISD::NodeType::TargetConstantFP' data-ref="llvm::ISD::NodeType::TargetConstantFP">TargetConstantFP</dfn>,</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td>    <i class="doc">/// TargetGlobalAddress - Like GlobalAddress, but the DAG does no folding or</i></td></tr>
+<tr><th id="130">130</th><td><i class="doc">    /// anything else with this node, and this is valid in the target-specific</i></td></tr>
+<tr><th id="131">131</th><td><i class="doc">    /// dag, turning into a GlobalAddress operand.</i></td></tr>
+<tr><th id="132">132</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::TargetGlobalAddress" title='llvm::ISD::NodeType::TargetGlobalAddress' data-ref="llvm::ISD::NodeType::TargetGlobalAddress">TargetGlobalAddress</dfn>,</td></tr>
+<tr><th id="133">133</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::TargetGlobalTLSAddress" title='llvm::ISD::NodeType::TargetGlobalTLSAddress' data-ref="llvm::ISD::NodeType::TargetGlobalTLSAddress">TargetGlobalTLSAddress</dfn>,</td></tr>
+<tr><th id="134">134</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::TargetFrameIndex" title='llvm::ISD::NodeType::TargetFrameIndex' data-ref="llvm::ISD::NodeType::TargetFrameIndex">TargetFrameIndex</dfn>,</td></tr>
+<tr><th id="135">135</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::TargetJumpTable" title='llvm::ISD::NodeType::TargetJumpTable' data-ref="llvm::ISD::NodeType::TargetJumpTable">TargetJumpTable</dfn>,</td></tr>
+<tr><th id="136">136</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::TargetConstantPool" title='llvm::ISD::NodeType::TargetConstantPool' data-ref="llvm::ISD::NodeType::TargetConstantPool">TargetConstantPool</dfn>,</td></tr>
+<tr><th id="137">137</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::TargetExternalSymbol" title='llvm::ISD::NodeType::TargetExternalSymbol' data-ref="llvm::ISD::NodeType::TargetExternalSymbol">TargetExternalSymbol</dfn>,</td></tr>
+<tr><th id="138">138</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::TargetBlockAddress" title='llvm::ISD::NodeType::TargetBlockAddress' data-ref="llvm::ISD::NodeType::TargetBlockAddress">TargetBlockAddress</dfn>,</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::MCSymbol" title='llvm::ISD::NodeType::MCSymbol' data-ref="llvm::ISD::NodeType::MCSymbol">MCSymbol</dfn>,</td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td>    <i class="doc">/// TargetIndex - Like a constant pool entry, but with completely</i></td></tr>
+<tr><th id="143">143</th><td><i class="doc">    /// target-dependent semantics. Holds target flags, a 32-bit index, and a</i></td></tr>
+<tr><th id="144">144</th><td><i class="doc">    /// 64-bit index. Targets can use this however they like.</i></td></tr>
+<tr><th id="145">145</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::TargetIndex" title='llvm::ISD::NodeType::TargetIndex' data-ref="llvm::ISD::NodeType::TargetIndex">TargetIndex</dfn>,</td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td>    <i class="doc">/// RESULT = INTRINSIC_WO_CHAIN(INTRINSICID, arg1, arg2, ...)</i></td></tr>
+<tr><th id="148">148</th><td><i class="doc">    /// This node represents a target intrinsic function with no side effects.</i></td></tr>
+<tr><th id="149">149</th><td><i class="doc">    /// The first operand is the ID number of the intrinsic from the</i></td></tr>
+<tr><th id="150">150</th><td><i class="doc">    /// llvm::Intrinsic namespace.  The operands to the intrinsic follow.  The</i></td></tr>
+<tr><th id="151">151</th><td><i class="doc">    /// node returns the result of the intrinsic.</i></td></tr>
+<tr><th id="152">152</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::INTRINSIC_WO_CHAIN" title='llvm::ISD::NodeType::INTRINSIC_WO_CHAIN' data-ref="llvm::ISD::NodeType::INTRINSIC_WO_CHAIN">INTRINSIC_WO_CHAIN</dfn>,</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td>    <i class="doc">/// RESULT,OUTCHAIN = INTRINSIC_W_CHAIN(INCHAIN, INTRINSICID, arg1, ...)</i></td></tr>
+<tr><th id="155">155</th><td><i class="doc">    /// This node represents a target intrinsic function with side effects that</i></td></tr>
+<tr><th id="156">156</th><td><i class="doc">    /// returns a result.  The first operand is a chain pointer.  The second is</i></td></tr>
+<tr><th id="157">157</th><td><i class="doc">    /// the ID number of the intrinsic from the llvm::Intrinsic namespace.  The</i></td></tr>
+<tr><th id="158">158</th><td><i class="doc">    /// operands to the intrinsic follow.  The node has two results, the result</i></td></tr>
+<tr><th id="159">159</th><td><i class="doc">    /// of the intrinsic and an output chain.</i></td></tr>
+<tr><th id="160">160</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::INTRINSIC_W_CHAIN" title='llvm::ISD::NodeType::INTRINSIC_W_CHAIN' data-ref="llvm::ISD::NodeType::INTRINSIC_W_CHAIN">INTRINSIC_W_CHAIN</dfn>,</td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td>    <i class="doc">/// OUTCHAIN = INTRINSIC_VOID(INCHAIN, INTRINSICID, arg1, arg2, ...)</i></td></tr>
+<tr><th id="163">163</th><td><i class="doc">    /// This node represents a target intrinsic function with side effects that</i></td></tr>
+<tr><th id="164">164</th><td><i class="doc">    /// does not return a result.  The first operand is a chain pointer.  The</i></td></tr>
+<tr><th id="165">165</th><td><i class="doc">    /// second is the ID number of the intrinsic from the llvm::Intrinsic</i></td></tr>
+<tr><th id="166">166</th><td><i class="doc">    /// namespace.  The operands to the intrinsic follow.</i></td></tr>
+<tr><th id="167">167</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::INTRINSIC_VOID" title='llvm::ISD::NodeType::INTRINSIC_VOID' data-ref="llvm::ISD::NodeType::INTRINSIC_VOID">INTRINSIC_VOID</dfn>,</td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td>    <i class="doc">/// CopyToReg - This node has three operands: a chain, a register number to</i></td></tr>
+<tr><th id="170">170</th><td><i class="doc">    /// set to this value, and a value.</i></td></tr>
+<tr><th id="171">171</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::CopyToReg" title='llvm::ISD::NodeType::CopyToReg' data-ref="llvm::ISD::NodeType::CopyToReg">CopyToReg</dfn>,</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>    <i class="doc">/// CopyFromReg - This node indicates that the input value is a virtual or</i></td></tr>
+<tr><th id="174">174</th><td><i class="doc">    /// physical register that is defined outside of the scope of this</i></td></tr>
+<tr><th id="175">175</th><td><i class="doc">    /// SelectionDAG.  The register is available from the RegisterSDNode object.</i></td></tr>
+<tr><th id="176">176</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::CopyFromReg" title='llvm::ISD::NodeType::CopyFromReg' data-ref="llvm::ISD::NodeType::CopyFromReg">CopyFromReg</dfn>,</td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td>    <i class="doc">/// UNDEF - An undefined node.</i></td></tr>
+<tr><th id="179">179</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::UNDEF" title='llvm::ISD::NodeType::UNDEF' data-ref="llvm::ISD::NodeType::UNDEF">UNDEF</dfn>,</td></tr>
+<tr><th id="180">180</th><td></td></tr>
+<tr><th id="181">181</th><td>    <i class="doc">/// EXTRACT_ELEMENT - This is used to get the lower or upper (determined by</i></td></tr>
+<tr><th id="182">182</th><td><i class="doc">    /// a Constant, which is required to be operand #1) half of the integer or</i></td></tr>
+<tr><th id="183">183</th><td><i class="doc">    /// float value specified as operand #0.  This is only for use before</i></td></tr>
+<tr><th id="184">184</th><td><i class="doc">    /// legalization, for values that will be broken into multiple registers.</i></td></tr>
+<tr><th id="185">185</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::EXTRACT_ELEMENT" title='llvm::ISD::NodeType::EXTRACT_ELEMENT' data-ref="llvm::ISD::NodeType::EXTRACT_ELEMENT">EXTRACT_ELEMENT</dfn>,</td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td>    <i class="doc">/// BUILD_PAIR - This is the opposite of EXTRACT_ELEMENT in some ways.</i></td></tr>
+<tr><th id="188">188</th><td><i class="doc">    /// Given two values of the same integer value type, this produces a value</i></td></tr>
+<tr><th id="189">189</th><td><i class="doc">    /// twice as big.  Like EXTRACT_ELEMENT, this can only be used before</i></td></tr>
+<tr><th id="190">190</th><td><i class="doc">    /// legalization. The lower part of the composite value should be in</i></td></tr>
+<tr><th id="191">191</th><td><i class="doc">    /// element 0 and the upper part should be in element 1.</i></td></tr>
+<tr><th id="192">192</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::BUILD_PAIR" title='llvm::ISD::NodeType::BUILD_PAIR' data-ref="llvm::ISD::NodeType::BUILD_PAIR">BUILD_PAIR</dfn>,</td></tr>
+<tr><th id="193">193</th><td></td></tr>
+<tr><th id="194">194</th><td>    <i class="doc">/// MERGE_VALUES - This node takes multiple discrete operands and returns</i></td></tr>
+<tr><th id="195">195</th><td><i class="doc">    /// them all as its individual results.  This nodes has exactly the same</i></td></tr>
+<tr><th id="196">196</th><td><i class="doc">    /// number of inputs and outputs. This node is useful for some pieces of the</i></td></tr>
+<tr><th id="197">197</th><td><i class="doc">    /// code generator that want to think about a single node with multiple</i></td></tr>
+<tr><th id="198">198</th><td><i class="doc">    /// results, not multiple nodes.</i></td></tr>
+<tr><th id="199">199</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::MERGE_VALUES" title='llvm::ISD::NodeType::MERGE_VALUES' data-ref="llvm::ISD::NodeType::MERGE_VALUES">MERGE_VALUES</dfn>,</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td>    <i class="doc">/// Simple integer binary arithmetic operators.</i></td></tr>
+<tr><th id="202">202</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ADD" title='llvm::ISD::NodeType::ADD' data-ref="llvm::ISD::NodeType::ADD">ADD</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::SUB" title='llvm::ISD::NodeType::SUB' data-ref="llvm::ISD::NodeType::SUB">SUB</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::MUL" title='llvm::ISD::NodeType::MUL' data-ref="llvm::ISD::NodeType::MUL">MUL</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::SDIV" title='llvm::ISD::NodeType::SDIV' data-ref="llvm::ISD::NodeType::SDIV">SDIV</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::UDIV" title='llvm::ISD::NodeType::UDIV' data-ref="llvm::ISD::NodeType::UDIV">UDIV</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::SREM" title='llvm::ISD::NodeType::SREM' data-ref="llvm::ISD::NodeType::SREM">SREM</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::UREM" title='llvm::ISD::NodeType::UREM' data-ref="llvm::ISD::NodeType::UREM">UREM</dfn>,</td></tr>
+<tr><th id="203">203</th><td></td></tr>
+<tr><th id="204">204</th><td>    <i class="doc">/// SMUL_LOHI/UMUL_LOHI - Multiply two integers of type iN, producing</i></td></tr>
+<tr><th id="205">205</th><td><i class="doc">    /// a signed/unsigned value of type i[2*N], and return the full value as</i></td></tr>
+<tr><th id="206">206</th><td><i class="doc">    /// two results, each of type iN.</i></td></tr>
+<tr><th id="207">207</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SMUL_LOHI" title='llvm::ISD::NodeType::SMUL_LOHI' data-ref="llvm::ISD::NodeType::SMUL_LOHI">SMUL_LOHI</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::UMUL_LOHI" title='llvm::ISD::NodeType::UMUL_LOHI' data-ref="llvm::ISD::NodeType::UMUL_LOHI">UMUL_LOHI</dfn>,</td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td>    <i class="doc">/// SDIVREM/UDIVREM - Divide two integers and produce both a quotient and</i></td></tr>
+<tr><th id="210">210</th><td><i class="doc">    /// remainder result.</i></td></tr>
+<tr><th id="211">211</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SDIVREM" title='llvm::ISD::NodeType::SDIVREM' data-ref="llvm::ISD::NodeType::SDIVREM">SDIVREM</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::UDIVREM" title='llvm::ISD::NodeType::UDIVREM' data-ref="llvm::ISD::NodeType::UDIVREM">UDIVREM</dfn>,</td></tr>
+<tr><th id="212">212</th><td></td></tr>
+<tr><th id="213">213</th><td>    <i class="doc">/// CARRY_FALSE - This node is used when folding other nodes,</i></td></tr>
+<tr><th id="214">214</th><td><i class="doc">    /// like ADDC/SUBC, which indicate the carry result is always false.</i></td></tr>
+<tr><th id="215">215</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::CARRY_FALSE" title='llvm::ISD::NodeType::CARRY_FALSE' data-ref="llvm::ISD::NodeType::CARRY_FALSE">CARRY_FALSE</dfn>,</td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td>    <i class="doc">/// Carry-setting nodes for multiple precision addition and subtraction.</i></td></tr>
+<tr><th id="218">218</th><td><i class="doc">    /// These nodes take two operands of the same value type, and produce two</i></td></tr>
+<tr><th id="219">219</th><td><i class="doc">    /// results.  The first result is the normal add or sub result, the second</i></td></tr>
+<tr><th id="220">220</th><td><i class="doc">    /// result is the carry flag result.</i></td></tr>
+<tr><th id="221">221</th><td><i class="doc">    /// FIXME: These nodes are deprecated in favor of ADDCARRY and SUBCARRY.</i></td></tr>
+<tr><th id="222">222</th><td><i class="doc">    /// They are kept around for now to provide a smooth transition path</i></td></tr>
+<tr><th id="223">223</th><td><i class="doc">    /// toward the use of ADDCARRY/SUBCARRY and will eventually be removed.</i></td></tr>
+<tr><th id="224">224</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ADDC" title='llvm::ISD::NodeType::ADDC' data-ref="llvm::ISD::NodeType::ADDC">ADDC</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::SUBC" title='llvm::ISD::NodeType::SUBC' data-ref="llvm::ISD::NodeType::SUBC">SUBC</dfn>,</td></tr>
+<tr><th id="225">225</th><td></td></tr>
+<tr><th id="226">226</th><td>    <i class="doc">/// Carry-using nodes for multiple precision addition and subtraction. These</i></td></tr>
+<tr><th id="227">227</th><td><i class="doc">    /// nodes take three operands: The first two are the normal lhs and rhs to</i></td></tr>
+<tr><th id="228">228</th><td><i class="doc">    /// the add or sub, and the third is the input carry flag.  These nodes</i></td></tr>
+<tr><th id="229">229</th><td><i class="doc">    /// produce two results; the normal result of the add or sub, and the output</i></td></tr>
+<tr><th id="230">230</th><td><i class="doc">    /// carry flag.  These nodes both read and write a carry flag to allow them</i></td></tr>
+<tr><th id="231">231</th><td><i class="doc">    /// to them to be chained together for add and sub of arbitrarily large</i></td></tr>
+<tr><th id="232">232</th><td><i class="doc">    /// values.</i></td></tr>
+<tr><th id="233">233</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ADDE" title='llvm::ISD::NodeType::ADDE' data-ref="llvm::ISD::NodeType::ADDE">ADDE</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::SUBE" title='llvm::ISD::NodeType::SUBE' data-ref="llvm::ISD::NodeType::SUBE">SUBE</dfn>,</td></tr>
+<tr><th id="234">234</th><td></td></tr>
+<tr><th id="235">235</th><td>    <i class="doc">/// Carry-using nodes for multiple precision addition and subtraction.</i></td></tr>
+<tr><th id="236">236</th><td><i class="doc">    /// These nodes take three operands: The first two are the normal lhs and</i></td></tr>
+<tr><th id="237">237</th><td><i class="doc">    /// rhs to the add or sub, and the third is a boolean indicating if there</i></td></tr>
+<tr><th id="238">238</th><td><i class="doc">    /// is an incoming carry. These nodes produce two results: the normal</i></td></tr>
+<tr><th id="239">239</th><td><i class="doc">    /// result of the add or sub, and the output carry so they can be chained</i></td></tr>
+<tr><th id="240">240</th><td><i class="doc">    /// together. The use of this opcode is preferable to adde/sube if the</i></td></tr>
+<tr><th id="241">241</th><td><i class="doc">    /// target supports it, as the carry is a regular value rather than a</i></td></tr>
+<tr><th id="242">242</th><td><i class="doc">    /// glue, which allows further optimisation.</i></td></tr>
+<tr><th id="243">243</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ADDCARRY" title='llvm::ISD::NodeType::ADDCARRY' data-ref="llvm::ISD::NodeType::ADDCARRY">ADDCARRY</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::SUBCARRY" title='llvm::ISD::NodeType::SUBCARRY' data-ref="llvm::ISD::NodeType::SUBCARRY">SUBCARRY</dfn>,</td></tr>
+<tr><th id="244">244</th><td></td></tr>
+<tr><th id="245">245</th><td>    <i class="doc">/// RESULT, BOOL = [SU]ADDO(LHS, RHS) - Overflow-aware nodes for addition.</i></td></tr>
+<tr><th id="246">246</th><td><i class="doc">    /// These nodes take two operands: the normal LHS and RHS to the add. They</i></td></tr>
+<tr><th id="247">247</th><td><i class="doc">    /// produce two results: the normal result of the add, and a boolean that</i></td></tr>
+<tr><th id="248">248</th><td><i class="doc">    /// indicates if an overflow occurred (*not* a flag, because it may be store</i></td></tr>
+<tr><th id="249">249</th><td><i class="doc">    /// to memory, etc.).  If the type of the boolean is not i1 then the high</i></td></tr>
+<tr><th id="250">250</th><td><i class="doc">    /// bits conform to getBooleanContents.</i></td></tr>
+<tr><th id="251">251</th><td><i class="doc">    /// These nodes are generated from llvm.[su]add.with.overflow intrinsics.</i></td></tr>
+<tr><th id="252">252</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SADDO" title='llvm::ISD::NodeType::SADDO' data-ref="llvm::ISD::NodeType::SADDO">SADDO</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::UADDO" title='llvm::ISD::NodeType::UADDO' data-ref="llvm::ISD::NodeType::UADDO">UADDO</dfn>,</td></tr>
+<tr><th id="253">253</th><td></td></tr>
+<tr><th id="254">254</th><td>    <i class="doc">/// Same for subtraction.</i></td></tr>
+<tr><th id="255">255</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SSUBO" title='llvm::ISD::NodeType::SSUBO' data-ref="llvm::ISD::NodeType::SSUBO">SSUBO</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::USUBO" title='llvm::ISD::NodeType::USUBO' data-ref="llvm::ISD::NodeType::USUBO">USUBO</dfn>,</td></tr>
+<tr><th id="256">256</th><td></td></tr>
+<tr><th id="257">257</th><td>    <i class="doc">/// Same for multiplication.</i></td></tr>
+<tr><th id="258">258</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SMULO" title='llvm::ISD::NodeType::SMULO' data-ref="llvm::ISD::NodeType::SMULO">SMULO</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::UMULO" title='llvm::ISD::NodeType::UMULO' data-ref="llvm::ISD::NodeType::UMULO">UMULO</dfn>,</td></tr>
+<tr><th id="259">259</th><td></td></tr>
+<tr><th id="260">260</th><td>    <i class="doc">/// RESULT = [US]ADDSAT(LHS, RHS) - Perform saturation addition on 2</i></td></tr>
+<tr><th id="261">261</th><td><i class="doc">    /// integers with the same bit width (W). If the true value of LHS + RHS</i></td></tr>
+<tr><th id="262">262</th><td><i class="doc">    /// exceeds the largest value that can be represented by W bits, the</i></td></tr>
+<tr><th id="263">263</th><td><i class="doc">    /// resulting value is this maximum value. Otherwise, if this value is less</i></td></tr>
+<tr><th id="264">264</th><td><i class="doc">    /// than the smallest value that can be represented by W bits, the</i></td></tr>
+<tr><th id="265">265</th><td><i class="doc">    /// resulting value is this minimum value.</i></td></tr>
+<tr><th id="266">266</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SADDSAT" title='llvm::ISD::NodeType::SADDSAT' data-ref="llvm::ISD::NodeType::SADDSAT">SADDSAT</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::UADDSAT" title='llvm::ISD::NodeType::UADDSAT' data-ref="llvm::ISD::NodeType::UADDSAT">UADDSAT</dfn>,</td></tr>
+<tr><th id="267">267</th><td></td></tr>
+<tr><th id="268">268</th><td>    <i class="doc">/// RESULT = [US]SUBSAT(LHS, RHS) - Perform saturation subtraction on 2</i></td></tr>
+<tr><th id="269">269</th><td><i class="doc">    /// integers with the same bit width (W). If the true value of LHS - RHS</i></td></tr>
+<tr><th id="270">270</th><td><i class="doc">    /// exceeds the largest value that can be represented by W bits, the</i></td></tr>
+<tr><th id="271">271</th><td><i class="doc">    /// resulting value is this maximum value. Otherwise, if this value is less</i></td></tr>
+<tr><th id="272">272</th><td><i class="doc">    /// than the smallest value that can be represented by W bits, the</i></td></tr>
+<tr><th id="273">273</th><td><i class="doc">    /// resulting value is this minimum value.</i></td></tr>
+<tr><th id="274">274</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SSUBSAT" title='llvm::ISD::NodeType::SSUBSAT' data-ref="llvm::ISD::NodeType::SSUBSAT">SSUBSAT</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::USUBSAT" title='llvm::ISD::NodeType::USUBSAT' data-ref="llvm::ISD::NodeType::USUBSAT">USUBSAT</dfn>,</td></tr>
+<tr><th id="275">275</th><td></td></tr>
+<tr><th id="276">276</th><td>    <i class="doc">/// RESULT = [US]MULFIX(LHS, RHS, SCALE) - Perform fixed point multiplication on</i></td></tr>
+<tr><th id="277">277</th><td><i class="doc">    /// 2 integers with the same width and scale. SCALE represents the scale of</i></td></tr>
+<tr><th id="278">278</th><td><i class="doc">    /// both operands as fixed point numbers. This SCALE parameter must be a</i></td></tr>
+<tr><th id="279">279</th><td><i class="doc">    /// constant integer. A scale of zero is effectively performing</i></td></tr>
+<tr><th id="280">280</th><td><i class="doc">    /// multiplication on 2 integers.</i></td></tr>
+<tr><th id="281">281</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SMULFIX" title='llvm::ISD::NodeType::SMULFIX' data-ref="llvm::ISD::NodeType::SMULFIX">SMULFIX</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::UMULFIX" title='llvm::ISD::NodeType::UMULFIX' data-ref="llvm::ISD::NodeType::UMULFIX">UMULFIX</dfn>,</td></tr>
+<tr><th id="282">282</th><td></td></tr>
+<tr><th id="283">283</th><td>    <i class="doc">/// Same as the corresponding unsaturated fixed point instructions, but the</i></td></tr>
+<tr><th id="284">284</th><td><i class="doc">    /// result is clamped between the min and max values representable by the</i></td></tr>
+<tr><th id="285">285</th><td><i class="doc">    /// bits of the first 2 operands.</i></td></tr>
+<tr><th id="286">286</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SMULFIXSAT" title='llvm::ISD::NodeType::SMULFIXSAT' data-ref="llvm::ISD::NodeType::SMULFIXSAT">SMULFIXSAT</dfn>,</td></tr>
+<tr><th id="287">287</th><td></td></tr>
+<tr><th id="288">288</th><td>    <i class="doc">/// Simple binary floating point operators.</i></td></tr>
+<tr><th id="289">289</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FADD" title='llvm::ISD::NodeType::FADD' data-ref="llvm::ISD::NodeType::FADD">FADD</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FSUB" title='llvm::ISD::NodeType::FSUB' data-ref="llvm::ISD::NodeType::FSUB">FSUB</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FMUL" title='llvm::ISD::NodeType::FMUL' data-ref="llvm::ISD::NodeType::FMUL">FMUL</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FDIV" title='llvm::ISD::NodeType::FDIV' data-ref="llvm::ISD::NodeType::FDIV">FDIV</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FREM" title='llvm::ISD::NodeType::FREM' data-ref="llvm::ISD::NodeType::FREM">FREM</dfn>,</td></tr>
+<tr><th id="290">290</th><td></td></tr>
+<tr><th id="291">291</th><td>    <i class="doc">/// Constrained versions of the binary floating point operators.</i></td></tr>
+<tr><th id="292">292</th><td><i class="doc">    /// These will be lowered to the simple operators before final selection.</i></td></tr>
+<tr><th id="293">293</th><td><i class="doc">    /// They are used to limit optimizations while the DAG is being</i></td></tr>
+<tr><th id="294">294</th><td><i class="doc">    /// optimized.</i></td></tr>
+<tr><th id="295">295</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FADD" title='llvm::ISD::NodeType::STRICT_FADD' data-ref="llvm::ISD::NodeType::STRICT_FADD">STRICT_FADD</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FSUB" title='llvm::ISD::NodeType::STRICT_FSUB' data-ref="llvm::ISD::NodeType::STRICT_FSUB">STRICT_FSUB</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FMUL" title='llvm::ISD::NodeType::STRICT_FMUL' data-ref="llvm::ISD::NodeType::STRICT_FMUL">STRICT_FMUL</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FDIV" title='llvm::ISD::NodeType::STRICT_FDIV' data-ref="llvm::ISD::NodeType::STRICT_FDIV">STRICT_FDIV</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FREM" title='llvm::ISD::NodeType::STRICT_FREM' data-ref="llvm::ISD::NodeType::STRICT_FREM">STRICT_FREM</dfn>,</td></tr>
+<tr><th id="296">296</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FMA" title='llvm::ISD::NodeType::STRICT_FMA' data-ref="llvm::ISD::NodeType::STRICT_FMA">STRICT_FMA</dfn>,</td></tr>
+<tr><th id="297">297</th><td></td></tr>
+<tr><th id="298">298</th><td>    <i class="doc">/// Constrained versions of libm-equivalent floating point intrinsics.</i></td></tr>
+<tr><th id="299">299</th><td><i class="doc">    /// These will be lowered to the equivalent non-constrained pseudo-op</i></td></tr>
+<tr><th id="300">300</th><td><i class="doc">    /// (or expanded to the equivalent library call) before final selection.</i></td></tr>
+<tr><th id="301">301</th><td><i class="doc">    /// They are used to limit optimizations while the DAG is being optimized.</i></td></tr>
+<tr><th id="302">302</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FSQRT" title='llvm::ISD::NodeType::STRICT_FSQRT' data-ref="llvm::ISD::NodeType::STRICT_FSQRT">STRICT_FSQRT</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FPOW" title='llvm::ISD::NodeType::STRICT_FPOW' data-ref="llvm::ISD::NodeType::STRICT_FPOW">STRICT_FPOW</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FPOWI" title='llvm::ISD::NodeType::STRICT_FPOWI' data-ref="llvm::ISD::NodeType::STRICT_FPOWI">STRICT_FPOWI</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FSIN" title='llvm::ISD::NodeType::STRICT_FSIN' data-ref="llvm::ISD::NodeType::STRICT_FSIN">STRICT_FSIN</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FCOS" title='llvm::ISD::NodeType::STRICT_FCOS' data-ref="llvm::ISD::NodeType::STRICT_FCOS">STRICT_FCOS</dfn>,</td></tr>
+<tr><th id="303">303</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FEXP" title='llvm::ISD::NodeType::STRICT_FEXP' data-ref="llvm::ISD::NodeType::STRICT_FEXP">STRICT_FEXP</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FEXP2" title='llvm::ISD::NodeType::STRICT_FEXP2' data-ref="llvm::ISD::NodeType::STRICT_FEXP2">STRICT_FEXP2</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FLOG" title='llvm::ISD::NodeType::STRICT_FLOG' data-ref="llvm::ISD::NodeType::STRICT_FLOG">STRICT_FLOG</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FLOG10" title='llvm::ISD::NodeType::STRICT_FLOG10' data-ref="llvm::ISD::NodeType::STRICT_FLOG10">STRICT_FLOG10</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FLOG2" title='llvm::ISD::NodeType::STRICT_FLOG2' data-ref="llvm::ISD::NodeType::STRICT_FLOG2">STRICT_FLOG2</dfn>,</td></tr>
+<tr><th id="304">304</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FRINT" title='llvm::ISD::NodeType::STRICT_FRINT' data-ref="llvm::ISD::NodeType::STRICT_FRINT">STRICT_FRINT</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FNEARBYINT" title='llvm::ISD::NodeType::STRICT_FNEARBYINT' data-ref="llvm::ISD::NodeType::STRICT_FNEARBYINT">STRICT_FNEARBYINT</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FMAXNUM" title='llvm::ISD::NodeType::STRICT_FMAXNUM' data-ref="llvm::ISD::NodeType::STRICT_FMAXNUM">STRICT_FMAXNUM</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FMINNUM" title='llvm::ISD::NodeType::STRICT_FMINNUM' data-ref="llvm::ISD::NodeType::STRICT_FMINNUM">STRICT_FMINNUM</dfn>,</td></tr>
+<tr><th id="305">305</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FCEIL" title='llvm::ISD::NodeType::STRICT_FCEIL' data-ref="llvm::ISD::NodeType::STRICT_FCEIL">STRICT_FCEIL</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FFLOOR" title='llvm::ISD::NodeType::STRICT_FFLOOR' data-ref="llvm::ISD::NodeType::STRICT_FFLOOR">STRICT_FFLOOR</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FROUND" title='llvm::ISD::NodeType::STRICT_FROUND' data-ref="llvm::ISD::NodeType::STRICT_FROUND">STRICT_FROUND</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FTRUNC" title='llvm::ISD::NodeType::STRICT_FTRUNC' data-ref="llvm::ISD::NodeType::STRICT_FTRUNC">STRICT_FTRUNC</dfn>,</td></tr>
+<tr><th id="306">306</th><td></td></tr>
+<tr><th id="307">307</th><td>    <i class="doc">/// X = STRICT_FP_ROUND(Y, TRUNC) - Rounding 'Y' from a larger floating </i></td></tr>
+<tr><th id="308">308</th><td><i class="doc">    /// point type down to the precision of the destination VT.  TRUNC is a </i></td></tr>
+<tr><th id="309">309</th><td><i class="doc">    /// flag, which is always an integer that is zero or one.  If TRUNC is 0,</i></td></tr>
+<tr><th id="310">310</th><td><i class="doc">    /// this is a normal rounding, if it is 1, this FP_ROUND is known to not</i></td></tr>
+<tr><th id="311">311</th><td><i class="doc">    /// change the value of Y.</i></td></tr>
+<tr><th id="312">312</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="313">313</th><td><i class="doc">    /// The TRUNC = 1 case is used in cases where we know that the value will</i></td></tr>
+<tr><th id="314">314</th><td><i class="doc">    /// not be modified by the node, because Y is not using any of the extra</i></td></tr>
+<tr><th id="315">315</th><td><i class="doc">    /// precision of source type.  This allows certain transformations like</i></td></tr>
+<tr><th id="316">316</th><td><i class="doc">    /// STRICT_FP_EXTEND(STRICT_FP_ROUND(X,1)) -&gt; X which are not safe for</i></td></tr>
+<tr><th id="317">317</th><td><i class="doc">    /// STRICT_FP_EXTEND(STRICT_FP_ROUND(X,0)) because the extra bits aren't</i></td></tr>
+<tr><th id="318">318</th><td><i class="doc">    /// removed.</i></td></tr>
+<tr><th id="319">319</th><td><i class="doc">    /// It is used to limit optimizations while the DAG is being optimized.</i></td></tr>
+<tr><th id="320">320</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FP_ROUND" title='llvm::ISD::NodeType::STRICT_FP_ROUND' data-ref="llvm::ISD::NodeType::STRICT_FP_ROUND">STRICT_FP_ROUND</dfn>,</td></tr>
+<tr><th id="321">321</th><td></td></tr>
+<tr><th id="322">322</th><td>    <i class="doc">/// X = STRICT_FP_EXTEND(Y) - Extend a smaller FP type into a larger FP</i></td></tr>
+<tr><th id="323">323</th><td><i class="doc">    /// type.</i></td></tr>
+<tr><th id="324">324</th><td><i class="doc">    /// It is used to limit optimizations while the DAG is being optimized.</i></td></tr>
+<tr><th id="325">325</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::STRICT_FP_EXTEND" title='llvm::ISD::NodeType::STRICT_FP_EXTEND' data-ref="llvm::ISD::NodeType::STRICT_FP_EXTEND">STRICT_FP_EXTEND</dfn>,</td></tr>
+<tr><th id="326">326</th><td></td></tr>
+<tr><th id="327">327</th><td>    <i class="doc">/// FMA - Perform a * b + c with no intermediate rounding step.</i></td></tr>
+<tr><th id="328">328</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FMA" title='llvm::ISD::NodeType::FMA' data-ref="llvm::ISD::NodeType::FMA">FMA</dfn>,</td></tr>
+<tr><th id="329">329</th><td></td></tr>
+<tr><th id="330">330</th><td>    <i class="doc">/// FMAD - Perform a * b + c, while getting the same result as the</i></td></tr>
+<tr><th id="331">331</th><td><i class="doc">    /// separately rounded operations.</i></td></tr>
+<tr><th id="332">332</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FMAD" title='llvm::ISD::NodeType::FMAD' data-ref="llvm::ISD::NodeType::FMAD">FMAD</dfn>,</td></tr>
+<tr><th id="333">333</th><td></td></tr>
+<tr><th id="334">334</th><td>    <i class="doc">/// FCOPYSIGN(X, Y) - Return the value of X with the sign of Y.  NOTE: This</i></td></tr>
+<tr><th id="335">335</th><td><i class="doc">    /// DAG node does not require that X and Y have the same type, just that</i></td></tr>
+<tr><th id="336">336</th><td><i class="doc">    /// they are both floating point.  X and the result must have the same type.</i></td></tr>
+<tr><th id="337">337</th><td><i class="doc">    /// FCOPYSIGN(f32, f64) is allowed.</i></td></tr>
+<tr><th id="338">338</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FCOPYSIGN" title='llvm::ISD::NodeType::FCOPYSIGN' data-ref="llvm::ISD::NodeType::FCOPYSIGN">FCOPYSIGN</dfn>,</td></tr>
+<tr><th id="339">339</th><td></td></tr>
+<tr><th id="340">340</th><td>    <i class="doc">/// INT = FGETSIGN(FP) - Return the sign bit of the specified floating point</i></td></tr>
+<tr><th id="341">341</th><td><i class="doc">    /// value as an integer 0/1 value.</i></td></tr>
+<tr><th id="342">342</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FGETSIGN" title='llvm::ISD::NodeType::FGETSIGN' data-ref="llvm::ISD::NodeType::FGETSIGN">FGETSIGN</dfn>,</td></tr>
+<tr><th id="343">343</th><td></td></tr>
+<tr><th id="344">344</th><td>    <i class="doc">/// Returns platform specific canonical encoding of a floating point number.</i></td></tr>
+<tr><th id="345">345</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FCANONICALIZE" title='llvm::ISD::NodeType::FCANONICALIZE' data-ref="llvm::ISD::NodeType::FCANONICALIZE">FCANONICALIZE</dfn>,</td></tr>
+<tr><th id="346">346</th><td></td></tr>
+<tr><th id="347">347</th><td>    <i class="doc">/// BUILD_VECTOR(ELT0, ELT1, ELT2, ELT3,...) - Return a vector with the</i></td></tr>
+<tr><th id="348">348</th><td><i class="doc">    /// specified, possibly variable, elements.  The number of elements is</i></td></tr>
+<tr><th id="349">349</th><td><i class="doc">    /// required to be a power of two.  The types of the operands must all be</i></td></tr>
+<tr><th id="350">350</th><td><i class="doc">    /// the same and must match the vector element type, except that integer</i></td></tr>
+<tr><th id="351">351</th><td><i class="doc">    /// types are allowed to be larger than the element type, in which case</i></td></tr>
+<tr><th id="352">352</th><td><i class="doc">    /// the operands are implicitly truncated.</i></td></tr>
+<tr><th id="353">353</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::BUILD_VECTOR" title='llvm::ISD::NodeType::BUILD_VECTOR' data-ref="llvm::ISD::NodeType::BUILD_VECTOR">BUILD_VECTOR</dfn>,</td></tr>
+<tr><th id="354">354</th><td></td></tr>
+<tr><th id="355">355</th><td>    <i class="doc">/// INSERT_VECTOR_ELT(VECTOR, VAL, IDX) - Returns VECTOR with the element</i></td></tr>
+<tr><th id="356">356</th><td><i class="doc">    /// at IDX replaced with VAL.  If the type of VAL is larger than the vector</i></td></tr>
+<tr><th id="357">357</th><td><i class="doc">    /// element type then VAL is truncated before replacement.</i></td></tr>
+<tr><th id="358">358</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::INSERT_VECTOR_ELT" title='llvm::ISD::NodeType::INSERT_VECTOR_ELT' data-ref="llvm::ISD::NodeType::INSERT_VECTOR_ELT">INSERT_VECTOR_ELT</dfn>,</td></tr>
+<tr><th id="359">359</th><td></td></tr>
+<tr><th id="360">360</th><td>    <i class="doc">/// EXTRACT_VECTOR_ELT(VECTOR, IDX) - Returns a single element from VECTOR</i></td></tr>
+<tr><th id="361">361</th><td><i class="doc">    /// identified by the (potentially variable) element number IDX.  If the</i></td></tr>
+<tr><th id="362">362</th><td><i class="doc">    /// return type is an integer type larger than the element type of the</i></td></tr>
+<tr><th id="363">363</th><td><i class="doc">    /// vector, the result is extended to the width of the return type. In</i></td></tr>
+<tr><th id="364">364</th><td><i class="doc">    /// that case, the high bits are undefined.</i></td></tr>
+<tr><th id="365">365</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::EXTRACT_VECTOR_ELT" title='llvm::ISD::NodeType::EXTRACT_VECTOR_ELT' data-ref="llvm::ISD::NodeType::EXTRACT_VECTOR_ELT">EXTRACT_VECTOR_ELT</dfn>,</td></tr>
+<tr><th id="366">366</th><td></td></tr>
+<tr><th id="367">367</th><td>    <i class="doc">/// CONCAT_VECTORS(VECTOR0, VECTOR1, ...) - Given a number of values of</i></td></tr>
+<tr><th id="368">368</th><td><i class="doc">    /// vector type with the same length and element type, this produces a</i></td></tr>
+<tr><th id="369">369</th><td><i class="doc">    /// concatenated vector result value, with length equal to the sum of the</i></td></tr>
+<tr><th id="370">370</th><td><i class="doc">    /// lengths of the input vectors.</i></td></tr>
+<tr><th id="371">371</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::CONCAT_VECTORS" title='llvm::ISD::NodeType::CONCAT_VECTORS' data-ref="llvm::ISD::NodeType::CONCAT_VECTORS">CONCAT_VECTORS</dfn>,</td></tr>
+<tr><th id="372">372</th><td></td></tr>
+<tr><th id="373">373</th><td>    <i class="doc">/// INSERT_SUBVECTOR(VECTOR1, VECTOR2, IDX) - Returns a vector</i></td></tr>
+<tr><th id="374">374</th><td><i class="doc">    /// with VECTOR2 inserted into VECTOR1 at the (potentially</i></td></tr>
+<tr><th id="375">375</th><td><i class="doc">    /// variable) element number IDX, which must be a multiple of the</i></td></tr>
+<tr><th id="376">376</th><td><i class="doc">    /// VECTOR2 vector length.  The elements of VECTOR1 starting at</i></td></tr>
+<tr><th id="377">377</th><td><i class="doc">    /// IDX are overwritten with VECTOR2.  Elements IDX through</i></td></tr>
+<tr><th id="378">378</th><td><i class="doc">    /// vector_length(VECTOR2) must be valid VECTOR1 indices.</i></td></tr>
+<tr><th id="379">379</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::INSERT_SUBVECTOR" title='llvm::ISD::NodeType::INSERT_SUBVECTOR' data-ref="llvm::ISD::NodeType::INSERT_SUBVECTOR">INSERT_SUBVECTOR</dfn>,</td></tr>
+<tr><th id="380">380</th><td></td></tr>
+<tr><th id="381">381</th><td>    <i class="doc">/// EXTRACT_SUBVECTOR(VECTOR, IDX) - Returns a subvector from VECTOR (an</i></td></tr>
+<tr><th id="382">382</th><td><i class="doc">    /// vector value) starting with the element number IDX, which must be a</i></td></tr>
+<tr><th id="383">383</th><td><i class="doc">    /// constant multiple of the result vector length.</i></td></tr>
+<tr><th id="384">384</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::EXTRACT_SUBVECTOR" title='llvm::ISD::NodeType::EXTRACT_SUBVECTOR' data-ref="llvm::ISD::NodeType::EXTRACT_SUBVECTOR">EXTRACT_SUBVECTOR</dfn>,</td></tr>
+<tr><th id="385">385</th><td></td></tr>
+<tr><th id="386">386</th><td>    <i class="doc">/// VECTOR_SHUFFLE(VEC1, VEC2) - Returns a vector, of the same type as</i></td></tr>
+<tr><th id="387">387</th><td><i class="doc">    /// VEC1/VEC2.  A VECTOR_SHUFFLE node also contains an array of constant int</i></td></tr>
+<tr><th id="388">388</th><td><i class="doc">    /// values that indicate which value (or undef) each result element will</i></td></tr>
+<tr><th id="389">389</th><td><i class="doc">    /// get.  These constant ints are accessible through the</i></td></tr>
+<tr><th id="390">390</th><td><i class="doc">    /// ShuffleVectorSDNode class.  This is quite similar to the Altivec</i></td></tr>
+<tr><th id="391">391</th><td><i class="doc">    /// 'vperm' instruction, except that the indices must be constants and are</i></td></tr>
+<tr><th id="392">392</th><td><i class="doc">    /// in terms of the element size of VEC1/VEC2, not in terms of bytes.</i></td></tr>
+<tr><th id="393">393</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::VECTOR_SHUFFLE" title='llvm::ISD::NodeType::VECTOR_SHUFFLE' data-ref="llvm::ISD::NodeType::VECTOR_SHUFFLE">VECTOR_SHUFFLE</dfn>,</td></tr>
+<tr><th id="394">394</th><td></td></tr>
+<tr><th id="395">395</th><td>    <i class="doc">/// SCALAR_TO_VECTOR(VAL) - This represents the operation of loading a</i></td></tr>
+<tr><th id="396">396</th><td><i class="doc">    /// scalar value into element 0 of the resultant vector type.  The top</i></td></tr>
+<tr><th id="397">397</th><td><i class="doc">    /// elements 1 to N-1 of the N-element vector are undefined.  The type</i></td></tr>
+<tr><th id="398">398</th><td><i class="doc">    /// of the operand must match the vector element type, except when they</i></td></tr>
+<tr><th id="399">399</th><td><i class="doc">    /// are integer types.  In this case the operand is allowed to be wider</i></td></tr>
+<tr><th id="400">400</th><td><i class="doc">    /// than the vector element type, and is implicitly truncated to it.</i></td></tr>
+<tr><th id="401">401</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SCALAR_TO_VECTOR" title='llvm::ISD::NodeType::SCALAR_TO_VECTOR' data-ref="llvm::ISD::NodeType::SCALAR_TO_VECTOR">SCALAR_TO_VECTOR</dfn>,</td></tr>
+<tr><th id="402">402</th><td></td></tr>
+<tr><th id="403">403</th><td>    <i class="doc">/// MULHU/MULHS - Multiply high - Multiply two integers of type iN,</i></td></tr>
+<tr><th id="404">404</th><td><i class="doc">    /// producing an unsigned/signed value of type i[2*N], then return the top</i></td></tr>
+<tr><th id="405">405</th><td><i class="doc">    /// part.</i></td></tr>
+<tr><th id="406">406</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::MULHU" title='llvm::ISD::NodeType::MULHU' data-ref="llvm::ISD::NodeType::MULHU">MULHU</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::MULHS" title='llvm::ISD::NodeType::MULHS' data-ref="llvm::ISD::NodeType::MULHS">MULHS</dfn>,</td></tr>
+<tr><th id="407">407</th><td></td></tr>
+<tr><th id="408">408</th><td>    <i class="doc">/// [US]{MIN/MAX} - Binary minimum or maximum or signed or unsigned</i></td></tr>
+<tr><th id="409">409</th><td><i class="doc">    /// integers.</i></td></tr>
+<tr><th id="410">410</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SMIN" title='llvm::ISD::NodeType::SMIN' data-ref="llvm::ISD::NodeType::SMIN">SMIN</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::SMAX" title='llvm::ISD::NodeType::SMAX' data-ref="llvm::ISD::NodeType::SMAX">SMAX</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::UMIN" title='llvm::ISD::NodeType::UMIN' data-ref="llvm::ISD::NodeType::UMIN">UMIN</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::UMAX" title='llvm::ISD::NodeType::UMAX' data-ref="llvm::ISD::NodeType::UMAX">UMAX</dfn>,</td></tr>
+<tr><th id="411">411</th><td></td></tr>
+<tr><th id="412">412</th><td>    <i class="doc">/// Bitwise operators - logical and, logical or, logical xor.</i></td></tr>
+<tr><th id="413">413</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::AND" title='llvm::ISD::NodeType::AND' data-ref="llvm::ISD::NodeType::AND">AND</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::OR" title='llvm::ISD::NodeType::OR' data-ref="llvm::ISD::NodeType::OR">OR</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::XOR" title='llvm::ISD::NodeType::XOR' data-ref="llvm::ISD::NodeType::XOR">XOR</dfn>,</td></tr>
+<tr><th id="414">414</th><td></td></tr>
+<tr><th id="415">415</th><td>    <i class="doc">/// ABS - Determine the unsigned absolute value of a signed integer value of</i></td></tr>
+<tr><th id="416">416</th><td><i class="doc">    /// the same bitwidth.</i></td></tr>
+<tr><th id="417">417</th><td><i class="doc">    /// Note: A value of INT_MIN will return INT_MIN, no saturation or overflow</i></td></tr>
+<tr><th id="418">418</th><td><i class="doc">    /// is performed.</i></td></tr>
+<tr><th id="419">419</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ABS" title='llvm::ISD::NodeType::ABS' data-ref="llvm::ISD::NodeType::ABS">ABS</dfn>,</td></tr>
+<tr><th id="420">420</th><td></td></tr>
+<tr><th id="421">421</th><td>    <i class="doc">/// Shift and rotation operations.  After legalization, the type of the</i></td></tr>
+<tr><th id="422">422</th><td><i class="doc">    /// shift amount is known to be TLI.getShiftAmountTy().  Before legalization</i></td></tr>
+<tr><th id="423">423</th><td><i class="doc">    /// the shift amount can be any type, but care must be taken to ensure it is</i></td></tr>
+<tr><th id="424">424</th><td><i class="doc">    /// large enough.  TLI.getShiftAmountTy() is i8 on some targets, but before</i></td></tr>
+<tr><th id="425">425</th><td><i class="doc">    /// legalization, types like i1024 can occur and i8 doesn't have enough bits</i></td></tr>
+<tr><th id="426">426</th><td><i class="doc">    /// to represent the shift amount.</i></td></tr>
+<tr><th id="427">427</th><td><i class="doc">    /// When the 1st operand is a vector, the shift amount must be in the same</i></td></tr>
+<tr><th id="428">428</th><td><i class="doc">    /// type. (TLI.getShiftAmountTy() will return the same type when the input</i></td></tr>
+<tr><th id="429">429</th><td><i class="doc">    /// type is a vector.)</i></td></tr>
+<tr><th id="430">430</th><td><i class="doc">    /// For rotates and funnel shifts, the shift amount is treated as an unsigned</i></td></tr>
+<tr><th id="431">431</th><td><i class="doc">    /// amount modulo the element size of the first operand.</i></td></tr>
+<tr><th id="432">432</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="433">433</th><td><i class="doc">    /// Funnel 'double' shifts take 3 operands, 2 inputs and the shift amount.</i></td></tr>
+<tr><th id="434">434</th><td><i class="doc">    /// fshl(X,Y,Z): (X &lt;&lt; (Z % BW)) | (Y &gt;&gt; (BW - (Z % BW)))</i></td></tr>
+<tr><th id="435">435</th><td><i class="doc">    /// fshr(X,Y,Z): (X &lt;&lt; (BW - (Z % BW))) | (Y &gt;&gt; (Z % BW))</i></td></tr>
+<tr><th id="436">436</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SHL" title='llvm::ISD::NodeType::SHL' data-ref="llvm::ISD::NodeType::SHL">SHL</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::SRA" title='llvm::ISD::NodeType::SRA' data-ref="llvm::ISD::NodeType::SRA">SRA</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::SRL" title='llvm::ISD::NodeType::SRL' data-ref="llvm::ISD::NodeType::SRL">SRL</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::ROTL" title='llvm::ISD::NodeType::ROTL' data-ref="llvm::ISD::NodeType::ROTL">ROTL</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::ROTR" title='llvm::ISD::NodeType::ROTR' data-ref="llvm::ISD::NodeType::ROTR">ROTR</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FSHL" title='llvm::ISD::NodeType::FSHL' data-ref="llvm::ISD::NodeType::FSHL">FSHL</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FSHR" title='llvm::ISD::NodeType::FSHR' data-ref="llvm::ISD::NodeType::FSHR">FSHR</dfn>,</td></tr>
+<tr><th id="437">437</th><td></td></tr>
+<tr><th id="438">438</th><td>    <i class="doc">/// Byte Swap and Counting operators.</i></td></tr>
+<tr><th id="439">439</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::BSWAP" title='llvm::ISD::NodeType::BSWAP' data-ref="llvm::ISD::NodeType::BSWAP">BSWAP</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::CTTZ" title='llvm::ISD::NodeType::CTTZ' data-ref="llvm::ISD::NodeType::CTTZ">CTTZ</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::CTLZ" title='llvm::ISD::NodeType::CTLZ' data-ref="llvm::ISD::NodeType::CTLZ">CTLZ</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::CTPOP" title='llvm::ISD::NodeType::CTPOP' data-ref="llvm::ISD::NodeType::CTPOP">CTPOP</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::BITREVERSE" title='llvm::ISD::NodeType::BITREVERSE' data-ref="llvm::ISD::NodeType::BITREVERSE">BITREVERSE</dfn>,</td></tr>
+<tr><th id="440">440</th><td></td></tr>
+<tr><th id="441">441</th><td>    <i class="doc">/// Bit counting operators with an undefined result for zero inputs.</i></td></tr>
+<tr><th id="442">442</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::CTTZ_ZERO_UNDEF" title='llvm::ISD::NodeType::CTTZ_ZERO_UNDEF' data-ref="llvm::ISD::NodeType::CTTZ_ZERO_UNDEF">CTTZ_ZERO_UNDEF</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::CTLZ_ZERO_UNDEF" title='llvm::ISD::NodeType::CTLZ_ZERO_UNDEF' data-ref="llvm::ISD::NodeType::CTLZ_ZERO_UNDEF">CTLZ_ZERO_UNDEF</dfn>,</td></tr>
+<tr><th id="443">443</th><td></td></tr>
+<tr><th id="444">444</th><td>    <i class="doc">/// Select(COND, TRUEVAL, FALSEVAL).  If the type of the boolean COND is not</i></td></tr>
+<tr><th id="445">445</th><td><i class="doc">    /// i1 then the high bits must conform to getBooleanContents.</i></td></tr>
+<tr><th id="446">446</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SELECT" title='llvm::ISD::NodeType::SELECT' data-ref="llvm::ISD::NodeType::SELECT">SELECT</dfn>,</td></tr>
+<tr><th id="447">447</th><td></td></tr>
+<tr><th id="448">448</th><td>    <i class="doc">/// Select with a vector condition (op #0) and two vector operands (ops #1</i></td></tr>
+<tr><th id="449">449</th><td><i class="doc">    /// and #2), returning a vector result.  All vectors have the same length.</i></td></tr>
+<tr><th id="450">450</th><td><i class="doc">    /// Much like the scalar select and setcc, each bit in the condition selects</i></td></tr>
+<tr><th id="451">451</th><td><i class="doc">    /// whether the corresponding result element is taken from op #1 or op #2.</i></td></tr>
+<tr><th id="452">452</th><td><i class="doc">    /// At first, the VSELECT condition is of vXi1 type. Later, targets may</i></td></tr>
+<tr><th id="453">453</th><td><i class="doc">    /// change the condition type in order to match the VSELECT node using a</i></td></tr>
+<tr><th id="454">454</th><td><i class="doc">    /// pattern. The condition follows the BooleanContent format of the target.</i></td></tr>
+<tr><th id="455">455</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::VSELECT" title='llvm::ISD::NodeType::VSELECT' data-ref="llvm::ISD::NodeType::VSELECT">VSELECT</dfn>,</td></tr>
+<tr><th id="456">456</th><td></td></tr>
+<tr><th id="457">457</th><td>    <i class="doc">/// Select with condition operator - This selects between a true value and</i></td></tr>
+<tr><th id="458">458</th><td><i class="doc">    /// a false value (ops #2 and #3) based on the boolean result of comparing</i></td></tr>
+<tr><th id="459">459</th><td><i class="doc">    /// the lhs and rhs (ops #0 and #1) of a conditional expression with the</i></td></tr>
+<tr><th id="460">460</th><td><i class="doc">    /// condition code in op #4, a CondCodeSDNode.</i></td></tr>
+<tr><th id="461">461</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SELECT_CC" title='llvm::ISD::NodeType::SELECT_CC' data-ref="llvm::ISD::NodeType::SELECT_CC">SELECT_CC</dfn>,</td></tr>
+<tr><th id="462">462</th><td></td></tr>
+<tr><th id="463">463</th><td>    <i class="doc">/// SetCC operator - This evaluates to a true value iff the condition is</i></td></tr>
+<tr><th id="464">464</th><td><i class="doc">    /// true.  If the result value type is not i1 then the high bits conform</i></td></tr>
+<tr><th id="465">465</th><td><i class="doc">    /// to getBooleanContents.  The operands to this are the left and right</i></td></tr>
+<tr><th id="466">466</th><td><i class="doc">    /// operands to compare (ops #0, and #1) and the condition code to compare</i></td></tr>
+<tr><th id="467">467</th><td><i class="doc">    /// them with (op #2) as a CondCodeSDNode. If the operands are vector types</i></td></tr>
+<tr><th id="468">468</th><td><i class="doc">    /// then the result type must also be a vector type.</i></td></tr>
+<tr><th id="469">469</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SETCC" title='llvm::ISD::NodeType::SETCC' data-ref="llvm::ISD::NodeType::SETCC">SETCC</dfn>,</td></tr>
+<tr><th id="470">470</th><td></td></tr>
+<tr><th id="471">471</th><td>    <i class="doc">/// Like SetCC, ops #0 and #1 are the LHS and RHS operands to compare, but</i></td></tr>
+<tr><th id="472">472</th><td><i class="doc">    /// op #2 is a boolean indicating if there is an incoming carry. This</i></td></tr>
+<tr><th id="473">473</th><td><i class="doc">    /// operator checks the result of "LHS - RHS - Carry", and can be used to</i></td></tr>
+<tr><th id="474">474</th><td><i class="doc">    /// compare two wide integers:</i></td></tr>
+<tr><th id="475">475</th><td><i class="doc">    /// (setcccarry lhshi rhshi (subcarry lhslo rhslo) cc).</i></td></tr>
+<tr><th id="476">476</th><td><i class="doc">    /// Only valid for integers.</i></td></tr>
+<tr><th id="477">477</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SETCCCARRY" title='llvm::ISD::NodeType::SETCCCARRY' data-ref="llvm::ISD::NodeType::SETCCCARRY">SETCCCARRY</dfn>,</td></tr>
+<tr><th id="478">478</th><td></td></tr>
+<tr><th id="479">479</th><td>    <i class="doc">/// SHL_PARTS/SRA_PARTS/SRL_PARTS - These operators are used for expanded</i></td></tr>
+<tr><th id="480">480</th><td><i class="doc">    /// integer shift operations.  The operation ordering is:</i></td></tr>
+<tr><th id="481">481</th><td><i class="doc">    ///       [Lo,Hi] = op [LoLHS,HiLHS], Amt</i></td></tr>
+<tr><th id="482">482</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SHL_PARTS" title='llvm::ISD::NodeType::SHL_PARTS' data-ref="llvm::ISD::NodeType::SHL_PARTS">SHL_PARTS</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::SRA_PARTS" title='llvm::ISD::NodeType::SRA_PARTS' data-ref="llvm::ISD::NodeType::SRA_PARTS">SRA_PARTS</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::SRL_PARTS" title='llvm::ISD::NodeType::SRL_PARTS' data-ref="llvm::ISD::NodeType::SRL_PARTS">SRL_PARTS</dfn>,</td></tr>
+<tr><th id="483">483</th><td></td></tr>
+<tr><th id="484">484</th><td>    <i class="doc">/// Conversion operators.  These are all single input single output</i></td></tr>
+<tr><th id="485">485</th><td><i class="doc">    /// operations.  For all of these, the result type must be strictly</i></td></tr>
+<tr><th id="486">486</th><td><i class="doc">    /// wider or narrower (depending on the operation) than the source</i></td></tr>
+<tr><th id="487">487</th><td><i class="doc">    /// type.</i></td></tr>
+<tr><th id="488">488</th><td><i class="doc"></i></td></tr>
+<tr><th id="489">489</th><td><i class="doc">    /// SIGN_EXTEND - Used for integer types, replicating the sign bit</i></td></tr>
+<tr><th id="490">490</th><td><i class="doc">    /// into new bits.</i></td></tr>
+<tr><th id="491">491</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SIGN_EXTEND" title='llvm::ISD::NodeType::SIGN_EXTEND' data-ref="llvm::ISD::NodeType::SIGN_EXTEND">SIGN_EXTEND</dfn>,</td></tr>
+<tr><th id="492">492</th><td></td></tr>
+<tr><th id="493">493</th><td>    <i class="doc">/// ZERO_EXTEND - Used for integer types, zeroing the new bits.</i></td></tr>
+<tr><th id="494">494</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ZERO_EXTEND" title='llvm::ISD::NodeType::ZERO_EXTEND' data-ref="llvm::ISD::NodeType::ZERO_EXTEND">ZERO_EXTEND</dfn>,</td></tr>
+<tr><th id="495">495</th><td></td></tr>
+<tr><th id="496">496</th><td>    <i class="doc">/// ANY_EXTEND - Used for integer types.  The high bits are undefined.</i></td></tr>
+<tr><th id="497">497</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ANY_EXTEND" title='llvm::ISD::NodeType::ANY_EXTEND' data-ref="llvm::ISD::NodeType::ANY_EXTEND">ANY_EXTEND</dfn>,</td></tr>
+<tr><th id="498">498</th><td></td></tr>
+<tr><th id="499">499</th><td>    <i class="doc">/// TRUNCATE - Completely drop the high bits.</i></td></tr>
+<tr><th id="500">500</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::TRUNCATE" title='llvm::ISD::NodeType::TRUNCATE' data-ref="llvm::ISD::NodeType::TRUNCATE">TRUNCATE</dfn>,</td></tr>
+<tr><th id="501">501</th><td></td></tr>
+<tr><th id="502">502</th><td>    <i class="doc">/// [SU]INT_TO_FP - These operators convert integers (whose interpreted sign</i></td></tr>
+<tr><th id="503">503</th><td><i class="doc">    /// depends on the first letter) to floating point.</i></td></tr>
+<tr><th id="504">504</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SINT_TO_FP" title='llvm::ISD::NodeType::SINT_TO_FP' data-ref="llvm::ISD::NodeType::SINT_TO_FP">SINT_TO_FP</dfn>,</td></tr>
+<tr><th id="505">505</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::UINT_TO_FP" title='llvm::ISD::NodeType::UINT_TO_FP' data-ref="llvm::ISD::NodeType::UINT_TO_FP">UINT_TO_FP</dfn>,</td></tr>
+<tr><th id="506">506</th><td></td></tr>
+<tr><th id="507">507</th><td>    <i class="doc">/// SIGN_EXTEND_INREG - This operator atomically performs a SHL/SRA pair to</i></td></tr>
+<tr><th id="508">508</th><td><i class="doc">    /// sign extend a small value in a large integer register (e.g. sign</i></td></tr>
+<tr><th id="509">509</th><td><i class="doc">    /// extending the low 8 bits of a 32-bit register to fill the top 24 bits</i></td></tr>
+<tr><th id="510">510</th><td><i class="doc">    /// with the 7th bit).  The size of the smaller type is indicated by the 1th</i></td></tr>
+<tr><th id="511">511</th><td><i class="doc">    /// operand, a ValueType node.</i></td></tr>
+<tr><th id="512">512</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SIGN_EXTEND_INREG" title='llvm::ISD::NodeType::SIGN_EXTEND_INREG' data-ref="llvm::ISD::NodeType::SIGN_EXTEND_INREG">SIGN_EXTEND_INREG</dfn>,</td></tr>
+<tr><th id="513">513</th><td></td></tr>
+<tr><th id="514">514</th><td>    <i class="doc">/// ANY_EXTEND_VECTOR_INREG(Vector) - This operator represents an</i></td></tr>
+<tr><th id="515">515</th><td><i class="doc">    /// in-register any-extension of the low lanes of an integer vector. The</i></td></tr>
+<tr><th id="516">516</th><td><i class="doc">    /// result type must have fewer elements than the operand type, and those</i></td></tr>
+<tr><th id="517">517</th><td><i class="doc">    /// elements must be larger integer types such that the total size of the</i></td></tr>
+<tr><th id="518">518</th><td><i class="doc">    /// operand type is less than or equal to the size of the result type. Each</i></td></tr>
+<tr><th id="519">519</th><td><i class="doc">    /// of the low operand elements is any-extended into the corresponding,</i></td></tr>
+<tr><th id="520">520</th><td><i class="doc">    /// wider result elements with the high bits becoming undef.</i></td></tr>
+<tr><th id="521">521</th><td><i class="doc">    /// NOTE: The type legalizer prefers to make the operand and result size</i></td></tr>
+<tr><th id="522">522</th><td><i class="doc">    /// the same to allow expansion to shuffle vector during op legalization.</i></td></tr>
+<tr><th id="523">523</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ANY_EXTEND_VECTOR_INREG" title='llvm::ISD::NodeType::ANY_EXTEND_VECTOR_INREG' data-ref="llvm::ISD::NodeType::ANY_EXTEND_VECTOR_INREG">ANY_EXTEND_VECTOR_INREG</dfn>,</td></tr>
+<tr><th id="524">524</th><td></td></tr>
+<tr><th id="525">525</th><td>    <i class="doc">/// SIGN_EXTEND_VECTOR_INREG(Vector) - This operator represents an</i></td></tr>
+<tr><th id="526">526</th><td><i class="doc">    /// in-register sign-extension of the low lanes of an integer vector. The</i></td></tr>
+<tr><th id="527">527</th><td><i class="doc">    /// result type must have fewer elements than the operand type, and those</i></td></tr>
+<tr><th id="528">528</th><td><i class="doc">    /// elements must be larger integer types such that the total size of the</i></td></tr>
+<tr><th id="529">529</th><td><i class="doc">    /// operand type is less than or equal to the size of the result type. Each</i></td></tr>
+<tr><th id="530">530</th><td><i class="doc">    /// of the low operand elements is sign-extended into the corresponding,</i></td></tr>
+<tr><th id="531">531</th><td><i class="doc">    /// wider result elements.</i></td></tr>
+<tr><th id="532">532</th><td><i class="doc">    /// NOTE: The type legalizer prefers to make the operand and result size</i></td></tr>
+<tr><th id="533">533</th><td><i class="doc">    /// the same to allow expansion to shuffle vector during op legalization.</i></td></tr>
+<tr><th id="534">534</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SIGN_EXTEND_VECTOR_INREG" title='llvm::ISD::NodeType::SIGN_EXTEND_VECTOR_INREG' data-ref="llvm::ISD::NodeType::SIGN_EXTEND_VECTOR_INREG">SIGN_EXTEND_VECTOR_INREG</dfn>,</td></tr>
+<tr><th id="535">535</th><td></td></tr>
+<tr><th id="536">536</th><td>    <i class="doc">/// ZERO_EXTEND_VECTOR_INREG(Vector) - This operator represents an</i></td></tr>
+<tr><th id="537">537</th><td><i class="doc">    /// in-register zero-extension of the low lanes of an integer vector. The</i></td></tr>
+<tr><th id="538">538</th><td><i class="doc">    /// result type must have fewer elements than the operand type, and those</i></td></tr>
+<tr><th id="539">539</th><td><i class="doc">    /// elements must be larger integer types such that the total size of the</i></td></tr>
+<tr><th id="540">540</th><td><i class="doc">    /// operand type is less than or equal to the size of the result type. Each</i></td></tr>
+<tr><th id="541">541</th><td><i class="doc">    /// of the low operand elements is zero-extended into the corresponding,</i></td></tr>
+<tr><th id="542">542</th><td><i class="doc">    /// wider result elements.</i></td></tr>
+<tr><th id="543">543</th><td><i class="doc">    /// NOTE: The type legalizer prefers to make the operand and result size</i></td></tr>
+<tr><th id="544">544</th><td><i class="doc">    /// the same to allow expansion to shuffle vector during op legalization.</i></td></tr>
+<tr><th id="545">545</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ZERO_EXTEND_VECTOR_INREG" title='llvm::ISD::NodeType::ZERO_EXTEND_VECTOR_INREG' data-ref="llvm::ISD::NodeType::ZERO_EXTEND_VECTOR_INREG">ZERO_EXTEND_VECTOR_INREG</dfn>,</td></tr>
+<tr><th id="546">546</th><td></td></tr>
+<tr><th id="547">547</th><td>    <i class="doc">/// FP_TO_[US]INT - Convert a floating point value to a signed or unsigned</i></td></tr>
+<tr><th id="548">548</th><td><i class="doc">    /// integer. These have the same semantics as fptosi and fptoui in IR. If</i></td></tr>
+<tr><th id="549">549</th><td><i class="doc">    /// the FP value cannot fit in the integer type, the results are undefined.</i></td></tr>
+<tr><th id="550">550</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FP_TO_SINT" title='llvm::ISD::NodeType::FP_TO_SINT' data-ref="llvm::ISD::NodeType::FP_TO_SINT">FP_TO_SINT</dfn>,</td></tr>
+<tr><th id="551">551</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FP_TO_UINT" title='llvm::ISD::NodeType::FP_TO_UINT' data-ref="llvm::ISD::NodeType::FP_TO_UINT">FP_TO_UINT</dfn>,</td></tr>
+<tr><th id="552">552</th><td></td></tr>
+<tr><th id="553">553</th><td>    <i class="doc">/// X = FP_ROUND(Y, TRUNC) - Rounding 'Y' from a larger floating point type</i></td></tr>
+<tr><th id="554">554</th><td><i class="doc">    /// down to the precision of the destination VT.  TRUNC is a flag, which is</i></td></tr>
+<tr><th id="555">555</th><td><i class="doc">    /// always an integer that is zero or one.  If TRUNC is 0, this is a</i></td></tr>
+<tr><th id="556">556</th><td><i class="doc">    /// normal rounding, if it is 1, this FP_ROUND is known to not change the</i></td></tr>
+<tr><th id="557">557</th><td><i class="doc">    /// value of Y.</i></td></tr>
+<tr><th id="558">558</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="559">559</th><td><i class="doc">    /// The TRUNC = 1 case is used in cases where we know that the value will</i></td></tr>
+<tr><th id="560">560</th><td><i class="doc">    /// not be modified by the node, because Y is not using any of the extra</i></td></tr>
+<tr><th id="561">561</th><td><i class="doc">    /// precision of source type.  This allows certain transformations like</i></td></tr>
+<tr><th id="562">562</th><td><i class="doc">    /// FP_EXTEND(FP_ROUND(X,1)) -&gt; X which are not safe for</i></td></tr>
+<tr><th id="563">563</th><td><i class="doc">    /// FP_EXTEND(FP_ROUND(X,0)) because the extra bits aren't removed.</i></td></tr>
+<tr><th id="564">564</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FP_ROUND" title='llvm::ISD::NodeType::FP_ROUND' data-ref="llvm::ISD::NodeType::FP_ROUND">FP_ROUND</dfn>,</td></tr>
+<tr><th id="565">565</th><td></td></tr>
+<tr><th id="566">566</th><td>    <i class="doc">/// FLT_ROUNDS_ - Returns current rounding mode:</i></td></tr>
+<tr><th id="567">567</th><td><i class="doc">    /// -1 Undefined</i></td></tr>
+<tr><th id="568">568</th><td><i class="doc">    ///  0 Round to 0</i></td></tr>
+<tr><th id="569">569</th><td><i class="doc">    ///  1 Round to nearest</i></td></tr>
+<tr><th id="570">570</th><td><i class="doc">    ///  2 Round to +inf</i></td></tr>
+<tr><th id="571">571</th><td><i class="doc">    ///  3 Round to -inf</i></td></tr>
+<tr><th id="572">572</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FLT_ROUNDS_" title='llvm::ISD::NodeType::FLT_ROUNDS_' data-ref="llvm::ISD::NodeType::FLT_ROUNDS_">FLT_ROUNDS_</dfn>,</td></tr>
+<tr><th id="573">573</th><td></td></tr>
+<tr><th id="574">574</th><td>    <i class="doc">/// X = FP_ROUND_INREG(Y, VT) - This operator takes an FP register, and</i></td></tr>
+<tr><th id="575">575</th><td><i class="doc">    /// rounds it to a floating point value.  It then promotes it and returns it</i></td></tr>
+<tr><th id="576">576</th><td><i class="doc">    /// in a register of the same size.  This operation effectively just</i></td></tr>
+<tr><th id="577">577</th><td><i class="doc">    /// discards excess precision.  The type to round down to is specified by</i></td></tr>
+<tr><th id="578">578</th><td><i class="doc">    /// the VT operand, a VTSDNode.</i></td></tr>
+<tr><th id="579">579</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FP_ROUND_INREG" title='llvm::ISD::NodeType::FP_ROUND_INREG' data-ref="llvm::ISD::NodeType::FP_ROUND_INREG">FP_ROUND_INREG</dfn>,</td></tr>
+<tr><th id="580">580</th><td></td></tr>
+<tr><th id="581">581</th><td>    <i class="doc">/// X = FP_EXTEND(Y) - Extend a smaller FP type into a larger FP type.</i></td></tr>
+<tr><th id="582">582</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FP_EXTEND" title='llvm::ISD::NodeType::FP_EXTEND' data-ref="llvm::ISD::NodeType::FP_EXTEND">FP_EXTEND</dfn>,</td></tr>
+<tr><th id="583">583</th><td></td></tr>
+<tr><th id="584">584</th><td>    <i class="doc">/// BITCAST - This operator converts between integer, vector and FP</i></td></tr>
+<tr><th id="585">585</th><td><i class="doc">    /// values, as if the value was stored to memory with one type and loaded</i></td></tr>
+<tr><th id="586">586</th><td><i class="doc">    /// from the same address with the other type (or equivalently for vector</i></td></tr>
+<tr><th id="587">587</th><td><i class="doc">    /// format conversions, etc).  The source and result are required to have</i></td></tr>
+<tr><th id="588">588</th><td><i class="doc">    /// the same bit size (e.g.  f32 &lt;-&gt; i32).  This can also be used for</i></td></tr>
+<tr><th id="589">589</th><td><i class="doc">    /// int-to-int or fp-to-fp conversions, but that is a noop, deleted by</i></td></tr>
+<tr><th id="590">590</th><td><i class="doc">    /// getNode().</i></td></tr>
+<tr><th id="591">591</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="592">592</th><td><i class="doc">    /// This operator is subtly different from the bitcast instruction from</i></td></tr>
+<tr><th id="593">593</th><td><i class="doc">    /// LLVM-IR since this node may change the bits in the register. For</i></td></tr>
+<tr><th id="594">594</th><td><i class="doc">    /// example, this occurs on big-endian NEON and big-endian MSA where the</i></td></tr>
+<tr><th id="595">595</th><td><i class="doc">    /// layout of the bits in the register depends on the vector type and this</i></td></tr>
+<tr><th id="596">596</th><td><i class="doc">    /// operator acts as a shuffle operation for some vector type combinations.</i></td></tr>
+<tr><th id="597">597</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::BITCAST" title='llvm::ISD::NodeType::BITCAST' data-ref="llvm::ISD::NodeType::BITCAST">BITCAST</dfn>,</td></tr>
+<tr><th id="598">598</th><td></td></tr>
+<tr><th id="599">599</th><td>    <i class="doc">/// ADDRSPACECAST - This operator converts between pointers of different</i></td></tr>
+<tr><th id="600">600</th><td><i class="doc">    /// address spaces.</i></td></tr>
+<tr><th id="601">601</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ADDRSPACECAST" title='llvm::ISD::NodeType::ADDRSPACECAST' data-ref="llvm::ISD::NodeType::ADDRSPACECAST">ADDRSPACECAST</dfn>,</td></tr>
+<tr><th id="602">602</th><td></td></tr>
+<tr><th id="603">603</th><td>    <i class="doc">/// FP16_TO_FP, FP_TO_FP16 - These operators are used to perform promotions</i></td></tr>
+<tr><th id="604">604</th><td><i class="doc">    /// and truncation for half-precision (16 bit) floating numbers. These nodes</i></td></tr>
+<tr><th id="605">605</th><td><i class="doc">    /// form a semi-softened interface for dealing with f16 (as an i16), which</i></td></tr>
+<tr><th id="606">606</th><td><i class="doc">    /// is often a storage-only type but has native conversions.</i></td></tr>
+<tr><th id="607">607</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FP16_TO_FP" title='llvm::ISD::NodeType::FP16_TO_FP' data-ref="llvm::ISD::NodeType::FP16_TO_FP">FP16_TO_FP</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FP_TO_FP16" title='llvm::ISD::NodeType::FP_TO_FP16' data-ref="llvm::ISD::NodeType::FP_TO_FP16">FP_TO_FP16</dfn>,</td></tr>
+<tr><th id="608">608</th><td></td></tr>
+<tr><th id="609">609</th><td>    <i class="doc">/// Perform various unary floating-point operations inspired by libm. For</i></td></tr>
+<tr><th id="610">610</th><td><i class="doc">    /// FPOWI, the result is undefined if if the integer operand doesn't fit</i></td></tr>
+<tr><th id="611">611</th><td><i class="doc">    /// into 32 bits.</i></td></tr>
+<tr><th id="612">612</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FNEG" title='llvm::ISD::NodeType::FNEG' data-ref="llvm::ISD::NodeType::FNEG">FNEG</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FABS" title='llvm::ISD::NodeType::FABS' data-ref="llvm::ISD::NodeType::FABS">FABS</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FSQRT" title='llvm::ISD::NodeType::FSQRT' data-ref="llvm::ISD::NodeType::FSQRT">FSQRT</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FCBRT" title='llvm::ISD::NodeType::FCBRT' data-ref="llvm::ISD::NodeType::FCBRT">FCBRT</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FSIN" title='llvm::ISD::NodeType::FSIN' data-ref="llvm::ISD::NodeType::FSIN">FSIN</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FCOS" title='llvm::ISD::NodeType::FCOS' data-ref="llvm::ISD::NodeType::FCOS">FCOS</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FPOWI" title='llvm::ISD::NodeType::FPOWI' data-ref="llvm::ISD::NodeType::FPOWI">FPOWI</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FPOW" title='llvm::ISD::NodeType::FPOW' data-ref="llvm::ISD::NodeType::FPOW">FPOW</dfn>,</td></tr>
+<tr><th id="613">613</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FLOG" title='llvm::ISD::NodeType::FLOG' data-ref="llvm::ISD::NodeType::FLOG">FLOG</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FLOG2" title='llvm::ISD::NodeType::FLOG2' data-ref="llvm::ISD::NodeType::FLOG2">FLOG2</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FLOG10" title='llvm::ISD::NodeType::FLOG10' data-ref="llvm::ISD::NodeType::FLOG10">FLOG10</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FEXP" title='llvm::ISD::NodeType::FEXP' data-ref="llvm::ISD::NodeType::FEXP">FEXP</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FEXP2" title='llvm::ISD::NodeType::FEXP2' data-ref="llvm::ISD::NodeType::FEXP2">FEXP2</dfn>,</td></tr>
+<tr><th id="614">614</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FCEIL" title='llvm::ISD::NodeType::FCEIL' data-ref="llvm::ISD::NodeType::FCEIL">FCEIL</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FTRUNC" title='llvm::ISD::NodeType::FTRUNC' data-ref="llvm::ISD::NodeType::FTRUNC">FTRUNC</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FRINT" title='llvm::ISD::NodeType::FRINT' data-ref="llvm::ISD::NodeType::FRINT">FRINT</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FNEARBYINT" title='llvm::ISD::NodeType::FNEARBYINT' data-ref="llvm::ISD::NodeType::FNEARBYINT">FNEARBYINT</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FROUND" title='llvm::ISD::NodeType::FROUND' data-ref="llvm::ISD::NodeType::FROUND">FROUND</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FFLOOR" title='llvm::ISD::NodeType::FFLOOR' data-ref="llvm::ISD::NodeType::FFLOOR">FFLOOR</dfn>,</td></tr>
+<tr><th id="615">615</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::LROUND" title='llvm::ISD::NodeType::LROUND' data-ref="llvm::ISD::NodeType::LROUND">LROUND</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::LLROUND" title='llvm::ISD::NodeType::LLROUND' data-ref="llvm::ISD::NodeType::LLROUND">LLROUND</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::LRINT" title='llvm::ISD::NodeType::LRINT' data-ref="llvm::ISD::NodeType::LRINT">LRINT</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::LLRINT" title='llvm::ISD::NodeType::LLRINT' data-ref="llvm::ISD::NodeType::LLRINT">LLRINT</dfn>,</td></tr>
+<tr><th id="616">616</th><td></td></tr>
+<tr><th id="617">617</th><td>    <i class="doc">/// FMINNUM/FMAXNUM - Perform floating-point minimum or maximum on two</i></td></tr>
+<tr><th id="618">618</th><td><i class="doc">    /// values.</i></td></tr>
+<tr><th id="619">619</th><td><i class="doc">    //</i></td></tr>
+<tr><th id="620">620</th><td><i class="doc">    /// In the case where a single input is a NaN (either signaling or quiet),</i></td></tr>
+<tr><th id="621">621</th><td><i class="doc">    /// the non-NaN input is returned.</i></td></tr>
+<tr><th id="622">622</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="623">623</th><td><i class="doc">    /// The return value of (FMINNUM 0.0, -0.0) could be either 0.0 or -0.0.</i></td></tr>
+<tr><th id="624">624</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FMINNUM" title='llvm::ISD::NodeType::FMINNUM' data-ref="llvm::ISD::NodeType::FMINNUM">FMINNUM</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FMAXNUM" title='llvm::ISD::NodeType::FMAXNUM' data-ref="llvm::ISD::NodeType::FMAXNUM">FMAXNUM</dfn>,</td></tr>
+<tr><th id="625">625</th><td></td></tr>
+<tr><th id="626">626</th><td>    <i class="doc">/// FMINNUM_IEEE/FMAXNUM_IEEE - Perform floating-point minimum or maximum on</i></td></tr>
+<tr><th id="627">627</th><td><i class="doc">    /// two values, following the IEEE-754 2008 definition. This differs from</i></td></tr>
+<tr><th id="628">628</th><td><i class="doc">    /// FMINNUM/FMAXNUM in the handling of signaling NaNs. If one input is a</i></td></tr>
+<tr><th id="629">629</th><td><i class="doc">    /// signaling NaN, returns a quiet NaN.</i></td></tr>
+<tr><th id="630">630</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FMINNUM_IEEE" title='llvm::ISD::NodeType::FMINNUM_IEEE' data-ref="llvm::ISD::NodeType::FMINNUM_IEEE">FMINNUM_IEEE</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FMAXNUM_IEEE" title='llvm::ISD::NodeType::FMAXNUM_IEEE' data-ref="llvm::ISD::NodeType::FMAXNUM_IEEE">FMAXNUM_IEEE</dfn>,</td></tr>
+<tr><th id="631">631</th><td></td></tr>
+<tr><th id="632">632</th><td>    <i class="doc">/// FMINIMUM/FMAXIMUM - NaN-propagating minimum/maximum that also treat -0.0</i></td></tr>
+<tr><th id="633">633</th><td><i class="doc">    /// as less than 0.0. While FMINNUM_IEEE/FMAXNUM_IEEE follow IEEE 754-2008</i></td></tr>
+<tr><th id="634">634</th><td><i class="doc">    /// semantics, FMINIMUM/FMAXIMUM follow IEEE 754-2018 draft semantics.</i></td></tr>
+<tr><th id="635">635</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FMINIMUM" title='llvm::ISD::NodeType::FMINIMUM' data-ref="llvm::ISD::NodeType::FMINIMUM">FMINIMUM</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::FMAXIMUM" title='llvm::ISD::NodeType::FMAXIMUM' data-ref="llvm::ISD::NodeType::FMAXIMUM">FMAXIMUM</dfn>,</td></tr>
+<tr><th id="636">636</th><td></td></tr>
+<tr><th id="637">637</th><td>    <i class="doc">/// FSINCOS - Compute both fsin and fcos as a single operation.</i></td></tr>
+<tr><th id="638">638</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::FSINCOS" title='llvm::ISD::NodeType::FSINCOS' data-ref="llvm::ISD::NodeType::FSINCOS">FSINCOS</dfn>,</td></tr>
+<tr><th id="639">639</th><td></td></tr>
+<tr><th id="640">640</th><td>    <i class="doc">/// LOAD and STORE have token chains as their first operand, then the same</i></td></tr>
+<tr><th id="641">641</th><td><i class="doc">    /// operands as an LLVM load/store instruction, then an offset node that</i></td></tr>
+<tr><th id="642">642</th><td><i class="doc">    /// is added / subtracted from the base pointer to form the address (for</i></td></tr>
+<tr><th id="643">643</th><td><i class="doc">    /// indexed memory ops).</i></td></tr>
+<tr><th id="644">644</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::LOAD" title='llvm::ISD::NodeType::LOAD' data-ref="llvm::ISD::NodeType::LOAD">LOAD</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::STORE" title='llvm::ISD::NodeType::STORE' data-ref="llvm::ISD::NodeType::STORE">STORE</dfn>,</td></tr>
+<tr><th id="645">645</th><td></td></tr>
+<tr><th id="646">646</th><td>    <i class="doc">/// DYNAMIC_STACKALLOC - Allocate some number of bytes on the stack aligned</i></td></tr>
+<tr><th id="647">647</th><td><i class="doc">    /// to a specified boundary.  This node always has two return values: a new</i></td></tr>
+<tr><th id="648">648</th><td><i class="doc">    /// stack pointer value and a chain. The first operand is the token chain,</i></td></tr>
+<tr><th id="649">649</th><td><i class="doc">    /// the second is the number of bytes to allocate, and the third is the</i></td></tr>
+<tr><th id="650">650</th><td><i class="doc">    /// alignment boundary.  The size is guaranteed to be a multiple of the</i></td></tr>
+<tr><th id="651">651</th><td><i class="doc">    /// stack alignment, and the alignment is guaranteed to be bigger than the</i></td></tr>
+<tr><th id="652">652</th><td><i class="doc">    /// stack alignment (if required) or 0 to get standard stack alignment.</i></td></tr>
+<tr><th id="653">653</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::DYNAMIC_STACKALLOC" title='llvm::ISD::NodeType::DYNAMIC_STACKALLOC' data-ref="llvm::ISD::NodeType::DYNAMIC_STACKALLOC">DYNAMIC_STACKALLOC</dfn>,</td></tr>
+<tr><th id="654">654</th><td></td></tr>
+<tr><th id="655">655</th><td>    <i class="doc">/// Control flow instructions.  These all have token chains.</i></td></tr>
+<tr><th id="656">656</th><td><i class="doc"></i></td></tr>
+<tr><th id="657">657</th><td><i class="doc">    /// BR - Unconditional branch.  The first operand is the chain</i></td></tr>
+<tr><th id="658">658</th><td><i class="doc">    /// operand, the second is the MBB to branch to.</i></td></tr>
+<tr><th id="659">659</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::BR" title='llvm::ISD::NodeType::BR' data-ref="llvm::ISD::NodeType::BR">BR</dfn>,</td></tr>
+<tr><th id="660">660</th><td></td></tr>
+<tr><th id="661">661</th><td>    <i class="doc">/// BRIND - Indirect branch.  The first operand is the chain, the second</i></td></tr>
+<tr><th id="662">662</th><td><i class="doc">    /// is the value to branch to, which must be of the same type as the</i></td></tr>
+<tr><th id="663">663</th><td><i class="doc">    /// target's pointer type.</i></td></tr>
+<tr><th id="664">664</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::BRIND" title='llvm::ISD::NodeType::BRIND' data-ref="llvm::ISD::NodeType::BRIND">BRIND</dfn>,</td></tr>
+<tr><th id="665">665</th><td></td></tr>
+<tr><th id="666">666</th><td>    <i class="doc">/// BR_JT - Jumptable branch. The first operand is the chain, the second</i></td></tr>
+<tr><th id="667">667</th><td><i class="doc">    /// is the jumptable index, the last one is the jumptable entry index.</i></td></tr>
+<tr><th id="668">668</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::BR_JT" title='llvm::ISD::NodeType::BR_JT' data-ref="llvm::ISD::NodeType::BR_JT">BR_JT</dfn>,</td></tr>
+<tr><th id="669">669</th><td></td></tr>
+<tr><th id="670">670</th><td>    <i class="doc">/// BRCOND - Conditional branch.  The first operand is the chain, the</i></td></tr>
+<tr><th id="671">671</th><td><i class="doc">    /// second is the condition, the third is the block to branch to if the</i></td></tr>
+<tr><th id="672">672</th><td><i class="doc">    /// condition is true.  If the type of the condition is not i1, then the</i></td></tr>
+<tr><th id="673">673</th><td><i class="doc">    /// high bits must conform to getBooleanContents.</i></td></tr>
+<tr><th id="674">674</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::BRCOND" title='llvm::ISD::NodeType::BRCOND' data-ref="llvm::ISD::NodeType::BRCOND">BRCOND</dfn>,</td></tr>
+<tr><th id="675">675</th><td></td></tr>
+<tr><th id="676">676</th><td>    <i class="doc">/// BR_CC - Conditional branch.  The behavior is like that of SELECT_CC, in</i></td></tr>
+<tr><th id="677">677</th><td><i class="doc">    /// that the condition is represented as condition code, and two nodes to</i></td></tr>
+<tr><th id="678">678</th><td><i class="doc">    /// compare, rather than as a combined SetCC node.  The operands in order</i></td></tr>
+<tr><th id="679">679</th><td><i class="doc">    /// are chain, cc, lhs, rhs, block to branch to if condition is true.</i></td></tr>
+<tr><th id="680">680</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::BR_CC" title='llvm::ISD::NodeType::BR_CC' data-ref="llvm::ISD::NodeType::BR_CC">BR_CC</dfn>,</td></tr>
+<tr><th id="681">681</th><td></td></tr>
+<tr><th id="682">682</th><td>    <i class="doc">/// INLINEASM - Represents an inline asm block.  This node always has two</i></td></tr>
+<tr><th id="683">683</th><td><i class="doc">    /// return values: a chain and a flag result.  The inputs are as follows:</i></td></tr>
+<tr><th id="684">684</th><td><i class="doc">    ///   Operand #0  : Input chain.</i></td></tr>
+<tr><th id="685">685</th><td><i class="doc">    ///   Operand #1  : a ExternalSymbolSDNode with a pointer to the asm string.</i></td></tr>
+<tr><th id="686">686</th><td><i class="doc">    ///   Operand #2  : a MDNodeSDNode with the !srcloc metadata.</i></td></tr>
+<tr><th id="687">687</th><td><i class="doc">    ///   Operand #3  : HasSideEffect, IsAlignStack bits.</i></td></tr>
+<tr><th id="688">688</th><td><i class="doc">    ///   After this, it is followed by a list of operands with this format:</i></td></tr>
+<tr><th id="689">689</th><td><i class="doc">    ///     ConstantSDNode: Flags that encode whether it is a mem or not, the</i></td></tr>
+<tr><th id="690">690</th><td><i class="doc">    ///                     of operands that follow, etc.  See InlineAsm.h.</i></td></tr>
+<tr><th id="691">691</th><td><i class="doc">    ///     ... however many operands ...</i></td></tr>
+<tr><th id="692">692</th><td><i class="doc">    ///   Operand #last: Optional, an incoming flag.</i></td></tr>
+<tr><th id="693">693</th><td><i class="doc">    ///</i></td></tr>
+<tr><th id="694">694</th><td><i class="doc">    /// The variable width operands are required to represent target addressing</i></td></tr>
+<tr><th id="695">695</th><td><i class="doc">    /// modes as a single "operand", even though they may have multiple</i></td></tr>
+<tr><th id="696">696</th><td><i class="doc">    /// SDOperands.</i></td></tr>
+<tr><th id="697">697</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::INLINEASM" title='llvm::ISD::NodeType::INLINEASM' data-ref="llvm::ISD::NodeType::INLINEASM">INLINEASM</dfn>,</td></tr>
+<tr><th id="698">698</th><td></td></tr>
+<tr><th id="699">699</th><td>    <i class="doc">/// INLINEASM_BR - Terminator version of inline asm. Used by asm-goto.</i></td></tr>
+<tr><th id="700">700</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::INLINEASM_BR" title='llvm::ISD::NodeType::INLINEASM_BR' data-ref="llvm::ISD::NodeType::INLINEASM_BR">INLINEASM_BR</dfn>,</td></tr>
+<tr><th id="701">701</th><td></td></tr>
+<tr><th id="702">702</th><td>    <i class="doc">/// EH_LABEL - Represents a label in mid basic block used to track</i></td></tr>
+<tr><th id="703">703</th><td><i class="doc">    /// locations needed for debug and exception handling tables.  These nodes</i></td></tr>
+<tr><th id="704">704</th><td><i class="doc">    /// take a chain as input and return a chain.</i></td></tr>
+<tr><th id="705">705</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::EH_LABEL" title='llvm::ISD::NodeType::EH_LABEL' data-ref="llvm::ISD::NodeType::EH_LABEL">EH_LABEL</dfn>,</td></tr>
+<tr><th id="706">706</th><td></td></tr>
+<tr><th id="707">707</th><td>    <i class="doc">/// ANNOTATION_LABEL - Represents a mid basic block label used by</i></td></tr>
+<tr><th id="708">708</th><td><i class="doc">    /// annotations. This should remain within the basic block and be ordered</i></td></tr>
+<tr><th id="709">709</th><td><i class="doc">    /// with respect to other call instructions, but loads and stores may float</i></td></tr>
+<tr><th id="710">710</th><td><i class="doc">    /// past it.</i></td></tr>
+<tr><th id="711">711</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ANNOTATION_LABEL" title='llvm::ISD::NodeType::ANNOTATION_LABEL' data-ref="llvm::ISD::NodeType::ANNOTATION_LABEL">ANNOTATION_LABEL</dfn>,</td></tr>
+<tr><th id="712">712</th><td></td></tr>
+<tr><th id="713">713</th><td>    <i class="doc">/// CATCHPAD - Represents a catchpad instruction.</i></td></tr>
+<tr><th id="714">714</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::CATCHPAD" title='llvm::ISD::NodeType::CATCHPAD' data-ref="llvm::ISD::NodeType::CATCHPAD">CATCHPAD</dfn>,</td></tr>
+<tr><th id="715">715</th><td></td></tr>
+<tr><th id="716">716</th><td>    <i class="doc">/// CATCHRET - Represents a return from a catch block funclet. Used for</i></td></tr>
+<tr><th id="717">717</th><td><i class="doc">    /// MSVC compatible exception handling. Takes a chain operand and a</i></td></tr>
+<tr><th id="718">718</th><td><i class="doc">    /// destination basic block operand.</i></td></tr>
+<tr><th id="719">719</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::CATCHRET" title='llvm::ISD::NodeType::CATCHRET' data-ref="llvm::ISD::NodeType::CATCHRET">CATCHRET</dfn>,</td></tr>
+<tr><th id="720">720</th><td></td></tr>
+<tr><th id="721">721</th><td>    <i class="doc">/// CLEANUPRET - Represents a return from a cleanup block funclet.  Used for</i></td></tr>
+<tr><th id="722">722</th><td><i class="doc">    /// MSVC compatible exception handling. Takes only a chain operand.</i></td></tr>
+<tr><th id="723">723</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::CLEANUPRET" title='llvm::ISD::NodeType::CLEANUPRET' data-ref="llvm::ISD::NodeType::CLEANUPRET">CLEANUPRET</dfn>,</td></tr>
+<tr><th id="724">724</th><td></td></tr>
+<tr><th id="725">725</th><td>    <i class="doc">/// STACKSAVE - STACKSAVE has one operand, an input chain.  It produces a</i></td></tr>
+<tr><th id="726">726</th><td><i class="doc">    /// value, the same type as the pointer type for the system, and an output</i></td></tr>
+<tr><th id="727">727</th><td><i class="doc">    /// chain.</i></td></tr>
+<tr><th id="728">728</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::STACKSAVE" title='llvm::ISD::NodeType::STACKSAVE' data-ref="llvm::ISD::NodeType::STACKSAVE">STACKSAVE</dfn>,</td></tr>
+<tr><th id="729">729</th><td></td></tr>
+<tr><th id="730">730</th><td>    <i class="doc">/// STACKRESTORE has two operands, an input chain and a pointer to restore</i></td></tr>
+<tr><th id="731">731</th><td><i class="doc">    /// to it returns an output chain.</i></td></tr>
+<tr><th id="732">732</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::STACKRESTORE" title='llvm::ISD::NodeType::STACKRESTORE' data-ref="llvm::ISD::NodeType::STACKRESTORE">STACKRESTORE</dfn>,</td></tr>
+<tr><th id="733">733</th><td></td></tr>
+<tr><th id="734">734</th><td>    <i class="doc">/// CALLSEQ_START/CALLSEQ_END - These operators mark the beginning and end</i></td></tr>
+<tr><th id="735">735</th><td><i class="doc">    /// of a call sequence, and carry arbitrary information that target might</i></td></tr>
+<tr><th id="736">736</th><td><i class="doc">    /// want to know.  The first operand is a chain, the rest are specified by</i></td></tr>
+<tr><th id="737">737</th><td><i class="doc">    /// the target and not touched by the DAG optimizers.</i></td></tr>
+<tr><th id="738">738</th><td><i class="doc">    /// Targets that may use stack to pass call arguments define additional</i></td></tr>
+<tr><th id="739">739</th><td><i class="doc">    /// operands:</i></td></tr>
+<tr><th id="740">740</th><td><i class="doc">    /// - size of the call frame part that must be set up within the</i></td></tr>
+<tr><th id="741">741</th><td><i class="doc">    ///   CALLSEQ_START..CALLSEQ_END pair,</i></td></tr>
+<tr><th id="742">742</th><td><i class="doc">    /// - part of the call frame prepared prior to CALLSEQ_START.</i></td></tr>
+<tr><th id="743">743</th><td><i class="doc">    /// Both these parameters must be constants, their sum is the total call</i></td></tr>
+<tr><th id="744">744</th><td><i class="doc">    /// frame size.</i></td></tr>
+<tr><th id="745">745</th><td><i class="doc">    /// CALLSEQ_START..CALLSEQ_END pairs may not be nested.</i></td></tr>
+<tr><th id="746">746</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::CALLSEQ_START" title='llvm::ISD::NodeType::CALLSEQ_START' data-ref="llvm::ISD::NodeType::CALLSEQ_START">CALLSEQ_START</dfn>,  <i>// Beginning of a call sequence</i></td></tr>
+<tr><th id="747">747</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::CALLSEQ_END" title='llvm::ISD::NodeType::CALLSEQ_END' data-ref="llvm::ISD::NodeType::CALLSEQ_END">CALLSEQ_END</dfn>,    <i>// End of a call sequence</i></td></tr>
+<tr><th id="748">748</th><td></td></tr>
+<tr><th id="749">749</th><td>    <i class="doc">/// VAARG - VAARG has four operands: an input chain, a pointer, a SRCVALUE,</i></td></tr>
+<tr><th id="750">750</th><td><i class="doc">    /// and the alignment. It returns a pair of values: the vaarg value and a</i></td></tr>
+<tr><th id="751">751</th><td><i class="doc">    /// new chain.</i></td></tr>
+<tr><th id="752">752</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::VAARG" title='llvm::ISD::NodeType::VAARG' data-ref="llvm::ISD::NodeType::VAARG">VAARG</dfn>,</td></tr>
+<tr><th id="753">753</th><td></td></tr>
+<tr><th id="754">754</th><td>    <i class="doc">/// VACOPY - VACOPY has 5 operands: an input chain, a destination pointer,</i></td></tr>
+<tr><th id="755">755</th><td><i class="doc">    /// a source pointer, a SRCVALUE for the destination, and a SRCVALUE for the</i></td></tr>
+<tr><th id="756">756</th><td><i class="doc">    /// source.</i></td></tr>
+<tr><th id="757">757</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::VACOPY" title='llvm::ISD::NodeType::VACOPY' data-ref="llvm::ISD::NodeType::VACOPY">VACOPY</dfn>,</td></tr>
+<tr><th id="758">758</th><td></td></tr>
+<tr><th id="759">759</th><td>    <i class="doc">/// VAEND, VASTART - VAEND and VASTART have three operands: an input chain,</i></td></tr>
+<tr><th id="760">760</th><td><i class="doc">    /// pointer, and a SRCVALUE.</i></td></tr>
+<tr><th id="761">761</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::VAEND" title='llvm::ISD::NodeType::VAEND' data-ref="llvm::ISD::NodeType::VAEND">VAEND</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::VASTART" title='llvm::ISD::NodeType::VASTART' data-ref="llvm::ISD::NodeType::VASTART">VASTART</dfn>,</td></tr>
+<tr><th id="762">762</th><td></td></tr>
+<tr><th id="763">763</th><td>    <i class="doc">/// SRCVALUE - This is a node type that holds a Value* that is used to</i></td></tr>
+<tr><th id="764">764</th><td><i class="doc">    /// make reference to a value in the LLVM IR.</i></td></tr>
+<tr><th id="765">765</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::SRCVALUE" title='llvm::ISD::NodeType::SRCVALUE' data-ref="llvm::ISD::NodeType::SRCVALUE">SRCVALUE</dfn>,</td></tr>
+<tr><th id="766">766</th><td></td></tr>
+<tr><th id="767">767</th><td>    <i class="doc">/// MDNODE_SDNODE - This is a node that holdes an MDNode*, which is used to</i></td></tr>
+<tr><th id="768">768</th><td><i class="doc">    /// reference metadata in the IR.</i></td></tr>
+<tr><th id="769">769</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::MDNODE_SDNODE" title='llvm::ISD::NodeType::MDNODE_SDNODE' data-ref="llvm::ISD::NodeType::MDNODE_SDNODE">MDNODE_SDNODE</dfn>,</td></tr>
+<tr><th id="770">770</th><td></td></tr>
+<tr><th id="771">771</th><td>    <i class="doc">/// PCMARKER - This corresponds to the pcmarker intrinsic.</i></td></tr>
+<tr><th id="772">772</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::PCMARKER" title='llvm::ISD::NodeType::PCMARKER' data-ref="llvm::ISD::NodeType::PCMARKER">PCMARKER</dfn>,</td></tr>
+<tr><th id="773">773</th><td></td></tr>
+<tr><th id="774">774</th><td>    <i class="doc">/// READCYCLECOUNTER - This corresponds to the readcyclecounter intrinsic.</i></td></tr>
+<tr><th id="775">775</th><td><i class="doc">    /// It produces a chain and one i64 value. The only operand is a chain.</i></td></tr>
+<tr><th id="776">776</th><td><i class="doc">    /// If i64 is not legal, the result will be expanded into smaller values.</i></td></tr>
+<tr><th id="777">777</th><td><i class="doc">    /// Still, it returns an i64, so targets should set legality for i64.</i></td></tr>
+<tr><th id="778">778</th><td><i class="doc">    /// The result is the content of the architecture-specific cycle</i></td></tr>
+<tr><th id="779">779</th><td><i class="doc">    /// counter-like register (or other high accuracy low latency clock source).</i></td></tr>
+<tr><th id="780">780</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::READCYCLECOUNTER" title='llvm::ISD::NodeType::READCYCLECOUNTER' data-ref="llvm::ISD::NodeType::READCYCLECOUNTER">READCYCLECOUNTER</dfn>,</td></tr>
+<tr><th id="781">781</th><td></td></tr>
+<tr><th id="782">782</th><td>    <i class="doc">/// HANDLENODE node - Used as a handle for various purposes.</i></td></tr>
+<tr><th id="783">783</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::HANDLENODE" title='llvm::ISD::NodeType::HANDLENODE' data-ref="llvm::ISD::NodeType::HANDLENODE">HANDLENODE</dfn>,</td></tr>
+<tr><th id="784">784</th><td></td></tr>
+<tr><th id="785">785</th><td>    <i class="doc">/// INIT_TRAMPOLINE - This corresponds to the init_trampoline intrinsic.  It</i></td></tr>
+<tr><th id="786">786</th><td><i class="doc">    /// takes as input a token chain, the pointer to the trampoline, the pointer</i></td></tr>
+<tr><th id="787">787</th><td><i class="doc">    /// to the nested function, the pointer to pass for the 'nest' parameter, a</i></td></tr>
+<tr><th id="788">788</th><td><i class="doc">    /// SRCVALUE for the trampoline and another for the nested function</i></td></tr>
+<tr><th id="789">789</th><td><i class="doc">    /// (allowing targets to access the original Function*).</i></td></tr>
+<tr><th id="790">790</th><td><i class="doc">    /// It produces a token chain as output.</i></td></tr>
+<tr><th id="791">791</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::INIT_TRAMPOLINE" title='llvm::ISD::NodeType::INIT_TRAMPOLINE' data-ref="llvm::ISD::NodeType::INIT_TRAMPOLINE">INIT_TRAMPOLINE</dfn>,</td></tr>
+<tr><th id="792">792</th><td></td></tr>
+<tr><th id="793">793</th><td>    <i class="doc">/// ADJUST_TRAMPOLINE - This corresponds to the adjust_trampoline intrinsic.</i></td></tr>
+<tr><th id="794">794</th><td><i class="doc">    /// It takes a pointer to the trampoline and produces a (possibly) new</i></td></tr>
+<tr><th id="795">795</th><td><i class="doc">    /// pointer to the same trampoline with platform-specific adjustments</i></td></tr>
+<tr><th id="796">796</th><td><i class="doc">    /// applied.  The pointer it returns points to an executable block of code.</i></td></tr>
+<tr><th id="797">797</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ADJUST_TRAMPOLINE" title='llvm::ISD::NodeType::ADJUST_TRAMPOLINE' data-ref="llvm::ISD::NodeType::ADJUST_TRAMPOLINE">ADJUST_TRAMPOLINE</dfn>,</td></tr>
+<tr><th id="798">798</th><td></td></tr>
+<tr><th id="799">799</th><td>    <i class="doc">/// TRAP - Trapping instruction</i></td></tr>
+<tr><th id="800">800</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::TRAP" title='llvm::ISD::NodeType::TRAP' data-ref="llvm::ISD::NodeType::TRAP">TRAP</dfn>,</td></tr>
+<tr><th id="801">801</th><td></td></tr>
+<tr><th id="802">802</th><td>    <i class="doc">/// DEBUGTRAP - Trap intended to get the attention of a debugger.</i></td></tr>
+<tr><th id="803">803</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::DEBUGTRAP" title='llvm::ISD::NodeType::DEBUGTRAP' data-ref="llvm::ISD::NodeType::DEBUGTRAP">DEBUGTRAP</dfn>,</td></tr>
+<tr><th id="804">804</th><td></td></tr>
+<tr><th id="805">805</th><td>    <i class="doc">/// PREFETCH - This corresponds to a prefetch intrinsic. The first operand</i></td></tr>
+<tr><th id="806">806</th><td><i class="doc">    /// is the chain.  The other operands are the address to prefetch,</i></td></tr>
+<tr><th id="807">807</th><td><i class="doc">    /// read / write specifier, locality specifier and instruction / data cache</i></td></tr>
+<tr><th id="808">808</th><td><i class="doc">    /// specifier.</i></td></tr>
+<tr><th id="809">809</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::PREFETCH" title='llvm::ISD::NodeType::PREFETCH' data-ref="llvm::ISD::NodeType::PREFETCH">PREFETCH</dfn>,</td></tr>
+<tr><th id="810">810</th><td></td></tr>
+<tr><th id="811">811</th><td>    <i class="doc">/// OUTCHAIN = ATOMIC_FENCE(INCHAIN, ordering, scope)</i></td></tr>
+<tr><th id="812">812</th><td><i class="doc">    /// This corresponds to the fence instruction. It takes an input chain, and</i></td></tr>
+<tr><th id="813">813</th><td><i class="doc">    /// two integer constants: an AtomicOrdering and a SynchronizationScope.</i></td></tr>
+<tr><th id="814">814</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_FENCE" title='llvm::ISD::NodeType::ATOMIC_FENCE' data-ref="llvm::ISD::NodeType::ATOMIC_FENCE">ATOMIC_FENCE</dfn>,</td></tr>
+<tr><th id="815">815</th><td></td></tr>
+<tr><th id="816">816</th><td>    <i class="doc">/// Val, OUTCHAIN = ATOMIC_LOAD(INCHAIN, ptr)</i></td></tr>
+<tr><th id="817">817</th><td><i class="doc">    /// This corresponds to "load atomic" instruction.</i></td></tr>
+<tr><th id="818">818</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_LOAD" title='llvm::ISD::NodeType::ATOMIC_LOAD' data-ref="llvm::ISD::NodeType::ATOMIC_LOAD">ATOMIC_LOAD</dfn>,</td></tr>
+<tr><th id="819">819</th><td></td></tr>
+<tr><th id="820">820</th><td>    <i class="doc">/// OUTCHAIN = ATOMIC_STORE(INCHAIN, ptr, val)</i></td></tr>
+<tr><th id="821">821</th><td><i class="doc">    /// This corresponds to "store atomic" instruction.</i></td></tr>
+<tr><th id="822">822</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_STORE" title='llvm::ISD::NodeType::ATOMIC_STORE' data-ref="llvm::ISD::NodeType::ATOMIC_STORE">ATOMIC_STORE</dfn>,</td></tr>
+<tr><th id="823">823</th><td></td></tr>
+<tr><th id="824">824</th><td>    <i class="doc">/// Val, OUTCHAIN = ATOMIC_CMP_SWAP(INCHAIN, ptr, cmp, swap)</i></td></tr>
+<tr><th id="825">825</th><td><i class="doc">    /// For double-word atomic operations:</i></td></tr>
+<tr><th id="826">826</th><td><i class="doc">    /// ValLo, ValHi, OUTCHAIN = ATOMIC_CMP_SWAP(INCHAIN, ptr, cmpLo, cmpHi,</i></td></tr>
+<tr><th id="827">827</th><td><i class="doc">    ///                                          swapLo, swapHi)</i></td></tr>
+<tr><th id="828">828</th><td><i class="doc">    /// This corresponds to the cmpxchg instruction.</i></td></tr>
+<tr><th id="829">829</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_CMP_SWAP" title='llvm::ISD::NodeType::ATOMIC_CMP_SWAP' data-ref="llvm::ISD::NodeType::ATOMIC_CMP_SWAP">ATOMIC_CMP_SWAP</dfn>,</td></tr>
+<tr><th id="830">830</th><td></td></tr>
+<tr><th id="831">831</th><td>    <i class="doc">/// Val, Success, OUTCHAIN</i></td></tr>
+<tr><th id="832">832</th><td><i class="doc">    ///     = ATOMIC_CMP_SWAP_WITH_SUCCESS(INCHAIN, ptr, cmp, swap)</i></td></tr>
+<tr><th id="833">833</th><td><i class="doc">    /// N.b. this is still a strong cmpxchg operation, so</i></td></tr>
+<tr><th id="834">834</th><td><i class="doc">    /// Success == "Val == cmp".</i></td></tr>
+<tr><th id="835">835</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_CMP_SWAP_WITH_SUCCESS" title='llvm::ISD::NodeType::ATOMIC_CMP_SWAP_WITH_SUCCESS' data-ref="llvm::ISD::NodeType::ATOMIC_CMP_SWAP_WITH_SUCCESS">ATOMIC_CMP_SWAP_WITH_SUCCESS</dfn>,</td></tr>
+<tr><th id="836">836</th><td></td></tr>
+<tr><th id="837">837</th><td>    <i class="doc">/// Val, OUTCHAIN = ATOMIC_SWAP(INCHAIN, ptr, amt)</i></td></tr>
+<tr><th id="838">838</th><td><i class="doc">    /// Val, OUTCHAIN = ATOMIC_LOAD_[OpName](INCHAIN, ptr, amt)</i></td></tr>
+<tr><th id="839">839</th><td><i class="doc">    /// For double-word atomic operations:</i></td></tr>
+<tr><th id="840">840</th><td><i class="doc">    /// ValLo, ValHi, OUTCHAIN = ATOMIC_SWAP(INCHAIN, ptr, amtLo, amtHi)</i></td></tr>
+<tr><th id="841">841</th><td><i class="doc">    /// ValLo, ValHi, OUTCHAIN = ATOMIC_LOAD_[OpName](INCHAIN, ptr, amtLo, amtHi)</i></td></tr>
+<tr><th id="842">842</th><td><i class="doc">    /// These correspond to the atomicrmw instruction.</i></td></tr>
+<tr><th id="843">843</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_SWAP" title='llvm::ISD::NodeType::ATOMIC_SWAP' data-ref="llvm::ISD::NodeType::ATOMIC_SWAP">ATOMIC_SWAP</dfn>,</td></tr>
+<tr><th id="844">844</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_LOAD_ADD" title='llvm::ISD::NodeType::ATOMIC_LOAD_ADD' data-ref="llvm::ISD::NodeType::ATOMIC_LOAD_ADD">ATOMIC_LOAD_ADD</dfn>,</td></tr>
+<tr><th id="845">845</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_LOAD_SUB" title='llvm::ISD::NodeType::ATOMIC_LOAD_SUB' data-ref="llvm::ISD::NodeType::ATOMIC_LOAD_SUB">ATOMIC_LOAD_SUB</dfn>,</td></tr>
+<tr><th id="846">846</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_LOAD_AND" title='llvm::ISD::NodeType::ATOMIC_LOAD_AND' data-ref="llvm::ISD::NodeType::ATOMIC_LOAD_AND">ATOMIC_LOAD_AND</dfn>,</td></tr>
+<tr><th id="847">847</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_LOAD_CLR" title='llvm::ISD::NodeType::ATOMIC_LOAD_CLR' data-ref="llvm::ISD::NodeType::ATOMIC_LOAD_CLR">ATOMIC_LOAD_CLR</dfn>,</td></tr>
+<tr><th id="848">848</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_LOAD_OR" title='llvm::ISD::NodeType::ATOMIC_LOAD_OR' data-ref="llvm::ISD::NodeType::ATOMIC_LOAD_OR">ATOMIC_LOAD_OR</dfn>,</td></tr>
+<tr><th id="849">849</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_LOAD_XOR" title='llvm::ISD::NodeType::ATOMIC_LOAD_XOR' data-ref="llvm::ISD::NodeType::ATOMIC_LOAD_XOR">ATOMIC_LOAD_XOR</dfn>,</td></tr>
+<tr><th id="850">850</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_LOAD_NAND" title='llvm::ISD::NodeType::ATOMIC_LOAD_NAND' data-ref="llvm::ISD::NodeType::ATOMIC_LOAD_NAND">ATOMIC_LOAD_NAND</dfn>,</td></tr>
+<tr><th id="851">851</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_LOAD_MIN" title='llvm::ISD::NodeType::ATOMIC_LOAD_MIN' data-ref="llvm::ISD::NodeType::ATOMIC_LOAD_MIN">ATOMIC_LOAD_MIN</dfn>,</td></tr>
+<tr><th id="852">852</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_LOAD_MAX" title='llvm::ISD::NodeType::ATOMIC_LOAD_MAX' data-ref="llvm::ISD::NodeType::ATOMIC_LOAD_MAX">ATOMIC_LOAD_MAX</dfn>,</td></tr>
+<tr><th id="853">853</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_LOAD_UMIN" title='llvm::ISD::NodeType::ATOMIC_LOAD_UMIN' data-ref="llvm::ISD::NodeType::ATOMIC_LOAD_UMIN">ATOMIC_LOAD_UMIN</dfn>,</td></tr>
+<tr><th id="854">854</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_LOAD_UMAX" title='llvm::ISD::NodeType::ATOMIC_LOAD_UMAX' data-ref="llvm::ISD::NodeType::ATOMIC_LOAD_UMAX">ATOMIC_LOAD_UMAX</dfn>,</td></tr>
+<tr><th id="855">855</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_LOAD_FADD" title='llvm::ISD::NodeType::ATOMIC_LOAD_FADD' data-ref="llvm::ISD::NodeType::ATOMIC_LOAD_FADD">ATOMIC_LOAD_FADD</dfn>,</td></tr>
+<tr><th id="856">856</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::ATOMIC_LOAD_FSUB" title='llvm::ISD::NodeType::ATOMIC_LOAD_FSUB' data-ref="llvm::ISD::NodeType::ATOMIC_LOAD_FSUB">ATOMIC_LOAD_FSUB</dfn>,</td></tr>
+<tr><th id="857">857</th><td></td></tr>
+<tr><th id="858">858</th><td>    <i>// Masked load and store - consecutive vector load and store operations</i></td></tr>
+<tr><th id="859">859</th><td><i>    // with additional mask operand that prevents memory accesses to the</i></td></tr>
+<tr><th id="860">860</th><td><i>    // masked-off lanes.</i></td></tr>
+<tr><th id="861">861</th><td><i>    //</i></td></tr>
+<tr><th id="862">862</th><td><i>    // Val, OutChain = MLOAD(BasePtr, Mask, PassThru)</i></td></tr>
+<tr><th id="863">863</th><td><i>    // OutChain = MSTORE(Value, BasePtr, Mask)</i></td></tr>
+<tr><th id="864">864</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::MLOAD" title='llvm::ISD::NodeType::MLOAD' data-ref="llvm::ISD::NodeType::MLOAD">MLOAD</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::MSTORE" title='llvm::ISD::NodeType::MSTORE' data-ref="llvm::ISD::NodeType::MSTORE">MSTORE</dfn>,</td></tr>
+<tr><th id="865">865</th><td></td></tr>
+<tr><th id="866">866</th><td>    <i>// Masked gather and scatter - load and store operations for a vector of</i></td></tr>
+<tr><th id="867">867</th><td><i>    // random addresses with additional mask operand that prevents memory</i></td></tr>
+<tr><th id="868">868</th><td><i>    // accesses to the masked-off lanes.</i></td></tr>
+<tr><th id="869">869</th><td><i>    //</i></td></tr>
+<tr><th id="870">870</th><td><i>    // Val, OutChain = GATHER(InChain, PassThru, Mask, BasePtr, Index, Scale)</i></td></tr>
+<tr><th id="871">871</th><td><i>    // OutChain = SCATTER(InChain, Value, Mask, BasePtr, Index, Scale)</i></td></tr>
+<tr><th id="872">872</th><td><i>    //</i></td></tr>
+<tr><th id="873">873</th><td><i>    // The Index operand can have more vector elements than the other operands</i></td></tr>
+<tr><th id="874">874</th><td><i>    // due to type legalization. The extra elements are ignored.</i></td></tr>
+<tr><th id="875">875</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::MGATHER" title='llvm::ISD::NodeType::MGATHER' data-ref="llvm::ISD::NodeType::MGATHER">MGATHER</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::MSCATTER" title='llvm::ISD::NodeType::MSCATTER' data-ref="llvm::ISD::NodeType::MSCATTER">MSCATTER</dfn>,</td></tr>
+<tr><th id="876">876</th><td></td></tr>
+<tr><th id="877">877</th><td>    <i class="doc">/// This corresponds to the llvm.lifetime.* intrinsics. The first operand</i></td></tr>
+<tr><th id="878">878</th><td><i class="doc">    /// is the chain and the second operand is the alloca pointer.</i></td></tr>
+<tr><th id="879">879</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::LIFETIME_START" title='llvm::ISD::NodeType::LIFETIME_START' data-ref="llvm::ISD::NodeType::LIFETIME_START">LIFETIME_START</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::LIFETIME_END" title='llvm::ISD::NodeType::LIFETIME_END' data-ref="llvm::ISD::NodeType::LIFETIME_END">LIFETIME_END</dfn>,</td></tr>
+<tr><th id="880">880</th><td></td></tr>
+<tr><th id="881">881</th><td>    <i class="doc">/// Converts from an integer to a fat pointer.  This is only required for</i></td></tr>
+<tr><th id="882">882</th><td><i class="doc">    /// pointers that are not represented purely by numeric value of the base</i></td></tr>
+<tr><th id="883">883</th><td><i class="doc">    /// address.</i></td></tr>
+<tr><th id="884">884</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::PTRTOINT" title='llvm::ISD::NodeType::PTRTOINT' data-ref="llvm::ISD::NodeType::PTRTOINT">PTRTOINT</dfn>,</td></tr>
+<tr><th id="885">885</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::INTTOPTR" title='llvm::ISD::NodeType::INTTOPTR' data-ref="llvm::ISD::NodeType::INTTOPTR">INTTOPTR</dfn>,</td></tr>
+<tr><th id="886">886</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::PTRADD" title='llvm::ISD::NodeType::PTRADD' data-ref="llvm::ISD::NodeType::PTRADD">PTRADD</dfn>,</td></tr>
+<tr><th id="887">887</th><td></td></tr>
+<tr><th id="888">888</th><td>    <i class="doc">/// GC_TRANSITION_START/GC_TRANSITION_END - These operators mark the</i></td></tr>
+<tr><th id="889">889</th><td><i class="doc">    /// beginning and end of GC transition  sequence, and carry arbitrary</i></td></tr>
+<tr><th id="890">890</th><td><i class="doc">    /// information that target might need for lowering.  The first operand is</i></td></tr>
+<tr><th id="891">891</th><td><i class="doc">    /// a chain, the rest are specified by the target and not touched by the DAG</i></td></tr>
+<tr><th id="892">892</th><td><i class="doc">    /// optimizers. GC_TRANSITION_START..GC_TRANSITION_END pairs may not be</i></td></tr>
+<tr><th id="893">893</th><td><i class="doc">    /// nested.</i></td></tr>
+<tr><th id="894">894</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::GC_TRANSITION_START" title='llvm::ISD::NodeType::GC_TRANSITION_START' data-ref="llvm::ISD::NodeType::GC_TRANSITION_START">GC_TRANSITION_START</dfn>,</td></tr>
+<tr><th id="895">895</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::GC_TRANSITION_END" title='llvm::ISD::NodeType::GC_TRANSITION_END' data-ref="llvm::ISD::NodeType::GC_TRANSITION_END">GC_TRANSITION_END</dfn>,</td></tr>
+<tr><th id="896">896</th><td></td></tr>
+<tr><th id="897">897</th><td>    <i class="doc">/// GET_DYNAMIC_AREA_OFFSET - get offset from native SP to the address of</i></td></tr>
+<tr><th id="898">898</th><td><i class="doc">    /// the most recent dynamic alloca. For most targets that would be 0, but</i></td></tr>
+<tr><th id="899">899</th><td><i class="doc">    /// for some others (e.g. PowerPC, PowerPC64) that would be compile-time</i></td></tr>
+<tr><th id="900">900</th><td><i class="doc">    /// known nonzero constant. The only operand here is the chain.</i></td></tr>
+<tr><th id="901">901</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::GET_DYNAMIC_AREA_OFFSET" title='llvm::ISD::NodeType::GET_DYNAMIC_AREA_OFFSET' data-ref="llvm::ISD::NodeType::GET_DYNAMIC_AREA_OFFSET">GET_DYNAMIC_AREA_OFFSET</dfn>,</td></tr>
+<tr><th id="902">902</th><td></td></tr>
+<tr><th id="903">903</th><td>    <i class="doc">/// Generic reduction nodes. These nodes represent horizontal vector</i></td></tr>
+<tr><th id="904">904</th><td><i class="doc">    /// reduction operations, producing a scalar result.</i></td></tr>
+<tr><th id="905">905</th><td><i class="doc">    /// The STRICT variants perform reductions in sequential order. The first</i></td></tr>
+<tr><th id="906">906</th><td><i class="doc">    /// operand is an initial scalar accumulator value, and the second operand</i></td></tr>
+<tr><th id="907">907</th><td><i class="doc">    /// is the vector to reduce.</i></td></tr>
+<tr><th id="908">908</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::VECREDUCE_STRICT_FADD" title='llvm::ISD::NodeType::VECREDUCE_STRICT_FADD' data-ref="llvm::ISD::NodeType::VECREDUCE_STRICT_FADD">VECREDUCE_STRICT_FADD</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::VECREDUCE_STRICT_FMUL" title='llvm::ISD::NodeType::VECREDUCE_STRICT_FMUL' data-ref="llvm::ISD::NodeType::VECREDUCE_STRICT_FMUL">VECREDUCE_STRICT_FMUL</dfn>,</td></tr>
+<tr><th id="909">909</th><td>    <i class="doc">/// These reductions are non-strict, and have a single vector operand.</i></td></tr>
+<tr><th id="910">910</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::VECREDUCE_FADD" title='llvm::ISD::NodeType::VECREDUCE_FADD' data-ref="llvm::ISD::NodeType::VECREDUCE_FADD">VECREDUCE_FADD</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::VECREDUCE_FMUL" title='llvm::ISD::NodeType::VECREDUCE_FMUL' data-ref="llvm::ISD::NodeType::VECREDUCE_FMUL">VECREDUCE_FMUL</dfn>,</td></tr>
+<tr><th id="911">911</th><td>    <i class="doc">/// FMIN/FMAX nodes can have flags, for NaN/NoNaN variants.</i></td></tr>
+<tr><th id="912">912</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::VECREDUCE_FMAX" title='llvm::ISD::NodeType::VECREDUCE_FMAX' data-ref="llvm::ISD::NodeType::VECREDUCE_FMAX">VECREDUCE_FMAX</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::VECREDUCE_FMIN" title='llvm::ISD::NodeType::VECREDUCE_FMIN' data-ref="llvm::ISD::NodeType::VECREDUCE_FMIN">VECREDUCE_FMIN</dfn>,</td></tr>
+<tr><th id="913">913</th><td>    <i class="doc">/// Integer reductions may have a result type larger than the vector element</i></td></tr>
+<tr><th id="914">914</th><td><i class="doc">    /// type. However, the reduction is performed using the vector element type</i></td></tr>
+<tr><th id="915">915</th><td><i class="doc">    /// and the value in the top bits is unspecified.</i></td></tr>
+<tr><th id="916">916</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::VECREDUCE_ADD" title='llvm::ISD::NodeType::VECREDUCE_ADD' data-ref="llvm::ISD::NodeType::VECREDUCE_ADD">VECREDUCE_ADD</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::VECREDUCE_MUL" title='llvm::ISD::NodeType::VECREDUCE_MUL' data-ref="llvm::ISD::NodeType::VECREDUCE_MUL">VECREDUCE_MUL</dfn>,</td></tr>
+<tr><th id="917">917</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::VECREDUCE_AND" title='llvm::ISD::NodeType::VECREDUCE_AND' data-ref="llvm::ISD::NodeType::VECREDUCE_AND">VECREDUCE_AND</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::VECREDUCE_OR" title='llvm::ISD::NodeType::VECREDUCE_OR' data-ref="llvm::ISD::NodeType::VECREDUCE_OR">VECREDUCE_OR</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::VECREDUCE_XOR" title='llvm::ISD::NodeType::VECREDUCE_XOR' data-ref="llvm::ISD::NodeType::VECREDUCE_XOR">VECREDUCE_XOR</dfn>,</td></tr>
+<tr><th id="918">918</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::VECREDUCE_SMAX" title='llvm::ISD::NodeType::VECREDUCE_SMAX' data-ref="llvm::ISD::NodeType::VECREDUCE_SMAX">VECREDUCE_SMAX</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::VECREDUCE_SMIN" title='llvm::ISD::NodeType::VECREDUCE_SMIN' data-ref="llvm::ISD::NodeType::VECREDUCE_SMIN">VECREDUCE_SMIN</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::VECREDUCE_UMAX" title='llvm::ISD::NodeType::VECREDUCE_UMAX' data-ref="llvm::ISD::NodeType::VECREDUCE_UMAX">VECREDUCE_UMAX</dfn>, <dfn class="enum" id="llvm::ISD::NodeType::VECREDUCE_UMIN" title='llvm::ISD::NodeType::VECREDUCE_UMIN' data-ref="llvm::ISD::NodeType::VECREDUCE_UMIN">VECREDUCE_UMIN</dfn>,</td></tr>
+<tr><th id="919">919</th><td></td></tr>
+<tr><th id="920">920</th><td>    <i class="doc">/// BUILTIN_OP_END - This must be the last enum value in this list.</i></td></tr>
+<tr><th id="921">921</th><td><i class="doc">    /// The target-specific pre-isel opcode values start here.</i></td></tr>
+<tr><th id="922">922</th><td>    <dfn class="enum" id="llvm::ISD::NodeType::BUILTIN_OP_END" title='llvm::ISD::NodeType::BUILTIN_OP_END' data-ref="llvm::ISD::NodeType::BUILTIN_OP_END">BUILTIN_OP_END</dfn></td></tr>
+<tr><th id="923">923</th><td>  };</td></tr>
+<tr><th id="924">924</th><td></td></tr>
+<tr><th id="925">925</th><td>  <i class="doc">/// FIRST_TARGET_MEMORY_OPCODE - Target-specific pre-isel operations</i></td></tr>
+<tr><th id="926">926</th><td><i class="doc">  /// which do not reference a specific memory location should be less than</i></td></tr>
+<tr><th id="927">927</th><td><i class="doc">  /// this value. Those that do must not be less than this value, and can</i></td></tr>
+<tr><th id="928">928</th><td><i class="doc">  /// be used with SelectionDAG::getMemIntrinsicNode.</i></td></tr>
+<tr><th id="929">929</th><td>  <em>static</em> <em>const</em> <em>int</em> <dfn class="decl def" id="llvm::ISD::FIRST_TARGET_MEMORY_OPCODE" title='llvm::ISD::FIRST_TARGET_MEMORY_OPCODE' data-ref="llvm::ISD::FIRST_TARGET_MEMORY_OPCODE">FIRST_TARGET_MEMORY_OPCODE</dfn> = <a class="enum" href="#llvm::ISD::NodeType::BUILTIN_OP_END" title='llvm::ISD::NodeType::BUILTIN_OP_END' data-ref="llvm::ISD::NodeType::BUILTIN_OP_END">BUILTIN_OP_END</a>+<var>400</var>;</td></tr>
+<tr><th id="930">930</th><td></td></tr>
+<tr><th id="931">931</th><td>  <i>//===--------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="932">932</th><td><i>  /// MemIndexedMode enum - This enum defines the load / store indexed</i></td></tr>
+<tr><th id="933">933</th><td><i>  /// addressing modes.</i></td></tr>
+<tr><th id="934">934</th><td><i>  ///</i></td></tr>
+<tr><th id="935">935</th><td><i>  /// UNINDEXED    "Normal" load / store. The effective address is already</i></td></tr>
+<tr><th id="936">936</th><td><i>  ///              computed and is available in the base pointer. The offset</i></td></tr>
+<tr><th id="937">937</th><td><i>  ///              operand is always undefined. In addition to producing a</i></td></tr>
+<tr><th id="938">938</th><td><i>  ///              chain, an unindexed load produces one value (result of the</i></td></tr>
+<tr><th id="939">939</th><td><i>  ///              load); an unindexed store does not produce a value.</i></td></tr>
+<tr><th id="940">940</th><td><i>  ///</i></td></tr>
+<tr><th id="941">941</th><td><i>  /// PRE_INC      Similar to the unindexed mode where the effective address is</i></td></tr>
+<tr><th id="942">942</th><td><i>  /// PRE_DEC      the value of the base pointer add / subtract the offset.</i></td></tr>
+<tr><th id="943">943</th><td><i>  ///              It considers the computation as being folded into the load /</i></td></tr>
+<tr><th id="944">944</th><td><i>  ///              store operation (i.e. the load / store does the address</i></td></tr>
+<tr><th id="945">945</th><td><i>  ///              computation as well as performing the memory transaction).</i></td></tr>
+<tr><th id="946">946</th><td><i>  ///              The base operand is always undefined. In addition to</i></td></tr>
+<tr><th id="947">947</th><td><i>  ///              producing a chain, pre-indexed load produces two values</i></td></tr>
+<tr><th id="948">948</th><td><i>  ///              (result of the load and the result of the address</i></td></tr>
+<tr><th id="949">949</th><td><i>  ///              computation); a pre-indexed store produces one value (result</i></td></tr>
+<tr><th id="950">950</th><td><i>  ///              of the address computation).</i></td></tr>
+<tr><th id="951">951</th><td><i>  ///</i></td></tr>
+<tr><th id="952">952</th><td><i>  /// POST_INC     The effective address is the value of the base pointer. The</i></td></tr>
+<tr><th id="953">953</th><td><i>  /// POST_DEC     value of the offset operand is then added to / subtracted</i></td></tr>
+<tr><th id="954">954</th><td><i>  ///              from the base after memory transaction. In addition to</i></td></tr>
+<tr><th id="955">955</th><td><i>  ///              producing a chain, post-indexed load produces two values</i></td></tr>
+<tr><th id="956">956</th><td><i>  ///              (the result of the load and the result of the base +/- offset</i></td></tr>
+<tr><th id="957">957</th><td><i>  ///              computation); a post-indexed store produces one value (the</i></td></tr>
+<tr><th id="958">958</th><td><i>  ///              the result of the base +/- offset computation).</i></td></tr>
+<tr><th id="959">959</th><td>  <b>enum</b> <dfn class="type def" id="llvm::ISD::MemIndexedMode" title='llvm::ISD::MemIndexedMode' data-ref="llvm::ISD::MemIndexedMode">MemIndexedMode</dfn> {</td></tr>
+<tr><th id="960">960</th><td>    <dfn class="enum" id="llvm::ISD::MemIndexedMode::UNINDEXED" title='llvm::ISD::MemIndexedMode::UNINDEXED' data-ref="llvm::ISD::MemIndexedMode::UNINDEXED">UNINDEXED</dfn> = <var>0</var>,</td></tr>
+<tr><th id="961">961</th><td>    <dfn class="enum" id="llvm::ISD::MemIndexedMode::PRE_INC" title='llvm::ISD::MemIndexedMode::PRE_INC' data-ref="llvm::ISD::MemIndexedMode::PRE_INC">PRE_INC</dfn>,</td></tr>
+<tr><th id="962">962</th><td>    <dfn class="enum" id="llvm::ISD::MemIndexedMode::PRE_DEC" title='llvm::ISD::MemIndexedMode::PRE_DEC' data-ref="llvm::ISD::MemIndexedMode::PRE_DEC">PRE_DEC</dfn>,</td></tr>
+<tr><th id="963">963</th><td>    <dfn class="enum" id="llvm::ISD::MemIndexedMode::POST_INC" title='llvm::ISD::MemIndexedMode::POST_INC' data-ref="llvm::ISD::MemIndexedMode::POST_INC">POST_INC</dfn>,</td></tr>
+<tr><th id="964">964</th><td>    <dfn class="enum" id="llvm::ISD::MemIndexedMode::POST_DEC" title='llvm::ISD::MemIndexedMode::POST_DEC' data-ref="llvm::ISD::MemIndexedMode::POST_DEC">POST_DEC</dfn></td></tr>
+<tr><th id="965">965</th><td>  };</td></tr>
+<tr><th id="966">966</th><td></td></tr>
+<tr><th id="967">967</th><td>  <em>static</em> <em>const</em> <em>int</em> <dfn class="decl def" id="llvm::ISD::LAST_INDEXED_MODE" title='llvm::ISD::LAST_INDEXED_MODE' data-ref="llvm::ISD::LAST_INDEXED_MODE">LAST_INDEXED_MODE</dfn> = <a class="enum" href="#llvm::ISD::MemIndexedMode::POST_DEC" title='llvm::ISD::MemIndexedMode::POST_DEC' data-ref="llvm::ISD::MemIndexedMode::POST_DEC">POST_DEC</a> + <var>1</var>;</td></tr>
+<tr><th id="968">968</th><td></td></tr>
+<tr><th id="969">969</th><td>  <i>//===--------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="970">970</th><td><i>  /// LoadExtType enum - This enum defines the three variants of LOADEXT</i></td></tr>
+<tr><th id="971">971</th><td><i>  /// (load with extension).</i></td></tr>
+<tr><th id="972">972</th><td><i>  ///</i></td></tr>
+<tr><th id="973">973</th><td><i>  /// SEXTLOAD loads the integer operand and sign extends it to a larger</i></td></tr>
+<tr><th id="974">974</th><td><i>  ///          integer result type.</i></td></tr>
+<tr><th id="975">975</th><td><i>  /// ZEXTLOAD loads the integer operand and zero extends it to a larger</i></td></tr>
+<tr><th id="976">976</th><td><i>  ///          integer result type.</i></td></tr>
+<tr><th id="977">977</th><td><i>  /// EXTLOAD  is used for two things: floating point extending loads and</i></td></tr>
+<tr><th id="978">978</th><td><i>  ///          integer extending loads [the top bits are undefined].</i></td></tr>
+<tr><th id="979">979</th><td>  <b>enum</b> <dfn class="type def" id="llvm::ISD::LoadExtType" title='llvm::ISD::LoadExtType' data-ref="llvm::ISD::LoadExtType">LoadExtType</dfn> {</td></tr>
+<tr><th id="980">980</th><td>    <dfn class="enum" id="llvm::ISD::LoadExtType::NON_EXTLOAD" title='llvm::ISD::LoadExtType::NON_EXTLOAD' data-ref="llvm::ISD::LoadExtType::NON_EXTLOAD">NON_EXTLOAD</dfn> = <var>0</var>,</td></tr>
+<tr><th id="981">981</th><td>    <dfn class="enum" id="llvm::ISD::LoadExtType::EXTLOAD" title='llvm::ISD::LoadExtType::EXTLOAD' data-ref="llvm::ISD::LoadExtType::EXTLOAD">EXTLOAD</dfn>,</td></tr>
+<tr><th id="982">982</th><td>    <dfn class="enum" id="llvm::ISD::LoadExtType::SEXTLOAD" title='llvm::ISD::LoadExtType::SEXTLOAD' data-ref="llvm::ISD::LoadExtType::SEXTLOAD">SEXTLOAD</dfn>,</td></tr>
+<tr><th id="983">983</th><td>    <dfn class="enum" id="llvm::ISD::LoadExtType::ZEXTLOAD" title='llvm::ISD::LoadExtType::ZEXTLOAD' data-ref="llvm::ISD::LoadExtType::ZEXTLOAD">ZEXTLOAD</dfn></td></tr>
+<tr><th id="984">984</th><td>  };</td></tr>
+<tr><th id="985">985</th><td></td></tr>
+<tr><th id="986">986</th><td>  <em>static</em> <em>const</em> <em>int</em> <dfn class="decl def" id="llvm::ISD::LAST_LOADEXT_TYPE" title='llvm::ISD::LAST_LOADEXT_TYPE' data-ref="llvm::ISD::LAST_LOADEXT_TYPE">LAST_LOADEXT_TYPE</dfn> = <a class="enum" href="#llvm::ISD::LoadExtType::ZEXTLOAD" title='llvm::ISD::LoadExtType::ZEXTLOAD' data-ref="llvm::ISD::LoadExtType::ZEXTLOAD">ZEXTLOAD</a> + <var>1</var>;</td></tr>
+<tr><th id="987">987</th><td></td></tr>
+<tr><th id="988">988</th><td>  <a class="type" href="#llvm::ISD::NodeType" title='llvm::ISD::NodeType' data-ref="llvm::ISD::NodeType">NodeType</a> <dfn class="decl" id="_ZN4llvm3ISD20getExtForLoadExtTypeEbNS0_11LoadExtTypeE" title='llvm::ISD::getExtForLoadExtType' data-ref="_ZN4llvm3ISD20getExtForLoadExtTypeEbNS0_11LoadExtTypeE">getExtForLoadExtType</dfn>(<em>bool</em> <dfn class="local col3 decl" id="53IsFP" title='IsFP' data-type='bool' data-ref="53IsFP">IsFP</dfn>, <a class="type" href="#llvm::ISD::LoadExtType" title='llvm::ISD::LoadExtType' data-ref="llvm::ISD::LoadExtType">LoadExtType</a>);</td></tr>
+<tr><th id="989">989</th><td></td></tr>
+<tr><th id="990">990</th><td>  <i>//===--------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="991">991</th><td><i>  /// ISD::CondCode enum - These are ordered carefully to make the bitfields</i></td></tr>
+<tr><th id="992">992</th><td><i>  /// below work out, when considering SETFALSE (something that never exists</i></td></tr>
+<tr><th id="993">993</th><td><i>  /// dynamically) as 0.  "U" -&gt; Unsigned (for integer operands) or Unordered</i></td></tr>
+<tr><th id="994">994</th><td><i>  /// (for floating point), "L" -&gt; Less than, "G" -&gt; Greater than, "E" -&gt; Equal</i></td></tr>
+<tr><th id="995">995</th><td><i>  /// to.  If the "N" column is 1, the result of the comparison is undefined if</i></td></tr>
+<tr><th id="996">996</th><td><i>  /// the input is a NAN.</i></td></tr>
+<tr><th id="997">997</th><td><i>  ///</i></td></tr>
+<tr><th id="998">998</th><td><i>  /// All of these (except for the 'always folded ops') should be handled for</i></td></tr>
+<tr><th id="999">999</th><td><i>  /// floating point.  For integer, only the SETEQ,SETNE,SETLT,SETLE,SETGT,</i></td></tr>
+<tr><th id="1000">1000</th><td><i>  /// SETGE,SETULT,SETULE,SETUGT, and SETUGE opcodes are used.</i></td></tr>
+<tr><th id="1001">1001</th><td><i>  ///</i></td></tr>
+<tr><th id="1002">1002</th><td><i>  /// Note that these are laid out in a specific order to allow bit-twiddling</i></td></tr>
+<tr><th id="1003">1003</th><td><i>  /// to transform conditions.</i></td></tr>
+<tr><th id="1004">1004</th><td>  <b>enum</b> <dfn class="type def" id="llvm::ISD::CondCode" title='llvm::ISD::CondCode' data-ref="llvm::ISD::CondCode">CondCode</dfn> {</td></tr>
+<tr><th id="1005">1005</th><td>    <i>// Opcode          N U L G E       Intuitive operation</i></td></tr>
+<tr><th id="1006">1006</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETFALSE" title='llvm::ISD::CondCode::SETFALSE' data-ref="llvm::ISD::CondCode::SETFALSE">SETFALSE</dfn>,      <i>//    0 0 0 0       Always false (always folded)</i></td></tr>
+<tr><th id="1007">1007</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETOEQ" title='llvm::ISD::CondCode::SETOEQ' data-ref="llvm::ISD::CondCode::SETOEQ">SETOEQ</dfn>,        <i>//    0 0 0 1       True if ordered and equal</i></td></tr>
+<tr><th id="1008">1008</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETOGT" title='llvm::ISD::CondCode::SETOGT' data-ref="llvm::ISD::CondCode::SETOGT">SETOGT</dfn>,        <i>//    0 0 1 0       True if ordered and greater than</i></td></tr>
+<tr><th id="1009">1009</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETOGE" title='llvm::ISD::CondCode::SETOGE' data-ref="llvm::ISD::CondCode::SETOGE">SETOGE</dfn>,        <i>//    0 0 1 1       True if ordered and greater than or equal</i></td></tr>
+<tr><th id="1010">1010</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETOLT" title='llvm::ISD::CondCode::SETOLT' data-ref="llvm::ISD::CondCode::SETOLT">SETOLT</dfn>,        <i>//    0 1 0 0       True if ordered and less than</i></td></tr>
+<tr><th id="1011">1011</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETOLE" title='llvm::ISD::CondCode::SETOLE' data-ref="llvm::ISD::CondCode::SETOLE">SETOLE</dfn>,        <i>//    0 1 0 1       True if ordered and less than or equal</i></td></tr>
+<tr><th id="1012">1012</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETONE" title='llvm::ISD::CondCode::SETONE' data-ref="llvm::ISD::CondCode::SETONE">SETONE</dfn>,        <i>//    0 1 1 0       True if ordered and operands are unequal</i></td></tr>
+<tr><th id="1013">1013</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETO" title='llvm::ISD::CondCode::SETO' data-ref="llvm::ISD::CondCode::SETO">SETO</dfn>,          <i>//    0 1 1 1       True if ordered (no nans)</i></td></tr>
+<tr><th id="1014">1014</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETUO" title='llvm::ISD::CondCode::SETUO' data-ref="llvm::ISD::CondCode::SETUO">SETUO</dfn>,         <i>//    1 0 0 0       True if unordered: isnan(X) | isnan(Y)</i></td></tr>
+<tr><th id="1015">1015</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETUEQ" title='llvm::ISD::CondCode::SETUEQ' data-ref="llvm::ISD::CondCode::SETUEQ">SETUEQ</dfn>,        <i>//    1 0 0 1       True if unordered or equal</i></td></tr>
+<tr><th id="1016">1016</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETUGT" title='llvm::ISD::CondCode::SETUGT' data-ref="llvm::ISD::CondCode::SETUGT">SETUGT</dfn>,        <i>//    1 0 1 0       True if unordered or greater than</i></td></tr>
+<tr><th id="1017">1017</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETUGE" title='llvm::ISD::CondCode::SETUGE' data-ref="llvm::ISD::CondCode::SETUGE">SETUGE</dfn>,        <i>//    1 0 1 1       True if unordered, greater than, or equal</i></td></tr>
+<tr><th id="1018">1018</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETULT" title='llvm::ISD::CondCode::SETULT' data-ref="llvm::ISD::CondCode::SETULT">SETULT</dfn>,        <i>//    1 1 0 0       True if unordered or less than</i></td></tr>
+<tr><th id="1019">1019</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETULE" title='llvm::ISD::CondCode::SETULE' data-ref="llvm::ISD::CondCode::SETULE">SETULE</dfn>,        <i>//    1 1 0 1       True if unordered, less than, or equal</i></td></tr>
+<tr><th id="1020">1020</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETUNE" title='llvm::ISD::CondCode::SETUNE' data-ref="llvm::ISD::CondCode::SETUNE">SETUNE</dfn>,        <i>//    1 1 1 0       True if unordered or not equal</i></td></tr>
+<tr><th id="1021">1021</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETTRUE" title='llvm::ISD::CondCode::SETTRUE' data-ref="llvm::ISD::CondCode::SETTRUE">SETTRUE</dfn>,       <i>//    1 1 1 1       Always true (always folded)</i></td></tr>
+<tr><th id="1022">1022</th><td>    <i>// Don't care operations: undefined if the input is a nan.</i></td></tr>
+<tr><th id="1023">1023</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETFALSE2" title='llvm::ISD::CondCode::SETFALSE2' data-ref="llvm::ISD::CondCode::SETFALSE2">SETFALSE2</dfn>,     <i>//  1 X 0 0 0       Always false (always folded)</i></td></tr>
+<tr><th id="1024">1024</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETEQ" title='llvm::ISD::CondCode::SETEQ' data-ref="llvm::ISD::CondCode::SETEQ">SETEQ</dfn>,         <i>//  1 X 0 0 1       True if equal</i></td></tr>
+<tr><th id="1025">1025</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETGT" title='llvm::ISD::CondCode::SETGT' data-ref="llvm::ISD::CondCode::SETGT">SETGT</dfn>,         <i>//  1 X 0 1 0       True if greater than</i></td></tr>
+<tr><th id="1026">1026</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETGE" title='llvm::ISD::CondCode::SETGE' data-ref="llvm::ISD::CondCode::SETGE">SETGE</dfn>,         <i>//  1 X 0 1 1       True if greater than or equal</i></td></tr>
+<tr><th id="1027">1027</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETLT" title='llvm::ISD::CondCode::SETLT' data-ref="llvm::ISD::CondCode::SETLT">SETLT</dfn>,         <i>//  1 X 1 0 0       True if less than</i></td></tr>
+<tr><th id="1028">1028</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETLE" title='llvm::ISD::CondCode::SETLE' data-ref="llvm::ISD::CondCode::SETLE">SETLE</dfn>,         <i>//  1 X 1 0 1       True if less than or equal</i></td></tr>
+<tr><th id="1029">1029</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETNE" title='llvm::ISD::CondCode::SETNE' data-ref="llvm::ISD::CondCode::SETNE">SETNE</dfn>,         <i>//  1 X 1 1 0       True if not equal</i></td></tr>
+<tr><th id="1030">1030</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETTRUE2" title='llvm::ISD::CondCode::SETTRUE2' data-ref="llvm::ISD::CondCode::SETTRUE2">SETTRUE2</dfn>,      <i>//  1 X 1 1 1       Always true (always folded)</i></td></tr>
+<tr><th id="1031">1031</th><td></td></tr>
+<tr><th id="1032">1032</th><td>    <dfn class="enum" id="llvm::ISD::CondCode::SETCC_INVALID" title='llvm::ISD::CondCode::SETCC_INVALID' data-ref="llvm::ISD::CondCode::SETCC_INVALID">SETCC_INVALID</dfn>       <i>// Marker value.</i></td></tr>
+<tr><th id="1033">1033</th><td>  };</td></tr>
+<tr><th id="1034">1034</th><td></td></tr>
+<tr><th id="1035">1035</th><td>  <i class="doc">/// Return true if this is a setcc instruction that performs a signed</i></td></tr>
+<tr><th id="1036">1036</th><td><i class="doc">  /// comparison when used with integer operands.</i></td></tr>
+<tr><th id="1037">1037</th><td>  <b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN4llvm3ISD16isSignedIntSetCCENS0_8CondCodeE" title='llvm::ISD::isSignedIntSetCC' data-ref="_ZN4llvm3ISD16isSignedIntSetCCENS0_8CondCodeE">isSignedIntSetCC</dfn>(<a class="type" href="#llvm::ISD::CondCode" title='llvm::ISD::CondCode' data-ref="llvm::ISD::CondCode">CondCode</a> <dfn class="local col4 decl" id="54Code" title='Code' data-type='llvm::ISD::CondCode' data-ref="54Code">Code</dfn>) {</td></tr>
+<tr><th id="1038">1038</th><td>    <b>return</b> <a class="local col4 ref" href="#54Code" title='Code' data-ref="54Code">Code</a> == <a class="enum" href="#llvm::ISD::CondCode::SETGT" title='llvm::ISD::CondCode::SETGT' data-ref="llvm::ISD::CondCode::SETGT">SETGT</a> || <a class="local col4 ref" href="#54Code" title='Code' data-ref="54Code">Code</a> == <a class="enum" href="#llvm::ISD::CondCode::SETGE" title='llvm::ISD::CondCode::SETGE' data-ref="llvm::ISD::CondCode::SETGE">SETGE</a> || <a class="local col4 ref" href="#54Code" title='Code' data-ref="54Code">Code</a> == <a class="enum" href="#llvm::ISD::CondCode::SETLT" title='llvm::ISD::CondCode::SETLT' data-ref="llvm::ISD::CondCode::SETLT">SETLT</a> || <a class="local col4 ref" href="#54Code" title='Code' data-ref="54Code">Code</a> == <a class="enum" href="#llvm::ISD::CondCode::SETLE" title='llvm::ISD::CondCode::SETLE' data-ref="llvm::ISD::CondCode::SETLE">SETLE</a>;</td></tr>
+<tr><th id="1039">1039</th><td>  }</td></tr>
+<tr><th id="1040">1040</th><td></td></tr>
+<tr><th id="1041">1041</th><td>  <i class="doc">/// Return true if this is a setcc instruction that performs an unsigned</i></td></tr>
+<tr><th id="1042">1042</th><td><i class="doc">  /// comparison when used with integer operands.</i></td></tr>
+<tr><th id="1043">1043</th><td>  <b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN4llvm3ISD18isUnsignedIntSetCCENS0_8CondCodeE" title='llvm::ISD::isUnsignedIntSetCC' data-ref="_ZN4llvm3ISD18isUnsignedIntSetCCENS0_8CondCodeE">isUnsignedIntSetCC</dfn>(<a class="type" href="#llvm::ISD::CondCode" title='llvm::ISD::CondCode' data-ref="llvm::ISD::CondCode">CondCode</a> <dfn class="local col5 decl" id="55Code" title='Code' data-type='llvm::ISD::CondCode' data-ref="55Code">Code</dfn>) {</td></tr>
+<tr><th id="1044">1044</th><td>    <b>return</b> <a class="local col5 ref" href="#55Code" title='Code' data-ref="55Code">Code</a> == <a class="enum" href="#llvm::ISD::CondCode::SETUGT" title='llvm::ISD::CondCode::SETUGT' data-ref="llvm::ISD::CondCode::SETUGT">SETUGT</a> || <a class="local col5 ref" href="#55Code" title='Code' data-ref="55Code">Code</a> == <a class="enum" href="#llvm::ISD::CondCode::SETUGE" title='llvm::ISD::CondCode::SETUGE' data-ref="llvm::ISD::CondCode::SETUGE">SETUGE</a> || <a class="local col5 ref" href="#55Code" title='Code' data-ref="55Code">Code</a> == <a class="enum" href="#llvm::ISD::CondCode::SETULT" title='llvm::ISD::CondCode::SETULT' data-ref="llvm::ISD::CondCode::SETULT">SETULT</a> || <a class="local col5 ref" href="#55Code" title='Code' data-ref="55Code">Code</a> == <a class="enum" href="#llvm::ISD::CondCode::SETULE" title='llvm::ISD::CondCode::SETULE' data-ref="llvm::ISD::CondCode::SETULE">SETULE</a>;</td></tr>
+<tr><th id="1045">1045</th><td>  }</td></tr>
+<tr><th id="1046">1046</th><td></td></tr>
+<tr><th id="1047">1047</th><td>  <i class="doc">/// Return true if the specified condition returns true if the two operands to</i></td></tr>
+<tr><th id="1048">1048</th><td><i class="doc">  /// the condition are equal. Note that if one of the two operands is a NaN,</i></td></tr>
+<tr><th id="1049">1049</th><td><i class="doc">  /// this value is meaningless.</i></td></tr>
+<tr><th id="1050">1050</th><td>  <b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN4llvm3ISD15isTrueWhenEqualENS0_8CondCodeE" title='llvm::ISD::isTrueWhenEqual' data-ref="_ZN4llvm3ISD15isTrueWhenEqualENS0_8CondCodeE">isTrueWhenEqual</dfn>(<a class="type" href="#llvm::ISD::CondCode" title='llvm::ISD::CondCode' data-ref="llvm::ISD::CondCode">CondCode</a> <dfn class="local col6 decl" id="56Cond" title='Cond' data-type='llvm::ISD::CondCode' data-ref="56Cond">Cond</dfn>) {</td></tr>
+<tr><th id="1051">1051</th><td>    <b>return</b> ((<em>int</em>)<a class="local col6 ref" href="#56Cond" title='Cond' data-ref="56Cond">Cond</a> &amp; <var>1</var>) != <var>0</var>;</td></tr>
+<tr><th id="1052">1052</th><td>  }</td></tr>
+<tr><th id="1053">1053</th><td></td></tr>
+<tr><th id="1054">1054</th><td>  <i class="doc">/// This function returns 0 if the condition is always false if an operand is</i></td></tr>
+<tr><th id="1055">1055</th><td><i class="doc">  /// a NaN, 1 if the condition is always true if the operand is a NaN, and 2 if</i></td></tr>
+<tr><th id="1056">1056</th><td><i class="doc">  /// the condition is undefined if the operand is a NaN.</i></td></tr>
+<tr><th id="1057">1057</th><td>  <b>inline</b> <em>unsigned</em> <dfn class="decl def" id="_ZN4llvm3ISD18getUnorderedFlavorENS0_8CondCodeE" title='llvm::ISD::getUnorderedFlavor' data-ref="_ZN4llvm3ISD18getUnorderedFlavorENS0_8CondCodeE">getUnorderedFlavor</dfn>(<a class="type" href="#llvm::ISD::CondCode" title='llvm::ISD::CondCode' data-ref="llvm::ISD::CondCode">CondCode</a> <dfn class="local col7 decl" id="57Cond" title='Cond' data-type='llvm::ISD::CondCode' data-ref="57Cond">Cond</dfn>) {</td></tr>
+<tr><th id="1058">1058</th><td>    <b>return</b> ((<em>int</em>)<a class="local col7 ref" href="#57Cond" title='Cond' data-ref="57Cond">Cond</a> &gt;&gt; <var>3</var>) &amp; <var>3</var>;</td></tr>
+<tr><th id="1059">1059</th><td>  }</td></tr>
+<tr><th id="1060">1060</th><td></td></tr>
+<tr><th id="1061">1061</th><td>  <i class="doc">/// Return the operation corresponding to !(X op Y), where 'op' is a valid</i></td></tr>
+<tr><th id="1062">1062</th><td><i class="doc">  /// SetCC operation.</i></td></tr>
+<tr><th id="1063">1063</th><td>  <a class="type" href="#llvm::ISD::CondCode" title='llvm::ISD::CondCode' data-ref="llvm::ISD::CondCode">CondCode</a> <dfn class="decl" id="_ZN4llvm3ISD15getSetCCInverseENS0_8CondCodeENS_3EVTE" title='llvm::ISD::getSetCCInverse' data-ref="_ZN4llvm3ISD15getSetCCInverseENS0_8CondCodeENS_3EVTE">getSetCCInverse</dfn>(<a class="type" href="#llvm::ISD::CondCode" title='llvm::ISD::CondCode' data-ref="llvm::ISD::CondCode">CondCode</a> <dfn class="local col8 decl" id="58Operation" title='Operation' data-type='llvm::ISD::CondCode' data-ref="58Operation">Operation</dfn>, <a class="type" href="ValueTypes.h.html#llvm::EVT" title='llvm::EVT' data-ref="llvm::EVT">EVT</a> <dfn class="local col9 decl" id="59Type" title='Type' data-type='llvm::EVT' data-ref="59Type">Type</dfn>);</td></tr>
+<tr><th id="1064">1064</th><td></td></tr>
+<tr><th id="1065">1065</th><td>  <i class="doc">/// Return the operation corresponding to (Y op X) when given the operation</i></td></tr>
+<tr><th id="1066">1066</th><td><i class="doc">  /// for (X op Y).</i></td></tr>
+<tr><th id="1067">1067</th><td>  <a class="type" href="#llvm::ISD::CondCode" title='llvm::ISD::CondCode' data-ref="llvm::ISD::CondCode">CondCode</a> <dfn class="decl" id="_ZN4llvm3ISD23getSetCCSwappedOperandsENS0_8CondCodeE" title='llvm::ISD::getSetCCSwappedOperands' data-ref="_ZN4llvm3ISD23getSetCCSwappedOperandsENS0_8CondCodeE">getSetCCSwappedOperands</dfn>(<a class="type" href="#llvm::ISD::CondCode" title='llvm::ISD::CondCode' data-ref="llvm::ISD::CondCode">CondCode</a> <dfn class="local col0 decl" id="60Operation" title='Operation' data-type='llvm::ISD::CondCode' data-ref="60Operation">Operation</dfn>);</td></tr>
+<tr><th id="1068">1068</th><td></td></tr>
+<tr><th id="1069">1069</th><td>  <i class="doc">/// Return the result of a logical OR between different comparisons of</i></td></tr>
+<tr><th id="1070">1070</th><td><i class="doc">  /// identical values: ((X op1 Y) | (X op2 Y)). This function returns</i></td></tr>
+<tr><th id="1071">1071</th><td><i class="doc">  /// SETCC_INVALID if it is not possible to represent the resultant comparison.</i></td></tr>
+<tr><th id="1072">1072</th><td>  <a class="type" href="#llvm::ISD::CondCode" title='llvm::ISD::CondCode' data-ref="llvm::ISD::CondCode">CondCode</a> <dfn class="decl" id="_ZN4llvm3ISD19getSetCCOrOperationENS0_8CondCodeES1_NS_3EVTE" title='llvm::ISD::getSetCCOrOperation' data-ref="_ZN4llvm3ISD19getSetCCOrOperationENS0_8CondCodeES1_NS_3EVTE">getSetCCOrOperation</dfn>(<a class="type" href="#llvm::ISD::CondCode" title='llvm::ISD::CondCode' data-ref="llvm::ISD::CondCode">CondCode</a> <dfn class="local col1 decl" id="61Op1" title='Op1' data-type='llvm::ISD::CondCode' data-ref="61Op1">Op1</dfn>, <a class="type" href="#llvm::ISD::CondCode" title='llvm::ISD::CondCode' data-ref="llvm::ISD::CondCode">CondCode</a> <dfn class="local col2 decl" id="62Op2" title='Op2' data-type='llvm::ISD::CondCode' data-ref="62Op2">Op2</dfn>, <a class="type" href="ValueTypes.h.html#llvm::EVT" title='llvm::EVT' data-ref="llvm::EVT">EVT</a> <dfn class="local col3 decl" id="63Type" title='Type' data-type='llvm::EVT' data-ref="63Type">Type</dfn>);</td></tr>
+<tr><th id="1073">1073</th><td></td></tr>
+<tr><th id="1074">1074</th><td>  <i class="doc">/// Return the result of a logical AND between different comparisons of</i></td></tr>
+<tr><th id="1075">1075</th><td><i class="doc">  /// identical values: ((X op1 Y) &amp; (X op2 Y)). This function returns</i></td></tr>
+<tr><th id="1076">1076</th><td><i class="doc">  /// SETCC_INVALID if it is not possible to represent the resultant comparison.</i></td></tr>
+<tr><th id="1077">1077</th><td>  <a class="type" href="#llvm::ISD::CondCode" title='llvm::ISD::CondCode' data-ref="llvm::ISD::CondCode">CondCode</a> <dfn class="decl" id="_ZN4llvm3ISD20getSetCCAndOperationENS0_8CondCodeES1_NS_3EVTE" title='llvm::ISD::getSetCCAndOperation' data-ref="_ZN4llvm3ISD20getSetCCAndOperationENS0_8CondCodeES1_NS_3EVTE">getSetCCAndOperation</dfn>(<a class="type" href="#llvm::ISD::CondCode" title='llvm::ISD::CondCode' data-ref="llvm::ISD::CondCode">CondCode</a> <dfn class="local col4 decl" id="64Op1" title='Op1' data-type='llvm::ISD::CondCode' data-ref="64Op1">Op1</dfn>, <a class="type" href="#llvm::ISD::CondCode" title='llvm::ISD::CondCode' data-ref="llvm::ISD::CondCode">CondCode</a> <dfn class="local col5 decl" id="65Op2" title='Op2' data-type='llvm::ISD::CondCode' data-ref="65Op2">Op2</dfn>, <a class="type" href="ValueTypes.h.html#llvm::EVT" title='llvm::EVT' data-ref="llvm::EVT">EVT</a> <dfn class="local col6 decl" id="66Type" title='Type' data-type='llvm::EVT' data-ref="66Type">Type</dfn>);</td></tr>
+<tr><th id="1078">1078</th><td></td></tr>
+<tr><th id="1079">1079</th><td>} <i>// end llvm::ISD namespace</i></td></tr>
+<tr><th id="1080">1080</th><td></td></tr>
+<tr><th id="1081">1081</th><td>} <i>// end llvm namespace</i></td></tr>
+<tr><th id="1082">1082</th><td></td></tr>
+<tr><th id="1083">1083</th><td><u>#<span data-ppcond="13">endif</span></u></td></tr>
+<tr><th id="1084">1084</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../lld/ELF/InputFiles.cpp.html'>llvm/lld/ELF/InputFiles.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

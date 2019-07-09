@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>WinCFGuard.cpp source code [llvm/llvm/lib/CodeGen/AsmPrinter/WinCFGuard.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/CodeGen/AsmPrinter/WinCFGuard.cpp'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>lib</a>/<a href='..'>CodeGen</a>/<a href='./'>AsmPrinter</a>/<a href='WinCFGuard.cpp.html'>WinCFGuard.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- CodeGen/AsmPrinter/WinCFGuard.cpp - Control Flow Guard Impl ------===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file contains support for writing Win64 exception info into asm files.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="WinCFGuard.h.html">"WinCFGuard.h"</a></u></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="../../../include/llvm/CodeGen/AsmPrinter.h.html">"llvm/CodeGen/AsmPrinter.h"</a></u></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="../../../include/llvm/CodeGen/MachineFunction.h.html">"llvm/CodeGen/MachineFunction.h"</a></u></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="../../../include/llvm/CodeGen/MachineModuleInfo.h.html">"llvm/CodeGen/MachineModuleInfo.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../../include/llvm/CodeGen/MachineOperand.h.html">"llvm/CodeGen/MachineOperand.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../include/llvm/IR/Constants.h.html">"llvm/IR/Constants.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../include/llvm/IR/Metadata.h.html">"llvm/IR/Metadata.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../include/llvm/MC/MCAsmInfo.h.html">"llvm/MC/MCAsmInfo.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../include/llvm/MC/MCObjectFileInfo.h.html">"llvm/MC/MCObjectFileInfo.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../include/llvm/MC/MCStreamer.h.html">"llvm/MC/MCStreamer.h"</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../../../../../include/c++/7/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><b>using</b> <b>namespace</b> <span class="namespace">llvm</span>;</td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><a class="type" href="WinCFGuard.h.html#llvm::WinCFGuard" title='llvm::WinCFGuard' data-ref="llvm::WinCFGuard">WinCFGuard</a>::<dfn class="decl def" id="_ZN4llvm10WinCFGuardC1EPNS_10AsmPrinterE" title='llvm::WinCFGuard::WinCFGuard' data-ref="_ZN4llvm10WinCFGuardC1EPNS_10AsmPrinterE">WinCFGuard</dfn>(<a class="type" href="../../../include/llvm/CodeGen/AsmPrinter.h.html#llvm::AsmPrinter" title='llvm::AsmPrinter' data-ref="llvm::AsmPrinter">AsmPrinter</a> *<dfn class="local col1 decl" id="1A" title='A' data-type='llvm::AsmPrinter *' data-ref="1A">A</dfn>) : <a class="type" href="../../../include/llvm/CodeGen/AsmPrinterHandler.h.html#llvm::AsmPrinterHandler" title='llvm::AsmPrinterHandler' data-ref="llvm::AsmPrinterHandler">AsmPrinterHandler</a><a class="ref" href="../../../include/llvm/CodeGen/AsmPrinterHandler.h.html#31" title='llvm::AsmPrinterHandler::AsmPrinterHandler' data-ref="_ZN4llvm17AsmPrinterHandlerC1Ev">(</a>), <a class="member" href="WinCFGuard.h.html#llvm::WinCFGuard::Asm" title='llvm::WinCFGuard::Asm' data-ref="llvm::WinCFGuard::Asm">Asm</a>(<a class="local col1 ref" href="#1A" title='A' data-ref="1A">A</a>) {}</td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><a class="type" href="WinCFGuard.h.html#llvm::WinCFGuard" title='llvm::WinCFGuard' data-ref="llvm::WinCFGuard">WinCFGuard</a>::<dfn class="virtual decl def" id="_ZN4llvm10WinCFGuardD1Ev" title='llvm::WinCFGuard::~WinCFGuard' data-ref="_ZN4llvm10WinCFGuardD1Ev">~WinCFGuard</dfn>() {}</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><em>void</em> <a class="type" href="WinCFGuard.h.html#llvm::WinCFGuard" title='llvm::WinCFGuard' data-ref="llvm::WinCFGuard">WinCFGuard</a>::<dfn class="virtual decl def" id="_ZN4llvm10WinCFGuard9endModuleEv" title='llvm::WinCFGuard::endModule' data-ref="_ZN4llvm10WinCFGuard9endModuleEv">endModule</dfn>() {</td></tr>
+<tr><th id="33">33</th><td>  <em>const</em> <a class="type" href="../../../include/llvm/IR/Module.h.html#llvm::Module" title='llvm::Module' data-ref="llvm::Module">Module</a> *<dfn class="local col2 decl" id="2M" title='M' data-type='const llvm::Module *' data-ref="2M">M</dfn> = <a class="member" href="WinCFGuard.h.html#llvm::WinCFGuard::Asm" title='llvm::WinCFGuard::Asm' data-ref="llvm::WinCFGuard::Asm">Asm</a>-&gt;<a class="ref" href="../../../include/llvm/CodeGen/AsmPrinter.h.html#llvm::AsmPrinter::MMI" title='llvm::AsmPrinter::MMI' data-ref="llvm::AsmPrinter::MMI">MMI</a>-&gt;<a class="ref" href="../../../include/llvm/CodeGen/MachineModuleInfo.h.html#_ZNK4llvm17MachineModuleInfo9getModuleEv" title='llvm::MachineModuleInfo::getModule' data-ref="_ZNK4llvm17MachineModuleInfo9getModuleEv">getModule</a>();</td></tr>
+<tr><th id="34">34</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<em>const</em> <a class="type" href="../../../include/llvm/IR/Function.h.html#llvm::Function" title='llvm::Function' data-ref="llvm::Function">Function</a> *&gt; <a class="ref fake" href="../../../../../include/c++/7/bits/stl_vector.h.html#_ZNSt6vectorC1Ev" title='std::vector::vector&lt;_Tp, _Alloc&gt;' data-ref="_ZNSt6vectorC1Ev"></a><dfn class="local col3 decl" id="3Functions" title='Functions' data-type='std::vector&lt;const Function *&gt;' data-ref="3Functions">Functions</dfn>;</td></tr>
+<tr><th id="35">35</th><td>  <b>for</b> (<em>const</em> <a class="type" href="../../../include/llvm/IR/Function.h.html#llvm::Function" title='llvm::Function' data-ref="llvm::Function">Function</a> &amp;<dfn class="local col4 decl" id="4F" title='F' data-type='const llvm::Function &amp;' data-ref="4F">F</dfn> : *<a class="local col2 ref" href="#2M" title='M' data-ref="2M">M</a>)</td></tr>
+<tr><th id="36">36</th><td>    <b>if</b> (<a class="local col4 ref" href="#4F" title='F' data-ref="4F">F</a>.<a class="ref" href="../../../include/llvm/IR/Function.h.html#_ZNK4llvm8Function15hasAddressTakenEPPKNS_4UserE" title='llvm::Function::hasAddressTaken' data-ref="_ZNK4llvm8Function15hasAddressTakenEPPKNS_4UserE">hasAddressTaken</a>())</td></tr>
+<tr><th id="37">37</th><td>      <a class="local col3 ref" href="#3Functions" title='Functions' data-ref="3Functions">Functions</a>.<a class="ref" href="../../../../../include/c++/7/bits/stl_vector.h.html#_ZNSt6vector9push_backEOT_" title='std::vector::push_back' data-ref="_ZNSt6vector9push_backEOT_">push_back</a>(&amp;<a class="local col4 ref" href="#4F" title='F' data-ref="4F">F</a>);</td></tr>
+<tr><th id="38">38</th><td>  <b>if</b> (<a class="local col3 ref" href="#3Functions" title='Functions' data-ref="3Functions">Functions</a>.<a class="ref" href="../../../../../include/c++/7/bits/stl_vector.h.html#_ZNKSt6vector5emptyEv" title='std::vector::empty' data-ref="_ZNKSt6vector5emptyEv">empty</a>())</td></tr>
+<tr><th id="39">39</th><td>    <b>return</b>;</td></tr>
+<tr><th id="40">40</th><td>  <em>auto</em> &amp;<dfn class="local col5 decl" id="5OS" title='OS' data-type='llvm::MCStreamer &amp;' data-ref="5OS">OS</dfn> = <a class="ref" href="../../../../../include/c++/7/bits/unique_ptr.h.html#_ZNKSt10unique_ptrdeEv" title='std::unique_ptr::operator*' data-ref="_ZNKSt10unique_ptrdeEv">*</a><a class="member" href="WinCFGuard.h.html#llvm::WinCFGuard::Asm" title='llvm::WinCFGuard::Asm' data-ref="llvm::WinCFGuard::Asm">Asm</a>-&gt;<a class="ref" href="../../../include/llvm/CodeGen/AsmPrinter.h.html#llvm::AsmPrinter::OutStreamer" title='llvm::AsmPrinter::OutStreamer' data-ref="llvm::AsmPrinter::OutStreamer">OutStreamer</a>;</td></tr>
+<tr><th id="41">41</th><td>  <a class="local col5 ref" href="#5OS" title='OS' data-ref="5OS">OS</a>.<a class="virtual ref" href="../../../include/llvm/MC/MCStreamer.h.html#_ZN4llvm10MCStreamer13SwitchSectionEPNS_9MCSectionEPKNS_6MCExprE" title='llvm::MCStreamer::SwitchSection' data-ref="_ZN4llvm10MCStreamer13SwitchSectionEPNS_9MCSectionEPKNS_6MCExprE">SwitchSection</a>(<a class="member" href="WinCFGuard.h.html#llvm::WinCFGuard::Asm" title='llvm::WinCFGuard::Asm' data-ref="llvm::WinCFGuard::Asm">Asm</a>-&gt;<a class="ref" href="../../../include/llvm/CodeGen/AsmPrinter.h.html#llvm::AsmPrinter::OutContext" title='llvm::AsmPrinter::OutContext' data-ref="llvm::AsmPrinter::OutContext">OutContext</a>.<a class="ref" href="../../../include/llvm/MC/MCContext.h.html#_ZNK4llvm9MCContext17getObjectFileInfoEv" title='llvm::MCContext::getObjectFileInfo' data-ref="_ZNK4llvm9MCContext17getObjectFileInfoEv">getObjectFileInfo</a>()-&gt;<a class="ref" href="../../../include/llvm/MC/MCObjectFileInfo.h.html#_ZNK4llvm16MCObjectFileInfo15getGFIDsSectionEv" title='llvm::MCObjectFileInfo::getGFIDsSection' data-ref="_ZNK4llvm16MCObjectFileInfo15getGFIDsSectionEv">getGFIDsSection</a>());</td></tr>
+<tr><th id="42">42</th><td>  <b>for</b> (<em>const</em> <a class="type" href="../../../include/llvm/IR/Function.h.html#llvm::Function" title='llvm::Function' data-ref="llvm::Function">Function</a> *<dfn class="local col6 decl" id="6F" title='F' data-type='const llvm::Function *' data-ref="6F">F</dfn> : <a class="local col3 ref" href="#3Functions" title='Functions' data-ref="3Functions">Functions</a>)</td></tr>
+<tr><th id="43">43</th><td>    <a class="local col5 ref" href="#5OS" title='OS' data-ref="5OS">OS</a>.<a class="virtual ref" href="../../../include/llvm/MC/MCStreamer.h.html#_ZN4llvm10MCStreamer19EmitCOFFSymbolIndexEPKNS_8MCSymbolE" title='llvm::MCStreamer::EmitCOFFSymbolIndex' data-ref="_ZN4llvm10MCStreamer19EmitCOFFSymbolIndexEPKNS_8MCSymbolE">EmitCOFFSymbolIndex</a>(<a class="member" href="WinCFGuard.h.html#llvm::WinCFGuard::Asm" title='llvm::WinCFGuard::Asm' data-ref="llvm::WinCFGuard::Asm">Asm</a>-&gt;<a class="ref" href="../../../include/llvm/CodeGen/AsmPrinter.h.html#_ZNK4llvm10AsmPrinter9getSymbolEPKNS_11GlobalValueE" title='llvm::AsmPrinter::getSymbol' data-ref="_ZNK4llvm10AsmPrinter9getSymbolEPKNS_11GlobalValueE">getSymbol</a>(<a class="local col6 ref" href="#6F" title='F' data-ref="6F">F</a>));</td></tr>
+<tr><th id="44">44</th><td>}</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

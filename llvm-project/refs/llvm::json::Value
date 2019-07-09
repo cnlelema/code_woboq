@@ -1,0 +1,109 @@
+<def f='llvm/llvm/include/llvm/Support/JSON.h' l='280' ll='481'/>
+<size>40</size>
+<doc f='llvm/llvm/include/llvm/Support/JSON.h' l='210'>/// A Value is an JSON value of unknown type.
+/// They can be copied, but should generally be moved.
+///
+/// === Composing values ===
+///
+/// You can implicitly construct Values from:
+///   - strings: std::string, SmallString, formatv, StringRef, char*
+///              (char*, and StringRef are references, not copies!)
+///   - numbers
+///   - booleans
+///   - null: nullptr
+///   - arrays: {&quot;foo&quot;, 42.0, false}
+///   - serializable things: types with toJSON(const T&amp;)-&gt;Value, found by ADL
+///
+/// They can also be constructed from object/array helpers:
+///   - json::Object is a type like map&lt;ObjectKey, Value&gt;
+///   - json::Array is a type like vector&lt;Value&gt;
+/// These can be list-initialized, or used to build up collections in a loop.
+/// json::ary(Collection) converts all items in a collection to Values.
+///
+/// === Inspecting values ===
+///
+/// Each Value is one of the JSON kinds:
+///   null    (nullptr_t)
+///   boolean (bool)
+///   number  (double or int64)
+///   string  (StringRef)
+///   array   (json::Array)
+///   object  (json::Object)
+///
+/// The kind can be queried directly, or implicitly via the typed accessors:
+///   if (Optional&lt;StringRef&gt; S = E.getAsString()
+///     assert(E.kind() == Value::String);
+///
+/// Array and Object also have typed indexing accessors for easy traversal:
+///   Expected&lt;Value&gt; E = parse(R&quot;( {&quot;options&quot;: {&quot;font&quot;: &quot;sans-serif&quot;}} )&quot;);
+///   if (Object* O = E-&gt;getAsObject())
+///     if (Object* Opts = O-&gt;getObject(&quot;options&quot;))
+///       if (Optional&lt;StringRef&gt; Font = Opts-&gt;getString(&quot;font&quot;))
+///         assert(Opts-&gt;at(&quot;font&quot;).kind() == Value::String);
+///
+/// === Converting JSON values to C++ types ===
+///
+/// The convention is to have a deserializer function findable via ADL:
+///     fromJSON(const json::Value&amp;, T&amp;)-&gt;bool
+/// Deserializers are provided for:
+///   - bool
+///   - int and int64_t
+///   - double
+///   - std::string
+///   - vector&lt;T&gt;, where T is deserializable
+///   - map&lt;string, T&gt;, where T is deserializable
+///   - Optional&lt;T&gt;, where T is deserializable
+/// ObjectMapper can help writing fromJSON() functions for object types.
+///
+/// For conversion in the other direction, the serializer function is:
+///    toJSON(const T&amp;) -&gt; json::Value
+/// If this exists, then it also allows constructing Value from T, and can
+/// be used to serialize vector&lt;T&gt;, map&lt;string, T&gt;, and Optional&lt;T&gt;.
+///
+/// === Serialization ===
+///
+/// Values can be serialized to JSON:
+///   1) raw_ostream &lt;&lt; Value                    // Basic formatting.
+///   2) raw_ostream &lt;&lt; formatv(&quot;{0}&quot;, Value)    // Basic formatting.
+///   3) raw_ostream &lt;&lt; formatv(&quot;{0:2}&quot;, Value)  // Pretty-print with indent 2.
+///
+/// And parsed:
+///   Expected&lt;Value&gt; E = json::parse(&quot;[1, 2, null]&quot;);
+///   assert(E &amp;&amp; E-&gt;kind() == Value::Array);</doc>
+<fun r='_ZN4llvm4json5ValueC1ERKS1_'/>
+<fun r='_ZN4llvm4json5ValueC1EOS1_'/>
+<fun r='_ZN4llvm4json5ValueC1ESt16initializer_listIS1_E'/>
+<fun r='_ZN4llvm4json5ValueC1EONS0_5ArrayE'/>
+<fun r='_ZN4llvm4json5ValueC1ERKSt6vectorIT_SaIS3_EE'/>
+<fun r='_ZN4llvm4json5ValueC1EONS0_6ObjectE'/>
+<fun r='_ZN4llvm4json5ValueC1ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessIS8_ESaISt4pairIKS8_S9_EEE'/>
+<fun r='_ZN4llvm4json5ValueC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<fun r='_ZN4llvm4json5ValueC1ERKNS_15SmallVectorImplIcEE'/>
+<fun r='_ZN4llvm4json5ValueC1ERKNS_19formatv_object_baseE'/>
+<fun r='_ZN4llvm4json5ValueC1ENS_9StringRefE'/>
+<fun r='_ZN4llvm4json5ValueC1EPKc'/>
+<fun r='_ZN4llvm4json5ValueC1EDn'/>
+<fun r='_ZN4llvm4json5ValueC1ET_'/>
+<fun r='_ZN4llvm4json5ValueC1ET_'/>
+<fun r='_ZN4llvm4json5ValueC1ET_'/>
+<fun r='_ZN4llvm4json5ValueC1ERKT_'/>
+<fun r='_ZN4llvm4json5ValueaSERKS1_'/>
+<fun r='_ZN4llvm4json5ValueaSEOS1_'/>
+<fun r='_ZN4llvm4json5ValueD1Ev'/>
+<fun r='_ZNK4llvm4json5Value4kindEv'/>
+<fun r='_ZNK4llvm4json5Value9getAsNullEv'/>
+<fun r='_ZNK4llvm4json5Value12getAsBooleanEv'/>
+<fun r='_ZNK4llvm4json5Value11getAsNumberEv'/>
+<fun r='_ZNK4llvm4json5Value12getAsIntegerEv'/>
+<fun r='_ZNK4llvm4json5Value11getAsStringEv'/>
+<fun r='_ZNK4llvm4json5Value11getAsObjectEv'/>
+<fun r='_ZN4llvm4json5Value11getAsObjectEv'/>
+<fun r='_ZNK4llvm4json5Value10getAsArrayEv'/>
+<fun r='_ZN4llvm4json5Value10getAsArrayEv'/>
+<fun r='_ZN4llvm4json5Value7destroyEv'/>
+<fun r='_ZN4llvm4json5Value8copyFromERKS1_'/>
+<fun r='_ZN4llvm4json5Value8moveFromEOKS1_'/>
+<fun r='_ZN4llvm4json5Value6createEDpOT0_'/>
+<fun r='_ZNK4llvm4json5Value2asEv'/>
+<mbr r='llvm::json::Value::Type' o='0' t='llvm::json::Value::ValueType'/>
+<mbr r='llvm::json::Value::Union' o='64' t='llvm::AlignedCharArrayUnion&lt;bool, double, int64_t, llvm::StringRef, std::string, json::Array, json::Object&gt;'/>

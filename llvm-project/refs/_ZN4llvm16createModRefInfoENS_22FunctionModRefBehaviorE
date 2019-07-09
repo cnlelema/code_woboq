@@ -1,0 +1,15 @@
+<def f='llvm/llvm/include/llvm/Analysis/AliasAnalysis.h' l='284' ll='287' type='llvm::ModRefInfo llvm::createModRefInfo(const llvm::FunctionModRefBehavior FMRB)'/>
+<use f='llvm/llvm/include/llvm/Analysis/AliasAnalysis.h' l='478' u='c' c='_ZN4llvm9AAResults15onlyReadsMemoryENS_22FunctionModRefBehaviorE'/>
+<use f='llvm/llvm/include/llvm/Analysis/AliasAnalysis.h' l='484' u='c' c='_ZN4llvm9AAResults17doesNotReadMemoryENS_22FunctionModRefBehaviorE'/>
+<use f='llvm/llvm/include/llvm/Analysis/AliasAnalysis.h' l='498' u='c' c='_ZN4llvm9AAResults21doesAccessArgPointeesENS_22FunctionModRefBehaviorE'/>
+<use f='llvm/llvm/include/llvm/Analysis/AliasAnalysis.h' l='511' u='c' c='_ZN4llvm9AAResults25doesAccessInaccessibleMemENS_22FunctionModRefBehaviorE'/>
+<use f='llvm/llvm/include/llvm/Analysis/AliasAnalysis.h' l='724' u='c' c='_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKNS_8OptionalINS_14MemoryLocationEEERNS_11AAQueryInfoE'/>
+<doc f='llvm/llvm/include/llvm/Analysis/AliasAnalysis.h' l='280'>// Wrapper method strips bits significant only in FunctionModRefBehavior,
+// to obtain a valid ModRefInfo. The benefit of using the wrapper is that if
+// ModRefInfo enum changes, the wrapper can be updated to &amp; with the new enum
+// entry with all bits set to 1.</doc>
+<use f='llvm/llvm/lib/Analysis/AliasSetTracker.cpp' l='481' u='c' c='_ZN4llvm15AliasSetTracker3addEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='1048' u='c' c='_ZN4llvm13BasicAAResult13getModRefInfoEPKNS_8CallBaseES3_RNS_11AAQueryInfoE'/>
+<use f='llvm/llvm/lib/Analysis/BasicAliasAnalysis.cpp' l='1053' u='c' c='_ZN4llvm13BasicAAResult13getModRefInfoEPKNS_8CallBaseES3_RNS_11AAQueryInfoE'/>
+<use f='llvm/llvm/lib/Analysis/GlobalsModRef.cpp' l='592' u='c' c='_ZN4llvm15GlobalsAAResult16AnalyzeCallGraphERNS_9CallGraphERNS_6ModuleE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/FunctionAttrs.cpp' l='141' u='c' c='_ZL25checkFunctionMemoryAccessRN4llvm8FunctionEbRNS_9AAResultsERKNS_14SmallSetVectorIPS0_Lj8EEE'/>

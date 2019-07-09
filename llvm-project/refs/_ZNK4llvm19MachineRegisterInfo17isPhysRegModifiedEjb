@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/MachineRegisterInfo.h' l='821' type='bool llvm::MachineRegisterInfo::isPhysRegModified(unsigned int PhysReg, bool SkipNoReturnDef = false) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineRegisterInfo.h' l='815'>/// Return true if the specified register is modified in this function.
+  /// This checks that no defining machine operands exist for the register or
+  /// any of its aliases. Definitions found on functions marked noreturn are
+  /// ignored, to consider them pass &apos;true&apos; for optional parameter
+  /// SkipNoReturnDef. The register is also considered modified when it is set
+  /// in the UsedPhysRegMask.</doc>
+<def f='llvm/llvm/lib/CodeGen/MachineRegisterInfo.cpp' l='579' ll='592' type='bool llvm::MachineRegisterInfo::isPhysRegModified(unsigned int PhysReg, bool SkipNoReturnDef = false) const'/>
+<use f='llvm/llvm/lib/CodeGen/TargetFrameLoweringImpl.cpp' l='106' u='c' c='_ZNK4llvm19TargetFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='339' u='c' c='_ZL18HandleVRSaveUpdateRN4llvm12MachineInstrERKNS_15TargetInstrInfoE'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyRegStackify.cpp' l='350' u='c' c='_ZL12isSafeToMovePKN4llvm12MachineInstrES2_RNS_9AAResultsERKNS_19MachineRegisterInfoE'/>

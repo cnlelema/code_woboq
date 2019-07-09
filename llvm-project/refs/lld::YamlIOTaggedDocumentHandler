@@ -1,0 +1,16 @@
+<def f='llvm/lld/include/lld/Core/Reader.h' l='64' ll='74'/>
+<size>8</size>
+<doc f='llvm/lld/include/lld/Core/Reader.h' l='55'>/// An abstract class for handling alternate yaml representations
+/// of object files.
+///
+/// The YAML syntax allows &quot;tags&quot; which are used to specify the type of
+/// the YAML node.  In lld, top level YAML documents can be in many YAML
+/// representations (e.g mach-o encoded as yaml, etc).  A tag is used to
+/// specify which representation is used in the following YAML document.
+/// To work, there must be a YamlIOTaggedDocumentHandler registered that
+/// handles each tag type.</doc>
+<fun r='_ZN3lld27YamlIOTaggedDocumentHandlerD1Ev'/>
+<fun r='_ZNK3lld27YamlIOTaggedDocumentHandler13handledDocTagERN4llvm4yaml2IOERPKNS_4FileE'/>
+<ovr f='llvm/lld/lib/ReaderWriter/MachO/MachONormalizedFile.h' l='324' c='lld::mach_o::MachOYamlIOTaggedDocumentHandler'/>
+<ovr f='llvm/lld/lib/ReaderWriter/YAML/ReaderWriterYAML.cpp' l='1328' c='lld::(anonymousnamespace)::NativeYamlIOTaggedDocumentHandler'/>
+<ovr f='llvm/lld/lib/ReaderWriter/YAML/ReaderWriterYAML.cpp' l='1339' c='lld::(anonymousnamespace)::ArchiveYamlIOTaggedDocumentHandler'/>

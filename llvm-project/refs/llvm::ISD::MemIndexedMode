@@ -1,0 +1,29 @@
+<def f='llvm/llvm/include/llvm/CodeGen/ISDOpcodes.h' l='959' ll='965'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/ISDOpcodes.h' l='931'>//===--------------------------------------------------------------------===//
+  /// MemIndexedMode enum - This enum defines the load / store indexed
+  /// addressing modes.
+  ///
+  /// UNINDEXED    &quot;Normal&quot; load / store. The effective address is already
+  ///              computed and is available in the base pointer. The offset
+  ///              operand is always undefined. In addition to producing a
+  ///              chain, an unindexed load produces one value (result of the
+  ///              load); an unindexed store does not produce a value.
+  ///
+  /// PRE_INC      Similar to the unindexed mode where the effective address is
+  /// PRE_DEC      the value of the base pointer add / subtract the offset.
+  ///              It considers the computation as being folded into the load /
+  ///              store operation (i.e. the load / store does the address
+  ///              computation as well as performing the memory transaction).
+  ///              The base operand is always undefined. In addition to
+  ///              producing a chain, pre-indexed load produces two values
+  ///              (result of the load and the result of the address
+  ///              computation); a pre-indexed store produces one value (result
+  ///              of the address computation).
+  ///
+  /// POST_INC     The effective address is the value of the base pointer. The
+  /// POST_DEC     value of the offset operand is then added to / subtracted
+  ///              from the base after memory transaction. In addition to
+  ///              producing a chain, post-indexed load produces two values
+  ///              (the result of the load and the result of the base +/- offset
+  ///              computation); a post-indexed store produces one value (the
+  ///              the result of the base +/- offset computation).</doc>

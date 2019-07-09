@@ -1,0 +1,22 @@
+<use f='llvm/clang/include/clang/Basic/SourceManager.h' l='858' u='c' c='_ZN5clang13SourceManager17getOrCreateFileIDEPKNS_9FileEntryENS_6SrcMgr18CharacteristicKindE'/>
+<dec f='llvm/clang/include/clang/Basic/SourceManager.h' l='1560' type='clang::FileID clang::SourceManager::translateFile(const clang::FileEntry * SourceFile) const'/>
+<doc f='llvm/clang/include/clang/Basic/SourceManager.h' l='1556'>/// Get the FileID for the given file.
+  ///
+  /// If the source file is included multiple times, the FileID will be the
+  /// first inclusion.</doc>
+<use f='llvm/clang/lib/Basic/SourceManager.cpp' l='1563' u='c' c='_ZNK5clang13SourceManager20translateFileLineColEPKNS_9FileEntryEjj'/>
+<def f='llvm/clang/lib/Basic/SourceManager.cpp' l='1571' ll='1682' type='clang::FileID clang::SourceManager::translateFile(const clang::FileEntry * SourceFile) const'/>
+<doc f='llvm/clang/lib/Basic/SourceManager.cpp' l='1567'>/// Get the FileID for the given file.
+///
+/// If the source file is included multiple times, the FileID will be the
+/// first inclusion.</doc>
+<use f='llvm/clang/lib/Frontend/ASTUnit.cpp' l='2373' u='c' c='_ZN5clang7ASTUnit26TranslateStoredDiagnosticsERNS_11FileManagerERNS_13SourceManagerERKN4llvm15SmallVectorImplINS0_20StandaloneDiagnosticEEERNS6_INS_16StoredDiagnosticEEE'/>
+<use f='llvm/clang/lib/Frontend/VerifyDiagnosticConsumer.cpp' l='540' u='c' c='_ZL14ParseDirectiveN4llvm9StringRefEPN5clang24VerifyDiagnosticConsumer12ExpectedDataERNS1_13SourceManagerEPNS1_12PreprocessorENS1_14SourceLocationERNS11838509'/>
+<use f='llvm/clang/lib/Lex/PPDirectives.cpp' l='1880' u='c' c='_ZN5clang12Preprocessor27HandleHeaderIncludeOrImportENS_14SourceLocationERNS_5TokenES3_S1_PKNS_15DirectoryLookupEPKNS_9FileEntryE'/>
+<use f='llvm/clang/tools/clang-refactor/ClangRefactor.cpp' l='120' u='c' c='_ZN12_GLOBAL__N_128SourceRangeSelectionArgument12forAllRangesERKN5clang13SourceManagerEN4llvm12function_refIFvNS1_11SourceRangeEEEE'/>
+<use f='llvm/clang/tools/clang-refactor/TestSupport.cpp' l='45' u='c' c='_ZNK5clang8refactor25TestSelectionRangesInFile12foreachRangeERKNS_13SourceManagerEN4llvm12function_refIFvNS_11SourceRangeEEEE'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='4244' u='c' c='clang_getFileContents'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='8643' u='c' c='clang_getSkippedRanges'/>
+<use f='llvm/clang/tools/libclang/CIndexHigh.cpp' l='218' u='c' c='_ZL16findIdRefsInFileP21CXTranslationUnitImpl8CXCursorPKN5clang9FileEntryE23CXCursorAndRangeVisitor'/>
+<use f='llvm/clang/tools/libclang/CIndexHigh.cpp' l='316' u='c' c='_ZL19findMacroRefsInFileP21CXTranslationUnitImpl8CXCursorPKN5clang9FileEntryE23CXCursorAndRangeVisitor'/>
+<use f='llvm/clang/tools/libclang/CIndexHigh.cpp' l='388' u='c' c='_ZL18findIncludesInFileP21CXTranslationUnitImplPKN5clang9FileEntryE23CXCursorAndRangeVisitor'/>

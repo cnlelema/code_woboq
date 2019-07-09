@@ -1,0 +1,17 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='2824' type='enum CXVisibilityKind clang_getCursorVisibility(CXCursor cursor)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='2813'>/**
+ * Describe the visibility of the entity referred to by a cursor.
+ *
+ * This returns the default visibility if not explicitly specified by
+ * a visibility attribute. The default visibility may be changed by
+ * commandline arguments.
+ *
+ * \param cursor The cursor to query.
+ *
+ * \returns The visibility of the cursor.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='1477' u='c' c='PrintVisibility'/>
+<def f='llvm/clang/tools/libclang/CIndex.cpp' l='7680' ll='7693' type='CXVisibilityKind clang_getCursorVisibility(CXCursor cursor)'/>
+<doc f='llvm/clang/tools/libclang/CIndex.cpp' l='7676'>//===----------------------------------------------------------------------===//
+// Operations for querying visibility of a cursor.
+//===----------------------------------------------------------------------===//</doc>

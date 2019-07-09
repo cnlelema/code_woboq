@@ -1,0 +1,32 @@
+<def f='llvm/clang/include/clang/AST/ODRHash.h' l='41' ll='96'/>
+<size>320</size>
+<doc f='llvm/clang/include/clang/AST/ODRHash.h' l='34'>// ODRHash is used to calculate a hash based on AST node contents that
+// does not rely on pointer addresses.  This allows the hash to not vary
+// between runs and is usable to detect ODR problems in modules.  To use,
+// construct an ODRHash object, then call Add* methods over the nodes that
+// need to be hashed.  Then call CalculateHash to get the hash value.
+// Typically, only one Add* call is needed.  clear can be called to reuse the
+// object.</doc>
+<mbr r='clang::ODRHash::DeclNameMap' o='0' t='llvm::DenseMap&lt;DeclarationName, unsigned int&gt;'/>
+<mbr r='clang::ODRHash::Bools' o='256' t='llvm::SmallVector&lt;bool, 128&gt;'/>
+<mbr r='clang::ODRHash::ID' o='1408' t='llvm::FoldingSetNodeID'/>
+<fun r='_ZN5clang7ODRHashC1Ev'/>
+<fun r='_ZN5clang7ODRHash16AddCXXRecordDeclEPKNS_13CXXRecordDeclE'/>
+<fun r='_ZN5clang7ODRHash15AddFunctionDeclEPKNS_12FunctionDeclEb'/>
+<fun r='_ZN5clang7ODRHash11AddEnumDeclEPKNS_8EnumDeclE'/>
+<fun r='_ZN5clang7ODRHash10AddSubDeclEPKNS_4DeclE'/>
+<fun r='_ZN5clang7ODRHash5clearEv'/>
+<fun r='_ZN5clang7ODRHash13CalculateHashEv'/>
+<fun r='_ZN5clang7ODRHash7AddDeclEPKNS_4DeclE'/>
+<fun r='_ZN5clang7ODRHash7AddTypeEPKNS_4TypeE'/>
+<fun r='_ZN5clang7ODRHash11AddQualTypeENS_8QualTypeE'/>
+<fun r='_ZN5clang7ODRHash7AddStmtEPKNS_4StmtE'/>
+<fun r='_ZN5clang7ODRHash17AddIdentifierInfoEPKNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang7ODRHash22AddNestedNameSpecifierEPKNS_19NestedNameSpecifierE'/>
+<fun r='_ZN5clang7ODRHash15AddTemplateNameENS_12TemplateNameE'/>
+<fun r='_ZN5clang7ODRHash18AddDeclarationNameENS_15DeclarationNameEb'/>
+<fun r='_ZN5clang7ODRHash19AddTemplateArgumentENS_16TemplateArgumentE'/>
+<fun r='_ZN5clang7ODRHash24AddTemplateParameterListEPKNS_21TemplateParameterListE'/>
+<fun r='_ZN5clang7ODRHash10AddBooleanEb'/>
+<fun r='_ZN5clang7ODRHash17isWhitelistedDeclEPKNS_4DeclEPKNS_11DeclContextE'/>
+<fun r='_ZN5clang7ODRHash22AddDeclarationNameImplENS_15DeclarationNameE'/>

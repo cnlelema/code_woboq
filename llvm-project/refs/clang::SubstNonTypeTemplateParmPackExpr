@@ -1,0 +1,29 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<def f='llvm/clang/include/clang/AST/ExprCXX.h' l='4170' ll='4222'/>
+<size>40</size>
+<doc f='llvm/clang/include/clang/AST/ExprCXX.h' l='4158'>/// Represents a reference to a non-type template parameter pack that
+/// has been substituted with a non-template argument pack.
+///
+/// When a pack expansion in the source code contains multiple parameter packs
+/// and those parameter packs correspond to different levels of template
+/// parameter lists, this node is used to represent a non-type template
+/// parameter pack from an outer level, which has already had its argument pack
+/// substituted but that still lives within a pack expansion that itself
+/// could not be instantiated. When actually performing a substitution into
+/// that pack expansion (e.g., when all template parameters have corresponding
+/// arguments), this type will be replaced with the appropriate underlying
+/// expression at the current pack substitution index.</doc>
+<mbr r='clang::SubstNonTypeTemplateParmPackExpr::Param' o='128' t='clang::NonTypeTemplateParmDecl *'/>
+<mbr r='clang::SubstNonTypeTemplateParmPackExpr::Arguments' o='192' t='const clang::TemplateArgument *'/>
+<mbr r='clang::SubstNonTypeTemplateParmPackExpr::NumArguments' o='256' t='unsigned int'/>
+<mbr r='clang::SubstNonTypeTemplateParmPackExpr::NameLoc' o='288' t='clang::SourceLocation'/>
+<fun r='_ZN5clang32SubstNonTypeTemplateParmPackExprC1ENS_4Stmt10EmptyShellE'/>
+<fun r='_ZN5clang32SubstNonTypeTemplateParmPackExprC1ENS_8QualTypeENS_13ExprValueKindEPNS_23NonTypeTemplateParmDeclENS_14SourceLocationERKNS_16TemplateArgumentE'/>
+<fun r='_ZNK5clang32SubstNonTypeTemplateParmPackExpr16getParameterPackEv'/>
+<fun r='_ZNK5clang32SubstNonTypeTemplateParmPackExpr24getParameterPackLocationEv'/>
+<fun r='_ZNK5clang32SubstNonTypeTemplateParmPackExpr15getArgumentPackEv'/>
+<fun r='_ZNK5clang32SubstNonTypeTemplateParmPackExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang32SubstNonTypeTemplateParmPackExpr9getEndLocEv'/>
+<fun r='_ZN5clang32SubstNonTypeTemplateParmPackExpr7classofEPKNS_4StmtE'/>
+<fun r='_ZN5clang32SubstNonTypeTemplateParmPackExpr8childrenEv'/>
+<fun r='_ZNK5clang32SubstNonTypeTemplateParmPackExpr8childrenEv'/>

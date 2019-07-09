@@ -1,0 +1,40 @@
+<inh f='llvm/llvm/include/llvm/IR/PassManager.h' l='372' c='llvm::PassInfoMixin'/>
+<def f='llvm/llvm/include/llvm/Transforms/Scalar/SROA.h' l='64' ll='133'/>
+<size>640</size>
+<doc f='llvm/llvm/include/llvm/Transforms/Scalar/SROA.h' l='46'>/// An optimization pass providing Scalar Replacement of Aggregates.
+///
+/// This pass takes allocations which can be completely analyzed (that is, they
+/// don&apos;t escape) and tries to turn them into scalar SSA values. There are
+/// a few steps to this process.
+///
+/// 1) It takes allocations of aggregates and analyzes the ways in which they
+///    are used to try to split them into smaller allocations, ideally of
+///    a single scalar data type. It will split up memcpy and memset accesses
+///    as necessary and try to isolate individual scalar accesses.
+/// 2) It will transform accesses into forms which are suitable for SSA value
+///    promotion. This can be replacing a memset with a scalar store of an
+///    integer value, or it can involve speculating operations on a PHI or
+///    select to be a PHI or select of the results.
+/// 3) Finally, this will try to detect a pattern of accesses which map cleanly
+///    onto insert and extract operations on a vector value, and convert them to
+///    this form. By doing so, it will enable promotion of vector aggregates to
+///    SSA vector values.</doc>
+<mbr r='llvm::SROA::C' o='0' t='llvm::LLVMContext *'/>
+<mbr r='llvm::SROA::DT' o='64' t='llvm::DominatorTree *'/>
+<mbr r='llvm::SROA::AC' o='128' t='llvm::AssumptionCache *'/>
+<mbr r='llvm::SROA::Worklist' o='192' t='SetVector&lt;llvm::AllocaInst *, SmallVector&lt;llvm::AllocaInst *, 16&gt; &gt;'/>
+<mbr r='llvm::SROA::DeadInsts' o='1600' t='SetVector&lt;llvm::Instruction *, SmallVector&lt;llvm::Instruction *, 8&gt; &gt;'/>
+<mbr r='llvm::SROA::PostPromotionWorklist' o='2496' t='SetVector&lt;llvm::AllocaInst *, SmallVector&lt;llvm::AllocaInst *, 16&gt; &gt;'/>
+<mbr r='llvm::SROA::PromotableAllocas' o='3904' t='std::vector&lt;AllocaInst *&gt;'/>
+<mbr r='llvm::SROA::SpeculatablePHIs' o='4096' t='SetVector&lt;llvm::PHINode *, SmallVector&lt;llvm::PHINode *, 2&gt; &gt;'/>
+<mbr r='llvm::SROA::SpeculatableSelects' o='4608' t='SetVector&lt;llvm::SelectInst *, SmallVector&lt;llvm::SelectInst *, 2&gt; &gt;'/>
+<fun r='_ZN4llvm4SROAC1Ev'/>
+<fun r='_ZN4llvm4SROA3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE'/>
+<fun r='_ZN4llvm4SROA7runImplERNS_8FunctionERNS_13DominatorTreeERNS_15AssumptionCacheE'/>
+<fun r='_ZN4llvm4SROA22presplitLoadsAndStoresERNS_10AllocaInstERNS_4sroa12AllocaSlicesE'/>
+<fun r='_ZN4llvm4SROA16rewritePartitionERNS_10AllocaInstERNS_4sroa12AllocaSlicesERNS3_9PartitionE'/>
+<fun r='_ZN4llvm4SROA11splitAllocaERNS_10AllocaInstERNS_4sroa12AllocaSlicesE'/>
+<fun r='_ZN4llvm4SROA11runOnAllocaERNS_10AllocaInstE'/>
+<fun r='_ZN4llvm4SROA10clobberUseERNS_3UseE'/>
+<fun r='_ZN4llvm4SROA22deleteDeadInstructionsERNS_15SmallPtrSetImplIPNS_10AllocaInstEEE'/>
+<fun r='_ZN4llvm4SROA14promoteAllocasERNS_8FunctionE'/>

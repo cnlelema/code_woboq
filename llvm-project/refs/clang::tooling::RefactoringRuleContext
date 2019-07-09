@@ -1,0 +1,28 @@
+<def f='llvm/clang/include/clang/Tooling/Refactoring/RefactoringRuleContext.h' l='33' ll='84'/>
+<size>15016</size>
+<doc f='llvm/clang/include/clang/Tooling/Refactoring/RefactoringRuleContext.h' l='22'>/// The refactoring rule context stores all of the inputs that might be needed
+/// by a refactoring action rule. It can create the specialized
+/// \c ASTRefactoringOperation or \c PreprocessorRefactoringOperation values
+/// that can be used by the refactoring action rules.
+///
+/// The following inputs are stored by the operation:
+///
+///   - SourceManager: a reference to a valid source manager.
+///
+///   - SelectionRange: an optional source selection ranges that can be used
+///     to represent a selection in an editor.</doc>
+<fun r='_ZN5clang7tooling22RefactoringRuleContextC1ERKNS_13SourceManagerE'/>
+<fun r='_ZNK5clang7tooling22RefactoringRuleContext10getSourcesEv'/>
+<fun r='_ZNK5clang7tooling22RefactoringRuleContext17getSelectionRangeEv'/>
+<fun r='_ZN5clang7tooling22RefactoringRuleContext17setSelectionRangeENS_11SourceRangeE'/>
+<fun r='_ZNK5clang7tooling22RefactoringRuleContext13hasASTContextEv'/>
+<fun r='_ZNK5clang7tooling22RefactoringRuleContext13getASTContextEv'/>
+<fun r='_ZN5clang7tooling22RefactoringRuleContext13setASTContextERNS_10ASTContextE'/>
+<fun r='_ZN5clang7tooling22RefactoringRuleContext21createDiagnosticErrorENS_14SourceLocationEj'/>
+<fun r='_ZN5clang7tooling22RefactoringRuleContext21createDiagnosticErrorEj'/>
+<fun r='_ZN5clang7tooling22RefactoringRuleContext15setASTSelectionESt10unique_ptrINS0_15SelectedASTNodeESt14default_deleteIS3_EE'/>
+<mbr r='clang::tooling::RefactoringRuleContext::SM' o='0' t='const clang::SourceManager &amp;'/>
+<mbr r='clang::tooling::RefactoringRuleContext::SelectionRange' o='64' t='clang::SourceRange'/>
+<mbr r='clang::tooling::RefactoringRuleContext::AST' o='128' t='clang::ASTContext *'/>
+<mbr r='clang::tooling::RefactoringRuleContext::DiagStorage' o='192' t='PartialDiagnostic::StorageAllocator'/>
+<mbr r='clang::tooling::RefactoringRuleContext::ASTNodeSelection' o='120064' t='std::unique_ptr&lt;SelectedASTNode&gt;'/>

@@ -1,0 +1,332 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PassRegistry.def source code [llvm/llvm/lib/Passes/PassRegistry.def] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/Passes/PassRegistry.def'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>llvm</a>/<a href='../..'>llvm</a>/<a href='..'>lib</a>/<a href='./'>Passes</a>/<a href='PassRegistry.def.html'>PassRegistry.def</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- PassRegistry.def - Registry of passes --------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file is used as the registry of passes that are part of the core LLVM</i></td></tr>
+<tr><th id="10">10</th><td><i>// libraries. This file describes both transformation passes and analyses</i></td></tr>
+<tr><th id="11">11</th><td><i>// Analyses are registered while transformation passes have names registered</i></td></tr>
+<tr><th id="12">12</th><td><i>// that can be used when providing a textual pass pipeline.</i></td></tr>
+<tr><th id="13">13</th><td><i>//</i></td></tr>
+<tr><th id="14">14</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// NOTE: NO INCLUDE GUARD DESIRED!</i></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="18">ifndef</span> <a class="macro" href="PassBuilder.cpp.html#345" data-ref="_M/MODULE_ANALYSIS">MODULE_ANALYSIS</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#define MODULE_ANALYSIS(NAME, CREATE_PASS)</u></td></tr>
+<tr><th id="20">20</th><td><u>#<span data-ppcond="18">endif</span></u></td></tr>
+<tr><th id="21">21</th><td><a class="macro" href="PassBuilder.cpp.html#345" title="MAM.registerPass([&amp;] { return CallGraphAnalysis(); });" data-ref="_M/MODULE_ANALYSIS">MODULE_ANALYSIS</a>(<q>"callgraph"</q>, <a class="type" href="../../include/llvm/Analysis/CallGraph.h.html#llvm::CallGraphAnalysis" title='llvm::CallGraphAnalysis' data-ref="llvm::CallGraphAnalysis">CallGraphAnalysis</a><a class="ref" href="../../include/llvm/Analysis/CallGraph.h.html#292" title='llvm::CallGraphAnalysis::CallGraphAnalysis' data-ref="_ZN4llvm17CallGraphAnalysisC1Ev">(</a>))</td></tr>
+<tr><th id="22">22</th><td><a class="macro" href="PassBuilder.cpp.html#345" title="MAM.registerPass([&amp;] { return LazyCallGraphAnalysis(); });" data-ref="_M/MODULE_ANALYSIS">MODULE_ANALYSIS</a>(<q>"lcg"</q>, <a class="type" href="../../include/llvm/Analysis/LazyCallGraph.h.html#llvm::LazyCallGraphAnalysis" title='llvm::LazyCallGraphAnalysis' data-ref="llvm::LazyCallGraphAnalysis">LazyCallGraphAnalysis</a><a class="ref" href="../../include/llvm/Analysis/LazyCallGraph.h.html#1256" title='llvm::LazyCallGraphAnalysis::LazyCallGraphAnalysis' data-ref="_ZN4llvm21LazyCallGraphAnalysisC1Ev">(</a>))</td></tr>
+<tr><th id="23">23</th><td><a class="macro" href="PassBuilder.cpp.html#345" title="MAM.registerPass([&amp;] { return ModuleSummaryIndexAnalysis(); });" data-ref="_M/MODULE_ANALYSIS">MODULE_ANALYSIS</a>(<q>"module-summary"</q>, <a class="type" href="../../include/llvm/Analysis/ModuleSummaryAnalysis.h.html#llvm::ModuleSummaryIndexAnalysis" title='llvm::ModuleSummaryIndexAnalysis' data-ref="llvm::ModuleSummaryIndexAnalysis">ModuleSummaryIndexAnalysis</a><a class="ref" href="../../include/llvm/Analysis/ModuleSummaryAnalysis.h.html#41" title='llvm::ModuleSummaryIndexAnalysis::ModuleSummaryIndexAnalysis' data-ref="_ZN4llvm26ModuleSummaryIndexAnalysisC1Ev">(</a>))</td></tr>
+<tr><th id="24">24</th><td><a class="macro" href="PassBuilder.cpp.html#345" title="MAM.registerPass([&amp;] { return NoOpModuleAnalysis(); });" data-ref="_M/MODULE_ANALYSIS">MODULE_ANALYSIS</a>(<q>"no-op-module"</q>, <a class="tu type" href="PassBuilder.cpp.html#(anonymousnamespace)::NoOpModuleAnalysis" title='(anonymous namespace)::NoOpModuleAnalysis' data-ref="(anonymousnamespace)::NoOpModuleAnalysis">NoOpModuleAnalysis</a><a class="tu ref" href="PassBuilder.cpp.html#258" title='(anonymous namespace)::NoOpModuleAnalysis::NoOpModuleAnalysis' data-use='c' data-ref="_ZN12_GLOBAL__N_118NoOpModuleAnalysisC1Ev">(</a>))</td></tr>
+<tr><th id="25">25</th><td><a class="macro" href="PassBuilder.cpp.html#345" title="MAM.registerPass([&amp;] { return ProfileSummaryAnalysis(); });" data-ref="_M/MODULE_ANALYSIS">MODULE_ANALYSIS</a>(<q>"profile-summary"</q>, <a class="type" href="../../include/llvm/Analysis/ProfileSummaryInfo.h.html#llvm::ProfileSummaryAnalysis" title='llvm::ProfileSummaryAnalysis' data-ref="llvm::ProfileSummaryAnalysis">ProfileSummaryAnalysis</a><a class="ref" href="../../include/llvm/Analysis/ProfileSummaryInfo.h.html#154" title='llvm::ProfileSummaryAnalysis::ProfileSummaryAnalysis' data-ref="_ZN4llvm22ProfileSummaryAnalysisC1Ev">(</a>))</td></tr>
+<tr><th id="26">26</th><td><a class="macro" href="PassBuilder.cpp.html#345" title="MAM.registerPass([&amp;] { return StackSafetyGlobalAnalysis(); });" data-ref="_M/MODULE_ANALYSIS">MODULE_ANALYSIS</a>(<q>"stack-safety"</q>, <a class="type" href="../../include/llvm/Analysis/StackSafetyAnalysis.h.html#llvm::StackSafetyGlobalAnalysis" title='llvm::StackSafetyGlobalAnalysis' data-ref="llvm::StackSafetyGlobalAnalysis">StackSafetyGlobalAnalysis</a><a class="ref" href="../../include/llvm/Analysis/StackSafetyAnalysis.h.html#79" title='llvm::StackSafetyGlobalAnalysis::StackSafetyGlobalAnalysis' data-ref="_ZN4llvm25StackSafetyGlobalAnalysisC1Ev">(</a>))</td></tr>
+<tr><th id="27">27</th><td><a class="macro" href="PassBuilder.cpp.html#345" title="MAM.registerPass([&amp;] { return TargetLibraryAnalysis(); });" data-ref="_M/MODULE_ANALYSIS">MODULE_ANALYSIS</a>(<q>"targetlibinfo"</q>, <a class="type" href="../../include/llvm/Analysis/TargetLibraryInfo.h.html#llvm::TargetLibraryAnalysis" title='llvm::TargetLibraryAnalysis' data-ref="llvm::TargetLibraryAnalysis">TargetLibraryAnalysis</a><a class="ref" href="../../include/llvm/Analysis/TargetLibraryInfo.h.html#_ZN4llvm21TargetLibraryAnalysisC1Ev" title='llvm::TargetLibraryAnalysis::TargetLibraryAnalysis' data-ref="_ZN4llvm21TargetLibraryAnalysisC1Ev">(</a>))</td></tr>
+<tr><th id="28">28</th><td><a class="macro" href="PassBuilder.cpp.html#345" title="MAM.registerPass([&amp;] { return VerifierAnalysis(); });" data-ref="_M/MODULE_ANALYSIS">MODULE_ANALYSIS</a>(<q>"verify"</q>, <a class="type" href="../../include/llvm/IR/Verifier.h.html#llvm::VerifierAnalysis" title='llvm::VerifierAnalysis' data-ref="llvm::VerifierAnalysis">VerifierAnalysis</a><a class="ref" href="../../include/llvm/IR/Verifier.h.html#107" title='llvm::VerifierAnalysis::VerifierAnalysis' data-ref="_ZN4llvm16VerifierAnalysisC1Ev">(</a>))</td></tr>
+<tr><th id="29">29</th><td><a class="macro" href="PassBuilder.cpp.html#345" title="MAM.registerPass([&amp;] { return PassInstrumentationAnalysis(PIC); });" data-ref="_M/MODULE_ANALYSIS">MODULE_ANALYSIS</a>(<q>"pass-instrumentation"</q>, <a class="type" href="../../include/llvm/IR/PassManager.h.html#llvm::PassInstrumentationAnalysis" title='llvm::PassInstrumentationAnalysis' data-ref="llvm::PassInstrumentationAnalysis">PassInstrumentationAnalysis</a><a class="ref" href="../../include/llvm/IR/PassManager.h.html#_ZN4llvm27PassInstrumentationAnalysisC1EPNS_28PassInstrumentationCallbacksE" title='llvm::PassInstrumentationAnalysis::PassInstrumentationAnalysis' data-ref="_ZN4llvm27PassInstrumentationAnalysisC1EPNS_28PassInstrumentationCallbacksE">(</a><a class="member" href="../../include/llvm/Passes/PassBuilder.h.html#llvm::PassBuilder::PIC" title='llvm::PassBuilder::PIC' data-ref="llvm::PassBuilder::PIC">PIC</a>))</td></tr>
+<tr><th id="30">30</th><td><a class="macro" href="PassBuilder.cpp.html#345" title="MAM.registerPass([&amp;] { return ASanGlobalsMetadataAnalysis(); });" data-ref="_M/MODULE_ANALYSIS">MODULE_ANALYSIS</a>(<q>"asan-globals-md"</q>, <a class="type" href="../../include/llvm/Transforms/Instrumentation/AddressSanitizer.h.html#llvm::ASanGlobalsMetadataAnalysis" title='llvm::ASanGlobalsMetadataAnalysis' data-ref="llvm::ASanGlobalsMetadataAnalysis">ASanGlobalsMetadataAnalysis</a><a class="ref" href="../../include/llvm/Transforms/Instrumentation/AddressSanitizer.h.html#80" title='llvm::ASanGlobalsMetadataAnalysis::ASanGlobalsMetadataAnalysis' data-ref="_ZN4llvm27ASanGlobalsMetadataAnalysisC1Ev">(</a>))</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#<span data-ppcond="32">ifndef</span> <span class="macro" data-ref="_M/MODULE_ALIAS_ANALYSIS">MODULE_ALIAS_ANALYSIS</span></u></td></tr>
+<tr><th id="33">33</th><td><u>#define <dfn class="macro" id="_M/MODULE_ALIAS_ANALYSIS" data-ref="_M/MODULE_ALIAS_ANALYSIS">MODULE_ALIAS_ANALYSIS</dfn>(NAME, CREATE_PASS)                               \</u></td></tr>
+<tr><th id="34">34</th><td><u>  MODULE_ANALYSIS(NAME, CREATE_PASS)</u></td></tr>
+<tr><th id="35">35</th><td><u>#<span data-ppcond="32">endif</span></u></td></tr>
+<tr><th id="36">36</th><td><a class="macro" href="#33" title="MAM.registerPass([&amp;] { return GlobalsAA(); });" data-ref="_M/MODULE_ALIAS_ANALYSIS">MODULE_ALIAS_ANALYSIS</a>(<q>"globals-aa"</q>, <a class="type" href="../../include/llvm/Analysis/GlobalsModRef.h.html#llvm::GlobalsAA" title='llvm::GlobalsAA' data-ref="llvm::GlobalsAA">GlobalsAA</a><a class="ref" href="../../include/llvm/Analysis/GlobalsModRef.h.html#122" title='llvm::GlobalsAA::GlobalsAA' data-ref="_ZN4llvm9GlobalsAAC1Ev">(</a>))</td></tr>
+<tr><th id="37">37</th><td><u>#undef <a class="macro" href="#33" data-ref="_M/MODULE_ALIAS_ANALYSIS">MODULE_ALIAS_ANALYSIS</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#undef <a class="macro" href="PassBuilder.cpp.html#345" data-ref="_M/MODULE_ANALYSIS">MODULE_ANALYSIS</a></u></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><u>#<span data-ppcond="40">ifndef</span> <span class="macro" data-ref="_M/MODULE_PASS">MODULE_PASS</span></u></td></tr>
+<tr><th id="41">41</th><td><u>#define <dfn class="macro" id="_M/MODULE_PASS" data-ref="_M/MODULE_PASS">MODULE_PASS</dfn>(NAME, CREATE_PASS)</u></td></tr>
+<tr><th id="42">42</th><td><u>#<span data-ppcond="40">endif</span></u></td></tr>
+<tr><th id="43">43</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"always-inline"</q>, AlwaysInlinerPass())</td></tr>
+<tr><th id="44">44</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"attributor"</q>, AttributorPass())</td></tr>
+<tr><th id="45">45</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"called-value-propagation"</q>, CalledValuePropagationPass())</td></tr>
+<tr><th id="46">46</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"canonicalize-aliases"</q>, CanonicalizeAliasesPass())</td></tr>
+<tr><th id="47">47</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"cg-profile"</q>, CGProfilePass())</td></tr>
+<tr><th id="48">48</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"constmerge"</q>, ConstantMergePass())</td></tr>
+<tr><th id="49">49</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"cross-dso-cfi"</q>, CrossDSOCFIPass())</td></tr>
+<tr><th id="50">50</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"deadargelim"</q>, DeadArgumentEliminationPass())</td></tr>
+<tr><th id="51">51</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"elim-avail-extern"</q>, EliminateAvailableExternallyPass())</td></tr>
+<tr><th id="52">52</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"forceattrs"</q>, ForceFunctionAttrsPass())</td></tr>
+<tr><th id="53">53</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"function-import"</q>, FunctionImportPass())</td></tr>
+<tr><th id="54">54</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"globaldce"</q>, GlobalDCEPass())</td></tr>
+<tr><th id="55">55</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"globalopt"</q>, GlobalOptPass())</td></tr>
+<tr><th id="56">56</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"globalsplit"</q>, GlobalSplitPass())</td></tr>
+<tr><th id="57">57</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"hotcoldsplit"</q>, HotColdSplittingPass())</td></tr>
+<tr><th id="58">58</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"inferattrs"</q>, InferFunctionAttrsPass())</td></tr>
+<tr><th id="59">59</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"insert-gcov-profiling"</q>, GCOVProfilerPass())</td></tr>
+<tr><th id="60">60</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"instrorderfile"</q>, InstrOrderFilePass())</td></tr>
+<tr><th id="61">61</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"instrprof"</q>, InstrProfiling())</td></tr>
+<tr><th id="62">62</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"internalize"</q>, InternalizePass())</td></tr>
+<tr><th id="63">63</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"invalidate&lt;all&gt;"</q>, InvalidateAllAnalysesPass())</td></tr>
+<tr><th id="64">64</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"ipsccp"</q>, IPSCCPPass())</td></tr>
+<tr><th id="65">65</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"lowertypetests"</q>, LowerTypeTestsPass(<b>nullptr</b>, <b>nullptr</b>))</td></tr>
+<tr><th id="66">66</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"name-anon-globals"</q>, NameAnonGlobalPass())</td></tr>
+<tr><th id="67">67</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"no-op-module"</q>, NoOpModulePass())</td></tr>
+<tr><th id="68">68</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"partial-inliner"</q>, PartialInlinerPass())</td></tr>
+<tr><th id="69">69</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"pgo-icall-prom"</q>, PGOIndirectCallPromotion())</td></tr>
+<tr><th id="70">70</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"pgo-instr-gen"</q>, PGOInstrumentationGen())</td></tr>
+<tr><th id="71">71</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"pgo-instr-use"</q>, PGOInstrumentationUse())</td></tr>
+<tr><th id="72">72</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"pre-isel-intrinsic-lowering"</q>, PreISelIntrinsicLoweringPass())</td></tr>
+<tr><th id="73">73</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"print-profile-summary"</q>, ProfileSummaryPrinterPass(dbgs()))</td></tr>
+<tr><th id="74">74</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"print-callgraph"</q>, CallGraphPrinterPass(dbgs()))</td></tr>
+<tr><th id="75">75</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"print"</q>, PrintModulePass(dbgs()))</td></tr>
+<tr><th id="76">76</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"print-lcg"</q>, LazyCallGraphPrinterPass(dbgs()))</td></tr>
+<tr><th id="77">77</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"print-lcg-dot"</q>, LazyCallGraphDOTPrinterPass(dbgs()))</td></tr>
+<tr><th id="78">78</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"print-stack-safety"</q>, StackSafetyGlobalPrinterPass(dbgs()))</td></tr>
+<tr><th id="79">79</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"rewrite-statepoints-for-gc"</q>, RewriteStatepointsForGC())</td></tr>
+<tr><th id="80">80</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"rewrite-symbols"</q>, RewriteSymbolPass())</td></tr>
+<tr><th id="81">81</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"rpo-functionattrs"</q>, ReversePostOrderFunctionAttrsPass())</td></tr>
+<tr><th id="82">82</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"sample-profile"</q>, SampleProfileLoaderPass())</td></tr>
+<tr><th id="83">83</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"strip-dead-prototypes"</q>, StripDeadPrototypesPass())</td></tr>
+<tr><th id="84">84</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"synthetic-counts-propagation"</q>, SyntheticCountsPropagation())</td></tr>
+<tr><th id="85">85</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"wholeprogramdevirt"</q>, WholeProgramDevirtPass(<b>nullptr</b>, <b>nullptr</b>))</td></tr>
+<tr><th id="86">86</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"verify"</q>, VerifierPass())</td></tr>
+<tr><th id="87">87</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"asan-module"</q>, ModuleAddressSanitizerPass(<i>/*CompileKernel=*/</i><b>false</b>, <b>false</b>, <b>true</b>, <b>false</b>))</td></tr>
+<tr><th id="88">88</th><td><a class="macro" href="#41" title="" data-ref="_M/MODULE_PASS">MODULE_PASS</a>(<q>"kasan-module"</q>, ModuleAddressSanitizerPass(<i>/*CompileKernel=*/</i><b>true</b>, <b>false</b>, <b>true</b>, <b>false</b>))</td></tr>
+<tr><th id="89">89</th><td><u>#undef <a class="macro" href="#41" data-ref="_M/MODULE_PASS">MODULE_PASS</a></u></td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td><u>#<span data-ppcond="91">ifndef</span> <span class="macro" data-ref="_M/CGSCC_ANALYSIS">CGSCC_ANALYSIS</span></u></td></tr>
+<tr><th id="92">92</th><td><u>#define <dfn class="macro" id="_M/CGSCC_ANALYSIS" data-ref="_M/CGSCC_ANALYSIS">CGSCC_ANALYSIS</dfn>(NAME, CREATE_PASS)</u></td></tr>
+<tr><th id="93">93</th><td><u>#<span data-ppcond="91">endif</span></u></td></tr>
+<tr><th id="94">94</th><td><a class="macro" href="#92" title="" data-ref="_M/CGSCC_ANALYSIS">CGSCC_ANALYSIS</a>(<q>"no-op-cgscc"</q>, NoOpCGSCCAnalysis())</td></tr>
+<tr><th id="95">95</th><td><a class="macro" href="#92" title="" data-ref="_M/CGSCC_ANALYSIS">CGSCC_ANALYSIS</a>(<q>"fam-proxy"</q>, FunctionAnalysisManagerCGSCCProxy())</td></tr>
+<tr><th id="96">96</th><td><a class="macro" href="#92" title="" data-ref="_M/CGSCC_ANALYSIS">CGSCC_ANALYSIS</a>(<q>"pass-instrumentation"</q>, PassInstrumentationAnalysis(PIC))</td></tr>
+<tr><th id="97">97</th><td><u>#undef <a class="macro" href="#92" data-ref="_M/CGSCC_ANALYSIS">CGSCC_ANALYSIS</a></u></td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td><u>#<span data-ppcond="99">ifndef</span> <span class="macro" data-ref="_M/CGSCC_PASS">CGSCC_PASS</span></u></td></tr>
+<tr><th id="100">100</th><td><u>#define <dfn class="macro" id="_M/CGSCC_PASS" data-ref="_M/CGSCC_PASS">CGSCC_PASS</dfn>(NAME, CREATE_PASS)</u></td></tr>
+<tr><th id="101">101</th><td><u>#<span data-ppcond="99">endif</span></u></td></tr>
+<tr><th id="102">102</th><td><a class="macro" href="#100" title="" data-ref="_M/CGSCC_PASS">CGSCC_PASS</a>(<q>"argpromotion"</q>, ArgumentPromotionPass())</td></tr>
+<tr><th id="103">103</th><td><a class="macro" href="#100" title="" data-ref="_M/CGSCC_PASS">CGSCC_PASS</a>(<q>"invalidate&lt;all&gt;"</q>, InvalidateAllAnalysesPass())</td></tr>
+<tr><th id="104">104</th><td><a class="macro" href="#100" title="" data-ref="_M/CGSCC_PASS">CGSCC_PASS</a>(<q>"function-attrs"</q>, PostOrderFunctionAttrsPass())</td></tr>
+<tr><th id="105">105</th><td><a class="macro" href="#100" title="" data-ref="_M/CGSCC_PASS">CGSCC_PASS</a>(<q>"inline"</q>, InlinerPass())</td></tr>
+<tr><th id="106">106</th><td><a class="macro" href="#100" title="" data-ref="_M/CGSCC_PASS">CGSCC_PASS</a>(<q>"no-op-cgscc"</q>, NoOpCGSCCPass())</td></tr>
+<tr><th id="107">107</th><td><u>#undef <a class="macro" href="#100" data-ref="_M/CGSCC_PASS">CGSCC_PASS</a></u></td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td><u>#<span data-ppcond="109">ifndef</span> <span class="macro" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</span></u></td></tr>
+<tr><th id="110">110</th><td><u>#define <dfn class="macro" id="_M/FUNCTION_ANALYSIS" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</dfn>(NAME, CREATE_PASS)</u></td></tr>
+<tr><th id="111">111</th><td><u>#<span data-ppcond="109">endif</span></u></td></tr>
+<tr><th id="112">112</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"aa"</q>, AAManager())</td></tr>
+<tr><th id="113">113</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"assumptions"</q>, AssumptionAnalysis())</td></tr>
+<tr><th id="114">114</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"block-freq"</q>, BlockFrequencyAnalysis())</td></tr>
+<tr><th id="115">115</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"branch-prob"</q>, BranchProbabilityAnalysis())</td></tr>
+<tr><th id="116">116</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"domtree"</q>, DominatorTreeAnalysis())</td></tr>
+<tr><th id="117">117</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"postdomtree"</q>, PostDominatorTreeAnalysis())</td></tr>
+<tr><th id="118">118</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"demanded-bits"</q>, DemandedBitsAnalysis())</td></tr>
+<tr><th id="119">119</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"domfrontier"</q>, DominanceFrontierAnalysis())</td></tr>
+<tr><th id="120">120</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"loops"</q>, LoopAnalysis())</td></tr>
+<tr><th id="121">121</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"lazy-value-info"</q>, LazyValueAnalysis())</td></tr>
+<tr><th id="122">122</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"da"</q>, DependenceAnalysis())</td></tr>
+<tr><th id="123">123</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"memdep"</q>, MemoryDependenceAnalysis())</td></tr>
+<tr><th id="124">124</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"memoryssa"</q>, MemorySSAAnalysis())</td></tr>
+<tr><th id="125">125</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"phi-values"</q>, PhiValuesAnalysis())</td></tr>
+<tr><th id="126">126</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"regions"</q>, RegionInfoAnalysis())</td></tr>
+<tr><th id="127">127</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"no-op-function"</q>, NoOpFunctionAnalysis())</td></tr>
+<tr><th id="128">128</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"opt-remark-emit"</q>, OptimizationRemarkEmitterAnalysis())</td></tr>
+<tr><th id="129">129</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"scalar-evolution"</q>, ScalarEvolutionAnalysis())</td></tr>
+<tr><th id="130">130</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"stack-safety-local"</q>, StackSafetyAnalysis())</td></tr>
+<tr><th id="131">131</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"targetlibinfo"</q>, TargetLibraryAnalysis())</td></tr>
+<tr><th id="132">132</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"targetir"</q>,</td></tr>
+<tr><th id="133">133</th><td>                  TM ? TM-&gt;getTargetIRAnalysis() : TargetIRAnalysis())</td></tr>
+<tr><th id="134">134</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"verify"</q>, VerifierAnalysis())</td></tr>
+<tr><th id="135">135</th><td><a class="macro" href="#110" title="" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a>(<q>"pass-instrumentation"</q>, PassInstrumentationAnalysis(PIC))</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td><u>#<span data-ppcond="137">ifndef</span> <span class="macro" data-ref="_M/FUNCTION_ALIAS_ANALYSIS">FUNCTION_ALIAS_ANALYSIS</span></u></td></tr>
+<tr><th id="138">138</th><td><u>#define <dfn class="macro" id="_M/FUNCTION_ALIAS_ANALYSIS" data-ref="_M/FUNCTION_ALIAS_ANALYSIS">FUNCTION_ALIAS_ANALYSIS</dfn>(NAME, CREATE_PASS)                             \</u></td></tr>
+<tr><th id="139">139</th><td><u>  FUNCTION_ANALYSIS(NAME, CREATE_PASS)</u></td></tr>
+<tr><th id="140">140</th><td><u>#<span data-ppcond="137">endif</span></u></td></tr>
+<tr><th id="141">141</th><td><a class="macro" href="#138" title="" data-ref="_M/FUNCTION_ALIAS_ANALYSIS">FUNCTION_ALIAS_ANALYSIS</a>(<q>"basic-aa"</q>, BasicAA())</td></tr>
+<tr><th id="142">142</th><td><a class="macro" href="#138" title="" data-ref="_M/FUNCTION_ALIAS_ANALYSIS">FUNCTION_ALIAS_ANALYSIS</a>(<q>"cfl-anders-aa"</q>, CFLAndersAA())</td></tr>
+<tr><th id="143">143</th><td><a class="macro" href="#138" title="" data-ref="_M/FUNCTION_ALIAS_ANALYSIS">FUNCTION_ALIAS_ANALYSIS</a>(<q>"cfl-steens-aa"</q>, CFLSteensAA())</td></tr>
+<tr><th id="144">144</th><td><a class="macro" href="#138" title="" data-ref="_M/FUNCTION_ALIAS_ANALYSIS">FUNCTION_ALIAS_ANALYSIS</a>(<q>"scev-aa"</q>, SCEVAA())</td></tr>
+<tr><th id="145">145</th><td><a class="macro" href="#138" title="" data-ref="_M/FUNCTION_ALIAS_ANALYSIS">FUNCTION_ALIAS_ANALYSIS</a>(<q>"scoped-noalias-aa"</q>, ScopedNoAliasAA())</td></tr>
+<tr><th id="146">146</th><td><a class="macro" href="#138" title="" data-ref="_M/FUNCTION_ALIAS_ANALYSIS">FUNCTION_ALIAS_ANALYSIS</a>(<q>"type-based-aa"</q>, TypeBasedAA())</td></tr>
+<tr><th id="147">147</th><td><u>#undef <a class="macro" href="#138" data-ref="_M/FUNCTION_ALIAS_ANALYSIS">FUNCTION_ALIAS_ANALYSIS</a></u></td></tr>
+<tr><th id="148">148</th><td><u>#undef <a class="macro" href="#110" data-ref="_M/FUNCTION_ANALYSIS">FUNCTION_ANALYSIS</a></u></td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td><u>#<span data-ppcond="150">ifndef</span> <span class="macro" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</span></u></td></tr>
+<tr><th id="151">151</th><td><u>#define <dfn class="macro" id="_M/FUNCTION_PASS" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</dfn>(NAME, CREATE_PASS)</u></td></tr>
+<tr><th id="152">152</th><td><u>#<span data-ppcond="150">endif</span></u></td></tr>
+<tr><th id="153">153</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"aa-eval"</q>, AAEvaluator())</td></tr>
+<tr><th id="154">154</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"adce"</q>, ADCEPass())</td></tr>
+<tr><th id="155">155</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"add-discriminators"</q>, AddDiscriminatorsPass())</td></tr>
+<tr><th id="156">156</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"aggressive-instcombine"</q>, AggressiveInstCombinePass())</td></tr>
+<tr><th id="157">157</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"alignment-from-assumptions"</q>, AlignmentFromAssumptionsPass())</td></tr>
+<tr><th id="158">158</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"bdce"</q>, BDCEPass())</td></tr>
+<tr><th id="159">159</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"bounds-checking"</q>, BoundsCheckingPass())</td></tr>
+<tr><th id="160">160</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"break-crit-edges"</q>, BreakCriticalEdgesPass())</td></tr>
+<tr><th id="161">161</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"callsite-splitting"</q>, CallSiteSplittingPass())</td></tr>
+<tr><th id="162">162</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"consthoist"</q>, ConstantHoistingPass())</td></tr>
+<tr><th id="163">163</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"chr"</q>, ControlHeightReductionPass())</td></tr>
+<tr><th id="164">164</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"correlated-propagation"</q>, CorrelatedValuePropagationPass())</td></tr>
+<tr><th id="165">165</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"dce"</q>, DCEPass())</td></tr>
+<tr><th id="166">166</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"div-rem-pairs"</q>, DivRemPairsPass())</td></tr>
+<tr><th id="167">167</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"dse"</q>, DSEPass())</td></tr>
+<tr><th id="168">168</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"dot-cfg"</q>, CFGPrinterPass())</td></tr>
+<tr><th id="169">169</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"dot-cfg-only"</q>, CFGOnlyPrinterPass())</td></tr>
+<tr><th id="170">170</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"early-cse"</q>, EarlyCSEPass(<i>/*UseMemorySSA=*/</i><b>false</b>))</td></tr>
+<tr><th id="171">171</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"early-cse-memssa"</q>, EarlyCSEPass(<i>/*UseMemorySSA=*/</i><b>true</b>))</td></tr>
+<tr><th id="172">172</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"ee-instrument"</q>, EntryExitInstrumenterPass(<i>/*PostInlining=*/</i><b>false</b>))</td></tr>
+<tr><th id="173">173</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"make-guards-explicit"</q>, MakeGuardsExplicitPass())</td></tr>
+<tr><th id="174">174</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"post-inline-ee-instrument"</q>, EntryExitInstrumenterPass(<i>/*PostInlining=*/</i><b>true</b>))</td></tr>
+<tr><th id="175">175</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"gvn-hoist"</q>, GVNHoistPass())</td></tr>
+<tr><th id="176">176</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"instcombine"</q>, InstCombinePass())</td></tr>
+<tr><th id="177">177</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"instsimplify"</q>, InstSimplifyPass())</td></tr>
+<tr><th id="178">178</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"invalidate&lt;all&gt;"</q>, InvalidateAllAnalysesPass())</td></tr>
+<tr><th id="179">179</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"float2int"</q>, Float2IntPass())</td></tr>
+<tr><th id="180">180</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"no-op-function"</q>, NoOpFunctionPass())</td></tr>
+<tr><th id="181">181</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"libcalls-shrinkwrap"</q>, LibCallsShrinkWrapPass())</td></tr>
+<tr><th id="182">182</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"loweratomic"</q>, LowerAtomicPass())</td></tr>
+<tr><th id="183">183</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"lower-expect"</q>, LowerExpectIntrinsicPass())</td></tr>
+<tr><th id="184">184</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"lower-guard-intrinsic"</q>, LowerGuardIntrinsicPass())</td></tr>
+<tr><th id="185">185</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"lower-widenable-condition"</q>, LowerWidenableConditionPass())</td></tr>
+<tr><th id="186">186</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"guard-widening"</q>, GuardWideningPass())</td></tr>
+<tr><th id="187">187</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"gvn"</q>, GVN())</td></tr>
+<tr><th id="188">188</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"load-store-vectorizer"</q>, LoadStoreVectorizerPass())</td></tr>
+<tr><th id="189">189</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"loop-simplify"</q>, LoopSimplifyPass())</td></tr>
+<tr><th id="190">190</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"loop-sink"</q>, LoopSinkPass())</td></tr>
+<tr><th id="191">191</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"lowerinvoke"</q>, LowerInvokePass())</td></tr>
+<tr><th id="192">192</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"mem2reg"</q>, PromotePass())</td></tr>
+<tr><th id="193">193</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"memcpyopt"</q>, MemCpyOptPass())</td></tr>
+<tr><th id="194">194</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"mergeicmps"</q>, MergeICmpsPass())</td></tr>
+<tr><th id="195">195</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"mldst-motion"</q>, MergedLoadStoreMotionPass())</td></tr>
+<tr><th id="196">196</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"nary-reassociate"</q>, NaryReassociatePass())</td></tr>
+<tr><th id="197">197</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"newgvn"</q>, NewGVNPass())</td></tr>
+<tr><th id="198">198</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"jump-threading"</q>, JumpThreadingPass())</td></tr>
+<tr><th id="199">199</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"partially-inline-libcalls"</q>, PartiallyInlineLibCallsPass())</td></tr>
+<tr><th id="200">200</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"lcssa"</q>, LCSSAPass())</td></tr>
+<tr><th id="201">201</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"loop-data-prefetch"</q>, LoopDataPrefetchPass())</td></tr>
+<tr><th id="202">202</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"loop-load-elim"</q>, LoopLoadEliminationPass())</td></tr>
+<tr><th id="203">203</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"loop-fuse"</q>, LoopFusePass())</td></tr>
+<tr><th id="204">204</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"loop-distribute"</q>, LoopDistributePass())</td></tr>
+<tr><th id="205">205</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"pgo-memop-opt"</q>, PGOMemOPSizeOpt())</td></tr>
+<tr><th id="206">206</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"print"</q>, PrintFunctionPass(dbgs()))</td></tr>
+<tr><th id="207">207</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"print&lt;assumptions&gt;"</q>, AssumptionPrinterPass(dbgs()))</td></tr>
+<tr><th id="208">208</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"print&lt;block-freq&gt;"</q>, BlockFrequencyPrinterPass(dbgs()))</td></tr>
+<tr><th id="209">209</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"print&lt;branch-prob&gt;"</q>, BranchProbabilityPrinterPass(dbgs()))</td></tr>
+<tr><th id="210">210</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"print&lt;da&gt;"</q>, DependenceAnalysisPrinterPass(dbgs()))</td></tr>
+<tr><th id="211">211</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"print&lt;domtree&gt;"</q>, DominatorTreePrinterPass(dbgs()))</td></tr>
+<tr><th id="212">212</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"print&lt;postdomtree&gt;"</q>, PostDominatorTreePrinterPass(dbgs()))</td></tr>
+<tr><th id="213">213</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"print&lt;demanded-bits&gt;"</q>, DemandedBitsPrinterPass(dbgs()))</td></tr>
+<tr><th id="214">214</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"print&lt;domfrontier&gt;"</q>, DominanceFrontierPrinterPass(dbgs()))</td></tr>
+<tr><th id="215">215</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"print&lt;loops&gt;"</q>, LoopPrinterPass(dbgs()))</td></tr>
+<tr><th id="216">216</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"print&lt;memoryssa&gt;"</q>, MemorySSAPrinterPass(dbgs()))</td></tr>
+<tr><th id="217">217</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"print&lt;phi-values&gt;"</q>, PhiValuesPrinterPass(dbgs()))</td></tr>
+<tr><th id="218">218</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"print&lt;regions&gt;"</q>, RegionInfoPrinterPass(dbgs()))</td></tr>
+<tr><th id="219">219</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"print&lt;scalar-evolution&gt;"</q>, ScalarEvolutionPrinterPass(dbgs()))</td></tr>
+<tr><th id="220">220</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"print&lt;stack-safety-local&gt;"</q>, StackSafetyPrinterPass(dbgs()))</td></tr>
+<tr><th id="221">221</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"reassociate"</q>, ReassociatePass())</td></tr>
+<tr><th id="222">222</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"scalarizer"</q>, ScalarizerPass())</td></tr>
+<tr><th id="223">223</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"sccp"</q>, SCCPPass())</td></tr>
+<tr><th id="224">224</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"sink"</q>, SinkingPass())</td></tr>
+<tr><th id="225">225</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"slp-vectorizer"</q>, SLPVectorizerPass())</td></tr>
+<tr><th id="226">226</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"speculative-execution"</q>, SpeculativeExecutionPass())</td></tr>
+<tr><th id="227">227</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"spec-phis"</q>, SpeculateAroundPHIsPass())</td></tr>
+<tr><th id="228">228</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"sroa"</q>, SROA())</td></tr>
+<tr><th id="229">229</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"tailcallelim"</q>, TailCallElimPass())</td></tr>
+<tr><th id="230">230</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"unreachableblockelim"</q>, UnreachableBlockElimPass())</td></tr>
+<tr><th id="231">231</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"verify"</q>, VerifierPass())</td></tr>
+<tr><th id="232">232</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"verify&lt;domtree&gt;"</q>, DominatorTreeVerifierPass())</td></tr>
+<tr><th id="233">233</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"verify&lt;loops&gt;"</q>, LoopVerifierPass())</td></tr>
+<tr><th id="234">234</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"verify&lt;memoryssa&gt;"</q>, MemorySSAVerifierPass())</td></tr>
+<tr><th id="235">235</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"verify&lt;regions&gt;"</q>, RegionInfoVerifierPass())</td></tr>
+<tr><th id="236">236</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"verify&lt;safepoint-ir&gt;"</q>, SafepointIRVerifierPass())</td></tr>
+<tr><th id="237">237</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"view-cfg"</q>, CFGViewerPass())</td></tr>
+<tr><th id="238">238</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"view-cfg-only"</q>, CFGOnlyViewerPass())</td></tr>
+<tr><th id="239">239</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"transform-warning"</q>, WarnMissedTransformationsPass())</td></tr>
+<tr><th id="240">240</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"asan"</q>, AddressSanitizerPass(<b>false</b>, <b>false</b>, <b>false</b>))</td></tr>
+<tr><th id="241">241</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"kasan"</q>, AddressSanitizerPass(<b>true</b>, <b>false</b>, <b>false</b>))</td></tr>
+<tr><th id="242">242</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"hwasan"</q>, HWAddressSanitizerPass(<b>false</b>, <b>false</b>))</td></tr>
+<tr><th id="243">243</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"khwasan"</q>, HWAddressSanitizerPass(<b>true</b>, <b>true</b>))</td></tr>
+<tr><th id="244">244</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"msan"</q>, MemorySanitizerPass({}))</td></tr>
+<tr><th id="245">245</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"kmsan"</q>, MemorySanitizerPass({<var>0</var>, <b>false</b>, <i>/*Kernel=*/</i><b>true</b>}))</td></tr>
+<tr><th id="246">246</th><td><a class="macro" href="#151" title="" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a>(<q>"tsan"</q>, ThreadSanitizerPass())</td></tr>
+<tr><th id="247">247</th><td><u>#undef <a class="macro" href="#151" data-ref="_M/FUNCTION_PASS">FUNCTION_PASS</a></u></td></tr>
+<tr><th id="248">248</th><td></td></tr>
+<tr><th id="249">249</th><td><u>#<span data-ppcond="249">ifndef</span> <span class="macro" data-ref="_M/FUNCTION_PASS_WITH_PARAMS">FUNCTION_PASS_WITH_PARAMS</span></u></td></tr>
+<tr><th id="250">250</th><td><u>#define <dfn class="macro" id="_M/FUNCTION_PASS_WITH_PARAMS" data-ref="_M/FUNCTION_PASS_WITH_PARAMS">FUNCTION_PASS_WITH_PARAMS</dfn>(NAME, CREATE_PASS, PARSER)</u></td></tr>
+<tr><th id="251">251</th><td><u>#<span data-ppcond="249">endif</span></u></td></tr>
+<tr><th id="252">252</th><td><a class="macro" href="#250" title="" data-ref="_M/FUNCTION_PASS_WITH_PARAMS">FUNCTION_PASS_WITH_PARAMS</a>(<q>"unroll"</q>,</td></tr>
+<tr><th id="253">253</th><td>                           [](LoopUnrollOptions Opts) {</td></tr>
+<tr><th id="254">254</th><td>                             <b>return</b> LoopUnrollPass(Opts);</td></tr>
+<tr><th id="255">255</th><td>                           },</td></tr>
+<tr><th id="256">256</th><td>                           parseLoopUnrollOptions)</td></tr>
+<tr><th id="257">257</th><td><a class="macro" href="#250" title="" data-ref="_M/FUNCTION_PASS_WITH_PARAMS">FUNCTION_PASS_WITH_PARAMS</a>(<q>"msan"</q>,</td></tr>
+<tr><th id="258">258</th><td>                           [](MemorySanitizerOptions Opts) {</td></tr>
+<tr><th id="259">259</th><td>                             <b>return</b> MemorySanitizerPass(Opts);</td></tr>
+<tr><th id="260">260</th><td>                           },</td></tr>
+<tr><th id="261">261</th><td>                           parseMSanPassOptions)</td></tr>
+<tr><th id="262">262</th><td><a class="macro" href="#250" title="" data-ref="_M/FUNCTION_PASS_WITH_PARAMS">FUNCTION_PASS_WITH_PARAMS</a>(<q>"simplify-cfg"</q>,</td></tr>
+<tr><th id="263">263</th><td>                           [](SimplifyCFGOptions Opts) {</td></tr>
+<tr><th id="264">264</th><td>                             <b>return</b> SimplifyCFGPass(Opts);</td></tr>
+<tr><th id="265">265</th><td>                           },</td></tr>
+<tr><th id="266">266</th><td>                           parseSimplifyCFGOptions)</td></tr>
+<tr><th id="267">267</th><td><a class="macro" href="#250" title="" data-ref="_M/FUNCTION_PASS_WITH_PARAMS">FUNCTION_PASS_WITH_PARAMS</a>(<q>"loop-vectorize"</q>,</td></tr>
+<tr><th id="268">268</th><td>                           [](LoopVectorizeOptions Opts) {</td></tr>
+<tr><th id="269">269</th><td>                             <b>return</b> LoopVectorizePass(Opts);</td></tr>
+<tr><th id="270">270</th><td>                           },</td></tr>
+<tr><th id="271">271</th><td>                           parseLoopVectorizeOptions)</td></tr>
+<tr><th id="272">272</th><td><u>#undef <a class="macro" href="#250" data-ref="_M/FUNCTION_PASS_WITH_PARAMS">FUNCTION_PASS_WITH_PARAMS</a></u></td></tr>
+<tr><th id="273">273</th><td></td></tr>
+<tr><th id="274">274</th><td><u>#<span data-ppcond="274">ifndef</span> <span class="macro" data-ref="_M/LOOP_ANALYSIS">LOOP_ANALYSIS</span></u></td></tr>
+<tr><th id="275">275</th><td><u>#define <dfn class="macro" id="_M/LOOP_ANALYSIS" data-ref="_M/LOOP_ANALYSIS">LOOP_ANALYSIS</dfn>(NAME, CREATE_PASS)</u></td></tr>
+<tr><th id="276">276</th><td><u>#<span data-ppcond="274">endif</span></u></td></tr>
+<tr><th id="277">277</th><td><a class="macro" href="#275" title="" data-ref="_M/LOOP_ANALYSIS">LOOP_ANALYSIS</a>(<q>"no-op-loop"</q>, NoOpLoopAnalysis())</td></tr>
+<tr><th id="278">278</th><td><a class="macro" href="#275" title="" data-ref="_M/LOOP_ANALYSIS">LOOP_ANALYSIS</a>(<q>"access-info"</q>, LoopAccessAnalysis())</td></tr>
+<tr><th id="279">279</th><td><a class="macro" href="#275" title="" data-ref="_M/LOOP_ANALYSIS">LOOP_ANALYSIS</a>(<q>"ivusers"</q>, IVUsersAnalysis())</td></tr>
+<tr><th id="280">280</th><td><a class="macro" href="#275" title="" data-ref="_M/LOOP_ANALYSIS">LOOP_ANALYSIS</a>(<q>"pass-instrumentation"</q>, PassInstrumentationAnalysis(PIC))</td></tr>
+<tr><th id="281">281</th><td><u>#undef <a class="macro" href="#275" data-ref="_M/LOOP_ANALYSIS">LOOP_ANALYSIS</a></u></td></tr>
+<tr><th id="282">282</th><td></td></tr>
+<tr><th id="283">283</th><td><u>#<span data-ppcond="283">ifndef</span> <span class="macro" data-ref="_M/LOOP_PASS">LOOP_PASS</span></u></td></tr>
+<tr><th id="284">284</th><td><u>#define <dfn class="macro" id="_M/LOOP_PASS" data-ref="_M/LOOP_PASS">LOOP_PASS</dfn>(NAME, CREATE_PASS)</u></td></tr>
+<tr><th id="285">285</th><td><u>#<span data-ppcond="283">endif</span></u></td></tr>
+<tr><th id="286">286</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"invalidate&lt;all&gt;"</q>, InvalidateAllAnalysesPass())</td></tr>
+<tr><th id="287">287</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"licm"</q>, LICMPass())</td></tr>
+<tr><th id="288">288</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"loop-idiom"</q>, LoopIdiomRecognizePass())</td></tr>
+<tr><th id="289">289</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"loop-instsimplify"</q>, LoopInstSimplifyPass())</td></tr>
+<tr><th id="290">290</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"rotate"</q>, LoopRotatePass())</td></tr>
+<tr><th id="291">291</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"no-op-loop"</q>, NoOpLoopPass())</td></tr>
+<tr><th id="292">292</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"print"</q>, PrintLoopPass(dbgs()))</td></tr>
+<tr><th id="293">293</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"loop-deletion"</q>, LoopDeletionPass())</td></tr>
+<tr><th id="294">294</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"simplify-cfg"</q>, LoopSimplifyCFGPass())</td></tr>
+<tr><th id="295">295</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"strength-reduce"</q>, LoopStrengthReducePass())</td></tr>
+<tr><th id="296">296</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"indvars"</q>, IndVarSimplifyPass())</td></tr>
+<tr><th id="297">297</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"irce"</q>, IRCEPass())</td></tr>
+<tr><th id="298">298</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"unroll-and-jam"</q>, LoopUnrollAndJamPass())</td></tr>
+<tr><th id="299">299</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"unroll-full"</q>, LoopFullUnrollPass())</td></tr>
+<tr><th id="300">300</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"print-access-info"</q>, LoopAccessInfoPrinterPass(dbgs()))</td></tr>
+<tr><th id="301">301</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"print&lt;ivusers&gt;"</q>, IVUsersPrinterPass(dbgs()))</td></tr>
+<tr><th id="302">302</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"loop-predication"</q>, LoopPredicationPass())</td></tr>
+<tr><th id="303">303</th><td><a class="macro" href="#284" title="" data-ref="_M/LOOP_PASS">LOOP_PASS</a>(<q>"guard-widening"</q>, GuardWideningPass())</td></tr>
+<tr><th id="304">304</th><td><u>#undef <a class="macro" href="#284" data-ref="_M/LOOP_PASS">LOOP_PASS</a></u></td></tr>
+<tr><th id="305">305</th><td></td></tr>
+<tr><th id="306">306</th><td><u>#<span data-ppcond="306">ifndef</span> <span class="macro" data-ref="_M/LOOP_PASS_WITH_PARAMS">LOOP_PASS_WITH_PARAMS</span></u></td></tr>
+<tr><th id="307">307</th><td><u>#define <dfn class="macro" id="_M/LOOP_PASS_WITH_PARAMS" data-ref="_M/LOOP_PASS_WITH_PARAMS">LOOP_PASS_WITH_PARAMS</dfn>(NAME, CREATE_PASS, PARSER)</u></td></tr>
+<tr><th id="308">308</th><td><u>#<span data-ppcond="306">endif</span></u></td></tr>
+<tr><th id="309">309</th><td><a class="macro" href="#307" title="" data-ref="_M/LOOP_PASS_WITH_PARAMS">LOOP_PASS_WITH_PARAMS</a>(<q>"unswitch"</q>,</td></tr>
+<tr><th id="310">310</th><td>                           [](<em>bool</em> NonTrivial) {</td></tr>
+<tr><th id="311">311</th><td>                             <b>return</b> SimpleLoopUnswitchPass(NonTrivial);</td></tr>
+<tr><th id="312">312</th><td>                           },</td></tr>
+<tr><th id="313">313</th><td>                           parseLoopUnswitchOptions)</td></tr>
+<tr><th id="314">314</th><td><u>#undef <a class="macro" href="#307" data-ref="_M/LOOP_PASS_WITH_PARAMS">LOOP_PASS_WITH_PARAMS</a></u></td></tr>
+<tr><th id="315">315</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='PassBuilder.cpp.html'>llvm/llvm/lib/Passes/PassBuilder.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

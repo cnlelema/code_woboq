@@ -1,0 +1,14 @@
+<dec f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='5866' type='const AstTypeMatcher&lt;clang::DecayedType&gt;'/>
+<doc f='llvm/clang/include/clang/ASTMatchers/ASTMatchers.h' l='5856'>/// Matches decayed type
+/// Example matches i[] in declaration of f.
+///     (matcher = valueDecl(hasType(decayedType(hasDecayedType(pointerType())))))
+/// Example matches i[1].
+///     (matcher = expr(hasType(decayedType(hasDecayedType(pointerType())))))
+/// \code
+///   void f(int i[]) {
+///     i[1] = 0;
+///   }
+/// \endcode</doc>
+<def f='llvm/clang/lib/ASTMatchers/ASTMatchersInternal.cpp' l='837' type='const AstTypeMatcher&lt;clang::DecayedType&gt;'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='2015' u='m' c='_ZN5clang12ast_matchers29TypeMatching_DecayedType_Test8TestBodyEv'/>
+<use f='llvm/clang/unittests/ASTMatchers/ASTMatchersNarrowingTest.cpp' l='2016' u='m' c='_ZN5clang12ast_matchers29TypeMatching_DecayedType_Test8TestBodyEv'/>

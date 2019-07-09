@@ -1,0 +1,28 @@
+<inh f='llvm/clang/include/clang/AST/Type.h' l='1428' c='clang::Type'/>
+<inh f='llvm/llvm/include/llvm/ADT/FoldingSet.h' l='135' c='llvm::FoldingSetBase::Node'/>
+<def f='llvm/clang/include/clang/AST/Type.h' l='4741' ll='4780'/>
+<size>48</size>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='4729'>/// Represents the result of substituting a set of types for a template
+/// type parameter pack.
+///
+/// When a pack expansion in the source code contains multiple parameter packs
+/// and those parameter packs correspond to different levels of template
+/// parameter lists, this type node is used to represent a template type
+/// parameter pack from an outer level, which has already had its argument pack
+/// substituted but that still lives within a pack expansion that itself
+/// could not be instantiated. When actually performing a substitution into
+/// that pack expansion (e.g., when all template parameters have corresponding
+/// arguments), this type will be replaced with the \c SubstTemplateTypeParmType
+/// at the current pack substitution index.</doc>
+<mbr r='clang::SubstTemplateTypeParmPackType::Replaced' o='256' t='const clang::TemplateTypeParmType *'/>
+<mbr r='clang::SubstTemplateTypeParmPackType::Arguments' o='320' t='const clang::TemplateArgument *'/>
+<fun r='_ZN5clang29SubstTemplateTypeParmPackTypeC1EPKNS_20TemplateTypeParmTypeENS_8QualTypeERKNS_16TemplateArgumentE'/>
+<fun r='_ZNK5clang29SubstTemplateTypeParmPackType13getIdentifierEv'/>
+<fun r='_ZNK5clang29SubstTemplateTypeParmPackType20getReplacedParameterEv'/>
+<fun r='_ZNK5clang29SubstTemplateTypeParmPackType10getNumArgsEv'/>
+<fun r='_ZNK5clang29SubstTemplateTypeParmPackType9isSugaredEv'/>
+<fun r='_ZNK5clang29SubstTemplateTypeParmPackType7desugarEv'/>
+<fun r='_ZNK5clang29SubstTemplateTypeParmPackType15getArgumentPackEv'/>
+<fun r='_ZN5clang29SubstTemplateTypeParmPackType7ProfileERN4llvm16FoldingSetNodeIDE'/>
+<fun r='_ZN5clang29SubstTemplateTypeParmPackType7ProfileERN4llvm16FoldingSetNodeIDEPKNS_20TemplateTypeParmTypeERKNS_16TemplateArgumentE'/>
+<fun r='_ZN5clang29SubstTemplateTypeParmPackType7classofEPKNS_4TypeE'/>

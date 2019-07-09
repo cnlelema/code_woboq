@@ -1,0 +1,13 @@
+<def f='llvm/llvm/include/llvm/DebugInfo/CodeView/TypeHashing.h' l='32' ll='58'/>
+<size>24</size>
+<doc f='llvm/llvm/include/llvm/DebugInfo/CodeView/TypeHashing.h' l='26'>/// A locally hashed type represents a straightforward hash code of a serialized
+/// record.  The record is simply serialized, and then the bytes are hashed by
+/// a standard algorithm.  This is sufficient for the case of de-duplicating
+/// records within a single sequence of types, because if two records both have
+/// a back-reference to the same type in the same stream, they will both have
+/// the same numeric value for the TypeIndex of the back reference.</doc>
+<mbr r='llvm::codeview::LocallyHashedType::Hash' o='0' t='llvm::hash_code'/>
+<mbr r='llvm::codeview::LocallyHashedType::RecordData' o='64' t='ArrayRef&lt;uint8_t&gt;'/>
+<fun r='_ZN4llvm8codeview17LocallyHashedType8hashTypeENS_8ArrayRefIhEE'/>
+<fun r='_ZN4llvm8codeview17LocallyHashedType9hashTypesEOT_'/>
+<fun r='_ZN4llvm8codeview17LocallyHashedType18hashTypeCollectionERNS0_14TypeCollectionE'/>

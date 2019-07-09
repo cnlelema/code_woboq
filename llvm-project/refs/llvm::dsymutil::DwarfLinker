@@ -1,0 +1,90 @@
+<def f='llvm/llvm/tools/dsymutil/DwarfLinker.h' l='56' ll='505'/>
+<size>1504</size>
+<doc f='llvm/llvm/tools/dsymutil/DwarfLinker.h' l='42'>/// The core of the Dwarf linking logic.
+///
+/// The link of the dwarf information from the object files will be
+/// driven by the selection of &apos;root DIEs&apos;, which are DIEs that
+/// describe variables or functions that are present in the linked
+/// binary (and thus have entries in the debug map). All the debug
+/// information that will be linked (the DIEs, but also the line
+/// tables, ranges, ...) is derived from that set of root DIEs.
+///
+/// The root DIEs are identified because they contain relocations that
+/// correspond to a debug map entry at specific places (the low_pc for
+/// a function, the location for a variable). These relocations are
+/// called ValidRelocs in the DwarfLinker and are gathered as a very
+/// first step when we start processing a DebugMapObject.</doc>
+<fun r='_ZN4llvm8dsymutil11DwarfLinkerC1ERNS_14raw_fd_ostreamERNS0_12BinaryHolderERKNS0_11LinkOptionsE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker4linkERKNS0_8DebugMapE'/>
+<fun r='_ZNK4llvm8dsymutil11DwarfLinker13reportWarningERKNS_5TwineERKNS0_14DebugMapObjectEPKNS_8DWARFDieE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker18updateDwarfVersionEj'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker15updateAccelKindERNS_12DWARFContextE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker22emitPaperTrailWarningsERKNS0_14DebugMapObjectERKNS0_8DebugMapERNS0_10StrongTypeINS0_24NonRelocatableStringpoolENS0_10OffsetsTagEEE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker16startDebugObjectERNS1_11LinkContextE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker14endDebugObjectERNS1_11LinkContextE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker17lookForDIEsToKeepERNS1_17RelocationManagerERSt3mapImNS0_19DebugMapObjectRangeESt4lessImESaISt4pairIKmS5_EEERKSt6vector764363'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker23registerModuleReferenceENS_8DWARFDieERKNS_9DWARFUnitERNS0_8DebugMapERKNS0_14DebugMapObjectERSt3mapImNS0_19DebugMapObje7472074'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker15loadClangModuleENS_8DWARFDieENS_9StringRefES3_mRNS0_8DebugMapERKNS0_14DebugMapObjectERSt3mapImNS0_19DebugMapObjectRang7895020'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker22keepDIEAndDependenciesERNS1_17RelocationManagerERSt3mapImNS0_19DebugMapObjectRangeESt4lessImESaISt4pairIKmS5_EEERKSt6v3767263'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker13shouldKeepDIEERNS1_17RelocationManagerERSt3mapImNS0_19DebugMapObjectRangeESt4lessImESaISt4pairIKmS5_EEERKNS_8DWARFDieE8583617'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker21shouldKeepVariableDIEERNS1_17RelocationManagerERKNS_8DWARFDieERNS0_11CompileUnitERNS7_7DIEInfoEj'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker23shouldKeepSubprogramDIEERNS1_17RelocationManagerERSt3mapImNS0_19DebugMapObjectRangeESt4lessImESaISt4pairIKmS5_EEERKNS_2761808'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker18hasValidRelocationEjjRNS0_11CompileUnit7DIEInfoE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker12AssignAbbrevERNS_9DIEAbbrevE'/>
+<fun r='_ZNK4llvm8dsymutil11DwarfLinker18patchRangesForUnitERKNS0_11CompileUnitERNS_12DWARFContextERKNS0_14DebugMapObjectE'/>
+<fun r='_ZNK4llvm8dsymutil11DwarfLinker18generateUnitRangesERNS0_11CompileUnitE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker21patchLineTableForUnitERNS0_11CompileUnitERNS_12DWARFContextERSt3mapImNS0_19DebugMapObjectRangeESt4lessImESaISt4pairIKm7291389'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker29emitAcceleratorEntriesForUnitERNS0_11CompileUnitE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker34emitDwarfAcceleratorEntriesForUnitERNS0_11CompileUnitE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker34emitAppleAcceleratorEntriesForUnitERNS0_11CompileUnitE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker23patchFrameInfoForObjectERKNS0_14DebugMapObjectERSt3mapImNS0_19DebugMapObjectRangeESt4lessImESaISt4pairIKmS6_EEERNS_12DWARFContextEj'/>
+<mbr r='llvm::dsymutil::DwarfLinker::AbbreviationsSet' o='0' t='FoldingSet&lt;llvm::DIEAbbrev&gt;'/>
+<mbr r='llvm::dsymutil::DwarfLinker::Abbreviations' o='192' t='std::vector&lt;std::unique_ptr&lt;DIEAbbrev&gt; &gt;'/>
+<mbr r='llvm::dsymutil::DwarfLinker::DIELocs' o='384' t='std::vector&lt;DIELoc *&gt;'/>
+<mbr r='llvm::dsymutil::DwarfLinker::DIEBlocks' o='576' t='std::vector&lt;DIEBlock *&gt;'/>
+<mbr r='llvm::dsymutil::DwarfLinker::DIEAlloc' o='768' t='BumpPtrAllocator'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker14createStreamerERKNS_6TripleERNS_14raw_fd_ostreamE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker10loadObjectERKNS0_14DebugMapObjectERKNS0_8DebugMapE'/>
+<mbr r='llvm::dsymutil::DwarfLinker::OutFile' o='1600' t='llvm::raw_fd_ostream &amp;'/>
+<mbr r='llvm::dsymutil::DwarfLinker::BinHolder' o='1664' t='llvm::dsymutil::BinaryHolder &amp;'/>
+<mbr r='llvm::dsymutil::DwarfLinker::Options' o='1728' t='llvm::dsymutil::LinkOptions'/>
+<mbr r='llvm::dsymutil::DwarfLinker::Streamer' o='2752' t='std::unique_ptr&lt;DwarfStreamer&gt;'/>
+<mbr r='llvm::dsymutil::DwarfLinker::OutputDebugInfoSize' o='2816' t='uint64_t'/>
+<mbr r='llvm::dsymutil::DwarfLinker::MaxDwarfVersion' o='2880' t='unsigned int'/>
+<mbr r='llvm::dsymutil::DwarfLinker::MinDwarfVersion' o='2912' t='unsigned int'/>
+<mbr r='llvm::dsymutil::DwarfLinker::AtLeastOneAppleAccelTable' o='2944' t='bool'/>
+<mbr r='llvm::dsymutil::DwarfLinker::AtLeastOneDwarfAccelTable' o='2952' t='bool'/>
+<mbr r='llvm::dsymutil::DwarfLinker::EmittedCIEs' o='3008' t='StringMap&lt;uint32_t&gt;'/>
+<mbr r='llvm::dsymutil::DwarfLinker::LastCIEOffset' o='3264' t='uint32_t'/>
+<mbr r='llvm::dsymutil::DwarfLinker::DebugNames' o='3328' t='AccelTable&lt;llvm::DWARF5AccelTableStaticData&gt;'/>
+<mbr r='llvm::dsymutil::DwarfLinker::AppleNames' o='4928' t='AccelTable&lt;llvm::AppleAccelTableStaticOffsetData&gt;'/>
+<mbr r='llvm::dsymutil::DwarfLinker::AppleNamespaces' o='6528' t='AccelTable&lt;llvm::AppleAccelTableStaticOffsetData&gt;'/>
+<mbr r='llvm::dsymutil::DwarfLinker::AppleObjc' o='8128' t='AccelTable&lt;llvm::AppleAccelTableStaticOffsetData&gt;'/>
+<mbr r='llvm::dsymutil::DwarfLinker::AppleTypes' o='9728' t='AccelTable&lt;llvm::AppleAccelTableStaticTypeData&gt;'/>
+<mbr r='llvm::dsymutil::DwarfLinker::ClangModules' o='11328' t='StringMap&lt;uint64_t&gt;'/>
+<mbr r='llvm::dsymutil::DwarfLinker::ParseableSwiftInterfaces' o='11584' t='std::map&lt;std::string, std::string&gt;'/>
+<mbr r='llvm::dsymutil::DwarfLinker::ModuleCacheHintDisplayed' o='11968' t='bool'/>
+<mbr r='llvm::dsymutil::DwarfLinker::ArchiveHintDisplayed' o='11976' t='bool'/>
+<fun r='_ZNK4llvm8dsymutil11DwarfLinker13reportWarningERKNS_5TwineERKNS0_14DebugMapObjectEPKNS_8DWARFDieE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker14createStreamerERKNS_6TripleERNS_14raw_fd_ostreamE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker16startDebugObjectERNS1_11LinkContextE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker14endDebugObjectERNS1_11LinkContextE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker21shouldKeepVariableDIEERNS1_17RelocationManagerERKNS_8DWARFDieERNS0_11CompileUnitERNS7_7DIEInfoEj'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker23shouldKeepSubprogramDIEERNS1_17RelocationManagerERSt3mapImNS0_19DebugMapObjectRangeESt4lessImESaISt4pairIKmS5_EEERKNS_2761808'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker13shouldKeepDIEERNS1_17RelocationManagerERSt3mapImNS0_19DebugMapObjectRangeESt4lessImESaISt4pairIKmS5_EEERKNS_8DWARFDieE8583617'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker22keepDIEAndDependenciesERNS1_17RelocationManagerERSt3mapImNS0_19DebugMapObjectRangeESt4lessImESaISt4pairIKmS5_EEERKSt6v3767263'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker17lookForDIEsToKeepERNS1_17RelocationManagerERSt3mapImNS0_19DebugMapObjectRangeESt4lessImESaISt4pairIKmS5_EEERKSt6vector764363'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker12AssignAbbrevERNS_9DIEAbbrevE'/>
+<fun r='_ZNK4llvm8dsymutil11DwarfLinker18patchRangesForUnitERKNS0_11CompileUnitERNS_12DWARFContextERKNS0_14DebugMapObjectE'/>
+<fun r='_ZNK4llvm8dsymutil11DwarfLinker18generateUnitRangesERNS0_11CompileUnitE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker21patchLineTableForUnitERNS0_11CompileUnitERNS_12DWARFContextERSt3mapImNS0_19DebugMapObjectRangeESt4lessImESaISt4pairIKm7291389'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker29emitAcceleratorEntriesForUnitERNS0_11CompileUnitE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker34emitAppleAcceleratorEntriesForUnitERNS0_11CompileUnitE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker34emitDwarfAcceleratorEntriesForUnitERNS0_11CompileUnitE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker23patchFrameInfoForObjectERKNS0_14DebugMapObjectERSt3mapImNS0_19DebugMapObjectRangeESt4lessImESaISt4pairIKmS6_EEERNS_12DWARFContextEj'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker23registerModuleReferenceENS_8DWARFDieERKNS_9DWARFUnitERNS0_8DebugMapERKNS0_14DebugMapObjectERSt3mapImNS0_19DebugMapObje7472074'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker10loadObjectERKNS0_14DebugMapObjectERKNS0_8DebugMapE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker15loadClangModuleENS_8DWARFDieENS_9StringRefES3_mRNS0_8DebugMapERKNS0_14DebugMapObjectERSt3mapImNS0_19DebugMapObjectRang7895020'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker15updateAccelKindERNS_12DWARFContextE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker22emitPaperTrailWarningsERKNS0_14DebugMapObjectERKNS0_8DebugMapERNS0_10StrongTypeINS0_24NonRelocatableStringpoolENS0_10OffsetsTagEEE'/>
+<fun r='_ZN4llvm8dsymutil11DwarfLinker4linkERKNS0_8DebugMapE'/>

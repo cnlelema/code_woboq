@@ -1,0 +1,28 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='8167' type='clang::NamedDecl * clang::Sema::FindInstantiatedDecl(clang::SourceLocation Loc, clang::NamedDecl * D, const clang::MultiLevelTemplateArgumentList &amp; TemplateArgs, bool FindingInstantiatedContext = false)'/>
+<def f='llvm/clang/lib/Sema/SemaTemplateInstantiateDecl.cpp' l='5221' ll='5509' type='clang::NamedDecl * clang::Sema::FindInstantiatedDecl(clang::SourceLocation Loc, clang::NamedDecl * D, const clang::MultiLevelTemplateArgumentList &amp; TemplateArgs, bool FindingInstantiatedContext = false)'/>
+<doc f='llvm/clang/lib/Sema/SemaTemplateInstantiateDecl.cpp' l='5195'>/// Find the instantiation of the given declaration within the
+/// current instantiation.
+///
+/// This routine is intended to be used when \p D is a declaration
+/// referenced from within a template, that needs to mapped into the
+/// corresponding declaration within an instantiation. For example,
+/// given:
+///
+/// \code
+/// template&lt;typename T&gt;
+/// struct X {
+///   enum Kind {
+///     KnownValue = sizeof(T)
+///   };
+///
+///   bool getKind() const { return KnownValue; }
+/// };
+///
+/// template struct X&lt;int&gt;;
+/// \endcode
+///
+/// In the instantiation of &lt;tt&gt;X&lt;int&gt;::getKind()&lt;/tt&gt;, we need to map the
+/// \p EnumConstantDecl for \p KnownValue (which refers to
+/// &lt;tt&gt;X&lt;T&gt;::&lt;Kind&gt;::KnownValue&lt;/tt&gt;) to its instantiation
+/// (&lt;tt&gt;X&lt;int&gt;::&lt;Kind&gt;::KnownValue&lt;/tt&gt;). \p FindInstantiatedDecl performs
+/// this mapping from within the instantiation of &lt;tt&gt;X&lt;int&gt;&lt;/tt&gt;.</doc>

@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/BasicBlockUtils.h' l='269' type='llvm::ReturnInst * llvm::FoldReturnIntoUncondBranch(llvm::ReturnInst * RI, llvm::BasicBlock * BB, llvm::BasicBlock * Pred, llvm::DomTreeUpdater * DTU = nullptr)'/>
+<use f='llvm/llvm/lib/CodeGen/CodeGenPrepare.cpp' l='2071' u='c' c='_ZN12_GLOBAL__N_114CodeGenPrepare26dupRetToEnableTailCallOptsEPN4llvm10BasicBlockERb'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/BasicBlockUtils.h' l='265'>/// This method duplicates the specified return instruction into a predecessor
+/// which ends in an unconditional branch. If the return instruction returns a
+/// value defined by a PHI, propagate the right value into the return. It
+/// returns the new return instruction in the predecessor.</doc>
+<use f='llvm/llvm/lib/Transforms/Scalar/TailRecursionElimination.cpp' l='716' u='c' c='_ZL24foldReturnAndProcessPredPN4llvm10BasicBlockEPNS_10ReturnInstERS1_RbRNS_15SmallVectorImplIPNS_7PHINodeEEEbPKNS_19TargetTransformInfoEPNS_9AAResult7648880'/>
+<def f='llvm/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp' l='723' ll='764' type='llvm::ReturnInst * llvm::FoldReturnIntoUncondBranch(llvm::ReturnInst * RI, llvm::BasicBlock * BB, llvm::BasicBlock * Pred, llvm::DomTreeUpdater * DTU = nullptr)'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyCFG.cpp' l='4125' u='c' c='_ZN12_GLOBAL__N_114SimplifyCFGOpt14SimplifyReturnEPN4llvm10ReturnInstERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE'/>

@@ -1,0 +1,41 @@
+<dec f='llvm/llvm/include/llvm/IR/DebugLoc.h' l='79' type='static llvm::DebugLoc llvm::DebugLoc::get(unsigned int Line, unsigned int Col, const llvm::MDNode * Scope, const llvm::MDNode * InlinedAt = nullptr, bool ImplicitCode = false)'/>
+<doc f='llvm/llvm/include/llvm/IR/DebugLoc.h' l='71'>/// Create a new DebugLoc.
+    ///
+    /// Create a new DebugLoc at the specified line/col and scope/inline.  This
+    /// forwards to \a DILocation::get().
+    ///
+    /// If \c !Scope, returns a default-constructed \a DebugLoc.
+    ///
+    /// FIXME: Remove this.  Users should use DILocation::get().</doc>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='116' u='c' c='_ZN5clang7CodeGen18ApplyDebugLocation4initENS_14SourceLocationEb'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='3698' u='c' c='_ZN5clang7CodeGen11CGDebugInfo12EmitLocationERNS0_11CGBuilderTyENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='3731' u='c' c='_ZN5clang7CodeGen11CGDebugInfo21EmitLexicalBlockStartERNS0_11CGBuilderTyENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='3995' u='c' c='_ZN5clang7CodeGen11CGDebugInfo9EmitLabelEPKNS_9LabelDeclERNS0_11CGBuilderTyE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='4070' u='c' c='_ZN5clang7CodeGen11CGDebugInfo33EmitDeclareOfBlockDeclRefVariableEPKNS_7VarDeclEPN4llvm5ValueERNS0_11CGBuilderTyERKNS0_11CGBlockInfoEPNS5_11InstructionE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='4255' u='c' c='_ZN5clang7CodeGen11CGDebugInfo36EmitDeclareOfBlockLiteralArgVariableERKNS0_11CGBlockInfoEN4llvm9StringRefEjPNS5_10AllocaInstERNS0_11CGBuilderTyE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='4636' u='c' c='_ZN5clang7CodeGen11CGDebugInfo19SourceLocToDebugLocENS_14SourceLocationE'/>
+<use f='llvm/llvm/lib/Bitcode/Reader/BitcodeReader.cpp' l='3647' u='c' c='_ZN12_GLOBAL__N_113BitcodeReader17parseFunctionBodyEPN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/SafeStack.cpp' l='784' u='c' c='_ZN12_GLOBAL__N_19SafeStack3runEv'/>
+<use f='llvm/llvm/lib/CodeGen/StackProtector.cpp' l='468' u='c' c='_ZN4llvm14StackProtector12CreateFailBBEv'/>
+<use f='llvm/llvm/lib/IR/DebugInfo.cpp' l='645' u='c' c='_ZN4llvm26stripNonLineTableDebugInfoERNS_6ModuleE'/>
+<use f='llvm/llvm/lib/IR/DebugLoc.cpp' l='53' u='c' c='_ZNK4llvm8DebugLoc13getFnDebugLocEv'/>
+<def f='llvm/llvm/lib/IR/DebugLoc.cpp' l='71' ll='80' type='static llvm::DebugLoc llvm::DebugLoc::get(unsigned int Line, unsigned int Col, const llvm::MDNode * Scope, const llvm::MDNode * InlinedAt = nullptr, bool ImplicitCode = false)'/>
+<use f='llvm/llvm/lib/Transforms/IPO/MergeFunctions.cpp' l='727' u='c' c='_ZN12_GLOBAL__N_114MergeFunctions10writeThunkEPN4llvm8FunctionES3_'/>
+<use f='llvm/llvm/lib/Transforms/IPO/MergeFunctions.cpp' l='728' u='c' c='_ZN12_GLOBAL__N_114MergeFunctions10writeThunkEPN4llvm8FunctionES3_'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/AddressSanitizer.cpp' l='2974' u='c' c='_ZN12_GLOBAL__N_121FunctionStackPoisoner20processStaticAllocasEv'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/SanitizerCoverage.cpp' l='817' u='c' c='_ZN12_GLOBAL__N_123SanitizerCoverageModule21InjectCoverageAtBlockERN4llvm8FunctionERNS1_10BasicBlockEmb'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1232' u='c' c='_ZN4llvm3GVN14PerformLoadPREEPNS_8LoadInstERNS_11SmallVectorINS_3gvn21AvailableValueInBlockELj64EEERNS3_IPNS_10BasicBlockELj64EEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='1669' u='c' c='_ZL5hoistRN4llvm11InstructionEPKNS_13DominatorTreeEPKNS_4LoopEPNS_10BasicBlockEPNS_17ICFLoopSafetyInfoEPNS_16MemorySSAUpdaterEPNS_25OptimizationRemarkEmitterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/EntryExitInstrumenter.cpp' l='85' u='c' c='_ZL13runOnFunctionRN4llvm8FunctionEb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/EntryExitInstrumenter.cpp' l='111' u='c' c='_ZL13runOnFunctionRN4llvm8FunctionEb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/InlineFunction.cpp' l='1354' u='c' c='_ZL14inlineDebugLocN4llvm8DebugLocEPNS_10DILocationERNS_11LLVMContextERNS_8DenseMapIPKNS_6MDNodeEPS6_NS_12DenseMapInfoIS8_EENS_6detail12DenseMapPairIS8_S9_EEEE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1303' u='c' c='_ZL16getDebugValueLocPN4llvm20DbgVariableIntrinsicEPNS_11InstructionE'/>
+<use f='llvm/llvm/unittests/IR/IRBuilderTest.cpp' l='536' u='c' c='_ZN12_GLOBAL__N_128IRBuilderTest_DIBuilder_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/IRBuilderTest.cpp' l='558' u='c' c='_ZN12_GLOBAL__N_145IRBuilderTest_createArtificialSubprogram_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/IRBuilderTest.cpp' l='559' u='c' c='_ZN12_GLOBAL__N_145IRBuilderTest_createArtificialSubprogram_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/IR/IRBuilderTest.cpp' l='587' u='c' c='_ZN12_GLOBAL__N_145IRBuilderTest_createArtificialSubprogram_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Transforms/Utils/CloningTest.cpp' l='401' u='c' c='_ZN12_GLOBAL__N_19CloneFunc26CreateOldFunctionBodyAndDIEv'/>
+<use f='llvm/llvm/unittests/Transforms/Utils/CloningTest.cpp' l='404' u='c' c='_ZN12_GLOBAL__N_19CloneFunc26CreateOldFunctionBodyAndDIEv'/>
+<use f='llvm/llvm/unittests/Transforms/Utils/CloningTest.cpp' l='407' u='c' c='_ZN12_GLOBAL__N_19CloneFunc26CreateOldFunctionBodyAndDIEv'/>
+<use f='llvm/llvm/unittests/Transforms/Utils/CloningTest.cpp' l='431' u='c' c='_ZN12_GLOBAL__N_19CloneFunc26CreateOldFunctionBodyAndDIEv'/>
+<use f='llvm/llvm/unittests/Transforms/Utils/CloningTest.cpp' l='431' u='c' c='_ZN12_GLOBAL__N_19CloneFunc26CreateOldFunctionBodyAndDIEv'/>

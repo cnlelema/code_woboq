@@ -1,0 +1,22 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='632' type='Optional&lt;bool&gt; llvm::isImpliedCondition(const llvm::Value * LHS, const llvm::Value * RHS, const llvm::DataLayout &amp; DL, bool LHSIsTrue = true, unsigned int Depth = 0)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='622'>/// Return true if RHS is known to be implied true by LHS.  Return false if
+  /// RHS is known to be implied false by LHS.  Otherwise, return None if no
+  /// implication can be made.
+  /// A &amp; B must be i1 (boolean) values or a vector of such values. Note that
+  /// the truth table for implication is the same as &lt;=u on i1 values (but not
+  /// &lt;=s!).  The truth table for both is:
+  ///    | T | F (B)
+  ///  T | T | F
+  ///  F | T | T
+  /// (A)</doc>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='2394' u='c' c='_ZL19simplifyICmpOfBoolsN4llvm7CmpInst9PredicateEPNS_5ValueES3_RKNS_13SimplifyQueryE'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='2405' u='c' c='_ZL19simplifyICmpOfBoolsN4llvm7CmpInst9PredicateEPNS_5ValueES3_RKNS_13SimplifyQueryE'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='2409' u='c' c='_ZL19simplifyICmpOfBoolsN4llvm7CmpInst9PredicateEPNS_5ValueES3_RKNS_13SimplifyQueryE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='5476' u='c' c='_ZL18isImpliedCondAndOrPKN4llvm14BinaryOperatorEPKNS_8ICmpInstERKNS_10DataLayoutEbj'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='5479' u='c' c='_ZL18isImpliedCondAndOrPKN4llvm14BinaryOperatorEPKNS_8ICmpInstERKNS_10DataLayoutEbj'/>
+<def f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='5486' ll='5526' type='Optional&lt;bool&gt; llvm::isImpliedCondition(const llvm::Value * LHS, const llvm::Value * RHS, const llvm::DataLayout &amp; DL, bool LHSIsTrue = true, unsigned int Depth = 0)'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='5557' u='c' c='_ZN4llvm23isImpliedByDomConditionEPKNS_5ValueEPKNS_11InstructionERKNS_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCompares.cpp' l='1390' u='c' c='_ZN4llvm12InstCombiner26foldICmpWithDominatingICmpERNS_8ICmpInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='1246' u='c' c='_ZN4llvm17JumpThreadingPass23ProcessImpliedConditionEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='2678' u='c' c='_ZN4llvm17JumpThreadingPass11ThreadGuardEPNS_10BasicBlockEPNS_13IntrinsicInstEPNS_10BranchInstE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='2683' u='c' c='_ZN4llvm17JumpThreadingPass11ThreadGuardEPNS_10BasicBlockEPNS_13IntrinsicInstEPNS_10BranchInstE'/>

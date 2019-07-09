@@ -1,0 +1,13 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='4056' type='unsigned int clang_getNumOverloadedDecls(CXCursor cursor)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='4047'>/**
+ * Determine the number of overloaded declarations referenced by a
+ * \c CXCursor_OverloadedDeclRef cursor.
+ *
+ * \param cursor The cursor whose overloaded declarations are being queried.
+ *
+ * \returns The number of overloaded declarations referenced by \c cursor. If it
+ * is not a \c CXCursor_OverloadedDeclRef cursor, returns 0.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='795' u='c' c='PrintCursor'/>
+<def f='llvm/clang/tools/libclang/CIndex.cpp' l='6455' ll='6472' type='unsigned int clang_getNumOverloadedDecls(CXCursor C)'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='6478' u='c' c='clang_getOverloadedDecl'/>

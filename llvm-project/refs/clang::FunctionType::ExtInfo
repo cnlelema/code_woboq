@@ -1,0 +1,43 @@
+<def f='llvm/clang/include/clang/AST/Type.h' l='3512' ll='3624'/>
+<size>2</size>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='3492'>/// A class which abstracts out some details necessary for
+  /// making a call.
+  ///
+  /// It is not actually used directly for storing this information in
+  /// a FunctionType, although FunctionType does currently use the
+  /// same bit-pattern.
+  ///
+  // If you add a field (say Foo), other than the obvious places (both,
+  // constructors, compile failures), what you need to update is
+  // * Operator==
+  // * getFoo
+  // * withFoo
+  // * functionType. Add Foo, getFoo.
+  // * ASTContext::getFooType
+  // * ASTContext::mergeFunctionTypes
+  // * FunctionNoProtoType::Profile
+  // * FunctionProtoType::Profile
+  // * TypePrinter::PrintFunctionProto
+  // * AST read and write
+  // * Codegen</doc>
+<mbr r='clang::FunctionType::ExtInfo::Bits' o='0' t='uint16_t'/>
+<fun r='_ZN5clang12FunctionType7ExtInfoC1Ej'/>
+<fun r='_ZN5clang12FunctionType7ExtInfoC1EbbjNS_11CallingConvEbbb'/>
+<fun r='_ZN5clang12FunctionType7ExtInfoC1Ev'/>
+<fun r='_ZN5clang12FunctionType7ExtInfoC1ENS_11CallingConvE'/>
+<fun r='_ZNK5clang12FunctionType7ExtInfo11getNoReturnEv'/>
+<fun r='_ZNK5clang12FunctionType7ExtInfo17getProducesResultEv'/>
+<fun r='_ZNK5clang12FunctionType7ExtInfo20getNoCallerSavedRegsEv'/>
+<fun r='_ZNK5clang12FunctionType7ExtInfo12getNoCfCheckEv'/>
+<fun r='_ZNK5clang12FunctionType7ExtInfo13getHasRegParmEv'/>
+<fun r='_ZNK5clang12FunctionType7ExtInfo10getRegParmEv'/>
+<fun r='_ZNK5clang12FunctionType7ExtInfo5getCCEv'/>
+<fun r='_ZNK5clang12FunctionType7ExtInfoeqES1_'/>
+<fun r='_ZNK5clang12FunctionType7ExtInfoneES1_'/>
+<fun r='_ZNK5clang12FunctionType7ExtInfo12withNoReturnEb'/>
+<fun r='_ZNK5clang12FunctionType7ExtInfo18withProducesResultEb'/>
+<fun r='_ZNK5clang12FunctionType7ExtInfo21withNoCallerSavedRegsEb'/>
+<fun r='_ZNK5clang12FunctionType7ExtInfo13withNoCfCheckEb'/>
+<fun r='_ZNK5clang12FunctionType7ExtInfo11withRegParmEj'/>
+<fun r='_ZNK5clang12FunctionType7ExtInfo15withCallingConvENS_11CallingConvE'/>
+<fun r='_ZNK5clang12FunctionType7ExtInfo7ProfileERN4llvm16FoldingSetNodeIDE'/>

@@ -1,0 +1,22 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='985' type='CXString clang_formatDiagnostic(CXDiagnostic Diagnostic, unsigned int Options)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='970'>/**
+ * Format the given diagnostic in a manner that is suitable for display.
+ *
+ * This routine will format the given diagnostic to a string, rendering
+ * the diagnostic according to the various options given. The
+ * \c clang_defaultDiagnosticDisplayOptions() function returns the set of
+ * options that most closely mimics the behavior of the clang compiler.
+ *
+ * \param Diagnostic The diagnostic to print.
+ *
+ * \param Options A set of options that control the diagnostic display,
+ * created by combining \c CXDiagnosticDisplayOptions values.
+ *
+ * \returns A new string containing for formatted diagnostic.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='1196' u='c' c='PrintDiagnostic'/>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='2368' u='c' c='checkForErrors'/>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='3559' u='c' c='index_diagnostic'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='8753' u='c' c='_ZN5clang7cxindex18printDiagsToStderrEPNS_7ASTUnitE'/>
+<def f='llvm/clang/tools/libclang/CIndexDiagnostic.cpp' l='243' ll='361' type='CXString clang_formatDiagnostic(CXDiagnostic Diagnostic, unsigned int Options)'/>
+<use f='llvm/clang/unittests/libclang/LibclangTest.cpp' l='512' u='c' c='_ZN19LibclangReparseTest18DisplayDiagnosticsEv'/>

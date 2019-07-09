@@ -1,0 +1,89 @@
+<inh f='llvm/llvm/include/llvm/CodeGen/MachineFunctionPass.h' l='30' c='llvm::MachineFunctionPass'/>
+<def f='llvm/llvm/include/llvm/CodeGen/SelectionDAGISel.h' l='44' ll='359'/>
+<size>328</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/SelectionDAGISel.h' l='42'>/// SelectionDAGISel - This is the common base class used for SelectionDAG-based
+/// pattern-matching instruction selectors.</doc>
+<mbr r='llvm::SelectionDAGISel::TM' o='832' t='llvm::TargetMachine &amp;'/>
+<mbr r='llvm::SelectionDAGISel::LibInfo' o='896' t='const llvm::TargetLibraryInfo *'/>
+<mbr r='llvm::SelectionDAGISel::FuncInfo' o='960' t='llvm::FunctionLoweringInfo *'/>
+<mbr r='llvm::SelectionDAGISel::SwiftError' o='1024' t='llvm::SwiftErrorValueTracking *'/>
+<mbr r='llvm::SelectionDAGISel::MF' o='1088' t='llvm::MachineFunction *'/>
+<mbr r='llvm::SelectionDAGISel::RegInfo' o='1152' t='llvm::MachineRegisterInfo *'/>
+<mbr r='llvm::SelectionDAGISel::CurDAG' o='1216' t='llvm::SelectionDAG *'/>
+<mbr r='llvm::SelectionDAGISel::SDB' o='1280' t='llvm::SelectionDAGBuilder *'/>
+<mbr r='llvm::SelectionDAGISel::AA' o='1344' t='AliasAnalysis *'/>
+<mbr r='llvm::SelectionDAGISel::GFI' o='1408' t='llvm::GCFunctionInfo *'/>
+<mbr r='llvm::SelectionDAGISel::OptLevel' o='1472' t='CodeGenOpt::Level'/>
+<mbr r='llvm::SelectionDAGISel::TII' o='1536' t='const llvm::TargetInstrInfo *'/>
+<mbr r='llvm::SelectionDAGISel::TLI' o='1600' t='const llvm::TargetLowering *'/>
+<mbr r='llvm::SelectionDAGISel::FastISelFailed' o='1664' t='bool'/>
+<mbr r='llvm::SelectionDAGISel::ElidedArgCopyInstrs' o='1728' t='SmallPtrSet&lt;const llvm::Instruction *, 4&gt;'/>
+<mbr r='llvm::SelectionDAGISel::ORE' o='2304' t='std::unique_ptr&lt;OptimizationRemarkEmitter&gt;'/>
+<smbr r='llvm::SelectionDAGISel::ID' t='char'/>
+<fun r='_ZN4llvm16SelectionDAGISelC1ERNS_13TargetMachineENS_10CodeGenOpt5LevelE'/>
+<fun r='_ZN4llvm16SelectionDAGISelD1Ev'/>
+<fun r='_ZNK4llvm16SelectionDAGISel17getTargetLoweringEv'/>
+<fun r='_ZNK4llvm16SelectionDAGISel16getAnalysisUsageERNS_13AnalysisUsageE'/>
+<fun r='_ZN4llvm16SelectionDAGISel20runOnMachineFunctionERNS_15MachineFunctionE'/>
+<fun r='_ZN4llvm16SelectionDAGISel21EmitFunctionEntryCodeEv'/>
+<fun r='_ZN4llvm16SelectionDAGISel17PreprocessISelDAGEv'/>
+<fun r='_ZN4llvm16SelectionDAGISel18PostprocessISelDAGEv'/>
+<fun r='_ZN4llvm16SelectionDAGISel6SelectEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm16SelectionDAGISel28SelectInlineAsmMemoryOperandERKNS_7SDValueEjRSt6vectorIS1_SaIS1_EE'/>
+<fun r='_ZNK4llvm16SelectionDAGISel18IsProfitableToFoldENS_7SDValueEPNS_6SDNodeES3_'/>
+<fun r='_ZN4llvm16SelectionDAGISel13IsLegalToFoldENS_7SDValueEPNS_6SDNodeES3_NS_10CodeGenOpt5LevelEb'/>
+<fun r='_ZN4llvm16SelectionDAGISel16InvalidateNodeIdEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm16SelectionDAGISel22getUninvalidatedNodeIdEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm16SelectionDAGISel22EnforceNodeIdInvariantEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm16SelectionDAGISel27getNumFixedFromVariadicInfoEj'/>
+<mbr r='llvm::SelectionDAGISel::DAGSize' o='2368' t='unsigned int'/>
+<fun r='_ZN4llvm16SelectionDAGISel11ReplaceUsesENS_7SDValueES1_'/>
+<fun r='_ZN4llvm16SelectionDAGISel11ReplaceUsesEPKNS_7SDValueES3_j'/>
+<fun r='_ZN4llvm16SelectionDAGISel11ReplaceUsesEPNS_6SDNodeES2_'/>
+<fun r='_ZN4llvm16SelectionDAGISel11ReplaceNodeEPNS_6SDNodeES2_'/>
+<fun r='_ZN4llvm16SelectionDAGISel29SelectInlineAsmMemoryOperandsERSt6vectorINS_7SDValueESaIS2_EERKNS_5SDLocE'/>
+<fun r='_ZN4llvm16SelectionDAGISel18getPatternForIndexEj'/>
+<fun r='_ZN4llvm16SelectionDAGISel22getIncludePathForIndexEj'/>
+<fun r='_ZNK4llvm16SelectionDAGISel12CheckAndMaskENS_7SDValueEPNS_14ConstantSDNodeEl'/>
+<fun r='_ZNK4llvm16SelectionDAGISel11CheckOrMaskENS_7SDValueEPNS_14ConstantSDNodeEl'/>
+<fun r='_ZNK4llvm16SelectionDAGISel21CheckPatternPredicateEj'/>
+<fun r='_ZNK4llvm16SelectionDAGISel18CheckNodePredicateEPNS_6SDNodeEj'/>
+<fun r='_ZNK4llvm16SelectionDAGISel30CheckNodePredicateWithOperandsEPNS_6SDNodeEjRKNS_15SmallVectorImplINS_7SDValueEEE'/>
+<fun r='_ZN4llvm16SelectionDAGISel19CheckComplexPatternEPNS_6SDNodeES2_NS_7SDValueEjRNS_15SmallVectorImplISt4pairIS3_S2_EEE'/>
+<fun r='_ZN4llvm16SelectionDAGISel14RunSDNodeXFormENS_7SDValueEj'/>
+<fun r='_ZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS_6SDNodeEPKhj'/>
+<fun r='_ZNK4llvm16SelectionDAGISel28ComplexPatternFuncMutatesDAGEv'/>
+<fun r='_ZNK4llvm16SelectionDAGISel19isOrEquivalentToAddEPKNS_6SDNodeE'/>
+<fun r='_ZN4llvm16SelectionDAGISel16Select_INLINEASMEPNS_6SDNodeEb'/>
+<fun r='_ZN4llvm16SelectionDAGISel20Select_READ_REGISTEREPNS_6SDNodeE'/>
+<fun r='_ZN4llvm16SelectionDAGISel21Select_WRITE_REGISTEREPNS_6SDNodeE'/>
+<fun r='_ZN4llvm16SelectionDAGISel12Select_UNDEFEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm16SelectionDAGISel15CannotYetSelectEPNS_6SDNodeE'/>
+<fun r='_ZN4llvm16SelectionDAGISel22DoInstructionSelectionEv'/>
+<fun r='_ZN4llvm16SelectionDAGISel9MorphNodeEPNS_6SDNodeEjNS_8SDVTListENS_8ArrayRefINS_7SDValueEEEj'/>
+<fun r='_ZN4llvm16SelectionDAGISel18MutateStrictFPToFPEPNS_6SDNodeEj'/>
+<fun r='_ZN4llvm16SelectionDAGISel19PrepareEHLandingPadEv'/>
+<fun r='_ZN4llvm16SelectionDAGISel20SelectAllBasicBlocksERKNS_8FunctionE'/>
+<fun r='_ZN4llvm16SelectionDAGISel16SelectBasicBlockENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11InstructionELb1ELb0EvEELb0ELb1EEES6_Rb'/>
+<fun r='_ZN4llvm16SelectionDAGISel16FinishBasicBlockEv'/>
+<fun r='_ZN4llvm16SelectionDAGISel17CodeGenAndEmitDAGEv'/>
+<fun r='_ZN4llvm16SelectionDAGISel14LowerArgumentsERKNS_8FunctionE'/>
+<fun r='_ZN4llvm16SelectionDAGISel22ComputeLiveOutVRegInfoEv'/>
+<fun r='_ZN4llvm16SelectionDAGISel15CreateSchedulerEv'/>
+<mbr r='llvm::SelectionDAGISel::OpcodeOffset' o='2432' t='std::vector&lt;unsigned int&gt;'/>
+<fun r='_ZN4llvm16SelectionDAGISel12UpdateChainsEPNS_6SDNodeENS_7SDValueERNS_15SmallVectorImplIS2_EEb'/>
+<ovr f='llvm/llvm/lib/Target/AArch64/AArch64ISelDAGToDAG.cpp' l='36' c='(anonymousnamespace)::AArch64DAGToDAGISel'/>
+<ovr f='llvm/llvm/lib/Target/AMDGPU/AMDGPUISelDAGToDAG.cpp' l='72' c='(anonymousnamespace)::AMDGPUDAGToDAGISel'/>
+<ovr f='llvm/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp' l='52' c='(anonymousnamespace)::ARMDAGToDAGISel'/>
+<ovr f='llvm/llvm/lib/Target/BPF/BPFISelDAGToDAG.cpp' l='40' c='(anonymousnamespace)::BPFDAGToDAGISel'/>
+<ovr f='llvm/llvm/lib/Target/Hexagon/HexagonISelDAGToDAG.h' l='30' c='llvm::HexagonDAGToDAGISel'/>
+<ovr f='llvm/llvm/lib/Target/Lanai/LanaiISelDAGToDAG.cpp' l='48' c='(anonymousnamespace)::LanaiDAGToDAGISel'/>
+<ovr f='llvm/llvm/lib/Target/MSP430/MSP430ISelDAGToDAG.cpp' l='95' c='(anonymousnamespace)::MSP430DAGToDAGISel'/>
+<ovr f='llvm/llvm/lib/Target/Mips/MipsISelDAGToDAG.h' l='31' c='llvm::MipsDAGToDAGISel'/>
+<ovr f='llvm/llvm/lib/Target/NVPTX/NVPTXISelDAGToDAG.h' l='27' c='llvm::NVPTXDAGToDAGISel'/>
+<ovr f='llvm/llvm/lib/Target/PowerPC/PPCISelDAGToDAG.cpp' l='139' c='(anonymousnamespace)::PPCDAGToDAGISel'/>
+<ovr f='llvm/llvm/lib/Target/Sparc/SparcISelDAGToDAG.cpp' l='31' c='(anonymousnamespace)::SparcDAGToDAGISel'/>
+<ovr f='llvm/llvm/lib/Target/SystemZ/SystemZISelDAGToDAG.cpp' l='134' c='(anonymousnamespace)::SystemZDAGToDAGISel'/>
+<ovr f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyISelDAGToDAG.cpp' l='32' c='(anonymousnamespace)::WebAssemblyDAGToDAGISel'/>
+<ovr f='llvm/llvm/lib/Target/X86/X86ISelDAGToDAG.cpp' l='158' c='(anonymousnamespace)::X86DAGToDAGISel'/>
+<ovr f='llvm/llvm/lib/Target/XCore/XCoreISelDAGToDAG.cpp' l='37' c='(anonymousnamespace)::XCoreDAGToDAGISel'/>

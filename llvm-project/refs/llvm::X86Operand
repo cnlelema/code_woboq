@@ -1,0 +1,117 @@
+<inh f='llvm/llvm/include/llvm/MC/MCParser/MCParsedAsmOperand.h' l='24' c='llvm::MCParsedAsmOperand'/>
+<def f='llvm/llvm/lib/Target/X86/AsmParser/X86Operand.h' l='31' ll='660'/>
+<size>152</size>
+<doc f='llvm/llvm/lib/Target/X86/AsmParser/X86Operand.h' l='29'>/// X86Operand - Instances of this class represent a parsed X86 machine
+/// instruction.</doc>
+<mbr r='llvm::X86Operand::Kind' o='384' t='enum KindTy'/>
+<mbr r='llvm::X86Operand::StartLoc' o='448' t='llvm::SMLoc'/>
+<mbr r='llvm::X86Operand::EndLoc' o='512' t='llvm::SMLoc'/>
+<mbr r='llvm::X86Operand::OffsetOfLoc' o='576' t='llvm::SMLoc'/>
+<mbr r='llvm::X86Operand::SymName' o='640' t='llvm::StringRef'/>
+<mbr r='llvm::X86Operand::OpDecl' o='768' t='void *'/>
+<mbr r='llvm::X86Operand::AddressOf' o='832' t='bool'/>
+<fun r='_ZN4llvm10X86OperandC1ENS0_6KindTyENS_5SMLocES2_'/>
+<fun r='_ZN4llvm10X86Operand10getSymNameEv'/>
+<fun r='_ZN4llvm10X86Operand9getOpDeclEv'/>
+<fun r='_ZNK4llvm10X86Operand11getStartLocEv'/>
+<fun r='_ZNK4llvm10X86Operand9getEndLocEv'/>
+<fun r='_ZNK4llvm10X86Operand11getLocRangeEv'/>
+<fun r='_ZNK4llvm10X86Operand14getOffsetOfLocEv'/>
+<fun r='_ZNK4llvm10X86Operand5printERNS_11raw_ostreamE'/>
+<fun r='_ZNK4llvm10X86Operand8getTokenEv'/>
+<fun r='_ZN4llvm10X86Operand13setTokenValueENS_9StringRefE'/>
+<fun r='_ZNK4llvm10X86Operand6getRegEv'/>
+<fun r='_ZNK4llvm10X86Operand9getPrefixEv'/>
+<fun r='_ZNK4llvm10X86Operand6getImmEv'/>
+<fun r='_ZNK4llvm10X86Operand10getMemDispEv'/>
+<fun r='_ZNK4llvm10X86Operand12getMemSegRegEv'/>
+<fun r='_ZNK4llvm10X86Operand13getMemBaseRegEv'/>
+<fun r='_ZNK4llvm10X86Operand14getMemIndexRegEv'/>
+<fun r='_ZNK4llvm10X86Operand11getMemScaleEv'/>
+<fun r='_ZNK4llvm10X86Operand14getMemModeSizeEv'/>
+<fun r='_ZNK4llvm10X86Operand18getMemFrontendSizeEv'/>
+<fun r='_ZNK4llvm10X86Operand7isTokenEv'/>
+<fun r='_ZNK4llvm10X86Operand5isImmEv'/>
+<fun r='_ZNK4llvm10X86Operand14isImmSExti16i8Ev'/>
+<fun r='_ZNK4llvm10X86Operand14isImmSExti32i8Ev'/>
+<fun r='_ZNK4llvm10X86Operand14isImmSExti64i8Ev'/>
+<fun r='_ZNK4llvm10X86Operand15isImmSExti64i32Ev'/>
+<fun r='_ZNK4llvm10X86Operand15isImmUnsignedi8Ev'/>
+<fun r='_ZNK4llvm10X86Operand10isOffsetOfEv'/>
+<fun r='_ZNK4llvm10X86Operand13needAddressOfEv'/>
+<fun r='_ZNK4llvm10X86Operand5isMemEv'/>
+<fun r='_ZNK4llvm10X86Operand12isMemUnsizedEv'/>
+<fun r='_ZNK4llvm10X86Operand6isMem8Ev'/>
+<fun r='_ZNK4llvm10X86Operand7isMem16Ev'/>
+<fun r='_ZNK4llvm10X86Operand7isMem32Ev'/>
+<fun r='_ZNK4llvm10X86Operand7isMem64Ev'/>
+<fun r='_ZNK4llvm10X86Operand7isMem80Ev'/>
+<fun r='_ZNK4llvm10X86Operand8isMem128Ev'/>
+<fun r='_ZNK4llvm10X86Operand8isMem256Ev'/>
+<fun r='_ZNK4llvm10X86Operand8isMem512Ev'/>
+<fun r='_ZNK4llvm10X86Operand13isMemIndexRegEjj'/>
+<fun r='_ZNK4llvm10X86Operand13isMem64_RC128Ev'/>
+<fun r='_ZNK4llvm10X86Operand14isMem128_RC128Ev'/>
+<fun r='_ZNK4llvm10X86Operand14isMem128_RC256Ev'/>
+<fun r='_ZNK4llvm10X86Operand14isMem256_RC128Ev'/>
+<fun r='_ZNK4llvm10X86Operand14isMem256_RC256Ev'/>
+<fun r='_ZNK4llvm10X86Operand14isMem64_RC128XEv'/>
+<fun r='_ZNK4llvm10X86Operand15isMem128_RC128XEv'/>
+<fun r='_ZNK4llvm10X86Operand15isMem128_RC256XEv'/>
+<fun r='_ZNK4llvm10X86Operand15isMem256_RC128XEv'/>
+<fun r='_ZNK4llvm10X86Operand15isMem256_RC256XEv'/>
+<fun r='_ZNK4llvm10X86Operand14isMem256_RC512Ev'/>
+<fun r='_ZNK4llvm10X86Operand15isMem512_RC256XEv'/>
+<fun r='_ZNK4llvm10X86Operand14isMem512_RC512Ev'/>
+<fun r='_ZNK4llvm10X86Operand8isAbsMemEv'/>
+<fun r='_ZNK4llvm10X86Operand10isAVX512RCEv'/>
+<fun r='_ZNK4llvm10X86Operand10isAbsMem16Ev'/>
+<fun r='_ZNK4llvm10X86Operand8isSrcIdxEv'/>
+<fun r='_ZNK4llvm10X86Operand9isSrcIdx8Ev'/>
+<fun r='_ZNK4llvm10X86Operand10isSrcIdx16Ev'/>
+<fun r='_ZNK4llvm10X86Operand10isSrcIdx32Ev'/>
+<fun r='_ZNK4llvm10X86Operand10isSrcIdx64Ev'/>
+<fun r='_ZNK4llvm10X86Operand8isDstIdxEv'/>
+<fun r='_ZNK4llvm10X86Operand9isDstIdx8Ev'/>
+<fun r='_ZNK4llvm10X86Operand10isDstIdx16Ev'/>
+<fun r='_ZNK4llvm10X86Operand10isDstIdx32Ev'/>
+<fun r='_ZNK4llvm10X86Operand10isDstIdx64Ev'/>
+<fun r='_ZNK4llvm10X86Operand9isMemOffsEv'/>
+<fun r='_ZNK4llvm10X86Operand13isMemOffs16_8Ev'/>
+<fun r='_ZNK4llvm10X86Operand14isMemOffs16_16Ev'/>
+<fun r='_ZNK4llvm10X86Operand14isMemOffs16_32Ev'/>
+<fun r='_ZNK4llvm10X86Operand13isMemOffs32_8Ev'/>
+<fun r='_ZNK4llvm10X86Operand14isMemOffs32_16Ev'/>
+<fun r='_ZNK4llvm10X86Operand14isMemOffs32_32Ev'/>
+<fun r='_ZNK4llvm10X86Operand14isMemOffs32_64Ev'/>
+<fun r='_ZNK4llvm10X86Operand13isMemOffs64_8Ev'/>
+<fun r='_ZNK4llvm10X86Operand14isMemOffs64_16Ev'/>
+<fun r='_ZNK4llvm10X86Operand14isMemOffs64_32Ev'/>
+<fun r='_ZNK4llvm10X86Operand14isMemOffs64_64Ev'/>
+<fun r='_ZNK4llvm10X86Operand8isPrefixEv'/>
+<fun r='_ZNK4llvm10X86Operand5isRegEv'/>
+<fun r='_ZNK4llvm10X86Operand7isDXRegEv'/>
+<fun r='_ZNK4llvm10X86Operand12isGR32orGR64Ev'/>
+<fun r='_ZNK4llvm10X86Operand9isVK1PairEv'/>
+<fun r='_ZNK4llvm10X86Operand9isVK2PairEv'/>
+<fun r='_ZNK4llvm10X86Operand9isVK4PairEv'/>
+<fun r='_ZNK4llvm10X86Operand9isVK8PairEv'/>
+<fun r='_ZNK4llvm10X86Operand10isVK16PairEv'/>
+<fun r='_ZNK4llvm10X86Operand7addExprERNS_6MCInstEPKNS_6MCExprE'/>
+<fun r='_ZNK4llvm10X86Operand14addRegOperandsERNS_6MCInstEj'/>
+<fun r='_ZNK4llvm10X86Operand21addGR32orGR64OperandsERNS_6MCInstEj'/>
+<fun r='_ZNK4llvm10X86Operand19addAVX512RCOperandsERNS_6MCInstEj'/>
+<fun r='_ZNK4llvm10X86Operand14addImmOperandsERNS_6MCInstEj'/>
+<fun r='_ZNK4llvm10X86Operand19addMaskPairOperandsERNS_6MCInstEj'/>
+<fun r='_ZNK4llvm10X86Operand14addMemOperandsERNS_6MCInstEj'/>
+<fun r='_ZNK4llvm10X86Operand17addAbsMemOperandsERNS_6MCInstEj'/>
+<fun r='_ZNK4llvm10X86Operand17addSrcIdxOperandsERNS_6MCInstEj'/>
+<fun r='_ZNK4llvm10X86Operand17addDstIdxOperandsERNS_6MCInstEj'/>
+<fun r='_ZNK4llvm10X86Operand18addMemOffsOperandsERNS_6MCInstEj'/>
+<fun r='_ZN4llvm10X86Operand11CreateTokenENS_9StringRefENS_5SMLocE'/>
+<fun r='_ZN4llvm10X86Operand9CreateRegEjNS_5SMLocES1_bS1_NS_9StringRefEPv'/>
+<fun r='_ZN4llvm10X86Operand11CreateDXRegENS_5SMLocES1_'/>
+<fun r='_ZN4llvm10X86Operand12CreatePrefixEjNS_5SMLocES1_'/>
+<fun r='_ZN4llvm10X86Operand9CreateImmEPKNS_6MCExprENS_5SMLocES4_'/>
+<fun r='_ZN4llvm10X86Operand9CreateMemEjPKNS_6MCExprENS_5SMLocES4_jNS_9StringRefEPvj'/>
+<fun r='_ZN4llvm10X86Operand9CreateMemEjjPKNS_6MCExprEjjjNS_5SMLocES4_jNS_9StringRefEPvj'/>

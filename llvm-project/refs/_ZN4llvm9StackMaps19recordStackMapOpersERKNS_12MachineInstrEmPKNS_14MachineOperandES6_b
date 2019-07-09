@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/StackMaps.h' l='314' type='void llvm::StackMaps::recordStackMapOpers(const llvm::MachineInstr &amp; MI, uint64_t ID, MachineInstr::const_mop_iterator MOI, MachineInstr::const_mop_iterator MOE, bool recordResult = false)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/StackMaps.h' l='309'>/// This should be called by the MC lowering code _immediately_ before
+  /// lowering the MI to an MCInst. It records where the operands for the
+  /// instruction are stored, and outputs a label to record the offset of
+  /// the call from the start of the text section. In special cases (e.g. AnyReg
+  /// calling convention) the return register is also recorded if requested.</doc>
+<def f='llvm/llvm/lib/CodeGen/StackMaps.cpp' l='297' ll='361' type='void llvm::StackMaps::recordStackMapOpers(const llvm::MachineInstr &amp; MI, uint64_t ID, MachineInstr::const_mop_iterator MOI, MachineInstr::const_mop_iterator MOE, bool recordResult = false)'/>
+<use f='llvm/llvm/lib/CodeGen/StackMaps.cpp' l='368' u='c' c='_ZN4llvm9StackMaps14recordStackMapERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/StackMaps.cpp' l='378' u='c' c='_ZN4llvm9StackMaps16recordPatchPointERKNS_12MachineInstrE'/>
+<use f='llvm/llvm/lib/CodeGen/StackMaps.cpp' l='400' u='c' c='_ZN4llvm9StackMaps16recordStatepointERKNS_12MachineInstrE'/>

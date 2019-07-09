@@ -1,0 +1,51 @@
+<dec f='llvm/llvm/include/llvm/MC/MCRegisterInfo.h' l='401' type='int llvm::MCRegisterInfo::getDwarfRegNum(unsigned int RegNum, bool isEH) const'/>
+<doc f='llvm/llvm/include/llvm/MC/MCRegisterInfo.h' l='397'>/// Map a target register to an equivalent dwarf register
+  /// number.  Returns -1 if there is no equivalent value.  The second
+  /// parameter allows targets to use different numberings for EH info and
+  /// debugging info.</doc>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/DwarfExpression.cpp' l='108' u='c' c='_ZN4llvm15DwarfExpression13addMachineRegERKNS_18TargetRegisterInfoEjj'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/DwarfExpression.cpp' l='119' u='c' c='_ZN4llvm15DwarfExpression13addMachineRegERKNS_18TargetRegisterInfoEjj'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/DwarfExpression.cpp' l='147' u='c' c='_ZN4llvm15DwarfExpression13addMachineRegERKNS_18TargetRegisterInfoEjj'/>
+<use f='llvm/llvm/lib/CodeGen/MIRParser/MIParser.cpp' l='2022' u='c' c='_ZN12_GLOBAL__N_18MIParser16parseCFIRegisterERj'/>
+<use f='llvm/llvm/lib/CodeGen/StackMaps.cpp' l='93' u='c' c='_ZL14getDwarfRegNumjPKN4llvm18TargetRegisterInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/StackMaps.cpp' l='95' u='c' c='_ZL14getDwarfRegNumjPKN4llvm18TargetRegisterInfoE'/>
+<use f='llvm/llvm/lib/MC/MCDwarf.cpp' l='1617' u='c' c='_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE'/>
+<use f='llvm/llvm/lib/MC/MCParser/AsmParser.cpp' l='4001' u='c' c='_ZN12_GLOBAL__N_19AsmParser29parseRegisterOrRegisterNumberERlN4llvm5SMLocE'/>
+<def f='llvm/llvm/lib/MC/MCRegisterInfo.cpp' l='66' ll='77' type='int llvm::MCRegisterInfo::getDwarfRegNum(unsigned int RegNum, bool isEH) const'/>
+<use f='llvm/llvm/lib/MC/MCRegisterInfo.cpp' l='115' u='c' c='_ZNK4llvm14MCRegisterInfo31getDwarfRegNumFromDwarfEHRegNumEj'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64FrameLowering.cpp' l='332' u='c' c='_ZNK4llvm20AArch64FrameLowering25emitCalleeSavedFrameMovesERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFrameLowering.cpp' l='599' u='c' c='_ZNK4llvm16ARMFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFrameLowering.cpp' l='607' u='c' c='_ZNK4llvm16ARMFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFrameLowering.cpp' l='685' u='c' c='_ZNK4llvm16ARMFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFrameLowering.cpp' l='2265' u='c' c='_ZNK4llvm16ARMFrameLowering24adjustForSegmentedStacksERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFrameLowering.cpp' l='2269' u='c' c='_ZNK4llvm16ARMFrameLowering24adjustForSegmentedStacksERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFrameLowering.cpp' l='2495' u='c' c='_ZNK4llvm16ARMFrameLowering24adjustForSegmentedStacksERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFrameLowering.cpp' l='2499' u='c' c='_ZNK4llvm16ARMFrameLowering24adjustForSegmentedStacksERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMLoadStoreOptimizer.cpp' l='1661' u='c' c='_ZN12_GLOBAL__N_115ARMLoadStoreOpt19FixInvalidRegPairOpERN4llvm17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMLoadStoreOptimizer.cpp' l='1662' u='c' c='_ZN12_GLOBAL__N_115ARMLoadStoreOpt19FixInvalidRegPairOpERN4llvm17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE'/>
+<use f='llvm/llvm/lib/Target/ARM/Thumb1FrameLowering.cpp' l='272' u='c' c='_ZNK4llvm19Thumb1FrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/ARM/Thumb1FrameLowering.cpp' l='279' u='c' c='_ZNK4llvm19Thumb1FrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/Mips/MCTargetDesc/MipsABIInfo.cpp' l='139' u='c' c='_ZN4llvm11MipsABIInfo32updateCheriInitialFrameStateHackERKNS_9MCAsmInfoERKNS_14MCRegisterInfoE'/>
+<use f='llvm/llvm/lib/Target/Mips/Mips16FrameLowering.cpp' l='79' u='c' c='_ZNK4llvm19Mips16FrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsSEFrameLowering.cpp' l='495' u='c' c='_ZNK4llvm19MipsSEFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsSEFrameLowering.cpp' l='496' u='c' c='_ZNK4llvm19MipsSEFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsSEFrameLowering.cpp' l='513' u='c' c='_ZNK4llvm19MipsSEFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsSEFrameLowering.cpp' l='532' u='c' c='_ZNK4llvm19MipsSEFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsSEFrameLowering.cpp' l='548' u='c' c='_ZNK4llvm19MipsSEFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/MCTargetDesc/PPCMCTargetDesc.cpp' l='92' u='c' c='_ZL18createPPCMCAsmInfoRKN4llvm14MCRegisterInfoERKNS_6TripleE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='1216' u='c' c='_ZNK4llvm16PPCFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='1230' u='c' c='_ZNK4llvm16PPCFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='1248' u='c' c='_ZNK4llvm16PPCFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='1257' u='c' c='_ZNK4llvm16PPCFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='1274' u='c' c='_ZNK4llvm16PPCFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='1310' u='c' c='_ZNK4llvm16PPCFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='1319' u='c' c='_ZNK4llvm16PPCFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='1320' u='c' c='_ZNK4llvm16PPCFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='1332' u='c' c='_ZNK4llvm16PPCFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZFrameLowering.cpp' l='374' u='c' c='_ZNK4llvm20SystemZFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZFrameLowering.cpp' l='456' u='c' c='_ZNK4llvm20SystemZFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/X86/MCTargetDesc/X86MCTargetDesc.cpp' l='352' u='c' c='_ZL18createX86MCAsmInfoRKN4llvm14MCRegisterInfoERKNS_6TripleE'/>
+<use f='llvm/llvm/lib/Target/X86/MCTargetDesc/X86MCTargetDesc.cpp' l='358' u='c' c='_ZL18createX86MCAsmInfoRKN4llvm14MCRegisterInfoERKNS_6TripleE'/>
+<use f='llvm/llvm/lib/Target/X86/X86FrameLowering.cpp' l='478' u='c' c='_ZNK4llvm16X86FrameLowering25emitCalleeSavedFrameMovesERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocE'/>
+<use f='llvm/llvm/lib/Target/XCore/XCoreFrameLowering.cpp' l='295' u='c' c='_ZNK4llvm18XCoreFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>
+<use f='llvm/llvm/lib/Target/XCore/XCoreFrameLowering.cpp' l='320' u='c' c='_ZNK4llvm18XCoreFrameLowering12emitPrologueERNS_15MachineFunctionERNS_17MachineBasicBlockE'/>

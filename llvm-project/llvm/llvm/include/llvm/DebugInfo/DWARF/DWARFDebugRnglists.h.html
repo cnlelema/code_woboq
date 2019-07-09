@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>DWARFDebugRnglists.h source code [llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFDebugRnglists.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::DWARFDebugRnglist,llvm::DWARFDebugRnglistTable,llvm::RangeListEntry "/>
+<link rel="stylesheet" href="../../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFDebugRnglists.h'; var root_path = '../../../../../..'; var data_path = '../../../../../../../data';</script>
+<script src='../../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>llvm</a>/<a href='../../../..'>llvm</a>/<a href='../../..'>include</a>/<a href='../..'>llvm</a>/<a href='..'>DebugInfo</a>/<a href='./'>DWARF</a>/<a href='DWARFDebugRnglists.h.html'>DWARFDebugRnglists.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- DWARFDebugRnglists.h -------------------------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLVM_DEBUGINFO_DWARFDEBUGRNGLISTS_H">LLVM_DEBUGINFO_DWARFDEBUGRNGLISTS_H</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLVM_DEBUGINFO_DWARFDEBUGRNGLISTS_H" data-ref="_M/LLVM_DEBUGINFO_DWARFDEBUGRNGLISTS_H">LLVM_DEBUGINFO_DWARFDEBUGRNGLISTS_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="../../ADT/Optional.h.html">"llvm/ADT/Optional.h"</a></u></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../../BinaryFormat/Dwarf.h.html">"llvm/BinaryFormat/Dwarf.h"</a></u></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="../DIContext.h.html">"llvm/DebugInfo/DIContext.h"</a></u></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="DWARFDataExtractor.h.html">"llvm/DebugInfo/DWARF/DWARFDataExtractor.h"</a></u></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="DWARFDebugRangeList.h.html">"llvm/DebugInfo/DWARF/DWARFDebugRangeList.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="DWARFListTable.h.html">"llvm/DebugInfo/DWARF/DWARFListTable.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../../../../include/c++/7/cstdint.html">&lt;cstdint&gt;</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../../../include/c++/7/map.html">&lt;map&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../../../include/c++/7/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>class</b> <a class="type" href="../../Support/Error.h.html#llvm::Error" title='llvm::Error' data-ref="llvm::Error" id="llvm::Error">Error</a>;</td></tr>
+<tr><th id="25">25</th><td><b>class</b> <a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream" id="llvm::raw_ostream">raw_ostream</a>;</td></tr>
+<tr><th id="26">26</th><td><b>class</b> <a class="type" href="DWARFUnit.h.html#llvm::DWARFUnit" title='llvm::DWARFUnit' data-ref="llvm::DWARFUnit" id="llvm::DWARFUnit">DWARFUnit</a>;</td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><i class="doc">/// A class representing a single range list entry.</i></td></tr>
+<tr><th id="29">29</th><td><b>struct</b> <dfn class="type def" id="llvm::RangeListEntry" title='llvm::RangeListEntry' data-ref="llvm::RangeListEntry">RangeListEntry</dfn> : <b>public</b> <a class="type" href="DWARFListTable.h.html#llvm::DWARFListEntryBase" title='llvm::DWARFListEntryBase' data-ref="llvm::DWARFListEntryBase">DWARFListEntryBase</a> {</td></tr>
+<tr><th id="30">30</th><td>  <i class="doc">/// The values making up the range list entry. Most represent a range with</i></td></tr>
+<tr><th id="31">31</th><td><i class="doc">  /// a start and end address or a start address and a length. Others are</i></td></tr>
+<tr><th id="32">32</th><td><i class="doc">  /// single value base addresses or end-of-list with no values. The unneeded</i></td></tr>
+<tr><th id="33">33</th><td><i class="doc">  /// values are semantically undefined, but initialized to 0.</i></td></tr>
+<tr><th id="34">34</th><td>  <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="decl" id="llvm::RangeListEntry::Value0" title='llvm::RangeListEntry::Value0' data-ref="llvm::RangeListEntry::Value0">Value0</dfn>;</td></tr>
+<tr><th id="35">35</th><td>  <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="decl" id="llvm::RangeListEntry::Value1" title='llvm::RangeListEntry::Value1' data-ref="llvm::RangeListEntry::Value1">Value1</dfn>;</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td>  <a class="type" href="../../Support/Error.h.html#llvm::Error" title='llvm::Error' data-ref="llvm::Error">Error</a> <dfn class="decl" id="_ZN4llvm14RangeListEntry7extractENS_18DWARFDataExtractorEjPj" title='llvm::RangeListEntry::extract' data-ref="_ZN4llvm14RangeListEntry7extractENS_18DWARFDataExtractorEjPj">extract</dfn>(<a class="type" href="DWARFDataExtractor.h.html#llvm::DWARFDataExtractor" title='llvm::DWARFDataExtractor' data-ref="llvm::DWARFDataExtractor">DWARFDataExtractor</a> <dfn class="local col6 decl" id="556Data" title='Data' data-type='llvm::DWARFDataExtractor' data-ref="556Data">Data</dfn>, <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col7 decl" id="557End" title='End' data-type='uint32_t' data-ref="557End">End</dfn>, <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> *<dfn class="local col8 decl" id="558OffsetPtr" title='OffsetPtr' data-type='uint32_t *' data-ref="558OffsetPtr">OffsetPtr</dfn>);</td></tr>
+<tr><th id="38">38</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm14RangeListEntry4dumpERNS_11raw_ostreamEhhRmNS_13DIDumpOptionsENS_12function_refIFNS_8OptionalINS_6object16SectionedAddressEEEjEEE" title='llvm::RangeListEntry::dump' data-ref="_ZNK4llvm14RangeListEntry4dumpERNS_11raw_ostreamEhhRmNS_13DIDumpOptionsENS_12function_refIFNS_8OptionalINS_6object16SectionedAddressEEEjEEE">dump</dfn>(<a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col9 decl" id="559OS" title='OS' data-type='llvm::raw_ostream &amp;' data-ref="559OS">OS</dfn>, <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col0 decl" id="560AddrSize" title='AddrSize' data-type='uint8_t' data-ref="560AddrSize">AddrSize</dfn>, <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col1 decl" id="561MaxEncodingStringLength" title='MaxEncodingStringLength' data-type='uint8_t' data-ref="561MaxEncodingStringLength">MaxEncodingStringLength</dfn>,</td></tr>
+<tr><th id="39">39</th><td>            <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> &amp;<dfn class="local col2 decl" id="562CurrentBase" title='CurrentBase' data-type='uint64_t &amp;' data-ref="562CurrentBase">CurrentBase</dfn>, <a class="type" href="../DIContext.h.html#llvm::DIDumpOptions" title='llvm::DIDumpOptions' data-ref="llvm::DIDumpOptions">DIDumpOptions</a> <dfn class="local col3 decl" id="563DumpOpts" title='DumpOpts' data-type='llvm::DIDumpOptions' data-ref="563DumpOpts">DumpOpts</dfn>,</td></tr>
+<tr><th id="40">40</th><td>            <span class="namespace">llvm::</span><a class="type" href="../../ADT/STLExtras.h.html#llvm::function_ref" title='llvm::function_ref' data-ref="llvm::function_ref">function_ref</a>&lt;<a class="type" href="../../../../../clang/include/clang/Basic/LLVM.h.html#llvm::Optional" title='llvm::Optional' data-ref="llvm::Optional">Optional</a>&lt;<span class="namespace">object::</span><a class="type" href="../../Object/ObjectFile.h.html#llvm::object::SectionedAddress" title='llvm::object::SectionedAddress' data-ref="llvm::object::SectionedAddress">SectionedAddress</a>&gt;(<a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a>)&gt;</td></tr>
+<tr><th id="41">41</th><td>                <dfn class="local col4 decl" id="564LookupPooledAddress" title='LookupPooledAddress' data-type='llvm::function_ref&lt;Optional&lt;object::SectionedAddress&gt; (uint32_t)&gt;' data-ref="564LookupPooledAddress">LookupPooledAddress</dfn>) <em>const</em>;</td></tr>
+<tr><th id="42">42</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm14RangeListEntry10isSentinelEv" title='llvm::RangeListEntry::isSentinel' data-ref="_ZNK4llvm14RangeListEntry10isSentinelEv">isSentinel</dfn>() <em>const</em> { <b>return</b> <a class="member" href="DWARFListTable.h.html#llvm::DWARFListEntryBase::EntryKind" title='llvm::DWARFListEntryBase::EntryKind' data-ref="llvm::DWARFListEntryBase::EntryKind">EntryKind</a> == <span class="namespace">dwarf::</span><a class="enum" href="../../BinaryFormat/Dwarf.def.html#800" title='llvm::dwarf::RangeListEntries::DW_RLE_end_of_list' data-ref="llvm::dwarf::RangeListEntries::DW_RLE_end_of_list">DW_RLE_end_of_list</a>; }</td></tr>
+<tr><th id="43">43</th><td>};</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><i class="doc">/// A class representing a single rangelist.</i></td></tr>
+<tr><th id="46">46</th><td><b>class</b> <dfn class="type def" id="llvm::DWARFDebugRnglist" title='llvm::DWARFDebugRnglist' data-ref="llvm::DWARFDebugRnglist">DWARFDebugRnglist</dfn> : <b>public</b> <a class="type" href="DWARFListTable.h.html#llvm::DWARFListType" title='llvm::DWARFListType' data-ref="llvm::DWARFListType">DWARFListType</a>&lt;<a class="type" href="#llvm::RangeListEntry" title='llvm::RangeListEntry' data-ref="llvm::RangeListEntry">RangeListEntry</a>&gt; {</td></tr>
+<tr><th id="47">47</th><td><b>public</b>:</td></tr>
+<tr><th id="48">48</th><td>  <i class="doc">/// Build a DWARFAddressRangesVector from a rangelist.</i></td></tr>
+<tr><th id="49">49</th><td>  <a class="typedef" href="DWARFAddressRange.h.html#llvm::DWARFAddressRangesVector" title='llvm::DWARFAddressRangesVector' data-type='std::vector&lt;DWARFAddressRange&gt;' data-ref="llvm::DWARFAddressRangesVector">DWARFAddressRangesVector</a></td></tr>
+<tr><th id="50">50</th><td>  <dfn class="decl" id="_ZNK4llvm17DWARFDebugRnglist17getAbsoluteRangesENS_8OptionalINS_6object16SectionedAddressEEERNS_9DWARFUnitE" title='llvm::DWARFDebugRnglist::getAbsoluteRanges' data-ref="_ZNK4llvm17DWARFDebugRnglist17getAbsoluteRangesENS_8OptionalINS_6object16SectionedAddressEEERNS_9DWARFUnitE">getAbsoluteRanges</dfn>(<span class="namespace">llvm::</span><a class="type" href="../../../../../clang/include/clang/Basic/LLVM.h.html#llvm::Optional" title='llvm::Optional' data-ref="llvm::Optional">Optional</a>&lt;<span class="namespace">object::</span><a class="type" href="../../Object/ObjectFile.h.html#llvm::object::SectionedAddress" title='llvm::object::SectionedAddress' data-ref="llvm::object::SectionedAddress">SectionedAddress</a>&gt; <dfn class="local col5 decl" id="565BaseAddr" title='BaseAddr' data-type='llvm::Optional&lt;object::SectionedAddress&gt;' data-ref="565BaseAddr">BaseAddr</dfn>,</td></tr>
+<tr><th id="51">51</th><td>                    <a class="type" href="DWARFUnit.h.html#llvm::DWARFUnit" title='llvm::DWARFUnit' data-ref="llvm::DWARFUnit">DWARFUnit</a> &amp;<dfn class="local col6 decl" id="566U" title='U' data-type='llvm::DWARFUnit &amp;' data-ref="566U">U</dfn>) <em>const</em>;</td></tr>
+<tr><th id="52">52</th><td>};</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><b>class</b> <dfn class="type def" id="llvm::DWARFDebugRnglistTable" title='llvm::DWARFDebugRnglistTable' data-ref="llvm::DWARFDebugRnglistTable">DWARFDebugRnglistTable</dfn> : <b>public</b> <a class="type" href="DWARFListTable.h.html#llvm::DWARFListTableBase" title='llvm::DWARFListTableBase' data-ref="llvm::DWARFListTableBase">DWARFListTableBase</a>&lt;<a class="type" href="#llvm::DWARFDebugRnglist" title='llvm::DWARFDebugRnglist' data-ref="llvm::DWARFDebugRnglist">DWARFDebugRnglist</a>&gt; {</td></tr>
+<tr><th id="55">55</th><td><b>public</b>:</td></tr>
+<tr><th id="56">56</th><td>  <dfn class="decl def" id="_ZN4llvm22DWARFDebugRnglistTableC1Ev" title='llvm::DWARFDebugRnglistTable::DWARFDebugRnglistTable' data-ref="_ZN4llvm22DWARFDebugRnglistTableC1Ev">DWARFDebugRnglistTable</dfn>()</td></tr>
+<tr><th id="57">57</th><td>      : <a class="type" href="DWARFListTable.h.html#llvm::DWARFListTableBase" title='llvm::DWARFListTableBase' data-ref="llvm::DWARFListTableBase">DWARFListTableBase</a><a class="ref" href="DWARFListTable.h.html#_ZN4llvm18DWARFListTableBaseC1ENS_9StringRefES1_S1_" title='llvm::DWARFListTableBase::DWARFListTableBase&lt;DWARFListType&gt;' data-ref="_ZN4llvm18DWARFListTableBaseC1ENS_9StringRefES1_S1_">(</a><i>/* SectionName    = */</i> <a class="ref fake" href="../../ADT/StringRef.h.html#_ZN4llvm9StringRefC1EPKc" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1EPKc"></a><q>".debug_rnglists"</q>,</td></tr>
+<tr><th id="58">58</th><td>                           <i>/* HeaderString   = */</i> <a class="ref fake" href="../../ADT/StringRef.h.html#_ZN4llvm9StringRefC1EPKc" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1EPKc"></a><q>"ranges:"</q>,</td></tr>
+<tr><th id="59">59</th><td>                           <i>/* ListTypeString = */</i> <a class="ref fake" href="../../ADT/StringRef.h.html#_ZN4llvm9StringRefC1EPKc" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1EPKc"></a><q>"range"</q>) {}</td></tr>
+<tr><th id="60">60</th><td>};</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><u>#<span data-ppcond="9">endif</span> // LLVM_DEBUGINFO_DWARFDEBUGRNGLISTS_H</u></td></tr>
+<tr><th id="65">65</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../../clang/lib/CodeGen/ObjectFilePCHContainerOperations.cpp.html'>llvm/clang/lib/CodeGen/ObjectFilePCHContainerOperations.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

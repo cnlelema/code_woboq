@@ -1,0 +1,32 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/ISDOpcodes.h' l='320' type='113'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/ISDOpcodes.h' l='307'>/// X = STRICT_FP_ROUND(Y, TRUNC) - Rounding &apos;Y&apos; from a larger floating 
+    /// point type down to the precision of the destination VT.  TRUNC is a 
+    /// flag, which is always an integer that is zero or one.  If TRUNC is 0,
+    /// this is a normal rounding, if it is 1, this FP_ROUND is known to not
+    /// change the value of Y.
+    ///
+    /// The TRUNC = 1 case is used in cases where we know that the value will
+    /// not be modified by the node, because Y is not using any of the extra
+    /// precision of source type.  This allows certain transformations like
+    /// STRICT_FP_EXTEND(STRICT_FP_ROUND(X,1)) -&gt; X which are not safe for
+    /// STRICT_FP_EXTEND(STRICT_FP_ROUND(X,0)) because the extra bits aren&apos;t
+    /// removed.
+    /// It is used to limit optimizations while the DAG is being optimized.</doc>
+<use f='llvm/llvm/include/llvm/CodeGen/SelectionDAGNodes.h' l='707' c='_ZN4llvm6SDNode16isStrictFPOpcodeEv'/>
+<use f='llvm/llvm/include/llvm/CodeGen/TargetLowering.h' l='933' c='_ZNK4llvm18TargetLoweringBase26getStrictFPOperationActionEjNS_3EVTE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeDAG.cpp' l='1122' c='_ZN12_GLOBAL__N_120SelectionDAGLegalize10LegalizeOpEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeDAG.cpp' l='2850' c='_ZN12_GLOBAL__N_120SelectionDAGLegalize10ExpandNodeEPN4llvm6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='336' c='_ZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='53' c='_ZN4llvm16DAGTypeLegalizer21ScalarizeVectorResultEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='330' u='r' c='_ZN4llvm16DAGTypeLegalizer31ScalarizeVecRes_STRICT_FP_ROUNDEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='622' c='_ZN4llvm16DAGTypeLegalizer22ScalarizeVectorOperandEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='777' u='r' c='_ZN4llvm16DAGTypeLegalizer30ScalarizeVecOp_STRICT_FP_ROUNDEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='881' c='_ZN4llvm16DAGTypeLegalizer17SplitVectorResultEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1720' u='r' c='_ZN4llvm16DAGTypeLegalizer19SplitVecRes_UnaryOpEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='1938' c='_ZN4llvm16DAGTypeLegalizer18SplitVectorOperandEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2781' c='_ZN4llvm16DAGTypeLegalizer17WidenVectorResultEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='7955' c='_ZN4llvm12SelectionDAG18mutateStrictFPToFPEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='6986' u='r' c='_ZN4llvm19SelectionDAGBuilder27visitConstrainedFPIntrinsicERKNS_22ConstrainedFPIntrinsicE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGDumper.cpp' l='322' c='_ZNK4llvm6SDNode16getOperationNameEPKNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetLoweringBase.cpp' l='691' u='r' c='_ZN4llvm18TargetLoweringBase11initActionsEv'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='413' u='r' c='_ZN4llvm21SystemZTargetLoweringC1ERKNS_13TargetMachineERKNS_16SystemZSubtargetE'/>

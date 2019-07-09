@@ -1,0 +1,87 @@
+<dec f='llvm/llvm/include/llvm/Support/Error.h' l='962' type='void llvm::logAllUnhandledErrors(llvm::Error E, llvm::raw_ostream &amp; OS, llvm::Twine ErrorBanner = {})'/>
+<use f='llvm/llvm/include/llvm/Support/Error.h' l='1285' u='c' c='_ZNK4llvm11ExitOnError10checkErrorENS_5ErrorE'/>
+<doc f='llvm/llvm/include/llvm/Support/Error.h' l='951'>/// Log all errors (if any) in E to OS. If there are any errors, ErrorBanner
+/// will be printed before the first one is logged. A newline will be printed
+/// after each error.
+///
+/// This function is compatible with the helpers from Support/WithColor.h. You
+/// can pass any of them as the OS. Please consider using them instead of
+/// including &apos;error: &apos; in the ErrorBanner.
+///
+/// This is useful in the base level of your program to allow clean termination
+/// (allowing clean deallocation of resources, etc.), while reporting error
+/// information to the user.</doc>
+<use f='llvm/llvm/include/llvm/ExecutionEngine/Orc/Core.h' l='908' u='c' c='_ZN4llvm3orc16ExecutionSession17logErrorsToStdErrENS_5ErrorE'/>
+<use f='llvm/clang/lib/CodeGen/BackendUtil.cpp' l='1504' u='c' c='_ZN5clang17EmitBackendOutputERNS_17DiagnosticsEngineERKNS_19HeaderSearchOptionsERKNS_14CodeGenOptionsERKNS_13TargetOptionsERKNS_11LangOptionsERKN4llvm15382461'/>
+<use f='llvm/lld/lib/Core/Resolver.cpp' l='256' u='c' c='_ZN3lld8Resolver16resolveUndefinesEv'/>
+<use f='llvm/lld/lib/Core/Resolver.cpp' l='270' u='c' c='_ZN3lld8Resolver16resolveUndefinesEv'/>
+<use f='llvm/lld/lib/Core/Resolver.cpp' l='283' u='c' c='_ZN3lld8Resolver16resolveUndefinesEv'/>
+<use f='llvm/lld/lib/Driver/DarwinLdDriver.cpp' l='1201' u='c' c='_ZN3lld6mach_o4linkEN4llvm8ArrayRefIPKcEEbRNS1_11raw_ostreamE'/>
+<use f='llvm/lld/lib/Driver/DarwinLdDriver.cpp' l='1215' u='c' c='_ZN3lld6mach_o4linkEN4llvm8ArrayRefIPKcEEbRNS1_11raw_ostreamE'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/CodeViewDebug.cpp' l='629' u='c' c='_ZN4llvm13CodeViewDebug19emitTypeInformationEv'/>
+<use f='llvm/llvm/lib/ExecutionEngine/MCJIT/MCJIT.cpp' l='218' u='c' c='_ZN4llvm5MCJIT21generateCodeForModuleEPNS_6ModuleE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/OrcCBindingsStack.h' l='451' u='c' c='_ZN4llvm17OrcCBindingsStack28createCompileCallbackManagerERNS_13TargetMachineERNS_3orc16ExecutionSessionE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/OrcCBindingsStack.h' l='485' u='c' c='_ZN4llvm17OrcCBindingsStack11reportErrorENS_5ErrorE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/OrcMCJITReplacement.h' l='228' u='c' c='_ZN4llvm3orc19OrcMCJITReplacement11reportErrorENS_5ErrorE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/Targets/RuntimeDyldCOFFThumb.h' l='31' u='c' c='_ZN4llvmL11isThumbFuncENS_6object15symbol_iteratorERKNS0_10ObjectFileENS0_16content_iteratorINS0_10SectionRefEEE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyldCOFF.cpp' l='68' u='c' c='_ZN4llvm15RuntimeDyldCOFF10loadObjectERKNS_6object10ObjectFileE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyldChecker.cpp' l='740' u='c' c='_ZNK4llvm22RuntimeDyldCheckerImpl18getSymbolLocalAddrENS_9StringRefE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyldChecker.cpp' l='754' u='c' c='_ZNK4llvm22RuntimeDyldCheckerImpl19getSymbolRemoteAddrENS_9StringRefE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyldChecker.cpp' l='783' u='c' c='_ZNK4llvm22RuntimeDyldCheckerImpl16getSymbolContentENS_9StringRefE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyldChecker.cpp' l='797' u='c' c='_ZNK4llvm22RuntimeDyldCheckerImpl14getSectionAddrENS_9StringRefES1_b'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyldChecker.cpp' l='830' u='c' c='_ZNK4llvm22RuntimeDyldCheckerImpl19getStubOrGOTAddrForENS_9StringRefES1_bb'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyldELF.cpp' l='258' u='c' c='_ZN4llvm14RuntimeDyldELF10loadObjectERKNS_6object10ObjectFileE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyldELF.cpp' l='1133' u='c' c='_ZN4llvm14RuntimeDyldELF20processRelocationRefEjNS_6object16content_iteratorINS1_13RelocationRefEEERKNS1_10ObjectFileERSt3mapINS1_10SectionRefEjSt4les13859204'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyldELF.cpp' l='1154' u='c' c='_ZN4llvm14RuntimeDyldELF20processRelocationRefEjNS_6object16content_iteratorINS1_13RelocationRefEEERKNS1_10ObjectFileERSt3mapINS1_10SectionRefEjSt4les13859204'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyldMachO.cpp' l='372' u='c' c='_ZN4llvm16RuntimeDyldMachO10loadObjectERKNS_6object10ObjectFileE'/>
+<use f='llvm/llvm/lib/LTO/LTOModule.cpp' l='75' u='c' c='_ZN4llvm9LTOModule9isThinLTOEv'/>
+<use f='llvm/llvm/lib/LTO/ThinLTOCodeGenerator.cpp' l='568' u='c' c='_ZN4llvm20ThinLTOCodeGenerator17linkCombinedIndexEv'/>
+<use f='llvm/llvm/lib/Object/Object.cpp' l='224' u='c' c='LLVMMoveToContainingSection'/>
+<use f='llvm/llvm/lib/Object/Object.cpp' l='306' u='c' c='LLVMGetSymbolName'/>
+<use f='llvm/llvm/lib/Object/Object.cpp' l='318' u='c' c='LLVMGetSymbolAddress'/>
+<def f='llvm/llvm/lib/Support/Error.cpp' l='61' ll='69' type='void llvm::logAllUnhandledErrors(llvm::Error E, llvm::raw_ostream &amp; OS, llvm::Twine ErrorBanner = {})'/>
+<use f='llvm/llvm/lib/Support/Error.cpp' l='144' u='c' c='_ZN4llvm18report_fatal_errorENS_5ErrorEb'/>
+<use f='llvm/llvm/lib/Transforms/IPO/FunctionImport.cpp' l='1220' u='c' c='_ZL20doImportingForModuleRN4llvm6ModuleE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/FunctionImport.cpp' l='1265' u='c' c='_ZL20doImportingForModuleRN4llvm6ModuleE'/>
+<use f='llvm/llvm/tools/lli/lli.cpp' l='507' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-cov/TestingSupport.cpp' l='35' u='c' c='_Z21convertForTestingMainiPPKc'/>
+<use f='llvm/llvm/tools/llvm-cxxdump/llvm-cxxdump.cpp' l='52' u='c' c='_ZN4llvmL5errorENS_5ErrorE'/>
+<use f='llvm/llvm/tools/llvm-cxxdump/llvm-cxxdump.cpp' l='504' u='c' c='_ZL11dumpArchivePKN4llvm6object7ArchiveE'/>
+<use f='llvm/llvm/tools/llvm-dwarfdump/llvm-dwarfdump.cpp' l='418' u='c' c='_ZL14dumpObjectFileRN4llvm6object10ObjectFileERNS_12DWARFContextENS_5TwineERNS_11raw_ostreamE'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='731' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-dwp/llvm-dwp.cpp' l='740' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-lipo/llvm-lipo.cpp' l='40' u='c' c='_ZL11reportErrorN4llvm9StringRefENS_5ErrorE'/>
+<use f='llvm/llvm/tools/llvm-nm/llvm-nm.cpp' l='260' u='c' c='_ZL5errorN4llvm5ErrorENS_9StringRefERKNS_6object7Archive5ChildES1_'/>
+<use f='llvm/llvm/tools/llvm-nm/llvm-nm.cpp' l='279' u='c' c='_ZL5errorN4llvm5ErrorENS_9StringRefES1_'/>
+<use f='llvm/llvm/tools/llvm-objcopy/llvm-objcopy.cpp' l='65' u='c' c='_ZN4llvm7objcopy5errorENS_5ErrorE'/>
+<use f='llvm/llvm/tools/llvm-objcopy/llvm-objcopy.cpp' l='80' u='c' c='_ZN4llvm7objcopy11reportErrorENS_9StringRefENS_5ErrorE'/>
+<use f='llvm/llvm/tools/llvm-objcopy/llvm-objcopy.cpp' l='270' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-objcopy/llvm-objcopy.cpp' l='276' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-objdump/llvm-objdump.cpp' l='397' u='c' c='_ZN4llvm12report_errorENS_5ErrorENS_9StringRefE'/>
+<use f='llvm/llvm/tools/llvm-objdump/llvm-objdump.cpp' l='416' u='c' c='_ZN4llvm12report_errorENS_5ErrorENS_9StringRefES1_S1_'/>
+<use f='llvm/llvm/tools/llvm-readobj/ARMWinEHPrinter.cpp' l='905' u='c' c='_ZN4llvm3ARM5WinEH7Decoder15dumpXDataRecordERKNS_6object14COFFObjectFileERKNS3_10SectionRefEmm'/>
+<use f='llvm/llvm/tools/llvm-readobj/ARMWinEHPrinter.cpp' l='944' u='c' c='_ZN4llvm3ARM5WinEH7Decoder17dumpUnpackedEntryERKNS_6object14COFFObjectFileENS3_10SectionRefEmjRKNS1_15RuntimeFunctionE'/>
+<use f='llvm/llvm/tools/llvm-readobj/ARMWinEHPrinter.cpp' l='953' u='c' c='_ZN4llvm3ARM5WinEH7Decoder17dumpUnpackedEntryERKNS_6object14COFFObjectFileENS3_10SectionRefEmjRKNS1_15RuntimeFunctionE'/>
+<use f='llvm/llvm/tools/llvm-readobj/ARMWinEHPrinter.cpp' l='969' u='c' c='_ZN4llvm3ARM5WinEH7Decoder17dumpUnpackedEntryERKNS_6object14COFFObjectFileENS3_10SectionRefEmjRKNS1_15RuntimeFunctionE'/>
+<use f='llvm/llvm/tools/llvm-readobj/ARMWinEHPrinter.cpp' l='978' u='c' c='_ZN4llvm3ARM5WinEH7Decoder17dumpUnpackedEntryERKNS_6object14COFFObjectFileENS3_10SectionRefEmjRKNS1_15RuntimeFunctionE'/>
+<use f='llvm/llvm/tools/llvm-readobj/ARMWinEHPrinter.cpp' l='1027' u='c' c='_ZN4llvm3ARM5WinEH7Decoder15dumpPackedEntryERKNS_6object14COFFObjectFileENS3_10SectionRefEmjRKNS1_15RuntimeFunctionE'/>
+<use f='llvm/llvm/tools/llvm-readobj/ARMWinEHPrinter.cpp' l='1036' u='c' c='_ZN4llvm3ARM5WinEH7Decoder15dumpPackedEntryERKNS_6object14COFFObjectFileENS3_10SectionRefEmjRKNS1_15RuntimeFunctionE'/>
+<use f='llvm/llvm/tools/llvm-rtdyld/llvm-rtdyld.cpp' l='371' u='c' c='_ZL21printLineInfoForInputbb'/>
+<use f='llvm/llvm/tools/llvm-rtdyld/llvm-rtdyld.cpp' l='506' u='c' c='_ZL12executeInputv'/>
+<use f='llvm/llvm/tools/llvm-rtdyld/llvm-rtdyld.cpp' l='825' u='c' c='_ZL13linkAndVerifyv'/>
+<use f='llvm/llvm/tools/llvm-rtdyld/llvm-rtdyld.cpp' l='886' u='c' c='_ZL13linkAndVerifyv'/>
+<use f='llvm/llvm/tools/llvm-size/llvm-size.cpp' l='147' u='c' c='_ZL5errorN4llvm5ErrorENS_9StringRefERKNS_6object7Archive5ChildES1_'/>
+<use f='llvm/llvm/tools/llvm-size/llvm-size.cpp' l='165' u='c' c='_ZL5errorN4llvm5ErrorENS_9StringRefES1_'/>
+<use f='llvm/llvm/tools/llvm-xray/xray-stacks.cpp' l='737' u='c'/>
+<use f='llvm/llvm/tools/obj2yaml/coff2yaml.cpp' l='201' u='c' c='_ZN12_GLOBAL__N_110COFFDumper12dumpSectionsEj'/>
+<use f='llvm/llvm/tools/obj2yaml/obj2yaml.cpp' l='59' u='c' c='_ZL11reportErrorN4llvm9StringRefENS_5ErrorE'/>
+<use f='llvm/llvm/tools/sancov/sancov.cpp' l='195' u='c' c='_ZN12_GLOBAL__N_1L11failIfErrorEN4llvm5ErrorE'/>
+<use f='llvm/llvm/tools/sanstats/sanstats.cpp' l='95' u='c' c='_Z10ReadModulecPKcS0_'/>
+<use f='llvm/llvm/tools/verify-uselistorder/verify-uselistorder.cpp' l='163' u='c' c='_ZNK12_GLOBAL__N_18TempFile11readBitcodeERN4llvm11LLVMContextE'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/RemoteObjectLayerTest.cpp' l='120' u='c' c='_ZN12_GLOBAL__N_132RemoteObjectLayer_AddObject_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/RemoteObjectLayerTest.cpp' l='232' u='c' c='_ZN12_GLOBAL__N_135RemoteObjectLayer_RemoveObject_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/ExecutionEngine/Orc/RemoteObjectLayerTest.cpp' l='495' u='c' c='_ZN12_GLOBAL__N_138RemoteObjectLayer_EmitAndFinalize_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/ErrorTest.cpp' l='436' u='c' c='_ZN12_GLOBAL__N_122Error_StringError_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/ErrorTest.cpp' l='451' u='c' c='_ZN12_GLOBAL__N_128Error_createStringError_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/ErrorTest.cpp' l='458' u='c' c='_ZN12_GLOBAL__N_128Error_createStringError_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='710' u='c' c='_ZN12_GLOBAL__N_138FileSystemTest_TempFileCollisions_Test8TestBodyEv'/>

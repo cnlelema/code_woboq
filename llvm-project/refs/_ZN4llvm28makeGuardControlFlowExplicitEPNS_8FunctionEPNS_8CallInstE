@@ -1,0 +1,8 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/GuardUtils.h' l='25' type='void llvm::makeGuardControlFlowExplicit(llvm::Function * DeoptIntrinsic, llvm::CallInst * Guard)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/GuardUtils.h' l='20'>/// Splits control flow at point of \p Guard, replacing it with explicit branch
+/// by the condition of guard&apos;s first argument. The taken branch then goes to
+/// the block that contains  \p Guard&apos;s successors, and the non-taken branch
+/// goes to a newly-created deopt block that contains a sole call of the
+/// deoptimize function \p DeoptIntrinsic.</doc>
+<use f='llvm/llvm/lib/Transforms/Scalar/MakeGuardsExplicit.cpp' l='60' u='c' c='_ZL18turnToExplicitFormPN4llvm8CallInstEPNS_8FunctionE'/>
+<def f='llvm/llvm/lib/Transforms/Utils/GuardUtils.cpp' l='26' ll='63' type='void llvm::makeGuardControlFlowExplicit(llvm::Function * DeoptIntrinsic, llvm::CallInst * Guard)'/>

@@ -1,0 +1,101 @@
+<dec f='llvm/clang/include/clang/AST/Type.h' l='1880' type='bool clang::Type::isIncompleteType(clang::NamedDecl ** Def = nullptr) const'/>
+<use f='llvm/clang/include/clang/AST/ASTContext.h' l='2166' u='c' c='_ZNK5clang10ASTContext25getTypeSizeInCharsIfKnownENS_8QualTypeE'/>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='1869'>/// Types are partitioned into 3 broad categories (C99 6.2.5p1):
+  /// object types, function types, and incomplete types.
+
+  /// Return true if this is an incomplete type.
+  /// A type that can describe objects, but which lacks information needed to
+  /// determine its size (e.g. void, or a fwd declared struct). Clients of this
+  /// routine will need to determine if the size is actually required.
+  ///
+  /// Def If non-null, and the type refers to some kind of declaration
+  /// that can be completed (such as a C struct, C++ class, or Objective-C
+  /// class), will be set to the declaration.</doc>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='1601' u='c' c='_ZNK5clang10ASTContext12getDeclAlignEPKNS_4DeclEb'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='1728' u='c' c='_ZNK5clang10ASTContext19getTypeAlignIfKnownENS_8QualTypeE'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='3171' u='c' c='_ZNK5clang10ASTContext20getConstantArrayTypeENS_8QualTypeERKN4llvm5APIntENS_9ArrayType17ArraySizeModifierEj'/>
+<use f='llvm/clang/lib/AST/ASTContext.cpp' l='6303' u='c' c='_ZNK5clang10ASTContext23getObjCEncodingTypeSizeENS_8QualTypeE'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='6963' u='c' c='_ZN12_GLOBAL__N_120PointerExprEvaluator20VisitBuiltinCallExprEPKN5clang8CallExprEj'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='7089' u='c' c='_ZN12_GLOBAL__N_120PointerExprEvaluator20VisitBuiltinCallExprEPKN5clang8CallExprEj'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='8857' u='c' c='_ZL18determineEndOffsetRN12_GLOBAL__N_18EvalInfoEN5clang14SourceLocationEjRKNS_6LValueERNS2_9CharUnitsE'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='9379' u='c' c='_ZN12_GLOBAL__N_116IntExprEvaluator20VisitBuiltinCallExprEPKN5clang8CallExprEj'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='9383' u='c' c='_ZN12_GLOBAL__N_116IntExprEvaluator20VisitBuiltinCallExprEPKN5clang8CallExprEj'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='9493' u='c' c='_ZN12_GLOBAL__N_116IntExprEvaluator20VisitBuiltinCallExprEPKN5clang8CallExprEj'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='9645' u='c' c='_ZL31isOnePastTheEndOfCompleteObjectRKN5clang10ASTContextERKN12_GLOBAL__N_16LValueE'/>
+<use f='llvm/clang/lib/AST/ExprConstant.cpp' l='10240' u='c' c='_ZL32EvaluateComparisonBinaryOperatorRN12_GLOBAL__N_18EvalInfoEPKN5clang14BinaryOperatorEOT_OT0_'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='2095' u='c' c='_ZNK5clang4Type18isConstantSizeTypeEv'/>
+<def f='llvm/clang/lib/AST/Type.cpp' l='2104' ll='2172' type='bool clang::Type::isIncompleteType(clang::NamedDecl ** Def = nullptr) const'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='2134' u='c' c='_ZNK5clang4Type16isIncompleteTypeEPPNS_9NamedDeclE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='2162' u='c' c='_ZNK5clang4Type16isIncompleteTypeEPPNS_9NamedDeclE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='2192' u='c' c='_ZNK5clang8QualType14isCXX98PODTypeERKNS_10ASTContextE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='2242' u='c' c='_ZNK5clang8QualType13isTrivialTypeERKNS_10ASTContextE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='2296' u='c' c='_ZNK5clang8QualType23isTriviallyCopyableTypeERKNS_10ASTContextE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='2437' u='c' c='_ZNK5clang4Type13isLiteralTypeERKNS_10ASTContextE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='2494' u='c' c='_ZNK5clang4Type20isStandardLayoutTypeEv'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='2533' u='c' c='_ZNK5clang8QualType14isCXX11PODTypeERKNS_10ASTContextE'/>
+<doc f='llvm/clang/lib/AST/Type.cpp' l='2101'>/// isIncompleteType - Return true if this is an incomplete type (C99 6.2.5p1)
+/// - a type that can describe objects, but which lacks information needed to
+/// determine its size.</doc>
+<use f='llvm/clang/lib/CodeGen/CGValue.h' l='237' u='c' c='_ZN5clang7CodeGen6LValue10InitializeENS_8QualTypeENS_10QualifiersENS_9CharUnitsENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE'/>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='2050' u='c' c='_ZN5clang7CodeGen13CodeGenModule22ConstructAttributeListEN4llvm9StringRefERKNS0_14CGFunctionInfoENS0_12CGCalleeInfoERNS2_13AttributeListERjb'/>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='2160' u='c' c='_ZN5clang7CodeGen13CodeGenModule22ConstructAttributeListEN4llvm9StringRefERKNS0_14CGFunctionInfoENS0_12CGCalleeInfoERNS2_13AttributeListERjb'/>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='2185' u='c' c='_ZN5clang7CodeGen13CodeGenModule22ConstructAttributeListEN4llvm9StringRefERKNS0_14CGFunctionInfoENS0_12CGCalleeInfoERNS2_13AttributeListERjb'/>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='2434' u='c' c='_ZN5clang7CodeGen15CodeGenFunction18EmitFunctionPrologERKNS0_14CGFunctionInfoEPN4llvm8FunctionERKNS0_15FunctionArgListE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='2622' u='c' c='_ZN5clang7CodeGen11CGDebugInfo10CreateTypeEPKNS_9ArrayTypeEPN4llvm6DIFileE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='2626' u='c' c='_ZN5clang7CodeGen11CGDebugInfo10CreateTypeEPKNS_9ArrayTypeEPN4llvm6DIFileE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='2691' u='c' c='_ZN5clang7CodeGen11CGDebugInfo10CreateTypeEPKNS_17MemberPointerTypeEPN4llvm6DIFileE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='1094' u='c' c='_ZN5clang7CodeGen15CodeGenFunction21canTightenCheriBoundsEPN4llvm5ValueENS_8QualTypeEPKNS_4ExprENS0_19SubObjectBoundsKindE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='1579' u='c' c='_ZN5clang7CodeGen15CodeGenFunction13EmitTypeCheckENS1_13TypeCheckKindENS_14SourceLocationEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsENS_12SanitizerSetES6_'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='1610' u='c' c='_ZN5clang7CodeGen15CodeGenFunction13EmitTypeCheckENS1_13TypeCheckKindENS_14SourceLocationEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsENS_12SanitizerSetES6_'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenFunction.cpp' l='157' u='c' c='_ZN5clang7CodeGen15CodeGenFunction23getNaturalTypeAlignmentENS_8QualTypeEPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoEb'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='3925' u='c' c='_ZN5clang7CodeGen13CodeGenModule23EmitGlobalVarDefinitionEPKNS_7VarDeclEb'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenTBAA.cpp' l='220' u='c' c='_ZN5clang7CodeGen11CodeGenTBAA13getAccessInfoENS_8QualTypeE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenTypes.cpp' l='205' u='c' c='_ZN5clang7CodeGen12CodeGenTypes26isFuncParamTypeConvertibleENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='9485' u='c' c='_ZN5clang4Sema23CheckMemaccessArgumentsEPKNS_8CallExprEjPNS_14IdentifierInfoE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='12755' u='c' c='_ZN5clang4Sema14CheckCastAlignEPNS_4ExprENS_8QualTypeENS_11SourceRangeE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='12768' u='c' c='_ZN5clang4Sema14CheckCastAlignEPNS_4ExprENS_8QualTypeENS_11SourceRangeE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='12877' u='c' c='_ZN5clang4Sema16CheckArrayAccessEPKNS_4ExprES3_PKNS_18ArraySubscriptExprEbb'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='14250' u='c' c='_ZN5clang4Sema30DiscardMisalignedMemberAddressEPKNS_4TypeEPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='15609' u='c' c='_ZN5clang4Sema14CheckFieldDeclENS_15DeclarationNameENS_8QualTypeEPNS_14TypeSourceInfoEPNS_10RecordDeclENS_14SourceLocationEbPNS_4ExprENS_16InClassInit9158987'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='16374' u='c' c='_ZN5clang4Sema11ActOnFieldsEPNS_5ScopeENS_14SourceLocationEPNS_4DeclEN4llvm8ArrayRefIS5_EES3_S3_RKNS_20ParsedAttributesViewE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='530' u='c' c='_ZL26threadSafetyCheckIsPointerRN5clang4SemaEPKNS_4DeclERKNS_10ParsedAttrE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='584' u='c' c='_ZL28checkRecordTypeForCapabilityRN5clang4SemaENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='3705' u='c' c='_ZL26handleTransparentUnionAttrRN5clang4SemaEPNS_4DeclERKNS_10ParsedAttrE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='3711' u='c' c='_ZL26handleTransparentUnionAttrRN5clang4SemaEPNS_4DeclERKNS_10ParsedAttrE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclAttr.cpp' l='3972' u='c' c='_ZN5clang4Sema26CheckAlignasUnderalignmentEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclObjC.cpp' l='3143' u='c' c='_ZL10matchTypesRN5clang10ASTContextENS_4Sema19MethodMatchStrategyENS_8QualTypeES4_'/>
+<use f='llvm/clang/lib/Sema/SemaDeclObjC.cpp' l='3143' u='c' c='_ZL10matchTypesRN5clang10ASTContextENS_4Sema19MethodMatchStrategyENS_8QualTypeES4_'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='794' u='c' c='_ZN5clang4Sema17isValidVarArgTypeERKNS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='3748' u='c' c='_ZL28CheckVecStepTraitOperandTypeRN5clang4SemaENS_8QualTypeENS_14SourceLocationENS_11SourceRangeE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='16924' u='c' c='_ZN5clang4Sema19CheckCallReturnTypeENS_8QualTypeENS_14SourceLocationEPNS_8CallExprEPNS_12FunctionDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='226' u='c' c='_ZN5clang4Sema17getDestructorNameENS_14SourceLocationERNS_14IdentifierInfoES1_PNS_5ScopeERNS_12CXXScopeSpecENS_9OpaquePtrINS_8QualTypeEEEb'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='4716' u='c' c='_ZL22EvaluateUnaryTypeTraitRN5clang4SemaENS_9TypeTraitENS_14SourceLocationENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='4898' u='c' c='_ZL22EvaluateUnaryTypeTraitRN5clang4SemaENS_9TypeTraitENS_14SourceLocationENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='4954' u='c' c='_ZL17evaluateTypeTraitRN5clang4SemaENS_9TypeTraitENS_14SourceLocationEN4llvm8ArrayRefIPNS_14TypeSourceInfoEEES3_'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='1121' u='c' c='_ZN12_GLOBAL__N_115InitListChecker21CheckExplicitInitListERKN5clang17InitializedEntityEPNS1_12InitListExprERNS1_8QualTypeES6_b'/>
+<use f='llvm/clang/lib/Sema/SemaLambda.cpp' l='1598' u='c' c='_ZN5clang4Sema17BuildCaptureFieldEPNS_10RecordDeclERKNS_4sema7CaptureE'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='13248' u='c' c='_ZL17checkTypeMappableN5clang14SourceLocationENS_11SourceRangeERNS_4SemaEPN12_GLOBAL__N_110DSAStackTyENS_8QualTypeEb'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='14976' u='c' c='_ZN5clang4Sema32checkDeclIsAllowedInOpenMPTargetEPNS_4ExprEPNS_4DeclENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='9867' u='c' c='_ZL21DiagnoseBadConversionRN5clang4SemaEPNS_17OverloadCandidateEjb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='9885' u='c' c='_ZL21DiagnoseBadConversionRN5clang4SemaEPNS_17OverloadCandidateEjb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='9886' u='c' c='_ZL21DiagnoseBadConversionRN5clang4SemaEPNS_17OverloadCandidateEjb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='9903' u='c' c='_ZL21DiagnoseBadConversionRN5clang4SemaEPNS_17OverloadCandidateEjb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='9904' u='c' c='_ZL21DiagnoseBadConversionRN5clang4SemaEPNS_17OverloadCandidateEjb'/>
+<use f='llvm/clang/lib/Sema/SemaOverload.cpp' l='12716' u='c' c='_ZN5clang4Sema21CreateOverloadedBinOpENS_14SourceLocationENS_18BinaryOperatorKindERKNS_17UnresolvedSetImplEPNS_4ExprES7_b'/>
+<use f='llvm/clang/lib/Sema/SemaPseudoObject.cpp' l='242' u='c' c='_ZN12_GLOBAL__N_115PseudoOpBuilder15CanCaptureValueEPN5clang4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaPseudoObject.cpp' l='1068' u='c' c='_ZN5clang4Sema21CheckSubscriptingKindEPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaStmt.cpp' l='2798' u='c' c='_ZL30DiagnoseForRangeVariableCopiesRN5clang4SemaEPKNS_15CXXForRangeStmtE'/>
+<use f='llvm/clang/lib/Sema/SemaStmtAsm.cpp' l='504' u='c' c='_ZN5clang4Sema15ActOnGCCAsmStmtENS_14SourceLocationEbbjjPPNS_14IdentifierInfoEN4llvm15MutableArrayRefIPNS_4ExprEEES9_S8_S9_jS1_'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='364' u='c' c='_ZN5clang4Sema18LookupTemplateNameERNS_12LookupResultEPNS_5ScopeERNS_12CXXScopeSpecENS_8QualTypeEbRbNS_14SourceLocationEPNS0_19AssumedTemplateKindE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='9780' u='c' c='_ZL10isEnableIfN5clang22NestedNameSpecifierLocERKNS_14IdentifierInfoERNS_11SourceRangeERPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='2262' u='c' c='_ZN5clang4Sema14BuildArrayTypeENS_8QualTypeENS_9ArrayType17ArraySizeModifierEPNS_4ExprEjNS_11SourceRangeENS_15DeclarationNameE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='2305' u='c' c='_ZN5clang4Sema14BuildArrayTypeENS_8QualTypeENS_9ArrayType17ArraySizeModifierEPNS_4ExprEjNS_11SourceRangeENS_15DeclarationNameE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='8202' u='c' c='_ZN5clang4Sema23RequireCompleteTypeImplENS_14SourceLocationENS_8QualTypeEPNS0_13TypeDiagnoserE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='8255' u='c' c='_ZN5clang4Sema23RequireCompleteTypeImplENS_14SourceLocationENS_8QualTypeEPNS0_13TypeDiagnoserE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='8303' u='c' c='_ZN5clang4Sema23RequireCompleteTypeImplENS_14SourceLocationENS_8QualTypeEPNS0_13TypeDiagnoserE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='8592' u='c' c='_ZN5clang4Sema23BuildUnaryTransformTypeENS_8QualTypeENS_18UnaryTransformType7UTTKindENS_14SourceLocationE'/>
+<use f='llvm/clang/tools/libclang/CIndexCodeCompletion.cpp' l='643' u='c' c='_ZN12_GLOBAL__N_124CaptureCompletionResults26ProcessCodeCompleteResultsERN5clang4SemaENS1_21CodeCompletionContextEPNS1_20CodeCompletionResultEj'/>
+<use f='llvm/clang/tools/libclang/CXType.cpp' l='894' u='c' c='_ZL29isIncompleteTypeWithAlignmentN5clang8QualTypeE'/>
+<use f='llvm/clang/tools/libclang/CXType.cpp' l='945' u='c' c='clang_Type_getSizeOf'/>
+<use f='llvm/clang/tools/libclang/CXType.cpp' l='963' u='c' c='_ZL25isTypeIncompleteForLayoutN5clang8QualTypeE'/>
+<use f='llvm/clang/tools/libclang/CXType.cpp' l='1001' u='c' c='_ZL23validateFieldParentType8CXCursor6CXType'/>

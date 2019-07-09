@@ -1,0 +1,18 @@
+<def f='llvm/llvm/include/llvm/IR/CFGDiff.h' l='80' ll='156'/>
+<doc f='llvm/llvm/include/llvm/IR/CFGDiff.h' l='75'>// GraphDiff defines a CFG snapshot: given a set of Update&lt;NodePtr&gt;, provide
+// utilities to skip edges marked as deleted and return a set of edges marked as
+// newly inserted. The current diff treats the CFG as a graph rather than a
+// multigraph. Added edges are pruned to be unique, and deleted edges will
+// remove all existing edges between two blocks.</doc>
+<mbr r='llvm::GraphDiff::SuccInsert' t='UpdateMapType'/>
+<mbr r='llvm::GraphDiff::SuccDelete' t='UpdateMapType'/>
+<mbr r='llvm::GraphDiff::PredInsert' t='UpdateMapType'/>
+<mbr r='llvm::GraphDiff::PredDelete' t='UpdateMapType'/>
+<mbr r='llvm::GraphDiff::Empty' t='SmallVector&lt;NodePtr, 1&gt;'/>
+<fun r='_ZNK4llvm9GraphDiff8printMapERNS_11raw_ostreamERKNS_13SmallDenseMapIT_NS_11SmallVectorIS4_Lj2EEELj4ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S6_EEEE'/>
+<fun r='_ZN4llvm9GraphDiffC1Ev'/>
+<fun r='_ZN4llvm9GraphDiffC1ENS_8ArrayRefINS_3cfg6UpdateIT_EEEE'/>
+<fun r='_ZNK4llvm9GraphDiff11ignoreChildET_S1_b'/>
+<fun r='_ZNK4llvm9GraphDiff16getAddedChildrenET_b'/>
+<fun r='_ZNK4llvm9GraphDiff5printERNS_11raw_ostreamE'/>
+<fun r='_ZNK4llvm9GraphDiff4dumpEv'/>

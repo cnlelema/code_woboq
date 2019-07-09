@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>StripNonLineTableDebugInfo.cpp source code [llvm/llvm/lib/Transforms/Utils/StripNonLineTableDebugInfo.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/Transforms/Utils/StripNonLineTableDebugInfo.cpp'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>lib</a>/<a href='..'>Transforms</a>/<a href='./'>Utils</a>/<a href='StripNonLineTableDebugInfo.cpp.html'>StripNonLineTableDebugInfo.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- StripNonLineTableDebugInfo.cpp -- Strip parts of Debug Info --------===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#include <a href="../../../include/llvm/IR/DebugInfo.h.html">"llvm/IR/DebugInfo.h"</a></u></td></tr>
+<tr><th id="10">10</th><td><u>#include <a href="../../../include/llvm/Pass.h.html">"llvm/Pass.h"</a></u></td></tr>
+<tr><th id="11">11</th><td><u>#include <a href="../../../include/llvm/Transforms/Utils.h.html">"llvm/Transforms/Utils.h"</a></u></td></tr>
+<tr><th id="12">12</th><td><b>using</b> <b>namespace</b> <span class="namespace">llvm</span>;</td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><b>namespace</b> {</td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><i class="doc" data-doc="(anonymousnamespace)::StripNonLineTableDebugInfo">/// This pass strips all debug info that is not related line tables.</i></td></tr>
+<tr><th id="17">17</th><td><i class="doc" data-doc="(anonymousnamespace)::StripNonLineTableDebugInfo">/// The result will be the same as if the program where compiled with</i></td></tr>
+<tr><th id="18">18</th><td><i class="doc" data-doc="(anonymousnamespace)::StripNonLineTableDebugInfo">/// -gline-tables-only.</i></td></tr>
+<tr><th id="19">19</th><td><b>struct</b> <dfn class="tu type def" id="(anonymousnamespace)::StripNonLineTableDebugInfo" title='(anonymous namespace)::StripNonLineTableDebugInfo' data-ref="(anonymousnamespace)::StripNonLineTableDebugInfo">StripNonLineTableDebugInfo</dfn> : <b>public</b> <a class="type" href="../../../include/llvm/Pass.h.html#llvm::ModulePass" title='llvm::ModulePass' data-ref="llvm::ModulePass">ModulePass</a> {</td></tr>
+<tr><th id="20">20</th><td>  <em>static</em> <em>char</em> <dfn class="tu decl" id="(anonymousnamespace)::StripNonLineTableDebugInfo::ID" title='(anonymous namespace)::StripNonLineTableDebugInfo::ID' data-type='char' data-ref="(anonymousnamespace)::StripNonLineTableDebugInfo::ID">ID</dfn>; <i  data-doc="(anonymousnamespace)::StripNonLineTableDebugInfo::ID">// Pass identification, replacement for typeid</i></td></tr>
+<tr><th id="21">21</th><td>  <dfn class="tu decl def" id="_ZN12_GLOBAL__N_126StripNonLineTableDebugInfoC1Ev" title='(anonymous namespace)::StripNonLineTableDebugInfo::StripNonLineTableDebugInfo' data-type='void (anonymous namespace)::StripNonLineTableDebugInfo::StripNonLineTableDebugInfo()' data-ref="_ZN12_GLOBAL__N_126StripNonLineTableDebugInfoC1Ev">StripNonLineTableDebugInfo</dfn>() : <a class="type" href="../../../include/llvm/Pass.h.html#llvm::ModulePass" title='llvm::ModulePass' data-ref="llvm::ModulePass">ModulePass</a><a class="ref" href="../../../include/llvm/Pass.h.html#_ZN4llvm10ModulePassC1ERc" title='llvm::ModulePass::ModulePass' data-ref="_ZN4llvm10ModulePassC1ERc">(</a><a class="tu member" href="#(anonymousnamespace)::StripNonLineTableDebugInfo::ID" title='(anonymous namespace)::StripNonLineTableDebugInfo::ID' data-use='a' data-ref="(anonymousnamespace)::StripNonLineTableDebugInfo::ID">ID</a>) {</td></tr>
+<tr><th id="22">22</th><td>    <a class="ref" href="#36" title='llvm::initializeStripNonLineTableDebugInfoPass' data-ref="_ZN4llvm40initializeStripNonLineTableDebugInfoPassERNS_12PassRegistryE">initializeStripNonLineTableDebugInfoPass</a>(<span class='refarg'>*<a class="type" href="../../../include/llvm/PassRegistry.h.html#llvm::PassRegistry" title='llvm::PassRegistry' data-ref="llvm::PassRegistry">PassRegistry</a>::<a class="ref" href="../../../include/llvm/PassRegistry.h.html#_ZN4llvm12PassRegistry15getPassRegistryEv" title='llvm::PassRegistry::getPassRegistry' data-ref="_ZN4llvm12PassRegistry15getPassRegistryEv">getPassRegistry</a>()</span>);</td></tr>
+<tr><th id="23">23</th><td>  }</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td>  <em>void</em> <dfn class="virtual tu decl def" id="_ZNK12_GLOBAL__N_126StripNonLineTableDebugInfo16getAnalysisUsageERN4llvm13AnalysisUsageE" title='(anonymous namespace)::StripNonLineTableDebugInfo::getAnalysisUsage' data-type='void (anonymous namespace)::StripNonLineTableDebugInfo::getAnalysisUsage(llvm::AnalysisUsage &amp; AU) const' data-ref="_ZNK12_GLOBAL__N_126StripNonLineTableDebugInfo16getAnalysisUsageERN4llvm13AnalysisUsageE">getAnalysisUsage</dfn>(<a class="type" href="../../../include/llvm/PassAnalysisSupport.h.html#llvm::AnalysisUsage" title='llvm::AnalysisUsage' data-ref="llvm::AnalysisUsage">AnalysisUsage</a> &amp;<dfn class="local col1 decl" id="1AU" title='AU' data-type='llvm::AnalysisUsage &amp;' data-ref="1AU">AU</dfn>) <em>const</em> override {</td></tr>
+<tr><th id="26">26</th><td>    <a class="local col1 ref" href="#1AU" title='AU' data-ref="1AU">AU</a>.<a class="ref" href="../../../include/llvm/PassAnalysisSupport.h.html#_ZN4llvm13AnalysisUsage15setPreservesAllEv" title='llvm::AnalysisUsage::setPreservesAll' data-ref="_ZN4llvm13AnalysisUsage15setPreservesAllEv">setPreservesAll</a>();</td></tr>
+<tr><th id="27">27</th><td>  }</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td>  <em>bool</em> <dfn class="virtual tu decl def" id="_ZN12_GLOBAL__N_126StripNonLineTableDebugInfo11runOnModuleERN4llvm6ModuleE" title='(anonymous namespace)::StripNonLineTableDebugInfo::runOnModule' data-type='bool (anonymous namespace)::StripNonLineTableDebugInfo::runOnModule(llvm::Module &amp; M)' data-ref="_ZN12_GLOBAL__N_126StripNonLineTableDebugInfo11runOnModuleERN4llvm6ModuleE">runOnModule</dfn>(<a class="type" href="../../../include/llvm/IR/Value.h.html#llvm::Module" title='llvm::Module' data-ref="llvm::Module">Module</a> &amp;<dfn class="local col2 decl" id="2M" title='M' data-type='llvm::Module &amp;' data-ref="2M">M</dfn>) override {</td></tr>
+<tr><th id="30">30</th><td>    <b>return</b> <span class="namespace">llvm::</span><a class="ref" href="../../../include/llvm/IR/DebugInfo.h.html#_ZN4llvm26stripNonLineTableDebugInfoERNS_6ModuleE" title='llvm::stripNonLineTableDebugInfo' data-ref="_ZN4llvm26stripNonLineTableDebugInfoERNS_6ModuleE">stripNonLineTableDebugInfo</a>(<span class='refarg'><a class="local col2 ref" href="#2M" title='M' data-ref="2M">M</a></span>);</td></tr>
+<tr><th id="31">31</th><td>  }</td></tr>
+<tr><th id="32">32</th><td>};</td></tr>
+<tr><th id="33">33</th><td>}</td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><em>char</em> <a class="tu type" href="#(anonymousnamespace)::StripNonLineTableDebugInfo" title='(anonymous namespace)::StripNonLineTableDebugInfo' data-ref="(anonymousnamespace)::StripNonLineTableDebugInfo">StripNonLineTableDebugInfo</a>::<dfn class="tu decl def" id="(anonymousnamespace)::StripNonLineTableDebugInfo::ID" title='(anonymous namespace)::StripNonLineTableDebugInfo::ID' data-type='char' data-ref="(anonymousnamespace)::StripNonLineTableDebugInfo::ID">ID</dfn> = <var>0</var>;</td></tr>
+<tr><th id="36">36</th><td><a class="macro" href="../../../include/llvm/PassSupport.h.html#33" title="static void *initializeStripNonLineTableDebugInfoPassOnce(PassRegistry &amp;Registry) { PassInfo *PI = new PassInfo( &quot;Strip all debug info except linetables&quot;, &quot;strip-nonlinetable-debuginfo&quot;, &amp;StripNonLineTableDebugInfo::ID, PassInfo::NormalCtor_t(callDefaultCtor&lt;StripNonLineTableDebugInfo&gt;), false, false); Registry.registerPass(*PI, true); return PI; } static llvm::once_flag InitializeStripNonLineTableDebugInfoPassFlag; void llvm::initializeStripNonLineTableDebugInfoPass(PassRegistry &amp;Registry) { llvm::call_once(InitializeStripNonLineTableDebugInfoPassFlag, initializeStripNonLineTableDebugInfoPassOnce, std::ref(Registry)); }" data-ref="_M/INITIALIZE_PASS">INITIALIZE_PASS</a>(<a class="tu type" href="#(anonymousnamespace)::StripNonLineTableDebugInfo" title='(anonymous namespace)::StripNonLineTableDebugInfo' data-ref="(anonymousnamespace)::StripNonLineTableDebugInfo">StripNonLineTableDebugInfo</a>, <a class="ref fake" href="../../../include/llvm/ADT/StringRef.h.html#_ZN4llvm9StringRefC1EPKc" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1EPKc"></a><q>"strip-nonlinetable-debuginfo"</q>,</td></tr>
+<tr><th id="37">37</th><td>                <a class="ref fake" href="../../../include/llvm/ADT/StringRef.h.html#_ZN4llvm9StringRefC1EPKc" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1EPKc"></a><q>"Strip all debug info except linetables"</q>, <b>false</b>, <b>false</b>)</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><a class="type" href="../../../include/llvm/Pass.h.html#llvm::ModulePass" title='llvm::ModulePass' data-ref="llvm::ModulePass">ModulePass</a> *<span class="namespace">llvm::</span><dfn class="decl def" id="_ZN4llvm36createStripNonLineTableDebugInfoPassEv" title='llvm::createStripNonLineTableDebugInfoPass' data-ref="_ZN4llvm36createStripNonLineTableDebugInfoPassEv">createStripNonLineTableDebugInfoPass</dfn>() {</td></tr>
+<tr><th id="40">40</th><td>  <b>return</b> <b>new</b> <a class="tu type" href="#(anonymousnamespace)::StripNonLineTableDebugInfo" title='(anonymous namespace)::StripNonLineTableDebugInfo' data-ref="(anonymousnamespace)::StripNonLineTableDebugInfo">StripNonLineTableDebugInfo</a><a class="tu ref" href="#_ZN12_GLOBAL__N_126StripNonLineTableDebugInfoC1Ev" title='(anonymous namespace)::StripNonLineTableDebugInfo::StripNonLineTableDebugInfo' data-use='c' data-ref="_ZN12_GLOBAL__N_126StripNonLineTableDebugInfoC1Ev">(</a>);</td></tr>
+<tr><th id="41">41</th><td>}</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

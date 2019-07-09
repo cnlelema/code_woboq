@@ -1,0 +1,29 @@
+<def f='llvm/clang/include/clang/Analysis/ConstructionContext.h' l='203' ll='226'/>
+<size>24</size>
+<doc f='llvm/clang/include/clang/Analysis/ConstructionContext.h' l='184'>/// Construction context can be seen as a linked list of multiple layers.
+/// Sometimes a single trigger is not enough to describe the construction
+/// site. That&apos;s what causing us to have a chain of &quot;partial&quot; construction
+/// context layers. Some examples:
+/// - A constructor within in an aggregate initializer list within a variable
+///   would have a construction context of the initializer list with
+///   the parent construction context of a variable.
+/// - A constructor for a temporary that needs to be both destroyed
+///   and materialized into an elidable copy constructor would have a
+///   construction context of a CXXBindTemporaryExpr with the parent
+///   construction context of a MaterializeTemproraryExpr.
+/// Not all of these are currently supported.
+/// Layers are created gradually while traversing the AST, and layers that
+/// represent the outmost AST nodes are built first, while the node that
+/// immediately contains the constructor would be built last and capture the
+/// previous layers as its parents. Construction context captures the last layer
+/// (which has links to the previous layers) and classifies the seemingly
+/// arbitrary chain of layers into one of the possible ways of constructing
+/// an object in C++ for user-friendly experience.</doc>
+<mbr r='clang::ConstructionContextLayer::Parent' o='0' t='const clang::ConstructionContextLayer *'/>
+<mbr r='clang::ConstructionContextLayer::Item' o='64' t='clang::ConstructionContextItem'/>
+<fun r='_ZN5clang24ConstructionContextLayerC1ENS_23ConstructionContextItemEPKS0_'/>
+<fun r='_ZN5clang24ConstructionContextLayer6createERNS_17BumpVectorContextERKNS_23ConstructionContextItemEPKS0_'/>
+<fun r='_ZNK5clang24ConstructionContextLayer7getItemEv'/>
+<fun r='_ZNK5clang24ConstructionContextLayer9getParentEv'/>
+<fun r='_ZNK5clang24ConstructionContextLayer6isLastEv'/>
+<fun r='_ZNK5clang24ConstructionContextLayer26isStrictlyMoreSpecificThanEPKS0_'/>

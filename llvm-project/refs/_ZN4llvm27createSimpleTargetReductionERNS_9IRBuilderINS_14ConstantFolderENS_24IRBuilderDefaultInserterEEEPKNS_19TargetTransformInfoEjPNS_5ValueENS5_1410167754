@@ -1,0 +1,20 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/LoopUtils.h' l='314' type='llvm::Value * llvm::createSimpleTargetReduction(IRBuilder&lt;&gt; &amp; B, const llvm::TargetTransformInfo * TTI, unsigned int Opcode, llvm::Value * Src, TargetTransformInfo::ReductionFlags Flags = TargetTransformInfo::ReductionFlags(), ArrayRef&lt;llvm::Value *&gt; RedOps = None)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/LoopUtils.h' l='308'>/// Create a target reduction of the given vector. The reduction operation
+/// is described by the \p Opcode parameter. min/max reductions require
+/// additional information supplied in \p Flags.
+/// The target is queried to determine if intrinsics or shuffle sequences are
+/// required to implement the reduction.
+/// Fast-math-flags are propagated using the IRBuilder&apos;s setting.</doc>
+<def f='llvm/llvm/lib/Transforms/Utils/LoopUtils.cpp' l='798' ll='867' type='llvm::Value * llvm::createSimpleTargetReduction(IRBuilder&lt;&gt; &amp; Builder, const llvm::TargetTransformInfo * TTI, unsigned int Opcode, llvm::Value * Src, TargetTransformInfo::ReductionFlags Flags = TargetTransformInfo::ReductionFlags(), ArrayRef&lt;llvm::Value *&gt; RedOps = None)'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUtils.cpp' l='887' u='c' c='_ZN4llvm21createTargetReductionERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPKNS_19TargetTransformInfoERNS_20RecurrenceDescriptorEPNS_5ValueEb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUtils.cpp' l='889' u='c' c='_ZN4llvm21createTargetReductionERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPKNS_19TargetTransformInfoERNS_20RecurrenceDescriptorEPNS_5ValueEb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUtils.cpp' l='891' u='c' c='_ZN4llvm21createTargetReductionERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPKNS_19TargetTransformInfoERNS_20RecurrenceDescriptorEPNS_5ValueEb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUtils.cpp' l='893' u='c' c='_ZN4llvm21createTargetReductionERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPKNS_19TargetTransformInfoERNS_20RecurrenceDescriptorEPNS_5ValueEb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUtils.cpp' l='895' u='c' c='_ZN4llvm21createTargetReductionERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPKNS_19TargetTransformInfoERNS_20RecurrenceDescriptorEPNS_5ValueEb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUtils.cpp' l='897' u='c' c='_ZN4llvm21createTargetReductionERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPKNS_19TargetTransformInfoERNS_20RecurrenceDescriptorEPNS_5ValueEb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUtils.cpp' l='899' u='c' c='_ZN4llvm21createTargetReductionERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPKNS_19TargetTransformInfoERNS_20RecurrenceDescriptorEPNS_5ValueEb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUtils.cpp' l='904' u='c' c='_ZN4llvm21createTargetReductionERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPKNS_19TargetTransformInfoERNS_20RecurrenceDescriptorEPNS_5ValueEb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUtils.cpp' l='908' u='c' c='_ZN4llvm21createTargetReductionERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPKNS_19TargetTransformInfoERNS_20RecurrenceDescriptorEPNS_5ValueEb'/>
+<doc f='llvm/llvm/lib/Transforms/Utils/LoopUtils.cpp' l='796'>/// Create a simple vector reduction specified by an opcode and some
+/// flags (if generating min/max reductions).</doc>
+<use f='llvm/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp' l='6334' u='c' c='_ZN12_GLOBAL__N_119HorizontalReduction13emitReductionEPN4llvm5ValueERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEjPKNS1_19TargetTransformInfoE'/>

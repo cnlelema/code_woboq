@@ -1,0 +1,430 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AArch64MacroFusion.cpp source code [llvm/llvm/lib/Target/AArch64/AArch64MacroFusion.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/Target/AArch64/AArch64MacroFusion.cpp'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>lib</a>/<a href='..'>Target</a>/<a href='./'>AArch64</a>/<a href='AArch64MacroFusion.cpp.html'>AArch64MacroFusion.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- AArch64MacroFusion.cpp - AArch64 Macro Fusion ----------------------===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>/// \file This file contains the AArch64 implementation of the DAG scheduling</i></td></tr>
+<tr><th id="10">10</th><td><i>///  mutation to pair instructions back to back.</i></td></tr>
+<tr><th id="11">11</th><td><i>//</i></td></tr>
+<tr><th id="12">12</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="AArch64Subtarget.h.html">"AArch64Subtarget.h"</a></u></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="../../../include/llvm/CodeGen/MacroFusion.h.html">"llvm/CodeGen/MacroFusion.h"</a></u></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="../../../include/llvm/CodeGen/TargetInstrInfo.h.html">"llvm/CodeGen/TargetInstrInfo.h"</a></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><b>using</b> <b>namespace</b> <span class="namespace">llvm</span>;</td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><b>namespace</b> {</td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><i class="doc" data-doc="_ZN12_GLOBAL__N_1L19isArithmeticBccPairEPKN4llvm12MachineInstrERS2_">/// CMN, CMP, TST followed by Bcc</i></td></tr>
+<tr><th id="23">23</th><td><em>static</em> <em>bool</em> <dfn class="tu decl def" id="_ZN12_GLOBAL__N_1L19isArithmeticBccPairEPKN4llvm12MachineInstrERS2_" title='(anonymous namespace)::isArithmeticBccPair' data-type='bool (anonymous namespace)::isArithmeticBccPair(const llvm::MachineInstr * FirstMI, const llvm::MachineInstr &amp; SecondMI)' data-ref="_ZN12_GLOBAL__N_1L19isArithmeticBccPairEPKN4llvm12MachineInstrERS2_">isArithmeticBccPair</dfn>(<em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col1 decl" id="1FirstMI" title='FirstMI' data-type='const llvm::MachineInstr *' data-ref="1FirstMI">FirstMI</dfn>,</td></tr>
+<tr><th id="24">24</th><td>                                <em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> &amp;<dfn class="local col2 decl" id="2SecondMI" title='SecondMI' data-type='const llvm::MachineInstr &amp;' data-ref="2SecondMI">SecondMI</dfn>) {</td></tr>
+<tr><th id="25">25</th><td>  <b>if</b> (SecondMI.getOpcode() != AArch64::<span class='error' title="no member named &apos;Bcc&apos; in namespace &apos;llvm::AArch64&apos;">Bcc</span>)</td></tr>
+<tr><th id="26">26</th><td>    <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td>  <i>// Assume the 1st instr to be a wildcard if it is unspecified.</i></td></tr>
+<tr><th id="29">29</th><td>  <b>if</b> (<a class="local col1 ref" href="#1FirstMI" title='FirstMI' data-ref="1FirstMI">FirstMI</a> == <b>nullptr</b>)</td></tr>
+<tr><th id="30">30</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td>  <b>switch</b> (<a class="local col1 ref" href="#1FirstMI" title='FirstMI' data-ref="1FirstMI">FirstMI</a>-&gt;<a class="ref" href="../../../include/llvm/CodeGen/MachineInstr.h.html#_ZNK4llvm12MachineInstr9getOpcodeEv" title='llvm::MachineInstr::getOpcode' data-ref="_ZNK4llvm12MachineInstr9getOpcodeEv">getOpcode</a>()) {</td></tr>
+<tr><th id="33">33</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDSWri&apos; in namespace &apos;llvm::AArch64&apos;">ADDSWri</span>:</td></tr>
+<tr><th id="34">34</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDSWrr&apos; in namespace &apos;llvm::AArch64&apos;">ADDSWrr</span>:</td></tr>
+<tr><th id="35">35</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDSXri&apos; in namespace &apos;llvm::AArch64&apos;">ADDSXri</span>:</td></tr>
+<tr><th id="36">36</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDSXrr&apos; in namespace &apos;llvm::AArch64&apos;">ADDSXrr</span>:</td></tr>
+<tr><th id="37">37</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ANDSWri&apos; in namespace &apos;llvm::AArch64&apos;">ANDSWri</span>:</td></tr>
+<tr><th id="38">38</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ANDSWrr&apos; in namespace &apos;llvm::AArch64&apos;">ANDSWrr</span>:</td></tr>
+<tr><th id="39">39</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ANDSXri&apos; in namespace &apos;llvm::AArch64&apos;">ANDSXri</span>:</td></tr>
+<tr><th id="40">40</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ANDSXrr&apos; in namespace &apos;llvm::AArch64&apos;">ANDSXrr</span>:</td></tr>
+<tr><th id="41">41</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSWri&apos; in namespace &apos;llvm::AArch64&apos;">SUBSWri</span>:</td></tr>
+<tr><th id="42">42</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSWrr&apos; in namespace &apos;llvm::AArch64&apos;">SUBSWrr</span>:</td></tr>
+<tr><th id="43">43</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSXri&apos; in namespace &apos;llvm::AArch64&apos;">SUBSXri</span>:</td></tr>
+<tr><th id="44">44</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSXrr&apos; in namespace &apos;llvm::AArch64&apos;">SUBSXrr</span>:</td></tr>
+<tr><th id="45">45</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;BICSWrr&apos; in namespace &apos;llvm::AArch64&apos;">BICSWrr</span>:</td></tr>
+<tr><th id="46">46</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;BICSXrr&apos; in namespace &apos;llvm::AArch64&apos;">BICSXrr</span>:</td></tr>
+<tr><th id="47">47</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="48">48</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDSWrs&apos; in namespace &apos;llvm::AArch64&apos;">ADDSWrs</span>:</td></tr>
+<tr><th id="49">49</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDSXrs&apos; in namespace &apos;llvm::AArch64&apos;">ADDSXrs</span>:</td></tr>
+<tr><th id="50">50</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ANDSWrs&apos; in namespace &apos;llvm::AArch64&apos;">ANDSWrs</span>:</td></tr>
+<tr><th id="51">51</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ANDSXrs&apos; in namespace &apos;llvm::AArch64&apos;">ANDSXrs</span>:</td></tr>
+<tr><th id="52">52</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSWrs&apos; in namespace &apos;llvm::AArch64&apos;">SUBSWrs</span>:</td></tr>
+<tr><th id="53">53</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSXrs&apos; in namespace &apos;llvm::AArch64&apos;">SUBSXrs</span>:</td></tr>
+<tr><th id="54">54</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;BICSWrs&apos; in namespace &apos;llvm::AArch64&apos;">BICSWrs</span>:</td></tr>
+<tr><th id="55">55</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;BICSXrs&apos; in namespace &apos;llvm::AArch64&apos;">BICSXrs</span>:</td></tr>
+<tr><th id="56">56</th><td>    <i>// Shift value can be 0 making these behave like the "rr" variant...</i></td></tr>
+<tr><th id="57">57</th><td>    <b>return</b> !AArch64InstrInfo::<span class='error' title="no member named &apos;hasShiftedReg&apos; in &apos;llvm::AArch64InstrInfo&apos;">hasShiftedReg</span>(*FirstMI);</td></tr>
+<tr><th id="58">58</th><td>  }</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>  <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="61">61</th><td>}</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><i class="doc" data-doc="_ZN12_GLOBAL__N_1L19isArithmeticCbzPairEPKN4llvm12MachineInstrERS2_">/// ALU operations followed by CBZ/CBNZ.</i></td></tr>
+<tr><th id="64">64</th><td><em>static</em> <em>bool</em> <dfn class="tu decl def" id="_ZN12_GLOBAL__N_1L19isArithmeticCbzPairEPKN4llvm12MachineInstrERS2_" title='(anonymous namespace)::isArithmeticCbzPair' data-type='bool (anonymous namespace)::isArithmeticCbzPair(const llvm::MachineInstr * FirstMI, const llvm::MachineInstr &amp; SecondMI)' data-ref="_ZN12_GLOBAL__N_1L19isArithmeticCbzPairEPKN4llvm12MachineInstrERS2_">isArithmeticCbzPair</dfn>(<em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col3 decl" id="3FirstMI" title='FirstMI' data-type='const llvm::MachineInstr *' data-ref="3FirstMI">FirstMI</dfn>,</td></tr>
+<tr><th id="65">65</th><td>                                <em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> &amp;<dfn class="local col4 decl" id="4SecondMI" title='SecondMI' data-type='const llvm::MachineInstr &amp;' data-ref="4SecondMI">SecondMI</dfn>) {</td></tr>
+<tr><th id="66">66</th><td>  <b>if</b> (SecondMI.getOpcode() != AArch64::<span class='error' title="no member named &apos;CBZW&apos; in namespace &apos;llvm::AArch64&apos;">CBZW</span> &amp;&amp;</td></tr>
+<tr><th id="67">67</th><td>      SecondMI.getOpcode() != AArch64::<span class='error' title="no member named &apos;CBZX&apos; in namespace &apos;llvm::AArch64&apos;">CBZX</span> &amp;&amp;</td></tr>
+<tr><th id="68">68</th><td>      SecondMI.getOpcode() != AArch64::<span class='error' title="no member named &apos;CBNZW&apos; in namespace &apos;llvm::AArch64&apos;">CBNZW</span> &amp;&amp;</td></tr>
+<tr><th id="69">69</th><td>      SecondMI.getOpcode() != AArch64::<span class='error' title="no member named &apos;CBNZX&apos; in namespace &apos;llvm::AArch64&apos;">CBNZX</span>)</td></tr>
+<tr><th id="70">70</th><td>    <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td>  <i>// Assume the 1st instr to be a wildcard if it is unspecified.</i></td></tr>
+<tr><th id="73">73</th><td>  <b>if</b> (<a class="local col3 ref" href="#3FirstMI" title='FirstMI' data-ref="3FirstMI">FirstMI</a> == <b>nullptr</b>)</td></tr>
+<tr><th id="74">74</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>  <b>switch</b> (<a class="local col3 ref" href="#3FirstMI" title='FirstMI' data-ref="3FirstMI">FirstMI</a>-&gt;<a class="ref" href="../../../include/llvm/CodeGen/MachineInstr.h.html#_ZNK4llvm12MachineInstr9getOpcodeEv" title='llvm::MachineInstr::getOpcode' data-ref="_ZNK4llvm12MachineInstr9getOpcodeEv">getOpcode</a>()) {</td></tr>
+<tr><th id="77">77</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDWri&apos; in namespace &apos;llvm::AArch64&apos;">ADDWri</span>:</td></tr>
+<tr><th id="78">78</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDWrr&apos; in namespace &apos;llvm::AArch64&apos;">ADDWrr</span>:</td></tr>
+<tr><th id="79">79</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDXri&apos; in namespace &apos;llvm::AArch64&apos;">ADDXri</span>:</td></tr>
+<tr><th id="80">80</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDXrr&apos; in namespace &apos;llvm::AArch64&apos;">ADDXrr</span>:</td></tr>
+<tr><th id="81">81</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ANDWri&apos; in namespace &apos;llvm::AArch64&apos;">ANDWri</span>:</td></tr>
+<tr><th id="82">82</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ANDWrr&apos; in namespace &apos;llvm::AArch64&apos;">ANDWrr</span>:</td></tr>
+<tr><th id="83">83</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ANDXri&apos; in namespace &apos;llvm::AArch64&apos;">ANDXri</span>:</td></tr>
+<tr><th id="84">84</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ANDXrr&apos; in namespace &apos;llvm::AArch64&apos;">ANDXrr</span>:</td></tr>
+<tr><th id="85">85</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;EORWri&apos; in namespace &apos;llvm::AArch64&apos;">EORWri</span>:</td></tr>
+<tr><th id="86">86</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;EORWrr&apos; in namespace &apos;llvm::AArch64&apos;">EORWrr</span>:</td></tr>
+<tr><th id="87">87</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;EORXri&apos; in namespace &apos;llvm::AArch64&apos;">EORXri</span>:</td></tr>
+<tr><th id="88">88</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;EORXrr&apos; in namespace &apos;llvm::AArch64&apos;">EORXrr</span>:</td></tr>
+<tr><th id="89">89</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ORRWri&apos; in namespace &apos;llvm::AArch64&apos;">ORRWri</span>:</td></tr>
+<tr><th id="90">90</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ORRWrr&apos; in namespace &apos;llvm::AArch64&apos;">ORRWrr</span>:</td></tr>
+<tr><th id="91">91</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ORRXri&apos; in namespace &apos;llvm::AArch64&apos;">ORRXri</span>:</td></tr>
+<tr><th id="92">92</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ORRXrr&apos; in namespace &apos;llvm::AArch64&apos;">ORRXrr</span>:</td></tr>
+<tr><th id="93">93</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBWri&apos; in namespace &apos;llvm::AArch64&apos;">SUBWri</span>:</td></tr>
+<tr><th id="94">94</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBWrr&apos; in namespace &apos;llvm::AArch64&apos;">SUBWrr</span>:</td></tr>
+<tr><th id="95">95</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBXri&apos; in namespace &apos;llvm::AArch64&apos;">SUBXri</span>:</td></tr>
+<tr><th id="96">96</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBXrr&apos; in namespace &apos;llvm::AArch64&apos;">SUBXrr</span>:</td></tr>
+<tr><th id="97">97</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="98">98</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDWrs&apos; in namespace &apos;llvm::AArch64&apos;">ADDWrs</span>:</td></tr>
+<tr><th id="99">99</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDXrs&apos; in namespace &apos;llvm::AArch64&apos;">ADDXrs</span>:</td></tr>
+<tr><th id="100">100</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ANDWrs&apos; in namespace &apos;llvm::AArch64&apos;">ANDWrs</span>:</td></tr>
+<tr><th id="101">101</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ANDXrs&apos; in namespace &apos;llvm::AArch64&apos;">ANDXrs</span>:</td></tr>
+<tr><th id="102">102</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBWrs&apos; in namespace &apos;llvm::AArch64&apos;">SUBWrs</span>:</td></tr>
+<tr><th id="103">103</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBXrs&apos; in namespace &apos;llvm::AArch64&apos;">SUBXrs</span>:</td></tr>
+<tr><th id="104">104</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;BICWrs&apos; in namespace &apos;llvm::AArch64&apos;">BICWrs</span>:</td></tr>
+<tr><th id="105">105</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;BICXrs&apos; in namespace &apos;llvm::AArch64&apos;">BICXrs</span>:</td></tr>
+<tr><th id="106">106</th><td>    <i>// Shift value can be 0 making these behave like the "rr" variant...</i></td></tr>
+<tr><th id="107">107</th><td>    <b>return</b> !AArch64InstrInfo::<span class='error' title="no member named &apos;hasShiftedReg&apos; in &apos;llvm::AArch64InstrInfo&apos;">hasShiftedReg</span>(*FirstMI);</td></tr>
+<tr><th id="108">108</th><td>  }</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td>  <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="111">111</th><td>}</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><i class="doc" data-doc="_ZN12_GLOBAL__N_1L9isAESPairEPKN4llvm12MachineInstrERS2_">/// AES crypto encoding or decoding.</i></td></tr>
+<tr><th id="114">114</th><td><em>static</em> <em>bool</em> <dfn class="tu decl def" id="_ZN12_GLOBAL__N_1L9isAESPairEPKN4llvm12MachineInstrERS2_" title='(anonymous namespace)::isAESPair' data-type='bool (anonymous namespace)::isAESPair(const llvm::MachineInstr * FirstMI, const llvm::MachineInstr &amp; SecondMI)' data-ref="_ZN12_GLOBAL__N_1L9isAESPairEPKN4llvm12MachineInstrERS2_">isAESPair</dfn>(<em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col5 decl" id="5FirstMI" title='FirstMI' data-type='const llvm::MachineInstr *' data-ref="5FirstMI">FirstMI</dfn>,</td></tr>
+<tr><th id="115">115</th><td>                      <em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> &amp;<dfn class="local col6 decl" id="6SecondMI" title='SecondMI' data-type='const llvm::MachineInstr &amp;' data-ref="6SecondMI">SecondMI</dfn>) {</td></tr>
+<tr><th id="116">116</th><td>  <i>// Assume the 1st instr to be a wildcard if it is unspecified.</i></td></tr>
+<tr><th id="117">117</th><td>  <b>switch</b> (<a class="local col6 ref" href="#6SecondMI" title='SecondMI' data-ref="6SecondMI">SecondMI</a>.<a class="ref" href="../../../include/llvm/CodeGen/MachineInstr.h.html#_ZNK4llvm12MachineInstr9getOpcodeEv" title='llvm::MachineInstr::getOpcode' data-ref="_ZNK4llvm12MachineInstr9getOpcodeEv">getOpcode</a>()) {</td></tr>
+<tr><th id="118">118</th><td>  <i>// AES encode.</i></td></tr>
+<tr><th id="119">119</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;AESMCrr&apos; in namespace &apos;llvm::AArch64&apos;">AESMCrr</span>:</td></tr>
+<tr><th id="120">120</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;AESMCrrTied&apos; in namespace &apos;llvm::AArch64&apos;">AESMCrrTied</span>:</td></tr>
+<tr><th id="121">121</th><td>    <b>return</b> FirstMI == <b>nullptr</b> || FirstMI-&gt;getOpcode() == AArch64::<span class='error' title="no member named &apos;AESErr&apos; in namespace &apos;llvm::AArch64&apos;">AESErr</span>;</td></tr>
+<tr><th id="122">122</th><td>  <i>// AES decode.</i></td></tr>
+<tr><th id="123">123</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;AESIMCrr&apos; in namespace &apos;llvm::AArch64&apos;">AESIMCrr</span>:</td></tr>
+<tr><th id="124">124</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;AESIMCrrTied&apos; in namespace &apos;llvm::AArch64&apos;">AESIMCrrTied</span>:</td></tr>
+<tr><th id="125">125</th><td>    <b>return</b> FirstMI == <b>nullptr</b> || FirstMI-&gt;getOpcode() == AArch64::<span class='error' title="no member named &apos;AESDrr&apos; in namespace &apos;llvm::AArch64&apos;">AESDrr</span>;</td></tr>
+<tr><th id="126">126</th><td>  }</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>  <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="129">129</th><td>}</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td><i class="doc" data-doc="_ZN12_GLOBAL__N_1L15isCryptoEORPairEPKN4llvm12MachineInstrERS2_">/// AESE/AESD/PMULL + EOR.</i></td></tr>
+<tr><th id="132">132</th><td><em>static</em> <em>bool</em> <dfn class="tu decl def" id="_ZN12_GLOBAL__N_1L15isCryptoEORPairEPKN4llvm12MachineInstrERS2_" title='(anonymous namespace)::isCryptoEORPair' data-type='bool (anonymous namespace)::isCryptoEORPair(const llvm::MachineInstr * FirstMI, const llvm::MachineInstr &amp; SecondMI)' data-ref="_ZN12_GLOBAL__N_1L15isCryptoEORPairEPKN4llvm12MachineInstrERS2_">isCryptoEORPair</dfn>(<em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col7 decl" id="7FirstMI" title='FirstMI' data-type='const llvm::MachineInstr *' data-ref="7FirstMI">FirstMI</dfn>,</td></tr>
+<tr><th id="133">133</th><td>                            <em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> &amp;<dfn class="local col8 decl" id="8SecondMI" title='SecondMI' data-type='const llvm::MachineInstr &amp;' data-ref="8SecondMI">SecondMI</dfn>) {</td></tr>
+<tr><th id="134">134</th><td>  <b>if</b> (SecondMI.getOpcode() != AArch64::<span class='error' title="no member named &apos;EORv16i8&apos; in namespace &apos;llvm::AArch64&apos;">EORv16i8</span>)</td></tr>
+<tr><th id="135">135</th><td>    <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td>  <i>// Assume the 1st instr to be a wildcard if it is unspecified.</i></td></tr>
+<tr><th id="138">138</th><td>  <b>if</b> (<a class="local col7 ref" href="#7FirstMI" title='FirstMI' data-ref="7FirstMI">FirstMI</a> == <b>nullptr</b>)</td></tr>
+<tr><th id="139">139</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td>  <b>switch</b> (<a class="local col7 ref" href="#7FirstMI" title='FirstMI' data-ref="7FirstMI">FirstMI</a>-&gt;<a class="ref" href="../../../include/llvm/CodeGen/MachineInstr.h.html#_ZNK4llvm12MachineInstr9getOpcodeEv" title='llvm::MachineInstr::getOpcode' data-ref="_ZNK4llvm12MachineInstr9getOpcodeEv">getOpcode</a>()) {</td></tr>
+<tr><th id="142">142</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;AESErr&apos; in namespace &apos;llvm::AArch64&apos;">AESErr</span>:</td></tr>
+<tr><th id="143">143</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;AESDrr&apos; in namespace &apos;llvm::AArch64&apos;">AESDrr</span>:</td></tr>
+<tr><th id="144">144</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;PMULLv16i8&apos; in namespace &apos;llvm::AArch64&apos;">PMULLv16i8</span>:</td></tr>
+<tr><th id="145">145</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;PMULLv8i8&apos; in namespace &apos;llvm::AArch64&apos;">PMULLv8i8</span>:</td></tr>
+<tr><th id="146">146</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;PMULLv1i64&apos; in namespace &apos;llvm::AArch64&apos;">PMULLv1i64</span>:</td></tr>
+<tr><th id="147">147</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;PMULLv2i64&apos; in namespace &apos;llvm::AArch64&apos;">PMULLv2i64</span>:</td></tr>
+<tr><th id="148">148</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="149">149</th><td>  }</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td>  <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="152">152</th><td>}</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td><i class="doc" data-doc="_ZN12_GLOBAL__N_1L14isLiteralsPairEPKN4llvm12MachineInstrERS2_">/// Literal generation.</i></td></tr>
+<tr><th id="155">155</th><td><em>static</em> <em>bool</em> <dfn class="tu decl def" id="_ZN12_GLOBAL__N_1L14isLiteralsPairEPKN4llvm12MachineInstrERS2_" title='(anonymous namespace)::isLiteralsPair' data-type='bool (anonymous namespace)::isLiteralsPair(const llvm::MachineInstr * FirstMI, const llvm::MachineInstr &amp; SecondMI)' data-ref="_ZN12_GLOBAL__N_1L14isLiteralsPairEPKN4llvm12MachineInstrERS2_">isLiteralsPair</dfn>(<em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col9 decl" id="9FirstMI" title='FirstMI' data-type='const llvm::MachineInstr *' data-ref="9FirstMI">FirstMI</dfn>,</td></tr>
+<tr><th id="156">156</th><td>                           <em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> &amp;<dfn class="local col0 decl" id="10SecondMI" title='SecondMI' data-type='const llvm::MachineInstr &amp;' data-ref="10SecondMI">SecondMI</dfn>) {</td></tr>
+<tr><th id="157">157</th><td>  <i>// Assume the 1st instr to be a wildcard if it is unspecified.</i></td></tr>
+<tr><th id="158">158</th><td><i></i></td></tr>
+<tr><th id="159">159</th><td><i>  // PC relative address.</i></td></tr>
+<tr><th id="160">160</th><td>  <b>if</b> ((FirstMI == <b>nullptr</b> || FirstMI-&gt;getOpcode() == AArch64::<span class='error' title="no member named &apos;ADRP&apos; in namespace &apos;llvm::AArch64&apos;">ADRP</span>) &amp;&amp;</td></tr>
+<tr><th id="161">161</th><td>      SecondMI.getOpcode() == AArch64::<span class='error' title="no member named &apos;ADDXri&apos; in namespace &apos;llvm::AArch64&apos;">ADDXri</span>)</td></tr>
+<tr><th id="162">162</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>  <i>// 32 bit immediate.</i></td></tr>
+<tr><th id="165">165</th><td>  <b>if</b> ((FirstMI == <b>nullptr</b> || FirstMI-&gt;getOpcode() == AArch64::<span class='error' title="no member named &apos;MOVZWi&apos; in namespace &apos;llvm::AArch64&apos;">MOVZWi</span>) &amp;&amp;</td></tr>
+<tr><th id="166">166</th><td>      (SecondMI.getOpcode() == AArch64::<span class='error' title="no member named &apos;MOVKWi&apos; in namespace &apos;llvm::AArch64&apos;">MOVKWi</span> &amp;&amp;</td></tr>
+<tr><th id="167">167</th><td>       SecondMI.getOperand(<var>3</var>).getImm() == <var>16</var>))</td></tr>
+<tr><th id="168">168</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td>  <i>// Lower half of 64 bit immediate.</i></td></tr>
+<tr><th id="171">171</th><td>  <b>if</b>((FirstMI == <b>nullptr</b> || FirstMI-&gt;getOpcode() == AArch64::<span class='error' title="no member named &apos;MOVZXi&apos; in namespace &apos;llvm::AArch64&apos;">MOVZXi</span>) &amp;&amp;</td></tr>
+<tr><th id="172">172</th><td>     (SecondMI.getOpcode() == AArch64::<span class='error' title="no member named &apos;MOVKXi&apos; in namespace &apos;llvm::AArch64&apos;">MOVKXi</span> &amp;&amp;</td></tr>
+<tr><th id="173">173</th><td>      SecondMI.getOperand(<var>3</var>).getImm() == <var>16</var>))</td></tr>
+<tr><th id="174">174</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td>  <i>// Upper half of 64 bit immediate.</i></td></tr>
+<tr><th id="177">177</th><td>  <b>if</b> ((FirstMI == <b>nullptr</b> ||</td></tr>
+<tr><th id="178">178</th><td>       (FirstMI-&gt;getOpcode() == AArch64::<span class='error' title="no member named &apos;MOVKXi&apos; in namespace &apos;llvm::AArch64&apos;">MOVKXi</span> &amp;&amp;</td></tr>
+<tr><th id="179">179</th><td>        FirstMI-&gt;getOperand(<var>3</var>).getImm() == <var>32</var>)) &amp;&amp;</td></tr>
+<tr><th id="180">180</th><td>      (SecondMI.getOpcode() == AArch64::<span class='error' title="no member named &apos;MOVKXi&apos; in namespace &apos;llvm::AArch64&apos;">MOVKXi</span> &amp;&amp;</td></tr>
+<tr><th id="181">181</th><td>       SecondMI.getOperand(<var>3</var>).getImm() == <var>48</var>))</td></tr>
+<tr><th id="182">182</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td>  <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="185">185</th><td>}</td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td><i class="doc" data-doc="_ZN12_GLOBAL__N_1L17isAddressLdStPairEPKN4llvm12MachineInstrERS2_">/// Fuse address generation and loads or stores.</i></td></tr>
+<tr><th id="188">188</th><td><em>static</em> <em>bool</em> <dfn class="tu decl def" id="_ZN12_GLOBAL__N_1L17isAddressLdStPairEPKN4llvm12MachineInstrERS2_" title='(anonymous namespace)::isAddressLdStPair' data-type='bool (anonymous namespace)::isAddressLdStPair(const llvm::MachineInstr * FirstMI, const llvm::MachineInstr &amp; SecondMI)' data-ref="_ZN12_GLOBAL__N_1L17isAddressLdStPairEPKN4llvm12MachineInstrERS2_">isAddressLdStPair</dfn>(<em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col1 decl" id="11FirstMI" title='FirstMI' data-type='const llvm::MachineInstr *' data-ref="11FirstMI">FirstMI</dfn>,</td></tr>
+<tr><th id="189">189</th><td>                              <em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> &amp;<dfn class="local col2 decl" id="12SecondMI" title='SecondMI' data-type='const llvm::MachineInstr &amp;' data-ref="12SecondMI">SecondMI</dfn>) {</td></tr>
+<tr><th id="190">190</th><td>  <b>switch</b> (<a class="local col2 ref" href="#12SecondMI" title='SecondMI' data-ref="12SecondMI">SecondMI</a>.<a class="ref" href="../../../include/llvm/CodeGen/MachineInstr.h.html#_ZNK4llvm12MachineInstr9getOpcodeEv" title='llvm::MachineInstr::getOpcode' data-ref="_ZNK4llvm12MachineInstr9getOpcodeEv">getOpcode</a>()) {</td></tr>
+<tr><th id="191">191</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;STRBBui&apos; in namespace &apos;llvm::AArch64&apos;">STRBBui</span>:</td></tr>
+<tr><th id="192">192</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;STRBui&apos; in namespace &apos;llvm::AArch64&apos;">STRBui</span>:</td></tr>
+<tr><th id="193">193</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;STRDui&apos; in namespace &apos;llvm::AArch64&apos;">STRDui</span>:</td></tr>
+<tr><th id="194">194</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;STRHHui&apos; in namespace &apos;llvm::AArch64&apos;">STRHHui</span>:</td></tr>
+<tr><th id="195">195</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;STRHui&apos; in namespace &apos;llvm::AArch64&apos;">STRHui</span>:</td></tr>
+<tr><th id="196">196</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;STRQui&apos; in namespace &apos;llvm::AArch64&apos;">STRQui</span>:</td></tr>
+<tr><th id="197">197</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;STRSui&apos; in namespace &apos;llvm::AArch64&apos;">STRSui</span>:</td></tr>
+<tr><th id="198">198</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;STRWui&apos; in namespace &apos;llvm::AArch64&apos;">STRWui</span>:</td></tr>
+<tr><th id="199">199</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;STRXui&apos; in namespace &apos;llvm::AArch64&apos;">STRXui</span>:</td></tr>
+<tr><th id="200">200</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;LDRBBui&apos; in namespace &apos;llvm::AArch64&apos;">LDRBBui</span>:</td></tr>
+<tr><th id="201">201</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;LDRBui&apos; in namespace &apos;llvm::AArch64&apos;">LDRBui</span>:</td></tr>
+<tr><th id="202">202</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;LDRDui&apos; in namespace &apos;llvm::AArch64&apos;">LDRDui</span>:</td></tr>
+<tr><th id="203">203</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;LDRHHui&apos; in namespace &apos;llvm::AArch64&apos;">LDRHHui</span>:</td></tr>
+<tr><th id="204">204</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;LDRHui&apos; in namespace &apos;llvm::AArch64&apos;">LDRHui</span>:</td></tr>
+<tr><th id="205">205</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;LDRQui&apos; in namespace &apos;llvm::AArch64&apos;">LDRQui</span>:</td></tr>
+<tr><th id="206">206</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;LDRSui&apos; in namespace &apos;llvm::AArch64&apos;">LDRSui</span>:</td></tr>
+<tr><th id="207">207</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;LDRWui&apos; in namespace &apos;llvm::AArch64&apos;">LDRWui</span>:</td></tr>
+<tr><th id="208">208</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;LDRXui&apos; in namespace &apos;llvm::AArch64&apos;">LDRXui</span>:</td></tr>
+<tr><th id="209">209</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;LDRSBWui&apos; in namespace &apos;llvm::AArch64&apos;">LDRSBWui</span>:</td></tr>
+<tr><th id="210">210</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;LDRSBXui&apos; in namespace &apos;llvm::AArch64&apos;">LDRSBXui</span>:</td></tr>
+<tr><th id="211">211</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;LDRSHWui&apos; in namespace &apos;llvm::AArch64&apos;">LDRSHWui</span>:</td></tr>
+<tr><th id="212">212</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;LDRSHXui&apos; in namespace &apos;llvm::AArch64&apos;">LDRSHXui</span>:</td></tr>
+<tr><th id="213">213</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;LDRSWui&apos; in namespace &apos;llvm::AArch64&apos;">LDRSWui</span>:</td></tr>
+<tr><th id="214">214</th><td>    <i>// Assume the 1st instr to be a wildcard if it is unspecified.</i></td></tr>
+<tr><th id="215">215</th><td>    <b>if</b> (FirstMI == <b>nullptr</b>)</td></tr>
+<tr><th id="216">216</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="217">217</th><td></td></tr>
+<tr><th id="218">218</th><td>   <b>switch</b> (<a class="local col1 ref" href="#11FirstMI" title='FirstMI' data-ref="11FirstMI">FirstMI</a>-&gt;<a class="ref" href="../../../include/llvm/CodeGen/MachineInstr.h.html#_ZNK4llvm12MachineInstr9getOpcodeEv" title='llvm::MachineInstr::getOpcode' data-ref="_ZNK4llvm12MachineInstr9getOpcodeEv">getOpcode</a>()) {</td></tr>
+<tr><th id="219">219</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;ADR&apos; in namespace &apos;llvm::AArch64&apos;">ADR</span>:</td></tr>
+<tr><th id="220">220</th><td>      <b>return</b> SecondMI.getOperand(<var>2</var>).getImm() == <var>0</var>;</td></tr>
+<tr><th id="221">221</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;ADRP&apos; in namespace &apos;llvm::AArch64&apos;">ADRP</span>:</td></tr>
+<tr><th id="222">222</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="223">223</th><td>    }</td></tr>
+<tr><th id="224">224</th><td>  }</td></tr>
+<tr><th id="225">225</th><td></td></tr>
+<tr><th id="226">226</th><td>  <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="227">227</th><td>}</td></tr>
+<tr><th id="228">228</th><td></td></tr>
+<tr><th id="229">229</th><td><i class="doc" data-doc="_ZN12_GLOBAL__N_1L14isCCSelectPairEPKN4llvm12MachineInstrERS2_">/// Compare and conditional select.</i></td></tr>
+<tr><th id="230">230</th><td><em>static</em> <em>bool</em> <dfn class="tu decl def" id="_ZN12_GLOBAL__N_1L14isCCSelectPairEPKN4llvm12MachineInstrERS2_" title='(anonymous namespace)::isCCSelectPair' data-type='bool (anonymous namespace)::isCCSelectPair(const llvm::MachineInstr * FirstMI, const llvm::MachineInstr &amp; SecondMI)' data-ref="_ZN12_GLOBAL__N_1L14isCCSelectPairEPKN4llvm12MachineInstrERS2_">isCCSelectPair</dfn>(<em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col3 decl" id="13FirstMI" title='FirstMI' data-type='const llvm::MachineInstr *' data-ref="13FirstMI">FirstMI</dfn>,</td></tr>
+<tr><th id="231">231</th><td>                           <em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> &amp;<dfn class="local col4 decl" id="14SecondMI" title='SecondMI' data-type='const llvm::MachineInstr &amp;' data-ref="14SecondMI">SecondMI</dfn>) {</td></tr>
+<tr><th id="232">232</th><td>  <i>// 32 bits</i></td></tr>
+<tr><th id="233">233</th><td>  <b>if</b> (SecondMI.getOpcode() == AArch64::<span class='error' title="no member named &apos;CSELWr&apos; in namespace &apos;llvm::AArch64&apos;">CSELWr</span>) {</td></tr>
+<tr><th id="234">234</th><td>    <i>// Assume the 1st instr to be a wildcard if it is unspecified.</i></td></tr>
+<tr><th id="235">235</th><td>    <b>if</b> (<a class="local col3 ref" href="#13FirstMI" title='FirstMI' data-ref="13FirstMI">FirstMI</a> == <b>nullptr</b>)</td></tr>
+<tr><th id="236">236</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="237">237</th><td></td></tr>
+<tr><th id="238">238</th><td>    <b>if</b> (FirstMI-&gt;definesRegister(AArch64::<span class='error' title="no member named &apos;WZR&apos; in namespace &apos;llvm::AArch64&apos;">WZR</span>))</td></tr>
+<tr><th id="239">239</th><td>      <b>switch</b> (<a class="local col3 ref" href="#13FirstMI" title='FirstMI' data-ref="13FirstMI">FirstMI</a>-&gt;<a class="ref" href="../../../include/llvm/CodeGen/MachineInstr.h.html#_ZNK4llvm12MachineInstr9getOpcodeEv" title='llvm::MachineInstr::getOpcode' data-ref="_ZNK4llvm12MachineInstr9getOpcodeEv">getOpcode</a>()) {</td></tr>
+<tr><th id="240">240</th><td>      <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSWrs&apos; in namespace &apos;llvm::AArch64&apos;">SUBSWrs</span>:</td></tr>
+<tr><th id="241">241</th><td>        <b>return</b> !AArch64InstrInfo::<span class='error' title="no member named &apos;hasShiftedReg&apos; in &apos;llvm::AArch64InstrInfo&apos;">hasShiftedReg</span>(*FirstMI);</td></tr>
+<tr><th id="242">242</th><td>      <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSWrx&apos; in namespace &apos;llvm::AArch64&apos;">SUBSWrx</span>:</td></tr>
+<tr><th id="243">243</th><td>        <b>return</b> !AArch64InstrInfo::<span class='error' title="no member named &apos;hasExtendedReg&apos; in &apos;llvm::AArch64InstrInfo&apos;">hasExtendedReg</span>(*FirstMI);</td></tr>
+<tr><th id="244">244</th><td>      <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSWrr&apos; in namespace &apos;llvm::AArch64&apos;">SUBSWrr</span>:</td></tr>
+<tr><th id="245">245</th><td>      <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSWri&apos; in namespace &apos;llvm::AArch64&apos;">SUBSWri</span>:</td></tr>
+<tr><th id="246">246</th><td>        <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="247">247</th><td>      }</td></tr>
+<tr><th id="248">248</th><td>  }</td></tr>
+<tr><th id="249">249</th><td></td></tr>
+<tr><th id="250">250</th><td>  <i>// 64 bits</i></td></tr>
+<tr><th id="251">251</th><td>  <b>if</b> (SecondMI.getOpcode() == AArch64::<span class='error' title="no member named &apos;CSELXr&apos; in namespace &apos;llvm::AArch64&apos;">CSELXr</span>) {</td></tr>
+<tr><th id="252">252</th><td>    <i>// Assume the 1st instr to be a wildcard if it is unspecified.</i></td></tr>
+<tr><th id="253">253</th><td>    <b>if</b> (<a class="local col3 ref" href="#13FirstMI" title='FirstMI' data-ref="13FirstMI">FirstMI</a> == <b>nullptr</b>)</td></tr>
+<tr><th id="254">254</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="255">255</th><td></td></tr>
+<tr><th id="256">256</th><td>    <b>if</b> (FirstMI-&gt;definesRegister(AArch64::<span class='error' title="no member named &apos;XZR&apos; in namespace &apos;llvm::AArch64&apos;">XZR</span>))</td></tr>
+<tr><th id="257">257</th><td>      <b>switch</b> (<a class="local col3 ref" href="#13FirstMI" title='FirstMI' data-ref="13FirstMI">FirstMI</a>-&gt;<a class="ref" href="../../../include/llvm/CodeGen/MachineInstr.h.html#_ZNK4llvm12MachineInstr9getOpcodeEv" title='llvm::MachineInstr::getOpcode' data-ref="_ZNK4llvm12MachineInstr9getOpcodeEv">getOpcode</a>()) {</td></tr>
+<tr><th id="258">258</th><td>      <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSXrs&apos; in namespace &apos;llvm::AArch64&apos;">SUBSXrs</span>:</td></tr>
+<tr><th id="259">259</th><td>        <b>return</b> !AArch64InstrInfo::<span class='error' title="no member named &apos;hasShiftedReg&apos; in &apos;llvm::AArch64InstrInfo&apos;">hasShiftedReg</span>(*FirstMI);</td></tr>
+<tr><th id="260">260</th><td>      <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSXrx&apos; in namespace &apos;llvm::AArch64&apos;">SUBSXrx</span>:</td></tr>
+<tr><th id="261">261</th><td>      <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSXrx64&apos; in namespace &apos;llvm::AArch64&apos;">SUBSXrx64</span>:</td></tr>
+<tr><th id="262">262</th><td>        <b>return</b> !AArch64InstrInfo::<span class='error' title="no member named &apos;hasExtendedReg&apos; in &apos;llvm::AArch64InstrInfo&apos;">hasExtendedReg</span>(*FirstMI);</td></tr>
+<tr><th id="263">263</th><td>      <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSXrr&apos; in namespace &apos;llvm::AArch64&apos;">SUBSXrr</span>:</td></tr>
+<tr><th id="264">264</th><td>      <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSXri&apos; in namespace &apos;llvm::AArch64&apos;">SUBSXri</span>:</td></tr>
+<tr><th id="265">265</th><td>        <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="266">266</th><td>      }</td></tr>
+<tr><th id="267">267</th><td>  }</td></tr>
+<tr><th id="268">268</th><td></td></tr>
+<tr><th id="269">269</th><td>  <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="270">270</th><td>}</td></tr>
+<tr><th id="271">271</th><td></td></tr>
+<tr><th id="272">272</th><td><i  data-doc="_ZN12_GLOBAL__N_1L21isArithmeticLogicPairEPKN4llvm12MachineInstrERS2_">// Arithmetic and logic.</i></td></tr>
+<tr><th id="273">273</th><td><em>static</em> <em>bool</em> <dfn class="tu decl def" id="_ZN12_GLOBAL__N_1L21isArithmeticLogicPairEPKN4llvm12MachineInstrERS2_" title='(anonymous namespace)::isArithmeticLogicPair' data-type='bool (anonymous namespace)::isArithmeticLogicPair(const llvm::MachineInstr * FirstMI, const llvm::MachineInstr &amp; SecondMI)' data-ref="_ZN12_GLOBAL__N_1L21isArithmeticLogicPairEPKN4llvm12MachineInstrERS2_">isArithmeticLogicPair</dfn>(<em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col5 decl" id="15FirstMI" title='FirstMI' data-type='const llvm::MachineInstr *' data-ref="15FirstMI">FirstMI</dfn>,</td></tr>
+<tr><th id="274">274</th><td>                                  <em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> &amp;<dfn class="local col6 decl" id="16SecondMI" title='SecondMI' data-type='const llvm::MachineInstr &amp;' data-ref="16SecondMI">SecondMI</dfn>) {</td></tr>
+<tr><th id="275">275</th><td>  <b>if</b> (AArch64InstrInfo::<span class='error' title="no member named &apos;hasShiftedReg&apos; in &apos;llvm::AArch64InstrInfo&apos;">hasShiftedReg</span>(SecondMI))</td></tr>
+<tr><th id="276">276</th><td>    <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="277">277</th><td></td></tr>
+<tr><th id="278">278</th><td>  <b>switch</b> (<a class="local col6 ref" href="#16SecondMI" title='SecondMI' data-ref="16SecondMI">SecondMI</a>.<a class="ref" href="../../../include/llvm/CodeGen/MachineInstr.h.html#_ZNK4llvm12MachineInstr9getOpcodeEv" title='llvm::MachineInstr::getOpcode' data-ref="_ZNK4llvm12MachineInstr9getOpcodeEv">getOpcode</a>()) {</td></tr>
+<tr><th id="279">279</th><td>  <i>// Arithmetic</i></td></tr>
+<tr><th id="280">280</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDWrr&apos; in namespace &apos;llvm::AArch64&apos;">ADDWrr</span>:</td></tr>
+<tr><th id="281">281</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDXrr&apos; in namespace &apos;llvm::AArch64&apos;">ADDXrr</span>:</td></tr>
+<tr><th id="282">282</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBWrr&apos; in namespace &apos;llvm::AArch64&apos;">SUBWrr</span>:</td></tr>
+<tr><th id="283">283</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBXrr&apos; in namespace &apos;llvm::AArch64&apos;">SUBXrr</span>:</td></tr>
+<tr><th id="284">284</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDWrs&apos; in namespace &apos;llvm::AArch64&apos;">ADDWrs</span>:</td></tr>
+<tr><th id="285">285</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDXrs&apos; in namespace &apos;llvm::AArch64&apos;">ADDXrs</span>:</td></tr>
+<tr><th id="286">286</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBWrs&apos; in namespace &apos;llvm::AArch64&apos;">SUBWrs</span>:</td></tr>
+<tr><th id="287">287</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBXrs&apos; in namespace &apos;llvm::AArch64&apos;">SUBXrs</span>:</td></tr>
+<tr><th id="288">288</th><td>  <i>// Logic</i></td></tr>
+<tr><th id="289">289</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ANDWrr&apos; in namespace &apos;llvm::AArch64&apos;">ANDWrr</span>:</td></tr>
+<tr><th id="290">290</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ANDXrr&apos; in namespace &apos;llvm::AArch64&apos;">ANDXrr</span>:</td></tr>
+<tr><th id="291">291</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;BICWrr&apos; in namespace &apos;llvm::AArch64&apos;">BICWrr</span>:</td></tr>
+<tr><th id="292">292</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;BICXrr&apos; in namespace &apos;llvm::AArch64&apos;">BICXrr</span>:</td></tr>
+<tr><th id="293">293</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;EONWrr&apos; in namespace &apos;llvm::AArch64&apos;">EONWrr</span>:</td></tr>
+<tr><th id="294">294</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;EONXrr&apos; in namespace &apos;llvm::AArch64&apos;">EONXrr</span>:</td></tr>
+<tr><th id="295">295</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;EORWrr&apos; in namespace &apos;llvm::AArch64&apos;">EORWrr</span>:</td></tr>
+<tr><th id="296">296</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;EORXrr&apos; in namespace &apos;llvm::AArch64&apos;">EORXrr</span>:</td></tr>
+<tr><th id="297">297</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ORNWrr&apos; in namespace &apos;llvm::AArch64&apos;">ORNWrr</span>:</td></tr>
+<tr><th id="298">298</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ORNXrr&apos; in namespace &apos;llvm::AArch64&apos;">ORNXrr</span>:</td></tr>
+<tr><th id="299">299</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ORRWrr&apos; in namespace &apos;llvm::AArch64&apos;">ORRWrr</span>:</td></tr>
+<tr><th id="300">300</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ORRXrr&apos; in namespace &apos;llvm::AArch64&apos;">ORRXrr</span>:</td></tr>
+<tr><th id="301">301</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ANDWrs&apos; in namespace &apos;llvm::AArch64&apos;">ANDWrs</span>:</td></tr>
+<tr><th id="302">302</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ANDXrs&apos; in namespace &apos;llvm::AArch64&apos;">ANDXrs</span>:</td></tr>
+<tr><th id="303">303</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;BICWrs&apos; in namespace &apos;llvm::AArch64&apos;">BICWrs</span>:</td></tr>
+<tr><th id="304">304</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;BICXrs&apos; in namespace &apos;llvm::AArch64&apos;">BICXrs</span>:</td></tr>
+<tr><th id="305">305</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;EONWrs&apos; in namespace &apos;llvm::AArch64&apos;">EONWrs</span>:</td></tr>
+<tr><th id="306">306</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;EONXrs&apos; in namespace &apos;llvm::AArch64&apos;">EONXrs</span>:</td></tr>
+<tr><th id="307">307</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;EORWrs&apos; in namespace &apos;llvm::AArch64&apos;">EORWrs</span>:</td></tr>
+<tr><th id="308">308</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;EORXrs&apos; in namespace &apos;llvm::AArch64&apos;">EORXrs</span>:</td></tr>
+<tr><th id="309">309</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ORNWrs&apos; in namespace &apos;llvm::AArch64&apos;">ORNWrs</span>:</td></tr>
+<tr><th id="310">310</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ORNXrs&apos; in namespace &apos;llvm::AArch64&apos;">ORNXrs</span>:</td></tr>
+<tr><th id="311">311</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ORRWrs&apos; in namespace &apos;llvm::AArch64&apos;">ORRWrs</span>:</td></tr>
+<tr><th id="312">312</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ORRXrs&apos; in namespace &apos;llvm::AArch64&apos;">ORRXrs</span>:</td></tr>
+<tr><th id="313">313</th><td>    <i>// Assume the 1st instr to be a wildcard if it is unspecified.</i></td></tr>
+<tr><th id="314">314</th><td>    <b>if</b> (FirstMI == <b>nullptr</b>)</td></tr>
+<tr><th id="315">315</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="316">316</th><td></td></tr>
+<tr><th id="317">317</th><td>    <i>// Arithmetic</i></td></tr>
+<tr><th id="318">318</th><td>    <b>switch</b> (<a class="local col5 ref" href="#15FirstMI" title='FirstMI' data-ref="15FirstMI">FirstMI</a>-&gt;<a class="ref" href="../../../include/llvm/CodeGen/MachineInstr.h.html#_ZNK4llvm12MachineInstr9getOpcodeEv" title='llvm::MachineInstr::getOpcode' data-ref="_ZNK4llvm12MachineInstr9getOpcodeEv">getOpcode</a>()) {</td></tr>
+<tr><th id="319">319</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDWrr&apos; in namespace &apos;llvm::AArch64&apos;">ADDWrr</span>:</td></tr>
+<tr><th id="320">320</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDXrr&apos; in namespace &apos;llvm::AArch64&apos;">ADDXrr</span>:</td></tr>
+<tr><th id="321">321</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDSWrr&apos; in namespace &apos;llvm::AArch64&apos;">ADDSWrr</span>:</td></tr>
+<tr><th id="322">322</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDSXrr&apos; in namespace &apos;llvm::AArch64&apos;">ADDSXrr</span>:</td></tr>
+<tr><th id="323">323</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBWrr&apos; in namespace &apos;llvm::AArch64&apos;">SUBWrr</span>:</td></tr>
+<tr><th id="324">324</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBXrr&apos; in namespace &apos;llvm::AArch64&apos;">SUBXrr</span>:</td></tr>
+<tr><th id="325">325</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSWrr&apos; in namespace &apos;llvm::AArch64&apos;">SUBSWrr</span>:</td></tr>
+<tr><th id="326">326</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSXrr&apos; in namespace &apos;llvm::AArch64&apos;">SUBSXrr</span>:</td></tr>
+<tr><th id="327">327</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="328">328</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDWrs&apos; in namespace &apos;llvm::AArch64&apos;">ADDWrs</span>:</td></tr>
+<tr><th id="329">329</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDXrs&apos; in namespace &apos;llvm::AArch64&apos;">ADDXrs</span>:</td></tr>
+<tr><th id="330">330</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDSWrs&apos; in namespace &apos;llvm::AArch64&apos;">ADDSWrs</span>:</td></tr>
+<tr><th id="331">331</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDSXrs&apos; in namespace &apos;llvm::AArch64&apos;">ADDSXrs</span>:</td></tr>
+<tr><th id="332">332</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBWrs&apos; in namespace &apos;llvm::AArch64&apos;">SUBWrs</span>:</td></tr>
+<tr><th id="333">333</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBXrs&apos; in namespace &apos;llvm::AArch64&apos;">SUBXrs</span>:</td></tr>
+<tr><th id="334">334</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSWrs&apos; in namespace &apos;llvm::AArch64&apos;">SUBSWrs</span>:</td></tr>
+<tr><th id="335">335</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSXrs&apos; in namespace &apos;llvm::AArch64&apos;">SUBSXrs</span>:</td></tr>
+<tr><th id="336">336</th><td>      <b>return</b> !AArch64InstrInfo::<span class='error' title="no member named &apos;hasShiftedReg&apos; in &apos;llvm::AArch64InstrInfo&apos;">hasShiftedReg</span>(*FirstMI);</td></tr>
+<tr><th id="337">337</th><td>    }</td></tr>
+<tr><th id="338">338</th><td>    <b>break</b>;</td></tr>
+<tr><th id="339">339</th><td></td></tr>
+<tr><th id="340">340</th><td>  <i>// Arithmetic, setting flags.</i></td></tr>
+<tr><th id="341">341</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDSWrr&apos; in namespace &apos;llvm::AArch64&apos;">ADDSWrr</span>:</td></tr>
+<tr><th id="342">342</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDSXrr&apos; in namespace &apos;llvm::AArch64&apos;">ADDSXrr</span>:</td></tr>
+<tr><th id="343">343</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSWrr&apos; in namespace &apos;llvm::AArch64&apos;">SUBSWrr</span>:</td></tr>
+<tr><th id="344">344</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSXrr&apos; in namespace &apos;llvm::AArch64&apos;">SUBSXrr</span>:</td></tr>
+<tr><th id="345">345</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDSWrs&apos; in namespace &apos;llvm::AArch64&apos;">ADDSWrs</span>:</td></tr>
+<tr><th id="346">346</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDSXrs&apos; in namespace &apos;llvm::AArch64&apos;">ADDSXrs</span>:</td></tr>
+<tr><th id="347">347</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSWrs&apos; in namespace &apos;llvm::AArch64&apos;">SUBSWrs</span>:</td></tr>
+<tr><th id="348">348</th><td>  <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBSXrs&apos; in namespace &apos;llvm::AArch64&apos;">SUBSXrs</span>:</td></tr>
+<tr><th id="349">349</th><td>    <i>// Assume the 1st instr to be a wildcard if it is unspecified.</i></td></tr>
+<tr><th id="350">350</th><td>    <b>if</b> (FirstMI == <b>nullptr</b>)</td></tr>
+<tr><th id="351">351</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="352">352</th><td></td></tr>
+<tr><th id="353">353</th><td>    <i>// Arithmetic, not setting flags.</i></td></tr>
+<tr><th id="354">354</th><td>    <b>switch</b> (<a class="local col5 ref" href="#15FirstMI" title='FirstMI' data-ref="15FirstMI">FirstMI</a>-&gt;<a class="ref" href="../../../include/llvm/CodeGen/MachineInstr.h.html#_ZNK4llvm12MachineInstr9getOpcodeEv" title='llvm::MachineInstr::getOpcode' data-ref="_ZNK4llvm12MachineInstr9getOpcodeEv">getOpcode</a>()) {</td></tr>
+<tr><th id="355">355</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDWrr&apos; in namespace &apos;llvm::AArch64&apos;">ADDWrr</span>:</td></tr>
+<tr><th id="356">356</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDXrr&apos; in namespace &apos;llvm::AArch64&apos;">ADDXrr</span>:</td></tr>
+<tr><th id="357">357</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBWrr&apos; in namespace &apos;llvm::AArch64&apos;">SUBWrr</span>:</td></tr>
+<tr><th id="358">358</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBXrr&apos; in namespace &apos;llvm::AArch64&apos;">SUBXrr</span>:</td></tr>
+<tr><th id="359">359</th><td>      <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="360">360</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDWrs&apos; in namespace &apos;llvm::AArch64&apos;">ADDWrs</span>:</td></tr>
+<tr><th id="361">361</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;ADDXrs&apos; in namespace &apos;llvm::AArch64&apos;">ADDXrs</span>:</td></tr>
+<tr><th id="362">362</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBWrs&apos; in namespace &apos;llvm::AArch64&apos;">SUBWrs</span>:</td></tr>
+<tr><th id="363">363</th><td>    <b>case</b> AArch64::<span class='error' title="no member named &apos;SUBXrs&apos; in namespace &apos;llvm::AArch64&apos;">SUBXrs</span>:</td></tr>
+<tr><th id="364">364</th><td>      <b>return</b> !AArch64InstrInfo::<span class='error' title="no member named &apos;hasShiftedReg&apos; in &apos;llvm::AArch64InstrInfo&apos;">hasShiftedReg</span>(*FirstMI);</td></tr>
+<tr><th id="365">365</th><td>    }</td></tr>
+<tr><th id="366">366</th><td>    <b>break</b>;</td></tr>
+<tr><th id="367">367</th><td>  }</td></tr>
+<tr><th id="368">368</th><td></td></tr>
+<tr><th id="369">369</th><td>  <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="370">370</th><td>}</td></tr>
+<tr><th id="371">371</th><td></td></tr>
+<tr><th id="372">372</th><td><i class="doc" data-doc="_ZN12_GLOBAL__N_1L22shouldScheduleAdjacentERKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_">/// <span class="command">\brief</span> Check if the instr pair, FirstMI and SecondMI, should be fused</i></td></tr>
+<tr><th id="373">373</th><td><i class="doc" data-doc="_ZN12_GLOBAL__N_1L22shouldScheduleAdjacentERKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_">/// together. Given SecondMI, when FirstMI is unspecified, then check if</i></td></tr>
+<tr><th id="374">374</th><td><i class="doc" data-doc="_ZN12_GLOBAL__N_1L22shouldScheduleAdjacentERKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_">/// SecondMI may be part of a fused pair at all.</i></td></tr>
+<tr><th id="375">375</th><td><em>static</em> <em>bool</em> <dfn class="tu decl def" id="_ZN12_GLOBAL__N_1L22shouldScheduleAdjacentERKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_" title='(anonymous namespace)::shouldScheduleAdjacent' data-type='bool (anonymous namespace)::shouldScheduleAdjacent(const llvm::TargetInstrInfo &amp; TII, const llvm::TargetSubtargetInfo &amp; TSI, const llvm::MachineInstr * FirstMI, const llvm::MachineInstr &amp; SecondMI)' data-ref="_ZN12_GLOBAL__N_1L22shouldScheduleAdjacentERKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_">shouldScheduleAdjacent</dfn>(<em>const</em> <a class="type" href="../../../include/llvm/CodeGen/TargetInstrInfo.h.html#llvm::TargetInstrInfo" title='llvm::TargetInstrInfo' data-ref="llvm::TargetInstrInfo">TargetInstrInfo</a> &amp;<dfn class="local col7 decl" id="17TII" title='TII' data-type='const llvm::TargetInstrInfo &amp;' data-ref="17TII">TII</dfn>,</td></tr>
+<tr><th id="376">376</th><td>                                   <em>const</em> <a class="type" href="../../../include/llvm/CodeGen/TargetSubtargetInfo.h.html#llvm::TargetSubtargetInfo" title='llvm::TargetSubtargetInfo' data-ref="llvm::TargetSubtargetInfo">TargetSubtargetInfo</a> &amp;<dfn class="local col8 decl" id="18TSI" title='TSI' data-type='const llvm::TargetSubtargetInfo &amp;' data-ref="18TSI">TSI</dfn>,</td></tr>
+<tr><th id="377">377</th><td>                                   <em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> *<dfn class="local col9 decl" id="19FirstMI" title='FirstMI' data-type='const llvm::MachineInstr *' data-ref="19FirstMI">FirstMI</dfn>,</td></tr>
+<tr><th id="378">378</th><td>                                   <em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr">MachineInstr</a> &amp;<dfn class="local col0 decl" id="20SecondMI" title='SecondMI' data-type='const llvm::MachineInstr &amp;' data-ref="20SecondMI">SecondMI</dfn>) {</td></tr>
+<tr><th id="379">379</th><td>  <em>const</em> <a class="type" href="AArch64Subtarget.h.html#llvm::AArch64Subtarget" title='llvm::AArch64Subtarget' data-ref="llvm::AArch64Subtarget">AArch64Subtarget</a> &amp;<dfn class="local col1 decl" id="21ST" title='ST' data-type='const llvm::AArch64Subtarget &amp;' data-ref="21ST">ST</dfn> = <span class='error' title="no viable conversion from &apos;const llvm::TargetSubtargetInfo&apos; to &apos;const llvm::AArch64Subtarget&apos;"><b>static_cast</b></span>&lt;<em>const</em> <a class="type" href="AArch64Subtarget.h.html#llvm::AArch64Subtarget" title='llvm::AArch64Subtarget' data-ref="llvm::AArch64Subtarget">AArch64Subtarget</a>&amp;&gt;(<a class="local col8 ref" href="#18TSI" title='TSI' data-ref="18TSI">TSI</a>);</td></tr>
+<tr><th id="380">380</th><td></td></tr>
+<tr><th id="381">381</th><td>  <i>// All checking functions assume that the 1st instr is a wildcard if it is</i></td></tr>
+<tr><th id="382">382</th><td><i>  // unspecified.</i></td></tr>
+<tr><th id="383">383</th><td>  <b>if</b> (<a class="local col1 ref" href="#21ST" title='ST' data-ref="21ST">ST</a>.<a class="ref" href="AArch64Subtarget.h.html#_ZNK4llvm16AArch64Subtarget22hasArithmeticBccFusionEv" title='llvm::AArch64Subtarget::hasArithmeticBccFusion' data-ref="_ZNK4llvm16AArch64Subtarget22hasArithmeticBccFusionEv">hasArithmeticBccFusion</a>() &amp;&amp; <a class="tu ref" href="#_ZN12_GLOBAL__N_1L19isArithmeticBccPairEPKN4llvm12MachineInstrERS2_" title='(anonymous namespace)::isArithmeticBccPair' data-use='c' data-ref="_ZN12_GLOBAL__N_1L19isArithmeticBccPairEPKN4llvm12MachineInstrERS2_">isArithmeticBccPair</a>(<a class="local col9 ref" href="#19FirstMI" title='FirstMI' data-ref="19FirstMI">FirstMI</a>, <a class="local col0 ref" href="#20SecondMI" title='SecondMI' data-ref="20SecondMI">SecondMI</a>))</td></tr>
+<tr><th id="384">384</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="385">385</th><td>  <b>if</b> (<a class="local col1 ref" href="#21ST" title='ST' data-ref="21ST">ST</a>.<a class="ref" href="AArch64Subtarget.h.html#_ZNK4llvm16AArch64Subtarget22hasArithmeticCbzFusionEv" title='llvm::AArch64Subtarget::hasArithmeticCbzFusion' data-ref="_ZNK4llvm16AArch64Subtarget22hasArithmeticCbzFusionEv">hasArithmeticCbzFusion</a>() &amp;&amp; <a class="tu ref" href="#_ZN12_GLOBAL__N_1L19isArithmeticCbzPairEPKN4llvm12MachineInstrERS2_" title='(anonymous namespace)::isArithmeticCbzPair' data-use='c' data-ref="_ZN12_GLOBAL__N_1L19isArithmeticCbzPairEPKN4llvm12MachineInstrERS2_">isArithmeticCbzPair</a>(<a class="local col9 ref" href="#19FirstMI" title='FirstMI' data-ref="19FirstMI">FirstMI</a>, <a class="local col0 ref" href="#20SecondMI" title='SecondMI' data-ref="20SecondMI">SecondMI</a>))</td></tr>
+<tr><th id="386">386</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="387">387</th><td>  <b>if</b> (<a class="local col1 ref" href="#21ST" title='ST' data-ref="21ST">ST</a>.<a class="ref" href="AArch64Subtarget.h.html#_ZNK4llvm16AArch64Subtarget10hasFuseAESEv" title='llvm::AArch64Subtarget::hasFuseAES' data-ref="_ZNK4llvm16AArch64Subtarget10hasFuseAESEv">hasFuseAES</a>() &amp;&amp; <a class="tu ref" href="#_ZN12_GLOBAL__N_1L9isAESPairEPKN4llvm12MachineInstrERS2_" title='(anonymous namespace)::isAESPair' data-use='c' data-ref="_ZN12_GLOBAL__N_1L9isAESPairEPKN4llvm12MachineInstrERS2_">isAESPair</a>(<a class="local col9 ref" href="#19FirstMI" title='FirstMI' data-ref="19FirstMI">FirstMI</a>, <a class="local col0 ref" href="#20SecondMI" title='SecondMI' data-ref="20SecondMI">SecondMI</a>))</td></tr>
+<tr><th id="388">388</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="389">389</th><td>  <b>if</b> (<a class="local col1 ref" href="#21ST" title='ST' data-ref="21ST">ST</a>.<a class="ref" href="AArch64Subtarget.h.html#_ZNK4llvm16AArch64Subtarget16hasFuseCryptoEOREv" title='llvm::AArch64Subtarget::hasFuseCryptoEOR' data-ref="_ZNK4llvm16AArch64Subtarget16hasFuseCryptoEOREv">hasFuseCryptoEOR</a>() &amp;&amp; <a class="tu ref" href="#_ZN12_GLOBAL__N_1L15isCryptoEORPairEPKN4llvm12MachineInstrERS2_" title='(anonymous namespace)::isCryptoEORPair' data-use='c' data-ref="_ZN12_GLOBAL__N_1L15isCryptoEORPairEPKN4llvm12MachineInstrERS2_">isCryptoEORPair</a>(<a class="local col9 ref" href="#19FirstMI" title='FirstMI' data-ref="19FirstMI">FirstMI</a>, <a class="local col0 ref" href="#20SecondMI" title='SecondMI' data-ref="20SecondMI">SecondMI</a>))</td></tr>
+<tr><th id="390">390</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="391">391</th><td>  <b>if</b> (<a class="local col1 ref" href="#21ST" title='ST' data-ref="21ST">ST</a>.<a class="ref" href="AArch64Subtarget.h.html#_ZNK4llvm16AArch64Subtarget15hasFuseLiteralsEv" title='llvm::AArch64Subtarget::hasFuseLiterals' data-ref="_ZNK4llvm16AArch64Subtarget15hasFuseLiteralsEv">hasFuseLiterals</a>() &amp;&amp; <a class="tu ref" href="#_ZN12_GLOBAL__N_1L14isLiteralsPairEPKN4llvm12MachineInstrERS2_" title='(anonymous namespace)::isLiteralsPair' data-use='c' data-ref="_ZN12_GLOBAL__N_1L14isLiteralsPairEPKN4llvm12MachineInstrERS2_">isLiteralsPair</a>(<a class="local col9 ref" href="#19FirstMI" title='FirstMI' data-ref="19FirstMI">FirstMI</a>, <a class="local col0 ref" href="#20SecondMI" title='SecondMI' data-ref="20SecondMI">SecondMI</a>))</td></tr>
+<tr><th id="392">392</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="393">393</th><td>  <b>if</b> (<a class="local col1 ref" href="#21ST" title='ST' data-ref="21ST">ST</a>.<a class="ref" href="AArch64Subtarget.h.html#_ZNK4llvm16AArch64Subtarget14hasFuseAddressEv" title='llvm::AArch64Subtarget::hasFuseAddress' data-ref="_ZNK4llvm16AArch64Subtarget14hasFuseAddressEv">hasFuseAddress</a>() &amp;&amp; <a class="tu ref" href="#_ZN12_GLOBAL__N_1L17isAddressLdStPairEPKN4llvm12MachineInstrERS2_" title='(anonymous namespace)::isAddressLdStPair' data-use='c' data-ref="_ZN12_GLOBAL__N_1L17isAddressLdStPairEPKN4llvm12MachineInstrERS2_">isAddressLdStPair</a>(<a class="local col9 ref" href="#19FirstMI" title='FirstMI' data-ref="19FirstMI">FirstMI</a>, <a class="local col0 ref" href="#20SecondMI" title='SecondMI' data-ref="20SecondMI">SecondMI</a>))</td></tr>
+<tr><th id="394">394</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="395">395</th><td>  <b>if</b> (<a class="local col1 ref" href="#21ST" title='ST' data-ref="21ST">ST</a>.<a class="ref" href="AArch64Subtarget.h.html#_ZNK4llvm16AArch64Subtarget15hasFuseCCSelectEv" title='llvm::AArch64Subtarget::hasFuseCCSelect' data-ref="_ZNK4llvm16AArch64Subtarget15hasFuseCCSelectEv">hasFuseCCSelect</a>() &amp;&amp; <a class="tu ref" href="#_ZN12_GLOBAL__N_1L14isCCSelectPairEPKN4llvm12MachineInstrERS2_" title='(anonymous namespace)::isCCSelectPair' data-use='c' data-ref="_ZN12_GLOBAL__N_1L14isCCSelectPairEPKN4llvm12MachineInstrERS2_">isCCSelectPair</a>(<a class="local col9 ref" href="#19FirstMI" title='FirstMI' data-ref="19FirstMI">FirstMI</a>, <a class="local col0 ref" href="#20SecondMI" title='SecondMI' data-ref="20SecondMI">SecondMI</a>))</td></tr>
+<tr><th id="396">396</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="397">397</th><td>  <b>if</b> (<a class="local col1 ref" href="#21ST" title='ST' data-ref="21ST">ST</a>.<a class="ref" href="AArch64Subtarget.h.html#_ZNK4llvm16AArch64Subtarget22hasFuseArithmeticLogicEv" title='llvm::AArch64Subtarget::hasFuseArithmeticLogic' data-ref="_ZNK4llvm16AArch64Subtarget22hasFuseArithmeticLogicEv">hasFuseArithmeticLogic</a>() &amp;&amp; <a class="tu ref" href="#_ZN12_GLOBAL__N_1L21isArithmeticLogicPairEPKN4llvm12MachineInstrERS2_" title='(anonymous namespace)::isArithmeticLogicPair' data-use='c' data-ref="_ZN12_GLOBAL__N_1L21isArithmeticLogicPairEPKN4llvm12MachineInstrERS2_">isArithmeticLogicPair</a>(<a class="local col9 ref" href="#19FirstMI" title='FirstMI' data-ref="19FirstMI">FirstMI</a>, <a class="local col0 ref" href="#20SecondMI" title='SecondMI' data-ref="20SecondMI">SecondMI</a>))</td></tr>
+<tr><th id="398">398</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="399">399</th><td></td></tr>
+<tr><th id="400">400</th><td>  <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="401">401</th><td>}</td></tr>
+<tr><th id="402">402</th><td></td></tr>
+<tr><th id="403">403</th><td>} <i>// end namespace</i></td></tr>
+<tr><th id="404">404</th><td></td></tr>
+<tr><th id="405">405</th><td></td></tr>
+<tr><th id="406">406</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="407">407</th><td></td></tr>
+<tr><th id="408">408</th><td><span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="../../../include/llvm/CodeGen/ScheduleDAGMutation.h.html#llvm::ScheduleDAGMutation" title='llvm::ScheduleDAGMutation' data-ref="llvm::ScheduleDAGMutation">ScheduleDAGMutation</a>&gt; <dfn class="decl def" id="_ZN4llvm35createAArch64MacroFusionDAGMutationEv" title='llvm::createAArch64MacroFusionDAGMutation' data-ref="_ZN4llvm35createAArch64MacroFusionDAGMutationEv">createAArch64MacroFusionDAGMutation</dfn> () {</td></tr>
+<tr><th id="409">409</th><td>  <b>return</b> <a class="ref" href="../../../include/llvm/CodeGen/MacroFusion.h.html#_ZN4llvm28createMacroFusionDAGMutationESt8functionIFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS8_EE" title='llvm::createMacroFusionDAGMutation' data-ref="_ZN4llvm28createMacroFusionDAGMutationESt8functionIFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS8_EE">createMacroFusionDAGMutation</a>(<a class="ref fake" href="../../../../../include/c++/7/bits/std_function.h.html#_ZNSt8functionIFT_DpT0_EEC1ET_" title='std::function&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;::function&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;' data-ref="_ZNSt8functionIFT_DpT0_EEC1ET_"></a><a class="tu ref" href="#_ZN12_GLOBAL__N_1L22shouldScheduleAdjacentERKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_" title='(anonymous namespace)::shouldScheduleAdjacent' data-use='r' data-ref="_ZN12_GLOBAL__N_1L22shouldScheduleAdjacentERKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_">shouldScheduleAdjacent</a>);</td></tr>
+<tr><th id="410">410</th><td>}</td></tr>
+<tr><th id="411">411</th><td></td></tr>
+<tr><th id="412">412</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="413">413</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

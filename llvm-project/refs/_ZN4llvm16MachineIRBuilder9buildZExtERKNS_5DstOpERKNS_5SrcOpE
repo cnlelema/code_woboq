@@ -1,0 +1,28 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='518' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildZExt(const llvm::DstOp &amp; Res, const llvm::SrcOp &amp; Op)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='506'>/// Build and insert \p Res = G_ZEXT \p Op
+  ///
+  /// G_ZEXT produces a register of the specified width, with bits 0 to
+  /// sizeof(\p Ty) * 8 set to \p Op. The remaining bits are 0. For a vector
+  /// register, each element is extended individually.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Res must be a generic virtual register with scalar or vector type.
+  /// \pre \p Op must be a generic virtual register with scalar or vector type.
+  /// \pre \p Op must be smaller than \p Res
+  ///
+  /// \return The newly created instruction.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/CallLowering.cpp' l='221' u='c' c='_ZN4llvm12CallLowering12ValueHandler14extendRegisterEjRNS_11CCValAssignE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='626' u='c' c='_ZN4llvm15LegalizerHelper12narrowScalarERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='797' u='c' c='_ZN4llvm15LegalizerHelper22widenScalarMergeValuesERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='805' u='c' c='_ZN4llvm15LegalizerHelper22widenScalarMergeValuesERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='841' u='c' c='_ZN4llvm15LegalizerHelper24widenScalarUnmergeValuesERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1007' u='c' c='_ZN4llvm15LegalizerHelper11widenScalarERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1532' u='c' c='_ZN4llvm15LegalizerHelper5lowerERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1570' u='c' c='_ZN4llvm15LegalizerHelper5lowerERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='1602' u='c' c='_ZN4llvm15LegalizerHelper5lowerERNS_12MachineInstrEjNS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2601' u='c' c='_ZN4llvm15LegalizerHelper17multiplyRegistersERNS_15SmallVectorImplIjEENS_8ArrayRefIjEES5_NS_3LLTE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp' l='2606' u='c' c='_ZN4llvm15LegalizerHelper17multiplyRegistersERNS_15SmallVectorImplIjEENS_8ArrayRefIjEES5_NS_3LLTE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='390' ll='393' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildZExt(const llvm::DstOp &amp; Res, const llvm::SrcOp &amp; Op)'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64CallLowering.cpp' l='273' u='c' c='_ZNK4llvm19AArch64CallLowering11lowerReturnERNS_16MachineIRBuilderEPKNS_5ValueENS_8ArrayRefIjEEj'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsCallLowering.cpp' l='328' u='c' c='_ZN12_GLOBAL__N_120OutgoingValueHandler14extendRegisterEjRKN4llvm11CCValAssignE'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/PatternMatchTest.cpp' l='361' u='c' c='_ZN12_GLOBAL__N_140PatternMatchInstr_MatchExtendsTrunc_Test8TestBodyEv'/>

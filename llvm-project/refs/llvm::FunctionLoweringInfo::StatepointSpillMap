@@ -1,0 +1,11 @@
+<def f='llvm/llvm/include/llvm/CodeGen/FunctionLoweringInfo.h' l='100' ll='119'/>
+<size>64</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/FunctionLoweringInfo.h' l='94'>/// Keep track of frame indices allocated for statepoints as they could be
+  /// used across basic block boundaries.  This struct is more complex than a
+  /// simple map because the stateopint lowering code de-duplicates gc pointers
+  /// based on their SDValue (so %p and (bitcast %p to T) will get the same
+  /// slot), and we track that here.</doc>
+<mbr r='llvm::FunctionLoweringInfo::StatepointSpillMap::SlotMap' o='0' t='SlotMapTy'/>
+<mbr r='llvm::FunctionLoweringInfo::StatepointSpillMap::DuplicateMap' o='256' t='DenseMap&lt;const llvm::Value *, const llvm::Value *&gt;'/>
+<fun r='_ZNK4llvm20FunctionLoweringInfo18StatepointSpillMap4findEPKNS_5ValueE'/>
+<fun r='_ZNK4llvm20FunctionLoweringInfo18StatepointSpillMap3endEv'/>

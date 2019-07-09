@@ -1,0 +1,14 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='10058' type='clang::QualType clang::Sema::FindCompositePointerType(clang::SourceLocation Loc, clang::Expr *&amp; E1, clang::Expr *&amp; E2, bool ConvertArgs = true)'/>
+<use f='llvm/clang/include/clang/Sema/Sema.h' l='10065' u='c' c='_ZN5clang4Sema24FindCompositePointerTypeENS_14SourceLocationERNS_12ActionResultIPNS_4ExprELb1EEES6_b'/>
+<def f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='6103' ll='6348' type='clang::QualType clang::Sema::FindCompositePointerType(clang::SourceLocation Loc, clang::Expr *&amp; E1, clang::Expr *&amp; E2, bool ConvertArgs = true)'/>
+<doc f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='6092'>/// Find a merged pointer type and convert the two expressions to it.
+///
+/// This finds the composite pointer type (or member pointer type) for @p E1
+/// and @p E2 according to C++1z 5p14. It converts both expressions to this
+/// type and returns it.
+/// It does not emit diagnostics.
+///
+/// \param Loc The location of the operator requiring these two expressions to
+/// be converted to the composite pointer type.
+///
+/// \param ConvertArgs If \c false, do not convert E1 and E2 to the target type.</doc>

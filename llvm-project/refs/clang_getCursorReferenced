@@ -1,0 +1,17 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='4382' type='CXCursor clang_getCursorReferenced(CXCursor )'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='4372'>/** For a cursor that is a reference, retrieve a cursor representing the
+ * entity that it references.
+ *
+ * Reference cursors refer to other entities in the AST. For example, an
+ * Objective-C superclass reference cursor refers to an Objective-C class.
+ * This function produces the cursor for the Objective-C class from the
+ * cursor for the superclass reference. If the input cursor is a declaration or
+ * definition, it returns that declaration or definition unchanged.
+ * Otherwise, returns the NULL cursor.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='792' u='c' c='PrintCursor'/>
+<def f='llvm/clang/tools/libclang/CIndex.cpp' l='6092' ll='6202' type='CXCursor clang_getCursorReferenced(CXCursor C)'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='6212' u='c' c='clang_getCursorDefinition'/>
+<use f='llvm/clang/tools/libclang/CIndex.cpp' l='6217' u='c' c='clang_getCursorDefinition'/>
+<use f='llvm/clang/tools/libclang/CIndexHigh.cpp' l='147' u='c' c='_ZL18findFileIdRefVisit8CXCursorS_Pv'/>
+<use f='llvm/clang/tools/libclang/CIndexHigh.cpp' l='462' u='c' c='clang_findReferencesInFile'/>

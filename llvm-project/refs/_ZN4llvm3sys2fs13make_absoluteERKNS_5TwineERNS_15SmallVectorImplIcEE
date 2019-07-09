@@ -1,0 +1,23 @@
+<dec f='llvm/llvm/include/llvm/Support/FileSystem.h' l='304' type='void llvm::sys::fs::make_absolute(const llvm::Twine &amp; current_directory, SmallVectorImpl&lt;char&gt; &amp; path)'/>
+<doc f='llvm/llvm/include/llvm/Support/FileSystem.h' l='291'>/// @}
+/// @name Physical Operators
+/// @{
+
+/// Make \a path an absolute path.
+///
+/// Makes \a path absolute using the \a current_directory if it is not already.
+/// An empty \a path will result in the \a current_directory.
+///
+/// /absolute/path   =&gt; /absolute/path
+/// relative/../path =&gt; &lt;current-directory&gt;/relative/../path
+///
+/// @param path A path that is modified to be an absolute path.</doc>
+<use f='llvm/clang/lib/Frontend/CompilerInvocation.cpp' l='1984' u='c' c='_ZL21ParseHeaderSearchArgsRN5clang19HeaderSearchOptionsERN4llvm3opt7ArgListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/clang/lib/Lex/HeaderSearch.cpp' l='1692' u='c' c='_ZN5clang12HeaderSearch31suggestPathToFileForDiagnosticsEN4llvm9StringRefES2_Pb'/>
+<def f='llvm/llvm/lib/Support/Path.cpp' l='853' ll='901' type='void llvm::sys::fs::make_absolute(const llvm::Twine &amp; current_directory, SmallVectorImpl&lt;char&gt; &amp; path)'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='911' u='c' c='_ZN4llvm3sys2fs13make_absoluteERNS_15SmallVectorImplIcEE'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='130' u='c' c='_ZNK4llvm3vfs10FileSystem12makeAbsoluteERNS_15SmallVectorImplIcEE'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='270' u='c' c='_ZNK12_GLOBAL__N_114RealFileSystem10adjustPathERKN4llvm5TwineERNS1_15SmallVectorImplIcEE'/>
+<use f='llvm/llvm/tools/llvm-config/llvm-config.cpp' l='337' u='c' c='main'/>
+<use f='llvm/llvm/tools/llvm-opt-report/OptReport.cpp' l='232' u='c' c='_ZL11writeReportRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IiS_IS5_S_IiN12_GLOBAL__N_121OptReportLocationInfoESt4lessIiESaISt4pairI11574367'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='200' u='c' c='_ZN12_GLOBAL__N_117Support_Path_Test8TestBodyEv'/>

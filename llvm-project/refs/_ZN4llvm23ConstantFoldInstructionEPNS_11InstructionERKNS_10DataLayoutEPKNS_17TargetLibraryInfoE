@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ConstantFolding.h' l='46' type='llvm::Constant * llvm::ConstantFoldInstruction(llvm::Instruction * I, const llvm::DataLayout &amp; DL, const llvm::TargetLibraryInfo * TLI = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ConstantFolding.h' l='41'>/// ConstantFoldInstruction - Try to constant fold the specified instruction.
+/// If successful, the constant result is returned, if not, null is returned.
+/// Note that this fails if not all of the operands are constant.  Otherwise,
+/// this function can only fail when attempting to fold instructions like loads
+/// and stores, which have no constant expression form.</doc>
+<def f='llvm/llvm/lib/Analysis/ConstantFolding.cpp' l='1099' ll='1168' type='llvm::Constant * llvm::ConstantFoldInstruction(llvm::Instruction * I, const llvm::DataLayout &amp; DL, const llvm::TargetLibraryInfo * TLI = nullptr)'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='5095' u='c' c='_ZN4llvm19SimplifyInstructionEPNS_11InstructionERKNS_13SimplifyQueryEPNS_25OptimizationRemarkEmitterE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/GlobalOpt.cpp' l='324' u='c' c='_ZL26CleanupConstantGlobalUsersPN4llvm5ValueEPNS_8ConstantERKNS_10DataLayoutEPNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/GlobalOpt.cpp' l='817' u='c' c='_ZL19ConstantPropUsersOfPN4llvm5ValueERKNS_10DataLayoutEPNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='3184' u='c' c='_ZN4llvm12InstCombiner3runEv'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='3363' u='c' c='_ZL26AddReachableCodeToWorklistPN4llvm10BasicBlockERKNS_10DataLayoutERNS_15SmallPtrSetImplIS1_EERNS_19InstCombineWorklistEPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/ConstantProp.cpp' l='93' u='c' c='_ZN12_GLOBAL__N_119ConstantPropagation13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='1065' u='c' c='_ZN4llvm17JumpThreadingPass12ProcessBlockEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='822' u='c' c='_ZN4llvm11hoistRegionEPNS_15DomTreeNodeBaseINS_10BasicBlockEEEPNS_9AAResultsEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_17TargetLibraryInfoEPNS_4LoopEPNS_18226459'/>

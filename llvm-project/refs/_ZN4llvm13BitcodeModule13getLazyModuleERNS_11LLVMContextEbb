@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/Bitcode/BitcodeReader.h' l='98' type='Expected&lt;std::unique_ptr&lt;Module&gt; &gt; llvm::BitcodeModule::getLazyModule(llvm::LLVMContext &amp; Context, bool ShouldLazyLoadMetadata, bool IsImporting)'/>
+<doc f='llvm/llvm/include/llvm/Bitcode/BitcodeReader.h' l='94'>/// Read the bitcode module and prepare for lazy deserialization of function
+    /// bodies. If ShouldLazyLoadMetadata is true, lazily load metadata as well.
+    /// If IsImporting is true, this module is being parsed for ThinLTO
+    /// importing into another module.</doc>
+<def f='llvm/llvm/lib/Bitcode/Reader/BitcodeReader.cpp' l='6048' ll='6052' type='Expected&lt;std::unique_ptr&lt;Module&gt; &gt; llvm::BitcodeModule::getLazyModule(llvm::LLVMContext &amp; Context, bool ShouldLazyLoadMetadata, bool IsImporting)'/>
+<use f='llvm/llvm/lib/Bitcode/Reader/BitcodeReader.cpp' l='6190' u='c' c='_ZN4llvm20getLazyBitcodeModuleENS_15MemoryBufferRefERNS_11LLVMContextEbb'/>
+<use f='llvm/llvm/lib/LTO/LTO.cpp' l='656' u='c' c='_ZN4llvm3lto3LTO13addRegularLTOENS_13BitcodeModuleENS_8ArrayRefINS0_9InputFile6SymbolEEERPKNS0_16SymbolResolutionES9_'/>
+<use f='llvm/llvm/lib/LTO/LTOBackend.cpp' l='523' u='c' c='_ZN4llvm3lto11thinBackendERNS0_6ConfigEjSt8functionIFSt10unique_ptrINS0_18NativeObjectStreamESt14default_deleteIS5_EEjEERNS_6ModuleERKNS_18ModuleSumma11234596'/>
+<use f='llvm/llvm/lib/LTO/ThinLTOCodeGenerator.cpp' l='184' u='c' c='_ZN12_GLOBAL__N_1L19loadModuleFromInputEPN4llvm3lto9InputFileERNS0_11LLVMContextEbb'/>
+<use f='llvm/llvm/lib/Object/IRObjectFile.cpp' l='123' u='c' c='_ZN4llvm6object12IRObjectFile6createENS_15MemoryBufferRefERNS_11LLVMContextE'/>
+<use f='llvm/llvm/lib/Object/IRSymtab.cpp' l='354' u='c' c='_ZL7upgradeN4llvm8ArrayRefINS_13BitcodeModuleEEE'/>

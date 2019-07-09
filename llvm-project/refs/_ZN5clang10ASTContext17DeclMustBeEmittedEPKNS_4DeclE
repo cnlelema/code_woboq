@@ -1,0 +1,10 @@
+<dec f='llvm/clang/include/clang/AST/ASTContext.h' l='2857' type='bool clang::ASTContext::DeclMustBeEmitted(const clang::Decl * D)'/>
+<doc f='llvm/clang/include/clang/AST/ASTContext.h' l='2851'>/// Determines if the decl can be CodeGen&apos;ed or deserialized from PCH
+  /// lazily, only when used; this is only relevant for function or file scoped
+  /// var definitions.
+  ///
+  /// \returns true if the function/var must be CodeGen&apos;ed/deserialized even if
+  /// it is not used.</doc>
+<def f='llvm/clang/lib/AST/ASTContext.cpp' l='10102' ll='10245' type='bool clang::ASTContext::DeclMustBeEmitted(const clang::Decl * D)'/>
+<use f='llvm/clang/lib/Serialization/ASTReaderDecl.cpp' l='2821' u='c' c='_ZL22isConsumerInterestedInRN5clang10ASTContextEPNS_4DeclEb'/>
+<use f='llvm/clang/lib/Serialization/ASTWriterDecl.cpp' l='2318' u='c' c='_ZL14isRequiredDeclPKN5clang4DeclERNS_10ASTContextEb'/>

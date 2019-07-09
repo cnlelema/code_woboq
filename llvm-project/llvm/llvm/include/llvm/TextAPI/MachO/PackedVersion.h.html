@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PackedVersion.h source code [llvm/llvm/include/llvm/TextAPI/MachO/PackedVersion.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::MachO::PackedVersion "/>
+<link rel="stylesheet" href="../../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/TextAPI/MachO/PackedVersion.h'; var root_path = '../../../../../..'; var data_path = '../../../../../../../data';</script>
+<script src='../../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>llvm</a>/<a href='../../../..'>llvm</a>/<a href='../../..'>include</a>/<a href='../..'>llvm</a>/<a href='..'>TextAPI</a>/<a href='./'>MachO</a>/<a href='PackedVersion.h.html'>PackedVersion.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- llvm/TextAPI/MachO/PackedVersion.h - PackedVersion -------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// Defines the Mach-O packed version format.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#<span data-ppcond="13">ifndef</span> <span class="macro" data-ref="_M/LLVM_TEXTAPI_MACHO_PACKED_VERSION_H">LLVM_TEXTAPI_MACHO_PACKED_VERSION_H</span></u></td></tr>
+<tr><th id="14">14</th><td><u>#define <dfn class="macro" id="_M/LLVM_TEXTAPI_MACHO_PACKED_VERSION_H" data-ref="_M/LLVM_TEXTAPI_MACHO_PACKED_VERSION_H">LLVM_TEXTAPI_MACHO_PACKED_VERSION_H</dfn></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="../../ADT/StringRef.h.html">"llvm/ADT/StringRef.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../Support/raw_ostream.h.html">"llvm/Support/raw_ostream.h"</a></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="20">20</th><td><b>namespace</b> <span class="namespace">MachO</span> {</td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><b>class</b> <dfn class="type def" id="llvm::MachO::PackedVersion" title='llvm::MachO::PackedVersion' data-ref="llvm::MachO::PackedVersion">PackedVersion</dfn> {</td></tr>
+<tr><th id="23">23</th><td>  <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="decl" id="llvm::MachO::PackedVersion::Version" title='llvm::MachO::PackedVersion::Version' data-ref="llvm::MachO::PackedVersion::Version">Version</dfn>{<var>0</var>};</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><b>public</b>:</td></tr>
+<tr><th id="26">26</th><td>  <b>constexpr</b> <dfn class="decl" id="_ZN4llvm5MachO13PackedVersionC1Ev" title='llvm::MachO::PackedVersion::PackedVersion' data-ref="_ZN4llvm5MachO13PackedVersionC1Ev">PackedVersion</dfn>() = <b>default</b>;</td></tr>
+<tr><th id="27">27</th><td>  <b>explicit</b> <b>constexpr</b> <dfn class="decl def" id="_ZN4llvm5MachO13PackedVersionC1Ej" title='llvm::MachO::PackedVersion::PackedVersion' data-ref="_ZN4llvm5MachO13PackedVersionC1Ej">PackedVersion</dfn>(<a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="local col1 decl" id="1RawVersion" title='RawVersion' data-type='uint32_t' data-ref="1RawVersion">RawVersion</dfn>) : <a class="member" href="#llvm::MachO::PackedVersion::Version" title='llvm::MachO::PackedVersion::Version' data-ref="llvm::MachO::PackedVersion::Version">Version</a>(<a class="local col1 ref" href="#1RawVersion" title='RawVersion' data-ref="1RawVersion">RawVersion</a>) {}</td></tr>
+<tr><th id="28">28</th><td>  <dfn class="decl def" id="_ZN4llvm5MachO13PackedVersionC1Ejjj" title='llvm::MachO::PackedVersion::PackedVersion' data-ref="_ZN4llvm5MachO13PackedVersionC1Ejjj">PackedVersion</dfn>(<em>unsigned</em> <dfn class="local col2 decl" id="2Major" title='Major' data-type='unsigned int' data-ref="2Major">Major</dfn>, <em>unsigned</em> <dfn class="local col3 decl" id="3Minor" title='Minor' data-type='unsigned int' data-ref="3Minor">Minor</dfn>, <em>unsigned</em> <dfn class="local col4 decl" id="4Subminor" title='Subminor' data-type='unsigned int' data-ref="4Subminor">Subminor</dfn>)</td></tr>
+<tr><th id="29">29</th><td>      : <a class="member" href="#llvm::MachO::PackedVersion::Version" title='llvm::MachO::PackedVersion::Version' data-ref="llvm::MachO::PackedVersion::Version">Version</a>((<a class="local col2 ref" href="#2Major" title='Major' data-ref="2Major">Major</a> &lt;&lt; <var>16</var>) | ((<a class="local col3 ref" href="#3Minor" title='Minor' data-ref="3Minor">Minor</a> &amp; <var>0xff</var>) &lt;&lt; <var>8</var>) | (<a class="local col4 ref" href="#4Subminor" title='Subminor' data-ref="4Subminor">Subminor</a> &amp; <var>0xff</var>)) {}</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm5MachO13PackedVersion5emptyEv" title='llvm::MachO::PackedVersion::empty' data-ref="_ZNK4llvm5MachO13PackedVersion5emptyEv">empty</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::MachO::PackedVersion::Version" title='llvm::MachO::PackedVersion::Version' data-ref="llvm::MachO::PackedVersion::Version">Version</a> == <var>0</var>; }</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td>  <i class="doc">/// Retrieve the major version number.</i></td></tr>
+<tr><th id="34">34</th><td>  <em>unsigned</em> <dfn class="decl def" id="_ZNK4llvm5MachO13PackedVersion8getMajorEv" title='llvm::MachO::PackedVersion::getMajor' data-ref="_ZNK4llvm5MachO13PackedVersion8getMajorEv">getMajor</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::MachO::PackedVersion::Version" title='llvm::MachO::PackedVersion::Version' data-ref="llvm::MachO::PackedVersion::Version">Version</a> &gt;&gt; <var>16</var>; }</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td>  <i class="doc">/// Retrieve the minor version number, if provided.</i></td></tr>
+<tr><th id="37">37</th><td>  <em>unsigned</em> <dfn class="decl def" id="_ZNK4llvm5MachO13PackedVersion8getMinorEv" title='llvm::MachO::PackedVersion::getMinor' data-ref="_ZNK4llvm5MachO13PackedVersion8getMinorEv">getMinor</dfn>() <em>const</em> { <b>return</b> (<a class="member" href="#llvm::MachO::PackedVersion::Version" title='llvm::MachO::PackedVersion::Version' data-ref="llvm::MachO::PackedVersion::Version">Version</a> &gt;&gt; <var>8</var>) &amp; <var>0xff</var>; }</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td>  <i class="doc">/// Retrieve the subminor version number, if provided.</i></td></tr>
+<tr><th id="40">40</th><td>  <em>unsigned</em> <dfn class="decl def" id="_ZNK4llvm5MachO13PackedVersion11getSubminorEv" title='llvm::MachO::PackedVersion::getSubminor' data-ref="_ZNK4llvm5MachO13PackedVersion11getSubminorEv">getSubminor</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::MachO::PackedVersion::Version" title='llvm::MachO::PackedVersion::Version' data-ref="llvm::MachO::PackedVersion::Version">Version</a> &amp; <var>0xff</var>; }</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td>  <em>bool</em> <dfn class="decl" id="_ZN4llvm5MachO13PackedVersion7parse32ENS_9StringRefE" title='llvm::MachO::PackedVersion::parse32' data-ref="_ZN4llvm5MachO13PackedVersion7parse32ENS_9StringRefE">parse32</dfn>(<a class="type" href="../../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col5 decl" id="5Str" title='Str' data-type='llvm::StringRef' data-ref="5Str">Str</dfn>);</td></tr>
+<tr><th id="43">43</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/7/bits/stl_pair.h.html#std::pair" title='std::pair' data-ref="std::pair">pair</a>&lt;<em>bool</em>, <em>bool</em>&gt; <dfn class="decl" id="_ZN4llvm5MachO13PackedVersion7parse64ENS_9StringRefE" title='llvm::MachO::PackedVersion::parse64' data-ref="_ZN4llvm5MachO13PackedVersion7parse64ENS_9StringRefE">parse64</dfn>(<a class="type" href="../../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col6 decl" id="6Str" title='Str' data-type='llvm::StringRef' data-ref="6Str">Str</dfn>);</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm5MachO13PackedVersionltERKS1_" title='llvm::MachO::PackedVersion::operator&lt;' data-ref="_ZNK4llvm5MachO13PackedVersionltERKS1_"><b>operator</b>&lt;</dfn>(<em>const</em> <a class="type" href="#llvm::MachO::PackedVersion" title='llvm::MachO::PackedVersion' data-ref="llvm::MachO::PackedVersion">PackedVersion</a> &amp;<dfn class="local col7 decl" id="7O" title='O' data-type='const llvm::MachO::PackedVersion &amp;' data-ref="7O">O</dfn>) <em>const</em> { <b>return</b> <a class="member" href="#llvm::MachO::PackedVersion::Version" title='llvm::MachO::PackedVersion::Version' data-ref="llvm::MachO::PackedVersion::Version">Version</a> &lt; <a class="local col7 ref" href="#7O" title='O' data-ref="7O">O</a>.<a class="member" href="#llvm::MachO::PackedVersion::Version" title='llvm::MachO::PackedVersion::Version' data-ref="llvm::MachO::PackedVersion::Version">Version</a>; }</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm5MachO13PackedVersioneqERKS1_" title='llvm::MachO::PackedVersion::operator==' data-ref="_ZNK4llvm5MachO13PackedVersioneqERKS1_"><b>operator</b>==</dfn>(<em>const</em> <a class="type" href="#llvm::MachO::PackedVersion" title='llvm::MachO::PackedVersion' data-ref="llvm::MachO::PackedVersion">PackedVersion</a> &amp;<dfn class="local col8 decl" id="8O" title='O' data-type='const llvm::MachO::PackedVersion &amp;' data-ref="8O">O</dfn>) <em>const</em> { <b>return</b> <a class="member" href="#llvm::MachO::PackedVersion::Version" title='llvm::MachO::PackedVersion::Version' data-ref="llvm::MachO::PackedVersion::Version">Version</a> == <a class="local col8 ref" href="#8O" title='O' data-ref="8O">O</a>.<a class="member" href="#llvm::MachO::PackedVersion::Version" title='llvm::MachO::PackedVersion::Version' data-ref="llvm::MachO::PackedVersion::Version">Version</a>; }</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm5MachO13PackedVersionneERKS1_" title='llvm::MachO::PackedVersion::operator!=' data-ref="_ZNK4llvm5MachO13PackedVersionneERKS1_"><b>operator</b>!=</dfn>(<em>const</em> <a class="type" href="#llvm::MachO::PackedVersion" title='llvm::MachO::PackedVersion' data-ref="llvm::MachO::PackedVersion">PackedVersion</a> &amp;<dfn class="local col9 decl" id="9O" title='O' data-type='const llvm::MachO::PackedVersion &amp;' data-ref="9O">O</dfn>) <em>const</em> { <b>return</b> <a class="member" href="#llvm::MachO::PackedVersion::Version" title='llvm::MachO::PackedVersion::Version' data-ref="llvm::MachO::PackedVersion::Version">Version</a> != <a class="local col9 ref" href="#9O" title='O' data-ref="9O">O</a>.<a class="member" href="#llvm::MachO::PackedVersion::Version" title='llvm::MachO::PackedVersion::Version' data-ref="llvm::MachO::PackedVersion::Version">Version</a>; }</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td>  <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="decl def" id="_ZNK4llvm5MachO13PackedVersion8rawValueEv" title='llvm::MachO::PackedVersion::rawValue' data-ref="_ZNK4llvm5MachO13PackedVersion8rawValueEv">rawValue</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::MachO::PackedVersion::Version" title='llvm::MachO::PackedVersion::Version' data-ref="llvm::MachO::PackedVersion::Version">Version</a>; }</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm5MachO13PackedVersion5printERNS_11raw_ostreamE" title='llvm::MachO::PackedVersion::print' data-ref="_ZNK4llvm5MachO13PackedVersion5printERNS_11raw_ostreamE">print</dfn>(<a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col0 decl" id="10OS" title='OS' data-type='llvm::raw_ostream &amp;' data-ref="10OS">OS</dfn>) <em>const</em>;</td></tr>
+<tr><th id="54">54</th><td>};</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><b>inline</b> <a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="decl def" id="_ZN4llvm5MachOlsERNS_11raw_ostreamERKNS0_13PackedVersionE" title='llvm::MachO::operator&lt;&lt;' data-ref="_ZN4llvm5MachOlsERNS_11raw_ostreamERKNS0_13PackedVersionE"><b>operator</b>&lt;&lt;</dfn>(<a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col1 decl" id="11OS" title='OS' data-type='llvm::raw_ostream &amp;' data-ref="11OS">OS</dfn>, <em>const</em> <a class="type" href="#llvm::MachO::PackedVersion" title='llvm::MachO::PackedVersion' data-ref="llvm::MachO::PackedVersion">PackedVersion</a> &amp;<dfn class="local col2 decl" id="12Version" title='Version' data-type='const llvm::MachO::PackedVersion &amp;' data-ref="12Version">Version</dfn>) {</td></tr>
+<tr><th id="57">57</th><td>  <a class="local col2 ref" href="#12Version" title='Version' data-ref="12Version">Version</a>.<a class="ref" href="#_ZNK4llvm5MachO13PackedVersion5printERNS_11raw_ostreamE" title='llvm::MachO::PackedVersion::print' data-ref="_ZNK4llvm5MachO13PackedVersion5printERNS_11raw_ostreamE">print</a>(<span class='refarg'><a class="local col1 ref" href="#11OS" title='OS' data-ref="11OS">OS</a></span>);</td></tr>
+<tr><th id="58">58</th><td>  <b>return</b> <a class="local col1 ref" href="#11OS" title='OS' data-ref="11OS">OS</a>;</td></tr>
+<tr><th id="59">59</th><td>}</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>} <i>// end namespace MachO.</i></td></tr>
+<tr><th id="62">62</th><td>} <i>// end namespace llvm.</i></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><u>#<span data-ppcond="13">endif</span> // LLVM_TEXTAPI_MACHO_PACKED_VERSION_H</u></td></tr>
+<tr><th id="65">65</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../lib/TextAPI/MachO/InterfaceFile.cpp.html'>llvm/llvm/lib/TextAPI/MachO/InterfaceFile.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

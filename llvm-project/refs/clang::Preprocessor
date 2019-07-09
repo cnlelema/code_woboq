@@ -1,0 +1,423 @@
+<def f='llvm/clang/include/clang/Lex/Preprocessor.h' l='124' ll='2316'/>
+<size>3016</size>
+<doc f='llvm/clang/include/clang/Lex/Preprocessor.h' l='118'>/// Engages in a tight little dance with the lexer to efficiently
+/// preprocess tokens.
+///
+/// Lexers know only about tokens within a single source file, and don&apos;t
+/// know anything about preprocessor-level issues like the \#include stack,
+/// token expansion, etc.</doc>
+<mbr r='clang::Preprocessor::OnToken' o='0' t='llvm::unique_function&lt;void (const clang::Token &amp;)&gt;'/>
+<mbr r='clang::Preprocessor::PPOpts' o='256' t='std::shared_ptr&lt;PreprocessorOptions&gt;'/>
+<mbr r='clang::Preprocessor::Diags' o='384' t='clang::DiagnosticsEngine *'/>
+<mbr r='clang::Preprocessor::LangOpts' o='448' t='clang::LangOptions &amp;'/>
+<mbr r='clang::Preprocessor::Target' o='512' t='const clang::TargetInfo *'/>
+<mbr r='clang::Preprocessor::AuxTarget' o='576' t='const clang::TargetInfo *'/>
+<mbr r='clang::Preprocessor::FileMgr' o='640' t='clang::FileManager &amp;'/>
+<mbr r='clang::Preprocessor::SourceMgr' o='704' t='clang::SourceManager &amp;'/>
+<mbr r='clang::Preprocessor::ScratchBuf' o='768' t='std::unique_ptr&lt;ScratchBuffer&gt;'/>
+<mbr r='clang::Preprocessor::HeaderInfo' o='832' t='clang::HeaderSearch &amp;'/>
+<mbr r='clang::Preprocessor::TheModuleLoader' o='896' t='clang::ModuleLoader &amp;'/>
+<mbr r='clang::Preprocessor::ExternalSource' o='960' t='clang::ExternalPreprocessorSource *'/>
+<mbr r='clang::Preprocessor::BP' o='1024' t='llvm::BumpPtrAllocator'/>
+<mbr r='clang::Preprocessor::Ident__LINE__' o='1856' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__FILE__' o='1920' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__DATE__' o='1984' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__TIME__' o='2048' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__INCLUDE_LEVEL__' o='2112' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__BASE_FILE__' o='2176' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__FILE_NAME__' o='2240' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__TIMESTAMP__' o='2304' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__COUNTER__' o='2368' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident_Pragma' o='2432' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__pragma' o='2496' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__identifier' o='2560' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__VA_ARGS__' o='2624' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__VA_OPT__' o='2688' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__has_feature' o='2752' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__has_extension' o='2816' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__has_builtin' o='2880' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__has_attribute' o='2944' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__has_include' o='3008' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__has_include_next' o='3072' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__has_warning' o='3136' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__is_identifier' o='3200' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__building_module' o='3264' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__MODULE__' o='3328' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__has_cpp_attribute' o='3392' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__has_c_attribute' o='3456' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__has_declspec' o='3520' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__is_target_arch' o='3584' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__is_target_vendor' o='3648' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__is_target_os' o='3712' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__is_target_environment' o='3776' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::ArgMacro' o='3840' t='clang::Token *'/>
+<mbr r='clang::Preprocessor::DATELoc' o='3904' t='clang::SourceLocation'/>
+<mbr r='clang::Preprocessor::TIMELoc' o='3936' t='clang::SourceLocation'/>
+<mbr r='clang::Preprocessor::CounterValue' o='3968' t='unsigned int'/>
+<mbr r='clang::Preprocessor::KeepComments' o='4000' t='bool'/>
+<mbr r='clang::Preprocessor::KeepMacroComments' o='4001' t='bool'/>
+<mbr r='clang::Preprocessor::SuppressIncludeNotFoundError' o='4002' t='bool'/>
+<mbr r='clang::Preprocessor::InMacroArgs' o='4003' t='bool'/>
+<mbr r='clang::Preprocessor::OwnsHeaderSearch' o='4004' t='bool'/>
+<mbr r='clang::Preprocessor::DisableMacroExpansion' o='4005' t='bool'/>
+<mbr r='clang::Preprocessor::MacroExpansionInDirectivesOverride' o='4006' t='bool'/>
+<mbr r='clang::Preprocessor::ReadMacrosFromExternalSource' o='4007' t='bool'/>
+<mbr r='clang::Preprocessor::PragmasEnabled' o='4008' t='bool'/>
+<mbr r='clang::Preprocessor::PreprocessedOutput' o='4009' t='bool'/>
+<mbr r='clang::Preprocessor::ParsingIfOrElifDirective' o='4016' t='bool'/>
+<mbr r='clang::Preprocessor::InMacroArgPreExpansion' o='4024' t='bool'/>
+<mbr r='clang::Preprocessor::Identifiers' o='4032' t='clang::IdentifierTable'/>
+<mbr r='clang::Preprocessor::Selectors' o='5120' t='clang::SelectorTable'/>
+<mbr r='clang::Preprocessor::BuiltinInfo' o='5184' t='Builtin::Context'/>
+<mbr r='clang::Preprocessor::PragmaHandlers' o='5440' t='std::unique_ptr&lt;PragmaNamespace&gt;'/>
+<mbr r='clang::Preprocessor::PragmaHandlersBackup' o='5504' t='std::unique_ptr&lt;PragmaNamespace&gt;'/>
+<mbr r='clang::Preprocessor::CommentHandlers' o='5568' t='std::vector&lt;CommentHandler *&gt;'/>
+<mbr r='clang::Preprocessor::IncrementalProcessing' o='5760' t='bool'/>
+<mbr r='clang::Preprocessor::TUKind' o='5792' t='clang::TranslationUnitKind'/>
+<mbr r='clang::Preprocessor::CodeComplete' o='5824' t='clang::CodeCompletionHandler *'/>
+<mbr r='clang::Preprocessor::CodeCompletionFile' o='5888' t='const clang::FileEntry *'/>
+<mbr r='clang::Preprocessor::CodeCompletionOffset' o='5952' t='unsigned int'/>
+<mbr r='clang::Preprocessor::CodeCompletionLoc' o='5984' t='clang::SourceLocation'/>
+<mbr r='clang::Preprocessor::CodeCompletionFileLoc' o='6016' t='clang::SourceLocation'/>
+<mbr r='clang::Preprocessor::ModuleImportLoc' o='6048' t='clang::SourceLocation'/>
+<mbr r='clang::Preprocessor::ModuleImportPath' o='6080' t='SmallVector&lt;std::pair&lt;IdentifierInfo *, SourceLocation&gt;, 2&gt;'/>
+<mbr r='clang::Preprocessor::LastTokenWasAt' o='6464' t='bool'/>
+<mbr r='clang::Preprocessor::ImportSeqState' o='6496' t='clang::Preprocessor::ImportSeq'/>
+<mbr r='clang::Preprocessor::ModuleImportExpectsIdentifier' o='6560' t='bool'/>
+<mbr r='clang::Preprocessor::PragmaARCCFCodeAuditedLoc' o='6592' t='clang::SourceLocation'/>
+<mbr r='clang::Preprocessor::PragmaAssumeNonNullLoc' o='6624' t='clang::SourceLocation'/>
+<mbr r='clang::Preprocessor::CodeCompletionReached' o='6656' t='bool'/>
+<mbr r='clang::Preprocessor::CodeCompletionII' o='6720' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::CodeCompletionTokenRange' o='6784' t='clang::SourceRange'/>
+<mbr r='clang::Preprocessor::MainFileDir' o='6848' t='const clang::DirectoryEntry *'/>
+<mbr r='clang::Preprocessor::SkipMainFilePreamble' o='6912' t='std::pair&lt;int, bool&gt;'/>
+<mbr r='clang::Preprocessor::HasReachedMaxIncludeDepth' o='6976' t='bool'/>
+<mbr r='clang::Preprocessor::LexLevel' o='7008' t='unsigned int'/>
+<mbr r='clang::Preprocessor::PreambleConditionalStack' o='7040' t='class PreambleConditionalStackStore'/>
+<mbr r='clang::Preprocessor::CurLexer' o='7680' t='std::unique_ptr&lt;Lexer&gt;'/>
+<mbr r='clang::Preprocessor::CurPPLexer' o='7744' t='clang::PreprocessorLexer *'/>
+<mbr r='clang::Preprocessor::CurDirLookup' o='7808' t='const clang::DirectoryLookup *'/>
+<mbr r='clang::Preprocessor::CurTokenLexer' o='7872' t='std::unique_ptr&lt;TokenLexer&gt;'/>
+<mbr r='clang::Preprocessor::CurLexerKind' o='7936' t='enum CurLexerKind'/>
+<mbr r='clang::Preprocessor::CurLexerSubmodule' o='8000' t='clang::Module *'/>
+<mbr r='clang::Preprocessor::IncludeMacroStack' o='8064' t='std::vector&lt;IncludeStackInfo&gt;'/>
+<mbr r='clang::Preprocessor::Callbacks' o='8256' t='std::unique_ptr&lt;PPCallbacks&gt;'/>
+<mbr r='clang::Preprocessor::DelayedMacroExpandsCallbacks' o='8320' t='SmallVector&lt;clang::Preprocessor::MacroExpandsInfo, 2&gt;'/>
+<mbr r='clang::Preprocessor::BuildingSubmoduleStack' o='9344' t='SmallVector&lt;clang::Preprocessor::BuildingSubmoduleInfo, 8&gt;'/>
+<mbr r='clang::Preprocessor::Submodules' o='11520' t='std::map&lt;Module *, SubmoduleState&gt;'/>
+<mbr r='clang::Preprocessor::NullSubmoduleState' o='11904' t='clang::Preprocessor::SubmoduleState'/>
+<mbr r='clang::Preprocessor::CurSubmoduleState' o='12416' t='clang::Preprocessor::SubmoduleState *'/>
+<mbr r='clang::Preprocessor::ModuleMacros' o='12480' t='llvm::FoldingSet&lt;ModuleMacro&gt;'/>
+<mbr r='clang::Preprocessor::PendingModuleMacroNames' o='12672' t='llvm::SmallVector&lt;const IdentifierInfo *, 32&gt;'/>
+<mbr r='clang::Preprocessor::LeafModuleMacros' o='14848' t='llvm::DenseMap&lt;const IdentifierInfo *, llvm::TinyPtrVector&lt;ModuleMacro *&gt; &gt;'/>
+<mbr r='clang::Preprocessor::WarnUnusedMacroLocs' o='15104' t='WarnUnusedMacroLocsTy'/>
+<mbr r='clang::Preprocessor::MacroArgCache' o='17472' t='clang::MacroArgs *'/>
+<mbr r='clang::Preprocessor::PragmaPushMacroInfo' o='17536' t='llvm::DenseMap&lt;IdentifierInfo *, std::vector&lt;MacroInfo *&gt; &gt;'/>
+<mbr r='clang::Preprocessor::NumDirectives' o='17792' t='unsigned int'/>
+<mbr r='clang::Preprocessor::NumDefined' o='17824' t='unsigned int'/>
+<mbr r='clang::Preprocessor::NumUndefined' o='17856' t='unsigned int'/>
+<mbr r='clang::Preprocessor::NumPragma' o='17888' t='unsigned int'/>
+<mbr r='clang::Preprocessor::NumIf' o='17920' t='unsigned int'/>
+<mbr r='clang::Preprocessor::NumElse' o='17952' t='unsigned int'/>
+<mbr r='clang::Preprocessor::NumEndif' o='17984' t='unsigned int'/>
+<mbr r='clang::Preprocessor::NumEnteredSourceFiles' o='18016' t='unsigned int'/>
+<mbr r='clang::Preprocessor::MaxIncludeStackDepth' o='18048' t='unsigned int'/>
+<mbr r='clang::Preprocessor::NumMacroExpanded' o='18080' t='unsigned int'/>
+<mbr r='clang::Preprocessor::NumFnMacroExpanded' o='18112' t='unsigned int'/>
+<mbr r='clang::Preprocessor::NumBuiltinMacroExpanded' o='18144' t='unsigned int'/>
+<mbr r='clang::Preprocessor::NumFastMacroExpanded' o='18176' t='unsigned int'/>
+<mbr r='clang::Preprocessor::NumTokenPaste' o='18208' t='unsigned int'/>
+<mbr r='clang::Preprocessor::NumFastTokenPaste' o='18240' t='unsigned int'/>
+<mbr r='clang::Preprocessor::NumSkipped' o='18272' t='unsigned int'/>
+<mbr r='clang::Preprocessor::Predefines' o='18304' t='std::string'/>
+<mbr r='clang::Preprocessor::PredefinesFileID' o='18560' t='clang::FileID'/>
+<mbr r='clang::Preprocessor::PCHThroughHeaderFileID' o='18592' t='clang::FileID'/>
+<mbr r='clang::Preprocessor::SkippingUntilPragmaHdrStop' o='18624' t='bool'/>
+<mbr r='clang::Preprocessor::SkippingUntilPCHThroughHeader' o='18632' t='bool'/>
+<mbr r='clang::Preprocessor::NumCachedTokenLexers' o='18656' t='unsigned int'/>
+<mbr r='clang::Preprocessor::TokenLexerCache' o='18688' t='std::unique_ptr&lt;TokenLexer&gt; [8]'/>
+<mbr r='clang::Preprocessor::MacroExpandedTokens' o='19200' t='SmallVector&lt;clang::Token, 16&gt;'/>
+<mbr r='clang::Preprocessor::MacroExpandingLexersStack' o='22400' t='std::vector&lt;std::pair&lt;TokenLexer *, size_t&gt; &gt;'/>
+<mbr r='clang::Preprocessor::Record' o='22592' t='clang::PreprocessingRecord *'/>
+<mbr r='clang::Preprocessor::CachedTokens' o='22656' t='CachedTokensTy'/>
+<mbr r='clang::Preprocessor::CachedLexPos' o='22976' t='CachedTokensTy::size_type'/>
+<mbr r='clang::Preprocessor::BacktrackPositions' o='23040' t='std::vector&lt;CachedTokensTy::size_type&gt;'/>
+<mbr r='clang::Preprocessor::MIChainHead' o='23232' t='clang::Preprocessor::MacroInfoChain *'/>
+<fun r='_ZNK5clang12Preprocessor25updateOutOfDateIdentifierERNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang12PreprocessorC1ESt10shared_ptrINS_19PreprocessorOptionsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_12HeaderSearchERN8862891'/>
+<fun r='_ZN5clang12PreprocessorD1Ev'/>
+<fun r='_ZN5clang12Preprocessor10InitializeERKNS_10TargetInfoEPS2_'/>
+<fun r='_ZN5clang12Preprocessor22InitializeForModelFileEv'/>
+<fun r='_ZN5clang12Preprocessor20FinalizeForModelFileEv'/>
+<fun r='_ZNK5clang12Preprocessor19getPreprocessorOptsEv'/>
+<fun r='_ZNK5clang12Preprocessor14getDiagnosticsEv'/>
+<fun r='_ZN5clang12Preprocessor14setDiagnosticsERNS_17DiagnosticsEngineE'/>
+<fun r='_ZNK5clang12Preprocessor11getLangOptsEv'/>
+<fun r='_ZNK5clang12Preprocessor13getTargetInfoEv'/>
+<fun r='_ZNK5clang12Preprocessor16getAuxTargetInfoEv'/>
+<fun r='_ZNK5clang12Preprocessor14getFileManagerEv'/>
+<fun r='_ZNK5clang12Preprocessor16getSourceManagerEv'/>
+<fun r='_ZNK5clang12Preprocessor19getHeaderSearchInfoEv'/>
+<fun r='_ZN5clang12Preprocessor18getIdentifierTableEv'/>
+<fun r='_ZNK5clang12Preprocessor18getIdentifierTableEv'/>
+<fun r='_ZN5clang12Preprocessor16getSelectorTableEv'/>
+<fun r='_ZN5clang12Preprocessor14getBuiltinInfoEv'/>
+<fun r='_ZN5clang12Preprocessor24getPreprocessorAllocatorEv'/>
+<fun r='_ZN5clang12Preprocessor17setExternalSourceEPNS_26ExternalPreprocessorSourceE'/>
+<fun r='_ZNK5clang12Preprocessor17getExternalSourceEv'/>
+<fun r='_ZNK5clang12Preprocessor15getModuleLoaderEv'/>
+<fun r='_ZNK5clang12Preprocessor27hadModuleLoaderFatalFailureEv'/>
+<fun r='_ZNK5clang12Preprocessor26isParsingIfOrElifDirectiveEv'/>
+<fun r='_ZN5clang12Preprocessor24SetCommentRetentionStateEbb'/>
+<fun r='_ZNK5clang12Preprocessor24getCommentRetentionStateEv'/>
+<fun r='_ZN5clang12Preprocessor17setPragmasEnabledEb'/>
+<fun r='_ZNK5clang12Preprocessor17getPragmasEnabledEv'/>
+<fun r='_ZN5clang12Preprocessor31SetSuppressIncludeNotFoundErrorEb'/>
+<fun r='_ZN5clang12Preprocessor31GetSuppressIncludeNotFoundErrorEv'/>
+<fun r='_ZN5clang12Preprocessor21setPreprocessedOutputEb'/>
+<fun r='_ZNK5clang12Preprocessor20isPreprocessedOutputEv'/>
+<fun r='_ZNK5clang12Preprocessor14isCurrentLexerEPKNS_17PreprocessorLexerE'/>
+<fun r='_ZNK5clang12Preprocessor15getCurrentLexerEv'/>
+<fun r='_ZNK5clang12Preprocessor19getCurrentFileLexerEv'/>
+<fun r='_ZNK5clang12Preprocessor24getCurrentLexerSubmoduleEv'/>
+<fun r='_ZNK5clang12Preprocessor19getPredefinesFileIDEv'/>
+<fun r='_ZNK5clang12Preprocessor14getPPCallbacksEv'/>
+<fun r='_ZN5clang12Preprocessor14addPPCallbacksESt10unique_ptrINS_11PPCallbacksESt14default_deleteIS2_EE'/>
+<fun r='_ZN5clang12Preprocessor15setTokenWatcherEN4llvm15unique_functionIFvRKNS_5TokenEEEE'/>
+<fun r='_ZN5clang12Preprocessor14isMacroDefinedEN4llvm9StringRefE'/>
+<fun r='_ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang12Preprocessor27isMacroDefinedInLocalModuleEPKNS_14IdentifierInfoEPNS_6ModuleE'/>
+<fun r='_ZN5clang12Preprocessor18getMacroDefinitionEPKNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang12Preprocessor23getMacroDefinitionAtLocEPKNS_14IdentifierInfoENS_14SourceLocationE'/>
+<fun r='_ZNK5clang12Preprocessor22getLocalMacroDirectiveEPKNS_14IdentifierInfoE'/>
+<fun r='_ZNK5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE'/>
+<fun r='_ZNK5clang12Preprocessor29getLocalMacroDirectiveHistoryEPKNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang12Preprocessor20appendMacroDirectiveEPNS_14IdentifierInfoEPNS_14MacroDirectiveE'/>
+<fun r='_ZN5clang12Preprocessor23appendDefMacroDirectiveEPNS_14IdentifierInfoEPNS_9MacroInfoENS_14SourceLocationE'/>
+<fun r='_ZN5clang12Preprocessor23appendDefMacroDirectiveEPNS_14IdentifierInfoEPNS_9MacroInfoE'/>
+<fun r='_ZN5clang12Preprocessor23setLoadedMacroDirectiveEPNS_14IdentifierInfoEPNS_14MacroDirectiveES4_'/>
+<fun r='_ZN5clang12Preprocessor14addModuleMacroEPNS_6ModuleEPNS_14IdentifierInfoEPNS_9MacroInfoEN4llvm8ArrayRefIPNS_11ModuleMacroEEERb'/>
+<fun r='_ZN5clang12Preprocessor14getModuleMacroEPNS_6ModuleEPNS_14IdentifierInfoE'/>
+<fun r='_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE'/>
+<fun r='_ZNK5clang12Preprocessor11macro_beginEb'/>
+<fun r='_ZNK5clang12Preprocessor9macro_endEb'/>
+<fun r='_ZNK5clang12Preprocessor6macrosEb'/>
+<fun r='_ZNK5clang12Preprocessor24getLastMacroWithSpellingENS_14SourceLocationEN4llvm8ArrayRefINS_10TokenValueEEE'/>
+<fun r='_ZNK5clang12Preprocessor13getPredefinesEv'/>
+<fun r='_ZN5clang12Preprocessor13setPredefinesEPKc'/>
+<fun r='_ZN5clang12Preprocessor13setPredefinesEN4llvm9StringRefE'/>
+<fun r='_ZNK5clang12Preprocessor17getIdentifierInfoEN4llvm9StringRefE'/>
+<fun r='_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE'/>
+<fun r='_ZN5clang12Preprocessor16AddPragmaHandlerEPNS_13PragmaHandlerE'/>
+<fun r='_ZN5clang12Preprocessor19RemovePragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE'/>
+<fun r='_ZN5clang12Preprocessor19RemovePragmaHandlerEPNS_13PragmaHandlerE'/>
+<fun r='_ZN5clang12Preprocessor13IgnorePragmasEv'/>
+<fun r='_ZN5clang12Preprocessor17addCommentHandlerEPNS_14CommentHandlerE'/>
+<fun r='_ZN5clang12Preprocessor20removeCommentHandlerEPNS_14CommentHandlerE'/>
+<fun r='_ZN5clang12Preprocessor24setCodeCompletionHandlerERNS_21CodeCompletionHandlerE'/>
+<fun r='_ZNK5clang12Preprocessor24getCodeCompletionHandlerEv'/>
+<fun r='_ZN5clang12Preprocessor26clearCodeCompletionHandlerEv'/>
+<fun r='_ZN5clang12Preprocessor24CodeCompleteIncludedFileEN4llvm9StringRefEb'/>
+<fun r='_ZN5clang12Preprocessor27CodeCompleteNaturalLanguageEv'/>
+<fun r='_ZN5clang12Preprocessor31setCodeCompletionIdentifierInfoEPNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang12Preprocessor27setCodeCompletionTokenRangeENS_14SourceLocationES1_'/>
+<fun r='_ZNK5clang12Preprocessor27getCodeCompletionTokenRangeEv'/>
+<fun r='_ZN5clang12Preprocessor23getCodeCompletionFilterEv'/>
+<fun r='_ZNK5clang12Preprocessor22getPreprocessingRecordEv'/>
+<fun r='_ZN5clang12Preprocessor25createPreprocessingRecordEv'/>
+<fun r='_ZN5clang12Preprocessor18isPCHThroughHeaderEPKNS_9FileEntryE'/>
+<fun r='_ZN5clang12Preprocessor28creatingPCHWithThroughHeaderEv'/>
+<fun r='_ZN5clang12Preprocessor25usingPCHWithThroughHeaderEv'/>
+<fun r='_ZN5clang12Preprocessor28creatingPCHWithPragmaHdrStopEv'/>
+<fun r='_ZN5clang12Preprocessor25usingPCHWithPragmaHdrStopEv'/>
+<fun r='_ZN5clang12Preprocessor23SkipTokensWhileUsingPCHEv'/>
+<fun r='_ZN5clang12Preprocessor35HandleSkippedDirectiveWhileUsingPCHERNS_5TokenENS_14SourceLocationE'/>
+<fun r='_ZN5clang12Preprocessor19EnterMainSourceFileEv'/>
+<fun r='_ZN5clang12Preprocessor13EndSourceFileEv'/>
+<fun r='_ZN5clang12Preprocessor15EnterSourceFileENS_6FileIDEPKNS_15DirectoryLookupENS_14SourceLocationE'/>
+<fun r='_ZN5clang12Preprocessor10EnterMacroERNS_5TokenENS_14SourceLocationEPNS_9MacroInfoEPNS_9MacroArgsE'/>
+<fun r='_ZN5clang12Preprocessor16EnterTokenStreamEPKNS_5TokenEjbbb'/>
+<fun r='_ZN5clang12Preprocessor16EnterTokenStreamESt10unique_ptrIA_NS_5TokenESt14default_deleteIS3_EEjbb'/>
+<fun r='_ZN5clang12Preprocessor16EnterTokenStreamEN4llvm8ArrayRefINS_5TokenEEEbb'/>
+<fun r='_ZN5clang12Preprocessor21RemoveTopOfLexerStackEv'/>
+<fun r='_ZN5clang12Preprocessor24EnableBacktrackAtThisPosEv'/>
+<fun r='_ZN5clang12Preprocessor23CommitBacktrackedTokensEv'/>
+<fun r='_ZN5clang12Preprocessor9BacktrackEv'/>
+<fun r='_ZNK5clang12Preprocessor18isBacktrackEnabledEv'/>
+<fun r='_ZN5clang12Preprocessor3LexERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor13LexHeaderNameERNS_5TokenEb'/>
+<fun r='_ZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor21CollectPpImportSuffixERN4llvm15SmallVectorImplINS_5TokenEEE'/>
+<fun r='_ZN5clang12Preprocessor17makeModuleVisibleEPNS_6ModuleENS_14SourceLocationE'/>
+<fun r='_ZNK5clang12Preprocessor18getModuleImportLocEPNS_6ModuleE'/>
+<fun r='_ZN5clang12Preprocessor16LexStringLiteralERNS_5TokenERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcb'/>
+<fun r='_ZN5clang12Preprocessor22FinishLexStringLiteralERNS_5TokenERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcb'/>
+<fun r='_ZN5clang12Preprocessor13LexNonCommentERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor18LexUnexpandedTokenERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor23LexUnexpandedNonCommentERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor25parseSimpleIntegerLiteralERNS_5TokenERm'/>
+<fun r='_ZN5clang12Preprocessor33SetMacroExpansionOnlyInDirectivesEv'/>
+<fun r='_ZN5clang12Preprocessor9LookAheadEj'/>
+<fun r='_ZN5clang12Preprocessor18RevertCachedTokensEj'/>
+<fun r='_ZN5clang12Preprocessor10EnterTokenERKNS_5TokenEb'/>
+<fun r='_ZN5clang12Preprocessor20AnnotateCachedTokensERKNS_5TokenE'/>
+<fun r='_ZNK5clang12Preprocessor26getLastCachedTokenLocationEv'/>
+<fun r='_ZNK5clang12Preprocessor21IsPreviousCachedTokenERKNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor26ReplacePreviousCachedTokenEN4llvm8ArrayRefINS_5TokenEEE'/>
+<fun r='_ZN5clang12Preprocessor30ReplaceLastTokenWithAnnotationERKNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor20EnterAnnotationTokenENS_11SourceRangeENS_3tok9TokenKindEPv'/>
+<fun r='_ZN5clang12Preprocessor16TypoCorrectTokenERKNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor21recomputeCurLexerKindEv'/>
+<fun r='_ZNK5clang12Preprocessor30isIncrementalProcessingEnabledEv'/>
+<fun r='_ZN5clang12Preprocessor27enableIncrementalProcessingEb'/>
+<fun r='_ZN5clang12Preprocessor22SetCodeCompletionPointEPKNS_9FileEntryEjj'/>
+<fun r='_ZNK5clang12Preprocessor23isCodeCompletionEnabledEv'/>
+<fun r='_ZNK5clang12Preprocessor20getCodeCompletionLocEv'/>
+<fun r='_ZNK5clang12Preprocessor24getCodeCompletionFileLocEv'/>
+<fun r='_ZNK5clang12Preprocessor23isCodeCompletionReachedEv'/>
+<fun r='_ZN5clang12Preprocessor24setCodeCompletionReachedEv'/>
+<fun r='_ZNK5clang12Preprocessor28getPragmaARCCFCodeAuditedLocEv'/>
+<fun r='_ZN5clang12Preprocessor28setPragmaARCCFCodeAuditedLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang12Preprocessor25getPragmaAssumeNonNullLocEv'/>
+<fun r='_ZN5clang12Preprocessor25setPragmaAssumeNonNullLocENS_14SourceLocationE'/>
+<fun r='_ZN5clang12Preprocessor14setMainFileDirEPKNS_14DirectoryEntryE'/>
+<fun r='_ZN5clang12Preprocessor23setSkipMainFilePreambleEjb'/>
+<fun r='_ZNK5clang12Preprocessor4DiagENS_14SourceLocationEj'/>
+<fun r='_ZNK5clang12Preprocessor4DiagERKNS_5TokenEj'/>
+<fun r='_ZNK5clang12Preprocessor11getSpellingENS_14SourceLocationERN4llvm15SmallVectorImplIcEEPb'/>
+<fun r='_ZNK5clang12Preprocessor11getSpellingERKNS_5TokenEPb'/>
+<fun r='_ZNK5clang12Preprocessor11getSpellingERKNS_5TokenERPKcPb'/>
+<fun r='_ZNK5clang12Preprocessor11getSpellingERKNS_5TokenERN4llvm15SmallVectorImplIcEEPb'/>
+<fun r='_ZN5clang12Preprocessor11getRawTokenENS_14SourceLocationERNS_5TokenEb'/>
+<fun r='_ZNK5clang12Preprocessor43getSpellingOfSingleCharacterNumericConstantERKNS_5TokenEPb'/>
+<fun r='_ZN5clang12Preprocessor21getImmediateMacroNameENS_14SourceLocationE'/>
+<fun r='_ZN5clang12Preprocessor12CreateStringEN4llvm9StringRefERNS_5TokenENS_14SourceLocationES5_'/>
+<fun r='_ZN5clang12Preprocessor10SplitTokenENS_14SourceLocationEj'/>
+<fun r='_ZN5clang12Preprocessor19getLocForEndOfTokenENS_14SourceLocationEj'/>
+<fun r='_ZNK5clang12Preprocessor25isAtStartOfMacroExpansionENS_14SourceLocationEPS1_'/>
+<fun r='_ZNK5clang12Preprocessor23isAtEndOfMacroExpansionENS_14SourceLocationEPS1_'/>
+<fun r='_ZNK5clang12Preprocessor9DumpTokenERKNS_5TokenEb'/>
+<fun r='_ZNK5clang12Preprocessor12DumpLocationENS_14SourceLocationE'/>
+<fun r='_ZNK5clang12Preprocessor9DumpMacroERKNS_9MacroInfoE'/>
+<fun r='_ZN5clang12Preprocessor13dumpMacroInfoEPKNS_14IdentifierInfoE'/>
+<fun r='_ZNK5clang12Preprocessor23AdvanceToTokenCharacterENS_14SourceLocationEj'/>
+<fun r='_ZN5clang12Preprocessor21IncrementPasteCounterEb'/>
+<fun r='_ZN5clang12Preprocessor10PrintStatsEv'/>
+<fun r='_ZNK5clang12Preprocessor14getTotalMemoryEv'/>
+<fun r='_ZN5clang12Preprocessor27HandleMicrosoftCommentPasteERNS_5TokenE'/>
+<fun r='_ZNK5clang12Preprocessor20LookUpIdentifierInfoERNS_5TokenE'/>
+<mbr r='clang::Preprocessor::PoisonReasons' o='23296' t='llvm::DenseMap&lt;IdentifierInfo *, unsigned int&gt;'/>
+<fun r='_ZN5clang12Preprocessor15SetPoisonReasonEPNS_14IdentifierInfoEj'/>
+<fun r='_ZN5clang12Preprocessor24HandlePoisonedIdentifierERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor29MaybeHandlePoisonedIdentifierERNS_5TokenE'/>
+<mbr r='clang::Preprocessor::Ident__exception_code' o='23552' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident___exception_code' o='23616' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident_GetExceptionCode' o='23680' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__exception_info' o='23744' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident___exception_info' o='23808' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident_GetExceptionInfo' o='23872' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident__abnormal_termination' o='23936' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident___abnormal_termination' o='24000' t='clang::IdentifierInfo *'/>
+<mbr r='clang::Preprocessor::Ident_AbnormalTermination' o='24064' t='clang::IdentifierInfo *'/>
+<fun r='_ZN5clang12Preprocessor17getCurLexerEndPosEv'/>
+<fun r='_ZN5clang12Preprocessor34diagnoseMissingHeaderInUmbrellaDirERKNS_6ModuleE'/>
+<fun r='_ZN5clang12Preprocessor20PoisonSEHIdentifiersEb'/>
+<fun r='_ZN5clang12Preprocessor16HandleIdentifierERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor15HandleEndOfFileERNS_5TokenEb'/>
+<fun r='_ZN5clang12Preprocessor21HandleEndOfTokenLexerERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor15HandleDirectiveERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor19CheckEndOfDirectiveEPKcb'/>
+<fun r='_ZN5clang12Preprocessor26DiscardUntilEndOfDirectiveEv'/>
+<fun r='_ZNK5clang12Preprocessor13SawDateOrTimeEv'/>
+<fun r='_ZNK5clang12Preprocessor15getCounterValueEv'/>
+<fun r='_ZN5clang12Preprocessor15setCounterValueEj'/>
+<fun r='_ZN5clang12Preprocessor16getCurrentModuleEv'/>
+<fun r='_ZN5clang12Preprocessor17AllocateMacroInfoENS_14SourceLocationE'/>
+<fun r='_ZN5clang12Preprocessor26GetIncludeFilenameSpellingENS_14SourceLocationERN4llvm9StringRefE'/>
+<fun r='_ZN5clang12Preprocessor10LookupFileENS_14SourceLocationEN4llvm9StringRefEbPKNS_15DirectoryLookupEPKNS_9FileEntryERS6_PNS2_15SmallVectorImplIcEESD_PNS_3223316'/>
+<fun r='_ZN5clang12Preprocessor15GetCurDirLookupEv'/>
+<fun r='_ZNK5clang12Preprocessor15isInPrimaryFileEv'/>
+<fun r='_ZN5clang12Preprocessor14LexOnOffSwitchERNS_3tok11OnOffSwitchE'/>
+<fun r='_ZN5clang12Preprocessor14CheckMacroNameERNS_5TokenENS_8MacroUseEPb'/>
+<fun r='_ZN5clang12Preprocessor14EnterSubmoduleEPNS_6ModuleENS_14SourceLocationEb'/>
+<fun r='_ZN5clang12Preprocessor14LeaveSubmoduleEb'/>
+<fun r='_ZN5clang12Preprocessor21PushIncludeMacroStackEv'/>
+<fun r='_ZN5clang12Preprocessor20PopIncludeMacroStackEv'/>
+<fun r='_ZN5clang12Preprocessor34PropagateLineStartLeadingSpaceInfoERNS_5TokenE'/>
+<fun r='_ZNK5clang12Preprocessor16needModuleMacrosEv'/>
+<fun r='_ZN5clang12Preprocessor21updateModuleMacroInfoEPKNS_14IdentifierInfoERNS0_15ModuleMacroInfoE'/>
+<fun r='_ZN5clang12Preprocessor25AllocateDefMacroDirectiveEPNS_9MacroInfoENS_14SourceLocationE'/>
+<fun r='_ZN5clang12Preprocessor27AllocateUndefMacroDirectiveENS_14SourceLocationE'/>
+<fun r='_ZN5clang12Preprocessor32AllocateVisibilityMacroDirectiveENS_14SourceLocationEb'/>
+<fun r='_ZN5clang12Preprocessor13ReadMacroNameERNS_5TokenENS_8MacroUseEPb'/>
+<fun r='_ZN5clang12Preprocessor37ReadOptionalMacroParameterListAndBodyERKNS_5TokenEb'/>
+<fun r='_ZN5clang12Preprocessor22ReadMacroParameterListEPNS_9MacroInfoERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor28SkipExcludedConditionalBlockENS_14SourceLocationES1_bbS1_'/>
+<fun r='_ZN5clang12Preprocessor27EvaluateDirectiveExpressionERPNS_14IdentifierInfoE'/>
+<fun r='_ZN5clang12Preprocessor22RegisterBuiltinPragmasEv'/>
+<fun r='_ZN5clang12Preprocessor21RegisterBuiltinMacrosEv'/>
+<fun r='_ZN5clang12Preprocessor29HandleMacroExpandedIdentifierERNS_5TokenERKNS_15MacroDefinitionE'/>
+<fun r='_ZN5clang12Preprocessor24cacheMacroExpandedTokensEPNS_10TokenLexerEN4llvm8ArrayRefINS_5TokenEEE'/>
+<fun r='_ZN5clang12Preprocessor42removeCachedMacroExpandedTokensOfLastLexerEv'/>
+<fun r='_ZN5clang12Preprocessor19isNextPPTokenLParenEv'/>
+<fun r='_ZN5clang12Preprocessor25ReadMacroCallArgumentListERNS_5TokenEPNS_9MacroInfoERNS_14SourceLocationE'/>
+<fun r='_ZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor13Handle_PragmaERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor23HandleMicrosoft__pragmaERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor24EnterSourceFileWithLexerEPNS_5LexerEPKNS_15DirectoryLookupE'/>
+<fun r='_ZN5clang12Preprocessor19setPredefinesFileIDENS_6FileIDE'/>
+<fun r='_ZN5clang12Preprocessor25setPCHThroughHeaderFileIDENS_6FileIDE'/>
+<fun r='_ZN5clang12Preprocessor11IsFileLexerEPKNS_5LexerEPKNS_17PreprocessorLexerE'/>
+<fun r='_ZN5clang12Preprocessor11IsFileLexerERKNS0_16IncludeStackInfoE'/>
+<fun r='_ZNK5clang12Preprocessor11IsFileLexerEv'/>
+<fun r='_ZN5clang12Preprocessor10CachingLexERNS_5TokenE'/>
+<fun r='_ZNK5clang12Preprocessor16InCachingLexModeEv'/>
+<fun r='_ZN5clang12Preprocessor19EnterCachingLexModeEv'/>
+<fun r='_ZN5clang12Preprocessor28EnterCachingLexModeUncheckedEv'/>
+<fun r='_ZN5clang12Preprocessor18ExitCachingLexModeEv'/>
+<fun r='_ZN5clang12Preprocessor9PeekAheadEj'/>
+<fun r='_ZN5clang12Preprocessor28AnnotatePreviousCachedTokensERKNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor19HandleLineDirectiveEv'/>
+<fun r='_ZN5clang12Preprocessor20HandleDigitDirectiveERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor29HandleUserDiagnosticDirectiveERNS_5TokenEb'/>
+<fun r='_ZN5clang12Preprocessor24HandleIdentSCCSDirectiveERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor26HandleMacroPublicDirectiveERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor27HandleMacroPrivateDirectiveEv'/>
+<fun r='_ZN5clang12Preprocessor22HandleIncludeDirectiveENS_14SourceLocationERNS_5TokenEPKNS_15DirectoryLookupEPKNS_9FileEntryE'/>
+<fun r='_ZN5clang12Preprocessor27HandleHeaderIncludeOrImportENS_14SourceLocationERNS_5TokenES3_S1_PKNS_15DirectoryLookupEPKNS_9FileEntryE'/>
+<fun r='_ZN5clang12Preprocessor26HandleIncludeNextDirectiveENS_14SourceLocationERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor28HandleIncludeMacrosDirectiveENS_14SourceLocationERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor21HandleImportDirectiveENS_14SourceLocationERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor30HandleMicrosoftImportDirectiveERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor22checkModuleIsAvailableERKNS_11LangOptionsERKNS_10TargetInfoERNS_17DiagnosticsEngineEPNS_6ModuleE'/>
+<fun r='_ZN5clang12Preprocessor20getModuleForLocationENS_14SourceLocationE'/>
+<fun r='_ZN5clang12Preprocessor38getModuleHeaderToIncludeForDiagnosticsENS_14SourceLocationEPNS_6ModuleES1_'/>
+<fun r='_ZNK5clang12Preprocessor19isRecordingPreambleEv'/>
+<fun r='_ZNK5clang12Preprocessor19hasRecordedPreambleEv'/>
+<fun r='_ZNK5clang12Preprocessor27getPreambleConditionalStackEv'/>
+<fun r='_ZN5clang12Preprocessor35setRecordedPreambleConditionalStackEN4llvm8ArrayRefINS_17PPConditionalInfoEEE'/>
+<fun r='_ZN5clang12Preprocessor37setReplayablePreambleConditionalStackEN4llvm8ArrayRefINS_17PPConditionalInfoEEENS1_8OptionalINS0_16PreambleSkipInfoEEE'/>
+<fun r='_ZNK5clang12Preprocessor19getPreambleSkipInfoEv'/>
+<fun r='_ZN5clang12Preprocessor30replayPreambleConditionalStackEv'/>
+<fun r='_ZN5clang12Preprocessor21HandleDefineDirectiveERNS_5TokenEb'/>
+<fun r='_ZN5clang12Preprocessor20HandleUndefDirectiveEv'/>
+<fun r='_ZN5clang12Preprocessor20HandleIfdefDirectiveERNS_5TokenERKS1_bb'/>
+<fun r='_ZN5clang12Preprocessor17HandleIfDirectiveERNS_5TokenERKS1_b'/>
+<fun r='_ZN5clang12Preprocessor20HandleEndifDirectiveERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor19HandleElseDirectiveERNS_5TokenERKS1_'/>
+<fun r='_ZN5clang12Preprocessor19HandleElifDirectiveERNS_5TokenERKS1_'/>
+<fun r='_ZN5clang12Preprocessor21HandlePragmaDirectiveENS_16PragmaIntroducerE'/>
+<fun r='_ZN5clang12Preprocessor16HandlePragmaOnceERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor16HandlePragmaMarkEv'/>
+<fun r='_ZN5clang12Preprocessor18HandlePragmaPoisonEv'/>
+<fun r='_ZN5clang12Preprocessor24HandlePragmaSystemHeaderERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor22HandlePragmaDependencyERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor21HandlePragmaPushMacroERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor20HandlePragmaPopMacroERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor24HandlePragmaIncludeAliasERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor23HandlePragmaModuleBuildERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor19HandlePragmaHdrstopERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor25ParsePragmaPushOrPopMacroERNS_5TokenE'/>
+<fun r='_ZN5clang12Preprocessor13HandleCommentERNS_5TokenENS_11SourceRangeE'/>
+<fun r='_ZN5clang12Preprocessor15markMacroAsUsedEPNS_9MacroInfoE'/>

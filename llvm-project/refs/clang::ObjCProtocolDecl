@@ -1,0 +1,69 @@
+<inh f='llvm/clang/include/clang/AST/DeclObjC.h' l='968' c='clang::ObjCContainerDecl'/>
+<inh f='llvm/clang/include/clang/AST/Redeclarable.h' l='84' c='clang::Redeclarable'/>
+<def f='llvm/clang/include/clang/AST/DeclObjC.h' l='2063' ll='2261'/>
+<size>1</size>
+<doc f='llvm/clang/include/clang/AST/DeclObjC.h' l='2034'>/// Represents an Objective-C protocol declaration.
+///
+/// Objective-C protocols declare a pure abstract type (i.e., no instance
+/// variables are permitted).  Protocols originally drew inspiration from
+/// C++ pure virtual functions (a C++ feature with nice semantics and lousy
+/// syntax:-). Here is an example:
+///
+/// \code
+/// \@protocol NSDraggingInfo &lt;refproto1, refproto2&gt;
+/// - (NSWindow *)draggingDestinationWindow;
+/// - (NSImage *)draggedImage;
+/// \@end
+/// \endcode
+///
+/// This says that NSDraggingInfo requires two methods and requires everything
+/// that the two &quot;referenced protocols&quot; &apos;refproto1&apos; and &apos;refproto2&apos; require as
+/// well.
+///
+/// \code
+/// \@interface ImplementsNSDraggingInfo : NSObject \&lt;NSDraggingInfo&gt;
+/// \@end
+/// \endcode
+///
+/// ObjC protocols inspired Java interfaces. Unlike Java, ObjC classes and
+/// protocols are in distinct namespaces. For example, Cocoa defines both
+/// an NSObject protocol and class (which isn&apos;t allowed in Java). As a result,
+/// protocols are referenced using angle brackets as follows:
+///
+/// id \&lt;NSDraggingInfo&gt; anyObjectThatImplementsNSDraggingInfo;</doc>
+<mbr r='clang::ObjCProtocolDecl::Data' t='llvm::PointerIntPair&lt;DefinitionData *, 1, bool&gt;'/>
+<fun r='_ZN5clang16ObjCProtocolDeclC1ERNS_10ASTContextEPNS_11DeclContextEPNS_14IdentifierInfoENS_14SourceLocationES7_PS0_'/>
+<fun r='_ZN5clang16ObjCProtocolDecl6anchorEv'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl4dataEv'/>
+<fun r='_ZN5clang16ObjCProtocolDecl22allocateDefinitionDataEv'/>
+<fun r='_ZN5clang16ObjCProtocolDecl24getNextRedeclarationImplEv'/>
+<fun r='_ZN5clang16ObjCProtocolDecl19getPreviousDeclImplEv'/>
+<fun r='_ZN5clang16ObjCProtocolDecl21getMostRecentDeclImplEv'/>
+<fun r='_ZN5clang16ObjCProtocolDecl6CreateERNS_10ASTContextEPNS_11DeclContextEPNS_14IdentifierInfoENS_14SourceLocationES7_PS0_'/>
+<fun r='_ZN5clang16ObjCProtocolDecl18CreateDeserializedERNS_10ASTContextEj'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl22getReferencedProtocolsEv'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl9protocolsEv'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl14protocol_beginEv'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl12protocol_endEv'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl13protocol_locsEv'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl18protocol_loc_beginEv'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl16protocol_loc_endEv'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl13protocol_sizeEv'/>
+<fun r='_ZN5clang16ObjCProtocolDecl15setProtocolListEPKPS0_jPKNS_14SourceLocationERNS_10ASTContextE'/>
+<fun r='_ZN5clang16ObjCProtocolDecl19lookupProtocolNamedEPNS_14IdentifierInfoE'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl12lookupMethodENS_8SelectorEb'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl20lookupInstanceMethodENS_8SelectorE'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl17lookupClassMethodENS_8SelectorE'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv'/>
+<fun r='_ZN5clang16ObjCProtocolDecl13getDefinitionEv'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl13getDefinitionEv'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl28isThisDeclarationADefinitionEv'/>
+<fun r='_ZN5clang16ObjCProtocolDecl15startDefinitionEv'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl26getObjCRuntimeNameAsStringEv'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl14getSourceRangeEv'/>
+<fun r='_ZN5clang16ObjCProtocolDecl16getCanonicalDeclEv'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl16getCanonicalDeclEv'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl28collectPropertiesToImplementERN4llvm8DenseMapISt4pairIPNS_14IdentifierInfoEjEPNS_16ObjCPropertyDeclENS1_12DenseMapInfoIS12765180'/>
+<fun r='_ZNK5clang16ObjCProtocolDecl34collectInheritedProtocolPropertiesEPKNS_16ObjCPropertyDeclERN4llvm13SmallDenseSetIPKS0_Lj8ENS4_12DenseMapInfoIS7_EEEERNS10931360'/>
+<fun r='_ZN5clang16ObjCProtocolDecl7classofEPKNS_4DeclE'/>
+<fun r='_ZN5clang16ObjCProtocolDecl11classofKindENS_4Decl4KindE'/>

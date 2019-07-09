@@ -1,0 +1,38 @@
+<def f='llvm/clang/include/clang/AST/DeclTemplate.h' l='983' ll='985' type='clang::RedeclarableTemplateDecl * clang::RedeclarableTemplateDecl::getInstantiatedFromMemberTemplate() const'/>
+<doc f='llvm/clang/include/clang/AST/DeclTemplate.h' l='947'>/// Retrieve the member template from which this template was
+  /// instantiated, or nullptr if this template was not instantiated from a
+  /// member template.
+  ///
+  /// A template is instantiated from a member template when the member
+  /// template itself is part of a class template (or member thereof). For
+  /// example, given
+  ///
+  /// \code
+  /// template&lt;typename T&gt;
+  /// struct X {
+  ///   template&lt;typename U&gt; void f(T, U);
+  /// };
+  ///
+  /// void test(X&lt;int&gt; x) {
+  ///   x.f(1, &apos;a&apos;);
+  /// };
+  /// \endcode
+  ///
+  /// \c X&lt;int&gt;::f is a FunctionTemplateDecl that describes the function
+  /// template
+  ///
+  /// \code
+  /// template&lt;typename U&gt; void X&lt;int&gt;::f(int, U);
+  /// \endcode
+  ///
+  /// which was itself created during the instantiation of \c X&lt;int&gt;. Calling
+  /// getInstantiatedFromMemberTemplate() on this FunctionTemplateDecl will
+  /// retrieve the FunctionTemplateDecl for the original template \c f within
+  /// the class template \c X&lt;T&gt;, i.e.,
+  ///
+  /// \code
+  /// template&lt;typename T&gt;
+  /// template&lt;typename U&gt;
+  /// void X&lt;T&gt;::f(T, U);
+  /// \endcode</doc>
+<use f='llvm/clang/lib/Serialization/ASTWriterDecl.cpp' l='1443' u='c' c='_ZN5clang13ASTDeclWriter29VisitRedeclarableTemplateDeclEPNS_24RedeclarableTemplateDeclE'/>

@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='518' type='bool llvm::propagatesFullPoison(const llvm::Instruction * I)'/>
+<doc f='llvm/llvm/include/llvm/Analysis/ValueTracking.h' l='509'>/// Return true if this function can prove that I is guaranteed to yield
+  /// full-poison (all bits poison) if at least one of its operands are
+  /// full-poison (all bits poison).
+  ///
+  /// The exact rules for how poison propagates through instructions have
+  /// not been settled as of 2015-07-10, so this function is conservative
+  /// and only considers poison to be propagated in uncontroversial
+  /// cases. There is no attempt to track values that may be only partially
+  /// poison.</doc>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='6056' u='c' c='_ZN4llvm15ScalarEvolution19isAddRecNeverPoisonEPKNS_11InstructionEPKNS_4LoopE'/>
+<def f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4475' ll='4505' type='bool llvm::propagatesFullPoison(const llvm::Instruction * I)'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='4572' u='c' c='_ZN4llvm28programUndefinedIfFullPoisonEPKNS_11InstructionE'/>

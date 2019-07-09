@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ASTDeserializationListener.h source code [llvm/clang/include/clang/Serialization/ASTDeserializationListener.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="clang::ASTDeserializationListener "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/clang/include/clang/Serialization/ASTDeserializationListener.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>clang</a>/<a href='../..'>include</a>/<a href='..'>clang</a>/<a href='./'>Serialization</a>/<a href='ASTDeserializationListener.h.html'>ASTDeserializationListener.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- ASTDeserializationListener.h - Decl/Type PCH Read Events -*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>//  This file defines the ASTDeserializationListener class, which is notified</i></td></tr>
+<tr><th id="10">10</th><td><i>//  by the ASTReader whenever a type or declaration is deserialized.</i></td></tr>
+<tr><th id="11">11</th><td><i>//</i></td></tr>
+<tr><th id="12">12</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><u>#<span data-ppcond="14">ifndef</span> <span class="macro" data-ref="_M/LLVM_CLANG_SERIALIZATION_ASTDESERIALIZATIONLISTENER_H">LLVM_CLANG_SERIALIZATION_ASTDESERIALIZATIONLISTENER_H</span></u></td></tr>
+<tr><th id="15">15</th><td><u>#define <dfn class="macro" id="_M/LLVM_CLANG_SERIALIZATION_ASTDESERIALIZATIONLISTENER_H" data-ref="_M/LLVM_CLANG_SERIALIZATION_ASTDESERIALIZATIONLISTENER_H">LLVM_CLANG_SERIALIZATION_ASTDESERIALIZATIONLISTENER_H</dfn></u></td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../Basic/IdentifierTable.h.html">"clang/Basic/IdentifierTable.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="ASTBitCodes.h.html">"clang/Serialization/ASTBitCodes.h"</a></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><b>namespace</b> <span class="namespace">clang</span> {</td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><b>class</b> <a class="type" href="../AST/DeclBase.h.html#clang::Decl" title='clang::Decl' data-ref="clang::Decl" id="clang::Decl">Decl</a>;</td></tr>
+<tr><th id="23">23</th><td><b>class</b> <a class="type" href="ASTReader.h.html#clang::ASTReader" title='clang::ASTReader' data-ref="clang::ASTReader" id="clang::ASTReader">ASTReader</a>;</td></tr>
+<tr><th id="24">24</th><td><b>class</b> <a class="type" href="../AST/Type.h.html#clang::QualType" title='clang::QualType' data-ref="clang::QualType" id="clang::QualType">QualType</a>;</td></tr>
+<tr><th id="25">25</th><td><b>class</b> <a class="type" href="../Lex/PreprocessingRecord.h.html#clang::MacroDefinitionRecord" title='clang::MacroDefinitionRecord' data-ref="clang::MacroDefinitionRecord" id="clang::MacroDefinitionRecord">MacroDefinitionRecord</a>;</td></tr>
+<tr><th id="26">26</th><td><b>class</b> <a class="type" href="../Lex/MacroInfo.h.html#clang::MacroInfo" title='clang::MacroInfo' data-ref="clang::MacroInfo" id="clang::MacroInfo">MacroInfo</a>;</td></tr>
+<tr><th id="27">27</th><td><b>class</b> <a class="type" href="../Basic/Module.h.html#clang::Module" title='clang::Module' data-ref="clang::Module" id="clang::Module">Module</a>;</td></tr>
+<tr><th id="28">28</th><td><b>class</b> <a class="type" href="../Basic/SourceLocation.h.html#clang::SourceLocation" title='clang::SourceLocation' data-ref="clang::SourceLocation" id="clang::SourceLocation">SourceLocation</a>;</td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><b>class</b> <dfn class="type def" id="clang::ASTDeserializationListener" title='clang::ASTDeserializationListener' data-ref="clang::ASTDeserializationListener">ASTDeserializationListener</dfn> {</td></tr>
+<tr><th id="31">31</th><td><b>public</b>:</td></tr>
+<tr><th id="32">32</th><td>  <b>virtual</b> <dfn class="virtual decl" id="_ZN5clang26ASTDeserializationListenerD1Ev" title='clang::ASTDeserializationListener::~ASTDeserializationListener' data-ref="_ZN5clang26ASTDeserializationListenerD1Ev">~ASTDeserializationListener</dfn>();</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td>  <i class="doc">/// The ASTReader was initialized.</i></td></tr>
+<tr><th id="35">35</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZN5clang26ASTDeserializationListener17ReaderInitializedEPNS_9ASTReaderE" title='clang::ASTDeserializationListener::ReaderInitialized' data-ref="_ZN5clang26ASTDeserializationListener17ReaderInitializedEPNS_9ASTReaderE">ReaderInitialized</dfn>(<a class="type" href="ASTReader.h.html#clang::ASTReader" title='clang::ASTReader' data-ref="clang::ASTReader">ASTReader</a> *<dfn class="local col3 decl" id="3Reader" title='Reader' data-type='clang::ASTReader *' data-ref="3Reader">Reader</dfn>) { }</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td>  <i class="doc">/// An identifier was deserialized from the AST file.</i></td></tr>
+<tr><th id="38">38</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZN5clang26ASTDeserializationListener14IdentifierReadEjPNS_14IdentifierInfoE" title='clang::ASTDeserializationListener::IdentifierRead' data-ref="_ZN5clang26ASTDeserializationListener14IdentifierReadEjPNS_14IdentifierInfoE">IdentifierRead</dfn>(<span class="namespace">serialization::</span><a class="typedef" href="ASTBitCodes.h.html#clang::serialization::IdentID" title='clang::serialization::IdentID' data-type='uint32_t' data-ref="clang::serialization::IdentID">IdentID</a> <dfn class="local col4 decl" id="4ID" title='ID' data-type='serialization::IdentID' data-ref="4ID">ID</dfn>,</td></tr>
+<tr><th id="39">39</th><td>                              <a class="type" href="../Basic/IdentifierTable.h.html#clang::IdentifierInfo" title='clang::IdentifierInfo' data-ref="clang::IdentifierInfo">IdentifierInfo</a> *<dfn class="local col5 decl" id="5II" title='II' data-type='clang::IdentifierInfo *' data-ref="5II">II</dfn>) { }</td></tr>
+<tr><th id="40">40</th><td>  <i class="doc">/// A macro was read from the AST file.</i></td></tr>
+<tr><th id="41">41</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZN5clang26ASTDeserializationListener9MacroReadEjPNS_9MacroInfoE" title='clang::ASTDeserializationListener::MacroRead' data-ref="_ZN5clang26ASTDeserializationListener9MacroReadEjPNS_9MacroInfoE">MacroRead</dfn>(<span class="namespace">serialization::</span><a class="typedef" href="ASTBitCodes.h.html#clang::serialization::MacroID" title='clang::serialization::MacroID' data-type='uint32_t' data-ref="clang::serialization::MacroID">MacroID</a> <dfn class="local col6 decl" id="6ID" title='ID' data-type='serialization::MacroID' data-ref="6ID">ID</dfn>, <a class="type" href="../Lex/MacroInfo.h.html#clang::MacroInfo" title='clang::MacroInfo' data-ref="clang::MacroInfo">MacroInfo</a> *<dfn class="local col7 decl" id="7MI" title='MI' data-type='clang::MacroInfo *' data-ref="7MI">MI</dfn>) { }</td></tr>
+<tr><th id="42">42</th><td>  <i class="doc">/// A type was deserialized from the AST file. The ID here has the</i></td></tr>
+<tr><th id="43">43</th><td><i class="doc">  ///        qualifier bits already removed, and T is guaranteed to be locally</i></td></tr>
+<tr><th id="44">44</th><td><i class="doc">  ///        unqualified.</i></td></tr>
+<tr><th id="45">45</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZN5clang26ASTDeserializationListener8TypeReadENS_13serialization7TypeIdxENS_8QualTypeE" title='clang::ASTDeserializationListener::TypeRead' data-ref="_ZN5clang26ASTDeserializationListener8TypeReadENS_13serialization7TypeIdxENS_8QualTypeE">TypeRead</dfn>(<span class="namespace">serialization::</span><a class="type" href="ASTBitCodes.h.html#clang::serialization::TypeIdx" title='clang::serialization::TypeIdx' data-ref="clang::serialization::TypeIdx">TypeIdx</a> <dfn class="local col8 decl" id="8Idx" title='Idx' data-type='serialization::TypeIdx' data-ref="8Idx">Idx</dfn>, <a class="type" href="../AST/Type.h.html#clang::QualType" title='clang::QualType' data-ref="clang::QualType">QualType</a> <dfn class="local col9 decl" id="9T" title='T' data-type='clang::QualType' data-ref="9T">T</dfn>) { }</td></tr>
+<tr><th id="46">46</th><td>  <i class="doc">/// A decl was deserialized from the AST file.</i></td></tr>
+<tr><th id="47">47</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZN5clang26ASTDeserializationListener8DeclReadEjPKNS_4DeclE" title='clang::ASTDeserializationListener::DeclRead' data-ref="_ZN5clang26ASTDeserializationListener8DeclReadEjPKNS_4DeclE">DeclRead</dfn>(<span class="namespace">serialization::</span><a class="typedef" href="ASTBitCodes.h.html#clang::serialization::DeclID" title='clang::serialization::DeclID' data-type='uint32_t' data-ref="clang::serialization::DeclID">DeclID</a> <dfn class="local col0 decl" id="10ID" title='ID' data-type='serialization::DeclID' data-ref="10ID">ID</dfn>, <em>const</em> <a class="type" href="../AST/DeclBase.h.html#clang::Decl" title='clang::Decl' data-ref="clang::Decl">Decl</a> *<dfn class="local col1 decl" id="11D" title='D' data-type='const clang::Decl *' data-ref="11D">D</dfn>) { }</td></tr>
+<tr><th id="48">48</th><td>  <i class="doc">/// A selector was read from the AST file.</i></td></tr>
+<tr><th id="49">49</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZN5clang26ASTDeserializationListener12SelectorReadEjNS_8SelectorE" title='clang::ASTDeserializationListener::SelectorRead' data-ref="_ZN5clang26ASTDeserializationListener12SelectorReadEjNS_8SelectorE">SelectorRead</dfn>(<span class="namespace">serialization::</span><a class="typedef" href="ASTBitCodes.h.html#clang::serialization::SelectorID" title='clang::serialization::SelectorID' data-type='uint32_t' data-ref="clang::serialization::SelectorID">SelectorID</a> <dfn class="local col2 decl" id="12iD" title='iD' data-type='serialization::SelectorID' data-ref="12iD">iD</dfn>, <a class="type" href="../Basic/IdentifierTable.h.html#clang::Selector" title='clang::Selector' data-ref="clang::Selector">Selector</a> <dfn class="local col3 decl" id="13Sel" title='Sel' data-type='clang::Selector' data-ref="13Sel">Sel</dfn>) {}</td></tr>
+<tr><th id="50">50</th><td>  <i class="doc">/// A macro definition was read from the AST file.</i></td></tr>
+<tr><th id="51">51</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZN5clang26ASTDeserializationListener19MacroDefinitionReadEjPNS_21MacroDefinitionRecordE" title='clang::ASTDeserializationListener::MacroDefinitionRead' data-ref="_ZN5clang26ASTDeserializationListener19MacroDefinitionReadEjPNS_21MacroDefinitionRecordE">MacroDefinitionRead</dfn>(<span class="namespace">serialization::</span><a class="typedef" href="ASTBitCodes.h.html#clang::serialization::PreprocessedEntityID" title='clang::serialization::PreprocessedEntityID' data-type='uint32_t' data-ref="clang::serialization::PreprocessedEntityID">PreprocessedEntityID</a>,</td></tr>
+<tr><th id="52">52</th><td>                                   <a class="type" href="../Lex/PreprocessingRecord.h.html#clang::MacroDefinitionRecord" title='clang::MacroDefinitionRecord' data-ref="clang::MacroDefinitionRecord">MacroDefinitionRecord</a> *<dfn class="local col4 decl" id="14MD" title='MD' data-type='clang::MacroDefinitionRecord *' data-ref="14MD">MD</dfn>) {}</td></tr>
+<tr><th id="53">53</th><td>  <i class="doc">/// A module definition was read from the AST file.</i></td></tr>
+<tr><th id="54">54</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZN5clang26ASTDeserializationListener10ModuleReadEjPNS_6ModuleE" title='clang::ASTDeserializationListener::ModuleRead' data-ref="_ZN5clang26ASTDeserializationListener10ModuleReadEjPNS_6ModuleE">ModuleRead</dfn>(<span class="namespace">serialization::</span><a class="typedef" href="ASTBitCodes.h.html#clang::serialization::SubmoduleID" title='clang::serialization::SubmoduleID' data-type='uint32_t' data-ref="clang::serialization::SubmoduleID">SubmoduleID</a> <dfn class="local col5 decl" id="15ID" title='ID' data-type='serialization::SubmoduleID' data-ref="15ID">ID</dfn>, <a class="type" href="../Basic/Module.h.html#clang::Module" title='clang::Module' data-ref="clang::Module">Module</a> *<dfn class="local col6 decl" id="16Mod" title='Mod' data-type='clang::Module *' data-ref="16Mod">Mod</dfn>) {}</td></tr>
+<tr><th id="55">55</th><td>  <i class="doc">/// A module import was read from the AST file.</i></td></tr>
+<tr><th id="56">56</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZN5clang26ASTDeserializationListener16ModuleImportReadEjNS_14SourceLocationE" title='clang::ASTDeserializationListener::ModuleImportRead' data-ref="_ZN5clang26ASTDeserializationListener16ModuleImportReadEjNS_14SourceLocationE">ModuleImportRead</dfn>(<span class="namespace">serialization::</span><a class="typedef" href="ASTBitCodes.h.html#clang::serialization::SubmoduleID" title='clang::serialization::SubmoduleID' data-type='uint32_t' data-ref="clang::serialization::SubmoduleID">SubmoduleID</a> <dfn class="local col7 decl" id="17ID" title='ID' data-type='serialization::SubmoduleID' data-ref="17ID">ID</dfn>,</td></tr>
+<tr><th id="57">57</th><td>                                <a class="type" href="../Basic/SourceLocation.h.html#clang::SourceLocation" title='clang::SourceLocation' data-ref="clang::SourceLocation">SourceLocation</a> <dfn class="local col8 decl" id="18ImportLoc" title='ImportLoc' data-type='clang::SourceLocation' data-ref="18ImportLoc">ImportLoc</dfn>) {}</td></tr>
+<tr><th id="58">58</th><td>};</td></tr>
+<tr><th id="59">59</th><td>}</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td><u>#<span data-ppcond="14">endif</span></u></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../lib/Frontend/ASTUnit.cpp.html'>llvm/clang/lib/Frontend/ASTUnit.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

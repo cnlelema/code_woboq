@@ -1,0 +1,40 @@
+<def f='llvm/clang/include/clang/Sema/Sema.h' l='11107' type='clang::Scope * clang::Sema::getCurScope() const'/>
+<doc f='llvm/clang/include/clang/Sema/Sema.h' l='11099'>/// Retrieve the parser&apos;s current scope.
+  ///
+  /// This routine must only be used when it is certain that semantic analysis
+  /// and the parser are in precisely the same context, which is not the case
+  /// when, e.g., we are performing any kind of template instantiation.
+  /// Therefore, the only safe places to use this scope are in the parser
+  /// itself and in routines directly invoked from the parser and *never* from
+  /// template substitution or instantiation.</doc>
+<use f='llvm/clang/include/clang/Parse/Parser.h' l='412' u='c' c='_ZNK5clang6Parser11getCurScopeEv'/>
+<use f='llvm/clang/lib/Parse/ParseOpenMP.cpp' l='643' u='c' c='_ZN12_GLOBAL__N_113FNContextRAIIC1ERN5clang6ParserENS1_9OpaquePtrINS1_12DeclGroupRefEEE'/>
+<use f='llvm/clang/lib/Parse/ParseOpenMP.cpp' l='651' u='c' c='_ZN12_GLOBAL__N_113FNContextRAIIC1ERN5clang6ParserENS1_9OpaquePtrINS1_12DeclGroupRefEEE'/>
+<use f='llvm/clang/lib/Parse/ParseOpenMP.cpp' l='1406' u='c' c='_ZN5clang6Parser43ParseOpenMPDeclarativeOrExecutableDirectiveENS0_17ParsedStmtContextE'/>
+<use f='llvm/clang/lib/Parse/ParseTemplate.cpp' l='1396' u='c' c='_ZN5clang6Parser25ParseLateTemplatedFuncDefERNS_18LateParsedTemplateE'/>
+<use f='llvm/clang/lib/Sema/Sema.cpp' l='1689' u='c' c='_ZN5clang4Sema18getScopeForContextEPNS_11DeclContextE'/>
+<use f='llvm/clang/lib/Sema/SemaCXXScopeSpec.cpp' l='282' u='c' c='_ZN5clang4Sema24ActOnSuperScopeSpecifierENS_14SourceLocationES1_RNS_12CXXScopeSpecE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='555' u='c' c='_ZL24SemaBuiltinSEHScopeCheckRN5clang4SemaEPNS_8CallExprENS_5Scope10ScopeFlagsEj'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='8252' u='c' c='_ZN12_GLOBAL__N_118CheckPrintfHandler15checkFormatExprERKN5clang14analyze_printf15PrintfSpecifierEPKcjPKNS1_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='8958' u='c' c='_ZL15emitReplacementRN5clang4SemaENS_14SourceLocationENS_11SourceRangeEjNS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaCoroutine.cpp' l='1271' u='c' c='_ZN5clang20CoroutineStmtBuilder20makeNewAndDeleteExprEv'/>
+<use f='llvm/clang/lib/Sema/SemaCoroutine.cpp' l='1297' u='c' c='_ZN5clang20CoroutineStmtBuilder20makeNewAndDeleteExprEv'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='561' u='c' c='_ZN5clang4Sema24ActOnMSVCUnknownTypeNameERKNS_14IdentifierInfoENS_14SourceLocationEb'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='7496' u='c' c='_ZN5clang4Sema28CheckVariableDeclarationTypeEPNS_7VarDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='11862' u='c' c='_ZN5clang4Sema21DiagnoseCommaOperatorEPKNS_4ExprENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='17765' u='c' c='_ZN5clang4Sema20ActOnObjCBoolLiteralENS_14SourceLocationENS_3tok9TokenKindE'/>
+<use f='llvm/clang/lib/Sema/SemaExprMember.cpp' l='1017' u='c' c='_ZN5clang4Sema24BuildMemberReferenceExprEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRKNS_12CXXScopeSpecES4_PNS_9NamedDeclERNS_12LookupResultEPKNS_24T696367'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='2062' u='c' c='_ZN12_GLOBAL__N_116VarDeclFilterCCC17ValidateCandidateERKN5clang14TypoCorrectionE'/>
+<use f='llvm/clang/lib/Sema/SemaOpenMP.cpp' l='2084' u='c' c='_ZN12_GLOBAL__N_122VarOrFuncDeclFilterCCC17ValidateCandidateERKN5clang14TypoCorrectionE'/>
+<use f='llvm/clang/lib/Sema/SemaPseudoObject.cpp' l='1484' u='c' c='_ZN12_GLOBAL__N_119MSPropertyOpBuilder8buildGetEv'/>
+<use f='llvm/clang/lib/Sema/SemaPseudoObject.cpp' l='1494' u='c' c='_ZN12_GLOBAL__N_119MSPropertyOpBuilder8buildGetEv'/>
+<use f='llvm/clang/lib/Sema/SemaPseudoObject.cpp' l='1513' u='c' c='_ZN12_GLOBAL__N_119MSPropertyOpBuilder8buildSetEPN5clang4ExprENS1_14SourceLocationEb'/>
+<use f='llvm/clang/lib/Sema/SemaPseudoObject.cpp' l='1526' u='c' c='_ZN12_GLOBAL__N_119MSPropertyOpBuilder8buildSetEPN5clang4ExprENS1_14SourceLocationEb'/>
+<use f='llvm/clang/lib/Sema/SemaStmt.cpp' l='2164' u='c' c='_ZL21BuildNonArrayForRangeRN5clang4SemaEPNS_4ExprES3_NS_8QualTypeEPNS_7VarDeclES6_NS_14SourceLocationES7_PNS_20OverloadCandidateSetEPNS_12ActionResult4241455'/>
+<use f='llvm/clang/lib/Sema/SemaStmt.cpp' l='2336' u='c' c='_ZN5clang4Sema20BuildCXXForRangeStmtENS_14SourceLocationES1_PNS_4StmtES1_S3_S3_S3_PNS_4ExprES5_S3_S1_NS0_17BuildForRangeKindE'/>
+<use f='llvm/clang/lib/Sema/SemaStmtAsm.cpp' l='735' u='c' c='_ZN5clang4Sema25LookupInlineAsmIdentifierERNS_12CXXScopeSpecENS_14SourceLocationERNS_13UnqualifiedIdEb'/>
+<use f='llvm/clang/lib/Sema/SemaStmtAsm.cpp' l='787' u='c' c='_ZN5clang4Sema20LookupInlineAsmFieldEN4llvm9StringRefES2_RjNS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='3404' u='c' c='_ZL24warnAboutRedundantParensRN5clang4SemaERNS_10DeclaratorENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='6008' u='c' c='_ZL31HandleAddressSpaceTypeAttributeRN5clang8QualTypeERKNS_10ParsedAttrERN12_GLOBAL__N_119TypeProcessingStateE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='7199' u='c' c='_ZL20HandleVectorSizeAttrRN5clang8QualTypeERKNS_10ParsedAttrERNS_4SemaE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='7237' u='c' c='_ZL23HandleExtVectorTypeAttrRN5clang8QualTypeERKNS_10ParsedAttrERNS_4SemaE'/>

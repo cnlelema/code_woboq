@@ -1,0 +1,85 @@
+<def f='llvm/llvm/tools/dsymutil/CompileUnit.h' l='50' ll='326'/>
+<size>768</size>
+<doc f='llvm/llvm/tools/dsymutil/CompileUnit.h' l='48'>/// Stores all information relating to a compile unit, be it in its original
+/// instance in the object file to its brand new cloned and linked DIE tree.</doc>
+<fun r='_ZN4llvm8dsymutil11CompileUnitC1ERNS_9DWARFUnitEjbNS_9StringRefE'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit11getOrigUnitEv'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit11getUniqueIDEv'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit15createOutputDIEEv'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit16getOutputUnitDIEEv'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit6hasODREv'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit13isClangModuleEv'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit11getLanguageEv'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit18getClangModuleNameEv'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit7getInfoEj'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit7getInfoEj'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit14getStartOffsetEv'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit17getNextUnitOffsetEv'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit14setStartOffsetEm'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit8getLowPcEv'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit9getHighPcEv'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit10hasLabelAtEm'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit22getUnitRangesAttributeEv'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit17getFunctionRangesEv'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit19getRangesAttributesEv'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit21getLocationAttributesEv'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit24setHasInterestingContentEv'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit21hasInterestingContentEv'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit20markEverythingAsKeptEv'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit21computeNextUnitOffsetEv'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit20noteForwardReferenceEPNS_3DIEEPKS1_PNS0_11DeclContextENS0_13PatchLocationE'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit22fixupForwardReferencesEv'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit13addLabelLowPcEml'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit16addFunctionRangeEmml'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit18noteRangeAttributeERKNS_3DIEENS0_13PatchLocationE'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit21noteLocationAttributeENS0_13PatchLocationEl'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit23addNamespaceAcceleratorEPKNS_3DIEENS_23DwarfStringPoolEntryRefE'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit18addNameAcceleratorEPKNS_3DIEENS_23DwarfStringPoolEntryRefEb'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit18addObjCAcceleratorEPKNS_3DIEENS_23DwarfStringPoolEntryRefEb'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit18addTypeAcceleratorEPKNS_3DIEENS_23DwarfStringPoolEntryRefEbj'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit11getPubnamesEv'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit11getPubtypesEv'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit13getNamespacesEv'/>
+<fun r='_ZNK4llvm8dsymutil11CompileUnit7getObjCEv'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit15getResolvedPathEj'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit15setResolvedPathEjNS_9StringRefE'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit13getLabelBeginEv'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit13setLabelBeginEPNS_8MCSymbolE'/>
+<mbr r='llvm::dsymutil::CompileUnit::OrigUnit' o='0' t='llvm::DWARFUnit &amp;'/>
+<mbr r='llvm::dsymutil::CompileUnit::ID' o='64' t='unsigned int'/>
+<mbr r='llvm::dsymutil::CompileUnit::Info' o='128' t='std::vector&lt;DIEInfo&gt;'/>
+<mbr r='llvm::dsymutil::CompileUnit::NewUnit' o='320' t='Optional&lt;llvm::BasicDIEUnit&gt;'/>
+<mbr r='llvm::dsymutil::CompileUnit::LabelBegin' o='1024' t='llvm::MCSymbol *'/>
+<mbr r='llvm::dsymutil::CompileUnit::StartOffset' o='1088' t='uint64_t'/>
+<mbr r='llvm::dsymutil::CompileUnit::NextUnitOffset' o='1152' t='uint64_t'/>
+<mbr r='llvm::dsymutil::CompileUnit::LowPc' o='1216' t='uint64_t'/>
+<mbr r='llvm::dsymutil::CompileUnit::HighPc' o='1280' t='uint64_t'/>
+<mbr r='llvm::dsymutil::CompileUnit::ForwardDIEReferences' o='1344' t='std::vector&lt;std::tuple&lt;DIE *, const CompileUnit *, DeclContext *, PatchLocation&gt; &gt;'/>
+<mbr r='llvm::dsymutil::CompileUnit::RangeAlloc' o='1536' t='FunctionIntervals::Allocator'/>
+<mbr r='llvm::dsymutil::CompileUnit::Ranges' o='2432' t='FunctionIntervals'/>
+<mbr r='llvm::dsymutil::CompileUnit::Labels' o='4096' t='SmallDenseMap&lt;uint64_t, uint64_t, 1&gt;'/>
+<mbr r='llvm::dsymutil::CompileUnit::RangeAttributes' o='4352' t='std::vector&lt;PatchLocation&gt;'/>
+<mbr r='llvm::dsymutil::CompileUnit::UnitRangeAttribute' o='4544' t='Optional&lt;llvm::dsymutil::PatchLocation&gt;'/>
+<mbr r='llvm::dsymutil::CompileUnit::LocationAttributes' o='4672' t='std::vector&lt;std::pair&lt;PatchLocation, int64_t&gt; &gt;'/>
+<mbr r='llvm::dsymutil::CompileUnit::Pubnames' o='4864' t='std::vector&lt;AccelInfo&gt;'/>
+<mbr r='llvm::dsymutil::CompileUnit::Pubtypes' o='5056' t='std::vector&lt;AccelInfo&gt;'/>
+<mbr r='llvm::dsymutil::CompileUnit::Namespaces' o='5248' t='std::vector&lt;AccelInfo&gt;'/>
+<mbr r='llvm::dsymutil::CompileUnit::ObjC' o='5440' t='std::vector&lt;AccelInfo&gt;'/>
+<mbr r='llvm::dsymutil::CompileUnit::ResolvedPaths' o='5632' t='std::vector&lt;StringRef&gt;'/>
+<mbr r='llvm::dsymutil::CompileUnit::HasODR' o='5824' t='bool'/>
+<mbr r='llvm::dsymutil::CompileUnit::HasInterestingContent' o='5832' t='bool'/>
+<mbr r='llvm::dsymutil::CompileUnit::Language' o='5840' t='uint16_t'/>
+<mbr r='llvm::dsymutil::CompileUnit::ClangModuleName' o='5888' t='std::string'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit11getLanguageEv'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit20markEverythingAsKeptEv'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit21computeNextUnitOffsetEv'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit20noteForwardReferenceEPNS_3DIEEPKS1_PNS0_11DeclContextENS0_13PatchLocationE'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit22fixupForwardReferencesEv'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit13addLabelLowPcEml'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit16addFunctionRangeEmml'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit18noteRangeAttributeERKNS_3DIEENS0_13PatchLocationE'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit21noteLocationAttributeENS0_13PatchLocationEl'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit23addNamespaceAcceleratorEPKNS_3DIEENS_23DwarfStringPoolEntryRefE'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit18addObjCAcceleratorEPKNS_3DIEENS_23DwarfStringPoolEntryRefEb'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit18addNameAcceleratorEPKNS_3DIEENS_23DwarfStringPoolEntryRefEb'/>
+<fun r='_ZN4llvm8dsymutil11CompileUnit18addTypeAcceleratorEPKNS_3DIEENS_23DwarfStringPoolEntryRefEbj'/>

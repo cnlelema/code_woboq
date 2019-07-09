@@ -1,0 +1,46 @@
+<dec f='llvm/llvm/include/llvm/Support/FileSystem.h' l='645' type='std::error_code llvm::sys::fs::status(const llvm::Twine &amp; path, llvm::sys::fs::file_status &amp; result, bool follow = true)'/>
+<use f='llvm/llvm/include/llvm/Support/FileSystem.h' l='680' u='c' c='_ZN4llvm3sys2fs9file_sizeERKNS_5TwineERm'/>
+<doc f='llvm/llvm/include/llvm/Support/FileSystem.h' l='637'>/// Get file status as if by POSIX stat().
+///
+/// @param path Input path.
+/// @param result Set to the file status.
+/// @param follow When true, follows symlinks.  Otherwise, the symlink itself is
+///               statted.
+/// @returns errc::success if result has been successfully set, otherwise a
+///          platform-specific error_code.</doc>
+<use f='llvm/clang/lib/Driver/Driver.cpp' l='1231' u='c' c='_ZN5clang6driver6Driver22getCrashDiagnosticFileEN4llvm9StringRefERNS2_11SmallStringILj128EEE'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='729' u='c' c='_ZN5clang16CompilerInstance16createOutputFileEN4llvm9StringRefERSt10error_codebbS2_S2_bbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_'/>
+<use f='llvm/lld/lib/ReaderWriter/MachO/MachONormalizedFileFromAtoms.cpp' l='901' u='c' c='_ZN12_GLOBAL__N_14Util20synthesizeDebugNotesERN3lld6mach_o10normalized14NormalizedFileE'/>
+<use f='llvm/llvm/lib/Support/CachePruning.cpp' l='173' u='c' c='_ZN4llvm10pruneCacheENS_9StringRefENS_18CachePruningPolicyE'/>
+<use f='llvm/llvm/lib/Support/FileOutputBuffer.cpp' l='175' u='c' c='_ZN4llvm16FileOutputBuffer6createENS_9StringRefEmj'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='734' u='c' c='_ZN4llvm3sys2fs11getUniqueIDENS_5TwineERNS1_8UniqueIDE'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='1035' u='c' c='_ZN4llvm3sys2fs13get_file_typeERKNS_5TwineEb'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='1046' u='c' c='_ZN4llvm3sys2fs12is_directoryERKNS_5TwineERb'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='1058' u='c' c='_ZN4llvm3sys2fs15is_regular_fileERKNS_5TwineERb'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='1070' u='c' c='_ZN4llvm3sys2fs15is_symlink_fileERKNS_5TwineERb'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='1084' u='c' c='_ZN4llvm3sys2fs8is_otherERKNS_5TwineERb'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='1101' u='c' c='_ZN4llvm3sys2fs14getPermissionsERKNS_5TwineE'/>
+<use f='llvm/llvm/lib/Support/Unix/Path.inc' l='291' u='c' c='_ZN4llvm3sys2fs12current_pathERNS_15SmallVectorImplIcEE'/>
+<use f='llvm/llvm/lib/Support/Unix/Path.inc' l='292' u='c' c='_ZN4llvm3sys2fs12current_pathERNS_15SmallVectorImplIcEE'/>
+<use f='llvm/llvm/lib/Support/Unix/Path.inc' l='570' u='c' c='_ZN4llvm3sys2fs10equivalentERKNS_5TwineES4_Rb'/>
+<use f='llvm/llvm/lib/Support/Unix/Path.inc' l='572' u='c' c='_ZN4llvm3sys2fs10equivalentERKNS_5TwineES4_Rb'/>
+<def f='llvm/llvm/lib/Support/Unix/Path.inc' l='679' ll='686' type='std::error_code llvm::sys::fs::status(const llvm::Twine &amp; Path, llvm::sys::fs::file_status &amp; Result, bool Follow = true)'/>
+<use f='llvm/llvm/lib/Support/Unix/Path.inc' l='846' u='c' c='_ZNK4llvm3sys2fs15directory_entry6statusEv'/>
+<use f='llvm/llvm/lib/Support/VirtualFileSystem.cpp' l='289' u='c' c='_ZN12_GLOBAL__N_114RealFileSystem6statusERKN4llvm5TwineE'/>
+<use f='llvm/llvm/tools/dsymutil/DwarfLinker.cpp' l='2599' u='c' c='_ZN4llvm8dsymutil11DwarfLinker4linkERKNS0_8DebugMapE'/>
+<use f='llvm/llvm/tools/llvm-ar/llvm-ar.cpp' l='710' u='c' c='_ZL19computeInsertAction16ArchiveOperationRKN4llvm6object7Archive5ChildENS0_9StringRefERN9__gnu_cxx17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEERNS03379898'/>
+<use f='llvm/llvm/tools/llvm-cov/CodeCoverage.cpp' l='199' u='c' c='_ZN12_GLOBAL__N_116CodeCoverageTool12collectPathsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/tools/llvm-cov/CodeCoverage.cpp' l='340' u='c' c='_ZL14modifiedTimeGTN4llvm9StringRefES0_'/>
+<use f='llvm/llvm/tools/llvm-cov/CodeCoverage.cpp' l='343' u='c' c='_ZL14modifiedTimeGTN4llvm9StringRefES0_'/>
+<use f='llvm/llvm/tools/llvm-cov/CodeCoverage.cpp' l='866' u='c' c='_ZN12_GLOBAL__N_116CodeCoverageTool6doShowEiPPKcN4llvm12function_refIFiiS3_EEE'/>
+<use f='llvm/llvm/tools/llvm-dwarfdump/llvm-dwarfdump.cpp' l='548' u='c' c='_ZL12expandBundleRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/tools/llvm-objcopy/llvm-objcopy.cpp' l='218' u='c' c='_ZL14executeObjcopyRKN4llvm7objcopy10CopyConfigE'/>
+<use f='llvm/llvm/tools/llvm-profdata/llvm-profdata.cpp' l='513' u='c' c='_ZL16addWeightedInputRN4llvm11SmallVectorI12WeightedFileLj5EEERKS1_'/>
+<use f='llvm/llvm/unittests/Support/FileOutputBufferTest.cpp' l='116' u='c' c='_ZN12_GLOBAL__N_126FileOutputBuffer_Test_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='628' u='c' c='_ZN12_GLOBAL__N_129FileSystemTest_TempFiles_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='629' u='c' c='_ZN12_GLOBAL__N_129FileSystemTest_TempFiles_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='640' u='c' c='_ZN12_GLOBAL__N_129FileSystemTest_TempFiles_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='658' u='c' c='_ZN12_GLOBAL__N_129FileSystemTest_TempFiles_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='659' u='c' c='_ZN12_GLOBAL__N_129FileSystemTest_TempFiles_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='748' u='c' c='_ZN12_GLOBAL__N_129FileSystemTest_CreateDir_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Support/Path.cpp' l='753' u='c' c='_ZN12_GLOBAL__N_129FileSystemTest_CreateDir_Test8TestBodyEv'/>

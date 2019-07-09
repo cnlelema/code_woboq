@@ -1,0 +1,18 @@
+<dec f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.h' l='321' type='int llvm::HexagonInstrInfo::getOperandLatency(const llvm::InstrItineraryData * ItinData, const llvm::MachineInstr &amp; DefMI, unsigned int DefIdx, const llvm::MachineInstr &amp; UseMI, unsigned int UseIdx) const'/>
+<doc f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.h' l='313'>/// getOperandLatency - Compute and return the use operand latency of a given
+  /// pair of def and use.
+  /// In most cases, the static scheduling itinerary was enough to determine the
+  /// operand latency. But it may not be possible for instructions with variable
+  /// number of defs / uses.
+  ///
+  /// This is a raw interface to the itinerary that may be directly overriden by
+  /// a target. Use computeOperandLatency to get the best estimate of latency.</doc>
+<def f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='4084' ll='4125' type='int llvm::HexagonInstrInfo::getOperandLatency(const llvm::InstrItineraryData * ItinData, const llvm::MachineInstr &amp; DefMI, unsigned int DefIdx, const llvm::MachineInstr &amp; UseMI, unsigned int UseIdx) const'/>
+<doc f='llvm/llvm/lib/Target/Hexagon/HexagonInstrInfo.cpp' l='4076'>/// getOperandLatency - Compute and return the use operand latency of a given
+/// pair of def and use.
+/// In most cases, the static scheduling itinerary was enough to determine the
+/// operand latency. But it may not be possible for instructions with variable
+/// number of defs / uses.
+///
+/// This is a raw interface to the itinerary that may be directly overriden by
+/// a target. Use computeOperandLatency to get the best estimate of latency.</doc>

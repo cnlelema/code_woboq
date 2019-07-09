@@ -1,0 +1,8 @@
+<dec f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.h' l='629' type='llvm::MachineBasicBlock * llvm::SystemZTargetLowering::emitAtomicLoadMinMax(llvm::MachineInstr &amp; MI, llvm::MachineBasicBlock * MBB, unsigned int CompareOpcode, unsigned int KeepOldMask, unsigned int BitSize) const'/>
+<def f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='6650' ll='6760' type='llvm::MachineBasicBlock * llvm::SystemZTargetLowering::emitAtomicLoadMinMax(llvm::MachineInstr &amp; MI, llvm::MachineBasicBlock * MBB, unsigned int CompareOpcode, unsigned int KeepOldMask, unsigned int BitSize) const'/>
+<doc f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='6644'>// Implement EmitInstrWithCustomInserter for pseudo
+// ATOMIC_LOAD{,W}_{,U}{MIN,MAX} instruction MI.  CompareOpcode is the
+// instruction that should be used to compare the current field with the
+// minimum or maximum value.  KeepOldMask is the BRC condition-code mask
+// for when the current field should be kept.  BitSize is the width of
+// the field in bits, or 0 if this is a partword ATOMIC_LOADW_* instruction.</doc>

@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/BasicBlockUtils.h' l='82' type='bool llvm::DeleteDeadPHIs(llvm::BasicBlock * BB, const llvm::TargetLibraryInfo * TLI = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/BasicBlockUtils.h' l='78'>/// Examine each PHI in the given block and delete it if it is dead. Also
+/// recursively delete any operands that become dead as a result. This includes
+/// tracing the def-use list from the PHI to see if it is ultimately unused or
+/// if it reaches an unused cycle. Return true if any PHIs were deleted.</doc>
+<use f='llvm/llvm/lib/CodeGen/HardwareLoops.cpp' l='337' u='c' c='_ZN12_GLOBAL__N_112HardwareLoop6CreateEv'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCLoopPreIncPrep.cpp' l='521' u='c' c='_ZN12_GLOBAL__N_117PPCLoopPreIncPrep9runOnLoopEPN4llvm4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='2698' u='c' c='_ZN12_GLOBAL__N_114IndVarSimplify3runEPN4llvm4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopRerollPass.cpp' l='1479' u='c' c='_ZN12_GLOBAL__N_110LoopReroll14DAGRootTracker7replaceEPKN4llvm4SCEVE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='5697' u='c' c='_ZL18ReduceLoopStrengthPN4llvm4LoopERNS_7IVUsersERNS_15ScalarEvolutionERNS_13DominatorTreeERNS_8LoopInfoERKNS_19TargetTransformInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='5709' u='c' c='_ZL18ReduceLoopStrengthPN4llvm4LoopERNS_7IVUsersERNS_15ScalarEvolutionERNS_13DominatorTreeERNS_8LoopInfoERKNS_19TargetTransformInfoE'/>
+<def f='llvm/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp' l='156' ll='169' type='bool llvm::DeleteDeadPHIs(llvm::BasicBlock * BB, const llvm::TargetLibraryInfo * TLI = nullptr)'/>

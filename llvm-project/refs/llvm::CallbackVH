@@ -1,0 +1,42 @@
+<inh f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='29' c='llvm::ValueHandleBase'/>
+<def f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='379' ll='419'/>
+<ovr f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='440' c='llvm::PoisoningVH'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/AssumptionCache.h' l='51' c='llvm::AssumptionCache::AffectedValueCallbackVH'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/AssumptionCache.h' l='188' c='llvm::AssumptionCacheTracker::FunctionCallbackVH'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/GlobalsModRef.h' l='59' c='llvm::GlobalsAAResult::DeletionCallbackHandle'/>
+<ovr f='llvm/llvm/include/llvm/IR/ValueMap.h' l='246' c='llvm::ValueMapCallbackVH'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/ScalarEvolution.h' l='1102' c='llvm::ScalarEvolution::SCEVCallbackVH'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/ScalarEvolutionExpressions.h' l='466' c='llvm::SCEVUnknown'/>
+<size>32</size>
+<doc f='llvm/llvm/include/llvm/IR/ValueHandle.h' l='372'>/// Value handle with callbacks on RAUW and destruction.
+///
+/// This is a value handle that allows subclasses to define callbacks that run
+/// when the underlying Value has RAUW called on it or is destroyed.  This
+/// class can be used as the key of a map, as long as the user takes it out of
+/// the map before calling setValPtr() (since the map has to rearrange itself
+/// when the pointer changes).  Unlike ValueHandleBase, this class has a vtable.</doc>
+<fun r='_ZN4llvm10CallbackVH6anchorEv'/>
+<fun r='_ZN4llvm10CallbackVHD1Ev'/>
+<fun r='_ZN4llvm10CallbackVHC1ERKS0_'/>
+<fun r='_ZN4llvm10CallbackVHaSERKS0_'/>
+<fun r='_ZN4llvm10CallbackVH9setValPtrEPNS_5ValueE'/>
+<fun r='_ZN4llvm10CallbackVHC1Ev'/>
+<fun r='_ZN4llvm10CallbackVHC1EPNS_5ValueE'/>
+<fun r='_ZNK4llvm10CallbackVHcvPNS_5ValueEEv'/>
+<fun r='_ZN4llvm10CallbackVH7deletedEv'/>
+<fun r='_ZN4llvm10CallbackVH19allUsesReplacedWithEPNS_5ValueE'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/DomTreeUpdater.h' l='244' c='llvm::DomTreeUpdater::CallBackOnDeletion'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/AliasSetTracker.h' l='330' c='llvm::AliasSetTracker::ASTCallbackVH'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/CFLAliasAnalysisUtils.h' l='23' c='llvm::cflaa::FunctionHandle'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/PhiValues.h' l='93' c='llvm::PhiValues::PhiValuesCallbackVH'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/BranchProbabilityInfo.h' l='151' c='llvm::BranchProbabilityInfo::BasicBlockCallbackVH'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/IVUsers.h' l='37' c='llvm::IVStrideUse'/>
+<ovr f='llvm/llvm/lib/Analysis/LazyValueInfo.cpp' l='134' c='(anonymousnamespace)::LVIValueHandle'/>
+<ovr f='llvm/llvm/lib/CodeGen/MachineModuleInfo.cpp' l='49' c='llvm::MMIAddrLabelMapCallbackPtr'/>
+<ovr f='llvm/llvm/lib/ExecutionEngine/ExecutionEngine.cpp' l='100' c='(anonymousnamespace)::GVMemoryBlock'/>
+<ovr f='llvm/llvm/unittests/IR/ValueHandleTest.cpp' l='31' c='(anonymousnamespace)::ConcreteCallbackVH'/>
+<ovr f='llvm/llvm/unittests/IR/ValueHandleTest.cpp' l='255' c='RecordingVH'/>
+<ovr f='llvm/llvm/unittests/IR/ValueHandleTest.cpp' l='281' c='RecordingVH'/>
+<ovr f='llvm/llvm/unittests/IR/ValueHandleTest.cpp' l='311' c='RecoveringVH'/>
+<ovr f='llvm/llvm/unittests/IR/ValueHandleTest.cpp' l='361' c='DestroyingVH'/>
+<ovr f='llvm/llvm/unittests/IR/ValueHandleTest.cpp' l='406' c='ClearingVH'/>

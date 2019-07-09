@@ -1,0 +1,40 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetFrameLowering.h' l='282' type='void llvm::TargetFrameLowering::determineCalleeSaves(llvm::MachineFunction &amp; MF, llvm::BitVector &amp; SavedRegs, llvm::RegScavenger * RS = nullptr) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetFrameLowering.h' l='275'>/// This method determines which of the registers reported by
+  /// TargetRegisterInfo::getCalleeSavedRegs() should actually get saved.
+  /// The default implementation checks populates the \p SavedRegs bitset with
+  /// all registers which are modified in the function, targets may override
+  /// this function to save additional registers.
+  /// This method also sets up the register scavenger ensuring there is a free
+  /// register or a frameindex available.</doc>
+<use f='llvm/llvm/lib/CodeGen/LiveDebugValues.cpp' l='1201' u='c' c='_ZN12_GLOBAL__N_115LiveDebugValues20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/PrologEpilogInserter.cpp' l='593' u='c' c='_ZN12_GLOBAL__N_13PEI20spillCalleeSavedRegsERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/RegUsageInfoCollector.cpp' l='156' u='c' c='_ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVectorERNS1_15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/RegisterScavenging.cpp' l='802' u='c' c='_ZN12_GLOBAL__N_113ScavengerTest20runOnMachineFunctionERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/CodeGen/ShrinkWrap.cpp' l='170' u='c' c='_ZNK12_GLOBAL__N_110ShrinkWrap14getCurrentCSRsEPN4llvm12RegScavengerE'/>
+<def f='llvm/llvm/lib/CodeGen/TargetFrameLoweringImpl.cpp' l='62' ll='109' type='void llvm::TargetFrameLowering::determineCalleeSaves(llvm::MachineFunction &amp; MF, llvm::BitVector &amp; SavedRegs, llvm::RegScavenger * RS = nullptr) const'/>
+<ovr f='llvm/llvm/lib/Target/AArch64/AArch64FrameLowering.cpp' l='2025' c='_ZNK4llvm20AArch64FrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64FrameLowering.cpp' l='2033' u='c' c='_ZNK4llvm20AArch64FrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<ovr f='llvm/llvm/lib/Target/AMDGPU/SIFrameLowering.cpp' l='790' c='_ZNK4llvm15SIFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIFrameLowering.cpp' l='792' u='c' c='_ZNK4llvm15SIFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<ovr f='llvm/llvm/lib/Target/ARM/ARMFrameLowering.cpp' l='1594' c='_ZNK4llvm16ARMFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMFrameLowering.cpp' l='1597' u='c' c='_ZNK4llvm16ARMFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<ovr f='llvm/llvm/lib/Target/BPF/BPFFrameLowering.cpp' l='31' c='_ZNK4llvm16BPFFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<use f='llvm/llvm/lib/Target/BPF/BPFFrameLowering.cpp' l='34' u='c' c='_ZNK4llvm16BPFFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<ovr f='llvm/llvm/lib/Target/Hexagon/HexagonFrameLowering.cpp' l='1929' c='_ZNK4llvm20HexagonFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonFrameLowering.cpp' l='1973' u='c' c='_ZNK4llvm20HexagonFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<ovr f='llvm/llvm/lib/Target/Lanai/LanaiFrameLowering.cpp' l='197' c='_ZNK4llvm18LanaiFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<use f='llvm/llvm/lib/Target/Lanai/LanaiFrameLowering.cpp' l='200' u='c' c='_ZNK4llvm18LanaiFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<ovr f='llvm/llvm/lib/Target/Mips/Mips16FrameLowering.cpp' l='162' c='_ZNK4llvm19Mips16FrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<use f='llvm/llvm/lib/Target/Mips/Mips16FrameLowering.cpp' l='165' u='c' c='_ZNK4llvm19Mips16FrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<ovr f='llvm/llvm/lib/Target/Mips/MipsSEFrameLowering.cpp' l='933' c='_ZNK4llvm19MipsSEFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsSEFrameLowering.cpp' l='936' u='c' c='_ZNK4llvm19MipsSEFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<ovr f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='1733' c='_ZNK4llvm16PPCFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCFrameLowering.cpp' l='1736' u='c' c='_ZNK4llvm16PPCFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<ovr f='llvm/llvm/lib/Target/Sparc/SparcFrameLowering.cpp' l='374' c='_ZNK4llvm18SparcFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<use f='llvm/llvm/lib/Target/Sparc/SparcFrameLowering.cpp' l='377' u='c' c='_ZNK4llvm18SparcFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<ovr f='llvm/llvm/lib/Target/SystemZ/SystemZFrameLowering.cpp' l='64' c='_ZNK4llvm20SystemZFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZFrameLowering.cpp' l='67' u='c' c='_ZNK4llvm20SystemZFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<ovr f='llvm/llvm/lib/Target/X86/X86FrameLowering.cpp' l='2197' c='_ZNK4llvm16X86FrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<use f='llvm/llvm/lib/Target/X86/X86FrameLowering.cpp' l='2200' u='c' c='_ZNK4llvm16X86FrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<ovr f='llvm/llvm/lib/Target/XCore/XCoreFrameLowering.cpp' l='534' c='_ZNK4llvm18XCoreFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>
+<use f='llvm/llvm/lib/Target/XCore/XCoreFrameLowering.cpp' l='537' u='c' c='_ZNK4llvm18XCoreFrameLowering20determineCalleeSavesERNS_15MachineFunctionERNS_9BitVectorEPNS_12RegScavengerE'/>

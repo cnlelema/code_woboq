@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/include/llvm/ADT/StringRef.h' l='550' type='bool llvm::StringRef::getAsDouble(double &amp; Result, bool AllowInexact = true) const'/>
+<doc f='llvm/llvm/include/llvm/ADT/StringRef.h' l='544'>/// Parse the current string as an IEEE double-precision floating
+    /// point value.  The string must be a well-formed double.
+    ///
+    /// If \p AllowInexact is false, the function will fail if the string
+    /// cannot be represented exactly.  Otherwise, the function only fails
+    /// in case of an overflow or underflow.</doc>
+<def f='llvm/llvm/lib/Support/StringRef.cpp' l='583' ll='594' type='bool llvm::StringRef::getAsDouble(double &amp; Result, bool AllowInexact = true) const'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/AsmParser/WebAssemblyAsmParser.cpp' l='495' u='c' c='_ZN12_GLOBAL__N_120WebAssemblyAsmParser16ParseInstructionERN4llvm20ParseInstructionInfoENS1_9StringRefENS1_5SMLocERNS1_15SmallVectorImplISt10unique_pt652212'/>
+<use f='llvm/llvm/unittests/ADT/StringRefTest.cpp' l='899' u='c' c='_ZN12_GLOBAL__N_130StringRefTest_getAsDouble_Test8TestBodyEv'/>

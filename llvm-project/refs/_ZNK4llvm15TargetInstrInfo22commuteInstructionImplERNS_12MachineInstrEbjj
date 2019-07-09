@@ -1,0 +1,18 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='129' type='llvm::MachineInstr * llvm::TargetInstrInfo::commuteInstructionImpl(llvm::MachineInstr &amp; MI, bool NewMI, unsigned int OpIdx1, unsigned int OpIdx2) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='114'>/// This method commutes the operands of the given machine instruction MI.
+  /// The operands to be commuted are specified by their indices OpIdx1 and
+  /// OpIdx2.
+  ///
+  /// If a target has any instructions that are commutable but require
+  /// converting to different instructions or making non-trivial changes
+  /// to commute them, this method can be overloaded to do that.
+  /// The default implementation simply swaps the commutable operands.
+  ///
+  /// If NewMI is false, MI is modified in place and returned; otherwise, a
+  /// new machine instruction is created and returned.
+  ///
+  /// Do not call this method for a non-commutable instruction.
+  /// Even though the instruction is commutable, the method may still
+  /// fail to commute the operands, null pointer is returned in such cases.</doc>
+<def f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='149' ll='230' type='llvm::MachineInstr * llvm::TargetInstrInfo::commuteInstructionImpl(llvm::MachineInstr &amp; MI, bool NewMI, unsigned int Idx1, unsigned int Idx2) const'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='244' u='c' c='_ZNK4llvm15TargetInstrInfo18commuteInstructionERNS_12MachineInstrEbjj'/>

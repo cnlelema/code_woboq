@@ -1,0 +1,54 @@
+<inh f='llvm/llvm/include/llvm/DebugInfo/CodeView/TypeCollection.h' l='19' c='llvm::codeview::TypeCollection'/>
+<def f='llvm/llvm/include/llvm/DebugInfo/CodeView/LazyRandomTypeCollection.h' l='50' ll='110'/>
+<size>240</size>
+<doc f='llvm/llvm/include/llvm/DebugInfo/CodeView/LazyRandomTypeCollection.h' l='28'>/// Provides amortized O(1) random access to a CodeView type stream.
+/// Normally to access a type from a type stream, you must know its byte
+/// offset into the type stream, because type records are variable-lengthed.
+/// However, this is not the way we prefer to access them.  For example, given
+/// a symbol record one of the fields may be the TypeIndex of the symbol&apos;s
+/// type record.  Or given a type record such as an array type, there might
+/// be a TypeIndex for the element type.  Sequential access is perfect when
+/// we&apos;re just dumping every entry, but it&apos;s very poor for real world usage.
+///
+/// Type streams in PDBs contain an additional field which is a list of pairs
+/// containing indices and their corresponding offsets, roughly every ~8KB of
+/// record data.  This general idea need not be confined to PDBs though.  By
+/// supplying such an array, the producer of a type stream can allow the
+/// consumer much better access time, because the consumer can find the nearest
+/// index in this array, and do a linear scan forward only from there.
+///
+/// LazyRandomTypeCollection implements this algorithm, but additionally goes
+/// one step further by caching offsets of every record that has been visited at
+/// least once.  This way, even repeated visits of the same record will never
+/// require more than one linear scan.  For a type stream of N elements divided
+/// into M chunks of roughly equal size, this yields a worst case lookup time
+/// of O(N/M) and an amortized time of O(1).</doc>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollectionC1Ej'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollectionC1ENS_9StringRefEj'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollectionC1ENS_8ArrayRefIhEEj'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollectionC1ERKNS_14VarStreamArrayINS0_8CVRecordINS0_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS5_EEEEjNS_16Fixed8051302'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollectionC1ERKNS_14VarStreamArrayINS0_8CVRecordINS0_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS5_EEEEj'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection5resetENS_8ArrayRefIhEEj'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection5resetENS_9StringRefEj'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection5resetERNS_18BinaryStreamReaderEj'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection15getOffsetOfTypeENS0_9TypeIndexE'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection10tryGetTypeENS0_9TypeIndexE'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection7getTypeENS0_9TypeIndexE'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection11getTypeNameENS0_9TypeIndexE'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection8containsENS0_9TypeIndexE'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection4sizeEv'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection8capacityEv'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection8getFirstEv'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection7getNextENS0_9TypeIndexE'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection16ensureTypeExistsENS0_9TypeIndexE'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection17ensureCapacityForENS0_9TypeIndexE'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection17visitRangeForTypeENS0_9TypeIndexE'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection15fullScanForTypeENS0_9TypeIndexE'/>
+<fun r='_ZN4llvm8codeview24LazyRandomTypeCollection10visitRangeENS0_9TypeIndexEjS2_'/>
+<mbr r='llvm::codeview::LazyRandomTypeCollection::Count' o='64' t='uint32_t'/>
+<mbr r='llvm::codeview::LazyRandomTypeCollection::LargestTypeIndex' o='96' t='llvm::codeview::TypeIndex'/>
+<mbr r='llvm::codeview::LazyRandomTypeCollection::Allocator' o='128' t='BumpPtrAllocator'/>
+<mbr r='llvm::codeview::LazyRandomTypeCollection::NameStorage' o='960' t='llvm::StringSaver'/>
+<mbr r='llvm::codeview::LazyRandomTypeCollection::Types' o='1024' t='CVTypeArray'/>
+<mbr r='llvm::codeview::LazyRandomTypeCollection::Records' o='1408' t='std::vector&lt;CacheEntry&gt;'/>
+<mbr r='llvm::codeview::LazyRandomTypeCollection::PartialOffsets' o='1600' t='PartialOffsetArray'/>

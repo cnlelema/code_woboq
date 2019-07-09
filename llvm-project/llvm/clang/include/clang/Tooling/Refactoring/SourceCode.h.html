@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SourceCode.h source code [llvm/clang/include/clang/Tooling/Refactoring/SourceCode.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/clang/include/clang/Tooling/Refactoring/SourceCode.h'; var root_path = '../../../../../..'; var data_path = '../../../../../../../data';</script>
+<script src='../../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>llvm</a>/<a href='../../../..'>clang</a>/<a href='../../..'>include</a>/<a href='../..'>clang</a>/<a href='..'>Tooling</a>/<a href='./'>Refactoring</a>/<a href='SourceCode.h.html'>SourceCode.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===--- SourceCode.h - Source code manipulation routines -------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>//  This file provides functions that simplify extraction of source code.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#<span data-ppcond="13">ifndef</span> <span class="macro" data-ref="_M/LLVM_CLANG_TOOLING_REFACTOR_SOURCE_CODE_H">LLVM_CLANG_TOOLING_REFACTOR_SOURCE_CODE_H</span></u></td></tr>
+<tr><th id="14">14</th><td><u>#define <dfn class="macro" id="_M/LLVM_CLANG_TOOLING_REFACTOR_SOURCE_CODE_H" data-ref="_M/LLVM_CLANG_TOOLING_REFACTOR_SOURCE_CODE_H">LLVM_CLANG_TOOLING_REFACTOR_SOURCE_CODE_H</dfn></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="../../AST/ASTContext.h.html">"clang/AST/ASTContext.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../Basic/SourceLocation.h.html">"clang/Basic/SourceLocation.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../Basic/TokenKinds.h.html">"clang/Basic/TokenKinds.h"</a></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><b>namespace</b> <span class="namespace">clang</span> {</td></tr>
+<tr><th id="21">21</th><td><b>namespace</b> <span class="namespace">tooling</span> {</td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i class="doc">/// Extends<span class="command"> \p</span> <span class="arg">Range</span> to include the token<span class="command"> \p</span> <span class="arg">Next,</span> if it immediately follows the</i></td></tr>
+<tr><th id="24">24</th><td><i class="doc">/// end of the range. Otherwise, returns<span class="command"> \p</span> <span class="arg">Range</span> unchanged.</i></td></tr>
+<tr><th id="25">25</th><td><a class="type" href="../../Basic/SourceLocation.h.html#clang::CharSourceRange" title='clang::CharSourceRange' data-ref="clang::CharSourceRange">CharSourceRange</a> <dfn class="decl" id="_ZN5clang7tooling16maybeExtendRangeENS_15CharSourceRangeENS_3tok9TokenKindERNS_10ASTContextE" title='clang::tooling::maybeExtendRange' data-ref="_ZN5clang7tooling16maybeExtendRangeENS_15CharSourceRangeENS_3tok9TokenKindERNS_10ASTContextE">maybeExtendRange</dfn>(<a class="type" href="../../Basic/SourceLocation.h.html#clang::CharSourceRange" title='clang::CharSourceRange' data-ref="clang::CharSourceRange">CharSourceRange</a> <dfn class="local col6 decl" id="16Range" title='Range' data-type='clang::CharSourceRange' data-ref="16Range">Range</dfn>, <span class="namespace">tok::</span><a class="type" href="../../Basic/Diagnostic.h.html#clang::tok::TokenKind" title='clang::tok::TokenKind' data-ref="clang::tok::TokenKind">TokenKind</a> <dfn class="local col7 decl" id="17Next" title='Next' data-type='tok::TokenKind' data-ref="17Next">Next</dfn>,</td></tr>
+<tr><th id="26">26</th><td>                                 <a class="type" href="../../AST/ASTContext.h.html#clang::ASTContext" title='clang::ASTContext' data-ref="clang::ASTContext">ASTContext</a> &amp;<dfn class="local col8 decl" id="18Context" title='Context' data-type='clang::ASTContext &amp;' data-ref="18Context">Context</dfn>);</td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><i class="doc">/// Returns the source range spanning the node, extended to include<span class="command"> \p</span> <span class="arg">Next,</span> if</i></td></tr>
+<tr><th id="29">29</th><td><i class="doc">/// it immediately follows<span class="command"> \p</span> <span class="arg">Node.</span> Otherwise, returns the normal range of<span class="command"> \p</span></i></td></tr>
+<tr><th id="30">30</th><td><i class="doc">/// <span class="arg">Node.</span>  See comments on `getExtendedText()` for examples.</i></td></tr>
+<tr><th id="31">31</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="32">32</th><td><a class="type" href="../../Basic/SourceLocation.h.html#clang::CharSourceRange" title='clang::CharSourceRange' data-ref="clang::CharSourceRange">CharSourceRange</a> <dfn class="decl def" id="_ZN5clang7tooling16getExtendedRangeERKT_NS_3tok9TokenKindERNS_10ASTContextE" title='clang::tooling::getExtendedRange' data-ref="_ZN5clang7tooling16getExtendedRangeERKT_NS_3tok9TokenKindERNS_10ASTContextE">getExtendedRange</dfn>(<em>const</em> T &amp;<dfn class="local col9 decl" id="19Node" title='Node' data-type='const T &amp;' data-ref="19Node">Node</dfn>, <span class="namespace">tok::</span><a class="type" href="../../Basic/Diagnostic.h.html#clang::tok::TokenKind" title='clang::tok::TokenKind' data-ref="clang::tok::TokenKind">TokenKind</a> <dfn class="local col0 decl" id="20Next" title='Next' data-type='tok::TokenKind' data-ref="20Next">Next</dfn>,</td></tr>
+<tr><th id="33">33</th><td>                                 <a class="type" href="../../AST/ASTContext.h.html#clang::ASTContext" title='clang::ASTContext' data-ref="clang::ASTContext">ASTContext</a> &amp;<dfn class="local col1 decl" id="21Context" title='Context' data-type='clang::ASTContext &amp;' data-ref="21Context">Context</dfn>) {</td></tr>
+<tr><th id="34">34</th><td>  <b>return</b> maybeExtendRange(<a class="type" href="../../Basic/SourceLocation.h.html#clang::CharSourceRange" title='clang::CharSourceRange' data-ref="clang::CharSourceRange">CharSourceRange</a>::getTokenRange(<a class="local col9 ref" href="#19Node" title='Node' data-ref="19Node">Node</a>.getSourceRange()),</td></tr>
+<tr><th id="35">35</th><td>                          <a class="local col0 ref" href="#20Next" title='Next' data-ref="20Next">Next</a>, <a class="local col1 ref" href="#21Context" title='Context' data-ref="21Context">Context</a>);</td></tr>
+<tr><th id="36">36</th><td>}</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><i class="doc">/// Returns the source-code text in the specified range.</i></td></tr>
+<tr><th id="39">39</th><td><a class="type" href="../../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="decl" id="_ZN5clang7tooling7getTextENS_15CharSourceRangeERKNS_10ASTContextE" title='clang::tooling::getText' data-ref="_ZN5clang7tooling7getTextENS_15CharSourceRangeERKNS_10ASTContextE">getText</dfn>(<a class="type" href="../../Basic/SourceLocation.h.html#clang::CharSourceRange" title='clang::CharSourceRange' data-ref="clang::CharSourceRange">CharSourceRange</a> <dfn class="local col2 decl" id="22Range" title='Range' data-type='clang::CharSourceRange' data-ref="22Range">Range</dfn>, <em>const</em> <a class="type" href="../../AST/ASTContext.h.html#clang::ASTContext" title='clang::ASTContext' data-ref="clang::ASTContext">ASTContext</a> &amp;<dfn class="local col3 decl" id="23Context" title='Context' data-type='const clang::ASTContext &amp;' data-ref="23Context">Context</dfn>);</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><i class="doc">/// Returns the source-code text corresponding to<span class="command"> \p</span> <span class="arg">Node.</span></i></td></tr>
+<tr><th id="42">42</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="43">43</th><td><a class="type" href="../../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="decl def" id="_ZN5clang7tooling7getTextERKT_RKNS_10ASTContextE" title='clang::tooling::getText' data-ref="_ZN5clang7tooling7getTextERKT_RKNS_10ASTContextE">getText</dfn>(<em>const</em> T &amp;<dfn class="local col4 decl" id="24Node" title='Node' data-type='const T &amp;' data-ref="24Node">Node</dfn>, <em>const</em> <a class="type" href="../../AST/ASTContext.h.html#clang::ASTContext" title='clang::ASTContext' data-ref="clang::ASTContext">ASTContext</a> &amp;<dfn class="local col5 decl" id="25Context" title='Context' data-type='const clang::ASTContext &amp;' data-ref="25Context">Context</dfn>) {</td></tr>
+<tr><th id="44">44</th><td>  <b>return</b> getText(<a class="type" href="../../Basic/SourceLocation.h.html#clang::CharSourceRange" title='clang::CharSourceRange' data-ref="clang::CharSourceRange">CharSourceRange</a>::getTokenRange(<a class="local col4 ref" href="#24Node" title='Node' data-ref="24Node">Node</a>.getSourceRange()),</td></tr>
+<tr><th id="45">45</th><td>                 <a class="local col5 ref" href="#25Context" title='Context' data-ref="25Context">Context</a>);</td></tr>
+<tr><th id="46">46</th><td>}</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><i class="doc">/// Returns the source text of the node, extended to include<span class="command"> \p</span> <span class="arg">Next,</span> if it</i></td></tr>
+<tr><th id="49">49</th><td><i class="doc">/// immediately follows the node. Otherwise, returns the text of just<span class="command"> \p</span> <span class="arg">Node.</span></i></td></tr>
+<tr><th id="50">50</th><td><i class="doc">///</i></td></tr>
+<tr><th id="51">51</th><td><i class="doc">/// For example, given statements S1 and S2 below:</i></td></tr>
+<tr><th id="52">52</th><td><i class="doc">/// <span class="command">\code</span></i></td></tr>
+<tr><th id="53">53</th><td><i class="doc">///<span class="verb">   {</span></i></td></tr>
+<tr><th id="54">54</th><td><i class="doc"><span class="verb"></span>///<span class="verb">     // S1:</span></i></td></tr>
+<tr><th id="55">55</th><td><i class="doc"><span class="verb"></span>///<span class="verb">     if (!x) return foo();</span></i></td></tr>
+<tr><th id="56">56</th><td><i class="doc"><span class="verb"></span>///<span class="verb">     // S2:</span></i></td></tr>
+<tr><th id="57">57</th><td><i class="doc"><span class="verb"></span>///<span class="verb">     if (!x) { return 3; }</span></i></td></tr>
+<tr><th id="58">58</th><td><i class="doc"><span class="verb"></span>///<span class="verb">   }</span></i></td></tr>
+<tr><th id="59">59</th><td><i class="doc"><span class="verb"></span>/// \endcode</i></td></tr>
+<tr><th id="60">60</th><td><i class="doc">/// then</i></td></tr>
+<tr><th id="61">61</th><td><i class="doc">/// <span class="command">\code</span></i></td></tr>
+<tr><th id="62">62</th><td><i class="doc">///<span class="verb">   getText(S1, Context) = "if (!x) return foo()"</span></i></td></tr>
+<tr><th id="63">63</th><td><i class="doc"><span class="verb"></span>///<span class="verb">   getExtendedText(S1, tok::TokenKind::semi, Context)</span></i></td></tr>
+<tr><th id="64">64</th><td><i class="doc"><span class="verb"></span>///<span class="verb">     = "if (!x) return foo();"</span></i></td></tr>
+<tr><th id="65">65</th><td><i class="doc"><span class="verb"></span>///<span class="verb">   getExtendedText(*S1.getThen(), tok::TokenKind::semi, Context)</span></i></td></tr>
+<tr><th id="66">66</th><td><i class="doc"><span class="verb"></span>///<span class="verb">     = "return foo();"</span></i></td></tr>
+<tr><th id="67">67</th><td><i class="doc"><span class="verb"></span>///<span class="verb">   getExtendedText(*S2.getThen(), tok::TokenKind::semi, Context)</span></i></td></tr>
+<tr><th id="68">68</th><td><i class="doc"><span class="verb"></span>///<span class="verb">     = getText(S2, Context) = "{ return 3; }"</span></i></td></tr>
+<tr><th id="69">69</th><td><i class="doc"><span class="verb"></span>/// \endcode</i></td></tr>
+<tr><th id="70">70</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="71">71</th><td><a class="type" href="../../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="decl def" id="_ZN5clang7tooling15getExtendedTextERKT_NS_3tok9TokenKindERNS_10ASTContextE" title='clang::tooling::getExtendedText' data-ref="_ZN5clang7tooling15getExtendedTextERKT_NS_3tok9TokenKindERNS_10ASTContextE">getExtendedText</dfn>(<em>const</em> T &amp;<dfn class="local col6 decl" id="26Node" title='Node' data-type='const T &amp;' data-ref="26Node">Node</dfn>, <span class="namespace">tok::</span><a class="type" href="../../Basic/Diagnostic.h.html#clang::tok::TokenKind" title='clang::tok::TokenKind' data-ref="clang::tok::TokenKind">TokenKind</a> <dfn class="local col7 decl" id="27Next" title='Next' data-type='tok::TokenKind' data-ref="27Next">Next</dfn>,</td></tr>
+<tr><th id="72">72</th><td>                          <a class="type" href="../../AST/ASTContext.h.html#clang::ASTContext" title='clang::ASTContext' data-ref="clang::ASTContext">ASTContext</a> &amp;<dfn class="local col8 decl" id="28Context" title='Context' data-type='clang::ASTContext &amp;' data-ref="28Context">Context</dfn>) {</td></tr>
+<tr><th id="73">73</th><td>  <b>return</b> getText(getExtendedRange(<a class="local col6 ref" href="#26Node" title='Node' data-ref="26Node">Node</a>, <a class="local col7 ref" href="#27Next" title='Next' data-ref="27Next">Next</a>, <a class="local col8 ref" href="#28Context" title='Context' data-ref="28Context">Context</a>), <a class="local col8 ref" href="#28Context" title='Context' data-ref="28Context">Context</a>);</td></tr>
+<tr><th id="74">74</th><td>}</td></tr>
+<tr><th id="75">75</th><td>} <i>// namespace tooling</i></td></tr>
+<tr><th id="76">76</th><td>} <i>// namespace clang</i></td></tr>
+<tr><th id="77">77</th><td><u>#<span data-ppcond="13">endif</span> // LLVM_CLANG_TOOLING_REFACTOR_SOURCE_CODE_H</u></td></tr>
+<tr><th id="78">78</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../lib/Tooling/Refactoring/RangeSelector.cpp.html'>llvm/clang/lib/Tooling/Refactoring/RangeSelector.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

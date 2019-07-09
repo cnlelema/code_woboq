@@ -1,0 +1,72 @@
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.h' l='258' ll='263' type='llvm::SDValue llvm::DAGTypeLegalizer::GetPromotedInteger(llvm::SDValue Op)'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.h' l='270' u='c' c='_ZN4llvm16DAGTypeLegalizer19SExtPromotedIntegerENS_7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.h' l='279' u='c' c='_ZN4llvm16DAGTypeLegalizer19ZExtPromotedIntegerENS_7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.h' l='290' u='c' c='_ZN4llvm16DAGTypeLegalizer25SExtOrZExtPromotedIntegerENS_7SDValueE'/>
+<doc f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.h' l='245'>//===--------------------------------------------------------------------===//
+  // Integer Promotion Support: LegalizeIntegerTypes.cpp
+  //===--------------------------------------------------------------------===//
+
+  /// Given a processed operand Op which was promoted to a larger integer type,
+  /// this returns the promoted value. The low bits of the promoted value
+  /// corresponding to the original type are exactly equal to Op.
+  /// The extra bits contain rubbish, so the promoted value may need to be zero-
+  /// or sign-extended from the original type before it is usable (the helpers
+  /// SExtPromotedInteger and ZExtPromotedInteger can do this for you).
+  /// For example, if Op is an i16 and was promoted to an i32, then this method
+  /// returns an i32, the lower 16 bits of which coincide with Op, and the upper
+  /// 16 bits of which contain rubbish.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='201' u='c' c='_ZN4llvm16DAGTypeLegalizer26PromoteIntRes_MERGE_VALUESEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='231' u='c' c='_ZN4llvm16DAGTypeLegalizer21PromoteIntRes_Atomic1EPNS_12AtomicSDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='264' u='c' c='_ZN4llvm16DAGTypeLegalizer27PromoteIntRes_AtomicCmpSwapEPNS_12AtomicSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='265' u='c' c='_ZN4llvm16DAGTypeLegalizer27PromoteIntRes_AtomicCmpSwapEPNS_12AtomicSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='299' u='c' c='_ZN4llvm16DAGTypeLegalizer21PromoteIntRes_BITCASTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='385' u='c' c='_ZN4llvm16DAGTypeLegalizer19PromoteIntRes_BSWAPEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='397' u='c' c='_ZN4llvm16DAGTypeLegalizer24PromoteIntRes_BITREVERSEEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='453' u='c' c='_ZN4llvm16DAGTypeLegalizer18PromoteIntRes_CTTZEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='479' u='c' c='_ZN4llvm16DAGTypeLegalizer32PromoteIntRes_EXTRACT_VECTOR_ELTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='541' u='c' c='_ZN4llvm16DAGTypeLegalizer24PromoteIntRes_INT_EXTENDEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='580' u='c' c='_ZN4llvm16DAGTypeLegalizer19PromoteIntRes_MLOADEPNS_16MaskedLoadSDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='594' u='c' c='_ZN4llvm16DAGTypeLegalizer21PromoteIntRes_MGATHEREPNS_18MaskedGatherSDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='662' u='c' c='_ZN4llvm16DAGTypeLegalizer23PromoteIntRes_ADDSUBSATEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='663' u='c' c='_ZN4llvm16DAGTypeLegalizer23PromoteIntRes_ADDSUBSATEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='747' u='c' c='_ZN4llvm16DAGTypeLegalizer20PromoteIntRes_SELECTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='748' u='c' c='_ZN4llvm16DAGTypeLegalizer20PromoteIntRes_SELECTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='756' u='c' c='_ZN4llvm16DAGTypeLegalizer21PromoteIntRes_VSELECTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='757' u='c' c='_ZN4llvm16DAGTypeLegalizer21PromoteIntRes_VSELECTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='763' u='c' c='_ZN4llvm16DAGTypeLegalizer23PromoteIntRes_SELECT_CCEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='764' u='c' c='_ZN4llvm16DAGTypeLegalizer23PromoteIntRes_SELECT_CCEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='802' u='c' c='_ZN4llvm16DAGTypeLegalizer17PromoteIntRes_SHLEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='810' u='c' c='_ZN4llvm16DAGTypeLegalizer31PromoteIntRes_SIGN_EXTEND_INREGEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='819' u='c' c='_ZN4llvm16DAGTypeLegalizer28PromoteIntRes_SimpleIntBinOpEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='820' u='c' c='_ZN4llvm16DAGTypeLegalizer28PromoteIntRes_SimpleIntBinOpEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='872' u='c' c='_ZN4llvm16DAGTypeLegalizer22PromoteIntRes_TRUNCATEEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1206' u='c' c='_ZN4llvm16DAGTypeLegalizer20PromoteSetCCOperandsERNS_7SDValueES2_NS_3ISD8CondCodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1207' u='c' c='_ZN4llvm16DAGTypeLegalizer20PromoteSetCCOperandsERNS_7SDValueES2_NS_3ISD8CondCodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1245' u='c' c='_ZN4llvm16DAGTypeLegalizer23PromoteIntOp_ANY_EXTENDEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1250' u='c' c='_ZN4llvm16DAGTypeLegalizer25PromoteIntOp_ATOMIC_STOREEPNS_12AtomicSDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1290' u='c' c='_ZN4llvm16DAGTypeLegalizer23PromoteIntOp_BUILD_PAIREPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1318' u='c' c='_ZN4llvm16DAGTypeLegalizer25PromoteIntOp_BUILD_VECTOREPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1324' u='c' c='_ZN4llvm16DAGTypeLegalizer21PromoteIntOp_INTTOPTREPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1339' u='c' c='_ZN4llvm16DAGTypeLegalizer30PromoteIntOp_INSERT_VECTOR_ELTEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1357' u='c' c='_ZN4llvm16DAGTypeLegalizer29PromoteIntOp_SCALAR_TO_VECTOREPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1406' u='c' c='_ZN4llvm16DAGTypeLegalizer24PromoteIntOp_SIGN_EXTENDEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1423' u='c' c='_ZN4llvm16DAGTypeLegalizer18PromoteIntOp_STOREEPNS_11StoreSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1447' u='c' c='_ZN4llvm16DAGTypeLegalizer19PromoteIntOp_MSTOREEPNS_17MaskedStoreSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1478' u='c' c='_ZN4llvm16DAGTypeLegalizer20PromoteIntOp_MGATHEREPNS_18MaskedGatherSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1494' u='c' c='_ZN4llvm16DAGTypeLegalizer21PromoteIntOp_MSCATTEREPNS_19MaskedScatterSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1499' u='c' c='_ZN4llvm16DAGTypeLegalizer21PromoteIntOp_TRUNCATEEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1510' u='c' c='_ZN4llvm16DAGTypeLegalizer24PromoteIntOp_ZERO_EXTENDEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='1568' u='c' c='_ZN4llvm16DAGTypeLegalizer22PromoteIntOp_VECREDUCEEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='2320' u='c' c='_ZN4llvm16DAGTypeLegalizer23ExpandIntRes_ANY_EXTENDEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3181' u='c' c='_ZN4llvm16DAGTypeLegalizer24ExpandIntRes_SIGN_EXTENDEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3442' u='c' c='_ZN4llvm16DAGTypeLegalizer24ExpandIntRes_ZERO_EXTENDEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='3978' u='c' c='_ZN4llvm16DAGTypeLegalizer31PromoteIntRes_EXTRACT_SUBVECTOREPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='4008' u='c' c='_ZN4llvm16DAGTypeLegalizer28PromoteIntRes_VECTOR_SHUFFLEEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='4009' u='c' c='_ZN4llvm16DAGTypeLegalizer28PromoteIntRes_VECTOR_SHUFFLEEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='4080' u='c' c='_ZN4llvm16DAGTypeLegalizer28PromoteIntRes_CONCAT_VECTORSEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='4119' u='c' c='_ZN4llvm16DAGTypeLegalizer33PromoteIntRes_EXTEND_VECTOR_INREGEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='4139' u='c' c='_ZN4llvm16DAGTypeLegalizer31PromoteIntRes_INSERT_VECTOR_ELTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='4157' u='c' c='_ZN4llvm16DAGTypeLegalizer31PromoteIntOp_EXTRACT_VECTOR_ELTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='4171' u='c' c='_ZN4llvm16DAGTypeLegalizer30PromoteIntOp_EXTRACT_SUBVECTOREPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='4190' u='c' c='_ZN4llvm16DAGTypeLegalizer27PromoteIntOp_CONCAT_VECTORSEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='3428' u='c' c='_ZN4llvm16DAGTypeLegalizer19WidenVecRes_BITCASTEPNS_6SDNodeE'/>

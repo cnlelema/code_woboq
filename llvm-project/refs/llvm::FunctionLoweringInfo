@@ -1,0 +1,53 @@
+<def f='llvm/llvm/include/llvm/CodeGen/FunctionLoweringInfo.h' l='53' ll='287'/>
+<size>888</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/FunctionLoweringInfo.h' l='49'>//===--------------------------------------------------------------------===//
+/// FunctionLoweringInfo - This contains information that is global to a
+/// function that is used when lowering a region of the function.
+///</doc>
+<mbr r='llvm::FunctionLoweringInfo::Fn' o='0' t='const llvm::Function *'/>
+<mbr r='llvm::FunctionLoweringInfo::MF' o='64' t='llvm::MachineFunction *'/>
+<mbr r='llvm::FunctionLoweringInfo::TLI' o='128' t='const llvm::TargetLowering *'/>
+<mbr r='llvm::FunctionLoweringInfo::RegInfo' o='192' t='llvm::MachineRegisterInfo *'/>
+<mbr r='llvm::FunctionLoweringInfo::BPI' o='256' t='llvm::BranchProbabilityInfo *'/>
+<mbr r='llvm::FunctionLoweringInfo::DA' o='320' t='const llvm::LegacyDivergenceAnalysis *'/>
+<mbr r='llvm::FunctionLoweringInfo::CanLowerReturn' o='384' t='bool'/>
+<mbr r='llvm::FunctionLoweringInfo::SplitCSR' o='392' t='bool'/>
+<mbr r='llvm::FunctionLoweringInfo::DemoteRegister' o='416' t='unsigned int'/>
+<mbr r='llvm::FunctionLoweringInfo::MBBMap' o='448' t='DenseMap&lt;const llvm::BasicBlock *, llvm::MachineBasicBlock *&gt;'/>
+<mbr r='llvm::FunctionLoweringInfo::ValueMap' o='704' t='DenseMap&lt;const llvm::Value *, unsigned int&gt;'/>
+<mbr r='llvm::FunctionLoweringInfo::VirtReg2Value' o='960' t='DenseMap&lt;unsigned int, const llvm::Value *&gt;'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo22getValueFromVirtualRegEj'/>
+<mbr r='llvm::FunctionLoweringInfo::CatchPadExceptionPointers' o='1216' t='DenseMap&lt;const llvm::Value *, unsigned int&gt;'/>
+<mbr r='llvm::FunctionLoweringInfo::StatepointSpillMaps' o='1472' t='DenseMap&lt;const llvm::Instruction *, llvm::FunctionLoweringInfo::StatepointSpillMap&gt;'/>
+<mbr r='llvm::FunctionLoweringInfo::StaticAllocaMap' o='1728' t='DenseMap&lt;const llvm::AllocaInst *, int&gt;'/>
+<mbr r='llvm::FunctionLoweringInfo::ByValArgFrameIndexMap' o='1984' t='DenseMap&lt;const llvm::Argument *, int&gt;'/>
+<mbr r='llvm::FunctionLoweringInfo::ArgDbgValues' o='2240' t='SmallVector&lt;llvm::MachineInstr *, 8&gt;'/>
+<mbr r='llvm::FunctionLoweringInfo::DescribedArgs' o='2880' t='llvm::BitVector'/>
+<mbr r='llvm::FunctionLoweringInfo::RegFixups' o='3072' t='DenseMap&lt;unsigned int, unsigned int&gt;'/>
+<mbr r='llvm::FunctionLoweringInfo::RegsWithFixups' o='3328' t='DenseSet&lt;unsigned int&gt;'/>
+<mbr r='llvm::FunctionLoweringInfo::StatepointStackSlots' o='3584' t='SmallVector&lt;unsigned int, 50&gt;'/>
+<mbr r='llvm::FunctionLoweringInfo::MBB' o='5312' t='llvm::MachineBasicBlock *'/>
+<mbr r='llvm::FunctionLoweringInfo::InsertPt' o='5376' t='MachineBasicBlock::iterator'/>
+<mbr r='llvm::FunctionLoweringInfo::PreferredExtendType' o='5440' t='DenseMap&lt;const llvm::Value *, ISD::NodeType&gt;'/>
+<mbr r='llvm::FunctionLoweringInfo::VisitedBBs' o='5696' t='SmallPtrSet&lt;const llvm::BasicBlock *, 4&gt;'/>
+<mbr r='llvm::FunctionLoweringInfo::PHINodesToUpdate' o='6272' t='std::vector&lt;std::pair&lt;MachineInstr *, unsigned int&gt; &gt;'/>
+<mbr r='llvm::FunctionLoweringInfo::OrigNumPHINodesToUpdate' o='6464' t='unsigned int'/>
+<mbr r='llvm::FunctionLoweringInfo::ExceptionPointerVirtReg' o='6496' t='unsigned int'/>
+<mbr r='llvm::FunctionLoweringInfo::ExceptionSelectorVirtReg' o='6528' t='unsigned int'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo3setERKNS_8FunctionERNS_15MachineFunctionEPNS_12SelectionDAGE'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo5clearEv'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo14isExportedInstEPKNS_5ValueE'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo9CreateRegENS_3MVTEb'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo10CreateRegsEPKNS_5ValueE'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo10CreateRegsEPNS_4TypeEb'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo21InitializeRegForValueEPKNS_5ValueE'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo17GetLiveOutRegInfoEj'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo17GetLiveOutRegInfoEjj'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo17AddLiveOutRegInfoEjjRKNS_9KnownBitsE'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo24ComputePHILiveOutRegInfoEPKNS_7PHINodeE'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo27InvalidatePHILiveOutRegInfoEPKNS_7PHINodeE'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo21setArgumentFrameIndexEPKNS_8ArgumentEi'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo21getArgumentFrameIndexEPKNS_8ArgumentE'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo31getCatchPadExceptionPointerVRegEPKNS_5ValueEPKNS_19TargetRegisterClassE'/>
+<fun r='_ZN4llvm20FunctionLoweringInfo22addSEHHandlersForLPadsENS_8ArrayRefIPKNS_14LandingPadInstEEE'/>
+<mbr r='llvm::FunctionLoweringInfo::LiveOutRegInfo' o='6592' t='IndexedMap&lt;llvm::FunctionLoweringInfo::LiveOutInfo, llvm::VirtReg2IndexFunctor&gt;'/>

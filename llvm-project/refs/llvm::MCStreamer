@@ -1,0 +1,211 @@
+<def f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='204' ll='1064'/>
+<size>1304</size>
+<doc f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='194'>/// Streaming machine code generation interface.
+///
+/// This interface is intended to provide a programatic interface that is very
+/// similar to the level that an assembler .s file provides.  It has callbacks
+/// to emit bytes, handle directives, etc.  The implementation of this interface
+/// retains state to know what the current section is etc.
+///
+/// There are multiple implementations of this interface: one for writing out
+/// a .s file, and implementations that write out .o files of various formats.
+///</doc>
+<mbr r='llvm::MCStreamer::Context' o='64' t='llvm::MCContext &amp;'/>
+<mbr r='llvm::MCStreamer::TargetStreamer' o='128' t='std::unique_ptr&lt;MCTargetStreamer&gt;'/>
+<mbr r='llvm::MCStreamer::DwarfFrameInfos' o='192' t='std::vector&lt;MCDwarfFrameInfo&gt;'/>
+<fun r='_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv'/>
+<mbr r='llvm::MCStreamer::WinFrameInfos' o='384' t='std::vector&lt;std::unique_ptr&lt;WinEH::FrameInfo&gt; &gt;'/>
+<mbr r='llvm::MCStreamer::CurrentWinFrameInfo' o='576' t='WinEH::FrameInfo *'/>
+<mbr r='llvm::MCStreamer::SymbolOrdering' o='640' t='DenseMap&lt;const llvm::MCSymbol *, unsigned int&gt;'/>
+<mbr r='llvm::MCStreamer::SectionStack' o='896' t='SmallVector&lt;std::pair&lt;MCSectionSubPair, MCSectionSubPair&gt;, 4&gt;'/>
+<mbr r='llvm::MCStreamer::FatRelocs' o='2048' t='SmallVector&lt;std::tuple&lt;MCSymbol *, const MCExpr *, StringRef&gt;, 32&gt;'/>
+<mbr r='llvm::MCStreamer::NextWinCFIID' o='10368' t='unsigned int'/>
+<mbr r='llvm::MCStreamer::UseAssemblerInfoForParsing' o='10400' t='bool'/>
+<fun r='_ZN4llvm10MCStreamerC1ERNS_9MCContextE'/>
+<fun r='_ZN4llvm10MCStreamer20EmitCFIStartProcImplERNS_16MCDwarfFrameInfoE'/>
+<fun r='_ZN4llvm10MCStreamer18EmitCFIEndProcImplERNS_16MCDwarfFrameInfoE'/>
+<fun r='_ZN4llvm10MCStreamer22getCurrentWinFrameInfoEv'/>
+<fun r='_ZN4llvm10MCStreamer23EmitWindowsUnwindTablesEv'/>
+<fun r='_ZN4llvm10MCStreamer15EmitRawTextImplENS_9StringRefE'/>
+<fun r='_ZN4llvm10MCStreamer17checkCVLocSectionEjjNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamerC1ERKS0_'/>
+<fun r='_ZN4llvm10MCStreameraSERKS0_'/>
+<fun r='_ZN4llvm10MCStreamerD1Ev'/>
+<fun r='_ZN4llvm10MCStreamer13visitUsedExprERKNS_6MCExprE'/>
+<fun r='_ZN4llvm10MCStreamer15visitUsedSymbolERKNS_8MCSymbolE'/>
+<fun r='_ZN4llvm10MCStreamer17setTargetStreamerEPNS_16MCTargetStreamerE'/>
+<fun r='_ZN4llvm10MCStreamer5resetEv'/>
+<fun r='_ZNK4llvm10MCStreamer10getContextEv'/>
+<fun r='_ZN4llvm10MCStreamer15getAssemblerPtrEv'/>
+<fun r='_ZN4llvm10MCStreamer29setUseAssemblerInfoForParsingEb'/>
+<fun r='_ZN4llvm10MCStreamer29getUseAssemblerInfoForParsingEv'/>
+<fun r='_ZN4llvm10MCStreamer17getTargetStreamerEv'/>
+<fun r='_ZN4llvm10MCStreamer12EmitCFILabelEv'/>
+<fun r='_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer16getNumFrameInfosEv'/>
+<fun r='_ZNK4llvm10MCStreamer18getDwarfFrameInfosEv'/>
+<fun r='_ZN4llvm10MCStreamer27hasUnfinishedDwarfFrameInfoEv'/>
+<fun r='_ZN4llvm10MCStreamer19getNumWinFrameInfosEv'/>
+<fun r='_ZNK4llvm10MCStreamer16getWinFrameInfosEv'/>
+<fun r='_ZN4llvm10MCStreamer30generateCompactUnwindEncodingsEPNS_12MCAsmBackendE'/>
+<fun r='_ZNK4llvm10MCStreamer12isVerboseAsmEv'/>
+<fun r='_ZNK4llvm10MCStreamer17hasRawTextSupportEv'/>
+<fun r='_ZNK4llvm10MCStreamer29isIntegratedAssemblerRequiredEv'/>
+<fun r='_ZN4llvm10MCStreamer10AddCommentERKNS_5TwineEb'/>
+<fun r='_ZN4llvm10MCStreamer12GetCommentOSEv'/>
+<fun r='_ZN4llvm10MCStreamer14emitRawCommentERKNS_5TwineEb'/>
+<fun r='_ZN4llvm10MCStreamer18addExplicitCommentERKNS_5TwineE'/>
+<fun r='_ZN4llvm10MCStreamer20emitExplicitCommentsEv'/>
+<fun r='_ZN4llvm10MCStreamer12AddBlankLineEv'/>
+<fun r='_ZNK4llvm10MCStreamer17getCurrentSectionEv'/>
+<fun r='_ZNK4llvm10MCStreamer21getCurrentSectionOnlyEv'/>
+<fun r='_ZNK4llvm10MCStreamer18getPreviousSectionEv'/>
+<fun r='_ZNK4llvm10MCStreamer14GetSymbolOrderEPKNS_8MCSymbolE'/>
+<fun r='_ZN4llvm10MCStreamer13ChangeSectionEPNS_9MCSectionEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm10MCStreamer11PushSectionEv'/>
+<fun r='_ZN4llvm10MCStreamer10PopSectionEv'/>
+<fun r='_ZN4llvm10MCStreamer10SubSectionEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm10MCStreamer13SwitchSectionEPNS_9MCSectionEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm10MCStreamer21SwitchSectionNoChangeEPNS_9MCSectionEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm10MCStreamer12InitSectionsEb'/>
+<fun r='_ZN4llvm10MCStreamer10endSectionEPNS_9MCSectionE'/>
+<fun r='_ZN4llvm10MCStreamer14AssignFragmentEPNS_8MCSymbolEPNS_10MCFragmentE'/>
+<fun r='_ZN4llvm10MCStreamer9EmitLabelEPNS_8MCSymbolENS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer19EmitEHSymAttributesEPKNS_8MCSymbolEPS1_'/>
+<fun r='_ZN4llvm10MCStreamer17EmitAssemblerFlagENS_15MCAssemblerFlagE'/>
+<fun r='_ZN4llvm10MCStreamer17EmitLinkerOptionsENS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE'/>
+<fun r='_ZN4llvm10MCStreamer14EmitDataRegionENS_16MCDataRegionTypeE'/>
+<fun r='_ZN4llvm10MCStreamer14EmitVersionMinENS_16MCVersionMinTypeEjjjNS_12VersionTupleE'/>
+<fun r='_ZN4llvm10MCStreamer16EmitBuildVersionEjjjjNS_12VersionTupleE'/>
+<fun r='_ZN4llvm10MCStreamer20EmitVersionForTargetERKNS_6TripleERKNS_12VersionTupleE'/>
+<fun r='_ZN4llvm10MCStreamer13EmitThumbFuncEPNS_8MCSymbolE'/>
+<fun r='_ZN4llvm10MCStreamer14EmitAssignmentEPNS_8MCSymbolEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm10MCStreamer17EmitWeakReferenceEPNS_8MCSymbolEPKS1_'/>
+<fun r='_ZN4llvm10MCStreamer19EmitSymbolAttributeEPNS_8MCSymbolENS_12MCSymbolAttrE'/>
+<fun r='_ZN4llvm10MCStreamer14EmitSymbolDescEPNS_8MCSymbolEj'/>
+<fun r='_ZN4llvm10MCStreamer18BeginCOFFSymbolDefEPKNS_8MCSymbolE'/>
+<fun r='_ZN4llvm10MCStreamer26EmitCOFFSymbolStorageClassEi'/>
+<fun r='_ZN4llvm10MCStreamer18EmitCOFFSymbolTypeEi'/>
+<fun r='_ZN4llvm10MCStreamer16EndCOFFSymbolDefEv'/>
+<fun r='_ZN4llvm10MCStreamer15EmitCOFFSafeSEHEPKNS_8MCSymbolE'/>
+<fun r='_ZN4llvm10MCStreamer19EmitCOFFSymbolIndexEPKNS_8MCSymbolE'/>
+<fun r='_ZN4llvm10MCStreamer20EmitCOFFSectionIndexEPKNS_8MCSymbolE'/>
+<fun r='_ZN4llvm10MCStreamer16EmitCOFFSecRel32EPKNS_8MCSymbolEm'/>
+<fun r='_ZN4llvm10MCStreamer16EmitCOFFImgRel32EPKNS_8MCSymbolEl'/>
+<fun r='_ZN4llvm10MCStreamer11emitELFSizeEPNS_8MCSymbolEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm10MCStreamer22emitELFSymverDirectiveENS_9StringRefEPKNS_8MCSymbolE'/>
+<fun r='_ZN4llvm10MCStreamer16EmitLOHDirectiveENS_9MCLOHTypeERKNS_15SmallVectorImplIPNS_8MCSymbolEEE'/>
+<fun r='_ZN4llvm10MCStreamer16EmitCommonSymbolEPNS_8MCSymbolEmjNS_17TailPaddingAmountE'/>
+<fun r='_ZN4llvm10MCStreamer21EmitLocalCommonSymbolEPNS_8MCSymbolEmjNS_17TailPaddingAmountE'/>
+<fun r='_ZN4llvm10MCStreamer12EmitZerofillEPNS_9MCSectionEPNS_8MCSymbolEmjNS_17TailPaddingAmountENS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer14EmitTBSSSymbolEPNS_9MCSectionEPNS_8MCSymbolEmNS_17TailPaddingAmountEj'/>
+<fun r='_ZN4llvm10MCStreamer16EmitCommonSymbolEPNS_8MCSymbolEmj'/>
+<fun r='_ZN4llvm10MCStreamer21EmitLocalCommonSymbolEPNS_8MCSymbolEmj'/>
+<fun r='_ZN4llvm10MCStreamer12EmitZerofillEPNS_9MCSectionEPNS_8MCSymbolEmjNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer14EmitTBSSSymbolEPNS_9MCSectionEPNS_8MCSymbolEmj'/>
+<fun r='_ZN4llvm10MCStreamer9EmitBytesENS_9StringRefE'/>
+<fun r='_ZN4llvm10MCStreamer14EmitBinaryDataENS_9StringRefE'/>
+<fun r='_ZN4llvm10MCStreamer13EmitValueImplEPKNS_6MCExprEjNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer9EmitValueEPKNS_6MCExprEjNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer12EmitIntValueEmj'/>
+<fun r='_ZN4llvm10MCStreamer16EmitULEB128ValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm10MCStreamer16EmitSLEB128ValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm10MCStreamer19EmitULEB128IntValueEmj'/>
+<fun r='_ZN4llvm10MCStreamer19EmitSLEB128IntValueEl'/>
+<fun r='_ZN4llvm10MCStreamer15EmitSymbolValueEPKNS_8MCSymbolEjb'/>
+<fun r='_ZN4llvm10MCStreamer17EmitDTPRel64ValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm10MCStreamer17EmitDTPRel32ValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm10MCStreamer16EmitTPRel64ValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm10MCStreamer16EmitTPRel32ValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm10MCStreamer16EmitGPRel64ValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm10MCStreamer16EmitGPRel32ValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm10MCStreamer19EmitCheriCapabilityEPKNS_8MCSymbolEljNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer15EmitCheriIntcapEljNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer8emitFillEmh'/>
+<fun r='_ZN4llvm10MCStreamer8emitFillERKNS_6MCExprEmNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer8emitFillERKNS_6MCExprEllNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer9EmitZerosEm'/>
+<fun r='_ZN4llvm10MCStreamer20EmitValueToAlignmentEjljj'/>
+<fun r='_ZN4llvm10MCStreamer17EmitCodeAlignmentEjj'/>
+<fun r='_ZN4llvm10MCStreamer17emitValueToOffsetEPKNS_6MCExprEhNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer30EmitCodePaddingBasicBlockStartERKNS_20MCCodePaddingContextE'/>
+<fun r='_ZN4llvm10MCStreamer28EmitCodePaddingBasicBlockEndERKNS_20MCCodePaddingContextE'/>
+<fun r='_ZN4llvm10MCStreamer17EmitFileDirectiveENS_9StringRefE'/>
+<fun r='_ZN4llvm10MCStreamer9EmitIdentENS_9StringRefE'/>
+<fun r='_ZN4llvm10MCStreamer22EmitDwarfFileDirectiveEjNS_9StringRefES1_NS_8OptionalINS_3MD59MD5ResultEEENS2_IS1_EEj'/>
+<fun r='_ZN4llvm10MCStreamer25tryEmitDwarfFileDirectiveEjNS_9StringRefES1_NS_8OptionalINS_3MD59MD5ResultEEENS2_IS1_EEj'/>
+<fun r='_ZN4llvm10MCStreamer23emitDwarfFile0DirectiveENS_9StringRefES1_NS_8OptionalINS_3MD59MD5ResultEEENS2_IS1_EEj'/>
+<fun r='_ZN4llvm10MCStreamer16EmitCFIBKeyFrameEv'/>
+<fun r='_ZN4llvm10MCStreamer21EmitDwarfLocDirectiveEjjjjjjNS_9StringRefE'/>
+<fun r='_ZN4llvm10MCStreamer19EmitCVFileDirectiveEjNS_9StringRefENS_8ArrayRefIhEEj'/>
+<fun r='_ZN4llvm10MCStreamer21EmitCVFuncIdDirectiveEj'/>
+<fun r='_ZN4llvm10MCStreamer27EmitCVInlineSiteIdDirectiveEjjjjjNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer18EmitCVLocDirectiveEjjjjbbNS_9StringRefENS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer24EmitCVLinetableDirectiveEjPKNS_8MCSymbolES3_'/>
+<fun r='_ZN4llvm10MCStreamer30EmitCVInlineLinetableDirectiveEjjjPKNS_8MCSymbolES3_'/>
+<fun r='_ZN4llvm10MCStreamer23EmitCVDefRangeDirectiveENS_8ArrayRefISt4pairIPKNS_8MCSymbolES5_EEENS_9StringRefE'/>
+<fun r='_ZN4llvm10MCStreamer26EmitCVStringTableDirectiveEv'/>
+<fun r='_ZN4llvm10MCStreamer28EmitCVFileChecksumsDirectiveEv'/>
+<fun r='_ZN4llvm10MCStreamer33EmitCVFileChecksumOffsetDirectiveEj'/>
+<fun r='_ZN4llvm10MCStreamer13EmitCVFPODataEPKNS_8MCSymbolENS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer22emitAbsoluteSymbolDiffEPKNS_8MCSymbolES3_j'/>
+<fun r='_ZN4llvm10MCStreamer31emitAbsoluteSymbolDiffAsULEB128EPKNS_8MCSymbolES3_'/>
+<fun r='_ZN4llvm10MCStreamer23getDwarfLineTableSymbolEj'/>
+<fun r='_ZN4llvm10MCStreamer15EmitCFISectionsEbb'/>
+<fun r='_ZN4llvm10MCStreamer16EmitCFIStartProcEbNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer14EmitCFIEndProcEv'/>
+<fun r='_ZN4llvm10MCStreamer13EmitCFIDefCfaEll'/>
+<fun r='_ZN4llvm10MCStreamer19EmitCFIDefCfaOffsetEl'/>
+<fun r='_ZN4llvm10MCStreamer21EmitCFIDefCfaRegisterEl'/>
+<fun r='_ZN4llvm10MCStreamer13EmitCFIOffsetEll'/>
+<fun r='_ZN4llvm10MCStreamer18EmitCFIPersonalityEPKNS_8MCSymbolEj'/>
+<fun r='_ZN4llvm10MCStreamer11EmitCFILsdaEPKNS_8MCSymbolEj'/>
+<fun r='_ZN4llvm10MCStreamer20EmitCFIRememberStateEv'/>
+<fun r='_ZN4llvm10MCStreamer19EmitCFIRestoreStateEv'/>
+<fun r='_ZN4llvm10MCStreamer16EmitCFISameValueEl'/>
+<fun r='_ZN4llvm10MCStreamer14EmitCFIRestoreEl'/>
+<fun r='_ZN4llvm10MCStreamer16EmitCFIRelOffsetEll'/>
+<fun r='_ZN4llvm10MCStreamer22EmitCFIAdjustCfaOffsetEl'/>
+<fun r='_ZN4llvm10MCStreamer13EmitCFIEscapeENS_9StringRefE'/>
+<fun r='_ZN4llvm10MCStreamer19EmitCFIReturnColumnEl'/>
+<fun r='_ZN4llvm10MCStreamer18EmitCFIGnuArgsSizeEl'/>
+<fun r='_ZN4llvm10MCStreamer18EmitCFISignalFrameEv'/>
+<fun r='_ZN4llvm10MCStreamer16EmitCFIUndefinedEl'/>
+<fun r='_ZN4llvm10MCStreamer15EmitCFIRegisterEll'/>
+<fun r='_ZN4llvm10MCStreamer17EmitCFIWindowSaveEv'/>
+<fun r='_ZN4llvm10MCStreamer20EmitCFINegateRAStateEv'/>
+<fun r='_ZN4llvm10MCStreamer19EmitWinCFIStartProcEPKNS_8MCSymbolENS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer17EmitWinCFIEndProcENS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer26EmitWinCFIFuncletOrFuncEndENS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer22EmitWinCFIStartChainedENS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer20EmitWinCFIEndChainedENS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer17EmitWinCFIPushRegEjNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer18EmitWinCFISetFrameEjjNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer20EmitWinCFIAllocStackEjNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer17EmitWinCFISaveRegEjjNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer17EmitWinCFISaveXMMEjjNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer19EmitWinCFIPushFrameEbNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer19EmitWinCFIEndPrologENS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer16EmitWinEHHandlerEPKNS_8MCSymbolEbbNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer20EmitWinEHHandlerDataENS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer18emitCGProfileEntryEPKNS_15MCSymbolRefExprES3_m'/>
+<fun r='_ZN4llvm10MCStreamer25getAssociatedPDataSectionEPKNS_9MCSectionE'/>
+<fun r='_ZN4llvm10MCStreamer25getAssociatedXDataSectionEPKNS_9MCSectionE'/>
+<fun r='_ZN4llvm10MCStreamer19EmitSyntaxDirectiveEv'/>
+<fun r='_ZN4llvm10MCStreamer18EmitRelocDirectiveERKNS_6MCExprENS_9StringRefEPS2_NS_5SMLocERKNS_15MCSubtargetInfoE'/>
+<fun r='_ZN4llvm10MCStreamer11EmitAddrsigEv'/>
+<fun r='_ZN4llvm10MCStreamer14EmitAddrsigSymEPKNS_8MCSymbolE'/>
+<fun r='_ZN4llvm10MCStreamer15EmitInstructionERKNS_6MCInstERKNS_15MCSubtargetInfoE'/>
+<fun r='_ZN4llvm10MCStreamer19EmitBundleAlignModeEj'/>
+<fun r='_ZN4llvm10MCStreamer14EmitBundleLockEb'/>
+<fun r='_ZN4llvm10MCStreamer16EmitBundleUnlockEv'/>
+<fun r='_ZN4llvm10MCStreamer11EmitRawTextERKNS_5TwineE'/>
+<fun r='_ZN4llvm10MCStreamer10FinishImplEv'/>
+<fun r='_ZN4llvm10MCStreamer6FinishEv'/>
+<fun r='_ZNK4llvm10MCStreamer19mayHaveInstructionsERNS_9MCSectionE'/>
+<fun r='_ZN4llvm10MCStreamer23EmitCheriCapabilityImplEPKNS_8MCSymbolEljNS_5SMLocE'/>
+<fun r='_ZN4llvm10MCStreamer25EmitLegacyCHERICapabilityEPKNS_6MCExprEjNS_5SMLocE'/>
+<ovr f='llvm/llvm/include/llvm/MC/MCObjectStreamer.h' l='35' c='llvm::MCObjectStreamer'/>
+<ovr f='llvm/llvm/lib/MC/MCAsmStreamer.cpp' l='42' c='(anonymousnamespace)::MCAsmStreamer'/>
+<ovr f='llvm/llvm/lib/MC/MCNullStreamer.cpp' l='18' c='(anonymousnamespace)::MCNullStreamer'/>
+<ovr f='llvm/llvm/lib/Object/RecordStreamer.h' l='25' c='llvm::RecordStreamer'/>

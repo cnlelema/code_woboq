@@ -1,0 +1,34 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='3065' c='clang::CastExpr'/>
+<inh f='llvm/llvm/include/llvm/Support/TrailingObjects.h' l='233' c='llvm::TrailingObjects'/>
+<def f='llvm/clang/include/clang/AST/Expr.h' l='3189' ll='3234'/>
+<size>24</size>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='3169'>/// ImplicitCastExpr - Allows us to explicitly represent implicit type
+/// conversions, which have no direct representation in the original
+/// source code. For example: converting T[]-&gt;T*, void f()-&gt;void
+/// (*f)(), float-&gt;double, short-&gt;int, etc.
+///
+/// In C, implicit casts always produce rvalues. However, in C++, an
+/// implicit cast whose result is being bound to a reference will be
+/// an lvalue or xvalue. For example:
+///
+/// @code
+/// class Base { };
+/// class Derived : public Base { };
+/// Derived &amp;&amp;ref();
+/// void f(Derived d) {
+///   Base&amp; b = d; // initializer is an ImplicitCastExpr
+///                // to an lvalue of type Base
+///   Base&amp;&amp; r = ref(); // initializer is an ImplicitCastExpr
+///                     // to an xvalue of type Base
+/// }
+/// @endcode</doc>
+<fun r='_ZN5clang16ImplicitCastExprC1ENS_8QualTypeENS_8CastKindEPNS_4ExprEjNS_13ExprValueKindE'/>
+<fun r='_ZN5clang16ImplicitCastExprC1ENS_4Stmt10EmptyShellEj'/>
+<fun r='_ZN5clang16ImplicitCastExprC1ENS0_9OnStack_tENS_8QualTypeENS_8CastKindEPNS_4ExprENS_13ExprValueKindE'/>
+<fun r='_ZNK5clang16ImplicitCastExpr20isPartOfExplicitCastEv'/>
+<fun r='_ZN5clang16ImplicitCastExpr23setIsPartOfExplicitCastEb'/>
+<fun r='_ZN5clang16ImplicitCastExpr6CreateERKNS_10ASTContextENS_8QualTypeENS_8CastKindEPNS_4ExprEPKN4llvm11SmallVectorIPNS_16CXXBaseSpecifierELj4EEENS_13ExprValueKindE'/>
+<fun r='_ZN5clang16ImplicitCastExpr11CreateEmptyERKNS_10ASTContextEj'/>
+<fun r='_ZNK5clang16ImplicitCastExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang16ImplicitCastExpr9getEndLocEv'/>
+<fun r='_ZN5clang16ImplicitCastExpr7classofEPKNS_4StmtE'/>

@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/IR/DIBuilder.h' l='604' type='llvm::DILocalVariable * llvm::DIBuilder::createAutoVariable(llvm::DIScope * Scope, llvm::StringRef Name, llvm::DIFile * File, unsigned int LineNo, llvm::DIType * Ty, bool AlwaysPreserve = false, DINode::DIFlags Flags = DINode::FlagZero, uint32_t AlignInBits = 0)'/>
+<doc f='llvm/llvm/include/llvm/IR/DIBuilder.h' l='595'>/// Create a new descriptor for an auto variable.  This is a local variable
+    /// that is not a subprogram parameter.
+    ///
+    /// \c Scope must be a \a DILocalScope, and thus its scope chain eventually
+    /// leads to a \a DISubprogram.
+    ///
+    /// If \c AlwaysPreserve, this variable will be referenced from its
+    /// containing subprogram, and will survive some optimizations.</doc>
+<def f='llvm/llvm/lib/IR/DIBuilder.cpp' l='695' ll='703' type='llvm::DILocalVariable * llvm::DIBuilder::createAutoVariable(llvm::DIScope * Scope, llvm::StringRef Name, llvm::DIFile * File, unsigned int LineNo, llvm::DIType * Ty, bool AlwaysPreserve = false, DINode::DIFlags Flags = DINode::FlagZero, uint32_t AlignInBits = 0)'/>
+<use f='llvm/llvm/lib/IR/DebugInfo.cpp' l='1373' u='c' c='LLVMDIBuilderCreateAutoVariable'/>
+<use f='llvm/llvm/tools/opt/Debugify.cpp' l='138' u='c' c='_ZN12_GLOBAL__N_121applyDebugifyMetadataERN4llvm6ModuleENS0_14iterator_rangeINS0_14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_8FunctionELb1EL243265'/>
+<use f='llvm/llvm/unittests/Transforms/Utils/CloningTest.cpp' l='413' u='c' c='_ZN12_GLOBAL__N_19CloneFunc26CreateOldFunctionBodyAndDIEv'/>
+<use f='llvm/llvm/unittests/Transforms/Utils/CloningTest.cpp' l='427' u='c' c='_ZN12_GLOBAL__N_19CloneFunc26CreateOldFunctionBodyAndDIEv'/>

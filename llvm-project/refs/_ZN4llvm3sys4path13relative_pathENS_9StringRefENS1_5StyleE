@@ -1,0 +1,21 @@
+<dec f='llvm/llvm/include/llvm/Support/Path.h' l='273' type='llvm::StringRef llvm::sys::path::relative_path(llvm::StringRef path, llvm::sys::path::Style style = Style::native)'/>
+<doc f='llvm/llvm/include/llvm/Support/Path.h' l='263'>/// Get relative path.
+///
+/// @code
+///   C:\hello\world =&gt; hello\world
+///   foo/bar        =&gt; foo/bar
+///   /foo/bar       =&gt; foo/bar
+/// @endcode
+///
+/// @param path Input path.
+/// @result The path starting after root_path if one exists, otherwise &quot;&quot;.</doc>
+<use f='llvm/clang/lib/Frontend/ModuleDependencyCollector.cpp' l='210' u='c' c='_ZN5clang25ModuleDependencyCollector10copyToRootEN4llvm9StringRefES2_'/>
+<use f='llvm/lld/Common/Reproduce.cpp' l='40' u='c' c='_ZN3lld14relativeToRootEN4llvm9StringRefE'/>
+<use f='llvm/llvm/lib/DebugInfo/Symbolize/Symbolize.cpp' l='204' u='c' c='_ZN4llvm9symbolize12_GLOBAL__N_115findDebugBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_jS9_RS7_'/>
+<def f='llvm/llvm/lib/Support/Path.cpp' l='412' ll='415' type='llvm::StringRef llvm::sys::path::relative_path(llvm::StringRef path, llvm::sys::path::Style style = Style::native)'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='632' u='c' c='_ZN4llvm3sys4path17has_relative_pathERKNS_5TwineENS1_5StyleE'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='693' u='c' c='_ZN4llvm3sys4pathL11remove_dotsENS_9StringRefEbNS1_5StyleE'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='890' u='c' c='_ZN4llvm3sys2fs13make_absoluteERKNS_5TwineERNS_15SmallVectorImplIcEE'/>
+<use f='llvm/llvm/lib/Support/Path.cpp' l='891' u='c' c='_ZN4llvm3sys2fs13make_absoluteERKNS_5TwineERNS_15SmallVectorImplIcEE'/>
+<use f='llvm/llvm/tools/llvm-cov/SourceCoverageView.cpp' l='45' u='c' c='_ZNK4llvm15CoveragePrinter13getOutputPathENS_9StringRefES1_bb'/>
+<use f='llvm/llvm/tools/llvm-cov/SourceCoverageViewHTML.cpp' l='323' u='c' c='_ZNK4llvm19CoveragePrinterHTML15buildLinkToFileENS_9StringRefERKNS_19FileCoverageSummaryE'/>

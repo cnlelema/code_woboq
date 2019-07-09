@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/MachineRegisterInfo.h' l='890' type='bool llvm::MachineRegisterInfo::isReservedRegUnit(unsigned int Unit) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineRegisterInfo.h' l='884'>/// Returns true when the given register unit is considered reserved.
+  ///
+  /// Register units are considered reserved when for at least one of their
+  /// root registers, the root register and all super registers are reserved.
+  /// This currently iterates the register hierarchy and may be slower than
+  /// expected.</doc>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='287' u='c' c='_ZN4llvm13LiveIntervals19computeRegUnitRangeERNS_9LiveRangeEj'/>
+<use f='llvm/llvm/lib/CodeGen/LiveIntervals.cpp' l='966' u='c' c='_ZN4llvm13LiveIntervals8HMEditor12getRegUnitLIEj'/>
+<def f='llvm/llvm/lib/CodeGen/MachineRegisterInfo.cpp' l='650' ll='666' type='bool llvm::MachineRegisterInfo::isReservedRegUnit(unsigned int Unit) const'/>
+<use f='llvm/llvm/lib/CodeGen/MachineVerifier.cpp' l='1810' u='c' c='_ZN12_GLOBAL__N_115MachineVerifier13checkLivenessEPKN4llvm14MachineOperandEj'/>

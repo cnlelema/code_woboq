@@ -1,0 +1,276 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Builtins.h source code [llvm/clang/include/clang/Basic/Builtins.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="clang::Builtin::Context,clang::Builtin::ID,clang::Builtin::Info,clang::BuiltinTemplateKind,clang::LanguageID "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/clang/include/clang/Basic/Builtins.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>clang</a>/<a href='../..'>include</a>/<a href='..'>clang</a>/<a href='./'>Basic</a>/<a href='Builtins.h.html'>Builtins.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===--- Builtins.h - Builtin function header -------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>///</i></td></tr>
+<tr><th id="9">9</th><td><i>/// \file</i></td></tr>
+<tr><th id="10">10</th><td><i>/// Defines enum values for all the target-independent builtin</i></td></tr>
+<tr><th id="11">11</th><td><i>/// functions.</i></td></tr>
+<tr><th id="12">12</th><td><i>///</i></td></tr>
+<tr><th id="13">13</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><u>#<span data-ppcond="15">ifndef</span> <span class="macro" data-ref="_M/LLVM_CLANG_BASIC_BUILTINS_H">LLVM_CLANG_BASIC_BUILTINS_H</span></u></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/LLVM_CLANG_BASIC_BUILTINS_H" data-ref="_M/LLVM_CLANG_BASIC_BUILTINS_H">LLVM_CLANG_BASIC_BUILTINS_H</dfn></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../../llvm/include/llvm/ADT/ArrayRef.h.html">"llvm/ADT/ArrayRef.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../../include/c++/7/cstring.html">&lt;cstring&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><i>// VC++ defines 'alloca' as an object-like macro, which interferes with our</i></td></tr>
+<tr><th id="22">22</th><td><i>// builtins.</i></td></tr>
+<tr><th id="23">23</th><td><u>#undef <a class="macro" href="../../../../../include/alloca.h.html#35" data-ref="_M/alloca">alloca</a></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><b>namespace</b> <span class="namespace">clang</span> {</td></tr>
+<tr><th id="26">26</th><td><b>class</b> <a class="type" href="TargetInfo.h.html#clang::TargetInfo" title='clang::TargetInfo' data-ref="clang::TargetInfo" id="clang::TargetInfo">TargetInfo</a>;</td></tr>
+<tr><th id="27">27</th><td><b>class</b> <a class="type" href="IdentifierTable.h.html#clang::IdentifierTable" title='clang::IdentifierTable' data-ref="clang::IdentifierTable" id="clang::IdentifierTable">IdentifierTable</a>;</td></tr>
+<tr><th id="28">28</th><td><b>class</b> <a class="type" href="../AST/ASTContext.h.html#clang::ASTContext" title='clang::ASTContext' data-ref="clang::ASTContext" id="clang::ASTContext">ASTContext</a>;</td></tr>
+<tr><th id="29">29</th><td><b>class</b> <a class="type" href="../AST/Type.h.html#clang::QualType" title='clang::QualType' data-ref="clang::QualType" id="clang::QualType">QualType</a>;</td></tr>
+<tr><th id="30">30</th><td><b>class</b> <a class="type" href="LangOptions.h.html#clang::LangOptions" title='clang::LangOptions' data-ref="clang::LangOptions" id="clang::LangOptions">LangOptions</a>;</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><b>enum</b> <dfn class="type def" id="clang::LanguageID" title='clang::LanguageID' data-ref="clang::LanguageID">LanguageID</dfn> {</td></tr>
+<tr><th id="33">33</th><td>  <dfn class="enum" id="clang::LanguageID::GNU_LANG" title='clang::LanguageID::GNU_LANG' data-ref="clang::LanguageID::GNU_LANG">GNU_LANG</dfn> = <var>0x1</var>,     <i>// builtin requires GNU mode.</i></td></tr>
+<tr><th id="34">34</th><td>  <dfn class="enum" id="clang::LanguageID::C_LANG" title='clang::LanguageID::C_LANG' data-ref="clang::LanguageID::C_LANG">C_LANG</dfn> = <var>0x2</var>,       <i>// builtin for c only.</i></td></tr>
+<tr><th id="35">35</th><td>  <dfn class="enum" id="clang::LanguageID::CXX_LANG" title='clang::LanguageID::CXX_LANG' data-ref="clang::LanguageID::CXX_LANG">CXX_LANG</dfn> = <var>0x4</var>,     <i>// builtin for cplusplus only.</i></td></tr>
+<tr><th id="36">36</th><td>  <dfn class="enum" id="clang::LanguageID::OBJC_LANG" title='clang::LanguageID::OBJC_LANG' data-ref="clang::LanguageID::OBJC_LANG">OBJC_LANG</dfn> = <var>0x8</var>,    <i>// builtin for objective-c and objective-c++</i></td></tr>
+<tr><th id="37">37</th><td>  <dfn class="enum" id="clang::LanguageID::MS_LANG" title='clang::LanguageID::MS_LANG' data-ref="clang::LanguageID::MS_LANG">MS_LANG</dfn> = <var>0x10</var>,     <i>// builtin requires MS mode.</i></td></tr>
+<tr><th id="38">38</th><td>  <dfn class="enum" id="clang::LanguageID::OCLC20_LANG" title='clang::LanguageID::OCLC20_LANG' data-ref="clang::LanguageID::OCLC20_LANG">OCLC20_LANG</dfn> = <var>0x20</var>, <i>// builtin for OpenCL C 2.0 only.</i></td></tr>
+<tr><th id="39">39</th><td>  <dfn class="enum" id="clang::LanguageID::OCLC1X_LANG" title='clang::LanguageID::OCLC1X_LANG' data-ref="clang::LanguageID::OCLC1X_LANG">OCLC1X_LANG</dfn> = <var>0x40</var>, <i>// builtin for OpenCL C 1.x only.</i></td></tr>
+<tr><th id="40">40</th><td>  <dfn class="enum" id="clang::LanguageID::OMP_LANG" title='clang::LanguageID::OMP_LANG' data-ref="clang::LanguageID::OMP_LANG">OMP_LANG</dfn> = <var>0x80</var>,    <i>// builtin requires OpenMP.</i></td></tr>
+<tr><th id="41">41</th><td>  <dfn class="enum" id="clang::LanguageID::ALL_LANGUAGES" title='clang::LanguageID::ALL_LANGUAGES' data-ref="clang::LanguageID::ALL_LANGUAGES">ALL_LANGUAGES</dfn> = <a class="enum" href="#clang::LanguageID::C_LANG" title='clang::LanguageID::C_LANG' data-ref="clang::LanguageID::C_LANG">C_LANG</a> | <a class="enum" href="#clang::LanguageID::CXX_LANG" title='clang::LanguageID::CXX_LANG' data-ref="clang::LanguageID::CXX_LANG">CXX_LANG</a> | <a class="enum" href="#clang::LanguageID::OBJC_LANG" title='clang::LanguageID::OBJC_LANG' data-ref="clang::LanguageID::OBJC_LANG">OBJC_LANG</a>, <i>// builtin for all languages.</i></td></tr>
+<tr><th id="42">42</th><td>  <dfn class="enum" id="clang::LanguageID::ALL_GNU_LANGUAGES" title='clang::LanguageID::ALL_GNU_LANGUAGES' data-ref="clang::LanguageID::ALL_GNU_LANGUAGES">ALL_GNU_LANGUAGES</dfn> = <a class="enum" href="#clang::LanguageID::ALL_LANGUAGES" title='clang::LanguageID::ALL_LANGUAGES' data-ref="clang::LanguageID::ALL_LANGUAGES">ALL_LANGUAGES</a> | <a class="enum" href="#clang::LanguageID::GNU_LANG" title='clang::LanguageID::GNU_LANG' data-ref="clang::LanguageID::GNU_LANG">GNU_LANG</a>,  <i>// builtin requires GNU mode.</i></td></tr>
+<tr><th id="43">43</th><td>  <dfn class="enum" id="clang::LanguageID::ALL_MS_LANGUAGES" title='clang::LanguageID::ALL_MS_LANGUAGES' data-ref="clang::LanguageID::ALL_MS_LANGUAGES">ALL_MS_LANGUAGES</dfn> = <a class="enum" href="#clang::LanguageID::ALL_LANGUAGES" title='clang::LanguageID::ALL_LANGUAGES' data-ref="clang::LanguageID::ALL_LANGUAGES">ALL_LANGUAGES</a> | <a class="enum" href="#clang::LanguageID::MS_LANG" title='clang::LanguageID::MS_LANG' data-ref="clang::LanguageID::MS_LANG">MS_LANG</a>,    <i>// builtin requires MS mode.</i></td></tr>
+<tr><th id="44">44</th><td>  <dfn class="enum" id="clang::LanguageID::ALL_OCLC_LANGUAGES" title='clang::LanguageID::ALL_OCLC_LANGUAGES' data-ref="clang::LanguageID::ALL_OCLC_LANGUAGES">ALL_OCLC_LANGUAGES</dfn> = <a class="enum" href="#clang::LanguageID::OCLC1X_LANG" title='clang::LanguageID::OCLC1X_LANG' data-ref="clang::LanguageID::OCLC1X_LANG">OCLC1X_LANG</a> | <a class="enum" href="#clang::LanguageID::OCLC20_LANG" title='clang::LanguageID::OCLC20_LANG' data-ref="clang::LanguageID::OCLC20_LANG">OCLC20_LANG</a> <i>// builtin for OCLC languages.</i></td></tr>
+<tr><th id="45">45</th><td>};</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><b>namespace</b> <span class="namespace">Builtin</span> {</td></tr>
+<tr><th id="48">48</th><td><b>enum</b> <dfn class="type def" id="clang::Builtin::ID" title='clang::Builtin::ID' data-ref="clang::Builtin::ID">ID</dfn> {</td></tr>
+<tr><th id="49">49</th><td>  <dfn class="enum" id="clang::Builtin::ID::NotBuiltin" title='clang::Builtin::ID::NotBuiltin' data-ref="clang::Builtin::ID::NotBuiltin">NotBuiltin</dfn>  = <var>0</var>,      <i>// This is not a builtin function.</i></td></tr>
+<tr><th id="50">50</th><td><u>#define <dfn class="macro" id="_M/BUILTIN" data-ref="_M/BUILTIN">BUILTIN</dfn>(ID, TYPE, ATTRS) BI##ID,</u></td></tr>
+<tr><th id="51">51</th><td><u>#include <a href="Builtins.def.html">"clang/Basic/Builtins.def"</a></u></td></tr>
+<tr><th id="52">52</th><td>  <dfn class="enum" id="clang::Builtin::ID::FirstTSBuiltin" title='clang::Builtin::ID::FirstTSBuiltin' data-ref="clang::Builtin::ID::FirstTSBuiltin">FirstTSBuiltin</dfn></td></tr>
+<tr><th id="53">53</th><td>};</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><b>struct</b> <dfn class="type def" id="clang::Builtin::Info" title='clang::Builtin::Info' data-ref="clang::Builtin::Info">Info</dfn> {</td></tr>
+<tr><th id="56">56</th><td>  <em>const</em> <em>char</em> *<dfn class="decl" id="clang::Builtin::Info::Name" title='clang::Builtin::Info::Name' data-ref="clang::Builtin::Info::Name">Name</dfn>, *<dfn class="decl" id="clang::Builtin::Info::Type" title='clang::Builtin::Info::Type' data-ref="clang::Builtin::Info::Type">Type</dfn>, *<dfn class="decl" id="clang::Builtin::Info::Attributes" title='clang::Builtin::Info::Attributes' data-ref="clang::Builtin::Info::Attributes">Attributes</dfn>, *<dfn class="decl" id="clang::Builtin::Info::HeaderName" title='clang::Builtin::Info::HeaderName' data-ref="clang::Builtin::Info::HeaderName">HeaderName</dfn>;</td></tr>
+<tr><th id="57">57</th><td>  <a class="type" href="#clang::LanguageID" title='clang::LanguageID' data-ref="clang::LanguageID">LanguageID</a> <dfn class="decl" id="clang::Builtin::Info::Langs" title='clang::Builtin::Info::Langs' data-ref="clang::Builtin::Info::Langs">Langs</dfn>;</td></tr>
+<tr><th id="58">58</th><td>  <em>const</em> <em>char</em> *<dfn class="decl" id="clang::Builtin::Info::Features" title='clang::Builtin::Info::Features' data-ref="clang::Builtin::Info::Features">Features</dfn>;</td></tr>
+<tr><th id="59">59</th><td>};</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td><i class="doc">/// Holds information about both target-independent and</i></td></tr>
+<tr><th id="62">62</th><td><i class="doc">/// target-specific builtins, allowing easy queries by clients.</i></td></tr>
+<tr><th id="63">63</th><td><i class="doc">///</i></td></tr>
+<tr><th id="64">64</th><td><i class="doc">/// Builtins from an optional auxiliary target are stored in</i></td></tr>
+<tr><th id="65">65</th><td><i class="doc">/// AuxTSRecords. Their IDs are shifted up by TSRecords.size() and need to</i></td></tr>
+<tr><th id="66">66</th><td><i class="doc">/// be translated back with getAuxBuiltinID() before use.</i></td></tr>
+<tr><th id="67">67</th><td><b>class</b> <dfn class="type def" id="clang::Builtin::Context" title='clang::Builtin::Context' data-ref="clang::Builtin::Context">Context</dfn> {</td></tr>
+<tr><th id="68">68</th><td>  <span class="namespace">llvm::</span><a class="type" href="LLVM.h.html#llvm::ArrayRef" title='llvm::ArrayRef' data-ref="llvm::ArrayRef">ArrayRef</a>&lt;<a class="type" href="#clang::Builtin::Info" title='clang::Builtin::Info' data-ref="clang::Builtin::Info">Info</a>&gt; <dfn class="decl" id="clang::Builtin::Context::TSRecords" title='clang::Builtin::Context::TSRecords' data-ref="clang::Builtin::Context::TSRecords">TSRecords</dfn>;</td></tr>
+<tr><th id="69">69</th><td>  <span class="namespace">llvm::</span><a class="type" href="LLVM.h.html#llvm::ArrayRef" title='llvm::ArrayRef' data-ref="llvm::ArrayRef">ArrayRef</a>&lt;<a class="type" href="#clang::Builtin::Info" title='clang::Builtin::Info' data-ref="clang::Builtin::Info">Info</a>&gt; <dfn class="decl" id="clang::Builtin::Context::AuxTSRecords" title='clang::Builtin::Context::AuxTSRecords' data-ref="clang::Builtin::Context::AuxTSRecords">AuxTSRecords</dfn>;</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><b>public</b>:</td></tr>
+<tr><th id="72">72</th><td>  <dfn class="decl def" id="_ZN5clang7Builtin7ContextC1Ev" title='clang::Builtin::Context::Context' data-ref="_ZN5clang7Builtin7ContextC1Ev">Context</dfn>() {}</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td>  <i class="doc">/// Perform target-specific initialization</i></td></tr>
+<tr><th id="75">75</th><td><i class="doc">  /// <span class="command">\param</span> <span class="arg">AuxTarget</span> Target info to incorporate builtins from. May be nullptr.</i></td></tr>
+<tr><th id="76">76</th><td>  <em>void</em> <dfn class="decl" id="_ZN5clang7Builtin7Context16InitializeTargetERKNS_10TargetInfoEPS3_" title='clang::Builtin::Context::InitializeTarget' data-ref="_ZN5clang7Builtin7Context16InitializeTargetERKNS_10TargetInfoEPS3_">InitializeTarget</dfn>(<em>const</em> <a class="type" href="TargetInfo.h.html#clang::TargetInfo" title='clang::TargetInfo' data-ref="clang::TargetInfo">TargetInfo</a> &amp;<dfn class="local col4 decl" id="25964Target" title='Target' data-type='const clang::TargetInfo &amp;' data-ref="25964Target">Target</dfn>, <em>const</em> <a class="type" href="TargetInfo.h.html#clang::TargetInfo" title='clang::TargetInfo' data-ref="clang::TargetInfo">TargetInfo</a> *<dfn class="local col5 decl" id="25965AuxTarget" title='AuxTarget' data-type='const clang::TargetInfo *' data-ref="25965AuxTarget">AuxTarget</dfn>);</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>  <i class="doc">/// Mark the identifiers for all the builtins with their</i></td></tr>
+<tr><th id="79">79</th><td><i class="doc">  /// appropriate builtin ID # and mark any non-portable builtin identifiers as</i></td></tr>
+<tr><th id="80">80</th><td><i class="doc">  /// such.</i></td></tr>
+<tr><th id="81">81</th><td>  <em>void</em> <dfn class="decl" id="_ZN5clang7Builtin7Context18initializeBuiltinsERNS_15IdentifierTableERKNS_11LangOptionsE" title='clang::Builtin::Context::initializeBuiltins' data-ref="_ZN5clang7Builtin7Context18initializeBuiltinsERNS_15IdentifierTableERKNS_11LangOptionsE">initializeBuiltins</dfn>(<a class="type" href="IdentifierTable.h.html#clang::IdentifierTable" title='clang::IdentifierTable' data-ref="clang::IdentifierTable">IdentifierTable</a> &amp;<dfn class="local col6 decl" id="25966Table" title='Table' data-type='clang::IdentifierTable &amp;' data-ref="25966Table">Table</dfn>, <em>const</em> <a class="type" href="LangOptions.h.html#clang::LangOptions" title='clang::LangOptions' data-ref="clang::LangOptions">LangOptions</a>&amp; <dfn class="local col7 decl" id="25967LangOpts" title='LangOpts' data-type='const clang::LangOptions &amp;' data-ref="25967LangOpts">LangOpts</dfn>);</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td>  <i class="doc">/// Return the identifier name for the specified builtin,</i></td></tr>
+<tr><th id="84">84</th><td><i class="doc">  /// e.g. "__builtin_abs".</i></td></tr>
+<tr><th id="85">85</th><td>  <em>const</em> <em>char</em> *<dfn class="decl def" id="_ZNK5clang7Builtin7Context7getNameEj" title='clang::Builtin::Context::getName' data-ref="_ZNK5clang7Builtin7Context7getNameEj">getName</dfn>(<em>unsigned</em> <dfn class="local col8 decl" id="25968ID" title='ID' data-type='unsigned int' data-ref="25968ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="86">86</th><td>    <b>return</b> <a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col8 ref" href="#25968ID" title='ID' data-ref="25968ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Name" title='clang::Builtin::Info::Name' data-ref="clang::Builtin::Info::Name">Name</a>;</td></tr>
+<tr><th id="87">87</th><td>  }</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td>  <i class="doc">/// Get the type descriptor string for the specified builtin.</i></td></tr>
+<tr><th id="90">90</th><td>  <em>const</em> <em>char</em> *<dfn class="decl def" id="_ZNK5clang7Builtin7Context13getTypeStringEj" title='clang::Builtin::Context::getTypeString' data-ref="_ZNK5clang7Builtin7Context13getTypeStringEj">getTypeString</dfn>(<em>unsigned</em> <dfn class="local col9 decl" id="25969ID" title='ID' data-type='unsigned int' data-ref="25969ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="91">91</th><td>    <b>return</b> <a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col9 ref" href="#25969ID" title='ID' data-ref="25969ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Type" title='clang::Builtin::Info::Type' data-ref="clang::Builtin::Info::Type">Type</a>;</td></tr>
+<tr><th id="92">92</th><td>  }</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td>  <i class="doc">/// Return true if this function is a target-specific builtin.</i></td></tr>
+<tr><th id="95">95</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context11isTSBuiltinEj" title='clang::Builtin::Context::isTSBuiltin' data-ref="_ZNK5clang7Builtin7Context11isTSBuiltinEj">isTSBuiltin</dfn>(<em>unsigned</em> <dfn class="local col0 decl" id="25970ID" title='ID' data-type='unsigned int' data-ref="25970ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="96">96</th><td>    <b>return</b> <a class="local col0 ref" href="#25970ID" title='ID' data-ref="25970ID">ID</a> &gt;= <span class="namespace">Builtin::</span><a class="enum" href="#clang::Builtin::ID::FirstTSBuiltin" title='clang::Builtin::ID::FirstTSBuiltin' data-ref="clang::Builtin::ID::FirstTSBuiltin">FirstTSBuiltin</a>;</td></tr>
+<tr><th id="97">97</th><td>  }</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td>  <i class="doc">/// Return true if this function has no side effects.</i></td></tr>
+<tr><th id="100">100</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context6isPureEj" title='clang::Builtin::Context::isPure' data-ref="_ZNK5clang7Builtin7Context6isPureEj">isPure</dfn>(<em>unsigned</em> <dfn class="local col1 decl" id="25971ID" title='ID' data-type='unsigned int' data-ref="25971ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="101">101</th><td>    <b>return</b> <a class="ref" href="../../../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col1 ref" href="#25971ID" title='ID' data-ref="25971ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Attributes" title='clang::Builtin::Info::Attributes' data-ref="clang::Builtin::Info::Attributes">Attributes</a>, <kbd>'U'</kbd>) != <b>nullptr</b>;</td></tr>
+<tr><th id="102">102</th><td>  }</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td>  <i class="doc">/// Return true if this function has no side effects and doesn't</i></td></tr>
+<tr><th id="105">105</th><td><i class="doc">  /// read memory.</i></td></tr>
+<tr><th id="106">106</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context7isConstEj" title='clang::Builtin::Context::isConst' data-ref="_ZNK5clang7Builtin7Context7isConstEj">isConst</dfn>(<em>unsigned</em> <dfn class="local col2 decl" id="25972ID" title='ID' data-type='unsigned int' data-ref="25972ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="107">107</th><td>    <b>return</b> <a class="ref" href="../../../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col2 ref" href="#25972ID" title='ID' data-ref="25972ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Attributes" title='clang::Builtin::Info::Attributes' data-ref="clang::Builtin::Info::Attributes">Attributes</a>, <kbd>'c'</kbd>) != <b>nullptr</b>;</td></tr>
+<tr><th id="108">108</th><td>  }</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td>  <i class="doc">/// Return true if we know this builtin never throws an exception.</i></td></tr>
+<tr><th id="111">111</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context9isNoThrowEj" title='clang::Builtin::Context::isNoThrow' data-ref="_ZNK5clang7Builtin7Context9isNoThrowEj">isNoThrow</dfn>(<em>unsigned</em> <dfn class="local col3 decl" id="25973ID" title='ID' data-type='unsigned int' data-ref="25973ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="112">112</th><td>    <b>return</b> <a class="ref" href="../../../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col3 ref" href="#25973ID" title='ID' data-ref="25973ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Attributes" title='clang::Builtin::Info::Attributes' data-ref="clang::Builtin::Info::Attributes">Attributes</a>, <kbd>'n'</kbd>) != <b>nullptr</b>;</td></tr>
+<tr><th id="113">113</th><td>  }</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td>  <i class="doc">/// Return true if we know this builtin never returns.</i></td></tr>
+<tr><th id="116">116</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context10isNoReturnEj" title='clang::Builtin::Context::isNoReturn' data-ref="_ZNK5clang7Builtin7Context10isNoReturnEj">isNoReturn</dfn>(<em>unsigned</em> <dfn class="local col4 decl" id="25974ID" title='ID' data-type='unsigned int' data-ref="25974ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="117">117</th><td>    <b>return</b> <a class="ref" href="../../../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col4 ref" href="#25974ID" title='ID' data-ref="25974ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Attributes" title='clang::Builtin::Info::Attributes' data-ref="clang::Builtin::Info::Attributes">Attributes</a>, <kbd>'r'</kbd>) != <b>nullptr</b>;</td></tr>
+<tr><th id="118">118</th><td>  }</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>  <i class="doc">/// Return true if we know this builtin can return twice.</i></td></tr>
+<tr><th id="121">121</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context14isReturnsTwiceEj" title='clang::Builtin::Context::isReturnsTwice' data-ref="_ZNK5clang7Builtin7Context14isReturnsTwiceEj">isReturnsTwice</dfn>(<em>unsigned</em> <dfn class="local col5 decl" id="25975ID" title='ID' data-type='unsigned int' data-ref="25975ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="122">122</th><td>    <b>return</b> <a class="ref" href="../../../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col5 ref" href="#25975ID" title='ID' data-ref="25975ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Attributes" title='clang::Builtin::Info::Attributes' data-ref="clang::Builtin::Info::Attributes">Attributes</a>, <kbd>'j'</kbd>) != <b>nullptr</b>;</td></tr>
+<tr><th id="123">123</th><td>  }</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td>  <i class="doc">/// Returns true if this builtin does not perform the side-effects</i></td></tr>
+<tr><th id="126">126</th><td><i class="doc">  /// of its arguments.</i></td></tr>
+<tr><th id="127">127</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context13isUnevaluatedEj" title='clang::Builtin::Context::isUnevaluated' data-ref="_ZNK5clang7Builtin7Context13isUnevaluatedEj">isUnevaluated</dfn>(<em>unsigned</em> <dfn class="local col6 decl" id="25976ID" title='ID' data-type='unsigned int' data-ref="25976ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="128">128</th><td>    <b>return</b> <a class="ref" href="../../../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col6 ref" href="#25976ID" title='ID' data-ref="25976ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Attributes" title='clang::Builtin::Info::Attributes' data-ref="clang::Builtin::Info::Attributes">Attributes</a>, <kbd>'u'</kbd>) != <b>nullptr</b>;</td></tr>
+<tr><th id="129">129</th><td>  }</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td>  <i class="doc">/// Return true if this is a builtin for a libc/libm function,</i></td></tr>
+<tr><th id="132">132</th><td><i class="doc">  /// with a "__builtin_" prefix (e.g. __builtin_abs).</i></td></tr>
+<tr><th id="133">133</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context13isLibFunctionEj" title='clang::Builtin::Context::isLibFunction' data-ref="_ZNK5clang7Builtin7Context13isLibFunctionEj">isLibFunction</dfn>(<em>unsigned</em> <dfn class="local col7 decl" id="25977ID" title='ID' data-type='unsigned int' data-ref="25977ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="134">134</th><td>    <b>return</b> <a class="ref" href="../../../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col7 ref" href="#25977ID" title='ID' data-ref="25977ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Attributes" title='clang::Builtin::Info::Attributes' data-ref="clang::Builtin::Info::Attributes">Attributes</a>, <kbd>'F'</kbd>) != <b>nullptr</b>;</td></tr>
+<tr><th id="135">135</th><td>  }</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td>  <i class="doc">/// Determines whether this builtin is a predefined libc/libm</i></td></tr>
+<tr><th id="138">138</th><td><i class="doc">  /// function, such as "malloc", where we know the signature a</i></td></tr>
+<tr><th id="139">139</th><td><i class="doc">  /// priori.</i></td></tr>
+<tr><th id="140">140</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj" title='clang::Builtin::Context::isPredefinedLibFunction' data-ref="_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj">isPredefinedLibFunction</dfn>(<em>unsigned</em> <dfn class="local col8 decl" id="25978ID" title='ID' data-type='unsigned int' data-ref="25978ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="141">141</th><td>    <b>return</b> <a class="ref" href="../../../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col8 ref" href="#25978ID" title='ID' data-ref="25978ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Attributes" title='clang::Builtin::Info::Attributes' data-ref="clang::Builtin::Info::Attributes">Attributes</a>, <kbd>'f'</kbd>) != <b>nullptr</b>;</td></tr>
+<tr><th id="142">142</th><td>  }</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td>  <i class="doc">/// Returns true if this builtin requires appropriate header in other</i></td></tr>
+<tr><th id="145">145</th><td><i class="doc">  /// compilers. In Clang it will work even without including it, but we can emit</i></td></tr>
+<tr><th id="146">146</th><td><i class="doc">  /// a warning about missing header.</i></td></tr>
+<tr><th id="147">147</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context25isHeaderDependentFunctionEj" title='clang::Builtin::Context::isHeaderDependentFunction' data-ref="_ZNK5clang7Builtin7Context25isHeaderDependentFunctionEj">isHeaderDependentFunction</dfn>(<em>unsigned</em> <dfn class="local col9 decl" id="25979ID" title='ID' data-type='unsigned int' data-ref="25979ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="148">148</th><td>    <b>return</b> <a class="ref" href="../../../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col9 ref" href="#25979ID" title='ID' data-ref="25979ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Attributes" title='clang::Builtin::Info::Attributes' data-ref="clang::Builtin::Info::Attributes">Attributes</a>, <kbd>'h'</kbd>) != <b>nullptr</b>;</td></tr>
+<tr><th id="149">149</th><td>  }</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td>  <i class="doc">/// Determines whether this builtin is a predefined compiler-rt/libgcc</i></td></tr>
+<tr><th id="152">152</th><td><i class="doc">  /// function, such as "__clear_cache", where we know the signature a</i></td></tr>
+<tr><th id="153">153</th><td><i class="doc">  /// priori.</i></td></tr>
+<tr><th id="154">154</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context27isPredefinedRuntimeFunctionEj" title='clang::Builtin::Context::isPredefinedRuntimeFunction' data-ref="_ZNK5clang7Builtin7Context27isPredefinedRuntimeFunctionEj">isPredefinedRuntimeFunction</dfn>(<em>unsigned</em> <dfn class="local col0 decl" id="25980ID" title='ID' data-type='unsigned int' data-ref="25980ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="155">155</th><td>    <b>return</b> <a class="ref" href="../../../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col0 ref" href="#25980ID" title='ID' data-ref="25980ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Attributes" title='clang::Builtin::Info::Attributes' data-ref="clang::Builtin::Info::Attributes">Attributes</a>, <kbd>'i'</kbd>) != <b>nullptr</b>;</td></tr>
+<tr><th id="156">156</th><td>  }</td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td>  <i class="doc">/// Determines whether this builtin has custom typechecking.</i></td></tr>
+<tr><th id="159">159</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context21hasCustomTypecheckingEj" title='clang::Builtin::Context::hasCustomTypechecking' data-ref="_ZNK5clang7Builtin7Context21hasCustomTypecheckingEj">hasCustomTypechecking</dfn>(<em>unsigned</em> <dfn class="local col1 decl" id="25981ID" title='ID' data-type='unsigned int' data-ref="25981ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="160">160</th><td>    <b>return</b> <a class="ref" href="../../../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col1 ref" href="#25981ID" title='ID' data-ref="25981ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Attributes" title='clang::Builtin::Info::Attributes' data-ref="clang::Builtin::Info::Attributes">Attributes</a>, <kbd>'t'</kbd>) != <b>nullptr</b>;</td></tr>
+<tr><th id="161">161</th><td>  }</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>  <i class="doc">/// Determines whether this builtin has a result or any arguments which</i></td></tr>
+<tr><th id="164">164</th><td><i class="doc">  /// are pointer types.</i></td></tr>
+<tr><th id="165">165</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context18hasPtrArgsOrResultEj" title='clang::Builtin::Context::hasPtrArgsOrResult' data-ref="_ZNK5clang7Builtin7Context18hasPtrArgsOrResultEj">hasPtrArgsOrResult</dfn>(<em>unsigned</em> <dfn class="local col2 decl" id="25982ID" title='ID' data-type='unsigned int' data-ref="25982ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="166">166</th><td>    <b>return</b> <a class="ref" href="../../../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col2 ref" href="#25982ID" title='ID' data-ref="25982ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Type" title='clang::Builtin::Info::Type' data-ref="clang::Builtin::Info::Type">Type</a>, <kbd>'*'</kbd>) != <b>nullptr</b>;</td></tr>
+<tr><th id="167">167</th><td>  }</td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td>  <i class="doc">/// Return true if this builtin has a result or any arguments which are</i></td></tr>
+<tr><th id="170">170</th><td><i class="doc">  /// reference types.</i></td></tr>
+<tr><th id="171">171</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context24hasReferenceArgsOrResultEj" title='clang::Builtin::Context::hasReferenceArgsOrResult' data-ref="_ZNK5clang7Builtin7Context24hasReferenceArgsOrResultEj">hasReferenceArgsOrResult</dfn>(<em>unsigned</em> <dfn class="local col3 decl" id="25983ID" title='ID' data-type='unsigned int' data-ref="25983ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="172">172</th><td>    <b>return</b> <a class="ref" href="../../../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col3 ref" href="#25983ID" title='ID' data-ref="25983ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Type" title='clang::Builtin::Info::Type' data-ref="clang::Builtin::Info::Type">Type</a>, <kbd>'&amp;'</kbd>) != <b>nullptr</b> ||</td></tr>
+<tr><th id="173">173</th><td>           <a class="ref" href="../../../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col3 ref" href="#25983ID" title='ID' data-ref="25983ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Type" title='clang::Builtin::Info::Type' data-ref="clang::Builtin::Info::Type">Type</a>, <kbd>'A'</kbd>) != <b>nullptr</b>;</td></tr>
+<tr><th id="174">174</th><td>  }</td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td>  <i class="doc">/// Completely forget that the given ID was ever considered a builtin,</i></td></tr>
+<tr><th id="177">177</th><td><i class="doc">  /// e.g., because the user provided a conflicting signature.</i></td></tr>
+<tr><th id="178">178</th><td>  <em>void</em> <dfn class="decl" id="_ZN5clang7Builtin7Context13forgetBuiltinEjRNS_15IdentifierTableE" title='clang::Builtin::Context::forgetBuiltin' data-ref="_ZN5clang7Builtin7Context13forgetBuiltinEjRNS_15IdentifierTableE">forgetBuiltin</dfn>(<em>unsigned</em> <dfn class="local col4 decl" id="25984ID" title='ID' data-type='unsigned int' data-ref="25984ID">ID</dfn>, <a class="type" href="IdentifierTable.h.html#clang::IdentifierTable" title='clang::IdentifierTable' data-ref="clang::IdentifierTable">IdentifierTable</a> &amp;<dfn class="local col5 decl" id="25985Table" title='Table' data-type='clang::IdentifierTable &amp;' data-ref="25985Table">Table</dfn>);</td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td>  <i class="doc">/// If this is a library function that comes from a specific</i></td></tr>
+<tr><th id="181">181</th><td><i class="doc">  /// header, retrieve that header name.</i></td></tr>
+<tr><th id="182">182</th><td>  <em>const</em> <em>char</em> *<dfn class="decl def" id="_ZNK5clang7Builtin7Context13getHeaderNameEj" title='clang::Builtin::Context::getHeaderName' data-ref="_ZNK5clang7Builtin7Context13getHeaderNameEj">getHeaderName</dfn>(<em>unsigned</em> <dfn class="local col6 decl" id="25986ID" title='ID' data-type='unsigned int' data-ref="25986ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="183">183</th><td>    <b>return</b> <a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col6 ref" href="#25986ID" title='ID' data-ref="25986ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::HeaderName" title='clang::Builtin::Info::HeaderName' data-ref="clang::Builtin::Info::HeaderName">HeaderName</a>;</td></tr>
+<tr><th id="184">184</th><td>  }</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td>  <i class="doc">/// Determine whether this builtin is like printf in its</i></td></tr>
+<tr><th id="187">187</th><td><i class="doc">  /// formatting rules and, if so, set the index to the format string</i></td></tr>
+<tr><th id="188">188</th><td><i class="doc">  /// argument and whether this function as a va_list argument.</i></td></tr>
+<tr><th id="189">189</th><td>  <em>bool</em> <dfn class="decl" id="_ZN5clang7Builtin7Context12isPrintfLikeEjRjRb" title='clang::Builtin::Context::isPrintfLike' data-ref="_ZN5clang7Builtin7Context12isPrintfLikeEjRjRb">isPrintfLike</dfn>(<em>unsigned</em> <dfn class="local col7 decl" id="25987ID" title='ID' data-type='unsigned int' data-ref="25987ID">ID</dfn>, <em>unsigned</em> &amp;<dfn class="local col8 decl" id="25988FormatIdx" title='FormatIdx' data-type='unsigned int &amp;' data-ref="25988FormatIdx">FormatIdx</dfn>, <em>bool</em> &amp;<dfn class="local col9 decl" id="25989HasVAListArg" title='HasVAListArg' data-type='bool &amp;' data-ref="25989HasVAListArg">HasVAListArg</dfn>);</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td>  <i class="doc">/// Determine whether this builtin is like scanf in its</i></td></tr>
+<tr><th id="192">192</th><td><i class="doc">  /// formatting rules and, if so, set the index to the format string</i></td></tr>
+<tr><th id="193">193</th><td><i class="doc">  /// argument and whether this function as a va_list argument.</i></td></tr>
+<tr><th id="194">194</th><td>  <em>bool</em> <dfn class="decl" id="_ZN5clang7Builtin7Context11isScanfLikeEjRjRb" title='clang::Builtin::Context::isScanfLike' data-ref="_ZN5clang7Builtin7Context11isScanfLikeEjRjRb">isScanfLike</dfn>(<em>unsigned</em> <dfn class="local col0 decl" id="25990ID" title='ID' data-type='unsigned int' data-ref="25990ID">ID</dfn>, <em>unsigned</em> &amp;<dfn class="local col1 decl" id="25991FormatIdx" title='FormatIdx' data-type='unsigned int &amp;' data-ref="25991FormatIdx">FormatIdx</dfn>, <em>bool</em> &amp;<dfn class="local col2 decl" id="25992HasVAListArg" title='HasVAListArg' data-type='bool &amp;' data-ref="25992HasVAListArg">HasVAListArg</dfn>);</td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td>  <i class="doc">/// Determine whether this builtin has callback behavior (see</i></td></tr>
+<tr><th id="197">197</th><td><i class="doc">  /// llvm::AbstractCallSites for details). If so, add the index to the</i></td></tr>
+<tr><th id="198">198</th><td><i class="doc">  /// callback callee argument and the callback payload arguments.</i></td></tr>
+<tr><th id="199">199</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK5clang7Builtin7Context16performsCallbackEjRN4llvm15SmallVectorImplIiEE" title='clang::Builtin::Context::performsCallback' data-ref="_ZNK5clang7Builtin7Context16performsCallbackEjRN4llvm15SmallVectorImplIiEE">performsCallback</dfn>(<em>unsigned</em> <dfn class="local col3 decl" id="25993ID" title='ID' data-type='unsigned int' data-ref="25993ID">ID</dfn>,</td></tr>
+<tr><th id="200">200</th><td>                        <span class="namespace">llvm::</span><a class="type" href="LLVM.h.html#llvm::SmallVectorImpl" title='llvm::SmallVectorImpl' data-ref="llvm::SmallVectorImpl">SmallVectorImpl</a>&lt;<em>int</em>&gt; &amp;<dfn class="local col4 decl" id="25994Encoding" title='Encoding' data-type='llvm::SmallVectorImpl&lt;int&gt; &amp;' data-ref="25994Encoding">Encoding</dfn>) <em>const</em>;</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td>  <i class="doc">/// Return true if this function has no side effects and doesn't</i></td></tr>
+<tr><th id="203">203</th><td><i class="doc">  /// read memory, except for possibly errno.</i></td></tr>
+<tr><th id="204">204</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="205">205</th><td><i class="doc">  /// Such functions can be const when the MathErrno lang option is disabled.</i></td></tr>
+<tr><th id="206">206</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context19isConstWithoutErrnoEj" title='clang::Builtin::Context::isConstWithoutErrno' data-ref="_ZNK5clang7Builtin7Context19isConstWithoutErrnoEj">isConstWithoutErrno</dfn>(<em>unsigned</em> <dfn class="local col5 decl" id="25995ID" title='ID' data-type='unsigned int' data-ref="25995ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="207">207</th><td>    <b>return</b> <a class="ref" href="../../../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col5 ref" href="#25995ID" title='ID' data-ref="25995ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Attributes" title='clang::Builtin::Info::Attributes' data-ref="clang::Builtin::Info::Attributes">Attributes</a>, <kbd>'e'</kbd>) != <b>nullptr</b>;</td></tr>
+<tr><th id="208">208</th><td>  }</td></tr>
+<tr><th id="209">209</th><td></td></tr>
+<tr><th id="210">210</th><td>  <em>const</em> <em>char</em> *<dfn class="decl def" id="_ZNK5clang7Builtin7Context19getRequiredFeaturesEj" title='clang::Builtin::Context::getRequiredFeatures' data-ref="_ZNK5clang7Builtin7Context19getRequiredFeaturesEj">getRequiredFeatures</dfn>(<em>unsigned</em> <dfn class="local col6 decl" id="25996ID" title='ID' data-type='unsigned int' data-ref="25996ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="211">211</th><td>    <b>return</b> <a class="member" href="#_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</a>(<a class="local col6 ref" href="#25996ID" title='ID' data-ref="25996ID">ID</a>).<a class="ref" href="#clang::Builtin::Info::Features" title='clang::Builtin::Info::Features' data-ref="clang::Builtin::Info::Features">Features</a>;</td></tr>
+<tr><th id="212">212</th><td>  }</td></tr>
+<tr><th id="213">213</th><td></td></tr>
+<tr><th id="214">214</th><td>  <em>unsigned</em> <dfn class="decl" id="_ZNK5clang7Builtin7Context22getRequiredVectorWidthEj" title='clang::Builtin::Context::getRequiredVectorWidth' data-ref="_ZNK5clang7Builtin7Context22getRequiredVectorWidthEj">getRequiredVectorWidth</dfn>(<em>unsigned</em> <dfn class="local col7 decl" id="25997ID" title='ID' data-type='unsigned int' data-ref="25997ID">ID</dfn>) <em>const</em>;</td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td>  <i class="doc">/// Return true if builtin ID belongs to AuxTarget.</i></td></tr>
+<tr><th id="217">217</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context14isAuxBuiltinIDEj" title='clang::Builtin::Context::isAuxBuiltinID' data-ref="_ZNK5clang7Builtin7Context14isAuxBuiltinIDEj">isAuxBuiltinID</dfn>(<em>unsigned</em> <dfn class="local col8 decl" id="25998ID" title='ID' data-type='unsigned int' data-ref="25998ID">ID</dfn>) <em>const</em> {</td></tr>
+<tr><th id="218">218</th><td>    <b>return</b> <a class="local col8 ref" href="#25998ID" title='ID' data-ref="25998ID">ID</a> &gt;= (<span class="namespace">Builtin::</span><a class="enum" href="#clang::Builtin::ID::FirstTSBuiltin" title='clang::Builtin::ID::FirstTSBuiltin' data-ref="clang::Builtin::ID::FirstTSBuiltin">FirstTSBuiltin</a> + <a class="member" href="#clang::Builtin::Context::TSRecords" title='clang::Builtin::Context::TSRecords' data-ref="clang::Builtin::Context::TSRecords">TSRecords</a>.<a class="ref" href="../../../../llvm/include/llvm/ADT/ArrayRef.h.html#_ZNK4llvm8ArrayRef4sizeEv" title='llvm::ArrayRef::size' data-ref="_ZNK4llvm8ArrayRef4sizeEv">size</a>());</td></tr>
+<tr><th id="219">219</th><td>  }</td></tr>
+<tr><th id="220">220</th><td></td></tr>
+<tr><th id="221">221</th><td>  <i class="doc">/// Return real builtin ID (i.e. ID it would have during compilation</i></td></tr>
+<tr><th id="222">222</th><td><i class="doc">  /// for AuxTarget).</i></td></tr>
+<tr><th id="223">223</th><td>  <em>unsigned</em> <dfn class="decl def" id="_ZNK5clang7Builtin7Context15getAuxBuiltinIDEj" title='clang::Builtin::Context::getAuxBuiltinID' data-ref="_ZNK5clang7Builtin7Context15getAuxBuiltinIDEj">getAuxBuiltinID</dfn>(<em>unsigned</em> <dfn class="local col9 decl" id="25999ID" title='ID' data-type='unsigned int' data-ref="25999ID">ID</dfn>) <em>const</em> { <b>return</b> <a class="local col9 ref" href="#25999ID" title='ID' data-ref="25999ID">ID</a> - <a class="member" href="#clang::Builtin::Context::TSRecords" title='clang::Builtin::Context::TSRecords' data-ref="clang::Builtin::Context::TSRecords">TSRecords</a>.<a class="ref" href="../../../../llvm/include/llvm/ADT/ArrayRef.h.html#_ZNK4llvm8ArrayRef4sizeEv" title='llvm::ArrayRef::size' data-ref="_ZNK4llvm8ArrayRef4sizeEv">size</a>(); }</td></tr>
+<tr><th id="224">224</th><td></td></tr>
+<tr><th id="225">225</th><td>  <i class="doc">/// Returns true if this is a libc/libm function without the '__builtin_'</i></td></tr>
+<tr><th id="226">226</th><td><i class="doc">  /// prefix.</i></td></tr>
+<tr><th id="227">227</th><td>  <em>static</em> <em>bool</em> <dfn class="decl" id="_ZN5clang7Builtin7Context13isBuiltinFuncEPKc" title='clang::Builtin::Context::isBuiltinFunc' data-ref="_ZN5clang7Builtin7Context13isBuiltinFuncEPKc">isBuiltinFunc</dfn>(<em>const</em> <em>char</em> *<dfn class="local col0 decl" id="26000Name" title='Name' data-type='const char *' data-ref="26000Name">Name</dfn>);</td></tr>
+<tr><th id="228">228</th><td></td></tr>
+<tr><th id="229">229</th><td>  <i class="doc">/// Returns true if this is a builtin that can be redeclared.  Returns true</i></td></tr>
+<tr><th id="230">230</th><td><i class="doc">  /// for non-builtins.</i></td></tr>
+<tr><th id="231">231</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK5clang7Builtin7Context15canBeRedeclaredEj" title='clang::Builtin::Context::canBeRedeclared' data-ref="_ZNK5clang7Builtin7Context15canBeRedeclaredEj">canBeRedeclared</dfn>(<em>unsigned</em> <dfn class="local col1 decl" id="26001ID" title='ID' data-type='unsigned int' data-ref="26001ID">ID</dfn>) <em>const</em>;</td></tr>
+<tr><th id="232">232</th><td></td></tr>
+<tr><th id="233">233</th><td><b>private</b>:</td></tr>
+<tr><th id="234">234</th><td>  <em>const</em> <a class="type" href="#clang::Builtin::Info" title='clang::Builtin::Info' data-ref="clang::Builtin::Info">Info</a> &amp;<dfn class="decl" id="_ZNK5clang7Builtin7Context9getRecordEj" title='clang::Builtin::Context::getRecord' data-ref="_ZNK5clang7Builtin7Context9getRecordEj">getRecord</dfn>(<em>unsigned</em> <dfn class="local col2 decl" id="26002ID" title='ID' data-type='unsigned int' data-ref="26002ID">ID</dfn>) <em>const</em>;</td></tr>
+<tr><th id="235">235</th><td></td></tr>
+<tr><th id="236">236</th><td>  <i class="doc">/// Is this builtin supported according to the given language options?</i></td></tr>
+<tr><th id="237">237</th><td>  <em>bool</em> <dfn class="decl" id="_ZN5clang7Builtin7Context18builtinIsSupportedERKNS0_4InfoERKNS_11LangOptionsE" title='clang::Builtin::Context::builtinIsSupported' data-ref="_ZN5clang7Builtin7Context18builtinIsSupportedERKNS0_4InfoERKNS_11LangOptionsE">builtinIsSupported</dfn>(<em>const</em> <span class="namespace">Builtin::</span><a class="type" href="#clang::Builtin::Info" title='clang::Builtin::Info' data-ref="clang::Builtin::Info">Info</a> &amp;<dfn class="local col3 decl" id="26003BuiltinInfo" title='BuiltinInfo' data-type='const Builtin::Info &amp;' data-ref="26003BuiltinInfo">BuiltinInfo</dfn>,</td></tr>
+<tr><th id="238">238</th><td>                          <em>const</em> <a class="type" href="LangOptions.h.html#clang::LangOptions" title='clang::LangOptions' data-ref="clang::LangOptions">LangOptions</a> &amp;<dfn class="local col4 decl" id="26004LangOpts" title='LangOpts' data-type='const clang::LangOptions &amp;' data-ref="26004LangOpts">LangOpts</dfn>);</td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td>  <i class="doc">/// Helper function for isPrintfLike and isScanfLike.</i></td></tr>
+<tr><th id="241">241</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK5clang7Builtin7Context6isLikeEjRjRbPKc" title='clang::Builtin::Context::isLike' data-ref="_ZNK5clang7Builtin7Context6isLikeEjRjRbPKc">isLike</dfn>(<em>unsigned</em> <dfn class="local col5 decl" id="26005ID" title='ID' data-type='unsigned int' data-ref="26005ID">ID</dfn>, <em>unsigned</em> &amp;<dfn class="local col6 decl" id="26006FormatIdx" title='FormatIdx' data-type='unsigned int &amp;' data-ref="26006FormatIdx">FormatIdx</dfn>, <em>bool</em> &amp;<dfn class="local col7 decl" id="26007HasVAListArg" title='HasVAListArg' data-type='bool &amp;' data-ref="26007HasVAListArg">HasVAListArg</dfn>,</td></tr>
+<tr><th id="242">242</th><td>              <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="26008Fmt" title='Fmt' data-type='const char *' data-ref="26008Fmt">Fmt</dfn>) <em>const</em>;</td></tr>
+<tr><th id="243">243</th><td>};</td></tr>
+<tr><th id="244">244</th><td></td></tr>
+<tr><th id="245">245</th><td>}</td></tr>
+<tr><th id="246">246</th><td></td></tr>
+<tr><th id="247">247</th><td><i class="doc">/// Kinds of BuiltinTemplateDecl.</i></td></tr>
+<tr><th id="248">248</th><td><b>enum</b> <dfn class="type def" id="clang::BuiltinTemplateKind" title='clang::BuiltinTemplateKind' data-ref="clang::BuiltinTemplateKind">BuiltinTemplateKind</dfn> : <em>int</em> {</td></tr>
+<tr><th id="249">249</th><td>  <i class="doc">/// This names the __make_integer_seq BuiltinTemplateDecl.</i></td></tr>
+<tr><th id="250">250</th><td>  <dfn class="enum" id="clang::BuiltinTemplateKind::BTK__make_integer_seq" title='clang::BuiltinTemplateKind::BTK__make_integer_seq' data-ref="clang::BuiltinTemplateKind::BTK__make_integer_seq">BTK__make_integer_seq</dfn>,</td></tr>
+<tr><th id="251">251</th><td></td></tr>
+<tr><th id="252">252</th><td>  <i class="doc">/// This names the __type_pack_element BuiltinTemplateDecl.</i></td></tr>
+<tr><th id="253">253</th><td>  <dfn class="enum" id="clang::BuiltinTemplateKind::BTK__type_pack_element" title='clang::BuiltinTemplateKind::BTK__type_pack_element' data-ref="clang::BuiltinTemplateKind::BTK__type_pack_element">BTK__type_pack_element</dfn></td></tr>
+<tr><th id="254">254</th><td>};</td></tr>
+<tr><th id="255">255</th><td></td></tr>
+<tr><th id="256">256</th><td>} <i>// end namespace clang</i></td></tr>
+<tr><th id="257">257</th><td><u>#<span data-ppcond="15">endif</span></u></td></tr>
+<tr><th id="258">258</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../examples/AnnotateFunctions/AnnotateFunctions.cpp.html'>llvm/clang/examples/AnnotateFunctions/AnnotateFunctions.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,32 @@
+<def f='llvm/llvm/include/llvm/Object/MachO.h' l='167' ll='201'/>
+<size>80</size>
+<doc f='llvm/llvm/include/llvm/Object/MachO.h' l='160'>/// MachORebaseEntry encapsulates the current state in the decompression of
+/// rebasing opcodes. This allows you to iterate through the compressed table of
+/// rebasing using:
+///    Error Err;
+///    for (const llvm::object::MachORebaseEntry &amp;Entry : Obj-&gt;rebaseTable(&amp;Err)) {
+///    }
+///    if (Err) { report error ...</doc>
+<fun r='_ZN4llvm6object16MachORebaseEntryC1EPNS_5ErrorEPKNS0_15MachOObjectFileENS_8ArrayRefIhEEb'/>
+<fun r='_ZNK4llvm6object16MachORebaseEntry12segmentIndexEv'/>
+<fun r='_ZNK4llvm6object16MachORebaseEntry13segmentOffsetEv'/>
+<fun r='_ZNK4llvm6object16MachORebaseEntry8typeNameEv'/>
+<fun r='_ZNK4llvm6object16MachORebaseEntry11segmentNameEv'/>
+<fun r='_ZNK4llvm6object16MachORebaseEntry11sectionNameEv'/>
+<fun r='_ZNK4llvm6object16MachORebaseEntry7addressEv'/>
+<fun r='_ZNK4llvm6object16MachORebaseEntryeqERKS1_'/>
+<fun r='_ZN4llvm6object16MachORebaseEntry8moveNextEv'/>
+<fun r='_ZN4llvm6object16MachORebaseEntry11moveToFirstEv'/>
+<fun r='_ZN4llvm6object16MachORebaseEntry9moveToEndEv'/>
+<fun r='_ZN4llvm6object16MachORebaseEntry11readULEB128EPPKc'/>
+<mbr r='llvm::object::MachORebaseEntry::E' o='0' t='llvm::Error *'/>
+<mbr r='llvm::object::MachORebaseEntry::O' o='64' t='const llvm::object::MachOObjectFile *'/>
+<mbr r='llvm::object::MachORebaseEntry::Opcodes' o='128' t='ArrayRef&lt;uint8_t&gt;'/>
+<mbr r='llvm::object::MachORebaseEntry::Ptr' o='256' t='const uint8_t *'/>
+<mbr r='llvm::object::MachORebaseEntry::SegmentOffset' o='320' t='uint64_t'/>
+<mbr r='llvm::object::MachORebaseEntry::SegmentIndex' o='384' t='int32_t'/>
+<mbr r='llvm::object::MachORebaseEntry::RemainingLoopCount' o='448' t='uint64_t'/>
+<mbr r='llvm::object::MachORebaseEntry::AdvanceAmount' o='512' t='uint64_t'/>
+<mbr r='llvm::object::MachORebaseEntry::RebaseType' o='576' t='uint8_t'/>
+<mbr r='llvm::object::MachORebaseEntry::PointerSize' o='584' t='uint8_t'/>
+<mbr r='llvm::object::MachORebaseEntry::Done' o='592' t='bool'/>

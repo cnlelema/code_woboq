@@ -1,0 +1,151 @@
+<def f='llvm/clang/include/clang/AST/Type.h' l='652' ll='1248'/>
+<size>8</size>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='638'>/// A (possibly-)qualified type.
+///
+/// For efficiency, we don&apos;t store CV-qualified types as nodes on their
+/// own: instead each reference to a type stores the qualifiers.  This
+/// greatly reduces the number of nodes we need to allocate for types (for
+/// example we only need one for &apos;int&apos;, &apos;const int&apos;, &apos;volatile int&apos;,
+/// &apos;const volatile int&apos;, etc).
+///
+/// As an added efficiency bonus, instead of making this a pair, we
+/// just store the two bits we care about in the low bits of the
+/// pointer.  To handle the packing/unpacking, we make QualType be a
+/// simple wrapper class that acts like a smart pointer.  A third bit
+/// indicates whether there are extended qualifiers present, in which
+/// case the pointer points to a special structure.</doc>
+<mbr r='clang::QualType::Value' o='0' t='llvm::PointerIntPair&lt;llvm::PointerUnion&lt;const Type *, const ExtQuals *&gt;, Qualifiers::FastWidth&gt;'/>
+<fun r='_ZNK5clang8QualType17getExtQualsUnsafeEv'/>
+<fun r='_ZNK5clang8QualType16getTypePtrUnsafeEv'/>
+<fun r='_ZNK5clang8QualType12getCommonPtrEv'/>
+<fun r='_ZN5clang8QualTypeC1Ev'/>
+<fun r='_ZN5clang8QualTypeC1EPKNS_4TypeEj'/>
+<fun r='_ZN5clang8QualTypeC1EPKNS_8ExtQualsEj'/>
+<fun r='_ZNK5clang8QualType22getLocalFastQualifiersEv'/>
+<fun r='_ZN5clang8QualType22setLocalFastQualifiersEj'/>
+<fun r='_ZNK5clang8QualType10getTypePtrEv'/>
+<fun r='_ZNK5clang8QualType16getTypePtrOrNullEv'/>
+<fun r='_ZNK5clang8QualType21getBaseTypeIdentifierEv'/>
+<fun r='_ZNK5clang8QualType5splitEv'/>
+<fun r='_ZNK5clang8QualType14getAsOpaquePtrEv'/>
+<fun r='_ZN5clang8QualType16getFromOpaquePtrEPKv'/>
+<fun r='_ZNK5clang8QualTypedeEv'/>
+<fun r='_ZNK5clang8QualTypeptEv'/>
+<fun r='_ZNK5clang8QualType11isCanonicalEv'/>
+<fun r='_ZNK5clang8QualType18isCanonicalAsParamEv'/>
+<fun r='_ZNK5clang8QualType6isNullEv'/>
+<fun r='_ZNK5clang8QualType21isLocalConstQualifiedEv'/>
+<fun r='_ZNK5clang8QualType16isConstQualifiedEv'/>
+<fun r='_ZNK5clang8QualType24isLocalRestrictQualifiedEv'/>
+<fun r='_ZNK5clang8QualType19isRestrictQualifiedEv'/>
+<fun r='_ZNK5clang8QualType24isLocalVolatileQualifiedEv'/>
+<fun r='_ZNK5clang8QualType19isVolatileQualifiedEv'/>
+<fun r='_ZNK5clang8QualType18hasLocalQualifiersEv'/>
+<fun r='_ZNK5clang8QualType13hasQualifiersEv'/>
+<fun r='_ZNK5clang8QualType25hasLocalNonFastQualifiersEv'/>
+<fun r='_ZNK5clang8QualType18getLocalQualifiersEv'/>
+<fun r='_ZNK5clang8QualType13getQualifiersEv'/>
+<fun r='_ZNK5clang8QualType21getLocalCVRQualifiersEv'/>
+<fun r='_ZNK5clang8QualType16getCVRQualifiersEv'/>
+<fun r='_ZNK5clang8QualType10isConstantERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8QualType9isPODTypeERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8QualType14isCXX98PODTypeERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8QualType14isCXX11PODTypeERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8QualType13isTrivialTypeERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8QualType23isTriviallyCopyableTypeERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8QualType17mayBeDynamicClassEv'/>
+<fun r='_ZNK5clang8QualType20mayBeNotDynamicClassEv'/>
+<fun r='_ZN5clang8QualType8addConstEv'/>
+<fun r='_ZNK5clang8QualType9withConstEv'/>
+<fun r='_ZN5clang8QualType11addVolatileEv'/>
+<fun r='_ZNK5clang8QualType12withVolatileEv'/>
+<fun r='_ZN5clang8QualType11addRestrictEv'/>
+<fun r='_ZNK5clang8QualType12withRestrictEv'/>
+<fun r='_ZNK5clang8QualType17withCVRQualifiersEj'/>
+<fun r='_ZN5clang8QualType17addFastQualifiersEj'/>
+<fun r='_ZN5clang8QualType16removeLocalConstEv'/>
+<fun r='_ZN5clang8QualType19removeLocalVolatileEv'/>
+<fun r='_ZN5clang8QualType19removeLocalRestrictEv'/>
+<fun r='_ZN5clang8QualType24removeLocalCVRQualifiersEj'/>
+<fun r='_ZN5clang8QualType25removeLocalFastQualifiersEv'/>
+<fun r='_ZN5clang8QualType25removeLocalFastQualifiersEj'/>
+<fun r='_ZNK5clang8QualType18withFastQualifiersEj'/>
+<fun r='_ZNK5clang8QualType28withExactLocalFastQualifiersEj'/>
+<fun r='_ZNK5clang8QualType26withoutLocalFastQualifiersEv'/>
+<fun r='_ZNK5clang8QualType16getCanonicalTypeEv'/>
+<fun r='_ZNK5clang8QualType23getLocalUnqualifiedTypeEv'/>
+<fun r='_ZNK5clang8QualType18getUnqualifiedTypeEv'/>
+<fun r='_ZNK5clang8QualType23getSplitUnqualifiedTypeEv'/>
+<fun r='_ZNK5clang8QualType19isMoreQualifiedThanES0_'/>
+<fun r='_ZNK5clang8QualType22isAtLeastAsQualifiedAsES0_'/>
+<fun r='_ZNK5clang8QualType19getNonReferenceTypeEv'/>
+<fun r='_ZNK5clang8QualType20getNonLValueExprTypeERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8QualType16getDesugaredTypeERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8QualType21getSplitDesugaredTypeEv'/>
+<fun r='_ZNK5clang8QualType26getSingleStepDesugaredTypeERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8QualType12IgnoreParensEv'/>
+<fun r='_ZN5clang8QualType11getAsStringENS_13SplitQualTypeERKNS_14PrintingPolicyE'/>
+<fun r='_ZN5clang8QualType11getAsStringEPKNS_4TypeENS_10QualifiersERKNS_14PrintingPolicyE'/>
+<fun r='_ZNK5clang8QualType11getAsStringEv'/>
+<fun r='_ZNK5clang8QualType11getAsStringERKNS_14PrintingPolicyE'/>
+<fun r='_ZNK5clang8QualType5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyERKNS1_5TwineEj'/>
+<fun r='_ZN5clang8QualType5printENS_13SplitQualTypeERN4llvm11raw_ostreamERKNS_14PrintingPolicyERKNS2_5TwineEj'/>
+<fun r='_ZN5clang8QualType5printEPKNS_4TypeENS_10QualifiersERN4llvm11raw_ostreamERKNS_14PrintingPolicyERKNS5_5TwineEj'/>
+<fun r='_ZNK5clang8QualType19getAsStringInternalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14PrintingPolicyE'/>
+<fun r='_ZN5clang8QualType19getAsStringInternalENS_13SplitQualTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14PrintingPolicyE'/>
+<fun r='_ZN5clang8QualType19getAsStringInternalEPKNS_4TypeENS_10QualifiersERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14PrintingPolicyE'/>
+<fun r='_ZNK5clang8QualType6streamERKNS_14PrintingPolicyERKN4llvm5TwineEj'/>
+<fun r='_ZNK5clang8QualType4dumpEPKc'/>
+<fun r='_ZNK5clang8QualType4dumpEv'/>
+<fun r='_ZNK5clang8QualType4dumpERN4llvm11raw_ostreamE'/>
+<fun r='_ZNK5clang8QualType7ProfileERN4llvm16FoldingSetNodeIDE'/>
+<fun r='_ZNK5clang8QualType15getAddressSpaceEv'/>
+<fun r='_ZNK5clang8QualType13getObjCGCAttrEv'/>
+<fun r='_ZNK5clang8QualType12isObjCGCWeakEv'/>
+<fun r='_ZNK5clang8QualType14isObjCGCStrongEv'/>
+<fun r='_ZNK5clang8QualType15getObjCLifetimeEv'/>
+<fun r='_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv'/>
+<fun r='_ZNK5clang8QualType27hasStrongOrWeakObjCLifetimeEv'/>
+<fun r='_ZNK5clang8QualType26isNonWeakInMRRWithObjCWeakERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8QualType40isNonTrivialToPrimitiveDefaultInitializeEv'/>
+<fun r='_ZNK5clang8QualType26isNonTrivialPrimitiveCTypeERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8QualType27isNonTrivialToPrimitiveCopyEv'/>
+<fun r='_ZNK5clang8QualType38isNonTrivialToPrimitiveDestructiveMoveEv'/>
+<fun r='_ZNK5clang8QualType16isDestructedTypeEv'/>
+<fun r='_ZNK5clang8QualType22isCForbiddenLValueTypeEv'/>
+<fun r='_ZNK5clang8QualType17substObjCTypeArgsERNS_10ASTContextEN4llvm8ArrayRefIS0_EENS_23ObjCSubstitutionContextE'/>
+<fun r='_ZNK5clang8QualType19substObjCMemberTypeES0_PKNS_11DeclContextENS_23ObjCSubstitutionContextE'/>
+<fun r='_ZNK5clang8QualType19stripObjCKindOfTypeERKNS_10ASTContextE'/>
+<fun r='_ZNK5clang8QualType24getAtomicUnqualifiedTypeEv'/>
+<fun r='_ZN5clang8QualType10isConstantES0_RKNS_10ASTContextE'/>
+<fun r='_ZN5clang8QualType16getDesugaredTypeES0_RKNS_10ASTContextE'/>
+<fun r='_ZN5clang8QualType21getSplitDesugaredTypeES0_'/>
+<fun r='_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_'/>
+<fun r='_ZN5clang8QualType30getSingleStepDesugaredTypeImplES0_RKNS_10ASTContextE'/>
+<fun r='_ZN5clang8QualType12IgnoreParensES0_'/>
+<fun r='_ZN5clang8QualType20isDestructedTypeImplES0_'/>
+<fun r='_ZNK5clang8QualType10getTypePtrEv'/>
+<fun r='_ZNK5clang8QualType16getTypePtrOrNullEv'/>
+<fun r='_ZNK5clang8QualType5splitEv'/>
+<fun r='_ZNK5clang8QualType18getLocalQualifiersEv'/>
+<fun r='_ZNK5clang8QualType13getQualifiersEv'/>
+<fun r='_ZNK5clang8QualType16getCVRQualifiersEv'/>
+<fun r='_ZNK5clang8QualType16getCanonicalTypeEv'/>
+<fun r='_ZNK5clang8QualType11isCanonicalEv'/>
+<fun r='_ZNK5clang8QualType18isCanonicalAsParamEv'/>
+<fun r='_ZNK5clang8QualType16isConstQualifiedEv'/>
+<fun r='_ZNK5clang8QualType19isRestrictQualifiedEv'/>
+<fun r='_ZNK5clang8QualType19isVolatileQualifiedEv'/>
+<fun r='_ZNK5clang8QualType13hasQualifiersEv'/>
+<fun r='_ZNK5clang8QualType18getUnqualifiedTypeEv'/>
+<fun r='_ZNK5clang8QualType23getSplitUnqualifiedTypeEv'/>
+<fun r='_ZN5clang8QualType16removeLocalConstEv'/>
+<fun r='_ZN5clang8QualType19removeLocalRestrictEv'/>
+<fun r='_ZN5clang8QualType19removeLocalVolatileEv'/>
+<fun r='_ZN5clang8QualType24removeLocalCVRQualifiersEj'/>
+<fun r='_ZNK5clang8QualType15getAddressSpaceEv'/>
+<fun r='_ZNK5clang8QualType13getObjCGCAttrEv'/>
+<fun r='_ZNK5clang8QualType19isMoreQualifiedThanES0_'/>
+<fun r='_ZNK5clang8QualType22isAtLeastAsQualifiedAsES0_'/>
+<fun r='_ZNK5clang8QualType19getNonReferenceTypeEv'/>
+<fun r='_ZNK5clang8QualType22isCForbiddenLValueTypeEv'/>

@@ -1,0 +1,28 @@
+<inh f='llvm/clang/include/clang/AST/Type.h' l='2858' c='clang::ArrayType'/>
+<def f='llvm/clang/include/clang/AST/Type.h' l='3017' ll='3057'/>
+<size>56</size>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='3003'>/// Represents a C array with a specified size that is not an
+/// integer-constant-expression.  For example, &apos;int s[x+foo()]&apos;.
+/// Since the size expression is an arbitrary expression, we store it as such.
+///
+/// Note: VariableArrayType&apos;s aren&apos;t uniqued (since the expressions aren&apos;t) and
+/// should not be: two lexically equivalent variable array types could mean
+/// different things, for example, these variables do not have the same type
+/// dynamically:
+///
+/// void foo(int x) {
+///   int Y[x];
+///   ++x;
+///   int Z[x];
+/// }</doc>
+<mbr r='clang::VariableArrayType::SizeExpr' o='320' t='clang::Stmt *'/>
+<mbr r='clang::VariableArrayType::Brackets' o='384' t='clang::SourceRange'/>
+<fun r='_ZN5clang17VariableArrayTypeC1ENS_8QualTypeES1_PNS_4ExprENS_9ArrayType17ArraySizeModifierEjNS_11SourceRangeE'/>
+<fun r='_ZNK5clang17VariableArrayType11getSizeExprEv'/>
+<fun r='_ZNK5clang17VariableArrayType16getBracketsRangeEv'/>
+<fun r='_ZNK5clang17VariableArrayType14getLBracketLocEv'/>
+<fun r='_ZNK5clang17VariableArrayType14getRBracketLocEv'/>
+<fun r='_ZNK5clang17VariableArrayType9isSugaredEv'/>
+<fun r='_ZNK5clang17VariableArrayType7desugarEv'/>
+<fun r='_ZN5clang17VariableArrayType7classofEPKNS_4TypeE'/>
+<fun r='_ZN5clang17VariableArrayType7ProfileERN4llvm16FoldingSetNodeIDE'/>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>RemarkSerializer.h source code [llvm/llvm/include/llvm/Remarks/RemarkSerializer.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::remarks::Serializer,llvm::remarks::UseStringTable,llvm::remarks::YAMLSerializer "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/Remarks/RemarkSerializer.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>Remarks</a>/<a href='RemarkSerializer.h.html'>RemarkSerializer.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- RemarkSerializer.h - Remark serialization interface -----*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file provides an interface for serializing remarks to different formats.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#<span data-ppcond="13">ifndef</span> <span class="macro" data-ref="_M/LLVM_REMARKS_REMARK_SERIALIZER_H">LLVM_REMARKS_REMARK_SERIALIZER_H</span></u></td></tr>
+<tr><th id="14">14</th><td><u>#define <dfn class="macro" id="_M/LLVM_REMARKS_REMARK_SERIALIZER_H" data-ref="_M/LLVM_REMARKS_REMARK_SERIALIZER_H">LLVM_REMARKS_REMARK_SERIALIZER_H</dfn></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="Remark.h.html">"llvm/Remarks/Remark.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="RemarkStringTable.h.html">"llvm/Remarks/RemarkStringTable.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../Support/YAMLTraits.h.html">"llvm/Support/YAMLTraits.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../Support/raw_ostream.h.html">"llvm/Support/raw_ostream.h"</a></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="22">22</th><td><b>namespace</b> <span class="namespace">remarks</span> {</td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><i class="doc">/// This is the base class for a remark serializer.</i></td></tr>
+<tr><th id="25">25</th><td><i class="doc">/// It includes support for using a string table while emitting.</i></td></tr>
+<tr><th id="26">26</th><td><b>struct</b> <dfn class="type def" id="llvm::remarks::Serializer" title='llvm::remarks::Serializer' data-ref="llvm::remarks::Serializer">Serializer</dfn> {</td></tr>
+<tr><th id="27">27</th><td>  <i class="doc">/// The open raw_ostream that the remark diagnostics are emitted to.</i></td></tr>
+<tr><th id="28">28</th><td>  <a class="type" href="../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="decl" id="llvm::remarks::Serializer::OS" title='llvm::remarks::Serializer::OS' data-ref="llvm::remarks::Serializer::OS">OS</dfn>;</td></tr>
+<tr><th id="29">29</th><td>  <i class="doc">/// The string table containing all the unique strings used in the output.</i></td></tr>
+<tr><th id="30">30</th><td><i class="doc">  /// The table can be serialized to be consumed after the compilation.</i></td></tr>
+<tr><th id="31">31</th><td>  <a class="type" href="../../../../clang/include/clang/Basic/LLVM.h.html#llvm::Optional" title='llvm::Optional' data-ref="llvm::Optional">Optional</a>&lt;<a class="type" href="RemarkStringTable.h.html#llvm::remarks::StringTable" title='llvm::remarks::StringTable' data-ref="llvm::remarks::StringTable">StringTable</a>&gt; <dfn class="decl" id="llvm::remarks::Serializer::StrTab" title='llvm::remarks::Serializer::StrTab' data-ref="llvm::remarks::Serializer::StrTab">StrTab</dfn>;</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td>  <dfn class="decl def" id="_ZN4llvm7remarks10SerializerC1ERNS_11raw_ostreamE" title='llvm::remarks::Serializer::Serializer' data-ref="_ZN4llvm7remarks10SerializerC1ERNS_11raw_ostreamE">Serializer</dfn>(<a class="type" href="../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col5 decl" id="1235OS" title='OS' data-type='llvm::raw_ostream &amp;' data-ref="1235OS">OS</dfn>) : <a class="member" href="#llvm::remarks::Serializer::OS" title='llvm::remarks::Serializer::OS' data-ref="llvm::remarks::Serializer::OS">OS</a>(<a class="local col5 ref" href="#1235OS" title='OS' data-ref="1235OS">OS</a>), <a class="member" href="#llvm::remarks::Serializer::StrTab" title='llvm::remarks::Serializer::StrTab' data-ref="llvm::remarks::Serializer::StrTab">StrTab</a><a class="ref" href="../ADT/Optional.h.html#_ZN4llvm8OptionalC1Ev" title='llvm::Optional::Optional&lt;T&gt;' data-ref="_ZN4llvm8OptionalC1Ev">(</a>) {}</td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td>  <i class="doc">/// This is just an interface.</i></td></tr>
+<tr><th id="36">36</th><td>  <b>virtual</b> <dfn class="virtual decl" id="_ZN4llvm7remarks10SerializerD1Ev" title='llvm::remarks::Serializer::~Serializer' data-ref="_ZN4llvm7remarks10SerializerD1Ev">~Serializer</dfn>() = <b>default</b>;</td></tr>
+<tr><th id="37">37</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZN4llvm7remarks10Serializer4emitERKNS0_6RemarkE" title='llvm::remarks::Serializer::emit' data-ref="_ZN4llvm7remarks10Serializer4emitERKNS0_6RemarkE">emit</dfn>(<em>const</em> <a class="type" href="Remark.h.html#llvm::remarks::Remark" title='llvm::remarks::Remark' data-ref="llvm::remarks::Remark">Remark</a> &amp;<dfn class="local col6 decl" id="1236Remark" title='Remark' data-type='const llvm::remarks::Remark &amp;' data-ref="1236Remark">Remark</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="38">38</th><td>};</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><i class="doc">/// Wether the serializer should use a string table while emitting.</i></td></tr>
+<tr><th id="41">41</th><td><b>enum</b> <b>class</b> <dfn class="type def" id="llvm::remarks::UseStringTable" title='llvm::remarks::UseStringTable' data-ref="llvm::remarks::UseStringTable">UseStringTable</dfn> { <dfn class="enum" id="llvm::remarks::UseStringTable::No" title='llvm::remarks::UseStringTable::No' data-ref="llvm::remarks::UseStringTable::No">No</dfn>, <dfn class="enum" id="llvm::remarks::UseStringTable::Yes" title='llvm::remarks::UseStringTable::Yes' data-ref="llvm::remarks::UseStringTable::Yes">Yes</dfn> };</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><i class="doc">/// Serialize the remarks to YAML. One remark entry looks like this:</i></td></tr>
+<tr><th id="44">44</th><td><i class="doc">/// --- !&lt;TYPE&gt;</i></td></tr>
+<tr><th id="45">45</th><td><i class="doc">/// Pass:            &lt;PASSNAME&gt;</i></td></tr>
+<tr><th id="46">46</th><td><i class="doc">/// Name:            &lt;REMARKNAME&gt;</i></td></tr>
+<tr><th id="47">47</th><td><i class="doc">/// DebugLoc:        { File: &lt;SOURCEFILENAME&gt;, Line: &lt;SOURCELINE&gt;,</i></td></tr>
+<tr><th id="48">48</th><td><i class="doc">///                    Column: &lt;SOURCECOLUMN&gt; }</i></td></tr>
+<tr><th id="49">49</th><td><i class="doc">/// Function:        &lt;FUNCTIONNAME&gt;</i></td></tr>
+<tr><th id="50">50</th><td><i class="doc">/// Args:</i></td></tr>
+<tr><th id="51">51</th><td><i class="doc">///   - &lt;KEY&gt;: &lt;VALUE&gt;</i></td></tr>
+<tr><th id="52">52</th><td><i class="doc">///     DebugLoc:        { File: &lt;FILE&gt;, Line: &lt;LINE&gt;, Column: &lt;COL&gt; }</i></td></tr>
+<tr><th id="53">53</th><td><i class="doc">/// ...</i></td></tr>
+<tr><th id="54">54</th><td><b>struct</b> <dfn class="type def" id="llvm::remarks::YAMLSerializer" title='llvm::remarks::YAMLSerializer' data-ref="llvm::remarks::YAMLSerializer">YAMLSerializer</dfn> : <b>public</b> <a class="type" href="#llvm::remarks::Serializer" title='llvm::remarks::Serializer' data-ref="llvm::remarks::Serializer">Serializer</a> {</td></tr>
+<tr><th id="55">55</th><td>  <i class="doc">/// The YAML streamer.</i></td></tr>
+<tr><th id="56">56</th><td>  <span class="namespace">yaml::</span><a class="type" href="../Support/YAMLTraits.h.html#llvm::yaml::Output" title='llvm::yaml::Output' data-ref="llvm::yaml::Output">Output</a> <dfn class="decl" id="llvm::remarks::YAMLSerializer::YAMLOutput" title='llvm::remarks::YAMLSerializer::YAMLOutput' data-ref="llvm::remarks::YAMLSerializer::YAMLOutput">YAMLOutput</dfn>;</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>  <dfn class="decl" id="_ZN4llvm7remarks14YAMLSerializerC1ERNS_11raw_ostreamENS0_14UseStringTableE" title='llvm::remarks::YAMLSerializer::YAMLSerializer' data-ref="_ZN4llvm7remarks14YAMLSerializerC1ERNS_11raw_ostreamENS0_14UseStringTableE">YAMLSerializer</dfn>(<a class="type" href="../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col7 decl" id="1237OS" title='OS' data-type='llvm::raw_ostream &amp;' data-ref="1237OS">OS</dfn>,</td></tr>
+<tr><th id="59">59</th><td>                 <a class="type" href="#llvm::remarks::UseStringTable" title='llvm::remarks::UseStringTable' data-ref="llvm::remarks::UseStringTable">UseStringTable</a> <dfn class="local col8 decl" id="1238UseStringTable" title='UseStringTable' data-type='llvm::remarks::UseStringTable' data-ref="1238UseStringTable">UseStringTable</dfn> = <span class="namespace">remarks::</span><a class="type" href="#llvm::remarks::UseStringTable" title='llvm::remarks::UseStringTable' data-ref="llvm::remarks::UseStringTable">UseStringTable</a>::<a class="enum" href="#llvm::remarks::UseStringTable::No" title='llvm::remarks::UseStringTable::No' data-ref="llvm::remarks::UseStringTable::No">No</a>);</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>  <i class="doc">/// Emit a remark to the stream.</i></td></tr>
+<tr><th id="62">62</th><td>  <em>void</em> <dfn class="virtual decl" id="_ZN4llvm7remarks14YAMLSerializer4emitERKNS0_6RemarkE" title='llvm::remarks::YAMLSerializer::emit' data-ref="_ZN4llvm7remarks14YAMLSerializer4emitERKNS0_6RemarkE">emit</dfn>(<em>const</em> <a class="type" href="Remark.h.html#llvm::remarks::Remark" title='llvm::remarks::Remark' data-ref="llvm::remarks::Remark">Remark</a> &amp;<dfn class="local col9 decl" id="1239Remark" title='Remark' data-type='const llvm::remarks::Remark &amp;' data-ref="1239Remark">Remark</dfn>) override;</td></tr>
+<tr><th id="63">63</th><td>};</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>} <i>// end namespace remarks</i></td></tr>
+<tr><th id="66">66</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><u>#<span data-ppcond="13">endif</span> /* LLVM_REMARKS_REMARK_SERIALIZER_H */</u></td></tr>
+<tr><th id="69">69</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../clang/lib/CodeGen/CodeGenAction.cpp.html'>llvm/clang/lib/CodeGen/CodeGenAction.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

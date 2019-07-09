@@ -1,0 +1,54 @@
+<def f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='85' ll='134'/>
+<ovr f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='138' c='llvm::ARMTargetStreamer'/>
+<size>16</size>
+<doc f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='60'>/// Target specific streamer interface. This is used so that targets can
+/// implement support for target specific assembly directives.
+///
+/// If target foo wants to use this, it should implement 3 classes:
+/// * FooTargetStreamer : public MCTargetStreamer
+/// * FooTargetAsmStreamer : public FooTargetStreamer
+/// * FooTargetELFStreamer : public FooTargetStreamer
+///
+/// FooTargetStreamer should have a pure virtual method for each directive. For
+/// example, for a &quot;.bar symbol_name&quot; directive, it should have
+/// virtual emitBar(const MCSymbol &amp;Symbol) = 0;
+///
+/// The FooTargetAsmStreamer and FooTargetELFStreamer classes implement the
+/// method. The assembly streamer just prints &quot;.bar symbol_name&quot;. The object
+/// streamer does whatever is needed to implement .bar in the object file.
+///
+/// In the assembly printer and parser the target streamer can be used by
+/// calling getTargetStreamer and casting it to FooTargetStreamer:
+///
+/// MCTargetStreamer &amp;TS = OutStreamer.getTargetStreamer();
+/// FooTargetStreamer &amp;ATS = static_cast&lt;FooTargetStreamer &amp;&gt;(TS);
+///
+/// The base classes FooTargetAsmStreamer and FooTargetELFStreamer should
+/// *never* be treated differently. Callers should always talk to a
+/// FooTargetStreamer.</doc>
+<mbr r='llvm::MCTargetStreamer::Streamer' o='64' t='llvm::MCStreamer &amp;'/>
+<fun r='_ZN4llvm16MCTargetStreamerC1ERNS_10MCStreamerE'/>
+<fun r='_ZN4llvm16MCTargetStreamerD1Ev'/>
+<fun r='_ZN4llvm16MCTargetStreamer11getStreamerEv'/>
+<fun r='_ZN4llvm16MCTargetStreamer9emitLabelEPNS_8MCSymbolE'/>
+<fun r='_ZN4llvm16MCTargetStreamer14emitAssignmentEPNS_8MCSymbolEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm16MCTargetStreamer14prettyPrintAsmERNS_13MCInstPrinterERNS_11raw_ostreamERKNS_6MCInstERKNS_15MCSubtargetInfoE'/>
+<fun r='_ZN4llvm16MCTargetStreamer22emitDwarfFileDirectiveENS_9StringRefE'/>
+<fun r='_ZN4llvm16MCTargetStreamer13changeSectionEPKNS_9MCSectionEPS1_PKNS_6MCExprERNS_11raw_ostreamE'/>
+<fun r='_ZN4llvm16MCTargetStreamer9emitValueEPKNS_6MCExprE'/>
+<fun r='_ZN4llvm16MCTargetStreamer12emitRawBytesENS_9StringRefE'/>
+<fun r='_ZN4llvm16MCTargetStreamer6finishEv'/>
+<fun r='_ZNK4llvm16MCTargetStreamer18useLegacyCapRelocsEv'/>
+<fun r='_ZN4llvm16MCTargetStreamer30getTailPaddingForPreciseBoundsEj'/>
+<fun r='_ZN4llvm16MCTargetStreamer28getAlignmentForPreciseBoundsEj'/>
+<ovr f='llvm/llvm/lib/Target/AArch64/MCTargetDesc/AArch64TargetStreamer.h' l='20' c='llvm::AArch64TargetStreamer'/>
+<ovr f='llvm/llvm/lib/Target/AMDGPU/MCTargetDesc/AMDGPUTargetStreamer.h' l='31' c='llvm::AMDGPUTargetStreamer'/>
+<ovr f='llvm/llvm/lib/Target/Hexagon/HexagonTargetStreamer.h' l='15' c='llvm::HexagonTargetStreamer'/>
+<ovr f='llvm/llvm/lib/Target/MSP430/MCTargetDesc/MSP430ELFStreamer.cpp' l='25' c='llvm::MSP430TargetELFStreamer'/>
+<ovr f='llvm/llvm/lib/Target/Mips/MipsTargetStreamer.h' l='28' c='llvm::MipsTargetStreamer'/>
+<ovr f='llvm/llvm/lib/Target/NVPTX/MCTargetDesc/NVPTXTargetStreamer.h' l='18' c='llvm::NVPTXTargetStreamer'/>
+<ovr f='llvm/llvm/lib/Target/PowerPC/PPCTargetStreamer.h' l='21' c='llvm::PPCTargetStreamer'/>
+<ovr f='llvm/llvm/lib/Target/Sparc/MCTargetDesc/SparcTargetStreamer.h' l='16' c='llvm::SparcTargetStreamer'/>
+<ovr f='llvm/llvm/lib/Target/WebAssembly/MCTargetDesc/WebAssemblyTargetStreamer.h' l='29' c='llvm::WebAssemblyTargetStreamer'/>
+<ovr f='llvm/llvm/lib/Target/X86/MCTargetDesc/X86TargetStreamer.h' l='17' c='llvm::X86TargetStreamer'/>
+<ovr f='llvm/llvm/lib/Target/XCore/XCoreTargetStreamer.h' l='15' c='llvm::XCoreTargetStreamer'/>

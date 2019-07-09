@@ -1,0 +1,9 @@
+<dec f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.h' l='791' type='void llvm::SelectionDAGBuilder::updateDAGForMaybeTailCall(llvm::SDValue MaybeTC)'/>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='10010' ll='10016' type='void llvm::SelectionDAGBuilder::updateDAGForMaybeTailCall(llvm::SDValue MaybeTC)'/>
+<doc f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='10005'>/// During lowering new call nodes can be created (such as memset, etc.).
+/// Those will become new roots of the current DAG, but complications arise
+/// when they are tail calls. In such cases, the call lowering will update
+/// the root, but the builder still needs to know that a tail call has been
+/// lowered in order to avoid generating an additional return.</doc>
+<doc f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.h' l='789'>/// Update the DAG and DAG builder with the relevant information after
+  /// a new root node has been created which could be a tail call.</doc>

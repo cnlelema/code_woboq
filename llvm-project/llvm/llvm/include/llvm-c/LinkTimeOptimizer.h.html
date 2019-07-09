@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>LinkTimeOptimizer.h source code [llvm/llvm/include/llvm-c/LinkTimeOptimizer.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm_lto_status "/>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm-c/LinkTimeOptimizer.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>llvm</a>/<a href='../..'>llvm</a>/<a href='..'>include</a>/<a href='./'>llvm-c</a>/<a href='LinkTimeOptimizer.h.html'>LinkTimeOptimizer.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- llvm/LinkTimeOptimizer.h - LTO Public C Interface -------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This header provides a C API to use the LLVM link time optimization</i></td></tr>
+<tr><th id="10">10</th><td><i>// library. This is intended to be used by linkers which are C-only in</i></td></tr>
+<tr><th id="11">11</th><td><i>// their implementation for performing LTO.</i></td></tr>
+<tr><th id="12">12</th><td><i>//</i></td></tr>
+<tr><th id="13">13</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><u>#<span data-ppcond="15">ifndef</span> <span class="macro" data-ref="_M/LLVM_C_LINKTIMEOPTIMIZER_H">LLVM_C_LINKTIMEOPTIMIZER_H</span></u></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/LLVM_C_LINKTIMEOPTIMIZER_H" data-ref="_M/LLVM_C_LINKTIMEOPTIMIZER_H">LLVM_C_LINKTIMEOPTIMIZER_H</dfn></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="18">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="19">19</th><td><b>extern</b> <q>"C"</q> {</td></tr>
+<tr><th id="20">20</th><td><u>#<span data-ppcond="18">endif</span></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="23">23</th><td><i class="doc"> * <span class="command">@defgroup</span> <span class="verb">LLVMCLinkTimeOptimizer Link Time Optimization</span></i></td></tr>
+<tr><th id="24">24</th><td><i class="doc"> * <span class="command">@ingroup</span> <span class="verb">LLVMC</span></i></td></tr>
+<tr><th id="25">25</th><td><i class="doc"> *</i></td></tr>
+<tr><th id="26">26</th><td><i class="doc"> * @{</i></td></tr>
+<tr><th id="27">27</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="28">28</th><td><i class="doc"></i></td></tr>
+<tr><th id="29">29</th><td><i class="doc">  /// This provides a dummy type for pointers to the LTO object.</i></td></tr>
+<tr><th id="30">30</th><td>  <b>typedef</b> <em>void</em>* <dfn class="typedef" id="llvm_lto_t" title='llvm_lto_t' data-type='void *' data-ref="llvm_lto_t">llvm_lto_t</dfn>;</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td>  <i class="doc">/// This provides a C-visible enumerator to manage status codes.</i></td></tr>
+<tr><th id="33">33</th><td><i class="doc">  /// This should map exactly onto the C++ enumerator LTOStatus.</i></td></tr>
+<tr><th id="34">34</th><td>  <b>typedef</b> <b>enum</b> <dfn class="type def" id="llvm_lto_status" title='llvm_lto_status' data-ref="llvm_lto_status"><a class="type" href="#llvm_lto_status" title='llvm_lto_status' data-ref="llvm_lto_status">llvm_lto_status</a></dfn> {</td></tr>
+<tr><th id="35">35</th><td>    <dfn class="enum" id="llvm_lto_status::LLVM_LTO_UNKNOWN" title='llvm_lto_status::LLVM_LTO_UNKNOWN' data-ref="llvm_lto_status::LLVM_LTO_UNKNOWN">LLVM_LTO_UNKNOWN</dfn>,</td></tr>
+<tr><th id="36">36</th><td>    <dfn class="enum" id="llvm_lto_status::LLVM_LTO_OPT_SUCCESS" title='llvm_lto_status::LLVM_LTO_OPT_SUCCESS' data-ref="llvm_lto_status::LLVM_LTO_OPT_SUCCESS">LLVM_LTO_OPT_SUCCESS</dfn>,</td></tr>
+<tr><th id="37">37</th><td>    <dfn class="enum" id="llvm_lto_status::LLVM_LTO_READ_SUCCESS" title='llvm_lto_status::LLVM_LTO_READ_SUCCESS' data-ref="llvm_lto_status::LLVM_LTO_READ_SUCCESS">LLVM_LTO_READ_SUCCESS</dfn>,</td></tr>
+<tr><th id="38">38</th><td>    <dfn class="enum" id="llvm_lto_status::LLVM_LTO_READ_FAILURE" title='llvm_lto_status::LLVM_LTO_READ_FAILURE' data-ref="llvm_lto_status::LLVM_LTO_READ_FAILURE">LLVM_LTO_READ_FAILURE</dfn>,</td></tr>
+<tr><th id="39">39</th><td>    <dfn class="enum" id="llvm_lto_status::LLVM_LTO_WRITE_FAILURE" title='llvm_lto_status::LLVM_LTO_WRITE_FAILURE' data-ref="llvm_lto_status::LLVM_LTO_WRITE_FAILURE">LLVM_LTO_WRITE_FAILURE</dfn>,</td></tr>
+<tr><th id="40">40</th><td>    <dfn class="enum" id="llvm_lto_status::LLVM_LTO_NO_TARGET" title='llvm_lto_status::LLVM_LTO_NO_TARGET' data-ref="llvm_lto_status::LLVM_LTO_NO_TARGET">LLVM_LTO_NO_TARGET</dfn>,</td></tr>
+<tr><th id="41">41</th><td>    <dfn class="enum" id="llvm_lto_status::LLVM_LTO_NO_WORK" title='llvm_lto_status::LLVM_LTO_NO_WORK' data-ref="llvm_lto_status::LLVM_LTO_NO_WORK">LLVM_LTO_NO_WORK</dfn>,</td></tr>
+<tr><th id="42">42</th><td>    <dfn class="enum" id="llvm_lto_status::LLVM_LTO_MODULE_MERGE_FAILURE" title='llvm_lto_status::LLVM_LTO_MODULE_MERGE_FAILURE' data-ref="llvm_lto_status::LLVM_LTO_MODULE_MERGE_FAILURE">LLVM_LTO_MODULE_MERGE_FAILURE</dfn>,</td></tr>
+<tr><th id="43">43</th><td>    <dfn class="enum" id="llvm_lto_status::LLVM_LTO_ASM_FAILURE" title='llvm_lto_status::LLVM_LTO_ASM_FAILURE' data-ref="llvm_lto_status::LLVM_LTO_ASM_FAILURE">LLVM_LTO_ASM_FAILURE</dfn>,</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>    <i>//  Added C-specific error codes</i></td></tr>
+<tr><th id="46">46</th><td>    <dfn class="enum" id="llvm_lto_status::LLVM_LTO_NULL_OBJECT" title='llvm_lto_status::LLVM_LTO_NULL_OBJECT' data-ref="llvm_lto_status::LLVM_LTO_NULL_OBJECT">LLVM_LTO_NULL_OBJECT</dfn></td></tr>
+<tr><th id="47">47</th><td>  } <dfn class="typedef" id="llvm_lto_status_t" title='llvm_lto_status_t' data-type='enum llvm_lto_status' data-ref="llvm_lto_status_t">llvm_lto_status_t</dfn>;</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>  <i class="doc">/// This provides C interface to initialize link time optimizer. This allows</i></td></tr>
+<tr><th id="50">50</th><td><i class="doc">  /// linker to use dlopen() interface to dynamically load LinkTimeOptimizer.</i></td></tr>
+<tr><th id="51">51</th><td><i class="doc">  /// extern "C" helps, because dlopen() interface uses name to find the symbol.</i></td></tr>
+<tr><th id="52">52</th><td>  <b>extern</b> <a class="typedef" href="#llvm_lto_t" title='llvm_lto_t' data-type='void *' data-ref="llvm_lto_t">llvm_lto_t</a> <dfn class="decl" id="llvm_create_optimizer" title='llvm_create_optimizer' data-ref="llvm_create_optimizer">llvm_create_optimizer</dfn>(<em>void</em>);</td></tr>
+<tr><th id="53">53</th><td>  <b>extern</b> <em>void</em> <dfn class="decl" id="llvm_destroy_optimizer" title='llvm_destroy_optimizer' data-ref="llvm_destroy_optimizer">llvm_destroy_optimizer</dfn>(<a class="typedef" href="#llvm_lto_t" title='llvm_lto_t' data-type='void *' data-ref="llvm_lto_t">llvm_lto_t</a> <dfn class="local col1 decl" id="1lto" title='lto' data-type='llvm_lto_t' data-ref="1lto">lto</dfn>);</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>  <b>extern</b> <a class="typedef" href="#llvm_lto_status_t" title='llvm_lto_status_t' data-type='enum llvm_lto_status' data-ref="llvm_lto_status_t">llvm_lto_status_t</a> <dfn class="decl" id="llvm_read_object_file" title='llvm_read_object_file' data-ref="llvm_read_object_file">llvm_read_object_file</dfn></td></tr>
+<tr><th id="56">56</th><td>    (<a class="typedef" href="#llvm_lto_t" title='llvm_lto_t' data-type='void *' data-ref="llvm_lto_t">llvm_lto_t</a> <dfn class="local col2 decl" id="2lto" title='lto' data-type='llvm_lto_t' data-ref="2lto">lto</dfn>, <em>const</em> <em>char</em>* <dfn class="local col3 decl" id="3input_filename" title='input_filename' data-type='const char *' data-ref="3input_filename">input_filename</dfn>);</td></tr>
+<tr><th id="57">57</th><td>  <b>extern</b> <a class="typedef" href="#llvm_lto_status_t" title='llvm_lto_status_t' data-type='enum llvm_lto_status' data-ref="llvm_lto_status_t">llvm_lto_status_t</a> <dfn class="decl" id="llvm_optimize_modules" title='llvm_optimize_modules' data-ref="llvm_optimize_modules">llvm_optimize_modules</dfn></td></tr>
+<tr><th id="58">58</th><td>    (<a class="typedef" href="#llvm_lto_t" title='llvm_lto_t' data-type='void *' data-ref="llvm_lto_t">llvm_lto_t</a> <dfn class="local col4 decl" id="4lto" title='lto' data-type='llvm_lto_t' data-ref="4lto">lto</dfn>, <em>const</em> <em>char</em>* <dfn class="local col5 decl" id="5output_filename" title='output_filename' data-type='const char *' data-ref="5output_filename">output_filename</dfn>);</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="61">61</th><td><i class="doc"> * @}</i></td></tr>
+<tr><th id="62">62</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><u>#<span data-ppcond="64">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="65">65</th><td>}</td></tr>
+<tr><th id="66">66</th><td><u>#<span data-ppcond="64">endif</span></u></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><u>#<span data-ppcond="15">endif</span></u></td></tr>
+<tr><th id="69">69</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../tools/llvm-c-test/include-all.c.html'>llvm/llvm/tools/llvm-c-test/include-all.c</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

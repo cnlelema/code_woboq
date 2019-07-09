@@ -1,0 +1,19 @@
+<def f='llvm/llvm/include/llvm/Support/Printable.h' l='37' ll='42'/>
+<size>32</size>
+<doc f='llvm/llvm/include/llvm/Support/Printable.h' l='22'>/// Simple wrapper around std::function&lt;void(raw_ostream&amp;)&gt;.
+/// This class is useful to construct print helpers for raw_ostream.
+///
+/// Example:
+///     Printable PrintRegister(unsigned Register) {
+///       return Printable([Register](raw_ostream &amp;OS) {
+///         OS &lt;&lt; getRegisterName(Register);
+///       }
+///     }
+///     ... OS &lt;&lt; PrintRegister(Register); ...
+///
+/// Implementation note: Ideally this would just be a typedef, but doing so
+/// leads to operator &lt;&lt; being ambiguous as function has matching constructors
+/// in some STL versions. I have seen the problem on gcc 4.6 libstdc++ and
+/// microsoft STL.</doc>
+<mbr r='llvm::Printable::Print' o='0' t='std::function&lt;void (raw_ostream &amp;)&gt;'/>
+<fun r='_ZN4llvm9PrintableC1ESt8functionIFvRNS_11raw_ostreamEEE'/>

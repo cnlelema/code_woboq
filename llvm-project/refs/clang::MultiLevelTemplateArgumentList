@@ -1,0 +1,34 @@
+<def f='llvm/clang/include/clang/Sema/Template.h' l='64' ll='157'/>
+<size>88</size>
+<doc f='llvm/clang/include/clang/Sema/Template.h' l='45'>/// Data structure that captures multiple levels of template argument
+  /// lists for use in template instantiation.
+  ///
+  /// Multiple levels of template arguments occur when instantiating the
+  /// definitions of member templates. For example:
+  ///
+  /// \code
+  /// template&lt;typename T&gt;
+  /// struct X {
+  ///   template&lt;T Value&gt;
+  ///   struct Y {
+  ///     void f();
+  ///   };
+  /// };
+  /// \endcode
+  ///
+  /// When instantiating X&lt;int&gt;::Y&lt;17&gt;::f, the multi-level template argument
+  /// list will contain a template argument list (int) at depth 0 and a
+  /// template argument list (17) at depth 1.</doc>
+<mbr r='clang::MultiLevelTemplateArgumentList::TemplateArgumentLists' o='0' t='SmallVector&lt;ArgList, 4&gt;'/>
+<mbr r='clang::MultiLevelTemplateArgumentList::NumRetainedOuterLevels' o='640' t='unsigned int'/>
+<fun r='_ZN5clang30MultiLevelTemplateArgumentListC1Ev'/>
+<fun r='_ZN5clang30MultiLevelTemplateArgumentListC1ERKNS_20TemplateArgumentListE'/>
+<fun r='_ZNK5clang30MultiLevelTemplateArgumentList12getNumLevelsEv'/>
+<fun r='_ZNK5clang30MultiLevelTemplateArgumentList23getNumSubstitutedLevelsEv'/>
+<fun r='_ZNK5clang30MultiLevelTemplateArgumentListclEjj'/>
+<fun r='_ZNK5clang30MultiLevelTemplateArgumentList19hasTemplateArgumentEjj'/>
+<fun r='_ZN5clang30MultiLevelTemplateArgumentList11setArgumentEjjNS_16TemplateArgumentE'/>
+<fun r='_ZN5clang30MultiLevelTemplateArgumentList25addOuterTemplateArgumentsEPKNS_20TemplateArgumentListE'/>
+<fun r='_ZN5clang30MultiLevelTemplateArgumentList25addOuterTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE'/>
+<fun r='_ZN5clang30MultiLevelTemplateArgumentList21addOuterRetainedLevelEv'/>
+<fun r='_ZNK5clang30MultiLevelTemplateArgumentList12getInnermostEv'/>

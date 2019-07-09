@@ -1,0 +1,24 @@
+<dec f='llvm/clang/include/clang/Sema/Sema.h' l='6350' type='clang::NamedDecl * clang::Sema::getAsTemplateNameDecl(clang::NamedDecl * D, bool AllowFunctionTemplates = true, bool AllowDependent = true)'/>
+<doc f='llvm/clang/include/clang/Sema/Sema.h' l='6343'>/// Try to interpret the lookup result D as a template-name.
+  ///
+  /// \param D A declaration found by name lookup.
+  /// \param AllowFunctionTemplates Whether function templates should be
+  ///        considered valid results.
+  /// \param AllowDependent Whether unresolved using declarations (that might
+  ///        name templates) should be considered valid results.</doc>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='1085' u='c' c='_ZN5clang4Sema12ClassifyNameEPNS_5ScopeERNS_12CXXScopeSpecERPNS_14IdentifierInfoENS_14SourceLocationERKNS_5TokenEbPNS_27CorrectionCandidateCallbackE'/>
+<use f='llvm/clang/lib/Sema/SemaLookup.cpp' l='2283' u='c' c='_ZN5clang4Sema19LookupQualifiedNameERNS_12LookupResultEPNS_11DeclContextEb'/>
+<def f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='73' ll='117' type='clang::NamedDecl * clang::Sema::getAsTemplateNameDecl(clang::NamedDecl * D, bool AllowFunctionTemplates = true, bool AllowDependent = true)'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='125' u='c' c='_ZN5clang4Sema29FilterAcceptableTemplateNamesERNS_12LookupResultEbb'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='136' u='c' c='_ZN5clang4Sema29hasAnyAcceptableTemplateNamesERNS_12LookupResultEbbb'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='205' u='c' c='_ZN5clang4Sema14isTemplateNameEPNS_5ScopeERNS_12CXXScopeSpecEbRKNS_13UnqualifiedIdENS_9OpaquePtrINS_8QualTypeEEEbRNS8_INS_12TemplateNameEEERb'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='246' u='c' c='_ZN5clang4Sema14isTemplateNameEPNS_5ScopeERNS_12CXXScopeSpecEbRKNS_13UnqualifiedIdENS_9OpaquePtrINS_8QualTypeEEEbRNS8_INS_12TemplateNameEEERb'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='536' u='c' c='_ZN5clang4Sema18LookupTemplateNameERNS_12LookupResultEPNS_5ScopeERNS_12CXXScopeSpecENS_8QualTypeEbRbNS_14SourceLocationEPNS0_19AssumedTemplateKindE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='626' u='c' c='_ZZN5clang4Sema34diagnoseExprIntendedAsTemplateNameEPNS_5ScopeENS_12ActionResultIPNS_4ExprELb1EEENS_14SourceLocationES7_EN23TemplateCandidateFilter17V8997005'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='641' u='c' c='_ZN5clang4Sema34diagnoseExprIntendedAsTemplateNameEPNS_5ScopeENS_12ActionResultIPNS_4ExprELb1EEENS_14SourceLocationES7_'/>
+<doc f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='67'>/// Determine whether the declaration found is acceptable as the name
+/// of a template and, if so, return that template declaration. Otherwise,
+/// returns null.
+///
+/// Note that this may return an UnresolvedUsingValueDecl if AllowDependent
+/// is true. In all other cases it will return a TemplateDecl (or null).</doc>

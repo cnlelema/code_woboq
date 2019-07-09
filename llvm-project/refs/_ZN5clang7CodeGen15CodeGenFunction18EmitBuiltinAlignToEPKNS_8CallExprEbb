@@ -1,0 +1,10 @@
+<dec f='llvm/clang/lib/CodeGen/CodeGenFunction.h' l='3754' type='clang::CodeGen::RValue clang::CodeGen::CodeGenFunction::EmitBuiltinAlignTo(const clang::CallExpr * E, bool PowerOfTwo, bool AlignUp)'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='3506' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='3508' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='3510' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<use f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='3512' u='c' c='_ZN5clang7CodeGen15CodeGenFunction15EmitBuiltinExprENS_10GlobalDeclEjPKNS_8CallExprENS0_15ReturnValueSlotE'/>
+<def f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='14252' ll='14276' type='clang::CodeGen::RValue clang::CodeGen::CodeGenFunction::EmitBuiltinAlignTo(const clang::CallExpr * E, bool PowerOfTwo, bool AlignUp)'/>
+<doc f='llvm/clang/lib/CodeGen/CGBuiltin.cpp' l='14248'>/// Generate (x &amp; ~(y-1)) to align down or ((x + (y - 1)) &amp; ~(y - 1)) to align
+/// up. Note: for capability types we can&apos;t do the bitwise operations but
+/// instead need to add/subtract the difference to/from the pointer. For
+/// capabilities we do x - (x &amp; y) for down and x + (y - (x &amp; y))</doc>

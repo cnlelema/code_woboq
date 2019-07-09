@@ -1,0 +1,48 @@
+<def f='llvm/llvm/include/llvm/Analysis/BranchProbabilityInfo.h' l='52' ll='201'/>
+<size>408</size>
+<doc f='llvm/llvm/include/llvm/Analysis/BranchProbabilityInfo.h' l='40'>/// Analysis providing branch probability information.
+///
+/// This is a function analysis which provides information on the relative
+/// probabilities of each &quot;edge&quot; in the function&apos;s CFG where such an edge is
+/// defined by a pair (PredBlock and an index in the successors). The
+/// probability of an edge from one block is always relative to the
+/// probabilities of other edges from the block. The probabilites of all edges
+/// from a block sum to exactly one (100%).
+/// We use a pair (PredBlock and an index in the successors) to uniquely
+/// identify an edge, since we can have multiple edges from Src to Dst.
+/// As an example, we can have a switch which jumps to Dst with value 0 and
+/// value 10.</doc>
+<fun r='_ZN4llvm21BranchProbabilityInfoC1Ev'/>
+<fun r='_ZN4llvm21BranchProbabilityInfoC1ERKNS_8FunctionERKNS_8LoopInfoEPKNS_17TargetLibraryInfoE'/>
+<fun r='_ZN4llvm21BranchProbabilityInfoC1EOS0_'/>
+<fun r='_ZN4llvm21BranchProbabilityInfoC1ERKS0_'/>
+<fun r='_ZN4llvm21BranchProbabilityInfoaSERKS0_'/>
+<fun r='_ZN4llvm21BranchProbabilityInfoaSEOS0_'/>
+<fun r='_ZN4llvm21BranchProbabilityInfo13releaseMemoryEv'/>
+<fun r='_ZNK4llvm21BranchProbabilityInfo5printERNS_11raw_ostreamE'/>
+<fun r='_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBlockEj'/>
+<fun r='_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBlockES3_'/>
+<fun r='_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBlockENS_12SuccIteratorIKNS_11InstructionES2_EE'/>
+<fun r='_ZNK4llvm21BranchProbabilityInfo9isEdgeHotEPKNS_10BasicBlockES3_'/>
+<fun r='_ZNK4llvm21BranchProbabilityInfo10getHotSuccEPKNS_10BasicBlockE'/>
+<fun r='_ZNK4llvm21BranchProbabilityInfo20printEdgeProbabilityERNS_11raw_ostreamEPKNS_10BasicBlockES5_'/>
+<fun r='_ZN4llvm21BranchProbabilityInfo18setEdgeProbabilityEPKNS_10BasicBlockEjNS_17BranchProbabilityE'/>
+<fun r='_ZN4llvm21BranchProbabilityInfo27getBranchProbStackProtectorEb'/>
+<fun r='_ZN4llvm21BranchProbabilityInfo9calculateERKNS_8FunctionERKNS_8LoopInfoEPKNS_17TargetLibraryInfoE'/>
+<fun r='_ZN4llvm21BranchProbabilityInfo10eraseBlockEPKNS_10BasicBlockE'/>
+<mbr r='llvm::BranchProbabilityInfo::Handles' o='0' t='DenseSet&lt;llvm::BranchProbabilityInfo::BasicBlockCallbackVH, DenseMapInfo&lt;llvm::Value *&gt; &gt;'/>
+<smbr r='llvm::BranchProbabilityInfo::DEFAULT_WEIGHT' t='const uint32_t'/>
+<mbr r='llvm::BranchProbabilityInfo::Probs' o='256' t='DenseMap&lt;Edge, llvm::BranchProbability&gt;'/>
+<mbr r='llvm::BranchProbabilityInfo::LastF' o='512' t='const llvm::Function *'/>
+<mbr r='llvm::BranchProbabilityInfo::PostDominatedByUnreachable' o='576' t='SmallPtrSet&lt;const llvm::BasicBlock *, 16&gt;'/>
+<mbr r='llvm::BranchProbabilityInfo::PostDominatedByColdCall' o='1920' t='SmallPtrSet&lt;const llvm::BasicBlock *, 16&gt;'/>
+<fun r='_ZN4llvm21BranchProbabilityInfo32updatePostDominatedByUnreachableEPKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm21BranchProbabilityInfo29updatePostDominatedByColdCallEPKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm21BranchProbabilityInfo25calcUnreachableHeuristicsEPKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm21BranchProbabilityInfo19calcMetadataWeightsEPKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm21BranchProbabilityInfo22calcColdCallHeuristicsEPKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm21BranchProbabilityInfo21calcPointerHeuristicsEPKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm21BranchProbabilityInfo24calcLoopBranchHeuristicsEPKNS_10BasicBlockERKNS_8LoopInfoERNS0_7SccInfoE'/>
+<fun r='_ZN4llvm21BranchProbabilityInfo18calcZeroHeuristicsEPKNS_10BasicBlockEPKNS_17TargetLibraryInfoE'/>
+<fun r='_ZN4llvm21BranchProbabilityInfo27calcFloatingPointHeuristicsEPKNS_10BasicBlockE'/>
+<fun r='_ZN4llvm21BranchProbabilityInfo20calcInvokeHeuristicsEPKNS_10BasicBlockE'/>

@@ -1,0 +1,13 @@
+<def f='llvm/clang/include/clang/AST/Type.h' l='2600' ll='2606' type='bool clang::PointerType::isAddressSpaceOverlapping(const clang::PointerType &amp; other) const'/>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='2592'>/// Returns true if address spaces of pointers overlap.
+  /// OpenCL v2.0 defines conversion rules for pointers to different
+  /// address spaces (OpenCLC v2.0 s6.5.5) and notion of overlapping
+  /// address spaces.
+  /// CL1.1 or CL1.2:
+  ///   address spaces overlap iff they are they same.
+  /// CL2.0 adds:
+  ///   __generic overlaps with any address space except for __constant.</doc>
+<use f='llvm/clang/lib/Sema/SemaCast.cpp' l='2475' u='c' c='_ZL19TryAddressSpaceCastRN5clang4SemaERNS_12ActionResultIPNS_4ExprELb1EEENS_8QualTypeEbRj'/>
+<use f='llvm/clang/lib/Sema/SemaCast.cpp' l='2515' u='c' c='_ZN12_GLOBAL__N_113CastOperation21checkAddressSpaceCastEN5clang8QualTypeES2_'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='9379' u='c' c='_ZL35checkArithmeticBinOpPointerOperandsRN5clang4SemaENS_14SourceLocationEPNS_4ExprES4_'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='10744' u='c' c='_ZN5clang4Sema20CheckCompareOperandsERNS_12ActionResultIPNS_4ExprELb1EEES5_NS_14SourceLocationENS_18BinaryOperatorKindE'/>

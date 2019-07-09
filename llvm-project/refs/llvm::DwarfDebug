@@ -1,0 +1,139 @@
+<inh f='llvm/llvm/include/llvm/CodeGen/DebugHandlerBase.h' l='53' c='llvm::DebugHandlerBase'/>
+<def f='llvm/llvm/lib/CodeGen/AsmPrinter/DwarfDebug.h' l='273' ll='738'/>
+<size>6816</size>
+<doc f='llvm/llvm/lib/CodeGen/AsmPrinter/DwarfDebug.h' l='272'>/// Collects and handles dwarf debug information.</doc>
+<mbr r='llvm::DwarfDebug::DIEValueAllocator' o='3776' t='BumpPtrAllocator'/>
+<mbr r='llvm::DwarfDebug::CUMap' o='4608' t='MapVector&lt;const llvm::MDNode *, llvm::DwarfCompileUnit *&gt;'/>
+<mbr r='llvm::DwarfDebug::CUDieMap' o='5056' t='DenseMap&lt;const llvm::DIE *, llvm::DwarfCompileUnit *&gt;'/>
+<mbr r='llvm::DwarfDebug::ArangeLabels' o='5312' t='std::vector&lt;SymbolCU&gt;'/>
+<mbr r='llvm::DwarfDebug::SymSize' o='5504' t='DenseMap&lt;const llvm::MCSymbol *, uint64_t&gt;'/>
+<mbr r='llvm::DwarfDebug::ConcreteEntities' o='5760' t='SmallVector&lt;std::unique_ptr&lt;DbgEntity&gt;, 64&gt;'/>
+<mbr r='llvm::DwarfDebug::DebugLocs' o='9984' t='llvm::DebugLocStream'/>
+<mbr r='llvm::DwarfDebug::ProcessedSPNodes' o='29760' t='SetVector&lt;const llvm::DISubprogram *, SmallVector&lt;const llvm::DISubprogram *, 16&gt;, SmallPtrSet&lt;const llvm::DISubprogram *, 16&gt; &gt;'/>
+<mbr r='llvm::DwarfDebug::CurFn' o='32256' t='const llvm::MachineFunction *'/>
+<mbr r='llvm::DwarfDebug::PrevCU' o='32320' t='const llvm::DwarfCompileUnit *'/>
+<mbr r='llvm::DwarfDebug::CompilationDir' o='32384' t='llvm::StringRef'/>
+<mbr r='llvm::DwarfDebug::InfoHolder' o='32512' t='llvm::DwarfFile'/>
+<mbr r='llvm::DwarfDebug::TypeSignatures' o='36672' t='DenseMap&lt;const llvm::MDNode *, uint64_t&gt;'/>
+<mbr r='llvm::DwarfDebug::SectionLabels' o='36928' t='DenseMap&lt;const llvm::MCSection *, const llvm::MCSymbol *&gt;'/>
+<mbr r='llvm::DwarfDebug::TypeUnitsUnderConstruction' o='37184' t='SmallVector&lt;std::pair&lt;std::unique_ptr&lt;DwarfTypeUnit&gt;, const DICompositeType *&gt;, 1&gt;'/>
+<mbr r='llvm::DwarfDebug::UseGNUTLSOpcode' o='37440' t='bool'/>
+<mbr r='llvm::DwarfDebug::UseDWARF2Bitfields' o='37448' t='bool'/>
+<mbr r='llvm::DwarfDebug::UseAllLinkageNames' o='37456' t='bool'/>
+<mbr r='llvm::DwarfDebug::UseInlineStrings' o='37464' t='bool'/>
+<mbr r='llvm::DwarfDebug::UseRangesSection' o='37472' t='bool'/>
+<mbr r='llvm::DwarfDebug::UseSectionsAsReferences' o='37480' t='bool'/>
+<mbr r='llvm::DwarfDebug::UseLocSection' o='37488' t='bool'/>
+<mbr r='llvm::DwarfDebug::GenerateTypeUnits' o='37496' t='bool'/>
+<mbr r='llvm::DwarfDebug::TheAccelTableKind' o='37504' t='llvm::AccelTableKind'/>
+<mbr r='llvm::DwarfDebug::HasAppleExtensionAttributes' o='37536' t='bool'/>
+<mbr r='llvm::DwarfDebug::HasSplitDwarf' o='37544' t='bool'/>
+<mbr r='llvm::DwarfDebug::UseSegmentedStringOffsetsTable' o='37552' t='bool'/>
+<mbr r='llvm::DwarfDebug::SkeletonHolder' o='37568' t='llvm::DwarfFile'/>
+<mbr r='llvm::DwarfDebug::SplitTypeUnitFileTable' o='41728' t='llvm::MCDwarfDwoLineTable'/>
+<mbr r='llvm::DwarfDebug::SingleCU' o='46016' t='bool'/>
+<mbr r='llvm::DwarfDebug::IsDarwin' o='46024' t='bool'/>
+<mbr r='llvm::DwarfDebug::AddrPool' o='46080' t='llvm::AddressPool'/>
+<mbr r='llvm::DwarfDebug::AccelDebugNames' o='46464' t='AccelTable&lt;llvm::DWARF5AccelTableData&gt;'/>
+<mbr r='llvm::DwarfDebug::AccelNames' o='48064' t='AccelTable&lt;llvm::AppleAccelTableOffsetData&gt;'/>
+<mbr r='llvm::DwarfDebug::AccelObjC' o='49664' t='AccelTable&lt;llvm::AppleAccelTableOffsetData&gt;'/>
+<mbr r='llvm::DwarfDebug::AccelNamespace' o='51264' t='AccelTable&lt;llvm::AppleAccelTableOffsetData&gt;'/>
+<mbr r='llvm::DwarfDebug::AccelTypes' o='52864' t='AccelTable&lt;llvm::AppleAccelTableTypeData&gt;'/>
+<mbr r='llvm::DwarfDebug::DebuggerTuning' o='54464' t='llvm::DebuggerKind'/>
+<fun r='_ZN4llvm10DwarfDebug15getDwoLineTableERKNS_16DwarfCompileUnitE'/>
+<fun r='_ZN4llvm10DwarfDebug8getUnitsEv'/>
+<fun r='_ZN4llvm10DwarfDebug29ensureAbstractEntityIsCreatedERNS_16DwarfCompileUnitEPKNS_6DINodeEPKNS_6MDNodeE'/>
+<fun r='_ZN4llvm10DwarfDebug37ensureAbstractEntityIsCreatedIfScopedERNS_16DwarfCompileUnitEPKNS_6DINodeEPKNS_6MDNodeE'/>
+<fun r='_ZN4llvm10DwarfDebug20createConcreteEntityERNS_16DwarfCompileUnitERNS_12LexicalScopeEPKNS_6DINodeEPKNS_10DILocationEPKNS_8MCSymbolE'/>
+<fun r='_ZN4llvm10DwarfDebug35constructAbstractSubprogramScopeDIEERNS_16DwarfCompileUnitEPNS_12LexicalScopeE'/>
+<fun r='_ZN4llvm10DwarfDebug26constructCallSiteEntryDIEsERKNS_12DISubprogramERNS_16DwarfCompileUnitERNS_3DIEERKNS_15MachineFunctionE'/>
+<fun r='_ZN4llvm10DwarfDebug16addAccelNameImplERKNS_13DICompileUnitERNS_10AccelTableIT_EENS_9StringRefERKNS_3DIEE'/>
+<fun r='_ZN4llvm10DwarfDebug23finishEntityDefinitionsEv'/>
+<fun r='_ZN4llvm10DwarfDebug27finishSubprogramDefinitionsEv'/>
+<fun r='_ZN4llvm10DwarfDebug18finalizeModuleInfoEv'/>
+<fun r='_ZN4llvm10DwarfDebug13emitDebugInfoEv'/>
+<fun r='_ZN4llvm10DwarfDebug17emitAbbreviationsEv'/>
+<fun r='_ZN4llvm10DwarfDebug28emitStringOffsetsTableHeaderEv'/>
+<fun r='_ZN4llvm10DwarfDebug9emitAccelERT_PNS_9MCSectionENS_9StringRefE'/>
+<fun r='_ZN4llvm10DwarfDebug19emitAccelDebugNamesEv'/>
+<fun r='_ZN4llvm10DwarfDebug14emitAccelNamesEv'/>
+<fun r='_ZN4llvm10DwarfDebug13emitAccelObjCEv'/>
+<fun r='_ZN4llvm10DwarfDebug19emitAccelNamespacesEv'/>
+<fun r='_ZN4llvm10DwarfDebug14emitAccelTypesEv'/>
+<fun r='_ZN4llvm10DwarfDebug20emitDebugPubSectionsEv'/>
+<fun r='_ZN4llvm10DwarfDebug19emitDebugPubSectionEbNS_9StringRefEPNS_16DwarfCompileUnitERKNS_9StringMapIPKNS_3DIEENS_15MallocAllocatorEEE'/>
+<fun r='_ZN4llvm10DwarfDebug12emitDebugStrEv'/>
+<fun r='_ZN4llvm10DwarfDebug12emitDebugLocEv'/>
+<fun r='_ZN4llvm10DwarfDebug15emitDebugLocDWOEv'/>
+<fun r='_ZN4llvm10DwarfDebug16emitDebugARangesEv'/>
+<fun r='_ZN4llvm10DwarfDebug15emitDebugRangesEv'/>
+<fun r='_ZN4llvm10DwarfDebug18emitDebugRangesDWOEv'/>
+<fun r='_ZN4llvm10DwarfDebug16emitDebugMacinfoEv'/>
+<fun r='_ZN4llvm10DwarfDebug9emitMacroERNS_7DIMacroE'/>
+<fun r='_ZN4llvm10DwarfDebug13emitMacroFileERNS_11DIMacroFileERNS_16DwarfCompileUnitE'/>
+<fun r='_ZN4llvm10DwarfDebug16handleMacroNodesENS_24MDTupleTypedArrayWrapperINS_11DIMacroNodeEEERNS_16DwarfCompileUnitE'/>
+<fun r='_ZN4llvm10DwarfDebug16initSkeletonUnitERKNS_9DwarfUnitERNS_3DIEESt10unique_ptrINS_16DwarfCompileUnitESt14default_deleteIS7_EE'/>
+<fun r='_ZN4llvm10DwarfDebug19constructSkeletonCUERKNS_16DwarfCompileUnitE'/>
+<fun r='_ZN4llvm10DwarfDebug16emitDebugInfoDWOEv'/>
+<fun r='_ZN4llvm10DwarfDebug18emitDebugAbbrevDWOEv'/>
+<fun r='_ZN4llvm10DwarfDebug16emitDebugLineDWOEv'/>
+<fun r='_ZN4llvm10DwarfDebug31emitStringOffsetsTableHeaderDWOEv'/>
+<fun r='_ZN4llvm10DwarfDebug15emitDebugStrDWOEv'/>
+<fun r='_ZN4llvm10DwarfDebug13emitDebugAddrEv'/>
+<fun r='_ZNK4llvm10DwarfDebug19addGnuPubAttributesERNS_16DwarfCompileUnitERNS_3DIEE'/>
+<fun r='_ZN4llvm10DwarfDebug27getOrCreateDwarfCompileUnitEPKNS_13DICompileUnitE'/>
+<fun r='_ZN4llvm10DwarfDebug20finishUnitAttributesEPKNS_13DICompileUnitERNS_16DwarfCompileUnitE'/>
+<fun r='_ZN4llvm10DwarfDebug32constructAndAddImportedEntityDIEERNS_16DwarfCompileUnitEPKNS_16DIImportedEntityE'/>
+<fun r='_ZN4llvm10DwarfDebug16recordSourceLineEjjPKNS_6MDNodeEj'/>
+<fun r='_ZN4llvm10DwarfDebug17collectEntityInfoERNS_16DwarfCompileUnitEPKNS_12DISubprogramERNS_8DenseSetISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_12DenseMapInfoISE_EEEE'/>
+<fun r='_ZN4llvm10DwarfDebug17buildLocationListERNS_15SmallVectorImplINS_13DebugLocEntryEEERKNS_11SmallVectorINS_18DbgValueHistoryMap5EntryELj4EEE'/>
+<fun r='_ZN4llvm10DwarfDebug30collectVariableInfoFromMFTableERNS_16DwarfCompileUnitERNS_8DenseSetISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_12DenseMapInfoISB_EEEE'/>
+<fun r='_ZN4llvm10DwarfDebug20emitSectionReferenceERKNS_16DwarfCompileUnitE'/>
+<fun r='_ZN4llvm10DwarfDebug17beginFunctionImplEPKNS_15MachineFunctionE'/>
+<fun r='_ZN4llvm10DwarfDebug15endFunctionImplEPKNS_15MachineFunctionE'/>
+<fun r='_ZN4llvm10DwarfDebug23skippedNonDebugFunctionEv'/>
+<fun r='_ZN4llvm10DwarfDebugC1EPNS_10AsmPrinterEPNS_6ModuleE'/>
+<fun r='_ZN4llvm10DwarfDebugD1Ev'/>
+<fun r='_ZN4llvm10DwarfDebug11beginModuleEv'/>
+<fun r='_ZN4llvm10DwarfDebug9endModuleEv'/>
+<fun r='_ZN4llvm10DwarfDebug23emitInitialLocDirectiveERKNS_15MachineFunctionEj'/>
+<fun r='_ZN4llvm10DwarfDebug16beginInstructionEPKNS_12MachineInstrE'/>
+<fun r='_ZN4llvm10DwarfDebug17makeTypeSignatureENS_9StringRefE'/>
+<fun r='_ZN4llvm10DwarfDebug20addDwarfTypeUnitTypeERNS_16DwarfCompileUnitENS_9StringRefERNS_3DIEEPKNS_15DICompositeTypeE'/>
+<fun r='_ZN4llvm10DwarfDebug23enterNonTypeUnitContextEv'/>
+<fun r='_ZN4llvm10DwarfDebug14addArangeLabelENS_8SymbolCUE'/>
+<fun r='_ZN4llvm10DwarfDebug13setSymbolSizeEPKNS_8MCSymbolEm'/>
+<fun r='_ZNK4llvm10DwarfDebug18useAllLinkageNamesEv'/>
+<fun r='_ZNK4llvm10DwarfDebug15useGNUTLSOpcodeEv'/>
+<fun r='_ZNK4llvm10DwarfDebug18useDWARF2BitfieldsEv'/>
+<fun r='_ZNK4llvm10DwarfDebug16useInlineStringsEv'/>
+<fun r='_ZNK4llvm10DwarfDebug16useRangesSectionEv'/>
+<fun r='_ZNK4llvm10DwarfDebug23useSectionsAsReferencesEv'/>
+<fun r='_ZNK4llvm10DwarfDebug13useLocSectionEv'/>
+<fun r='_ZNK4llvm10DwarfDebug17generateTypeUnitsEv'/>
+<fun r='_ZNK4llvm10DwarfDebug17getAccelTableKindEv'/>
+<fun r='_ZNK4llvm10DwarfDebug27useAppleExtensionAttributesEv'/>
+<fun r='_ZNK4llvm10DwarfDebug13useSplitDwarfEv'/>
+<fun r='_ZNK4llvm10DwarfDebug30useSegmentedStringOffsetsTableEv'/>
+<fun r='_ZNK4llvm10DwarfDebug17shareAcrossDWOCUsEv'/>
+<fun r='_ZNK4llvm10DwarfDebug15getDwarfVersionEv'/>
+<fun r='_ZNK4llvm10DwarfDebug9getPrevCUEv'/>
+<fun r='_ZN4llvm10DwarfDebug9setPrevCUEPKNS_16DwarfCompileUnitE'/>
+<fun r='_ZNK4llvm10DwarfDebug12getDebugLocsEv'/>
+<fun r='_ZN4llvm10DwarfDebug17emitDebugLocEntryERNS_12ByteStreamerERKNS_14DebugLocStream5EntryEPKNS_16DwarfCompileUnitE'/>
+<fun r='_ZN4llvm10DwarfDebug25emitDebugLocEntryLocationERKNS_14DebugLocStream5EntryEPKNS_16DwarfCompileUnitE'/>
+<fun r='_ZN4llvm10DwarfDebug18addSubprogramNamesERKNS_13DICompileUnitEPKNS_12DISubprogramERNS_3DIEE'/>
+<fun r='_ZN4llvm10DwarfDebug14getAddressPoolEv'/>
+<fun r='_ZN4llvm10DwarfDebug12addAccelNameERKNS_13DICompileUnitENS_9StringRefERKNS_3DIEE'/>
+<fun r='_ZN4llvm10DwarfDebug12addAccelObjCERKNS_13DICompileUnitENS_9StringRefERKNS_3DIEE'/>
+<fun r='_ZN4llvm10DwarfDebug17addAccelNamespaceERKNS_13DICompileUnitENS_9StringRefERKNS_3DIEE'/>
+<fun r='_ZN4llvm10DwarfDebug12addAccelTypeERKNS_13DICompileUnitENS_9StringRefERKNS_3DIEEc'/>
+<fun r='_ZNK4llvm10DwarfDebug18getCurrentFunctionEv'/>
+<fun r='_ZN4llvm10DwarfDebug21isLexicalScopeDIENullEPNS_12LexicalScopeE'/>
+<fun r='_ZN4llvm10DwarfDebug8lookupCUEPKNS_3DIEE'/>
+<fun r='_ZNK4llvm10DwarfDebug8lookupCUEPKNS_3DIEE'/>
+<fun r='_ZNK4llvm10DwarfDebug10tuneForGDBEv'/>
+<fun r='_ZNK4llvm10DwarfDebug11tuneForLLDBEv'/>
+<fun r='_ZNK4llvm10DwarfDebug10tuneForSCEEv'/>
+<fun r='_ZN4llvm10DwarfDebug15addSectionLabelEPKNS_8MCSymbolE'/>
+<fun r='_ZN4llvm10DwarfDebug15getSectionLabelEPKNS_9MCSectionE'/>

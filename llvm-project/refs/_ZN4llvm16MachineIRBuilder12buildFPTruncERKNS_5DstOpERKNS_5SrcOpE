@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='813' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildFPTrunc(const llvm::DstOp &amp; Res, const llvm::SrcOp &amp; Op)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/MachineIRBuilder.h' l='803'>/// Build and insert \p Res = G_FPTRUNC \p Op
+  ///
+  /// G_FPTRUNC converts a floating-point value into one with a smaller type.
+  ///
+  /// \pre setBasicBlock or setMI must have been called.
+  /// \pre \p Res must be a generic virtual register with scalar or vector type.
+  /// \pre \p Op must be a generic virtual register with scalar or vector type.
+  /// \pre \p Res must be smaller than \p Op
+  ///
+  /// \return The newly created instruction.</doc>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/MachineIRBuilder.cpp' l='660' ll='663' type='llvm::MachineInstrBuilder llvm::MachineIRBuilder::buildFPTrunc(const llvm::DstOp &amp; Res, const llvm::SrcOp &amp; Op)'/>
+<use f='llvm/llvm/unittests/CodeGen/GlobalISel/PatternMatchTest.cpp' l='288' u='c' c='_ZN12_GLOBAL__N_137PatternMatchInstr_MatchFPUnaryOp_Test8TestBodyEv'/>

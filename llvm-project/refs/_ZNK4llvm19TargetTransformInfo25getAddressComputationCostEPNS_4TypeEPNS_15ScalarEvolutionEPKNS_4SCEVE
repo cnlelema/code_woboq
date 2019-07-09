@@ -1,0 +1,15 @@
+<dec f='llvm/llvm/include/llvm/Analysis/TargetTransformInfo.h' l='934' type='int llvm::TargetTransformInfo::getAddressComputationCost(llvm::Type * Ty, llvm::ScalarEvolution * SE = nullptr, const llvm::SCEV * Ptr = nullptr) const'/>
+<doc f='llvm/llvm/include/llvm/Analysis/TargetTransformInfo.h' l='927'>/// \returns The cost of the address computation. For most targets this can be
+  /// merged into the instruction indexing mode. Some targets might want to
+  /// distinguish between address computation for memory operations on vector
+  /// types and scalar types. Such targets should override this function.
+  /// The &apos;SE&apos; parameter holds pointer for the scalar evolution object which
+  /// is used in order to get the Ptr step value in case of constant stride.
+  /// The &apos;Ptr&apos; parameter holds SCEV of the access pointer.</doc>
+<def f='llvm/llvm/lib/Analysis/TargetTransformInfo.cpp' l='585' ll='591' type='int llvm::TargetTransformInfo::getAddressComputationCost(llvm::Type * Tp, llvm::ScalarEvolution * SE = nullptr, const llvm::SCEV * Ptr = nullptr) const'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/RewriteStatepointsForGC.cpp' l='1973' u='c' c='_ZL22chainToBasePointerCostRN4llvm15SmallVectorImplIPNS_11InstructionEEERNS_19TargetTransformInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='5496' u='c' c='_ZN4llvm26LoopVectorizationCostModel27getMemInstScalarizationCostEPNS_11InstructionEj'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='5553' u='c' c='_ZN4llvm26LoopVectorizationCostModel19getUniformMemOpCostEPNS_11InstructionEj'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='5560' u='c' c='_ZN4llvm26LoopVectorizationCostModel19getUniformMemOpCostEPNS_11InstructionEj'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='5574' u='c' c='_ZN4llvm26LoopVectorizationCostModel20getGatherScatterCostEPNS_11InstructionEj'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='5626' u='c' c='_ZN4llvm26LoopVectorizationCostModel24getMemoryInstructionCostEPNS_11InstructionEj'/>

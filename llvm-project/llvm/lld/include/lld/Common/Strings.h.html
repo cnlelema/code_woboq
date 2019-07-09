@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Strings.h source code [llvm/lld/include/lld/Common/Strings.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="lld::StringMatcher "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/lld/include/lld/Common/Strings.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>lld</a>/<a href='../..'>include</a>/<a href='..'>lld</a>/<a href='./'>Common</a>/<a href='Strings.h.html'>Strings.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- Strings.h ------------------------------------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLD_STRINGS_H">LLD_STRINGS_H</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLD_STRINGS_H" data-ref="_M/LLD_STRINGS_H">LLD_STRINGS_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="../../../../llvm/include/llvm/ADT/ArrayRef.h.html">"llvm/ADT/ArrayRef.h"</a></u></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../../../../llvm/include/llvm/ADT/Optional.h.html">"llvm/ADT/Optional.h"</a></u></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="../../../../llvm/include/llvm/ADT/StringRef.h.html">"llvm/ADT/StringRef.h"</a></u></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="../../../../llvm/include/llvm/Support/GlobPattern.h.html">"llvm/Support/GlobPattern.h"</a></u></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="../../../../../include/c++/7/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../../../../include/c++/7/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><b>namespace</b> <span class="namespace">lld</span> {</td></tr>
+<tr><th id="20">20</th><td><i>// Returns a demangled C++ symbol name. If Name is not a mangled</i></td></tr>
+<tr><th id="21">21</th><td><i>// name, it returns Optional::None.</i></td></tr>
+<tr><th id="22">22</th><td><span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/Optional.h.html#llvm::Optional" title='llvm::Optional' data-ref="llvm::Optional">Optional</a>&lt;<span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a>&gt; <dfn class="decl" id="_ZN3lld15demangleItaniumEN4llvm9StringRefE" title='lld::demangleItanium' data-ref="_ZN3lld15demangleItaniumEN4llvm9StringRefE">demangleItanium</dfn>(<span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col5 decl" id="5Name" title='Name' data-type='llvm::StringRef' data-ref="5Name">Name</dfn>);</td></tr>
+<tr><th id="23">23</th><td><span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/Optional.h.html#llvm::Optional" title='llvm::Optional' data-ref="llvm::Optional">Optional</a>&lt;<span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/7/bits/stringfwd.h.html#std::__cxx11::string" title='std::__cxx11::string' data-type='basic_string&lt;char&gt;' data-ref="std::__cxx11::string">string</a>&gt; <dfn class="decl" id="_ZN3lld12demangleMSVCEN4llvm9StringRefE" title='lld::demangleMSVC' data-ref="_ZN3lld12demangleMSVCEN4llvm9StringRefE">demangleMSVC</dfn>(<span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col6 decl" id="6S" title='S' data-type='llvm::StringRef' data-ref="6S">S</dfn>);</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a>&gt; <dfn class="decl" id="_ZN3lld8parseHexEN4llvm9StringRefE" title='lld::parseHex' data-ref="_ZN3lld8parseHexEN4llvm9StringRefE">parseHex</dfn>(<span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col7 decl" id="7S" title='S' data-type='llvm::StringRef' data-ref="7S">S</dfn>);</td></tr>
+<tr><th id="26">26</th><td><em>bool</em> <dfn class="decl" id="_ZN3lld18isValidCIdentifierEN4llvm9StringRefE" title='lld::isValidCIdentifier' data-ref="_ZN3lld18isValidCIdentifierEN4llvm9StringRefE">isValidCIdentifier</dfn>(<span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col8 decl" id="8S" title='S' data-type='llvm::StringRef' data-ref="8S">S</dfn>);</td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><i>// Write the contents of the a buffer to a file</i></td></tr>
+<tr><th id="29">29</th><td><em>void</em> <dfn class="decl" id="_ZN3lld10saveBufferEN4llvm9StringRefERKNS0_5TwineE" title='lld::saveBuffer' data-ref="_ZN3lld10saveBufferEN4llvm9StringRefERKNS0_5TwineE">saveBuffer</dfn>(<span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col9 decl" id="9Buffer" title='Buffer' data-type='llvm::StringRef' data-ref="9Buffer">Buffer</dfn>, <em>const</em> <span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/Twine.h.html#llvm::Twine" title='llvm::Twine' data-ref="llvm::Twine">Twine</a> &amp;<dfn class="local col0 decl" id="10Path" title='Path' data-type='const llvm::Twine &amp;' data-ref="10Path">Path</dfn>);</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><i>// This class represents multiple glob patterns.</i></td></tr>
+<tr><th id="32">32</th><td><b>class</b> <dfn class="type def" id="lld::StringMatcher" title='lld::StringMatcher' data-ref="lld::StringMatcher">StringMatcher</dfn> {</td></tr>
+<tr><th id="33">33</th><td><b>public</b>:</td></tr>
+<tr><th id="34">34</th><td>  <dfn class="decl" id="_ZN3lld13StringMatcherC1Ev" title='lld::StringMatcher::StringMatcher' data-ref="_ZN3lld13StringMatcherC1Ev">StringMatcher</dfn>() = <b>default</b>;</td></tr>
+<tr><th id="35">35</th><td>  <b>explicit</b> <dfn class="decl" id="_ZN3lld13StringMatcherC1EN4llvm8ArrayRefINS1_9StringRefEEE" title='lld::StringMatcher::StringMatcher' data-ref="_ZN3lld13StringMatcherC1EN4llvm8ArrayRefINS1_9StringRefEEE">StringMatcher</dfn>(<span class="namespace">llvm::</span><a class="type" href="LLVM.h.html#llvm::ArrayRef" title='llvm::ArrayRef' data-ref="llvm::ArrayRef">ArrayRef</a>&lt;<span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a>&gt; <dfn class="local col1 decl" id="11Pat" title='Pat' data-type='llvm::ArrayRef&lt;llvm::StringRef&gt;' data-ref="11Pat">Pat</dfn>);</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK3lld13StringMatcher5matchEN4llvm9StringRefE" title='lld::StringMatcher::match' data-ref="_ZNK3lld13StringMatcher5matchEN4llvm9StringRefE">match</dfn>(<span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col2 decl" id="12S" title='S' data-type='llvm::StringRef' data-ref="12S">S</dfn>) <em>const</em>;</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><b>private</b>:</td></tr>
+<tr><th id="40">40</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/7/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/Support/GlobPattern.h.html#llvm::GlobPattern" title='llvm::GlobPattern' data-ref="llvm::GlobPattern">GlobPattern</a>&gt; <dfn class="decl" id="lld::StringMatcher::Patterns" title='lld::StringMatcher::Patterns' data-ref="lld::StringMatcher::Patterns">Patterns</dfn>;</td></tr>
+<tr><th id="41">41</th><td>};</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td>} <i>// namespace lld</i></td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><u>#<span data-ppcond="9">endif</span></u></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../COFF/LTO.cpp.html'>llvm/lld/COFF/LTO.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

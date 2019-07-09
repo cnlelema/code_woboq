@@ -1,0 +1,41 @@
+<inh f='llvm/clang/include/clang/AST/DeclBase.h' l='88' c='clang::Decl'/>
+<inh f='llvm/llvm/include/llvm/Support/TrailingObjects.h' l='233' c='llvm::TrailingObjects'/>
+<def f='llvm/clang/include/clang/AST/DeclFriend.h' l='53' ll='184'/>
+<size>1</size>
+<doc f='llvm/clang/include/clang/AST/DeclFriend.h' l='38'>/// FriendDecl - Represents the declaration of a friend entity,
+/// which can be a function, a type, or a templated function or type.
+/// For example:
+///
+/// @code
+/// template &lt;typename T&gt; class A {
+///   friend int foo(T);
+///   friend class B;
+///   friend T; // only in C++0x
+///   template &lt;typename U&gt; friend class C;
+///   template &lt;typename U&gt; friend A&amp; operator+=(A&amp;, const U&amp;) { ... }
+/// };
+/// @endcode
+///
+/// The semantic context of a friend decl is its declaring class.</doc>
+<fun r='_ZN5clang10FriendDecl6anchorEv'/>
+<mbr r='clang::FriendDecl::Friend' t='FriendUnion'/>
+<mbr r='clang::FriendDecl::NextFriend' t='LazyDeclPtr'/>
+<mbr r='clang::FriendDecl::FriendLoc' t='clang::SourceLocation'/>
+<mbr r='clang::FriendDecl::UnsupportedFriend' t='unsigned int'/>
+<mbr r='clang::FriendDecl::NumTPLists' t='unsigned int'/>
+<fun r='_ZN5clang10FriendDeclC1EPNS_11DeclContextENS_14SourceLocationEN4llvm12PointerUnionIJPNS_9NamedDeclEPNS_14TypeSourceInfoEEEES3_NS4_8ArrayRefIPNS_21TemplateParameterListEEE'/>
+<fun r='_ZN5clang10FriendDeclC1ENS_4Decl10EmptyShellEj'/>
+<fun r='_ZN5clang10FriendDecl13getNextFriendEv'/>
+<fun r='_ZN5clang10FriendDecl21getNextFriendSlowCaseEv'/>
+<fun r='_ZN5clang10FriendDecl6CreateERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationEN4llvm12PointerUnionIJPNS_9NamedDeclEPNS_14TypeSourceInfoEEEES5_NS3106479'/>
+<fun r='_ZN5clang10FriendDecl18CreateDeserializedERNS_10ASTContextEjj'/>
+<fun r='_ZNK5clang10FriendDecl13getFriendTypeEv'/>
+<fun r='_ZNK5clang10FriendDecl38getFriendTypeNumTemplateParameterListsEv'/>
+<fun r='_ZNK5clang10FriendDecl34getFriendTypeTemplateParameterListEj'/>
+<fun r='_ZNK5clang10FriendDecl13getFriendDeclEv'/>
+<fun r='_ZNK5clang10FriendDecl12getFriendLocEv'/>
+<fun r='_ZNK5clang10FriendDecl14getSourceRangeEv'/>
+<fun r='_ZNK5clang10FriendDecl19isUnsupportedFriendEv'/>
+<fun r='_ZN5clang10FriendDecl20setUnsupportedFriendEb'/>
+<fun r='_ZN5clang10FriendDecl7classofEPKNS_4DeclE'/>
+<fun r='_ZN5clang10FriendDecl11classofKindENS_4Decl4KindE'/>

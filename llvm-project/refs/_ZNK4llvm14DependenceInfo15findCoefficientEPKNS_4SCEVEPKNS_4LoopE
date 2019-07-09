@@ -1,0 +1,29 @@
+<dec f='llvm/llvm/include/llvm/Analysis/DependenceAnalysis.h' l='902' type='const llvm::SCEV * llvm::DependenceInfo::findCoefficient(const llvm::SCEV * Expr, const llvm::Loop * TargetLoop) const'/>
+<def f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='2995' ll='3003' type='const llvm::SCEV * llvm::DependenceInfo::findCoefficient(const llvm::SCEV * Expr, const llvm::Loop * TargetLoop) const'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='3002' u='c' c='_ZNK4llvm14DependenceInfo15findCoefficientEPKNS_4SCEVEPKNS_4LoopE'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='3096' u='c' c='_ZN4llvm14DependenceInfo17propagateDistanceERPKNS_4SCEVES4_RNS0_10ConstraintERb'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='3106' u='c' c='_ZN4llvm14DependenceInfo17propagateDistanceERPKNS_4SCEVES4_RNS0_10ConstraintERb'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='3136' u='c' c='_ZN4llvm14DependenceInfo13propagateLineERPKNS_4SCEVES4_RNS0_10ConstraintERb'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='3140' u='c' c='_ZN4llvm14DependenceInfo13propagateLineERPKNS_4SCEVES4_RNS0_10ConstraintERb'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='3151' u='c' c='_ZN4llvm14DependenceInfo13propagateLineERPKNS_4SCEVES4_RNS0_10ConstraintERb'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='3154' u='c' c='_ZN4llvm14DependenceInfo13propagateLineERPKNS_4SCEVES4_RNS0_10ConstraintERb'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='3165' u='c' c='_ZN4llvm14DependenceInfo13propagateLineERPKNS_4SCEVES4_RNS0_10ConstraintERb'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='3169' u='c' c='_ZN4llvm14DependenceInfo13propagateLineERPKNS_4SCEVES4_RNS0_10ConstraintERb'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='3174' u='c' c='_ZN4llvm14DependenceInfo13propagateLineERPKNS_4SCEVES4_RNS0_10ConstraintERb'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='3180' u='c' c='_ZN4llvm14DependenceInfo13propagateLineERPKNS_4SCEVES4_RNS0_10ConstraintERb'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='3195' u='c' c='_ZN4llvm14DependenceInfo14propagatePointERPKNS_4SCEVES4_RNS0_10ConstraintE'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='3196' u='c' c='_ZN4llvm14DependenceInfo14propagatePointERPKNS_4SCEVES4_RNS0_10ConstraintE'/>
+<doc f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='2986'>//===----------------------------------------------------------------------===//
+// Constraint manipulation for Delta test.
+
+// Given a linear SCEV,
+// return the coefficient (the step)
+// corresponding to the specified loop.
+// If there isn&apos;t one, return 0.
+// For example, given a*i + b*j + c*k, finding the coefficient
+// corresponding to the j loop would yield b.</doc>
+<doc f='llvm/llvm/include/llvm/Analysis/DependenceAnalysis.h' l='897'>/// findCoefficient - Given a linear SCEV,
+    /// return the coefficient corresponding to specified loop.
+    /// If there isn&apos;t one, return the SCEV constant 0.
+    /// For example, given a*i + b*j + c*k, returning the coefficient
+    /// corresponding to the j loop would yield b.</doc>

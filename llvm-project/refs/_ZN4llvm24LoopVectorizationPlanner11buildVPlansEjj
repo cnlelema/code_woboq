@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorizationPlanner.h' l='265' type='void llvm::LoopVectorizationPlanner::buildVPlans(unsigned int MinVF, unsigned int MaxVF)'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='6165' u='c' c='_ZN4llvm24LoopVectorizationPlanner21planInVPlanNativePathEbj'/>
+<def f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='6383' ll='6389' type='void llvm::LoopVectorizationPlanner::buildVPlans(unsigned int MinVF, unsigned int MaxVF)'/>
+<doc f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='6378'>/// Build VPlans for the full range of feasible VF&apos;s = {\p MinVF, 2 * \p MinVF,
+/// 4 * \p MinVF, ..., \p MaxVF} by repeatedly building a VPlan for a sub-range
+/// of VF&apos;s starting at a given VF and extending it as much as possible. Each
+/// vectorization decision can potentially shorten this sub-range during
+/// buildVPlan().</doc>
+<doc f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorizationPlanner.h' l='262'>/// Build VPlans for power-of-2 VF&apos;s between \p MinVF and \p MaxVF inclusive,
+  /// according to the information gathered by Legal when it checked if it is
+  /// legal to vectorize the loop.</doc>

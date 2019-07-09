@@ -1,0 +1,27 @@
+<inh f='llvm/clang/include/clang/AST/Type.h' l='1428' c='clang::Type'/>
+<inh f='llvm/llvm/include/llvm/ADT/FoldingSet.h' l='135' c='llvm::FoldingSetBase::Node'/>
+<def f='llvm/clang/include/clang/AST/Type.h' l='3291' ll='3325'/>
+<size>64</size>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='3282'>/// Represents a vector type where either the type or size is dependent.
+////
+/// For example:
+/// \code
+/// template&lt;typename T, int Size&gt;
+/// class vector {
+///   typedef T __attribute__((vector_size(Size))) type;
+/// }
+/// \endcode</doc>
+<mbr r='clang::DependentVectorType::Context' o='256' t='const clang::ASTContext &amp;'/>
+<mbr r='clang::DependentVectorType::ElementType' o='320' t='clang::QualType'/>
+<mbr r='clang::DependentVectorType::SizeExpr' o='384' t='clang::Expr *'/>
+<mbr r='clang::DependentVectorType::Loc' o='448' t='clang::SourceLocation'/>
+<fun r='_ZN5clang19DependentVectorTypeC1ERKNS_10ASTContextENS_8QualTypeES4_PNS_4ExprENS_14SourceLocationENS_10VectorType10VectorKindE'/>
+<fun r='_ZNK5clang19DependentVectorType11getSizeExprEv'/>
+<fun r='_ZNK5clang19DependentVectorType14getElementTypeEv'/>
+<fun r='_ZNK5clang19DependentVectorType15getAttributeLocEv'/>
+<fun r='_ZNK5clang19DependentVectorType13getVectorKindEv'/>
+<fun r='_ZNK5clang19DependentVectorType9isSugaredEv'/>
+<fun r='_ZNK5clang19DependentVectorType7desugarEv'/>
+<fun r='_ZN5clang19DependentVectorType7classofEPKNS_4TypeE'/>
+<fun r='_ZN5clang19DependentVectorType7ProfileERN4llvm16FoldingSetNodeIDE'/>
+<fun r='_ZN5clang19DependentVectorType7ProfileERN4llvm16FoldingSetNodeIDERKNS_10ASTContextENS_8QualTypeEPKNS_4ExprENS_10VectorType10VectorKindE'/>

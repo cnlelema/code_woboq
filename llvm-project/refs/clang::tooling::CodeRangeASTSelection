@@ -1,0 +1,39 @@
+<def f='llvm/clang/include/clang/Tooling/Refactoring/ASTSelection.h' l='94' ll='149'/>
+<size>96</size>
+<doc f='llvm/clang/include/clang/Tooling/Refactoring/ASTSelection.h' l='72'>/// An AST selection value that corresponds to a selection of a set of
+/// statements that belong to one body of code (like one function).
+///
+/// For example, the following selection in the source.
+///
+/// \code
+/// void function() {
+///  // selection begin:
+///  int x = 0;
+///  {
+///     // selection end
+///     x = 1;
+///  }
+///  x = 2;
+/// }
+/// \endcode
+///
+/// Would correspond to a code range selection of statements &quot;int x = 0&quot;
+/// and the entire compound statement that follows it.
+///
+/// A \c CodeRangeASTSelection value stores references to the full
+/// \c SelectedASTNode tree and should not outlive it.</doc>
+<fun r='_ZN5clang7tooling21CodeRangeASTSelectionC1EOS1_'/>
+<fun r='_ZN5clang7tooling21CodeRangeASTSelectionaSEOS1_'/>
+<fun r='_ZN5clang7tooling21CodeRangeASTSelection10getParentsEv'/>
+<fun r='_ZNK5clang7tooling21CodeRangeASTSelection4sizeEv'/>
+<fun r='_ZNK5clang7tooling21CodeRangeASTSelectionixEm'/>
+<fun r='_ZNK5clang7tooling21CodeRangeASTSelection26isInFunctionLikeBodyOfCodeEv'/>
+<fun r='_ZNK5clang7tooling21CodeRangeASTSelection28getFunctionLikeNearestParentEv'/>
+<fun r='_ZN5clang7tooling21CodeRangeASTSelection6createENS_11SourceRangeERKNS0_15SelectedASTNodeE'/>
+<fun r='_ZN5clang7tooling21CodeRangeASTSelectionC1ESt17reference_wrapperIKNS0_15SelectedASTNodeEEN4llvm8ArrayRefIS5_EEb'/>
+<mbr r='clang::tooling::CodeRangeASTSelection::SelectedNode' o='0' t='SelectedASTNode::ReferenceType'/>
+<mbr r='clang::tooling::CodeRangeASTSelection::Parents' o='64' t='llvm::SmallVector&lt;SelectedASTNode::ReferenceType, 8&gt;'/>
+<mbr r='clang::tooling::CodeRangeASTSelection::AreChildrenSelected' o='704' t='bool'/>
+<fun r='_ZN5clang7tooling21CodeRangeASTSelection6createENS_11SourceRangeERKNS0_15SelectedASTNodeE'/>
+<fun r='_ZNK5clang7tooling21CodeRangeASTSelection26isInFunctionLikeBodyOfCodeEv'/>
+<fun r='_ZNK5clang7tooling21CodeRangeASTSelection28getFunctionLikeNearestParentEv'/>

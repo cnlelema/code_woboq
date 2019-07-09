@@ -1,0 +1,14 @@
+<dec f='llvm/lld/ELF/LinkerScript.h' l='275' type='void lld::elf::LinkerScript::allocateHeaders(std::vector&lt;PhdrEntry *&gt; &amp; Phdrs)'/>
+<def f='llvm/lld/ELF/LinkerScript.cpp' l='989' ll='1025' type='void lld::elf::LinkerScript::allocateHeaders(std::vector&lt;PhdrEntry *&gt; &amp; Phdrs)'/>
+<doc f='llvm/lld/ELF/LinkerScript.cpp' l='978'>// Try to find an address for the file and program headers output sections,
+// which were unconditionally added to the first PT_LOAD segment earlier.
+//
+// When using the default layout, we check if the headers fit below the first
+// allocated section. When using a linker script, we also check if the headers
+// are covered by the output section. This allows omitting the headers by not
+// leaving enough space for them in the linker script; this pattern is common
+// in embedded systems.
+//
+// If there isn&apos;t enough space for these sections, we&apos;ll remove them from the
+// PT_LOAD segment, and we&apos;ll also remove the PT_PHDR segment.</doc>
+<use f='llvm/lld/ELF/Writer.cpp' l='645' u='c' c='_ZN12_GLOBAL__N_16Writer3runEv'/>

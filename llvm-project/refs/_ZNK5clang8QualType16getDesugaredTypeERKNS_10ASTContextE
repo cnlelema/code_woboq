@@ -1,0 +1,17 @@
+<def f='llvm/clang/include/clang/AST/Type.h' l='952' ll='954' type='clang::QualType clang::QualType::getDesugaredType(const clang::ASTContext &amp; Context) const'/>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='944'>/// Return the specified type with any &quot;sugar&quot; removed from
+  /// the type.  This takes off typedefs, typeof&apos;s etc.  If the outer level of
+  /// the type is already concrete, it returns it unmodified.  This is similar
+  /// to getting the canonical type, but it doesn&apos;t remove *all* typedefs.  For
+  /// example, it returns &quot;T*&quot; as &quot;T*&quot;, (not as &quot;int*&quot;), because the pointer is
+  /// concrete.
+  ///
+  /// Qualifiers are left in place.</doc>
+<use f='llvm/clang/lib/AST/ASTStructuralEquivalence.cpp' l='577' u='c' c='_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_'/>
+<use f='llvm/clang/lib/AST/ASTStructuralEquivalence.cpp' l='579' u='c' c='_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_'/>
+<use f='llvm/clang/lib/AST/MicrosoftMangle.cpp' l='566' u='c' c='_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler22mangleVariableEncodingEPKN5clang7VarDeclE'/>
+<use f='llvm/clang/lib/AST/MicrosoftMangle.cpp' l='1885' u='c' c='_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEN5clang8QualTypeENS1_11SourceRangeENS0_19QualifierMangleModeE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='1752' u='c' c='_ZN5clang7CodeGen11CGDebugInfo21CollectTemplateParamsEPKNS_21TemplateParameterListEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS5_6DIFileE'/>
+<use f='llvm/clang/lib/Sema/SemaChecking.cpp' l='9926' u='c' c='_ZN12_GLOBAL__N_18IntRange23forValueOfCanonicalTypeERN5clang10ASTContextEPKNS1_4TypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExprMember.cpp' l='1748' u='c' c='_ZN5clang4Sema26CheckMemberAccessOfNoDerefEPKNS_10MemberExprE'/>
+<use f='llvm/clang/lib/Sema/SemaExprObjC.cpp' l='1447' u='c' c='_ZN5clang4Sema24getMessageSendResultTypeEPKNS_4ExprENS_8QualTypeEPNS_14ObjCMethodDeclEbb'/>

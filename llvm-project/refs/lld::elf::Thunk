@@ -1,0 +1,39 @@
+<def f='llvm/lld/ELF/Thunks.h' l='28' ll='64'/>
+<size>72</size>
+<doc f='llvm/lld/ELF/Thunks.h' l='19'>// Class to describe an instance of a Thunk.
+// A Thunk is a code-sequence inserted by the linker in between a caller and
+// the callee. The relocation to the callee is redirected to the Thunk, which
+// after executing transfers control to the callee. Typical uses of Thunks
+// include transferring control from non-pi to pi and changing state on
+// targets like ARM.
+//
+// Thunks can be created for Defined, Shared and Undefined Symbols.
+// Thunks are assigned to synthetic ThunkSections</doc>
+<fun r='_ZN3lld3elf5ThunkC1ERNS0_6SymbolE'/>
+<fun r='_ZN3lld3elf5ThunkD1Ev'/>
+<fun r='_ZN3lld3elf5Thunk4sizeEv'/>
+<fun r='_ZN3lld3elf5Thunk7writeToEPh'/>
+<fun r='_ZN3lld3elf5Thunk10addSymbolsERNS0_12ThunkSectionE'/>
+<fun r='_ZN3lld3elf5Thunk9setOffsetEm'/>
+<fun r='_ZN3lld3elf5Thunk9addSymbolEN4llvm9StringRefEhmRNS0_16InputSectionBaseE'/>
+<fun r='_ZNK3lld3elf5Thunk21getTargetInputSectionEv'/>
+<fun r='_ZNK3lld3elf5Thunk16isCompatibleWithERKNS0_12InputSectionERKNS0_10RelocationE'/>
+<fun r='_ZNK3lld3elf5Thunk17getThunkTargetSymEv'/>
+<mbr r='lld::elf::Thunk::Destination' o='64' t='lld::elf::Symbol &amp;'/>
+<mbr r='lld::elf::Thunk::Syms' o='128' t='llvm::SmallVector&lt;Defined *, 3&gt;'/>
+<mbr r='lld::elf::Thunk::Offset' o='448' t='uint64_t'/>
+<mbr r='lld::elf::Thunk::Alignment' o='512' t='uint32_t'/>
+<ovr f='llvm/lld/ELF/Thunks.cpp' l='50' c='lld::elf::(anonymousnamespace)::AArch64ABSLongThunk'/>
+<ovr f='llvm/lld/ELF/Thunks.cpp' l='58' c='lld::elf::(anonymousnamespace)::AArch64ADRPThunk'/>
+<ovr f='llvm/lld/ELF/Thunks.cpp' l='74' c='lld::elf::(anonymousnamespace)::ARMThunk'/>
+<ovr f='llvm/lld/ELF/Thunks.cpp' l='104' c='lld::elf::(anonymousnamespace)::ThumbThunk'/>
+<ovr f='llvm/lld/ELF/Thunks.cpp' l='210' c='lld::elf::(anonymousnamespace)::MipsThunk'/>
+<ovr f='llvm/lld/ELF/Thunks.cpp' l='221' c='lld::elf::(anonymousnamespace)::MicroMipsThunk'/>
+<ovr f='llvm/lld/ELF/Thunks.cpp' l='232' c='lld::elf::(anonymousnamespace)::MicroMipsR6Thunk'/>
+<ovr f='llvm/lld/ELF/Thunks.cpp' l='242' c='lld::elf::(anonymousnamespace)::PPC32PltCallStub'/>
+<ovr f='llvm/lld/ELF/Thunks.cpp' l='269' c='lld::elf::(anonymousnamespace)::PPC64PltCallStub'/>
+<ovr f='llvm/lld/ELF/Thunks.cpp' l='285' c='lld::elf::(anonymousnamespace)::PPC64LongBranchThunk'/>
+<fun r='_ZN3lld3elf5Thunk9addSymbolEN4llvm9StringRefEhmRNS0_16InputSectionBaseE'/>
+<fun r='_ZN3lld3elf5Thunk9setOffsetEm'/>
+<fun r='_ZN3lld3elf5ThunkC1ERNS0_6SymbolE'/>
+<fun r='_ZN3lld3elf5ThunkD1Ev'/>

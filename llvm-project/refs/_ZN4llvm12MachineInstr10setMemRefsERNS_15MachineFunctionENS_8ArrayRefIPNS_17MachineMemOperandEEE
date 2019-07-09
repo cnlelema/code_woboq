@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1530' type='void llvm::MachineInstr::setMemRefs(llvm::MachineFunction &amp; MF, ArrayRef&lt;llvm::MachineMemOperand *&gt; MemRefs)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineInstr.h' l='1526'>/// Assign this MachineInstr&apos;s memory reference descriptor list.
+  ///
+  /// Unlike other methods, this *will* allocate them into a new array
+  /// associated with the provided `MachineFunction`.</doc>
+<use f='llvm/llvm/include/llvm/CodeGen/MachineInstrBuilder.h' l='200' u='c' c='_ZNK4llvm19MachineInstrBuilder10setMemRefsENS_8ArrayRefIPNS_17MachineMemOperandEEE'/>
+<use f='llvm/llvm/lib/CodeGen/MIRParser/MIParser.cpp' l='988' u='c' c='_ZN12_GLOBAL__N_18MIParser5parseERPN4llvm12MachineInstrE'/>
+<def f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='342' ll='358' type='void llvm::MachineInstr::setMemRefs(llvm::MachineFunction &amp; MF, ArrayRef&lt;llvm::MachineMemOperand *&gt; MMOs)'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='365' u='c' c='_ZN4llvm12MachineInstr13addMemOperandERNS_15MachineFunctionEPNS_17MachineMemOperandE'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='385' u='c' c='_ZN4llvm12MachineInstr12cloneMemRefsERNS_15MachineFunctionERKS0_'/>
+<use f='llvm/llvm/lib/CodeGen/MachineInstr.cpp' l='449' u='c' c='_ZN4llvm12MachineInstr18cloneMergedMemRefsERNS_15MachineFunctionENS_8ArrayRefIPKS0_EE'/>
+<use f='llvm/llvm/lib/CodeGen/MachinePipeliner.cpp' l='2905' u='c' c='_ZN4llvm17SwingSchedulerDAG17updateMemOperandsERNS_12MachineInstrES2_j'/>
+<use f='llvm/llvm/lib/CodeGen/StackColoring.cpp' l='1061' u='c' c='_ZN12_GLOBAL__N_113StackColoring17remapInstructionsERN4llvm8DenseMapIiiNS1_12DenseMapInfoIiEENS1_6detail12DenseMapPairIiiEEEE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='578' u='c' c='_ZNK4llvm15TargetInstrInfo17foldMemoryOperandERNS_12MachineInstrENS_8ArrayRefIjEEiPNS_13LiveIntervalsEPNS_10VirtRegMapE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='648' u='c' c='_ZNK4llvm15TargetInstrInfo17foldMemoryOperandERNS_12MachineInstrENS_8ArrayRefIjEES2_PNS_13LiveIntervalsE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetInstrInfo.cpp' l='651' u='c' c='_ZNK4llvm15TargetInstrInfo17foldMemoryOperandERNS_12MachineInstrENS_8ArrayRefIjEES2_PNS_13LiveIntervalsE'/>

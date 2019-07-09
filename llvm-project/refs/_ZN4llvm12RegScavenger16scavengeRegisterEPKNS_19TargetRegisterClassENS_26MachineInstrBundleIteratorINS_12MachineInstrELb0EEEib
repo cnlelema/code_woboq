@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/RegisterScavenging.h' l='163' type='unsigned int llvm::RegScavenger::scavengeRegister(const llvm::TargetRegisterClass * RC, MachineBasicBlock::iterator I, int SPAdj, bool AllowSpill = true)'/>
+<use f='llvm/llvm/include/llvm/CodeGen/RegisterScavenging.h' l='168' u='c' c='_ZN4llvm12RegScavenger16scavengeRegisterEPKNS_19TargetRegisterClassEib'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/RegisterScavenging.h' l='154'>/// Make a register of the specific register class
+  /// available and do the appropriate bookkeeping. SPAdj is the stack
+  /// adjustment due to call frame, it&apos;s passed along to eliminateFrameIndex().
+  /// Returns the scavenged register.
+  /// This is deprecated as it depends on the quality of the kill flags being
+  /// present; Use scavengeRegisterBackwards() instead!
+  ///
+  /// If \p AllowSpill is false, fail if a spill is required to make the
+  /// register available, and return NoRegister.</doc>
+<def f='llvm/llvm/lib/CodeGen/RegisterScavenging.cpp' l='534' ll='577' type='unsigned int llvm::RegScavenger::scavengeRegister(const llvm::TargetRegisterClass * RC, MachineBasicBlock::iterator I, int SPAdj, bool AllowSpill = true)'/>

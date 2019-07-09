@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Scalar/MemCpyOptimizer.h' l='68' type='bool llvm::MemCpyOptPass::performMemCpyToMemSetOptzn(llvm::MemCpyInst * M, llvm::MemSetInst * MDep)'/>
+<def f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='1181' ll='1216' type='bool llvm::MemCpyOptPass::performMemCpyToMemSetOptzn(llvm::MemCpyInst * MemCpy, llvm::MemSetInst * MemSet)'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='1300' u='c' c='_ZN4llvm13MemCpyOptPass13processMemCpyEPNS_10MemCpyInstE'/>
+<doc f='llvm/llvm/lib/Transforms/Scalar/MemCpyOptimizer.cpp' l='1167'>/// Transform memcpy to memset when its source was just memset.
+/// In other words, turn:
+/// \code
+///   memset(dst1, c, dst1_size);
+///   memcpy(dst2, dst1, dst2_size);
+/// \endcode
+/// into:
+/// \code
+///   memset(dst1, c, dst1_size);
+///   memset(dst2, c, dst2_size);
+/// \endcode
+/// When dst2_size &lt;= dst1_size.
+///
+/// The \p MemCpy must have a Constant length.</doc>

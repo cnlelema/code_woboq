@@ -1,0 +1,15 @@
+<dec f='llvm/clang/include/clang/AST/ASTContext.h' l='1559' type='clang::QualType clang::ASTContext::getAutoType(clang::QualType DeducedType, clang::AutoTypeKeyword Keyword, bool IsDependent, bool IsPack = false) const'/>
+<doc f='llvm/clang/include/clang/AST/ASTContext.h' l='1558'>/// C++11 deduced auto type.</doc>
+<def f='llvm/clang/lib/AST/ASTContext.cpp' l='5001' ll='5020' type='clang::QualType clang::ASTContext::getAutoType(clang::QualType DeducedType, clang::AutoTypeKeyword Keyword, bool IsDependent, bool IsPack = false) const'/>
+<doc f='llvm/clang/lib/AST/ASTContext.cpp' l='4998'>/// getAutoType - Return the uniqued reference to the &apos;auto&apos; type which has been
+/// deduced to the given type, or to the canonical undeduced &apos;auto&apos; type, or the
+/// canonical deduced-but-dependent &apos;auto&apos; type.</doc>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='1286' u='c' c='_ZN5clang15ASTNodeImporter13VisitAutoTypeEPKNS_8AutoTypeE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='1106' u='c' c='_ZN12_GLOBAL__N_122SimpleTransformVisitor13VisitAutoTypeEPKN5clang8AutoTypeE'/>
+<use f='llvm/clang/lib/Sema/TreeTransform.h' l='944' u='c' c='_ZN5clang13TreeTransform15RebuildAutoTypeENS_8QualTypeENS_15AutoTypeKeywordE'/>
+<use f='llvm/clang/lib/Sema/TreeTransform.h' l='4389' u='c' c='_ZN5clang13TreeTransform20RebuildQualifiedTypeENS_8QualTypeENS_16QualifiedTypeLocE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='4326' u='c' c='_ZN12_GLOBAL__N_130SubstituteDeducedTypeTransform17TransformAutoTypeERN5clang14TypeLocBuilderENS1_11AutoTypeLocE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='1602' u='c' c='_ZL21ConvertDeclSpecToTypeRN12_GLOBAL__N_119TypeProcessingStateE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='1606' u='c' c='_ZL21ConvertDeclSpecToTypeRN12_GLOBAL__N_119TypeProcessingStateE'/>
+<use f='llvm/clang/lib/Sema/SemaType.cpp' l='1610' u='c' c='_ZL21ConvertDeclSpecToTypeRN12_GLOBAL__N_119TypeProcessingStateE'/>
+<use f='llvm/clang/lib/Serialization/ASTReader.cpp' l='6186' u='c' c='_ZN5clang9ASTReader14readTypeRecordEj'/>

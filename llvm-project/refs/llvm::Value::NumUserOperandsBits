@@ -1,0 +1,17 @@
+<dec f='llvm/llvm/include/llvm/IR/Value.h' l='113' type='28'/>
+<use f='llvm/llvm/include/llvm/IR/Value.h' l='114'/>
+<use f='llvm/llvm/include/llvm/IR/User.h' l='75' u='r' c='_ZN4llvm4UserC1EPNS_4TypeEjPNS_3UseEj'/>
+<use f='llvm/llvm/include/llvm/IR/User.h' l='217' u='r' c='_ZN4llvm4User24setNumHungOffUseOperandsEj'/>
+<doc f='llvm/llvm/include/llvm/IR/Value.h' l='101'>/// The number of operands in the subclass.
+  ///
+  /// This member is defined by this class, but not used for anything.
+  /// Subclasses can use it to store their number of operands, if they have
+  /// any.
+  ///
+  /// This is stored here to save space in User on 64-bit hosts.  Since most
+  /// instances of Value have operands, 32-bit hosts aren&apos;t significantly
+  /// affected.
+  ///
+  /// Note, this should *NOT* be used directly by any class other than User.
+  /// User uses this value to find the Use list.</doc>
+<use f='llvm/llvm/lib/IR/User.cpp' l='114' u='r' c='_ZN4llvm4User24allocateFixedOperandUserEmjj'/>

@@ -1,0 +1,43 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/SelectionDAG.h' l='1629' type='llvm::SDValue llvm::SelectionDAG::UnrollVectorOp(llvm::SDNode * N, unsigned int ResNE = 0)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/SelectionDAG.h' l='1623'>/// Utility function used by legalize and lowering to
+  /// &quot;unroll&quot; a vector operation by splitting out the scalars and operating
+  /// on each element individually.  If the ResNE is 0, fully unroll the vector
+  /// op. If ResNE is less than the width of the vector op, unroll up to ResNE.
+  /// If the  ResNE is greater than the width of the vector op, unroll the
+  /// vector op and fill the end of the resulting vector with UNDEFS.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='863' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='890' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer12ExpandSELECTEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='928' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer15ExpandSEXTINREGEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1035' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer11ExpandBSWAPEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1048' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer16ExpandBITREVERSEEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1080' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer16ExpandBITREVERSEEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1109' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer13ExpandVSELECTEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1115' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer13ExpandVSELECTEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1140' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer9ExpandABSEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1150' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer16ExpandFP_TO_UINTEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1165' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer19ExpandUINT_TO_FLOATEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1205' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer10ExpandFNEGEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1217' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer10ExpandFSUBEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1225' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer11ExpandCTPOPEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1233' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer10ExpandCTLZEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1241' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer10ExpandCTTZEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1249' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer17ExpandFunnelShiftEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1257' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer9ExpandROTEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1263' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer21ExpandFMINNUM_FMAXNUMEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1309' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer15ExpandAddSubSatEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorOps.cpp' l='1315' u='c' c='_ZN12_GLOBAL__N_115VectorLegalizer19ExpandFixedPointMulEN4llvm7SDValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2624' u='c' c='_ZN4llvm16DAGTypeLegalizer20SplitVecOp_FCOPYSIGNEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2808' u='c' c='_ZN4llvm16DAGTypeLegalizer17WidenVectorResultEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='2960' u='c' c='_ZN4llvm16DAGTypeLegalizer25WidenVecRes_BinaryCanTrapEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='3357' u='c' c='_ZN4llvm16DAGTypeLegalizer21WidenVecRes_FCOPYSIGNEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='4193' u='c' c='_ZN4llvm16DAGTypeLegalizer20WidenVecOp_FCOPYSIGNEPNS_6SDNodeE'/>
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp' l='9242' ll='9310' type='llvm::SDValue llvm::SelectionDAG::UnrollVectorOp(llvm::SDNode * N, unsigned int ResNE = 0)'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/SIISelLowering.cpp' l='6228' u='c' c='_ZNK4llvm16SITargetLowering14handleD16VDataENS_7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='4835' u='c' c='_ZL20LowerVectorFP_TO_INTN4llvm7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='4853' u='c' c='_ZL20LowerVectorFP_TO_INTN4llvm7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='4885' u='c' c='_ZL20LowerVectorINT_TO_FPN4llvm7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMISelLowering.cpp' l='4903' u='c' c='_ZL20LowerVectorINT_TO_FPN4llvm7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp' l='5896' u='c' c='_ZNK4llvm21SystemZTargetLowering16combineIntDIVREMEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyISelLowering.cpp' l='1383' u='c' c='_ZL17unrollVectorShiftN4llvm7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyISelLowering.cpp' l='1395' u='c' c='_ZL17unrollVectorShiftN4llvm7SDValueERNS_12SelectionDAGE'/>
+<use f='llvm/llvm/lib/Target/X86/X86ISelLowering.cpp' l='27316' u='c' c='_ZNK4llvm17X86TargetLowering18ReplaceNodeResultsEPNS_6SDNodeERNS_15SmallVectorImplINS_7SDValueEEERNS_12SelectionDAGE'/>

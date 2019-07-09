@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AMDGPUInstrInfo.h source code [llvm/llvm/lib/Target/AMDGPU/AMDGPUInstrInfo.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::AMDGPU::D16ImageDimIntrinsic,llvm::AMDGPU::ImageDimIntrinsicInfo,llvm::AMDGPU::RsrcIntrinsic,llvm::AMDGPUInstrInfo "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/lib/Target/AMDGPU/AMDGPUInstrInfo.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>lib</a>/<a href='..'>Target</a>/<a href='./'>AMDGPU</a>/<a href='AMDGPUInstrInfo.h.html'>AMDGPUInstrInfo.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===-- AMDGPUInstrInfo.h - AMDGPU Instruction Information ------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>/// \file</i></td></tr>
+<tr><th id="10">10</th><td><i>/// Contains the definition of a TargetInstrInfo class that is common</i></td></tr>
+<tr><th id="11">11</th><td><i>/// to all AMD GPUs.</i></td></tr>
+<tr><th id="12">12</th><td><i>//</i></td></tr>
+<tr><th id="13">13</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><u>#<span data-ppcond="15">ifndef</span> <span class="macro" data-ref="_M/LLVM_LIB_TARGET_AMDGPU_AMDGPUINSTRINFO_H">LLVM_LIB_TARGET_AMDGPU_AMDGPUINSTRINFO_H</span></u></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/LLVM_LIB_TARGET_AMDGPU_AMDGPUINSTRINFO_H" data-ref="_M/LLVM_LIB_TARGET_AMDGPU_AMDGPUINSTRINFO_H">LLVM_LIB_TARGET_AMDGPU_AMDGPUINSTRINFO_H</dfn></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="AMDGPU.h.html">"AMDGPU.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="Utils/AMDGPUBaseInfo.h.html">"Utils/AMDGPUBaseInfo.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../include/llvm/CodeGen/TargetInstrInfo.h.html">"llvm/CodeGen/TargetInstrInfo.h"</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>class</b> <a class="type" href="AMDGPUSubtarget.h.html#llvm::GCNSubtarget" title='llvm::GCNSubtarget' data-ref="llvm::GCNSubtarget" id="llvm::GCNSubtarget">GCNSubtarget</a>;</td></tr>
+<tr><th id="25">25</th><td><b>class</b> <a class="type" href="../../../include/llvm/CodeGen/MachineFunction.h.html#llvm::MachineFunction" title='llvm::MachineFunction' data-ref="llvm::MachineFunction" id="llvm::MachineFunction">MachineFunction</a>;</td></tr>
+<tr><th id="26">26</th><td><b>class</b> <a class="type" href="../../../include/llvm/CodeGen/MachineInstr.h.html#llvm::MachineInstr" title='llvm::MachineInstr' data-ref="llvm::MachineInstr" id="llvm::MachineInstr">MachineInstr</a>;</td></tr>
+<tr><th id="27">27</th><td><b>class</b> <a class="type" href="../../../include/llvm/CodeGen/MachineInstrBuilder.h.html#llvm::MachineInstrBuilder" title='llvm::MachineInstrBuilder' data-ref="llvm::MachineInstrBuilder" id="llvm::MachineInstrBuilder">MachineInstrBuilder</a>;</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><b>class</b> <dfn class="type def" id="llvm::AMDGPUInstrInfo" title='llvm::AMDGPUInstrInfo' data-ref="llvm::AMDGPUInstrInfo">AMDGPUInstrInfo</dfn> {</td></tr>
+<tr><th id="30">30</th><td><b>public</b>:</td></tr>
+<tr><th id="31">31</th><td>  <b>explicit</b> <dfn class="decl" id="_ZN4llvm15AMDGPUInstrInfoC1ERKNS_12GCNSubtargetE" title='llvm::AMDGPUInstrInfo::AMDGPUInstrInfo' data-ref="_ZN4llvm15AMDGPUInstrInfoC1ERKNS_12GCNSubtargetE">AMDGPUInstrInfo</dfn>(<em>const</em> <a class="type" href="AMDGPUSubtarget.h.html#llvm::GCNSubtarget" title='llvm::GCNSubtarget' data-ref="llvm::GCNSubtarget">GCNSubtarget</a> &amp;<dfn class="local col2 decl" id="842st" title='st' data-type='const llvm::GCNSubtarget &amp;' data-ref="842st">st</dfn>);</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td>  <em>static</em> <em>bool</em> <dfn class="decl" id="_ZN4llvm15AMDGPUInstrInfo12isUniformMMOEPKNS_17MachineMemOperandE" title='llvm::AMDGPUInstrInfo::isUniformMMO' data-ref="_ZN4llvm15AMDGPUInstrInfo12isUniformMMOEPKNS_17MachineMemOperandE">isUniformMMO</dfn>(<em>const</em> <a class="type" href="../../../include/llvm/CodeGen/MachineMemOperand.h.html#llvm::MachineMemOperand" title='llvm::MachineMemOperand' data-ref="llvm::MachineMemOperand">MachineMemOperand</a> *<dfn class="local col3 decl" id="843MMO" title='MMO' data-type='const llvm::MachineMemOperand *' data-ref="843MMO">MMO</dfn>);</td></tr>
+<tr><th id="34">34</th><td>};</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><b>namespace</b> <span class="namespace">AMDGPU</span> {</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><b>struct</b> <dfn class="type def" id="llvm::AMDGPU::RsrcIntrinsic" title='llvm::AMDGPU::RsrcIntrinsic' data-ref="llvm::AMDGPU::RsrcIntrinsic">RsrcIntrinsic</dfn> {</td></tr>
+<tr><th id="39">39</th><td>  <em>unsigned</em> <dfn class="decl" id="llvm::AMDGPU::RsrcIntrinsic::Intr" title='llvm::AMDGPU::RsrcIntrinsic::Intr' data-ref="llvm::AMDGPU::RsrcIntrinsic::Intr">Intr</dfn>;</td></tr>
+<tr><th id="40">40</th><td>  <a class="typedef" href="../../../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="decl" id="llvm::AMDGPU::RsrcIntrinsic::RsrcArg" title='llvm::AMDGPU::RsrcIntrinsic::RsrcArg' data-ref="llvm::AMDGPU::RsrcIntrinsic::RsrcArg">RsrcArg</dfn>;</td></tr>
+<tr><th id="41">41</th><td>  <em>bool</em> <dfn class="decl" id="llvm::AMDGPU::RsrcIntrinsic::IsImage" title='llvm::AMDGPU::RsrcIntrinsic::IsImage' data-ref="llvm::AMDGPU::RsrcIntrinsic::IsImage">IsImage</dfn>;</td></tr>
+<tr><th id="42">42</th><td>};</td></tr>
+<tr><th id="43">43</th><td><em>const</em> <a class="type" href="#llvm::AMDGPU::RsrcIntrinsic" title='llvm::AMDGPU::RsrcIntrinsic' data-ref="llvm::AMDGPU::RsrcIntrinsic">RsrcIntrinsic</a> *<dfn class="decl" id="_ZN4llvm6AMDGPU19lookupRsrcIntrinsicEj" title='llvm::AMDGPU::lookupRsrcIntrinsic' data-ref="_ZN4llvm6AMDGPU19lookupRsrcIntrinsicEj">lookupRsrcIntrinsic</dfn>(<em>unsigned</em> <dfn class="local col4 decl" id="844Intr" title='Intr' data-type='unsigned int' data-ref="844Intr">Intr</dfn>);</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><b>struct</b> <dfn class="type def" id="llvm::AMDGPU::D16ImageDimIntrinsic" title='llvm::AMDGPU::D16ImageDimIntrinsic' data-ref="llvm::AMDGPU::D16ImageDimIntrinsic">D16ImageDimIntrinsic</dfn> {</td></tr>
+<tr><th id="46">46</th><td>  <em>unsigned</em> <dfn class="decl" id="llvm::AMDGPU::D16ImageDimIntrinsic::Intr" title='llvm::AMDGPU::D16ImageDimIntrinsic::Intr' data-ref="llvm::AMDGPU::D16ImageDimIntrinsic::Intr">Intr</dfn>;</td></tr>
+<tr><th id="47">47</th><td>  <em>unsigned</em> <dfn class="decl" id="llvm::AMDGPU::D16ImageDimIntrinsic::D16HelperIntr" title='llvm::AMDGPU::D16ImageDimIntrinsic::D16HelperIntr' data-ref="llvm::AMDGPU::D16ImageDimIntrinsic::D16HelperIntr">D16HelperIntr</dfn>;</td></tr>
+<tr><th id="48">48</th><td>};</td></tr>
+<tr><th id="49">49</th><td><em>const</em> <a class="type" href="#llvm::AMDGPU::D16ImageDimIntrinsic" title='llvm::AMDGPU::D16ImageDimIntrinsic' data-ref="llvm::AMDGPU::D16ImageDimIntrinsic">D16ImageDimIntrinsic</a> *<dfn class="decl" id="_ZN4llvm6AMDGPU26lookupD16ImageDimIntrinsicEj" title='llvm::AMDGPU::lookupD16ImageDimIntrinsic' data-ref="_ZN4llvm6AMDGPU26lookupD16ImageDimIntrinsicEj">lookupD16ImageDimIntrinsic</dfn>(<em>unsigned</em> <dfn class="local col5 decl" id="845Intr" title='Intr' data-type='unsigned int' data-ref="845Intr">Intr</dfn>);</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><b>struct</b> <dfn class="type def" id="llvm::AMDGPU::ImageDimIntrinsicInfo" title='llvm::AMDGPU::ImageDimIntrinsicInfo' data-ref="llvm::AMDGPU::ImageDimIntrinsicInfo">ImageDimIntrinsicInfo</dfn> {</td></tr>
+<tr><th id="52">52</th><td>  <em>unsigned</em> <dfn class="decl" id="llvm::AMDGPU::ImageDimIntrinsicInfo::Intr" title='llvm::AMDGPU::ImageDimIntrinsicInfo::Intr' data-ref="llvm::AMDGPU::ImageDimIntrinsicInfo::Intr">Intr</dfn>;</td></tr>
+<tr><th id="53">53</th><td>  <em>unsigned</em> <dfn class="decl" id="llvm::AMDGPU::ImageDimIntrinsicInfo::BaseOpcode" title='llvm::AMDGPU::ImageDimIntrinsicInfo::BaseOpcode' data-ref="llvm::AMDGPU::ImageDimIntrinsicInfo::BaseOpcode">BaseOpcode</dfn>;</td></tr>
+<tr><th id="54">54</th><td>  <span class='error' title="unknown type name &apos;MIMGDim&apos;">MIMGDim</span> <dfn class="decl" id="llvm::AMDGPU::ImageDimIntrinsicInfo::Dim" title='llvm::AMDGPU::ImageDimIntrinsicInfo::Dim' data-ref="llvm::AMDGPU::ImageDimIntrinsicInfo::Dim">Dim</dfn>;</td></tr>
+<tr><th id="55">55</th><td>};</td></tr>
+<tr><th id="56">56</th><td><em>const</em> <a class="type" href="#llvm::AMDGPU::ImageDimIntrinsicInfo" title='llvm::AMDGPU::ImageDimIntrinsicInfo' data-ref="llvm::AMDGPU::ImageDimIntrinsicInfo">ImageDimIntrinsicInfo</a> *<dfn class="decl" id="_ZN4llvm6AMDGPU24getImageDimIntrinsicInfoEj" title='llvm::AMDGPU::getImageDimIntrinsicInfo' data-ref="_ZN4llvm6AMDGPU24getImageDimIntrinsicInfoEj">getImageDimIntrinsicInfo</dfn>(<em>unsigned</em> <dfn class="local col6 decl" id="846Intr" title='Intr' data-type='unsigned int' data-ref="846Intr">Intr</dfn>);</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>} <i>// end AMDGPU namespace</i></td></tr>
+<tr><th id="59">59</th><td>} <i>// End llvm namespace</i></td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td><u>#<span data-ppcond="15">endif</span></u></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='AMDGPUAlwaysInlinePass.cpp.html'>llvm/llvm/lib/Target/AMDGPU/AMDGPUAlwaysInlinePass.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

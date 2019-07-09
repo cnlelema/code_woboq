@@ -1,0 +1,49 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='1622' type='int clang_reparseTranslationUnit(CXTranslationUnit TU, unsigned int num_unsaved_files, struct CXUnsavedFile * unsaved_files, unsigned int options)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='1583'>/**
+ * Reparse the source files that produced this translation unit.
+ *
+ * This routine can be used to re-parse the source files that originally
+ * created the given translation unit, for example because those source files
+ * have changed (either on disk or as passed via \p unsaved_files). The
+ * source code will be reparsed with the same command-line options as it
+ * was originally parsed.
+ *
+ * Reparsing a translation unit invalidates all cursors and source locations
+ * that refer into that translation unit. This makes reparsing a translation
+ * unit semantically equivalent to destroying the translation unit and then
+ * creating a new translation unit with the same command-line arguments.
+ * However, it may be more efficient to reparse a translation
+ * unit using this routine.
+ *
+ * \param TU The translation unit whose contents will be re-parsed. The
+ * translation unit must originally have been built with
+ * \c clang_createTranslationUnitFromSourceFile().
+ *
+ * \param num_unsaved_files The number of unsaved file entries in \p
+ * unsaved_files.
+ *
+ * \param unsaved_files The files that have not yet been saved to disk
+ * but may be required for parsing, including the contents of
+ * those files.  The contents and name of these files (as specified by
+ * CXUnsavedFile) are copied when necessary, so the client only needs to
+ * guarantee their validity until the call to this function returns.
+ *
+ * \param options A bitset of options composed of the flags in CXReparse_Flags.
+ * The function \c clang_defaultReparseOptions() produces a default set of
+ * options recommended for most uses, based on the translation unit.
+ *
+ * \returns 0 if the sources could be reparsed.  A non-zero error code will be
+ * returned if reparsing was impossible, such that the translation unit is
+ * invalid. In such cases, the only valid call for \c TU is
+ * \c clang_disposeTranslationUnit(TU).  The error codes returned by this
+ * routine are described by the \c CXErrorCode enum.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='2049' u='c' c='perform_test_load_source'/>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='2130' u='c' c='perform_test_reparse_source'/>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='2655' u='c' c='perform_code_completion'/>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='2807' u='c' c='inspect_cursor_at'/>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='3102' u='c' c='find_file_refs_at'/>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='3209' u='c' c='find_file_includes_in'/>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='4130' u='c' c='perform_token_annotation'/>
+<def f='llvm/clang/tools/libclang/CIndex.cpp' l='4110' ll='4137' type='int clang_reparseTranslationUnit(CXTranslationUnit TU, unsigned int num_unsaved_files, struct CXUnsavedFile * unsaved_files, unsigned int options)'/>
+<use f='llvm/clang/unittests/libclang/LibclangTest.cpp' l='519' u='c' c='_ZN19LibclangReparseTest9ReparseTUEjP13CXUnsavedFile'/>

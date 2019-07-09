@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Symbol.h source code [llvm/llvm/include/llvm/TextAPI/MachO/Symbol.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::MachO::Symbol,llvm::MachO::SymbolFlags,llvm::MachO::SymbolKind "/>
+<link rel="stylesheet" href="../../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/TextAPI/MachO/Symbol.h'; var root_path = '../../../../../..'; var data_path = '../../../../../../../data';</script>
+<script src='../../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>llvm</a>/<a href='../../../..'>llvm</a>/<a href='../../..'>include</a>/<a href='../..'>llvm</a>/<a href='..'>TextAPI</a>/<a href='./'>MachO</a>/<a href='Symbol.h.html'>Symbol.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- llvm/TextAPI/Symbol.h - TAPI Symbol ----------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLVM_TEXTAPI_MACHO_SYMBOL_H">LLVM_TEXTAPI_MACHO_SYMBOL_H</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLVM_TEXTAPI_MACHO_SYMBOL_H" data-ref="_M/LLVM_TEXTAPI_MACHO_SYMBOL_H">LLVM_TEXTAPI_MACHO_SYMBOL_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="../../ADT/BitmaskEnum.h.html">"llvm/ADT/BitmaskEnum.h"</a></u></td></tr>
+<tr><th id="13">13</th><td><u>#include <a href="../../ADT/StringRef.h.html">"llvm/ADT/StringRef.h"</a></u></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="../../Support/Error.h.html">"llvm/Support/Error.h"</a></u></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="../../Support/raw_ostream.h.html">"llvm/Support/raw_ostream.h"</a></u></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="ArchitectureSet.h.html">"llvm/TextAPI/MachO/ArchitectureSet.h"</a></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="19">19</th><td><b>namespace</b> <span class="namespace">MachO</span> {</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><i>// clang-format off</i></td></tr>
+<tr><th id="22">22</th><td><i></i></td></tr>
+<tr><th id="23">23</th><td><i>/// Symbol flags.</i></td></tr>
+<tr><th id="24">24</th><td><b>enum</b> <b>class</b> <dfn class="type def" id="llvm::MachO::SymbolFlags" title='llvm::MachO::SymbolFlags' data-ref="llvm::MachO::SymbolFlags">SymbolFlags</dfn> : uint8_t {</td></tr>
+<tr><th id="25">25</th><td>  <i class="doc">/// No flags</i></td></tr>
+<tr><th id="26">26</th><td>  <dfn class="enum" id="llvm::MachO::SymbolFlags::None" title='llvm::MachO::SymbolFlags::None' data-ref="llvm::MachO::SymbolFlags::None">None</dfn>             = <var>0</var>,</td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td>  <i class="doc">/// Thread-local value symbol</i></td></tr>
+<tr><th id="29">29</th><td>  <dfn class="enum" id="llvm::MachO::SymbolFlags::ThreadLocalValue" title='llvm::MachO::SymbolFlags::ThreadLocalValue' data-ref="llvm::MachO::SymbolFlags::ThreadLocalValue">ThreadLocalValue</dfn> = <var>1U</var> &lt;&lt; <var>0</var>,</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td>  <i class="doc">/// Weak defined symbol</i></td></tr>
+<tr><th id="32">32</th><td>  <dfn class="enum" id="llvm::MachO::SymbolFlags::WeakDefined" title='llvm::MachO::SymbolFlags::WeakDefined' data-ref="llvm::MachO::SymbolFlags::WeakDefined">WeakDefined</dfn>      = <var>1U</var> &lt;&lt; <var>1</var>,</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td>  <i class="doc">/// Weak referenced symbol</i></td></tr>
+<tr><th id="35">35</th><td>  <dfn class="enum" id="llvm::MachO::SymbolFlags::WeakReferenced" title='llvm::MachO::SymbolFlags::WeakReferenced' data-ref="llvm::MachO::SymbolFlags::WeakReferenced">WeakReferenced</dfn>   = <var>1U</var> &lt;&lt; <var>2</var>,</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td>  <i class="doc">/// Undefined</i></td></tr>
+<tr><th id="38">38</th><td>  <dfn class="enum" id="llvm::MachO::SymbolFlags::Undefined" title='llvm::MachO::SymbolFlags::Undefined' data-ref="llvm::MachO::SymbolFlags::Undefined">Undefined</dfn>        = <var>1U</var> &lt;&lt; <var>3</var>,</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td>  <a class="macro" href="../../ADT/BitmaskEnum.h.html#41" title="LLVM_BITMASK_LARGEST_ENUMERATOR = Undefined" data-ref="_M/LLVM_MARK_AS_BITMASK_ENUM">LLVM_MARK_AS_BITMASK_ENUM</a>(<i>/*LargestValue=*/</i><a class="enum" href="#llvm::MachO::SymbolFlags::Undefined" title='llvm::MachO::SymbolFlags::Undefined' data-ref="llvm::MachO::SymbolFlags::Undefined">Undefined</a>),</td></tr>
+<tr><th id="41">41</th><td>};</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><i>// clang-format on</i></td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><b>enum</b> <b>class</b> <dfn class="type def" id="llvm::MachO::SymbolKind" title='llvm::MachO::SymbolKind' data-ref="llvm::MachO::SymbolKind">SymbolKind</dfn> : uint8_t {</td></tr>
+<tr><th id="46">46</th><td>  <dfn class="enum" id="llvm::MachO::SymbolKind::GlobalSymbol" title='llvm::MachO::SymbolKind::GlobalSymbol' data-ref="llvm::MachO::SymbolKind::GlobalSymbol">GlobalSymbol</dfn>,</td></tr>
+<tr><th id="47">47</th><td>  <dfn class="enum" id="llvm::MachO::SymbolKind::ObjectiveCClass" title='llvm::MachO::SymbolKind::ObjectiveCClass' data-ref="llvm::MachO::SymbolKind::ObjectiveCClass">ObjectiveCClass</dfn>,</td></tr>
+<tr><th id="48">48</th><td>  <dfn class="enum" id="llvm::MachO::SymbolKind::ObjectiveCClassEHType" title='llvm::MachO::SymbolKind::ObjectiveCClassEHType' data-ref="llvm::MachO::SymbolKind::ObjectiveCClassEHType">ObjectiveCClassEHType</dfn>,</td></tr>
+<tr><th id="49">49</th><td>  <dfn class="enum" id="llvm::MachO::SymbolKind::ObjectiveCInstanceVariable" title='llvm::MachO::SymbolKind::ObjectiveCInstanceVariable' data-ref="llvm::MachO::SymbolKind::ObjectiveCInstanceVariable">ObjectiveCInstanceVariable</dfn>,</td></tr>
+<tr><th id="50">50</th><td>};</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><b>class</b> <dfn class="type def" id="llvm::MachO::Symbol" title='llvm::MachO::Symbol' data-ref="llvm::MachO::Symbol">Symbol</dfn> {</td></tr>
+<tr><th id="53">53</th><td><b>public</b>:</td></tr>
+<tr><th id="54">54</th><td>  <b>constexpr</b> <dfn class="decl def" id="_ZN4llvm5MachO6SymbolC1ENS0_10SymbolKindENS_9StringRefENS0_15ArchitectureSetENS0_11SymbolFlagsE" title='llvm::MachO::Symbol::Symbol' data-ref="_ZN4llvm5MachO6SymbolC1ENS0_10SymbolKindENS_9StringRefENS0_15ArchitectureSetENS0_11SymbolFlagsE">Symbol</dfn>(<a class="type" href="#llvm::MachO::SymbolKind" title='llvm::MachO::SymbolKind' data-ref="llvm::MachO::SymbolKind">SymbolKind</a> <dfn class="local col3 decl" id="13Kind" title='Kind' data-type='llvm::MachO::SymbolKind' data-ref="13Kind">Kind</dfn>, <a class="type" href="../../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col4 decl" id="14Name" title='Name' data-type='llvm::StringRef' data-ref="14Name">Name</dfn>,</td></tr>
+<tr><th id="55">55</th><td>                   <a class="type" href="ArchitectureSet.h.html#llvm::MachO::ArchitectureSet" title='llvm::MachO::ArchitectureSet' data-ref="llvm::MachO::ArchitectureSet">ArchitectureSet</a> <dfn class="local col5 decl" id="15Architectures" title='Architectures' data-type='llvm::MachO::ArchitectureSet' data-ref="15Architectures">Architectures</dfn>, <a class="type" href="#llvm::MachO::SymbolFlags" title='llvm::MachO::SymbolFlags' data-ref="llvm::MachO::SymbolFlags">SymbolFlags</a> <dfn class="local col6 decl" id="16Flags" title='Flags' data-type='llvm::MachO::SymbolFlags' data-ref="16Flags">Flags</dfn>)</td></tr>
+<tr><th id="56">56</th><td>      : <a class="member" href="#llvm::MachO::Symbol::Name" title='llvm::MachO::Symbol::Name' data-ref="llvm::MachO::Symbol::Name">Name</a><a class="ref" href="../../ADT/StringRef.h.html#48" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1ERKS0_">(</a><a class="local col4 ref" href="#14Name" title='Name' data-ref="14Name">Name</a>), <a class="member" href="#llvm::MachO::Symbol::Architectures" title='llvm::MachO::Symbol::Architectures' data-ref="llvm::MachO::Symbol::Architectures">Architectures</a><a class="ref" href="ArchitectureSet.h.html#26" title='llvm::MachO::ArchitectureSet::ArchitectureSet' data-ref="_ZN4llvm5MachO15ArchitectureSetC1ERKS1_">(</a><a class="local col5 ref" href="#15Architectures" title='Architectures' data-ref="15Architectures">Architectures</a>), <a class="member" href="#llvm::MachO::Symbol::Kind" title='llvm::MachO::Symbol::Kind' data-ref="llvm::MachO::Symbol::Kind">Kind</a>(<a class="local col3 ref" href="#13Kind" title='Kind' data-ref="13Kind">Kind</a>), <a class="member" href="#llvm::MachO::Symbol::Flags" title='llvm::MachO::Symbol::Flags' data-ref="llvm::MachO::Symbol::Flags">Flags</a>(<a class="local col6 ref" href="#16Flags" title='Flags' data-ref="16Flags">Flags</a>) {}</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>  <a class="type" href="#llvm::MachO::SymbolKind" title='llvm::MachO::SymbolKind' data-ref="llvm::MachO::SymbolKind">SymbolKind</a> <dfn class="decl def" id="_ZNK4llvm5MachO6Symbol7getKindEv" title='llvm::MachO::Symbol::getKind' data-ref="_ZNK4llvm5MachO6Symbol7getKindEv">getKind</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::MachO::Symbol::Kind" title='llvm::MachO::Symbol::Kind' data-ref="llvm::MachO::Symbol::Kind">Kind</a>; }</td></tr>
+<tr><th id="59">59</th><td>  <a class="type" href="../../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="decl def" id="_ZNK4llvm5MachO6Symbol7getNameEv" title='llvm::MachO::Symbol::getName' data-ref="_ZNK4llvm5MachO6Symbol7getNameEv">getName</dfn>() <em>const</em> { <b>return</b> <a class="ref fake" href="../../ADT/StringRef.h.html#48" title='llvm::StringRef::StringRef' data-ref="_ZN4llvm9StringRefC1ERKS0_"></a><a class="member" href="#llvm::MachO::Symbol::Name" title='llvm::MachO::Symbol::Name' data-ref="llvm::MachO::Symbol::Name">Name</a>; }</td></tr>
+<tr><th id="60">60</th><td>  <a class="type" href="ArchitectureSet.h.html#llvm::MachO::ArchitectureSet" title='llvm::MachO::ArchitectureSet' data-ref="llvm::MachO::ArchitectureSet">ArchitectureSet</a> <dfn class="decl def" id="_ZNK4llvm5MachO6Symbol16getArchitecturesEv" title='llvm::MachO::Symbol::getArchitectures' data-ref="_ZNK4llvm5MachO6Symbol16getArchitecturesEv">getArchitectures</dfn>() <em>const</em> { <b>return</b> <a class="ref fake" href="ArchitectureSet.h.html#26" title='llvm::MachO::ArchitectureSet::ArchitectureSet' data-ref="_ZN4llvm5MachO15ArchitectureSetC1ERKS1_"></a><a class="member" href="#llvm::MachO::Symbol::Architectures" title='llvm::MachO::Symbol::Architectures' data-ref="llvm::MachO::Symbol::Architectures">Architectures</a>; }</td></tr>
+<tr><th id="61">61</th><td>  <em>void</em> <dfn class="decl def" id="_ZN4llvm5MachO6Symbol16addArchitecturesENS0_15ArchitectureSetE" title='llvm::MachO::Symbol::addArchitectures' data-ref="_ZN4llvm5MachO6Symbol16addArchitecturesENS0_15ArchitectureSetE">addArchitectures</dfn>(<a class="type" href="ArchitectureSet.h.html#llvm::MachO::ArchitectureSet" title='llvm::MachO::ArchitectureSet' data-ref="llvm::MachO::ArchitectureSet">ArchitectureSet</a> <dfn class="local col7 decl" id="17Archs" title='Archs' data-type='llvm::MachO::ArchitectureSet' data-ref="17Archs">Archs</dfn>) { <a class="member" href="#llvm::MachO::Symbol::Architectures" title='llvm::MachO::Symbol::Architectures' data-ref="llvm::MachO::Symbol::Architectures">Architectures</a> <a class="ref" href="ArchitectureSet.h.html#_ZN4llvm5MachO15ArchitectureSetoRERKS1_" title='llvm::MachO::ArchitectureSet::operator|=' data-ref="_ZN4llvm5MachO15ArchitectureSetoRERKS1_">|=</a> <a class="local col7 ref" href="#17Archs" title='Archs' data-ref="17Archs">Archs</a>; }</td></tr>
+<tr><th id="62">62</th><td>  <a class="type" href="#llvm::MachO::SymbolFlags" title='llvm::MachO::SymbolFlags' data-ref="llvm::MachO::SymbolFlags">SymbolFlags</a> <dfn class="decl def" id="_ZNK4llvm5MachO6Symbol8getFlagsEv" title='llvm::MachO::Symbol::getFlags' data-ref="_ZNK4llvm5MachO6Symbol8getFlagsEv">getFlags</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#llvm::MachO::Symbol::Flags" title='llvm::MachO::Symbol::Flags' data-ref="llvm::MachO::Symbol::Flags">Flags</a>; }</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm5MachO6Symbol13isWeakDefinedEv" title='llvm::MachO::Symbol::isWeakDefined' data-ref="_ZNK4llvm5MachO6Symbol13isWeakDefinedEv">isWeakDefined</dfn>() <em>const</em> {</td></tr>
+<tr><th id="65">65</th><td>    <b>return</b> (<a class="member" href="#llvm::MachO::Symbol::Flags" title='llvm::MachO::Symbol::Flags' data-ref="llvm::MachO::Symbol::Flags">Flags</a> <a class="ref" href="../../ADT/BitmaskEnum.h.html#_ZN4llvm17BitmaskEnumDetailanET_S1_" title='llvm::BitmaskEnumDetail::operator&amp;' data-ref="_ZN4llvm17BitmaskEnumDetailanET_S1_">&amp;</a> <a class="type" href="#llvm::MachO::SymbolFlags" title='llvm::MachO::SymbolFlags' data-ref="llvm::MachO::SymbolFlags">SymbolFlags</a>::<a class="enum" href="#llvm::MachO::SymbolFlags::WeakDefined" title='llvm::MachO::SymbolFlags::WeakDefined' data-ref="llvm::MachO::SymbolFlags::WeakDefined">WeakDefined</a>) == <a class="type" href="#llvm::MachO::SymbolFlags" title='llvm::MachO::SymbolFlags' data-ref="llvm::MachO::SymbolFlags">SymbolFlags</a>::<a class="enum" href="#llvm::MachO::SymbolFlags::WeakDefined" title='llvm::MachO::SymbolFlags::WeakDefined' data-ref="llvm::MachO::SymbolFlags::WeakDefined">WeakDefined</a>;</td></tr>
+<tr><th id="66">66</th><td>  }</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm5MachO6Symbol16isWeakReferencedEv" title='llvm::MachO::Symbol::isWeakReferenced' data-ref="_ZNK4llvm5MachO6Symbol16isWeakReferencedEv">isWeakReferenced</dfn>() <em>const</em> {</td></tr>
+<tr><th id="69">69</th><td>    <b>return</b> (<a class="member" href="#llvm::MachO::Symbol::Flags" title='llvm::MachO::Symbol::Flags' data-ref="llvm::MachO::Symbol::Flags">Flags</a> <a class="ref" href="../../ADT/BitmaskEnum.h.html#_ZN4llvm17BitmaskEnumDetailanET_S1_" title='llvm::BitmaskEnumDetail::operator&amp;' data-ref="_ZN4llvm17BitmaskEnumDetailanET_S1_">&amp;</a> <a class="type" href="#llvm::MachO::SymbolFlags" title='llvm::MachO::SymbolFlags' data-ref="llvm::MachO::SymbolFlags">SymbolFlags</a>::<a class="enum" href="#llvm::MachO::SymbolFlags::WeakReferenced" title='llvm::MachO::SymbolFlags::WeakReferenced' data-ref="llvm::MachO::SymbolFlags::WeakReferenced">WeakReferenced</a>) == <a class="type" href="#llvm::MachO::SymbolFlags" title='llvm::MachO::SymbolFlags' data-ref="llvm::MachO::SymbolFlags">SymbolFlags</a>::<a class="enum" href="#llvm::MachO::SymbolFlags::WeakReferenced" title='llvm::MachO::SymbolFlags::WeakReferenced' data-ref="llvm::MachO::SymbolFlags::WeakReferenced">WeakReferenced</a>;</td></tr>
+<tr><th id="70">70</th><td>  }</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm5MachO6Symbol18isThreadLocalValueEv" title='llvm::MachO::Symbol::isThreadLocalValue' data-ref="_ZNK4llvm5MachO6Symbol18isThreadLocalValueEv">isThreadLocalValue</dfn>() <em>const</em> {</td></tr>
+<tr><th id="73">73</th><td>    <b>return</b> (<a class="member" href="#llvm::MachO::Symbol::Flags" title='llvm::MachO::Symbol::Flags' data-ref="llvm::MachO::Symbol::Flags">Flags</a> <a class="ref" href="../../ADT/BitmaskEnum.h.html#_ZN4llvm17BitmaskEnumDetailanET_S1_" title='llvm::BitmaskEnumDetail::operator&amp;' data-ref="_ZN4llvm17BitmaskEnumDetailanET_S1_">&amp;</a> <a class="type" href="#llvm::MachO::SymbolFlags" title='llvm::MachO::SymbolFlags' data-ref="llvm::MachO::SymbolFlags">SymbolFlags</a>::<a class="enum" href="#llvm::MachO::SymbolFlags::ThreadLocalValue" title='llvm::MachO::SymbolFlags::ThreadLocalValue' data-ref="llvm::MachO::SymbolFlags::ThreadLocalValue">ThreadLocalValue</a>) ==</td></tr>
+<tr><th id="74">74</th><td>           <a class="type" href="#llvm::MachO::SymbolFlags" title='llvm::MachO::SymbolFlags' data-ref="llvm::MachO::SymbolFlags">SymbolFlags</a>::<a class="enum" href="#llvm::MachO::SymbolFlags::ThreadLocalValue" title='llvm::MachO::SymbolFlags::ThreadLocalValue' data-ref="llvm::MachO::SymbolFlags::ThreadLocalValue">ThreadLocalValue</a>;</td></tr>
+<tr><th id="75">75</th><td>  }</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK4llvm5MachO6Symbol11isUndefinedEv" title='llvm::MachO::Symbol::isUndefined' data-ref="_ZNK4llvm5MachO6Symbol11isUndefinedEv">isUndefined</dfn>() <em>const</em> {</td></tr>
+<tr><th id="78">78</th><td>    <b>return</b> (<a class="member" href="#llvm::MachO::Symbol::Flags" title='llvm::MachO::Symbol::Flags' data-ref="llvm::MachO::Symbol::Flags">Flags</a> <a class="ref" href="../../ADT/BitmaskEnum.h.html#_ZN4llvm17BitmaskEnumDetailanET_S1_" title='llvm::BitmaskEnumDetail::operator&amp;' data-ref="_ZN4llvm17BitmaskEnumDetailanET_S1_">&amp;</a> <a class="type" href="#llvm::MachO::SymbolFlags" title='llvm::MachO::SymbolFlags' data-ref="llvm::MachO::SymbolFlags">SymbolFlags</a>::<a class="enum" href="#llvm::MachO::SymbolFlags::Undefined" title='llvm::MachO::SymbolFlags::Undefined' data-ref="llvm::MachO::SymbolFlags::Undefined">Undefined</a>) == <a class="type" href="#llvm::MachO::SymbolFlags" title='llvm::MachO::SymbolFlags' data-ref="llvm::MachO::SymbolFlags">SymbolFlags</a>::<a class="enum" href="#llvm::MachO::SymbolFlags::Undefined" title='llvm::MachO::SymbolFlags::Undefined' data-ref="llvm::MachO::SymbolFlags::Undefined">Undefined</a>;</td></tr>
+<tr><th id="79">79</th><td>  }</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td><u>#<span data-ppcond="81">if</span> !defined(<span class="macro" data-ref="_M/NDEBUG">NDEBUG</span>) || defined(<span class="macro" data-ref="_M/LLVM_ENABLE_DUMP">LLVM_ENABLE_DUMP</span>)</u></td></tr>
+<tr><th id="82">82</th><td>  <em>void</em> <dfn class="decl" id="_ZNK4llvm5MachO6Symbol4dumpERNS_11raw_ostreamE" title='llvm::MachO::Symbol::dump' data-ref="_ZNK4llvm5MachO6Symbol4dumpERNS_11raw_ostreamE">dump</dfn>(<a class="type" href="../../Support/raw_ostream.h.html#llvm::raw_ostream" title='llvm::raw_ostream' data-ref="llvm::raw_ostream">raw_ostream</a> &amp;<dfn class="local col8 decl" id="18OS" title='OS' data-type='llvm::raw_ostream &amp;' data-ref="18OS">OS</dfn>) <em>const</em>;</td></tr>
+<tr><th id="83">83</th><td>  <em>void</em> <dfn class="decl def" id="_ZNK4llvm5MachO6Symbol4dumpEv" title='llvm::MachO::Symbol::dump' data-ref="_ZNK4llvm5MachO6Symbol4dumpEv">dump</dfn>() <em>const</em> { <a class="member" href="#_ZNK4llvm5MachO6Symbol4dumpERNS_11raw_ostreamE" title='llvm::MachO::Symbol::dump' data-ref="_ZNK4llvm5MachO6Symbol4dumpERNS_11raw_ostreamE">dump</a>(<span class='refarg'><span class="namespace">llvm::</span><a class="ref" href="../../Support/raw_ostream.h.html#_ZN4llvm4errsEv" title='llvm::errs' data-ref="_ZN4llvm4errsEv">errs</a>()</span>); }</td></tr>
+<tr><th id="84">84</th><td><u>#<span data-ppcond="81">endif</span></u></td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><b>private</b>:</td></tr>
+<tr><th id="87">87</th><td>  <a class="type" href="../../ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="decl" id="llvm::MachO::Symbol::Name" title='llvm::MachO::Symbol::Name' data-ref="llvm::MachO::Symbol::Name">Name</dfn>;</td></tr>
+<tr><th id="88">88</th><td>  <a class="type" href="ArchitectureSet.h.html#llvm::MachO::ArchitectureSet" title='llvm::MachO::ArchitectureSet' data-ref="llvm::MachO::ArchitectureSet">ArchitectureSet</a> <dfn class="decl" id="llvm::MachO::Symbol::Architectures" title='llvm::MachO::Symbol::Architectures' data-ref="llvm::MachO::Symbol::Architectures">Architectures</dfn>;</td></tr>
+<tr><th id="89">89</th><td>  <a class="type" href="#llvm::MachO::SymbolKind" title='llvm::MachO::SymbolKind' data-ref="llvm::MachO::SymbolKind">SymbolKind</a> <dfn class="decl" id="llvm::MachO::Symbol::Kind" title='llvm::MachO::Symbol::Kind' data-ref="llvm::MachO::Symbol::Kind">Kind</dfn>;</td></tr>
+<tr><th id="90">90</th><td>  <a class="type" href="#llvm::MachO::SymbolFlags" title='llvm::MachO::SymbolFlags' data-ref="llvm::MachO::SymbolFlags">SymbolFlags</a> <dfn class="decl" id="llvm::MachO::Symbol::Flags" title='llvm::MachO::Symbol::Flags' data-ref="llvm::MachO::Symbol::Flags">Flags</dfn>;</td></tr>
+<tr><th id="91">91</th><td>};</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>} <i>// end namespace MachO.</i></td></tr>
+<tr><th id="94">94</th><td>} <i>// end namespace llvm.</i></td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td><u>#<span data-ppcond="9">endif</span> // LLVM_TEXTAPI_MACHO_SYMBOL_H</u></td></tr>
+<tr><th id="97">97</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../lib/TextAPI/MachO/InterfaceFile.cpp.html'>llvm/llvm/lib/TextAPI/MachO/InterfaceFile.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

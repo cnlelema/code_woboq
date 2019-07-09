@@ -1,0 +1,51 @@
+<def f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.h' l='679' ll='684' type='llvm::SDValue llvm::DAGTypeLegalizer::GetScalarizedVector(llvm::SDValue Op)'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeFloatTypes.cpp' l='2127' u='c' c='_ZN4llvm16DAGTypeLegalizer34PromoteFloatRes_EXTRACT_VECTOR_ELTEPNS_6SDNodeE'/>
+<doc f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypes.h' l='672'>//===--------------------------------------------------------------------===//
+  // Scalarization Support: LegalizeVectorTypes.cpp
+  //===--------------------------------------------------------------------===//
+
+  /// Given a processed one-element vector Op which was scalarized to its
+  /// element type, this returns the element. For example, if Op is a v1i32,
+  /// Op = &lt; i32 val &gt;, this method returns val, an i32.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp' l='317' u='c' c='_ZN4llvm16DAGTypeLegalizer21PromoteIntRes_BITCASTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeTypesGeneric.cpp' l='87' u='c' c='_ZN4llvm16DAGTypeLegalizer17ExpandRes_BITCASTEPNS_6SDNodeERNS_7SDValueES4_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='198' u='c' c='_ZN4llvm16DAGTypeLegalizer21ScalarizeVecRes_BinOpEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='199' u='c' c='_ZN4llvm16DAGTypeLegalizer21ScalarizeVecRes_BinOpEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='205' u='c' c='_ZN4llvm16DAGTypeLegalizer25ScalarizeVecRes_TernaryOpEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='206' u='c' c='_ZN4llvm16DAGTypeLegalizer25ScalarizeVecRes_TernaryOpEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='207' u='c' c='_ZN4llvm16DAGTypeLegalizer25ScalarizeVecRes_TernaryOpEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='213' u='c' c='_ZN4llvm16DAGTypeLegalizer22ScalarizeVecRes_MULFIXEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='214' u='c' c='_ZN4llvm16DAGTypeLegalizer22ScalarizeVecRes_MULFIXEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='237' u='c' c='_ZN4llvm16DAGTypeLegalizer26ScalarizeVecRes_StrictFPOpEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='258' u='c' c='_ZN4llvm16DAGTypeLegalizer26ScalarizeVecRes_OverflowOpEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='259' u='c' c='_ZN4llvm16DAGTypeLegalizer26ScalarizeVecRes_OverflowOpEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='290' u='c' c='_ZN4llvm16DAGTypeLegalizer28ScalarizeVecRes_MERGE_VALUESEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='298' u='c' c='_ZN4llvm16DAGTypeLegalizer23ScalarizeVecRes_BITCASTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='322' u='c' c='_ZN4llvm16DAGTypeLegalizer24ScalarizeVecRes_FP_ROUNDEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='329' u='c' c='_ZN4llvm16DAGTypeLegalizer31ScalarizeVecRes_STRICT_FP_ROUNDEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='340' u='c' c='_ZN4llvm16DAGTypeLegalizer21ScalarizeVecRes_FPOWIEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='387' u='c' c='_ZN4llvm16DAGTypeLegalizer23ScalarizeVecRes_UnaryOpEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='400' u='c' c='_ZN4llvm16DAGTypeLegalizer23ScalarizeVecRes_InregOpEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='414' u='c' c='_ZN4llvm16DAGTypeLegalizer26ScalarizeVecRes_VecInregOpEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='451' u='c' c='_ZN4llvm16DAGTypeLegalizer23ScalarizeVecRes_VSELECTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='459' u='c' c='_ZN4llvm16DAGTypeLegalizer23ScalarizeVecRes_VSELECTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='509' u='c' c='_ZN4llvm16DAGTypeLegalizer23ScalarizeVecRes_VSELECTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='513' u='c' c='_ZN4llvm16DAGTypeLegalizer22ScalarizeVecRes_SELECTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='516' u='c' c='_ZN4llvm16DAGTypeLegalizer22ScalarizeVecRes_SELECTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='520' u='c' c='_ZN4llvm16DAGTypeLegalizer25ScalarizeVecRes_SELECT_CCEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='523' u='c' c='_ZN4llvm16DAGTypeLegalizer25ScalarizeVecRes_SELECT_CCEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='537' u='c' c='_ZN4llvm16DAGTypeLegalizer30ScalarizeVecRes_VECTOR_SHUFFLEEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='552' u='c' c='_ZN4llvm16DAGTypeLegalizer21ScalarizeVecRes_SETCCEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='553' u='c' c='_ZN4llvm16DAGTypeLegalizer21ScalarizeVecRes_SETCCEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='664' u='c' c='_ZN4llvm16DAGTypeLegalizer22ScalarizeVecOp_BITCASTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='674' u='c' c='_ZN4llvm16DAGTypeLegalizer22ScalarizeVecOp_UnaryOpEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='686' u='c' c='_ZN4llvm16DAGTypeLegalizer29ScalarizeVecOp_CONCAT_VECTORSEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='694' u='c' c='_ZN4llvm16DAGTypeLegalizer33ScalarizeVecOp_EXTRACT_VECTOR_ELTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='706' u='c' c='_ZN4llvm16DAGTypeLegalizer22ScalarizeVecOp_VSELECTEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='723' u='c' c='_ZN4llvm16DAGTypeLegalizer21ScalarizeVecOp_VSETCCEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='724' u='c' c='_ZN4llvm16DAGTypeLegalizer21ScalarizeVecOp_VSETCCEPNS_6SDNodeE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='752' u='c' c='_ZN4llvm16DAGTypeLegalizer20ScalarizeVecOp_STOREEPNS_11StoreSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='757' u='c' c='_ZN4llvm16DAGTypeLegalizer20ScalarizeVecOp_STOREEPNS_11StoreSDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='766' u='c' c='_ZN4llvm16DAGTypeLegalizer23ScalarizeVecOp_FP_ROUNDEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='776' u='c' c='_ZN4llvm16DAGTypeLegalizer30ScalarizeVecOp_STRICT_FP_ROUNDEPNS_6SDNodeEj'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/LegalizeVectorTypes.cpp' l='788' u='c' c='_ZN4llvm16DAGTypeLegalizer24ScalarizeVecOp_VECREDUCEEPNS_6SDNodeE'/>

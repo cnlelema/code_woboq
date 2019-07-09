@@ -1,0 +1,54 @@
+<def f='llvm/llvm/include/llvm/Analysis/DependenceAnalysis.h' l='70' ll='204'/>
+<ovr f='llvm/llvm/include/llvm/Analysis/DependenceAnalysis.h' l='214' c='llvm::FullDependence'/>
+<size>40</size>
+<doc f='llvm/llvm/include/llvm/Analysis/DependenceAnalysis.h' l='56'>/// Dependence - This class represents a dependence between two memory
+  /// memory references in a function. It contains minimal information and
+  /// is used in the very common situation where the compiler is unable to
+  /// determine anything beyond the existence of a dependence; that is, it
+  /// represents a confused dependence (see also FullDependence). In most
+  /// cases (for output, flow, and anti dependences), the dependence implies
+  /// an ordering, where the source must precede the destination; in contrast,
+  /// input dependences are unordered.
+  ///
+  /// When a dependence graph is built, each Dependence will be a member of
+  /// the set of predecessor edges for its destination instruction and a set
+  /// if successor edges for its source instruction. These sets are represented
+  /// as singly-linked lists, with the &quot;next&quot; fields stored in the dependence
+  /// itelf.</doc>
+<fun r='_ZN4llvm10DependenceC1EOS0_'/>
+<fun r='_ZN4llvm10DependenceaSEOS0_'/>
+<fun r='_ZN4llvm10DependenceC1EPNS_11InstructionES2_'/>
+<fun r='_ZN4llvm10DependenceD1Ev'/>
+<fun r='_ZNK4llvm10Dependence6getSrcEv'/>
+<fun r='_ZNK4llvm10Dependence6getDstEv'/>
+<fun r='_ZNK4llvm10Dependence7isInputEv'/>
+<fun r='_ZNK4llvm10Dependence8isOutputEv'/>
+<fun r='_ZNK4llvm10Dependence6isFlowEv'/>
+<fun r='_ZNK4llvm10Dependence6isAntiEv'/>
+<fun r='_ZNK4llvm10Dependence9isOrderedEv'/>
+<fun r='_ZNK4llvm10Dependence11isUnorderedEv'/>
+<fun r='_ZNK4llvm10Dependence17isLoopIndependentEv'/>
+<fun r='_ZNK4llvm10Dependence10isConfusedEv'/>
+<fun r='_ZNK4llvm10Dependence12isConsistentEv'/>
+<fun r='_ZNK4llvm10Dependence9getLevelsEv'/>
+<fun r='_ZNK4llvm10Dependence12getDirectionEj'/>
+<fun r='_ZNK4llvm10Dependence11getDistanceEj'/>
+<fun r='_ZNK4llvm10Dependence11isPeelFirstEj'/>
+<fun r='_ZNK4llvm10Dependence10isPeelLastEj'/>
+<fun r='_ZNK4llvm10Dependence11isSplitableEj'/>
+<fun r='_ZNK4llvm10Dependence8isScalarEj'/>
+<fun r='_ZNK4llvm10Dependence18getNextPredecessorEv'/>
+<fun r='_ZNK4llvm10Dependence16getNextSuccessorEv'/>
+<fun r='_ZN4llvm10Dependence18setNextPredecessorEPKS0_'/>
+<fun r='_ZN4llvm10Dependence16setNextSuccessorEPKS0_'/>
+<fun r='_ZNK4llvm10Dependence4dumpERNS_11raw_ostreamE'/>
+<mbr r='llvm::Dependence::Src' o='64' t='llvm::Instruction *'/>
+<mbr r='llvm::Dependence::Dst' o='128' t='llvm::Instruction *'/>
+<mbr r='llvm::Dependence::NextPredecessor' o='192' t='const llvm::Dependence *'/>
+<mbr r='llvm::Dependence::NextSuccessor' o='256' t='const llvm::Dependence *'/>
+<fun r='_ZNK4llvm10Dependence7isInputEv'/>
+<fun r='_ZNK4llvm10Dependence8isOutputEv'/>
+<fun r='_ZNK4llvm10Dependence6isFlowEv'/>
+<fun r='_ZNK4llvm10Dependence6isAntiEv'/>
+<fun r='_ZNK4llvm10Dependence8isScalarEj'/>
+<fun r='_ZNK4llvm10Dependence4dumpERNS_11raw_ostreamE'/>

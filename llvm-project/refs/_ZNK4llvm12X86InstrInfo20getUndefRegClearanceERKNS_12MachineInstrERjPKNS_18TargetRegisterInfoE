@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/lib/Target/X86/X86InstrInfo.h' l='446' type='unsigned int llvm::X86InstrInfo::getUndefRegClearance(const llvm::MachineInstr &amp; MI, unsigned int &amp; OpNum, const llvm::TargetRegisterInfo * TRI) const'/>
+<def f='llvm/llvm/lib/Target/X86/X86InstrInfo.cpp' l='4352' ll='4366' type='unsigned int llvm::X86InstrInfo::getUndefRegClearance(const llvm::MachineInstr &amp; MI, unsigned int &amp; OpNum, const llvm::TargetRegisterInfo * TRI) const'/>
+<doc f='llvm/llvm/lib/Target/X86/X86InstrInfo.cpp' l='4338'>/// Inform the BreakFalseDeps pass how many idle instructions we would like
+/// before certain undef register reads.
+///
+/// This catches the VCVTSI2SD family of instructions:
+///
+/// vcvtsi2sdq %rax, undef %xmm0, %xmm14
+///
+/// We should to be careful *not* to catch VXOR idioms which are presumably
+/// handled specially in the pipeline:
+///
+/// vxorps undef %xmm1, undef %xmm1, %xmm1
+///
+/// Like getPartialRegUpdateClearance, this makes a strong assumption that the
+/// high bits that are passed-through are not live.</doc>

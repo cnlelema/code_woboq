@@ -1,0 +1,13 @@
+<def f='llvm/llvm/include/llvm/Analysis/AliasAnalysis.h' l='297' ll='307'/>
+<size>864</size>
+<doc f='llvm/llvm/include/llvm/Analysis/AliasAnalysis.h' l='289'>/// This class stores info we want to provide to or retain within an alias
+/// query. By default, the root query is stateless and starts with a freshly
+/// constructed info object. Specific alias analyses can use this query info to
+/// store per-query state that is important for recursive or nested queries to
+/// avoid recomputing. To enable preserving this state across multiple queries
+/// where safe (due to the IR not changing), use a `BatchAAResults` wrapper.
+/// The information stored in an `AAQueryInfo` is currently limitted to the
+/// caches used by BasicAA, but can further be extended to fit other AA needs.</doc>
+<mbr r='llvm::AAQueryInfo::AliasCache' o='0' t='AliasCacheT'/>
+<mbr r='llvm::AAQueryInfo::IsCapturedCache' o='5760' t='IsCapturedCacheT'/>
+<fun r='_ZN4llvm11AAQueryInfoC1Ev'/>

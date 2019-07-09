@@ -1,0 +1,34 @@
+<def f='llvm/llvm/include/llvm/Analysis/MemoryLocation.h' l='174' ll='269'/>
+<size>40</size>
+<doc f='llvm/llvm/include/llvm/Analysis/MemoryLocation.h' l='165'>/// Representation for a specific memory location.
+///
+/// This abstraction can be used to represent a specific location in memory.
+/// The goal of the location is to represent enough information to describe
+/// abstract aliasing, modification, and reference behaviors of whatever
+/// value(s) are stored in memory at the particular location.
+///
+/// The primary user of this interface is LLVM&apos;s Alias Analysis, but other
+/// memory analyses such as MemoryDependence can use it as well.</doc>
+<mbr r='llvm::MemoryLocation::Ptr' o='0' t='const llvm::Value *'/>
+<mbr r='llvm::MemoryLocation::Size' o='64' t='llvm::LocationSize'/>
+<mbr r='llvm::MemoryLocation::AATags' o='128' t='llvm::AAMDNodes'/>
+<fun r='_ZN4llvm14MemoryLocation3getEPKNS_8LoadInstE'/>
+<fun r='_ZN4llvm14MemoryLocation3getEPKNS_9StoreInstE'/>
+<fun r='_ZN4llvm14MemoryLocation3getEPKNS_9VAArgInstE'/>
+<fun r='_ZN4llvm14MemoryLocation3getEPKNS_17AtomicCmpXchgInstE'/>
+<fun r='_ZN4llvm14MemoryLocation3getEPKNS_13AtomicRMWInstE'/>
+<fun r='_ZN4llvm14MemoryLocation3getEPKNS_11InstructionE'/>
+<fun r='_ZN4llvm14MemoryLocation9getOrNoneEPKNS_11InstructionE'/>
+<fun r='_ZN4llvm14MemoryLocation12getForSourceEPKNS_15MemTransferInstE'/>
+<fun r='_ZN4llvm14MemoryLocation12getForSourceEPKNS_21AtomicMemTransferInstE'/>
+<fun r='_ZN4llvm14MemoryLocation12getForSourceEPKNS_18AnyMemTransferInstE'/>
+<fun r='_ZN4llvm14MemoryLocation10getForDestEPKNS_12MemIntrinsicE'/>
+<fun r='_ZN4llvm14MemoryLocation10getForDestEPKNS_18AtomicMemIntrinsicE'/>
+<fun r='_ZN4llvm14MemoryLocation10getForDestEPKNS_15AnyMemIntrinsicE'/>
+<fun r='_ZN4llvm14MemoryLocation14getForArgumentEPKNS_8CallBaseEjPKNS_17TargetLibraryInfoE'/>
+<fun r='_ZN4llvm14MemoryLocation14getForArgumentEPKNS_8CallBaseEjRKNS_17TargetLibraryInfoE'/>
+<fun r='_ZN4llvm14MemoryLocationC1EPKNS_5ValueENS_12LocationSizeERKNS_9AAMDNodesE'/>
+<fun r='_ZNK4llvm14MemoryLocation13getWithNewPtrEPKNS_5ValueE'/>
+<fun r='_ZNK4llvm14MemoryLocation14getWithNewSizeENS_12LocationSizeE'/>
+<fun r='_ZNK4llvm14MemoryLocation16getWithoutAATagsEv'/>
+<fun r='_ZNK4llvm14MemoryLocationeqERKS0_'/>

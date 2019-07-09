@@ -1,0 +1,18 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/TargetRegisterInfo.h' l='813' type='bool llvm::TargetRegisterInfo::getRegAllocationHints(unsigned int VirtReg, ArrayRef&lt;MCPhysReg&gt; Order, SmallVectorImpl&lt;MCPhysReg&gt; &amp; Hints, const llvm::MachineFunction &amp; MF, const llvm::VirtRegMap * VRM = nullptr, const llvm::LiveRegMatrix * Matrix = nullptr) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetRegisterInfo.h' l='799'>/// Get a list of &apos;hint&apos; registers that the register allocator should try
+  /// first when allocating a physical register for the virtual register
+  /// VirtReg. These registers are effectively moved to the front of the
+  /// allocation order. If true is returned, regalloc will try to only use
+  /// hints to the greatest extent possible even if it means spilling.
+  ///
+  /// The Order argument is the allocation order for VirtReg&apos;s register class
+  /// as returned from RegisterClassInfo::getOrder(). The hint registers must
+  /// come from Order, and they must not be reserved.
+  ///
+  /// The default implementation of this function will only add target
+  /// independent register allocation hints. Targets that override this
+  /// function should typically call this default implementation as well and
+  /// expect to see generic copy hints added.</doc>
+<use f='llvm/llvm/lib/CodeGen/AllocationOrder.cpp' l='37' u='c' c='_ZN4llvm15AllocationOrderC1EjRKNS_10VirtRegMapERKNS_17RegisterClassInfoEPKNS_13LiveRegMatrixE'/>
+<def f='llvm/llvm/lib/CodeGen/TargetRegisterInfo.cpp' l='390' ll='434' type='bool llvm::TargetRegisterInfo::getRegAllocationHints(unsigned int VirtReg, ArrayRef&lt;MCPhysReg&gt; Order, SmallVectorImpl&lt;MCPhysReg&gt; &amp; Hints, const llvm::MachineFunction &amp; MF, const llvm::VirtRegMap * VRM = nullptr, const llvm::LiveRegMatrix * Matrix = nullptr) const'/>
+<doc f='llvm/llvm/lib/CodeGen/TargetRegisterInfo.cpp' l='389'>// Compute target-independent register allocator hints to help eliminate copies.</doc>

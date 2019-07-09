@@ -1,0 +1,13 @@
+<dec f='llvm/llvm/include/llvm/ProfileData/SampleProf.h' l='472' type='const llvm::sampleprof::FunctionSamples * llvm::sampleprof::FunctionSamples::findFunctionSamples(const llvm::DILocation * DIL) const'/>
+<doc f='llvm/llvm/include/llvm/ProfileData/SampleProf.h' l='463'>/// Get the FunctionSamples of the inline instance where DIL originates
+  /// from.
+  ///
+  /// The FunctionSamples of the instruction (Machine or IR) associated to
+  /// \p DIL is the inlined instance in which that instruction is coming from.
+  /// We traverse the inline stack of that instruction, and match it with the
+  /// tree nodes in the profile.
+  ///
+  /// \returns the FunctionSamples pointer to the inlined instance.</doc>
+<def f='llvm/llvm/lib/ProfileData/SampleProf.cpp' l='169' ll='188' type='const llvm::sampleprof::FunctionSamples * llvm::sampleprof::FunctionSamples::findFunctionSamples(const llvm::DILocation * DIL) const'/>
+<use f='llvm/llvm/lib/Target/X86/X86InsertPrefetch.cpp' l='73' u='c' c='_ZN12_GLOBAL__N_116getPrefetchHintsEPKN4llvm10sampleprof15FunctionSamplesERKNS0_12MachineInstrE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/SampleProfile.cpp' l='736' u='c' c='_ZNK12_GLOBAL__N_119SampleProfileLoader19findFunctionSamplesERKN4llvm11InstructionE'/>

@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/MachineBasicBlock.h' l='525' type='llvm::MachineBasicBlock * llvm::MachineBasicBlock::getFallThrough()'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/MachineBasicBlock.h' l='520'>/// Return the fallthrough block if the block can implicitly
+  /// transfer control to the block after it by falling off the end of
+  /// it.  This should return null if it can reach the block after
+  /// it, but it uses an explicit branch to do so (e.g., a table
+  /// jump).  Non-null return  is a conservative answer.</doc>
+<def f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='825' ll='867' type='llvm::MachineBasicBlock * llvm::MachineBasicBlock::getFallThrough()'/>
+<use f='llvm/llvm/lib/CodeGen/MachineBasicBlock.cpp' l='870' u='c' c='_ZN4llvm17MachineBasicBlock14canFallThroughEv'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64SpeculationHardening.cpp' l='201' u='c' c='_ZNK12_GLOBAL__N_127AArch64SpeculationHardening23endsWithCondControlFlowERN4llvm17MachineBasicBlockERPS2_S5_RNS1_9AArch64CC8CondCodeE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUMachineCFGStructurizer.cpp' l='2803' u='c' c='_ZN12_GLOBAL__N_128AMDGPUMachineCFGStructurizer18initFallthroughMapERN4llvm15MachineFunctionE'/>
+<use f='llvm/llvm/lib/Target/X86/X86FlagsCopyLowering.cpp' l='273' u='c' c='_ZL10splitBlockRN4llvm17MachineBasicBlockERNS_12MachineInstrERKNS_12X86InstrInfoE'/>

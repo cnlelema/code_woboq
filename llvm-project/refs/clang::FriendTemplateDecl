@@ -1,0 +1,32 @@
+<inh f='llvm/clang/include/clang/AST/DeclBase.h' l='88' c='clang::Decl'/>
+<def f='llvm/clang/include/clang/AST/DeclTemplate.h' l='2323' ll='2391'/>
+<size>1</size>
+<doc f='llvm/clang/include/clang/AST/DeclTemplate.h' l='2310'>/// Declaration of a friend template.
+///
+/// For example:
+/// \code
+/// template \&lt;typename T&gt; class A {
+///   friend class MyVector&lt;T&gt;; // not a friend template
+///   template \&lt;typename U&gt; friend class B; // not a friend template
+///   template \&lt;typename U&gt; friend class Foo&lt;T&gt;::Nested; // friend template
+/// };
+/// \endcode
+///
+/// \note This class is not currently in use.  All of the above
+/// will yield a FriendDecl, not a FriendTemplateDecl.</doc>
+<fun r='_ZN5clang18FriendTemplateDecl6anchorEv'/>
+<mbr r='clang::FriendTemplateDecl::NumParams' t='unsigned int'/>
+<mbr r='clang::FriendTemplateDecl::Params' t='clang::TemplateParameterList **'/>
+<mbr r='clang::FriendTemplateDecl::Friend' t='FriendUnion'/>
+<mbr r='clang::FriendTemplateDecl::FriendLoc' t='clang::SourceLocation'/>
+<fun r='_ZN5clang18FriendTemplateDeclC1EPNS_11DeclContextENS_14SourceLocationEN4llvm15MutableArrayRefIPNS_21TemplateParameterListEEENS4_12PointerUnionIJPNS_9N6845132'/>
+<fun r='_ZN5clang18FriendTemplateDeclC1ENS_4Decl10EmptyShellE'/>
+<fun r='_ZN5clang18FriendTemplateDecl6CreateERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationEN4llvm15MutableArrayRefIPNS_21TemplateParameterListEEENS6_1037185'/>
+<fun r='_ZN5clang18FriendTemplateDecl18CreateDeserializedERNS_10ASTContextEj'/>
+<fun r='_ZNK5clang18FriendTemplateDecl13getFriendTypeEv'/>
+<fun r='_ZNK5clang18FriendTemplateDecl13getFriendDeclEv'/>
+<fun r='_ZNK5clang18FriendTemplateDecl12getFriendLocEv'/>
+<fun r='_ZNK5clang18FriendTemplateDecl24getTemplateParameterListEj'/>
+<fun r='_ZNK5clang18FriendTemplateDecl24getNumTemplateParametersEv'/>
+<fun r='_ZN5clang18FriendTemplateDecl7classofEPKNS_4DeclE'/>
+<fun r='_ZN5clang18FriendTemplateDecl11classofKindENS_4Decl4KindE'/>

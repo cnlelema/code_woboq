@@ -1,0 +1,24 @@
+<dec f='llvm/clang/include/clang/AST/DeclTemplate.h' l='2288' type='clang::QualType clang::ClassTemplateDecl::getInjectedClassNameSpecialization()'/>
+<doc f='llvm/clang/include/clang/AST/DeclTemplate.h' l='2274'>/// Retrieve the template specialization type of the
+  /// injected-class-name for this class template.
+  ///
+  /// The injected-class-name for a class template \c X is \c
+  /// X&lt;template-args&gt;, where \c template-args is formed from the
+  /// template arguments that correspond to the template parameters of
+  /// \c X. For example:
+  ///
+  /// \code
+  /// template&lt;typename T, int N&gt;
+  /// struct array {
+  ///   typedef array this_type; // &quot;array&quot; is equivalent to &quot;array&lt;T, N&gt;&quot;
+  /// };
+  /// \endcode</doc>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='2680' u='c' c='_ZN5clang15ASTNodeImporter15VisitRecordDeclEPNS_10RecordDeclE'/>
+<def f='llvm/clang/lib/AST/DeclTemplate.cpp' l='458' ll='479' type='clang::QualType clang::ClassTemplateDecl::getInjectedClassNameSpecialization()'/>
+<use f='llvm/clang/lib/Sema/SemaCXXScopeSpec.cpp' l='109' u='c' c='_ZN5clang4Sema18computeDeclContextERKNS_12CXXScopeSpecEb'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='1661' u='c' c='_ZN5clang4Sema18CheckClassTemplateEPNS_5ScopeEjNS0_10TagUseKindENS_14SourceLocationERNS_12CXXScopeSpecEPNS_14IdentifierInfoES4_RKNS_20ParsedAttributes4636109'/>
+<use f='llvm/clang/lib/Sema/SemaTemplate.cpp' l='7744' u='c' c='_ZN5clang4Sema32ActOnClassTemplateSpecializationEPNS_5ScopeEjNS0_10TagUseKindENS_14SourceLocationES4_RNS_20TemplateIdAnnotationERKNS_20ParsedAttribute13978131'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateDeduction.cpp' l='5110' u='c' c='_ZN5clang4Sema28isMoreSpecializedThanPrimaryEPNS_38ClassTemplatePartialSpecializationDeclERNS_4sema21TemplateDeductionInfoE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateInstantiate.cpp' l='174' u='c' c='_ZN5clang4Sema28getTemplateInstantiationArgsEPNS_9NamedDeclEPKNS_20TemplateArgumentListEbPKNS_12FunctionDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaTemplateInstantiateDecl.cpp' l='1398' u='c' c='_ZN5clang24TemplateDeclInstantiator22VisitClassTemplateDeclEPNS_17ClassTemplateDeclE'/>
+<use f='llvm/clang/lib/Serialization/ASTReaderDecl.cpp' l='2146' u='c' c='_ZN5clang13ASTDeclReader22VisitClassTemplateDeclEPNS_17ClassTemplateDeclE'/>

@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/Analysis.h' l='125' type='bool llvm::isInTailCallPosition(llvm::ImmutableCallSite CS, const llvm::TargetMachine &amp; TM)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/Analysis.h' l='119'>/// Test if the given instruction is in a position to be optimized
+/// with a tail-call. This roughly means that it&apos;s in a block with
+/// a return and there&apos;s nothing that needs to be scheduled
+/// between it and the return.
+///
+/// This function only tests target-independent requirements.</doc>
+<def f='llvm/llvm/lib/CodeGen/Analysis.cpp' l='511' ll='551' type='bool llvm::isInTailCallPosition(llvm::ImmutableCallSite CS, const llvm::TargetMachine &amp; TM)'/>
+<doc f='llvm/llvm/lib/CodeGen/Analysis.cpp' l='505'>/// Test if the given instruction is in a position to be optimized
+/// with a tail-call. This roughly means that it&apos;s in a block with
+/// a return and there&apos;s nothing that needs to be scheduled
+/// between it and the return.
+///
+/// This function only tests target-independent requirements.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/FastISel.cpp' l='1279' u='c' c='_ZN4llvm8FastISel9lowerCallEPKNS_8CallInstE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='7149' u='c' c='_ZN4llvm19SelectionDAGBuilder11LowerCallToENS_17ImmutableCallSiteENS_7SDValueEbPKNS_10BasicBlockE'/>

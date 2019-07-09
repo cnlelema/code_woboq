@@ -1,0 +1,12 @@
+<def f='llvm/clang/include/clang/AST/DeclCXX.h' l='1923' ll='1926' type='unsigned int clang::CXXRecordDecl::getLambdaManglingNumber() const'/>
+<doc f='llvm/clang/include/clang/AST/DeclCXX.h' l='1917'>/// If this is the closure type of a lambda expression, retrieve the
+  /// number to be used for name mangling in the Itanium C++ ABI.
+  ///
+  /// Zero indicates that this closure type has internal linkage, so the
+  /// mangling number does not matter, while a non-zero value indicates which
+  /// lambda expression this is in this particular context.</doc>
+<use f='llvm/clang/lib/AST/ASTImporter.cpp' l='2620' u='c' c='_ZN5clang15ASTNodeImporter15VisitRecordDeclEPNS_10RecordDeclE'/>
+<use f='llvm/clang/lib/AST/ItaniumMangle.cpp' l='1380' u='c' c='_ZN12_GLOBAL__N_114CXXNameMangler21mangleUnqualifiedNameEPKN5clang9NamedDeclENS1_15DeclarationNameEjPKN4llvm11SmallVectorINS6_9StringRefELj4EEE'/>
+<use f='llvm/clang/lib/AST/ItaniumMangle.cpp' l='1742' u='c' c='_ZN12_GLOBAL__N_114CXXNameMangler12mangleLambdaEPKN5clang13CXXRecordDeclE'/>
+<use f='llvm/clang/lib/AST/MicrosoftMangle.cpp' l='236' u='c' c='_ZN12_GLOBAL__N_126MicrosoftMangleContextImpl11getLambdaIdEPKN5clang13CXXRecordDeclE'/>
+<use f='llvm/clang/lib/AST/MicrosoftMangle.cpp' l='915' u='c' c='_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler21mangleUnqualifiedNameEPKN5clang9NamedDeclENS1_15DeclarationNameE'/>

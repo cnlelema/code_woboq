@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/lib/Target/Lanai/LanaiInstrInfo.h' l='87' type='bool llvm::LanaiInstrInfo::analyzeBranch(llvm::MachineBasicBlock &amp; MBB, llvm::MachineBasicBlock *&amp; TrueBlock, llvm::MachineBasicBlock *&amp; FalseBlock, SmallVectorImpl&lt;llvm::MachineOperand&gt; &amp; Condition, bool AllowModify) const'/>
+<def f='llvm/llvm/lib/Target/Lanai/LanaiInstrInfo.cpp' l='563' ll='642' type='bool llvm::LanaiInstrInfo::analyzeBranch(llvm::MachineBasicBlock &amp; MBB, llvm::MachineBasicBlock *&amp; TrueBlock, llvm::MachineBasicBlock *&amp; FalseBlock, SmallVectorImpl&lt;llvm::MachineOperand&gt; &amp; Condition, bool AllowModify) const'/>
+<doc f='llvm/llvm/lib/Target/Lanai/LanaiInstrInfo.cpp' l='553'>// The analyzeBranch function is used to examine conditional instructions and
+// remove unnecessary instructions. This method is used by BranchFolder and
+// IfConverter machine function passes to improve the CFG.
+// - TrueBlock is set to the destination if condition evaluates true (it is the
+//   nullptr if the destination is the fall-through branch);
+// - FalseBlock is set to the destination if condition evaluates to false (it
+//   is the nullptr if the branch is unconditional);
+// - condition is populated with machine operands needed to generate the branch
+//   to insert in insertBranch;
+// Returns: false if branch could successfully be analyzed.</doc>

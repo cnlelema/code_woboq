@@ -1,0 +1,55 @@
+<dec f='llvm/llvm/include/llvm/IR/Constants.h' l='1049' type='static llvm::Constant * llvm::ConstantExpr::getCast(unsigned int ops, llvm::Constant * C, llvm::Type * Ty, bool OnlyIfReduced = false)'/>
+<doc f='llvm/llvm/include/llvm/IR/Constants.h' l='1043'>/// Convenience function for getting a Cast operation.
+  ///
+  /// \param ops The opcode for the conversion
+  /// \param C  The constant to be converted
+  /// \param Ty The type to which the constant is converted
+  /// \param OnlyIfReduced see \a getWithOperands() docs.</doc>
+<use f='llvm/llvm/include/llvm/IR/ConstantFolder.h' l='186' u='c' c='_ZNK4llvm14ConstantFolder10CreateCastENS_11Instruction7CastOpsEPNS_8ConstantEPNS_4TypeE'/>
+<use f='llvm/llvm/include/llvm/Analysis/TargetFolder.h' l='174' u='c' c='_ZNK4llvm12TargetFolder10CreateCastENS_11Instruction7CastOpsEPNS_8ConstantEPNS_4TypeE'/>
+<use f='llvm/llvm/lib/Analysis/ConstantFolding.cpp' l='342' u='c' c='_ZN4llvm30ConstantFoldLoadThroughBitcastEPNS_8ConstantEPNS_4TypeERKNS_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Analysis/ConstantFolding.cpp' l='765' u='c' c='_ZN12_GLOBAL__N_114CastGEPIndicesEPN4llvm4TypeENS0_8ArrayRefIPNS0_8ConstantEEES2_NS0_8OptionalIjEERKNS0_10DataLayoutEPKNS0_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Analysis/ConstantFolding.cpp' l='1312' u='c' c='_ZN4llvm23ConstantFoldCastOperandEjPNS_8ConstantEPNS_4TypeERKNS_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Analysis/ConstantFolding.cpp' l='1332' u='c' c='_ZN4llvm23ConstantFoldCastOperandEjPNS_8ConstantEPNS_4TypeERKNS_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Analysis/ConstantFolding.cpp' l='1343' u='c' c='_ZN4llvm23ConstantFoldCastOperandEjPNS_8ConstantEPNS_4TypeERKNS_10DataLayoutE'/>
+<use f='llvm/llvm/lib/Analysis/InlineCost.cpp' l='715' u='c' c='_ZN12_GLOBAL__N_112CallAnalyzer13visitCastInstERN4llvm8CastInstE'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='1779' u='c' c='_ZL19simplifyAndOrOfCmpsRKN4llvm13SimplifyQueryEPNS_5ValueES4_b'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='3143' u='c' c='_ZL16SimplifyICmpInstjPN4llvm5ValueES1_RKNS_13SimplifyQueryEj'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='3202' u='c' c='_ZL16SimplifyICmpInstjPN4llvm5ValueES1_RKNS_13SimplifyQueryEj'/>
+<use f='llvm/llvm/lib/Analysis/LoopUnrollAnalyzer.cpp' l='156' u='c' c='_ZN4llvm20UnrolledInstAnalyzer13visitCastInstERNS_8CastInstE'/>
+<use f='llvm/llvm/lib/Analysis/PHITransAddr.cpp' l='198' u='c' c='_ZN4llvm12PHITransAddr19PHITranslateSubExprEPNS_5ValueEPNS_10BasicBlockES4_PKNS_13DominatorTreeE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolution.cpp' l='8184' u='c' c='_ZN4llvm15ScalarEvolution18computeSCEVAtScopeEPKNS_4SCEVEPKNS_4LoopE'/>
+<use f='llvm/llvm/lib/Analysis/ScalarEvolutionExpander.cpp' l='148' u='c' c='_ZN4llvm12SCEVExpander18InsertNoopCastOfToEPNS_5ValueEPNS_4TypeE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='5194' u='c' c='_ZL15lookThroughCastPN4llvm7CmpInstEPNS_5ValueES3_PNS_11Instruction7CastOpsE'/>
+<use f='llvm/llvm/lib/AsmParser/LLParser.cpp' l='3304' u='c' c='_ZN4llvm8LLParser10ParseValIDERNS_5ValIDEPNS0_16PerFunctionStateE'/>
+<use f='llvm/llvm/lib/Bitcode/Reader/BitcodeReader.cpp' l='2424' u='c' c='_ZN12_GLOBAL__N_113BitcodeReader14parseConstantsEv'/>
+<use f='llvm/llvm/include/llvm/ExecutionEngine/Orc/CompileOnDemandLayer.h' l='471' u='c' c='_ZN4llvm3orc26LegacyCompileOnDemandLayer16addLogicalModuleERNS1_12LogicalDylibESt10unique_ptrINS_6ModuleESt14default_deleteIS5_EE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/IndirectionUtils.cpp' l='220' u='c' c='_ZN4llvm3orc20createIRTypedAddressERNS_12FunctionTypeEm'/>
+<use f='llvm/llvm/lib/IR/ConstantFold.cpp' l='398' u='c' c='_ZL15getFoldedSizeOfPN4llvm4TypeES1_b'/>
+<use f='llvm/llvm/lib/IR/ConstantFold.cpp' l='413' u='c' c='_ZL16getFoldedAlignOfPN4llvm4TypeES1_b'/>
+<use f='llvm/llvm/lib/IR/ConstantFold.cpp' l='462' u='c' c='_ZL16getFoldedAlignOfPN4llvm4TypeES1_b'/>
+<use f='llvm/llvm/lib/IR/ConstantFold.cpp' l='475' u='c' c='_ZL17getFoldedOffsetOfPN4llvm4TypeEPNS_8ConstantES1_b'/>
+<use f='llvm/llvm/lib/IR/ConstantFold.cpp' l='499' u='c' c='_ZL17getFoldedOffsetOfPN4llvm4TypeEPNS_8ConstantES1_b'/>
+<use f='llvm/llvm/lib/IR/ConstantFold.cpp' l='515' u='c' c='_ZL17getFoldedOffsetOfPN4llvm4TypeEPNS_8ConstantES1_b'/>
+<use f='llvm/llvm/lib/IR/ConstantFold.cpp' l='543' u='c' c='_ZN4llvm27ConstantFoldCastInstructionEjPNS_8ConstantEPNS_4TypeE'/>
+<use f='llvm/llvm/lib/IR/ConstantFold.cpp' l='582' u='c' c='_ZN4llvm27ConstantFoldCastInstructionEjPNS_8ConstantEPNS_4TypeE'/>
+<use f='llvm/llvm/lib/IR/ConstantFold.cpp' l='654' u='c' c='_ZN4llvm27ConstantFoldCastInstructionEjPNS_8ConstantEPNS_4TypeE'/>
+<use f='llvm/llvm/lib/IR/ConstantFold.cpp' l='2081' u='c' c='_ZN4llvm30ConstantFoldCompareInstructionEtPNS_8ConstantES1_'/>
+<use f='llvm/llvm/lib/IR/Constants.cpp' l='1238' u='c' c='_ZNK4llvm12ConstantExpr15getWithOperandsENS_8ArrayRefIPNS_8ConstantEEEPNS_4TypeEbS6_'/>
+<def f='llvm/llvm/lib/IR/Constants.cpp' l='1566' ll='1603' type='static llvm::Constant * llvm::ConstantExpr::getCast(unsigned int oc, llvm::Constant * C, llvm::Type * Ty, bool OnlyIfReduced = false)'/>
+<use f='llvm/llvm/lib/IR/Constants.cpp' l='1658' u='c' c='_ZN4llvm12ConstantExpr14getIntegerCastEPNS_8ConstantEPNS_4TypeEb'/>
+<use f='llvm/llvm/lib/IR/Constants.cpp' l='1670' u='c' c='_ZN4llvm12ConstantExpr9getFPCastEPNS_8ConstantEPNS_4TypeE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/GlobalOpt.cpp' l='714' u='c' c='_ZL31OptimizeAwayTrappingUsesOfValuePN4llvm5ValueEPNS_8ConstantE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCompares.cpp' l='3908' u='c' c='_ZN4llvm12InstCombiner23foldICmpWithCastAndCastERNS_8ICmpInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineSelect.cpp' l='1382' u='c' c='_ZN4llvm12InstCombiner18foldSelectExtConstERNS_10SelectInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineSelect.cpp' l='1401' u='c' c='_ZN4llvm12InstCombiner18foldSelectExtConstERNS_10SelectInstE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='276' u='c' c='_ZL22simplifyAssocCastAssocPN4llvm14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='1019' u='c' c='_ZN4llvm12InstCombiner13foldOpIntoPhiERNS_11InstructionEPNS_7PHINodeE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='1554' u='c' c='_ZN4llvm12InstCombiner22narrowMathIfNoOverflowERNS_14BinaryOperatorE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/SanitizerCoverage.cpp' l='726' u='c' c='_ZN12_GLOBAL__N_123SanitizerCoverageModule20InjectTraceForSwitchERN4llvm8FunctionENS1_8ArrayRefIPNS1_11InstructionEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='664' u='c' c='_ZN4llvm17JumpThreadingPass35ComputeValueKnownInPredecessorsImplEPNS_5ValueEPNS_10BasicBlockERNS_15SmallVectorImplISt4pairIPNS_8ConstantES4_EEENS_13ju8595034'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='5276' u='c' c='_ZNK12_GLOBAL__N_111LSRInstance6ExpandERKNS_6LSRUseERKNS_8LSRFixupERKNS_7FormulaEN4llvm14ilist_iteratorINSA_12ilist_detail12node_optionsINSA_11Instruc14296814'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SeparateConstOffsetFromGEP.cpp' l='622' u='c' c='_ZN12_GLOBAL__N_123ConstantOffsetExtractor9applyExtsEPN4llvm5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Evaluator.cpp' l='422' u='c' c='_ZN4llvm9Evaluator13EvaluateBlockENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11InstructionELb1ELb0EvEELb0ELb0EEERPNS_10BasicBlockE'/>
+<use f='llvm/llvm/unittests/Analysis/SparsePropagation.cpp' l='519' u='c' c='_ZN53SparsePropagationTest_ExceptionalTerminatorInsts_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Linker/LinkModulesTest.cpp' l='54' u='c' c='_ZN12_GLOBAL__N_114LinkModuleTest5SetUpEv'/>

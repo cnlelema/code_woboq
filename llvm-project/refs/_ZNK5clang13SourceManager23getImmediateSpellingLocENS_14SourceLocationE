@@ -1,0 +1,21 @@
+<dec f='llvm/clang/include/clang/Basic/SourceManager.h' l='1180' type='clang::SourceLocation clang::SourceManager::getImmediateSpellingLoc(clang::SourceLocation Loc) const'/>
+<use f='llvm/clang/include/clang/Basic/SourceManager.h' l='1715' u='c' c='_ZNK5clang13SourceManager26getImmediateMacroCallerLocENS_14SourceLocationE'/>
+<doc f='llvm/clang/include/clang/Basic/SourceManager.h' l='1174'>/// Given a SourceLocation object, return the spelling location
+  /// referenced by the ID.
+  ///
+  /// This is the first level down towards the place where the characters
+  /// that make up the lexed token can be found.  This should not generally
+  /// be used by clients.</doc>
+<use f='llvm/clang/lib/Basic/SourceManager.cpp' l='905' u='c' c='_ZNK5clang13SourceManager18getFileLocSlowCaseENS_14SourceLocationE'/>
+<def f='llvm/clang/lib/Basic/SourceManager.cpp' l='953' ll='958' type='clang::SourceLocation clang::SourceManager::getImmediateSpellingLoc(clang::SourceLocation Loc) const'/>
+<use f='llvm/clang/lib/Basic/SourceManager.cpp' l='971' u='c' c='_ZNK5clang13SourceManager20getTopMacroCallerLocENS_14SourceLocationE'/>
+<doc f='llvm/clang/lib/Basic/SourceManager.cpp' l='949'>/// getImmediateSpellingLoc - Given a SourceLocation object, return the
+/// spelling location referenced by the ID.  This is the first level down
+/// towards the place where the characters that make up the lexed token can be
+/// found.  This should not generally be used by clients.</doc>
+<use f='llvm/clang/lib/Frontend/DiagnosticRenderer.cpp' l='280' u='c' c='_ZL21retrieveMacroLocationN5clang14SourceLocationENS_6FileIDES1_RKN4llvm15SmallVectorImplIS1_EEbPKNS_13SourceManagerERb'/>
+<use f='llvm/clang/lib/Frontend/DiagnosticRenderer.cpp' l='285' u='c' c='_ZL21retrieveMacroLocationN5clang14SourceLocationENS_6FileIDES1_RKN4llvm15SmallVectorImplIS1_EEbPKNS_13SourceManagerERb'/>
+<use f='llvm/clang/lib/Frontend/DiagnosticRenderer.cpp' l='322' u='c' c='_ZL27getMacroArgExpansionFileIDsN5clang14SourceLocationERN4llvm15SmallVectorImplINS_6FileIDEEEbPKNS_13SourceManagerE'/>
+<use f='llvm/clang/lib/Lex/Lexer.cpp' l='922' u='c' c='_ZN5clang5Lexer17makeFileCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<use f='llvm/clang/lib/Lex/Lexer.cpp' l='923' u='c' c='_ZN5clang5Lexer17makeFileCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE'/>
+<use f='llvm/clang/tools/libclang/CIndexHigh.cpp' l='136' u='c' c='_ZL18getFileSpellingLocRN5clang13SourceManagerENS_14SourceLocationERb'/>

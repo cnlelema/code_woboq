@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/CodeGen/GlobalISel/Utils.h' l='125' type='Optional&lt;llvm::ValueAndVReg&gt; llvm::getConstantVRegValWithLookThrough(unsigned int VReg, const llvm::MachineRegisterInfo &amp; MRI, bool LookThroughInstrs = true)'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/GlobalISel/Utils.h' l='118'>/// If \p VReg is defined by a statically evaluable chain of
+/// instructions rooted on a G_CONSTANT (\p LookThroughInstrs == true)
+/// and that constant fits in int64_t, returns its value as well as
+/// the virtual register defined by this G_CONSTANT.
+/// When \p LookThroughInstrs == false, this function behaves like
+/// getConstantVRegVal.</doc>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/InstructionSelector.cpp' l='52' u='c' c='_ZNK4llvm19InstructionSelector17isOperandImmEqualERKNS_14MachineOperandElRKNS_19MachineRegisterInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/Utils.cpp' l='213' u='c' c='_ZN4llvm18getConstantVRegValEjRKNS_19MachineRegisterInfoE'/>
+<def f='llvm/llvm/lib/CodeGen/GlobalISel/Utils.cpp' l='221' ll='274' type='Optional&lt;llvm::ValueAndVReg&gt; llvm::getConstantVRegValWithLookThrough(unsigned int VReg, const llvm::MachineRegisterInfo &amp; MRI, bool LookThroughInstrs = true)'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64InstructionSelector.cpp' l='2482' u='c' c='_ZNK12_GLOBAL__N_126AArch64InstructionSelector16selectExtractEltERN4llvm12MachineInstrERNS1_19MachineRegisterInfoE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64InstructionSelector.cpp' l='3178' u='c' c='_ZNK12_GLOBAL__N_126AArch64InstructionSelector15selectInsertEltERN4llvm12MachineInstrERNS1_19MachineRegisterInfoE'/>

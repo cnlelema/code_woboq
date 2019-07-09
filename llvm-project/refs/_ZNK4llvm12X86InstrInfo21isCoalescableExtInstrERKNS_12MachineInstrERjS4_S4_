@@ -1,0 +1,8 @@
+<dec f='llvm/llvm/lib/Target/X86/X86InstrInfo.h' l='180' type='bool llvm::X86InstrInfo::isCoalescableExtInstr(const llvm::MachineInstr &amp; MI, unsigned int &amp; SrcReg, unsigned int &amp; DstReg, unsigned int &amp; SubIdx) const'/>
+<doc f='llvm/llvm/lib/Target/X86/X86InstrInfo.h' l='174'>/// isCoalescableExtInstr - Return true if the instruction is a &quot;coalescable&quot;
+  /// extension instruction. That is, it&apos;s like a copy where it&apos;s legal for the
+  /// source to overlap the destination. e.g. X86::MOVSX64rr32. If this returns
+  /// true, then it&apos;s expected the pre-extension value is available as a subreg
+  /// of the result register. This also returns the sub-register index in
+  /// SubIdx.</doc>
+<def f='llvm/llvm/lib/Target/X86/X86InstrInfo.cpp' l='89' ll='136' type='bool llvm::X86InstrInfo::isCoalescableExtInstr(const llvm::MachineInstr &amp; MI, unsigned int &amp; SrcReg, unsigned int &amp; DstReg, unsigned int &amp; SubIdx) const'/>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Thunks.h source code [llvm/lld/ELF/Thunks.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="lld::elf::Thunk "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/lld/ELF/Thunks.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>llvm</a>/<a href='..'>lld</a>/<a href='./'>ELF</a>/<a href='Thunks.h.html'>Thunks.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- Thunks.h --------------------------------------------------------===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/LLD_ELF_THUNKS_H">LLD_ELF_THUNKS_H</span></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/LLD_ELF_THUNKS_H" data-ref="_M/LLD_ELF_THUNKS_H">LLD_ELF_THUNKS_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#include <a href="Relocations.h.html">"Relocations.h"</a></u></td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><b>namespace</b> <span class="namespace">lld</span> {</td></tr>
+<tr><th id="15">15</th><td><b>namespace</b> <span class="namespace">elf</span> {</td></tr>
+<tr><th id="16">16</th><td><b>class</b> <a class="type" href="Symbols.h.html#lld::elf::Defined" title='lld::elf::Defined' data-ref="lld::elf::Defined" id="lld::elf::Defined">Defined</a>;</td></tr>
+<tr><th id="17">17</th><td><b>class</b> <a class="type" href="Symbols.h.html#lld::elf::Symbol" title='lld::elf::Symbol' data-ref="lld::elf::Symbol" id="lld::elf::Symbol">Symbol</a>;</td></tr>
+<tr><th id="18">18</th><td><b>class</b> <a class="type" href="SyntheticSections.h.html#lld::elf::ThunkSection" title='lld::elf::ThunkSection' data-ref="lld::elf::ThunkSection" id="lld::elf::ThunkSection">ThunkSection</a>;</td></tr>
+<tr><th id="19">19</th><td><i>// Class to describe an instance of a Thunk.</i></td></tr>
+<tr><th id="20">20</th><td><i>// A Thunk is a code-sequence inserted by the linker in between a caller and</i></td></tr>
+<tr><th id="21">21</th><td><i>// the callee. The relocation to the callee is redirected to the Thunk, which</i></td></tr>
+<tr><th id="22">22</th><td><i>// after executing transfers control to the callee. Typical uses of Thunks</i></td></tr>
+<tr><th id="23">23</th><td><i>// include transferring control from non-pi to pi and changing state on</i></td></tr>
+<tr><th id="24">24</th><td><i>// targets like ARM.</i></td></tr>
+<tr><th id="25">25</th><td><i>//</i></td></tr>
+<tr><th id="26">26</th><td><i>// Thunks can be created for Defined, Shared and Undefined Symbols.</i></td></tr>
+<tr><th id="27">27</th><td><i>// Thunks are assigned to synthetic ThunkSections</i></td></tr>
+<tr><th id="28">28</th><td><b>class</b> <dfn class="type def" id="lld::elf::Thunk" title='lld::elf::Thunk' data-ref="lld::elf::Thunk">Thunk</dfn> {</td></tr>
+<tr><th id="29">29</th><td><b>public</b>:</td></tr>
+<tr><th id="30">30</th><td>  <dfn class="decl" id="_ZN3lld3elf5ThunkC1ERNS0_6SymbolE" title='lld::elf::Thunk::Thunk' data-ref="_ZN3lld3elf5ThunkC1ERNS0_6SymbolE">Thunk</dfn>(<a class="type" href="Symbols.h.html#lld::elf::Symbol" title='lld::elf::Symbol' data-ref="lld::elf::Symbol">Symbol</a> &amp;<dfn class="local col1 decl" id="91Destination" title='Destination' data-type='lld::elf::Symbol &amp;' data-ref="91Destination">Destination</dfn>);</td></tr>
+<tr><th id="31">31</th><td>  <b>virtual</b> <dfn class="virtual decl" id="_ZN3lld3elf5ThunkD1Ev" title='lld::elf::Thunk::~Thunk' data-ref="_ZN3lld3elf5ThunkD1Ev">~Thunk</dfn>();</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td>  <b>virtual</b> <a class="typedef" href="../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="virtual decl" id="_ZN3lld3elf5Thunk4sizeEv" title='lld::elf::Thunk::size' data-ref="_ZN3lld3elf5Thunk4sizeEv">size</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="34">34</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZN3lld3elf5Thunk7writeToEPh" title='lld::elf::Thunk::writeTo' data-ref="_ZN3lld3elf5Thunk7writeToEPh">writeTo</dfn>(<a class="typedef" href="../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> *<dfn class="local col2 decl" id="92Buf" title='Buf' data-type='uint8_t *' data-ref="92Buf">Buf</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td>  <i>// All Thunks must define at least one symbol, known as the thunk target</i></td></tr>
+<tr><th id="37">37</th><td><i>  // symbol, so that we can redirect relocations to it. The thunk may define</i></td></tr>
+<tr><th id="38">38</th><td><i>  // additional symbols, but these are never targets for relocations.</i></td></tr>
+<tr><th id="39">39</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZN3lld3elf5Thunk10addSymbolsERNS0_12ThunkSectionE" title='lld::elf::Thunk::addSymbols' data-ref="_ZN3lld3elf5Thunk10addSymbolsERNS0_12ThunkSectionE">addSymbols</dfn>(<a class="type" href="SyntheticSections.h.html#lld::elf::ThunkSection" title='lld::elf::ThunkSection' data-ref="lld::elf::ThunkSection">ThunkSection</a> &amp;<dfn class="local col3 decl" id="93IS" title='IS' data-type='lld::elf::ThunkSection &amp;' data-ref="93IS">IS</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td>  <em>void</em> <dfn class="decl" id="_ZN3lld3elf5Thunk9setOffsetEm" title='lld::elf::Thunk::setOffset' data-ref="_ZN3lld3elf5Thunk9setOffsetEm">setOffset</dfn>(<a class="typedef" href="../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col4 decl" id="94Offset" title='Offset' data-type='uint64_t' data-ref="94Offset">Offset</dfn>);</td></tr>
+<tr><th id="42">42</th><td>  <a class="type" href="Symbols.h.html#lld::elf::Defined" title='lld::elf::Defined' data-ref="lld::elf::Defined">Defined</a> *<dfn class="decl" id="_ZN3lld3elf5Thunk9addSymbolEN4llvm9StringRefEhmRNS0_16InputSectionBaseE" title='lld::elf::Thunk::addSymbol' data-ref="_ZN3lld3elf5Thunk9addSymbolEN4llvm9StringRefEhmRNS0_16InputSectionBaseE">addSymbol</dfn>(<a class="type" href="../../llvm/include/llvm/ADT/StringRef.h.html#llvm::StringRef" title='llvm::StringRef' data-ref="llvm::StringRef">StringRef</a> <dfn class="local col5 decl" id="95Name" title='Name' data-type='llvm::StringRef' data-ref="95Name">Name</dfn>, <a class="typedef" href="../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint8_t" title='uint8_t' data-type='__uint8_t' data-ref="uint8_t">uint8_t</a> <dfn class="local col6 decl" id="96Type" title='Type' data-type='uint8_t' data-ref="96Type">Type</dfn>, <a class="typedef" href="../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="local col7 decl" id="97Value" title='Value' data-type='uint64_t' data-ref="97Value">Value</dfn>,</td></tr>
+<tr><th id="43">43</th><td>                     <a class="type" href="InputSection.h.html#lld::elf::InputSectionBase" title='lld::elf::InputSectionBase' data-ref="lld::elf::InputSectionBase">InputSectionBase</a> &amp;<dfn class="local col8 decl" id="98Section" title='Section' data-type='lld::elf::InputSectionBase &amp;' data-ref="98Section">Section</dfn>);</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>  <i>// Some Thunks must be placed immediately before their Target as they elide</i></td></tr>
+<tr><th id="46">46</th><td><i>  // a branch and fall through to the first Symbol in the Target.</i></td></tr>
+<tr><th id="47">47</th><td>  <b>virtual</b> <a class="type" href="InputSection.h.html#lld::elf::InputSection" title='lld::elf::InputSection' data-ref="lld::elf::InputSection">InputSection</a> *<dfn class="virtual decl def" id="_ZNK3lld3elf5Thunk21getTargetInputSectionEv" title='lld::elf::Thunk::getTargetInputSection' data-ref="_ZNK3lld3elf5Thunk21getTargetInputSectionEv">getTargetInputSection</dfn>() <em>const</em> { <b>return</b> <b>nullptr</b>; }</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>  <i>// To reuse a Thunk the InputSection and the relocation must be compatible</i></td></tr>
+<tr><th id="50">50</th><td><i>  // with it.</i></td></tr>
+<tr><th id="51">51</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl def" id="_ZNK3lld3elf5Thunk16isCompatibleWithERKNS0_12InputSectionERKNS0_10RelocationE" title='lld::elf::Thunk::isCompatibleWith' data-ref="_ZNK3lld3elf5Thunk16isCompatibleWithERKNS0_12InputSectionERKNS0_10RelocationE">isCompatibleWith</dfn>(<em>const</em> <a class="type" href="InputSection.h.html#lld::elf::InputSection" title='lld::elf::InputSection' data-ref="lld::elf::InputSection">InputSection</a> &amp;,</td></tr>
+<tr><th id="52">52</th><td>                                <em>const</em> <a class="type" href="Relocations.h.html#lld::elf::Relocation" title='lld::elf::Relocation' data-ref="lld::elf::Relocation">Relocation</a> &amp;) <em>const</em> {</td></tr>
+<tr><th id="53">53</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="54">54</th><td>  }</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>  <a class="type" href="Symbols.h.html#lld::elf::Defined" title='lld::elf::Defined' data-ref="lld::elf::Defined">Defined</a> *<dfn class="decl def" id="_ZNK3lld3elf5Thunk17getThunkTargetSymEv" title='lld::elf::Thunk::getThunkTargetSym' data-ref="_ZNK3lld3elf5Thunk17getThunkTargetSymEv">getThunkTargetSym</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#lld::elf::Thunk::Syms" title='lld::elf::Thunk::Syms' data-ref="lld::elf::Thunk::Syms">Syms</a><a class="ref" href="../../llvm/include/llvm/ADT/SmallVector.h.html#_ZNK4llvm25SmallVectorTemplateCommonixEm" title='llvm::SmallVectorTemplateCommon::operator[]' data-ref="_ZNK4llvm25SmallVectorTemplateCommonixEm">[<var>0</var>]</a>; }</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>  <i>// The alignment requirement for this Thunk, defaults to the size of the</i></td></tr>
+<tr><th id="59">59</th><td><i>  // typical code section alignment.</i></td></tr>
+<tr><th id="60">60</th><td>  <a class="type" href="Symbols.h.html#lld::elf::Symbol" title='lld::elf::Symbol' data-ref="lld::elf::Symbol">Symbol</a> &amp;<dfn class="decl" id="lld::elf::Thunk::Destination" title='lld::elf::Thunk::Destination' data-ref="lld::elf::Thunk::Destination">Destination</dfn>;</td></tr>
+<tr><th id="61">61</th><td>  <span class="namespace">llvm::</span><a class="type" href="../../llvm/include/llvm/ADT/SmallVector.h.html#llvm::SmallVector" title='llvm::SmallVector' data-ref="llvm::SmallVector">SmallVector</a>&lt;<a class="type" href="Symbols.h.html#lld::elf::Defined" title='lld::elf::Defined' data-ref="lld::elf::Defined">Defined</a> *, <var>3</var>&gt; <dfn class="decl" id="lld::elf::Thunk::Syms" title='lld::elf::Thunk::Syms' data-ref="lld::elf::Thunk::Syms">Syms</dfn>;</td></tr>
+<tr><th id="62">62</th><td>  <a class="typedef" href="../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint64_t" title='uint64_t' data-type='__uint64_t' data-ref="uint64_t">uint64_t</a> <dfn class="decl" id="lld::elf::Thunk::Offset" title='lld::elf::Thunk::Offset' data-ref="lld::elf::Thunk::Offset">Offset</dfn> = <var>0</var>;</td></tr>
+<tr><th id="63">63</th><td>  <a class="typedef" href="../../../include/x86_64-linux-gnu/bits/stdint-uintn.h.html#uint32_t" title='uint32_t' data-type='__uint32_t' data-ref="uint32_t">uint32_t</a> <dfn class="decl" id="lld::elf::Thunk::Alignment" title='lld::elf::Thunk::Alignment' data-ref="lld::elf::Thunk::Alignment">Alignment</dfn> = <var>4</var>;</td></tr>
+<tr><th id="64">64</th><td>};</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><i>// For a Relocation to symbol S create a Thunk to be added to a synthetic</i></td></tr>
+<tr><th id="67">67</th><td><i>// ThunkSection.</i></td></tr>
+<tr><th id="68">68</th><td><a class="type" href="#lld::elf::Thunk" title='lld::elf::Thunk' data-ref="lld::elf::Thunk">Thunk</a> *<dfn class="decl" id="_ZN3lld3elf8addThunkERKNS0_12InputSectionERNS0_10RelocationE" title='lld::elf::addThunk' data-ref="_ZN3lld3elf8addThunkERKNS0_12InputSectionERNS0_10RelocationE">addThunk</dfn>(<em>const</em> <a class="type" href="InputSection.h.html#lld::elf::InputSection" title='lld::elf::InputSection' data-ref="lld::elf::InputSection">InputSection</a> &amp;<dfn class="local col9 decl" id="99IS" title='IS' data-type='const lld::elf::InputSection &amp;' data-ref="99IS">IS</dfn>, <a class="type" href="Relocations.h.html#lld::elf::Relocation" title='lld::elf::Relocation' data-ref="lld::elf::Relocation">Relocation</a> &amp;<dfn class="local col0 decl" id="100Rel" title='Rel' data-type='lld::elf::Relocation &amp;' data-ref="100Rel">Rel</dfn>);</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td>} <i>// namespace elf</i></td></tr>
+<tr><th id="71">71</th><td>} <i>// namespace lld</i></td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><u>#<span data-ppcond="9">endif</span></u></td></tr>
+<tr><th id="74">74</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='AArch64ErrataFix.cpp.html'>llvm/lld/ELF/AArch64ErrataFix.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

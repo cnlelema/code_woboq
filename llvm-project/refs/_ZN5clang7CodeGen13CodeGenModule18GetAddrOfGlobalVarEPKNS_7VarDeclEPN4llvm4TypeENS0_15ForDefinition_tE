@@ -1,0 +1,27 @@
+<dec f='llvm/clang/lib/CodeGen/CodeGenModule.h' l='838' type='llvm::Constant * clang::CodeGen::CodeGenModule::GetAddrOfGlobalVar(const clang::VarDecl * D, llvm::Type * Ty = nullptr, clang::CodeGen::ForDefinition_t IsForDefinition = NotForDefinition)'/>
+<doc f='llvm/clang/lib/CodeGen/CodeGenModule.h' l='832'>/// Return the llvm::Constant for the address of the given global variable.
+  /// If Ty is non-null and if the global doesn&apos;t exist, then it will be created
+  /// with the specified type instead of whatever the normal requested type
+  /// would be. If IsForDefinition is true, it is guaranteed that an actual
+  /// global with type Ty will be returned, not conversion of a variable with
+  /// the same mangled name but some other type.</doc>
+<use f='llvm/clang/lib/CodeGen/CGCall.cpp' l='4585' u='c' c='_ZN5clang7CodeGen15CodeGenFunction8EmitCallERKNS0_14CGFunctionInfoERKNS0_8CGCalleeENS0_15ReturnValueSlotERKNS0_11CallArgListEPPN4llvm8CallBaseENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/CodeGen/CGDebugInfo.cpp' l='1763' u='c' c='_ZN5clang7CodeGen11CGDebugInfo21CollectTemplateParamsEPKNS_21TemplateParameterListEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS5_6DIFileE'/>
+<use f='llvm/clang/lib/CodeGen/CGExpr.cpp' l='3235' u='c' c='_ZL23EmitGlobalVarDeclLValueRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprEPKNS_7VarDeclE'/>
+<use f='llvm/clang/lib/CodeGen/CGExprConstant.cpp' l='1751' u='c' c='_ZN12_GLOBAL__N_121ConstantLValueEmitter11tryEmitBaseERKN5clang7APValue10LValueBaseE'/>
+<use f='llvm/clang/lib/CodeGen/CGStmt.cpp' l='1104' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitReturnStmtERKNS_10ReturnStmtE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='2587' u='c' c='_ZN5clang7CodeGen13CodeGenModule10EmitGlobalENS_10GlobalDeclE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='2600' u='c' c='_ZN5clang7CodeGen13CodeGenModule10EmitGlobalENS_10GlobalDeclE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='3559' u='c' c='_ZN5clang7CodeGen13CodeGenModule21GetOrCreateLLVMGlobalEN4llvm9StringRefEPNS2_11PointerTypeEPKNS_7VarDeclENS0_15ForDefinition_tE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='3612' u='c' c='_ZN5clang7CodeGen13CodeGenModule15GetAddrOfGlobalENS_10GlobalDeclENS0_15ForDefinition_tE'/>
+<def f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='3667' ll='3685' type='llvm::Constant * clang::CodeGen::CodeGenModule::GetAddrOfGlobalVar(const clang::VarDecl * D, llvm::Type * Ty = nullptr, clang::CodeGen::ForDefinition_t IsForDefinition = NotForDefinition)'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='3965' u='c' c='_ZN5clang7CodeGen13CodeGenModule23EmitGlobalVarDefinitionEPKNS_7VarDeclEb'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='3997' u='c' c='_ZN5clang7CodeGen13CodeGenModule23EmitGlobalVarDefinitionEPKNS_7VarDeclEb'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='4407' u='c' c='_ZN5clang7CodeGen13CodeGenModule37HandleCXXStaticMemberVarInstantiationEPNS_7VarDeclE'/>
+<doc f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='3661'>/// GetAddrOfGlobalVar - Return the llvm::Constant for the address of the
+/// given global variable.  If Ty is non-null and if the global doesn&apos;t exist,
+/// then it will be created with the specified type instead of whatever the
+/// normal requested type would be. If IsForDefinition is true, it is guaranteed
+/// that an actual global with type Ty will be returned, not conversion of a
+/// variable with the same mangled name but some other type.</doc>
+<use f='llvm/clang/lib/CodeGen/ItaniumCXXABI.cpp' l='2732' u='c' c='_ZN12_GLOBAL__N_113ItaniumCXXABI28EmitThreadLocalVarDeclLValueERN5clang7CodeGen15CodeGenFunctionEPKNS1_7VarDeclENS1_8QualTypeE'/>

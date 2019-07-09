@@ -1,0 +1,26 @@
+<dec f='llvm/clang/include/clang/AST/Decl.h' l='2206' type='bool clang::FunctionDecl::isReplaceableGlobalAllocationFunction(bool * IsAligned = nullptr) const'/>
+<doc f='llvm/clang/include/clang/AST/Decl.h' l='2188'>/// Determines whether this function is one of the replaceable
+  /// global allocation functions:
+  ///    void *operator new(size_t);
+  ///    void *operator new(size_t, const std::nothrow_t &amp;) noexcept;
+  ///    void *operator new[](size_t);
+  ///    void *operator new[](size_t, const std::nothrow_t &amp;) noexcept;
+  ///    void operator delete(void *) noexcept;
+  ///    void operator delete(void *, std::size_t) noexcept;      [C++1y]
+  ///    void operator delete(void *, const std::nothrow_t &amp;) noexcept;
+  ///    void operator delete[](void *) noexcept;
+  ///    void operator delete[](void *, std::size_t) noexcept;    [C++1y]
+  ///    void operator delete[](void *, const std::nothrow_t &amp;) noexcept;
+  /// These functions have special behavior under C++1y [expr.new]:
+  ///    An implementation is allowed to omit a call to a replaceable global
+  ///    allocation function. [...]
+  ///
+  /// If this function is an aligned allocation/deallocation function, return
+  /// true through IsAligned.</doc>
+<def f='llvm/clang/lib/AST/Decl.cpp' l='2898' ll='2962' type='bool clang::FunctionDecl::isReplaceableGlobalAllocationFunction(bool * IsAligned = nullptr) const'/>
+<use f='llvm/clang/lib/CodeGen/CGExprCXX.cpp' l='1644' u='c' c='_ZN5clang7CodeGen15CodeGenFunction14EmitCXXNewExprEPKNS_10CXXNewExprE'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='1936' u='c' c='_ZN5clang7CodeGen13CodeGenModule21SetFunctionAttributesENS_10GlobalDeclEPN4llvm8FunctionEbb'/>
+<use f='llvm/clang/lib/CodeGen/ItaniumCXXABI.cpp' l='2048' u='c' c='_ZN12_GLOBAL__N_113ItaniumCXXABI21InitializeArrayCookieERN5clang7CodeGen15CodeGenFunctionENS2_7AddressEPN4llvm5ValueEPKNS1_10CXXNewExprENS1_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExceptionSpec.cpp' l='378' u='c' c='_ZN5clang4Sema28CheckEquivalentExceptionSpecEPNS_12FunctionDeclES2_'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='1738' u='c' c='_ZNK5clang4Sema38isUnavailableAlignedAllocationFunctionERKNS_12FunctionDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='3478' u='c' c='_ZL31resolveBuiltinNewDeleteOverloadRN5clang4SemaEPNS_8CallExprEbRPNS_12FunctionDeclE'/>

@@ -1,0 +1,9 @@
+<use f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='97' u='c' c='_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrEPNS_9AAResultsE'/>
+<def f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='109' ll='112' type='bool llvm::TargetInstrInfo::isReallyTriviallyReMaterializable(const llvm::MachineInstr &amp; MI, AliasAnalysis * AA) const'/>
+<doc f='llvm/llvm/include/llvm/CodeGen/TargetInstrInfo.h' l='102'>/// For instructions with opcodes for which the M_REMATERIALIZABLE flag is
+  /// set, this hook lets the target specify whether the instruction is actually
+  /// trivially rematerializable, taking into consideration its operands. This
+  /// predicate must return false if the instruction has any side effects other
+  /// than producing a value, or if it requres any address registers that are
+  /// not always available.
+  /// Requirements must be check as stated in isTriviallyReMaterializable() .</doc>

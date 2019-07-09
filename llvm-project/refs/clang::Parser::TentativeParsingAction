@@ -1,0 +1,27 @@
+<def f='llvm/clang/include/clang/Parse/Parser.h' l='874' ll='916'/>
+<ovr f='llvm/clang/include/clang/Parse/Parser.h' l='919' c='clang::Parser::RevertingTentativeParsingAction'/>
+<size>80</size>
+<doc f='llvm/clang/include/clang/Parse/Parser.h' l='863'>/// TentativeParsingAction - An object that is used as a kind of &quot;tentative
+  /// parsing transaction&quot;. It gets instantiated to mark the token position and
+  /// after the token consumption is done, Commit() or Revert() is called to
+  /// either &quot;commit the consumed tokens&quot; or revert to the previously marked
+  /// token position. Example:
+  ///
+  ///   TentativeParsingAction TPA(*this);
+  ///   ConsumeToken();
+  ///   ....
+  ///   TPA.Revert();
+  ///</doc>
+<mbr r='clang::Parser::TentativeParsingAction::P' o='0' t='clang::Parser &amp;'/>
+<mbr r='clang::Parser::TentativeParsingAction::PrevPreferredType' o='64' t='clang::PreferredTypeBuilder'/>
+<mbr r='clang::Parser::TentativeParsingAction::PrevTok' o='320' t='clang::Token'/>
+<mbr r='clang::Parser::TentativeParsingAction::PrevTentativelyDeclaredIdentifierCount' o='512' t='size_t'/>
+<mbr r='clang::Parser::TentativeParsingAction::PrevParenCount' o='576' t='unsigned short'/>
+<mbr r='clang::Parser::TentativeParsingAction::PrevBracketCount' o='592' t='unsigned short'/>
+<mbr r='clang::Parser::TentativeParsingAction::PrevBraceCount' o='608' t='unsigned short'/>
+<mbr r='clang::Parser::TentativeParsingAction::isActive' o='624' t='bool'/>
+<fun r='_ZN5clang6Parser22TentativeParsingActionC1ERS0_'/>
+<fun r='_ZN5clang6Parser22TentativeParsingAction6CommitEv'/>
+<fun r='_ZN5clang6Parser22TentativeParsingAction6RevertEv'/>
+<fun r='_ZN5clang6Parser22TentativeParsingActionD1Ev'/>
+<ovr f='llvm/clang/lib/Parse/ParseCXXInlineMethods.cpp' l='971' c='clang::Parser::UnannotatedTentativeParsingAction'/>

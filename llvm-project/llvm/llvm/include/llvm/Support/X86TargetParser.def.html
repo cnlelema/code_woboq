@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>X86TargetParser.def source code [llvm/llvm/include/llvm/Support/X86TargetParser.def] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/Support/X86TargetParser.def'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>llvm</a>/<a href='../..'>include</a>/<a href='..'>llvm</a>/<a href='./'>Support</a>/<a href='X86TargetParser.def.html'>X86TargetParser.def</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- X86TargetParser.def - X86 target parsing defines ---------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// This file provides defines to build up the X86 target parser's logic.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i>// NOTE: NO INCLUDE GUARD DESIRED!</i></td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><u>#<span data-ppcond="15">ifndef</span> <a class="macro" href="TargetParser.h.html#40" data-ref="_M/X86_VENDOR">X86_VENDOR</a></u></td></tr>
+<tr><th id="16">16</th><td><u>#define X86_VENDOR(ENUM, STR)</u></td></tr>
+<tr><th id="17">17</th><td><u>#<span data-ppcond="15">endif</span></u></td></tr>
+<tr><th id="18">18</th><td><a class="macro" href="TargetParser.h.html#40" title="VENDOR_INTEL," data-ref="_M/X86_VENDOR">X86_VENDOR</a>(<dfn class="enum" id="llvm::X86::ProcessorVendors::VENDOR_INTEL" title='llvm::X86::ProcessorVendors::VENDOR_INTEL' data-ref="llvm::X86::ProcessorVendors::VENDOR_INTEL">VENDOR_INTEL</dfn>, <q>"intel"</q>)</td></tr>
+<tr><th id="19">19</th><td><a class="macro" href="TargetParser.h.html#40" title="VENDOR_AMD," data-ref="_M/X86_VENDOR">X86_VENDOR</a>(<dfn class="enum" id="llvm::X86::ProcessorVendors::VENDOR_AMD" title='llvm::X86::ProcessorVendors::VENDOR_AMD' data-ref="llvm::X86::ProcessorVendors::VENDOR_AMD">VENDOR_AMD</dfn>,   <q>"amd"</q>)</td></tr>
+<tr><th id="20">20</th><td><u>#undef <a class="macro" href="TargetParser.h.html#40" data-ref="_M/X86_VENDOR">X86_VENDOR</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><i>// This macro is used to implement CPU types that have an alias. As of now</i></td></tr>
+<tr><th id="23">23</th><td><i>// there is only ever one alias.</i></td></tr>
+<tr><th id="24">24</th><td><u>#<span data-ppcond="24">ifndef</span> <span class="macro" data-ref="_M/X86_CPU_TYPE_COMPAT_WITH_ALIAS">X86_CPU_TYPE_COMPAT_WITH_ALIAS</span></u></td></tr>
+<tr><th id="25">25</th><td><u>#define <dfn class="macro" id="_M/X86_CPU_TYPE_COMPAT_WITH_ALIAS" data-ref="_M/X86_CPU_TYPE_COMPAT_WITH_ALIAS">X86_CPU_TYPE_COMPAT_WITH_ALIAS</dfn>(ARCHNAME, ENUM, STR, ALIAS) X86_CPU_TYPE_COMPAT(ARCHNAME, ENUM, STR)</u></td></tr>
+<tr><th id="26">26</th><td><u>#<span data-ppcond="24">endif</span></u></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><i>// This macro is used for cpu types present in compiler-rt/libgcc.</i></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/X86_CPU_TYPE_COMPAT">X86_CPU_TYPE_COMPAT</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/X86_CPU_TYPE_COMPAT" data-ref="_M/X86_CPU_TYPE_COMPAT">X86_CPU_TYPE_COMPAT</dfn>(ARCHNAME, ENUM, STR) X86_CPU_TYPE(ARCHNAME, ENUM)</u></td></tr>
+<tr><th id="31">31</th><td><u>#<span data-ppcond="29">endif</span></u></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><u>#<span data-ppcond="33">ifndef</span> <span class="macro" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</span></u></td></tr>
+<tr><th id="34">34</th><td><u>#define <dfn class="macro" id="_M/X86_CPU_TYPE" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</dfn>(ARCHNAME, ENUM)</u></td></tr>
+<tr><th id="35">35</th><td><u>#<span data-ppcond="33">endif</span></u></td></tr>
+<tr><th id="36">36</th><td><i>// The first part of this list must match what is implemented in libgcc and</i></td></tr>
+<tr><th id="37">37</th><td><i>// compilert-rt. Clang uses this to know how to implement __builtin_cpu_is.</i></td></tr>
+<tr><th id="38">38</th><td><a class="macro" href="#25" title="" data-ref="_M/X86_CPU_TYPE_COMPAT_WITH_ALIAS">X86_CPU_TYPE_COMPAT_WITH_ALIAS</a>(<q>"bonnell"</q>,       INTEL_BONNELL,       <q>"bonnell"</q>, <q>"atom"</q>)</td></tr>
+<tr><th id="39">39</th><td><a class="macro" href="#30" title="" data-ref="_M/X86_CPU_TYPE_COMPAT">X86_CPU_TYPE_COMPAT</a>           (<q>"core2"</q>,         INTEL_CORE2,         <q>"core2"</q>)</td></tr>
+<tr><th id="40">40</th><td><a class="macro" href="#30" title="" data-ref="_M/X86_CPU_TYPE_COMPAT">X86_CPU_TYPE_COMPAT</a>           (<q>"nehalem"</q>,       INTEL_COREI7,        <q>"corei7"</q>)</td></tr>
+<tr><th id="41">41</th><td><a class="macro" href="#25" title="" data-ref="_M/X86_CPU_TYPE_COMPAT_WITH_ALIAS">X86_CPU_TYPE_COMPAT_WITH_ALIAS</a>(<q>"amdfam10"</q>,      AMDFAM10H,           <q>"amdfam10h"</q>, <q>"amdfam10"</q>)</td></tr>
+<tr><th id="42">42</th><td><a class="macro" href="#25" title="" data-ref="_M/X86_CPU_TYPE_COMPAT_WITH_ALIAS">X86_CPU_TYPE_COMPAT_WITH_ALIAS</a>(<q>"bdver1"</q>,        AMDFAM15H,           <q>"amdfam15h"</q>, <q>"amdfam15"</q>)</td></tr>
+<tr><th id="43">43</th><td><a class="macro" href="#25" title="" data-ref="_M/X86_CPU_TYPE_COMPAT_WITH_ALIAS">X86_CPU_TYPE_COMPAT_WITH_ALIAS</a>(<q>"silvermont"</q>,    INTEL_SILVERMONT,    <q>"silvermont"</q>, <q>"slm"</q>)</td></tr>
+<tr><th id="44">44</th><td><a class="macro" href="#30" title="" data-ref="_M/X86_CPU_TYPE_COMPAT">X86_CPU_TYPE_COMPAT</a>           (<q>"knl"</q>,           INTEL_KNL,           <q>"knl"</q>)</td></tr>
+<tr><th id="45">45</th><td><a class="macro" href="#30" title="" data-ref="_M/X86_CPU_TYPE_COMPAT">X86_CPU_TYPE_COMPAT</a>           (<q>"btver1"</q>,        AMD_BTVER1,          <q>"btver1"</q>)</td></tr>
+<tr><th id="46">46</th><td><a class="macro" href="#30" title="" data-ref="_M/X86_CPU_TYPE_COMPAT">X86_CPU_TYPE_COMPAT</a>           (<q>"btver2"</q>,        AMD_BTVER2,          <q>"btver2"</q>)</td></tr>
+<tr><th id="47">47</th><td><a class="macro" href="#30" title="" data-ref="_M/X86_CPU_TYPE_COMPAT">X86_CPU_TYPE_COMPAT</a>           (<q>"znver1"</q>,        AMDFAM17H,           <q>"amdfam17h"</q>)</td></tr>
+<tr><th id="48">48</th><td><a class="macro" href="#30" title="" data-ref="_M/X86_CPU_TYPE_COMPAT">X86_CPU_TYPE_COMPAT</a>           (<q>"knm"</q>,           INTEL_KNM,           <q>"knm"</q>)</td></tr>
+<tr><th id="49">49</th><td><a class="macro" href="#30" title="" data-ref="_M/X86_CPU_TYPE_COMPAT">X86_CPU_TYPE_COMPAT</a>           (<q>"goldmont"</q>,      INTEL_GOLDMONT,      <q>"goldmont"</q>)</td></tr>
+<tr><th id="50">50</th><td><a class="macro" href="#30" title="" data-ref="_M/X86_CPU_TYPE_COMPAT">X86_CPU_TYPE_COMPAT</a>           (<q>"goldmont-plus"</q>, INTEL_GOLDMONT_PLUS, <q>"goldmont-plus"</q>)</td></tr>
+<tr><th id="51">51</th><td><a class="macro" href="#30" title="" data-ref="_M/X86_CPU_TYPE_COMPAT">X86_CPU_TYPE_COMPAT</a>           (<q>"tremont"</q>,       INTEL_TREMONT,       <q>"tremont"</q>)</td></tr>
+<tr><th id="52">52</th><td><i>// Entries below this are not in libgcc/compiler-rt.</i></td></tr>
+<tr><th id="53">53</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"i386"</q>,        INTEL_i386)</td></tr>
+<tr><th id="54">54</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"i486"</q>,        INTEL_i486)</td></tr>
+<tr><th id="55">55</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"pentium"</q>,     INTEL_PENTIUM)</td></tr>
+<tr><th id="56">56</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"pentium-mmx"</q>, INTEL_PENTIUM_MMX)</td></tr>
+<tr><th id="57">57</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"pentiumpro"</q>,  INTEL_PENTIUM_PRO)</td></tr>
+<tr><th id="58">58</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"pentium2"</q>,    INTEL_PENTIUM_II)</td></tr>
+<tr><th id="59">59</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"pentium3"</q>,    INTEL_PENTIUM_III)</td></tr>
+<tr><th id="60">60</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"pentium4"</q>,    INTEL_PENTIUM_IV)</td></tr>
+<tr><th id="61">61</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"pentium-m"</q>,   INTEL_PENTIUM_M)</td></tr>
+<tr><th id="62">62</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"yonah"</q>,       INTEL_CORE_DUO)</td></tr>
+<tr><th id="63">63</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"nocona"</q>,      INTEL_NOCONA)</td></tr>
+<tr><th id="64">64</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"prescott"</q>,    INTEL_PRESCOTT)</td></tr>
+<tr><th id="65">65</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"i486"</q>,        AMD_i486)</td></tr>
+<tr><th id="66">66</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"pentium"</q>,     AMDPENTIUM)</td></tr>
+<tr><th id="67">67</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"athlon"</q>,      AMD_ATHLON)</td></tr>
+<tr><th id="68">68</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"athlon-xp"</q>,   AMD_ATHLON_XP)</td></tr>
+<tr><th id="69">69</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"k8"</q>,          AMD_K8)</td></tr>
+<tr><th id="70">70</th><td><a class="macro" href="#34" title="" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a>                  (<q>"k8-sse3"</q>,     AMD_K8SSE3)</td></tr>
+<tr><th id="71">71</th><td><u>#undef <a class="macro" href="#25" data-ref="_M/X86_CPU_TYPE_COMPAT_WITH_ALIAS">X86_CPU_TYPE_COMPAT_WITH_ALIAS</a></u></td></tr>
+<tr><th id="72">72</th><td><u>#undef <a class="macro" href="#30" data-ref="_M/X86_CPU_TYPE_COMPAT">X86_CPU_TYPE_COMPAT</a></u></td></tr>
+<tr><th id="73">73</th><td><u>#undef <a class="macro" href="#34" data-ref="_M/X86_CPU_TYPE">X86_CPU_TYPE</a></u></td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><i>// This macro is used for cpu subtypes present in compiler-rt/libgcc.</i></td></tr>
+<tr><th id="76">76</th><td><u>#<span data-ppcond="76">ifndef</span> <span class="macro" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</span></u></td></tr>
+<tr><th id="77">77</th><td><u>#define <dfn class="macro" id="_M/X86_CPU_SUBTYPE_COMPAT" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</dfn>(ARCHNAME, ENUM, STR) X86_CPU_SUBTYPE(ARCHNAME, ENUM)</u></td></tr>
+<tr><th id="78">78</th><td><u>#<span data-ppcond="76">endif</span></u></td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><u>#<span data-ppcond="80">ifndef</span> <span class="macro" data-ref="_M/X86_CPU_SUBTYPE">X86_CPU_SUBTYPE</span></u></td></tr>
+<tr><th id="81">81</th><td><u>#define <dfn class="macro" id="_M/X86_CPU_SUBTYPE" data-ref="_M/X86_CPU_SUBTYPE">X86_CPU_SUBTYPE</dfn>(ARCHNAME, ENUM)</u></td></tr>
+<tr><th id="82">82</th><td><u>#<span data-ppcond="80">endif</span></u></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><i>// The first part of this list must match what is implemented in libgcc and</i></td></tr>
+<tr><th id="85">85</th><td><i>// compilert-rt. Clang uses this to know how to implement __builtin_cpu_is.</i></td></tr>
+<tr><th id="86">86</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"nehalem"</q>,        INTEL_COREI7_NEHALEM,        <q>"nehalem"</q>)</td></tr>
+<tr><th id="87">87</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"westmere"</q>,       INTEL_COREI7_WESTMERE,       <q>"westmere"</q>)</td></tr>
+<tr><th id="88">88</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"sandybridge"</q>,    INTEL_COREI7_SANDYBRIDGE,    <q>"sandybridge"</q>)</td></tr>
+<tr><th id="89">89</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"amdfam10"</q>,       AMDFAM10H_BARCELONA,         <q>"barcelona"</q>)</td></tr>
+<tr><th id="90">90</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"amdfam10"</q>,       AMDFAM10H_SHANGHAI,          <q>"shanghai"</q>)</td></tr>
+<tr><th id="91">91</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"amdfam10"</q>,       AMDFAM10H_ISTANBUL,          <q>"istanbul"</q>)</td></tr>
+<tr><th id="92">92</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"bdver1"</q>,         AMDFAM15H_BDVER1,            <q>"bdver1"</q>)</td></tr>
+<tr><th id="93">93</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"bdver2"</q>,         AMDFAM15H_BDVER2,            <q>"bdver2"</q>)</td></tr>
+<tr><th id="94">94</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"bdver3"</q>,         AMDFAM15H_BDVER3,            <q>"bdver3"</q>)</td></tr>
+<tr><th id="95">95</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"bdver4"</q>,         AMDFAM15H_BDVER4,            <q>"bdver4"</q>)</td></tr>
+<tr><th id="96">96</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"znver1"</q>,         AMDFAM17H_ZNVER1,            <q>"znver1"</q>)</td></tr>
+<tr><th id="97">97</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"ivybridge"</q>,      INTEL_COREI7_IVYBRIDGE,      <q>"ivybridge"</q>)</td></tr>
+<tr><th id="98">98</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"haswell"</q>,        INTEL_COREI7_HASWELL,        <q>"haswell"</q>)</td></tr>
+<tr><th id="99">99</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"broadwell"</q>,      INTEL_COREI7_BROADWELL,      <q>"broadwell"</q>)</td></tr>
+<tr><th id="100">100</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"skylake"</q>,        INTEL_COREI7_SKYLAKE,        <q>"skylake"</q>)</td></tr>
+<tr><th id="101">101</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"skylake-avx512"</q>, INTEL_COREI7_SKYLAKE_AVX512, <q>"skylake-avx512"</q>)</td></tr>
+<tr><th id="102">102</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"cannonlake"</q>,     INTEL_COREI7_CANNONLAKE,     <q>"cannonlake"</q>)</td></tr>
+<tr><th id="103">103</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"icelake-client"</q>, INTEL_COREI7_ICELAKE_CLIENT, <q>"icelake-client"</q>)</td></tr>
+<tr><th id="104">104</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"icelake-server"</q>, INTEL_COREI7_ICELAKE_SERVER, <q>"icelake-server"</q>)</td></tr>
+<tr><th id="105">105</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"znver2"</q>,         AMDFAM17H_ZNVER2,            <q>"znver2"</q>)</td></tr>
+<tr><th id="106">106</th><td><a class="macro" href="#77" title="" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a>(<q>"cascadelake"</q>,    INTEL_COREI7_CASCADELAKE,    <q>"cascadelake"</q>)</td></tr>
+<tr><th id="107">107</th><td><i>// Entries below this are not in libgcc/compiler-rt.</i></td></tr>
+<tr><th id="108">108</th><td><a class="macro" href="#81" title="" data-ref="_M/X86_CPU_SUBTYPE">X86_CPU_SUBTYPE</a>       (<q>"core2"</q>,          INTEL_CORE2_65)</td></tr>
+<tr><th id="109">109</th><td><a class="macro" href="#81" title="" data-ref="_M/X86_CPU_SUBTYPE">X86_CPU_SUBTYPE</a>       (<q>"penryn"</q>,         INTEL_CORE2_45)</td></tr>
+<tr><th id="110">110</th><td><a class="macro" href="#81" title="" data-ref="_M/X86_CPU_SUBTYPE">X86_CPU_SUBTYPE</a>       (<q>"k6"</q>,             AMDPENTIUM_K6)</td></tr>
+<tr><th id="111">111</th><td><a class="macro" href="#81" title="" data-ref="_M/X86_CPU_SUBTYPE">X86_CPU_SUBTYPE</a>       (<q>"k6-2"</q>,           AMDPENTIUM_K62)</td></tr>
+<tr><th id="112">112</th><td><a class="macro" href="#81" title="" data-ref="_M/X86_CPU_SUBTYPE">X86_CPU_SUBTYPE</a>       (<q>"k6-3"</q>,           AMDPENTIUM_K63)</td></tr>
+<tr><th id="113">113</th><td><a class="macro" href="#81" title="" data-ref="_M/X86_CPU_SUBTYPE">X86_CPU_SUBTYPE</a>       (<q>"geode"</q>,          AMDPENTIUM_GEODE)</td></tr>
+<tr><th id="114">114</th><td><a class="macro" href="#81" title="" data-ref="_M/X86_CPU_SUBTYPE">X86_CPU_SUBTYPE</a>       (<q>"cooperlake"</q>,     INTEL_COREI7_COOPERLAKE)</td></tr>
+<tr><th id="115">115</th><td><u>#undef <a class="macro" href="#77" data-ref="_M/X86_CPU_SUBTYPE_COMPAT">X86_CPU_SUBTYPE_COMPAT</a></u></td></tr>
+<tr><th id="116">116</th><td><u>#undef <a class="macro" href="#81" data-ref="_M/X86_CPU_SUBTYPE">X86_CPU_SUBTYPE</a></u></td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td><i>// This macro is used for cpu types present in compiler-rt/libgcc.</i></td></tr>
+<tr><th id="120">120</th><td><u>#<span data-ppcond="120">ifndef</span> <span class="macro" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</span></u></td></tr>
+<tr><th id="121">121</th><td><u>#define <dfn class="macro" id="_M/X86_FEATURE_COMPAT" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</dfn>(VAL, ENUM, STR) X86_FEATURE(VAL, ENUM)</u></td></tr>
+<tr><th id="122">122</th><td><u>#<span data-ppcond="120">endif</span></u></td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td><u>#<span data-ppcond="124">ifndef</span> <span class="macro" data-ref="_M/X86_FEATURE">X86_FEATURE</span></u></td></tr>
+<tr><th id="125">125</th><td><u>#define <dfn class="macro" id="_M/X86_FEATURE" data-ref="_M/X86_FEATURE">X86_FEATURE</dfn>(VAL, ENUM)</u></td></tr>
+<tr><th id="126">126</th><td><u>#<span data-ppcond="124">endif</span></u></td></tr>
+<tr><th id="127">127</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>( <var>0</var>, FEATURE_CMOV,            <q>"cmov"</q>)</td></tr>
+<tr><th id="128">128</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>( <var>1</var>, FEATURE_MMX,             <q>"mmx"</q>)</td></tr>
+<tr><th id="129">129</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>( <var>2</var>, FEATURE_POPCNT,          <q>"popcnt"</q>)</td></tr>
+<tr><th id="130">130</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>( <var>3</var>, FEATURE_SSE,             <q>"sse"</q>)</td></tr>
+<tr><th id="131">131</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>( <var>4</var>, FEATURE_SSE2,            <q>"sse2"</q>)</td></tr>
+<tr><th id="132">132</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>( <var>5</var>, FEATURE_SSE3,            <q>"sse3"</q>)</td></tr>
+<tr><th id="133">133</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>( <var>6</var>, FEATURE_SSSE3,           <q>"ssse3"</q>)</td></tr>
+<tr><th id="134">134</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>( <var>7</var>, FEATURE_SSE4_1,          <q>"sse4.1"</q>)</td></tr>
+<tr><th id="135">135</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>( <var>8</var>, FEATURE_SSE4_2,          <q>"sse4.2"</q>)</td></tr>
+<tr><th id="136">136</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>( <var>9</var>, FEATURE_AVX,             <q>"avx"</q>)</td></tr>
+<tr><th id="137">137</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>10</var>, FEATURE_AVX2,            <q>"avx2"</q>)</td></tr>
+<tr><th id="138">138</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>11</var>, FEATURE_SSE4_A,          <q>"sse4a"</q>)</td></tr>
+<tr><th id="139">139</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>12</var>, FEATURE_FMA4,            <q>"fma4"</q>)</td></tr>
+<tr><th id="140">140</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>13</var>, FEATURE_XOP,             <q>"xop"</q>)</td></tr>
+<tr><th id="141">141</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>14</var>, FEATURE_FMA,             <q>"fma"</q>)</td></tr>
+<tr><th id="142">142</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>15</var>, FEATURE_AVX512F,         <q>"avx512f"</q>)</td></tr>
+<tr><th id="143">143</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>16</var>, FEATURE_BMI,             <q>"bmi"</q>)</td></tr>
+<tr><th id="144">144</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>17</var>, FEATURE_BMI2,            <q>"bmi2"</q>)</td></tr>
+<tr><th id="145">145</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>18</var>, FEATURE_AES,             <q>"aes"</q>)</td></tr>
+<tr><th id="146">146</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>19</var>, FEATURE_PCLMUL,          <q>"pclmul"</q>)</td></tr>
+<tr><th id="147">147</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>20</var>, FEATURE_AVX512VL,        <q>"avx512vl"</q>)</td></tr>
+<tr><th id="148">148</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>21</var>, FEATURE_AVX512BW,        <q>"avx512bw"</q>)</td></tr>
+<tr><th id="149">149</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>22</var>, FEATURE_AVX512DQ,        <q>"avx512dq"</q>)</td></tr>
+<tr><th id="150">150</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>23</var>, FEATURE_AVX512CD,        <q>"avx512cd"</q>)</td></tr>
+<tr><th id="151">151</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>24</var>, FEATURE_AVX512ER,        <q>"avx512er"</q>)</td></tr>
+<tr><th id="152">152</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>25</var>, FEATURE_AVX512PF,        <q>"avx512pf"</q>)</td></tr>
+<tr><th id="153">153</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>26</var>, FEATURE_AVX512VBMI,      <q>"avx512vbmi"</q>)</td></tr>
+<tr><th id="154">154</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>27</var>, FEATURE_AVX512IFMA,      <q>"avx512ifma"</q>)</td></tr>
+<tr><th id="155">155</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>28</var>, FEATURE_AVX5124VNNIW,    <q>"avx5124vnniw"</q>)</td></tr>
+<tr><th id="156">156</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>29</var>, FEATURE_AVX5124FMAPS,    <q>"avx5124fmaps"</q>)</td></tr>
+<tr><th id="157">157</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>30</var>, FEATURE_AVX512VPOPCNTDQ, <q>"avx512vpopcntdq"</q>)</td></tr>
+<tr><th id="158">158</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>31</var>, FEATURE_AVX512VBMI2,     <q>"avx512vbmi2"</q>)</td></tr>
+<tr><th id="159">159</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>32</var>, FEATURE_GFNI,            <q>"gfni"</q>)</td></tr>
+<tr><th id="160">160</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>33</var>, FEATURE_VPCLMULQDQ,      <q>"vpclmulqdq"</q>)</td></tr>
+<tr><th id="161">161</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>34</var>, FEATURE_AVX512VNNI,      <q>"avx512vnni"</q>)</td></tr>
+<tr><th id="162">162</th><td><a class="macro" href="#121" title="" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a>(<var>35</var>, FEATURE_AVX512BITALG,    <q>"avx512bitalg"</q>)</td></tr>
+<tr><th id="163">163</th><td><i>// Features below here are not in libgcc/compiler-rt.</i></td></tr>
+<tr><th id="164">164</th><td><a class="macro" href="#125" title="" data-ref="_M/X86_FEATURE">X86_FEATURE</a>       (<var>64</var>, FEATURE_MOVBE)</td></tr>
+<tr><th id="165">165</th><td><a class="macro" href="#125" title="" data-ref="_M/X86_FEATURE">X86_FEATURE</a>       (<var>65</var>, FEATURE_ADX)</td></tr>
+<tr><th id="166">166</th><td><a class="macro" href="#125" title="" data-ref="_M/X86_FEATURE">X86_FEATURE</a>       (<var>66</var>, FEATURE_EM64T)</td></tr>
+<tr><th id="167">167</th><td><a class="macro" href="#125" title="" data-ref="_M/X86_FEATURE">X86_FEATURE</a>       (<var>67</var>, FEATURE_CLFLUSHOPT)</td></tr>
+<tr><th id="168">168</th><td><a class="macro" href="#125" title="" data-ref="_M/X86_FEATURE">X86_FEATURE</a>       (<var>68</var>, FEATURE_SHA)</td></tr>
+<tr><th id="169">169</th><td><a class="macro" href="#125" title="" data-ref="_M/X86_FEATURE">X86_FEATURE</a>       (<var>69</var>, FEATURE_AVX512BF16)</td></tr>
+<tr><th id="170">170</th><td><u>#undef <a class="macro" href="#121" data-ref="_M/X86_FEATURE_COMPAT">X86_FEATURE_COMPAT</a></u></td></tr>
+<tr><th id="171">171</th><td><u>#undef <a class="macro" href="#125" data-ref="_M/X86_FEATURE">X86_FEATURE</a></u></td></tr>
+<tr><th id="172">172</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../clang/lib/Basic/TargetInfo.cpp.html'>llvm/clang/lib/Basic/TargetInfo.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

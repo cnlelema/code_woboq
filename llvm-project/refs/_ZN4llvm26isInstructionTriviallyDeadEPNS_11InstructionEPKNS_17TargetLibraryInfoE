@@ -1,0 +1,64 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='131' type='bool llvm::isInstructionTriviallyDead(llvm::Instruction * I, const llvm::TargetLibraryInfo * TLI = nullptr)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='125'>//===----------------------------------------------------------------------===//
+//  Local dead code elimination.
+//
+
+/// Return true if the result produced by the instruction is not used, and the
+/// instruction has no side effects.</doc>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonCommonGEP.cpp' l='1265' u='c' c='_ZN12_GLOBAL__N_116HexagonCommonGEP14removeDeadCodeEv'/>
+<use f='llvm/llvm/lib/Transforms/IPO/GlobalOpt.cpp' l='824' u='c' c='_ZL19ConstantPropUsersOfPN4llvm5ValueERKNS_10DataLayoutEPNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/Inliner.cpp' l='629' u='c' c='_ZL15inlineCallsImplRN4llvm12CallGraphSCCERNS_9CallGraphESt8functionIFRNS_15AssumptionCacheERNS_8FunctionEEEPNS_18ProfileSummaryInfoERNS_17TargetLibra5838044'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='3170' u='c' c='_ZN4llvm12InstCombiner3runEv'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='3191' u='c' c='_ZN4llvm12InstCombiner3runEv'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='3211' u='c' c='_ZN4llvm12InstCombiner3runEv'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='3305' u='c' c='_ZN4llvm12InstCombiner3runEv'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='3350' u='c' c='_ZL26AddReachableCodeToWorklistPN4llvm10BasicBlockERKNS_10DataLayoutERNS_15SmallPtrSetImplIS1_EERNS_19InstCombineWorklistEPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstructionCombining.cpp' l='3368' u='c' c='_ZL26AddReachableCodeToWorklistPN4llvm10BasicBlockERKNS_10DataLayoutERNS_15SmallPtrSetImplIS1_EERNS_19InstCombineWorklistEPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/CallSiteSplitting.cpp' l='524' u='c' c='_ZL19doCallSiteSplittingRN4llvm8FunctionERNS_17TargetLibraryInfoERNS_19TargetTransformInfoERNS_13DominatorTreeE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/ConstantProp.cpp' l='108' u='c' c='_ZN12_GLOBAL__N_119ConstantPropagation13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/DCE.cpp' l='54' u='c' c='_ZN12_GLOBAL__N_119DeadInstElimination15runOnBasicBlockERN4llvm10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/DCE.cpp' l='83' u='c' c='_ZL14DCEInstructionPN4llvm11InstructionERNS_14SmallSetVectorIS1_Lj16EEEPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/DCE.cpp' l='102' u='c' c='_ZL14DCEInstructionPN4llvm11InstructionERNS_14SmallSetVectorIS1_Lj16EEEPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/DeadStoreElimination.cpp' l='133' u='c' c='_ZL21deleteDeadInstructionPN4llvm11InstructionEPNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS0_Lb1ELb0EvEELb0ELb0EEERNS_23MemoryDependenceResu104712'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/DeadStoreElimination.cpp' l='821' u='c' c='_ZL14handleEndBlockRN4llvm10BasicBlockEPNS_9AAResultsEPNS_23MemoryDependenceResultsEPKNS_17TargetLibraryInfoERNS_8DenseMapIPNS_11InstructionESt3mapIll11858614'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/EarlyCSE.cpp' l='851' u='c' c='_ZN12_GLOBAL__N_18EarlyCSE11processNodeEPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/EarlyCSE.cpp' l='958' u='c' c='_ZN12_GLOBAL__N_18EarlyCSE11processNodeEPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/GVN.cpp' l='1871' u='c' c='_ZN4llvm3GVN18processInstructionEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/IndVarSimplify.cpp' l='691' u='c' c='_ZN12_GLOBAL__N_114IndVarSimplify21rewriteLoopExitValuesEPN4llvm4LoopERNS1_12SCEVExpanderE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='1068' u='c' c='_ZN4llvm17JumpThreadingPass12ProcessBlockEPNS_10BasicBlockE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='518' u='c' c='_ZN4llvm10sinkRegionEPNS_15DomTreeNodeBaseINS_10BasicBlockEEEPNS_9AAResultsEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_17TargetLibraryInfoEPNS_19TargetTran7136225'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LICM.cpp' l='830' u='c' c='_ZN4llvm11hoistRegionEPNS_15DomTreeNodeBaseINS_10BasicBlockEEEPNS_9AAResultsEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_17TargetLibraryInfoEPNS_4LoopEPNS_18226459'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopInstSimplify.cpp' l='91' u='c' c='_ZL16simplifyLoopInstRN4llvm4LoopERNS_13DominatorTreeERNS_8LoopInfoERNS_15AssumptionCacheERKNS_17TargetLibraryInfoEPNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopInstSimplify.cpp' l='143' u='c' c='_ZL16simplifyLoopInstRN4llvm4LoopERNS_13DominatorTreeERNS_8LoopInfoERNS_15AssumptionCacheERKNS_17TargetLibraryInfoEPNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopStrengthReduce.cpp' l='974' u='c' c='_ZL31DeleteTriviallyDeadInstructionsRN4llvm15SmallVectorImplINS_14WeakTrackingVHEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopUnswitch.cpp' l='1580' u='c' c='_ZN12_GLOBAL__N_112LoopUnswitch12SimplifyCodeERSt6vectorIPN4llvm11InstructionESaIS4_EEPNS2_4LoopE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/NewGVN.cpp' l='2990' u='c' c='_ZN12_GLOBAL__N_16NewGVN16assignDFSNumbersEPN4llvm10BasicBlockEj'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/NewGVN.cpp' l='3201' u='c' c='_ZNK12_GLOBAL__N_16NewGVN22verifyMemoryCongruencyEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/NewGVN.cpp' l='3208' u='c' c='_ZNK12_GLOBAL__N_16NewGVN22verifyMemoryCongruencyEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/Reassociate.cpp' l='1890' u='c' c='_ZN4llvm15ReassociatePass25RecursivelyEraseDeadInstsEPNS_11InstructionERNS_9SetVectorINS_11AssertingVHIS1_EESt5dequeIS5_SaIS5_EENS_8DenseSetIS5_NS_12D3946457'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/Reassociate.cpp' l='1904' u='c' c='_ZN4llvm15ReassociatePass9EraseInstEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/Reassociate.cpp' l='2360' u='c' c='_ZN4llvm15ReassociatePass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/Reassociate.cpp' l='2377' u='c' c='_ZN4llvm15ReassociatePass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/Reassociate.cpp' l='2388' u='c' c='_ZN4llvm15ReassociatePass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SCCP.cpp' l='1840' u='c' c='_ZL7runSCCPRN4llvm8FunctionERKNS_10DataLayoutEPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SROA.cpp' l='2425' u='c' c='_ZN4llvm4sroa19AllocaSliceRewriter21deleteIfTriviallyDeadEPNS_5ValueE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SROA.cpp' l='4406' u='c' c='_ZN4llvm4SROA10clobberUseERNS_3UseE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SROA.cpp' l='4511' u='c' c='_ZN4llvm4SROA22deleteDeadInstructionsERNS_15SmallPtrSetImplIPNS_10AllocaInstEEE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/SeparateConstOffsetFromGEP.cpp' l='1214' u='c' c='_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP16verifyNoDeadCodeERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CloneFunction.cpp' l='626' u='c' c='_ZN4llvm25CloneAndPruneIntoFromInstEPNS_8FunctionEPKS0_PKNS_11InstructionERNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigISA_NS_3sys232165'/>
+<def f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='353' ll='358' type='bool llvm::isInstructionTriviallyDead(llvm::Instruction * I, const llvm::TargetLibraryInfo * TLI = nullptr)'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='437' u='c' c='_ZN4llvm42RecursivelyDeleteTriviallyDeadInstructionsEPNS_5ValueEPKNS_17TargetLibraryInfoEPNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='454' u='c' c='_ZN4llvm42RecursivelyDeleteTriviallyDeadInstructionsERNS_15SmallVectorImplIPNS_11InstructionEEEPKNS_17TargetLibraryInfoEPNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='473' u='c' c='_ZN4llvm42RecursivelyDeleteTriviallyDeadInstructionsERNS_15SmallVectorImplIPNS_11InstructionEEEPKNS_17TargetLibraryInfoEPNS_16MemorySSAUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='542' u='c' c='_ZL25simplifyAndDCEInstructionPN4llvm11InstructionERNS_14SmallSetVectorIS1_Lj16EEERKNS_10DataLayoutEPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='558' u='c' c='_ZL25simplifyAndDCEInstructionPN4llvm11InstructionERNS_14SmallSetVectorIS1_Lj16EEERKNS_10DataLayoutEPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='582' u='c' c='_ZL25simplifyAndDCEInstructionPN4llvm11InstructionERNS_14SmallSetVectorIS1_Lj16EEERKNS_10DataLayoutEPKNS_17TargetLibraryInfoE'/>
+<doc f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='346'>//===----------------------------------------------------------------------===//
+//  Local dead code elimination.
+//
+
+/// isInstructionTriviallyDead - Return true if the result produced by the
+/// instruction is not used, and the instruction has no side effects.
+///</doc>
+<use f='llvm/llvm/lib/Transforms/Utils/LoopUnroll.cpp' l='224' u='c' c='_ZN4llvm23simplifyLoopAfterUnrollEPNS_4LoopEbPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyIndVar.cpp' l='852' u='c' c='_ZN12_GLOBAL__N_114SimplifyIndvar13simplifyUsersEPN4llvm7PHINodeEPNS1_9IVVisitorE'/>

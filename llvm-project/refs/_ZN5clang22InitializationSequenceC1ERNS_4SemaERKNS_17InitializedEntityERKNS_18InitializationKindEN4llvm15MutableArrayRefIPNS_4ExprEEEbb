@@ -1,0 +1,60 @@
+<dec f='llvm/clang/include/clang/Sema/Initialization.h' l='1133' type='void clang::InitializationSequence::InitializationSequence(clang::Sema &amp; S, const clang::InitializedEntity &amp; Entity, const clang::InitializationKind &amp; Kind, MultiExprArg Args, bool TopLevelOfInitList = false, bool TreatUnavailableAsInvalid = true)'/>
+<doc f='llvm/clang/include/clang/Sema/Initialization.h' l='1114'>/// Try to perform initialization of the given entity, creating a
+  /// record of the steps required to perform the initialization.
+  ///
+  /// The generated initialization sequence will either contain enough
+  /// information to diagnose
+  ///
+  /// \param S the semantic analysis object.
+  ///
+  /// \param Entity the entity being initialized.
+  ///
+  /// \param Kind the kind of initialization being performed.
+  ///
+  /// \param Args the argument(s) provided for initialization.
+  ///
+  /// \param TopLevelOfInitList true if we are initializing from an expression
+  ///        at the top level inside an initializer list. This disallows
+  ///        narrowing conversions in C++11 onwards.
+  /// \param TreatUnavailableAsInvalid true if we want to treat unavailable
+  ///        as invalid.</doc>
+<use f='llvm/clang/lib/Sema/SemaCast.cpp' l='383' u='c' c='_ZL25tryDiagnoseOverloadedCastRN5clang4SemaE8CastTypeNS_11SourceRangeEPNS_4ExprENS_8QualTypeEb'/>
+<use f='llvm/clang/lib/Sema/SemaCast.cpp' l='1682' u='c' c='_ZL21TryStaticImplicitCastRN5clang4SemaERNS_12ActionResultIPNS_4ExprELb1EEENS_8QualTypeENS0_21CheckedConversionKindENS_11SourceRangeERjRNS_8CastKindEb'/>
+<use f='llvm/clang/lib/Sema/SemaCoroutine.cpp' l='558' u='c' c='_ZN5clang4Sema21buildCoroutinePromiseENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='11323' u='c' c='_ZN5clang4Sema20AddInitializerToDeclEPNS_4DeclEPNS_4ExprEb'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='11335' u='c' c='_ZN5clang4Sema20AddInitializerToDeclEPNS_4DeclEPNS_4ExprEb'/>
+<use f='llvm/clang/lib/Sema/SemaDecl.cpp' l='11856' u='c' c='_ZN5clang4Sema22ActOnUninitializedDeclEPNS_4DeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='267' u='c' c='_ZN5clang4Sema23SetParamDefaultArgumentEPNS_11ParmVarDeclEPNS_4ExprENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='1222' u='c' c='_ZL27checkTupleLikeDecompositionRN5clang4SemaEN4llvm8ArrayRefIPNS_11BindingDeclEEEPNS_7VarDeclENS_8QualTypeERKNS2_6APSIntE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='3707' u='c' c='_ZN5clang4Sema38ActOnFinishCXXInClassMemberInitializerEPNS_4DeclENS_14SourceLocationEPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='4072' u='c' c='_ZN5clang4Sema22BuildMemberInitializerEPNS_9ValueDeclEPNS_4ExprENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='4125' u='c' c='_ZN5clang4Sema26BuildDelegatingInitializerEPNS_14TypeSourceInfoEPNS_4ExprEPNS_13CXXRecordDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='4259' u='c' c='_ZN5clang4Sema20BuildBaseInitializerENS_8QualTypeEPNS_14TypeSourceInfoEPNS_4ExprEPNS_13CXXRecordDeclENS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='4329' u='c' c='_ZL28BuildImplicitBaseInitializerRN5clang4SemaEPNS_18CXXConstructorDeclE23ImplicitInitializerKindPNS_16CXXBaseSpecifierEbRPNS_18CXXCtorInitializerE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='4367' u='c' c='_ZL28BuildImplicitBaseInitializerRN5clang4SemaEPNS_18CXXConstructorDeclE23ImplicitInitializerKindPNS_16CXXBaseSpecifierEbRPNS_18CXXCtorInitializerE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='4463' u='c' c='_ZL30BuildImplicitMemberInitializerRN5clang4SemaEPNS_18CXXConstructorDeclE23ImplicitInitializerKindPNS_9FieldDeclEPNS_17IndirectFieldDeclERPNS_18CXXCtorInitializerE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='4494' u='c' c='_ZL30BuildImplicitMemberInitializerRN5clang4SemaEPNS_18CXXConstructorDeclE23ImplicitInitializerKindPNS_9FieldDeclEPNS_17IndirectFieldDeclERPNS_18CXXCtorInitializerE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='13892' u='c' c='_ZN5clang4Sema25BuildExceptionDeclarationEPNS_5ScopeEPNS_14TypeSourceInfoENS_14SourceLocationES5_PNS_14IdentifierInfoE'/>
+<use f='llvm/clang/lib/Sema/SemaDeclCXX.cpp' l='15297' u='c' c='_ZN5clang4Sema19SetIvarInitializersEPNS_22ObjCImplementationDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='4831' u='c' c='_ZN5clang4Sema22CheckCXXDefaultArgExprENS_14SourceLocationEPNS_12FunctionDeclEPNS_11ParmVarDeclE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='6044' u='c' c='_ZN5clang4Sema24BuildCompoundLiteralExprENS_14SourceLocationEPNS_14TypeSourceInfoES1_PNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='12645' u='c' c='_ZN5clang4Sema18CreateBuiltinBinOpENS_14SourceLocationENS_18BinaryOperatorKindEPNS_4ExprES4_'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='1395' u='c' c='_ZN5clang4Sema25BuildCXXTypeConstructExprEPNS_14TypeSourceInfoENS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES3_b'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='2122' u='c' c='_ZN5clang4Sema11BuildCXXNewENS_11SourceRangeEbNS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES2_S1_NS_8QualTypeEPNS_14TypeSourceInfoENS3_8OptionalIS6_EES1_S6_'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='4986' u='c' c='_ZL17evaluateTypeTraitRN5clang4SemaENS_9TypeTraitENS_14SourceLocationEN4llvm8ArrayRefIPNS_14TypeSourceInfoEEES3_'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='5192' u='c' c='_ZL23EvaluateBinaryTypeTraitRN5clang4SemaENS_9TypeTraitENS_8QualTypeES3_NS_14SourceLocationE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='5588' u='c' c='_ZL19TryClassUnificationRN5clang4SemaEPNS_4ExprES3_NS_14SourceLocationERbRNS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='5616' u='c' c='_ZL19TryClassUnificationRN5clang4SemaEPNS_4ExprES3_NS_14SourceLocationERbRNS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='5640' u='c' c='_ZL19TryClassUnificationRN5clang4SemaEPNS_4ExprES3_NS_14SourceLocationERbRNS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='5718' u='c' c='_ZL21ConvertForConditionalRN5clang4SemaERNS_12ActionResultIPNS_4ExprELb1EEENS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='6309' u='c' c='_ZZN5clang4Sema24FindCompositePointerTypeENS_14SourceLocationERPNS_4ExprES4_bEN10ConversionC1ERS0_S1_S4_S4_NS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExprCXX.cpp' l='6309' u='c' c='_ZZN5clang4Sema24FindCompositePointerTypeENS_14SourceLocationERPNS_4ExprES4_bEN10ConversionC1ERS0_S1_S4_S4_NS_8QualTypeE'/>
+<use f='llvm/clang/lib/Sema/SemaExprObjC.cpp' l='404' u='c' c='_ZL33CheckObjCCollectionLiteralElementRN5clang4SemaEPNS_4ExprENS_8QualTypeEb'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='456' u='c' c='_ZN12_GLOBAL__N_115InitListChecker16PerformEmptyInitERN5clang4SemaENS1_14SourceLocationERKNS1_17InitializedEntityEbb'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='1296' u='c' c='_ZN12_GLOBAL__N_115InitListChecker19CheckSubElementTypeERKN5clang17InitializedEntityEPNS1_12InitListExprENS1_8QualTypeERjS6_S8_'/>
+<def f='llvm/clang/lib/Sema/SemaInit.cpp' l='5486' ll='5495' type='void clang::InitializationSequence::InitializationSequence(clang::Sema &amp; S, const clang::InitializedEntity &amp; Entity, const clang::InitializationKind &amp; Kind, MultiExprArg Args, bool TopLevelOfInitList = false, bool TreatUnavailableAsInvalid = true)'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='9383' u='c' c='_ZN5clang4Sema28CanPerformCopyInitializationERKNS_17InitializedEntityENS_12ActionResultIPNS_4ExprELb1EEE'/>
+<use f='llvm/clang/lib/Sema/SemaInit.cpp' l='9404' u='c' c='_ZN5clang4Sema25PerformCopyInitializationERKNS_17InitializedEntityENS_14SourceLocationENS_12ActionResultIPNS_4ExprELb1EEEbb'/>
+<use f='llvm/clang/lib/Sema/SemaLambda.cpp' l='813' u='c' c='_ZN5clang4Sema36buildLambdaInitCaptureInitializationENS_14SourceLocationEbS1_N4llvm8OptionalIjEEPNS_14IdentifierInfoEbRPNS_4ExprE'/>
+<use f='llvm/clang/lib/Sema/SemaLambda.cpp' l='1497' u='c' c='_ZN5clang4Sema16BuildCaptureInitERKNS_4sema7CaptureENS_14SourceLocationEb'/>
+<use f='llvm/clang/lib/Sema/SemaStmt.cpp' l='3016' u='c' c='_ZL21TryMoveInitializationRN5clang4SemaERKNS_17InitializedEntityEPKNS_7VarDeclENS_8QualTypeERPNS_4ExprEbRNS_12ActionResultISA_Lb1EEE'/>

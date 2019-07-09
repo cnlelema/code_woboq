@@ -1,0 +1,33 @@
+<dec f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='824' type='void llvm::MCStreamer::EmitCodeAlignment(unsigned int ByteAlignment, unsigned int MaxBytesToEmit = 0)'/>
+<doc f='llvm/llvm/include/llvm/MC/MCStreamer.h' l='814'>/// Emit nops until the byte alignment \p ByteAlignment is reached.
+  ///
+  /// This used to align code where the alignment bytes may be executed.  This
+  /// can emit different bytes for different sizes to optimize execution.
+  ///
+  /// \param ByteAlignment - The alignment to reach. This must be a power of
+  /// two on some targets.
+  /// \param MaxBytesToEmit - The maximum numbers of bytes to emit, or 0. If
+  /// the alignment cannot be reached in this many bytes, no bytes are
+  /// emitted.</doc>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/AsmPrinter.cpp' l='2201' u='c' c='_ZNK4llvm10AsmPrinter13EmitAlignmentEjPKNS_12GlobalObjectE'/>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/AsmPrinter.cpp' l='3272' u='c' c='_ZN4llvm10AsmPrinter13emitXRayTableEv'/>
+<use f='llvm/llvm/lib/MC/ConstantPools.cpp' l='31' u='c' c='_ZN4llvm12ConstantPool11emitEntriesERNS_10MCStreamerE'/>
+<ovr f='llvm/llvm/lib/MC/MCAsmStreamer.cpp' l='1133' c='_ZN12_GLOBAL__N_113MCAsmStreamer17EmitCodeAlignmentEjj'/>
+<ovr f='llvm/llvm/lib/MC/MCObjectStreamer.cpp' l='545' c='_ZN4llvm16MCObjectStreamer17EmitCodeAlignmentEjj'/>
+<use f='llvm/llvm/lib/MC/MCParser/AsmParser.cpp' l='3332' u='c' c='_ZN12_GLOBAL__N_19AsmParser19parseDirectiveAlignEbj'/>
+<def f='llvm/llvm/lib/MC/MCStreamer.cpp' l='1142' ll='1143' type='void llvm::MCStreamer::EmitCodeAlignment(unsigned int ByteAlignment, unsigned int MaxBytesToEmit = 0)'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64AsmPrinter.cpp' l='221' u='c' c='_ZN12_GLOBAL__N_117AArch64AsmPrinter8EmitSledERKN4llvm12MachineInstrENS1_10AsmPrinter8SledKindE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMMCInstLower.cpp' l='197' u='c' c='_ZN4llvm13ARMAsmPrinter8EmitSledERKNS_12MachineInstrENS_10AsmPrinter8SledKindE'/>
+<use f='llvm/llvm/lib/Target/ARM/AsmParser/ARMAsmParser.cpp' l='10409' u='c' c='_ZN12_GLOBAL__N_112ARMAsmParser18parseDirectiveEvenEN4llvm5SMLocE'/>
+<use f='llvm/llvm/lib/Target/ARM/AsmParser/ARMAsmParser.cpp' l='10611' u='c' c='_ZN12_GLOBAL__N_112ARMAsmParser19parseDirectiveAlignEN4llvm5SMLocE'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonAsmPrinter.cpp' l='212' u='c' c='_ZL9smallDataRN4llvm10AsmPrinterERKNS_12MachineInstrERNS_10MCStreamerERKNS_9MCOperandEi'/>
+<use f='llvm/llvm/lib/Target/Hexagon/HexagonAsmPrinter.cpp' l='240' u='c' c='_ZL9smallDataRN4llvm10AsmPrinterERKNS_12MachineInstrERNS_10MCStreamerERKNS_9MCOperandEi'/>
+<use f='llvm/llvm/lib/Target/Mips/MCTargetDesc/MipsTargetStreamer.cpp' l='944' u='c' c='_ZN4llvm21MipsTargetELFStreamer6finishEv'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsAsmPrinter.cpp' l='1219' u='c' c='_ZN4llvm14MipsAsmPrinter8EmitSledERKNS_12MachineInstrENS_10AsmPrinter8SledKindE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCAsmPrinter.cpp' l='1207' u='c' c='_ZN12_GLOBAL__N_118PPCLinuxAsmPrinter15EmitInstructionEPKN4llvm12MachineInstrE'/>
+<use f='llvm/llvm/lib/Target/X86/AsmParser/X86AsmParser.cpp' l='3591' u='c' c='_ZN12_GLOBAL__N_112X86AsmParser18parseDirectiveEvenEN4llvm5SMLocE'/>
+<use f='llvm/llvm/lib/Target/X86/X86MCInstLower.cpp' l='1125' u='c' c='_ZN4llvm13X86AsmPrinter25LowerPATCHABLE_EVENT_CALLERKNS_12MachineInstrERN12_GLOBAL__N_114X86MCInstLowerE'/>
+<use f='llvm/llvm/lib/Target/X86/X86MCInstLower.cpp' l='1216' u='c' c='_ZN4llvm13X86AsmPrinter31LowerPATCHABLE_TYPED_EVENT_CALLERKNS_12MachineInstrERN12_GLOBAL__N_114X86MCInstLowerE'/>
+<use f='llvm/llvm/lib/Target/X86/X86MCInstLower.cpp' l='1302' u='c' c='_ZN4llvm13X86AsmPrinter29LowerPATCHABLE_FUNCTION_ENTERERKNS_12MachineInstrERN12_GLOBAL__N_114X86MCInstLowerE'/>
+<use f='llvm/llvm/lib/Target/X86/X86MCInstLower.cpp' l='1330' u='c' c='_ZN4llvm13X86AsmPrinter18LowerPATCHABLE_RETERKNS_12MachineInstrERN12_GLOBAL__N_114X86MCInstLowerE'/>
+<use f='llvm/llvm/lib/Target/X86/X86MCInstLower.cpp' l='1352' u='c' c='_ZN4llvm13X86AsmPrinter24LowerPATCHABLE_TAIL_CALLERKNS_12MachineInstrERN12_GLOBAL__N_114X86MCInstLowerE'/>

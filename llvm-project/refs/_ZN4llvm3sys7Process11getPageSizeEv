@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/include/llvm/Support/Process.h' l='50' type='static Expected&lt;unsigned int&gt; llvm::sys::Process::getPageSize()'/>
+<use f='llvm/llvm/include/llvm/Support/Process.h' l='57' u='c' c='_ZN4llvm3sys7Process19getPageSizeEstimateEv'/>
+<doc f='llvm/llvm/include/llvm/Support/Process.h' l='45'>/// Get the process&apos;s page size.
+  /// This may fail if the underlying syscall returns an error. In most cases,
+  /// page size information is used for optimization, and this error can be
+  /// safely discarded by calling consumeError, and an estimated page size
+  /// substituted instead.</doc>
+<def f='llvm/llvm/lib/Support/Unix/Process.inc' l='72' ll='84' type='static Expected&lt;unsigned int&gt; llvm::sys::Process::getPageSize()'/>
+<doc f='llvm/llvm/lib/Support/Unix/Process.inc' l='70'>// On Cygwin, getpagesize() returns 64k(AllocationGranularity) and
+// offset in mmap(3) should be aligned to the AllocationGranularity.</doc>

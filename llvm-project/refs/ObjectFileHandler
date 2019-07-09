@@ -1,0 +1,23 @@
+<inh f='llvm/clang/tools/clang-offload-bundler/ClangOffloadBundler.cpp' l='133' c='FileHandler'/>
+<def f='llvm/clang/tools/clang-offload-bundler/ClangOffloadBundler.cpp' l='380' ll='612'/>
+<size>104</size>
+<doc f='llvm/clang/tools/clang-offload-bundler/ClangOffloadBundler.cpp' l='369'>/// Handler for object files. The bundles are organized by sections with a
+/// designated name.
+///
+/// In order to bundle we create an IR file with the content of each section and
+/// use incremental linking to produce the resulting object. We also add section
+/// with a single byte to state the name of the component the main object file
+/// (the one we are bundling into) refers to.
+///
+/// To unbundle, we use just copy the contents of the designated section. If the
+/// requested bundle refer to the main object file, we just copy it with no
+/// changes.</doc>
+<fun r='_ZN17ObjectFileHandlerD1Ev'/>
+<fun r='_ZN17ObjectFileHandler10ReadHeaderERN4llvm12MemoryBufferE'/>
+<fun r='_ZN17ObjectFileHandler15ReadBundleStartERN4llvm12MemoryBufferE'/>
+<fun r='_ZN17ObjectFileHandler13ReadBundleEndERN4llvm12MemoryBufferE'/>
+<fun r='_ZN17ObjectFileHandler10ReadBundleERN4llvm14raw_fd_ostreamERNS0_12MemoryBufferE'/>
+<fun r='_ZN17ObjectFileHandler11WriteHeaderERN4llvm14raw_fd_ostreamENS0_8ArrayRefISt10unique_ptrINS0_12MemoryBufferESt14default_deleteIS5_EEEE'/>
+<fun r='_ZN17ObjectFileHandler16WriteBundleStartERN4llvm14raw_fd_ostreamENS0_9StringRefE'/>
+<fun r='_ZN17ObjectFileHandler14WriteBundleEndERN4llvm14raw_fd_ostreamENS0_9StringRefE'/>
+<fun r='_ZN17ObjectFileHandler11WriteBundleERN4llvm14raw_fd_ostreamERNS0_12MemoryBufferE'/>

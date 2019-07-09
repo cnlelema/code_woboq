@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.h' l='174' type='llvm::MachineInstr * llvm::PPCInstrInfo::commuteInstructionImpl(llvm::MachineInstr &amp; MI, bool NewMI, unsigned int OpIdx1, unsigned int OpIdx2) const'/>
+<doc f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.h' l='164'>/// Commutes the operands in the given instruction.
+  /// The commutable operands are specified by their indices OpIdx1 and OpIdx2.
+  ///
+  /// Do not call this method for a non-commutable instruction or for
+  /// non-commutable pair of operand indices OpIdx1 and OpIdx2.
+  /// Even though the instruction is commutable, the method may still
+  /// fail to commute the operands, null pointer is returned in such cases.
+  ///
+  /// For example, we can commute rlwimi instructions, but only if the
+  /// rotate amt is zero.  We also have to munge the immediates a bit.</doc>
+<def f='llvm/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp' l='367' ll='449' type='llvm::MachineInstr * llvm::PPCInstrInfo::commuteInstructionImpl(llvm::MachineInstr &amp; MI, bool NewMI, unsigned int OpIdx1, unsigned int OpIdx2) const'/>

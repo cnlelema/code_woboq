@@ -1,0 +1,13 @@
+<dec f='llvm/clang/include/clang/AST/Expr.h' l='847' type='clang::Expr * clang::Expr::IgnoreParenNoopCasts(const clang::ASTContext &amp; Ctx)'/>
+<use f='llvm/clang/include/clang/AST/Expr.h' l='849' u='c' c='_ZNK5clang4Expr20IgnoreParenNoopCastsERKNS_10ASTContextE'/>
+<doc f='llvm/clang/include/clang/AST/Expr.h' l='841'>/// Skip past any parenthese and casts which do not change the value
+  /// (including ptr-&gt;int casts of the same size) until reaching a fixed point.
+  /// Skips:
+  /// * What IgnoreParens() skips
+  /// * CastExpr which do not change the value
+  /// * SubstNonTypeTemplateParmExpr</doc>
+<def f='llvm/clang/lib/AST/Expr.cpp' l='2906' ll='2910' type='clang::Expr * clang::Expr::IgnoreParenNoopCasts(const clang::ASTContext &amp; Ctx)'/>
+<use f='llvm/clang/lib/Sema/SemaExpr.cpp' l='5132' u='c' c='_ZN5clang4Sema22GatherArgumentsForCallENS_14SourceLocationEPNS_12FunctionDeclEPKNS_17FunctionProtoTypeEjN4llvm8ArrayRefIPNS_4ExprEEERNS7_15SmallVector6960610'/>
+<use f='llvm/clang/lib/Sema/SemaExprObjC.cpp' l='1668' u='c' c='_ZN5clang4Sema25CheckMessageArgumentTypesEPKNS_4ExprENS_8QualTypeEN4llvm15MutableArrayRefIPS1_EENS_8SelectorENS5_8ArrayRefINS_14SourceLocationEEEPNS_16918883'/>
+<use f='llvm/clang/lib/Sema/SemaStmtAsm.cpp' l='98' u='c' c='_ZL14CheckAsmLValuePN5clang4ExprERNS_4SemaE'/>
+<use f='llvm/clang/lib/Sema/SemaStmtAsm.cpp' l='310' u='c' c='_ZN5clang4Sema15ActOnGCCAsmStmtENS_14SourceLocationEbbjjPPNS_14IdentifierInfoEN4llvm15MutableArrayRefIPNS_4ExprEEES9_S8_S9_jS1_'/>

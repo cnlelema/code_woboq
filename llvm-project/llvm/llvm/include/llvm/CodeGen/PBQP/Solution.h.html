@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Solution.h source code [llvm/llvm/include/llvm/CodeGen/PBQP/Solution.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="llvm::PBQP::Solution "/>
+<link rel="stylesheet" href="../../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/llvm/include/llvm/CodeGen/PBQP/Solution.h'; var root_path = '../../../../../..'; var data_path = '../../../../../../../data';</script>
+<script src='../../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>llvm</a>/<a href='../../../..'>llvm</a>/<a href='../../..'>include</a>/<a href='../..'>llvm</a>/<a href='..'>CodeGen</a>/<a href='./'>PBQP</a>/<a href='Solution.h.html'>Solution.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- Solution.h - PBQP Solution -------------------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// PBQP Solution class.</i></td></tr>
+<tr><th id="10">10</th><td><i>//</i></td></tr>
+<tr><th id="11">11</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#<span data-ppcond="13">ifndef</span> <span class="macro" data-ref="_M/LLVM_CODEGEN_PBQP_SOLUTION_H">LLVM_CODEGEN_PBQP_SOLUTION_H</span></u></td></tr>
+<tr><th id="14">14</th><td><u>#define <dfn class="macro" id="_M/LLVM_CODEGEN_PBQP_SOLUTION_H" data-ref="_M/LLVM_CODEGEN_PBQP_SOLUTION_H">LLVM_CODEGEN_PBQP_SOLUTION_H</dfn></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="Graph.h.html">"llvm/CodeGen/PBQP/Graph.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../../../../../include/c++/7/cassert.html">&lt;cassert&gt;</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../../../../include/c++/7/map.html">&lt;map&gt;</a></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><b>namespace</b> <span class="namespace">llvm</span> {</td></tr>
+<tr><th id="21">21</th><td><b>namespace</b> <span class="namespace">PBQP</span> {</td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td>  <i class="doc">/// Represents a solution to a PBQP problem.</i></td></tr>
+<tr><th id="24">24</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="25">25</th><td><i class="doc">  /// To get the selection for each node in the problem use the getSelection method.</i></td></tr>
+<tr><th id="26">26</th><td>  <b>class</b> <dfn class="type def" id="llvm::PBQP::Solution" title='llvm::PBQP::Solution' data-ref="llvm::PBQP::Solution">Solution</dfn> {</td></tr>
+<tr><th id="27">27</th><td>  <b>private</b>:</td></tr>
+<tr><th id="28">28</th><td>    <b>using</b> <dfn class="typedef" id="llvm::PBQP::Solution::SelectionsMap" title='llvm::PBQP::Solution::SelectionsMap' data-type='std::map&lt;GraphBase::NodeId, unsigned int&gt;' data-ref="llvm::PBQP::Solution::SelectionsMap">SelectionsMap</dfn> = <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/7/bits/stl_map.h.html#std::map" title='std::map' data-ref="std::map">map</a>&lt;<a class="type" href="Graph.h.html#llvm::PBQP::GraphBase" title='llvm::PBQP::GraphBase' data-ref="llvm::PBQP::GraphBase">GraphBase</a>::<a class="typedef" href="Graph.h.html#llvm::PBQP::GraphBase::NodeId" title='llvm::PBQP::GraphBase::NodeId' data-type='unsigned int' data-ref="llvm::PBQP::GraphBase::NodeId">NodeId</a>, <em>unsigned</em>&gt;;</td></tr>
+<tr><th id="29">29</th><td>    <a class="typedef" href="#llvm::PBQP::Solution::SelectionsMap" title='llvm::PBQP::Solution::SelectionsMap' data-type='std::map&lt;GraphBase::NodeId, unsigned int&gt;' data-ref="llvm::PBQP::Solution::SelectionsMap">SelectionsMap</a> <dfn class="decl" id="llvm::PBQP::Solution::selections" title='llvm::PBQP::Solution::selections' data-ref="llvm::PBQP::Solution::selections">selections</dfn>;</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td>  <b>public</b>:</td></tr>
+<tr><th id="32">32</th><td>    <i class="doc">/// Initialise an empty solution.</i></td></tr>
+<tr><th id="33">33</th><td>    <dfn class="decl def" id="_ZN4llvm4PBQP8SolutionC1Ev" title='llvm::PBQP::Solution::Solution' data-ref="_ZN4llvm4PBQP8SolutionC1Ev">Solution</dfn>() = <b>default</b>;</td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td>    <i class="doc">/// Set the selection for a given node.</i></td></tr>
+<tr><th id="36">36</th><td><i class="doc">    /// <span class="command">@param</span> <span class="arg">nodeId</span> Node id.</i></td></tr>
+<tr><th id="37">37</th><td><i class="doc">    /// <span class="command">@param</span> <span class="arg">selection</span> Selection for nodeId.</i></td></tr>
+<tr><th id="38">38</th><td>    <em>void</em> <dfn class="decl def" id="_ZN4llvm4PBQP8Solution12setSelectionEjj" title='llvm::PBQP::Solution::setSelection' data-ref="_ZN4llvm4PBQP8Solution12setSelectionEjj">setSelection</dfn>(<a class="type" href="Graph.h.html#llvm::PBQP::GraphBase" title='llvm::PBQP::GraphBase' data-ref="llvm::PBQP::GraphBase">GraphBase</a>::<a class="typedef" href="Graph.h.html#llvm::PBQP::GraphBase::NodeId" title='llvm::PBQP::GraphBase::NodeId' data-type='unsigned int' data-ref="llvm::PBQP::GraphBase::NodeId">NodeId</a> <dfn class="local col0 decl" id="170nodeId" title='nodeId' data-type='GraphBase::NodeId' data-ref="170nodeId">nodeId</dfn>, <em>unsigned</em> <dfn class="local col1 decl" id="171selection" title='selection' data-type='unsigned int' data-ref="171selection">selection</dfn>) {</td></tr>
+<tr><th id="39">39</th><td>      <a class="member" href="#llvm::PBQP::Solution::selections" title='llvm::PBQP::Solution::selections' data-ref="llvm::PBQP::Solution::selections">selections</a><a class="ref" href="../../../../../../include/c++/7/bits/stl_map.h.html#_ZNSt3mapixERKT_" title='std::map::operator[]' data-ref="_ZNSt3mapixERKT_">[<a class="local col0 ref" href="#170nodeId" title='nodeId' data-ref="170nodeId">nodeId</a>]</a> = <a class="local col1 ref" href="#171selection" title='selection' data-ref="171selection">selection</a>;</td></tr>
+<tr><th id="40">40</th><td>    }</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td>    <i class="doc">/// Get a node's selection.</i></td></tr>
+<tr><th id="43">43</th><td><i class="doc">    /// <span class="command">@param</span> <span class="arg">nodeId</span> Node id.</i></td></tr>
+<tr><th id="44">44</th><td><i class="doc">    /// <span class="command">@return</span> The selection for nodeId;</i></td></tr>
+<tr><th id="45">45</th><td>    <em>unsigned</em> <dfn class="decl def" id="_ZNK4llvm4PBQP8Solution12getSelectionEj" title='llvm::PBQP::Solution::getSelection' data-ref="_ZNK4llvm4PBQP8Solution12getSelectionEj">getSelection</dfn>(<a class="type" href="Graph.h.html#llvm::PBQP::GraphBase" title='llvm::PBQP::GraphBase' data-ref="llvm::PBQP::GraphBase">GraphBase</a>::<a class="typedef" href="Graph.h.html#llvm::PBQP::GraphBase::NodeId" title='llvm::PBQP::GraphBase::NodeId' data-type='unsigned int' data-ref="llvm::PBQP::GraphBase::NodeId">NodeId</a> <dfn class="local col2 decl" id="172nodeId" title='nodeId' data-type='GraphBase::NodeId' data-ref="172nodeId">nodeId</dfn>) <em>const</em> {</td></tr>
+<tr><th id="46">46</th><td>      <a class="typedef" href="#llvm::PBQP::Solution::SelectionsMap" title='llvm::PBQP::Solution::SelectionsMap' data-type='std::map&lt;GraphBase::NodeId, unsigned int&gt;' data-ref="llvm::PBQP::Solution::SelectionsMap">SelectionsMap</a>::<a class="typedef" href="../../../../../../include/c++/7/bits/stl_map.h.html#std::map{unsignedint,unsignedint,std::less{unsignedint},std::allocator{std::pair{constunsignedint,unsignedint}}}::const_iterator" title='std::map&lt;unsigned int, unsigned int, std::less&lt;unsigned int&gt;, std::allocator&lt;std::pair&lt;const unsigned int, unsigned int&gt; &gt; &gt;::const_iterator' data-type='typename _Rep_type::const_iterator' data-ref="std::map{unsignedint,unsignedint,std::less{unsignedint},std::allocator{std::pair{constunsignedint,unsignedint}}}::const_iterator">const_iterator</a> <dfn class="local col3 decl" id="173sItr" title='sItr' data-type='SelectionsMap::const_iterator' data-ref="173sItr">sItr</dfn> = <a class="member" href="#llvm::PBQP::Solution::selections" title='llvm::PBQP::Solution::selections' data-ref="llvm::PBQP::Solution::selections">selections</a>.<a class="ref" href="../../../../../../include/c++/7/bits/stl_map.h.html#_ZNKSt3map4findERKT_" title='std::map::find' data-ref="_ZNKSt3map4findERKT_">find</a>(<a class="local col2 ref" href="#172nodeId" title='nodeId' data-ref="172nodeId">nodeId</a>);</td></tr>
+<tr><th id="47">47</th><td>      <a class="macro" href="../../../../../../include/assert.h.html#92" title="(static_cast &lt;bool&gt; (sItr != selections.end() &amp;&amp; &quot;No selection for node.&quot;) ? void (0) : __assert_fail (&quot;sItr != selections.end() &amp;&amp; \&quot;No selection for node.\&quot;&quot;, &quot;/root/cheri/llvm-project/llvm/include/llvm/CodeGen/PBQP/Solution.h&quot;, 47, __extension__ __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="local col3 ref" href="#173sItr" title='sItr' data-ref="173sItr">sItr</a> <a class="ref" href="../../../../../../include/c++/7/bits/stl_tree.h.html#_ZNKSt23_Rb_tree_const_iteratorneERKSt23_Rb_tree_const_iteratorIT_E" title='std::_Rb_tree_const_iterator::operator!=' data-ref="_ZNKSt23_Rb_tree_const_iteratorneERKSt23_Rb_tree_const_iteratorIT_E">!=</a> <a class="member" href="#llvm::PBQP::Solution::selections" title='llvm::PBQP::Solution::selections' data-ref="llvm::PBQP::Solution::selections">selections</a>.<a class="ref" href="../../../../../../include/c++/7/bits/stl_map.h.html#_ZNKSt3map3endEv" title='std::map::end' data-ref="_ZNKSt3map3endEv">end</a>() &amp;&amp; <q>"No selection for node."</q>);</td></tr>
+<tr><th id="48">48</th><td>      <b>return</b> <a class="local col3 ref" href="#173sItr" title='sItr' data-ref="173sItr">sItr</a><a class="ref" href="../../../../../../include/c++/7/bits/stl_tree.h.html#_ZNKSt23_Rb_tree_const_iteratorptEv" title='std::_Rb_tree_const_iterator::operator-&gt;' data-ref="_ZNKSt23_Rb_tree_const_iteratorptEv">-&gt;</a><a class="ref" href="../../../../../../include/c++/7/bits/stl_pair.h.html#std::pair::second" title='std::pair&lt;const unsigned int, unsigned int&gt;::second' data-ref="std::pair::second">second</a>;</td></tr>
+<tr><th id="49">49</th><td>    }</td></tr>
+<tr><th id="50">50</th><td>  };</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>} <i>// end namespace PBQP</i></td></tr>
+<tr><th id="53">53</th><td>} <i>// end namespace llvm</i></td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><u>#<span data-ppcond="13">endif</span> // LLVM_CODEGEN_PBQP_SOLUTION_H</u></td></tr>
+<tr><th id="56">56</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../lib/CodeGen/RegAllocPBQP.cpp.html'>llvm/llvm/lib/CodeGen/RegAllocPBQP.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

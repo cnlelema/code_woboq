@@ -1,0 +1,29 @@
+<dec f='llvm/llvm/lib/CodeGen/LiveRangeCalc.h' l='95' type='LiveOutMap'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.h' l='258' u='m' c='_ZN4llvm13LiveRangeCalc15setLiveOutValueEPNS_17MachineBasicBlockEPNS_6VNInfoE'/>
+<offset>768</offset>
+<doc f='llvm/llvm/lib/CodeGen/LiveRangeCalc.h' l='78'>/// Map each basic block where a live range is live out to the live-out value
+  /// and its defining block.
+  ///
+  /// For every basic block, MBB, one of these conditions shall be true:
+  ///
+  ///  1. !Seen.count(MBB-&gt;getNumber())
+  ///     Blocks without a Seen bit are ignored.
+  ///  2. LiveOut[MBB].second.getNode() == MBB
+  ///     The live-out value is defined in MBB.
+  ///  3. forall P in preds(MBB): LiveOut[P] == LiveOut[MBB]
+  ///     The live-out value passses through MBB. All predecessors must carry
+  ///     the same value.
+  ///
+  /// The domtree node may be null, it can be computed.
+  ///
+  /// The map can be shared by multiple live ranges as long as no two are
+  /// live-out of the same block.</doc>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='48' u='m' c='_ZN4llvm13LiveRangeCalc15resetLiveOutMapEv'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='233' u='m' c='_ZN4llvm13LiveRangeCalc17updateFromLiveInsEv'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='303' u='m' c='_ZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEERNS_17MachineBasicBlockERNS_9BitVectorES9_'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='390' u='m' c='_ZN4llvm13LiveRangeCalc16findReachingDefsERNS_9LiveRangeERNS_17MachineBasicBlockENS_9SlotIndexEjNS_8ArrayRefIS5_EE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='445' u='m' c='_ZN4llvm13LiveRangeCalc16findReachingDefsERNS_9LiveRangeERNS_17MachineBasicBlockENS_9SlotIndexEjNS_8ArrayRefIS5_EE'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='510' u='m' c='_ZN4llvm13LiveRangeCalc9updateSSAEv'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='515' u='m' c='_ZN4llvm13LiveRangeCalc9updateSSAEv'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='520' u='m' c='_ZN4llvm13LiveRangeCalc9updateSSAEv'/>
+<use f='llvm/llvm/lib/CodeGen/LiveRangeCalc.cpp' l='546' u='m' c='_ZN4llvm13LiveRangeCalc9updateSSAEv'/>

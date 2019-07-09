@@ -1,0 +1,95 @@
+<def f='llvm/llvm/include/llvm/MC/MCSchedule.h' l='244' ll='381'/>
+<size>72</size>
+<doc f='llvm/llvm/include/llvm/MC/MCSchedule.h' l='190'>/// Machine model for scheduling, bundling, and heuristics.
+///
+/// The machine model directly provides basic information about the
+/// microarchitecture to the scheduler in the form of properties. It also
+/// optionally refers to scheduler resource tables and itinerary
+/// tables. Scheduler resource tables model the latency and cost for each
+/// instruction type. Itinerary tables are an independent mechanism that
+/// provides a detailed reservation table describing each cycle of instruction
+/// execution. Subtargets may define any or all of the above categories of data
+/// depending on the type of CPU and selected scheduler.
+///
+/// The machine independent properties defined here are used by the scheduler as
+/// an abstract machine model. A real micro-architecture has a number of
+/// buffers, queues, and stages. Declaring that a given machine-independent
+/// abstract property corresponds to a specific physical property across all
+/// subtargets can&apos;t be done. Nonetheless, the abstract model is
+/// useful. Futhermore, subtargets typically extend this model with processor
+/// specific resources to model any hardware features that can be exploited by
+/// sceduling heuristics and aren&apos;t sufficiently represented in the abstract.
+///
+/// The abstract pipeline is built around the notion of an &quot;issue point&quot;. This
+/// is merely a reference point for counting machine cycles. The physical
+/// machine will have pipeline stages that delay execution. The scheduler does
+/// not model those delays because they are irrelevant as long as they are
+/// consistent. Inaccuracies arise when instructions have different execution
+/// delays relative to each other, in addition to their intrinsic latency. Those
+/// special cases can be handled by TableGen constructs such as, ReadAdvance,
+/// which reduces latency when reading data, and ResourceCycles, which consumes
+/// a processor resource when writing data for a number of abstract
+/// cycles.
+///
+/// TODO: One tool currently missing is the ability to add a delay to
+/// ResourceCycles. That would be easy to add and would likely cover all cases
+/// currently handled by the legacy itinerary tables.
+///
+/// A note on out-of-order execution and, more generally, instruction
+/// buffers. Part of the CPU pipeline is always in-order. The issue point, which
+/// is the point of reference for counting cycles, only makes sense as an
+/// in-order part of the pipeline. Other parts of the pipeline are sometimes
+/// falling behind and sometimes catching up. It&apos;s only interesting to model
+/// those other, decoupled parts of the pipeline if they may be predictably
+/// resource constrained in a way that the scheduler can exploit.
+///
+/// The LLVM machine model distinguishes between in-order constraints and
+/// out-of-order constraints so that the target&apos;s scheduling strategy can apply
+/// appropriate heuristics. For a well-balanced CPU pipeline, out-of-order
+/// resources would not typically be treated as a hard scheduling
+/// constraint. For example, in the GenericScheduler, a delay caused by limited
+/// out-of-order resources is not directly reflected in the number of cycles
+/// that the scheduler sees between issuing an instruction and its dependent
+/// instructions. In other words, out-of-order resources don&apos;t directly increase
+/// the latency between pairs of instructions. However, they can still be used
+/// to detect potential bottlenecks across a sequence of instructions and bias
+/// the scheduling heuristics appropriately.</doc>
+<mbr r='llvm::MCSchedModel::IssueWidth' o='0' t='unsigned int'/>
+<smbr r='llvm::MCSchedModel::DefaultIssueWidth' t='const unsigned int'/>
+<mbr r='llvm::MCSchedModel::MicroOpBufferSize' o='32' t='unsigned int'/>
+<smbr r='llvm::MCSchedModel::DefaultMicroOpBufferSize' t='const unsigned int'/>
+<mbr r='llvm::MCSchedModel::LoopMicroOpBufferSize' o='64' t='unsigned int'/>
+<smbr r='llvm::MCSchedModel::DefaultLoopMicroOpBufferSize' t='const unsigned int'/>
+<mbr r='llvm::MCSchedModel::LoadLatency' o='96' t='unsigned int'/>
+<smbr r='llvm::MCSchedModel::DefaultLoadLatency' t='const unsigned int'/>
+<mbr r='llvm::MCSchedModel::HighLatency' o='128' t='unsigned int'/>
+<smbr r='llvm::MCSchedModel::DefaultHighLatency' t='const unsigned int'/>
+<mbr r='llvm::MCSchedModel::MispredictPenalty' o='160' t='unsigned int'/>
+<smbr r='llvm::MCSchedModel::DefaultMispredictPenalty' t='const unsigned int'/>
+<mbr r='llvm::MCSchedModel::PostRAScheduler' o='192' t='bool'/>
+<mbr r='llvm::MCSchedModel::CompleteModel' o='200' t='bool'/>
+<mbr r='llvm::MCSchedModel::ProcID' o='224' t='unsigned int'/>
+<mbr r='llvm::MCSchedModel::ProcResourceTable' o='256' t='const llvm::MCProcResourceDesc *'/>
+<mbr r='llvm::MCSchedModel::SchedClassTable' o='320' t='const llvm::MCSchedClassDesc *'/>
+<mbr r='llvm::MCSchedModel::NumProcResourceKinds' o='384' t='unsigned int'/>
+<mbr r='llvm::MCSchedModel::NumSchedClasses' o='416' t='unsigned int'/>
+<mbr r='llvm::MCSchedModel::InstrItineraries' o='448' t='const llvm::InstrItinerary *'/>
+<mbr r='llvm::MCSchedModel::ExtraProcessorInfo' o='512' t='const llvm::MCExtraProcessorInfo *'/>
+<fun r='_ZNK4llvm12MCSchedModel21hasExtraProcessorInfoEv'/>
+<fun r='_ZNK4llvm12MCSchedModel14getProcessorIDEv'/>
+<fun r='_ZNK4llvm12MCSchedModel18hasInstrSchedModelEv'/>
+<fun r='_ZNK4llvm12MCSchedModel21getExtraProcessorInfoEv'/>
+<fun r='_ZNK4llvm12MCSchedModel10isCompleteEv'/>
+<fun r='_ZNK4llvm12MCSchedModel12isOutOfOrderEv'/>
+<fun r='_ZNK4llvm12MCSchedModel23getNumProcResourceKindsEv'/>
+<fun r='_ZNK4llvm12MCSchedModel15getProcResourceEj'/>
+<fun r='_ZNK4llvm12MCSchedModel17getSchedClassDescEj'/>
+<fun r='_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE'/>
+<fun r='_ZNK4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoEj'/>
+<fun r='_ZNK4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_11MCInstrInfoERKNS_6MCInstE'/>
+<fun r='_ZN4llvm12MCSchedModel23getReciprocalThroughputERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE'/>
+<fun r='_ZN4llvm12MCSchedModel23getReciprocalThroughputEjRKNS_18InstrItineraryDataE'/>
+<fun r='_ZNK4llvm12MCSchedModel23getReciprocalThroughputERKNS_15MCSubtargetInfoERKNS_11MCInstrInfoERKNS_6MCInstE'/>
+<fun r='_ZN4llvm12MCSchedModel24getForwardingDelayCyclesENS_8ArrayRefINS_18MCReadAdvanceEntryEEEj'/>
+<fun r='_ZN4llvm12MCSchedModel20GetDefaultSchedModelEv'/>
+<smbr r='llvm::MCSchedModel::Default' t='const llvm::MCSchedModel'/>

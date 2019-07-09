@@ -1,0 +1,44 @@
+<inh f='llvm/clang/include/clang/AST/Expr.h' l='108' c='clang::Expr'/>
+<inh f='llvm/llvm/include/llvm/Support/TrailingObjects.h' l='233' c='llvm::TrailingObjects'/>
+<def f='llvm/clang/include/clang/AST/ExprCXX.h' l='3056' ll='3195'/>
+<size>56</size>
+<doc f='llvm/clang/include/clang/AST/ExprCXX.h' l='3042'>/// A qualified reference to a name whose declaration cannot
+/// yet be resolved.
+///
+/// DependentScopeDeclRefExpr is similar to DeclRefExpr in that
+/// it expresses a reference to a declaration such as
+/// X&lt;T&gt;::value. The difference, however, is that an
+/// DependentScopeDeclRefExpr node is used only within C++ templates when
+/// the qualification (e.g., X&lt;T&gt;::) refers to a dependent type. In
+/// this case, X&lt;T&gt;::value cannot resolve to a declaration because the
+/// declaration will differ from one instantiation of X&lt;T&gt; to the
+/// next. Therefore, DependentScopeDeclRefExpr keeps track of the
+/// qualifier (X&lt;T&gt;::) and the name of the entity being referenced
+/// (&quot;value&quot;). Such expressions will instantiate to a DeclRefExpr once the
+/// declaration can be found.</doc>
+<mbr r='clang::DependentScopeDeclRefExpr::QualifierLoc' o='128' t='clang::NestedNameSpecifierLoc'/>
+<mbr r='clang::DependentScopeDeclRefExpr::NameInfo' o='256' t='clang::DeclarationNameInfo'/>
+<fun r='_ZN5clang25DependentScopeDeclRefExprC1ENS_8QualTypeENS_22NestedNameSpecifierLocENS_14SourceLocationERKNS_19DeclarationNameInfoEPKNS_24TemplateArgumentListInfoE'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr18numTrailingObjectsEN4llvm25trailing_objects_internal19TrailingObjectsBase13OverloadTokenINS_24ASTTemplateKWAndArgsInfoEEE'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr24hasTemplateKWAndArgsInfoEv'/>
+<fun r='_ZN5clang25DependentScopeDeclRefExpr6CreateERKNS_10ASTContextENS_22NestedNameSpecifierLocENS_14SourceLocationERKNS_19DeclarationNameInfoEPKNS_24TemplateArgumentListInfoE'/>
+<fun r='_ZN5clang25DependentScopeDeclRefExpr11CreateEmptyERKNS_10ASTContextEbj'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr11getNameInfoEv'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr11getDeclNameEv'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr11getLocationEv'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr15getQualifierLocEv'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr12getQualifierEv'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr21getTemplateKeywordLocEv'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr12getLAngleLocEv'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr12getRAngleLocEv'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr18hasTemplateKeywordEv'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr25copyTemplateArgumentsIntoERNS_24TemplateArgumentListInfoE'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr15getTemplateArgsEv'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr18getNumTemplateArgsEv'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr18template_argumentsEv'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv'/>
+<fun r='_ZN5clang25DependentScopeDeclRefExpr7classofEPKNS_4StmtE'/>
+<fun r='_ZN5clang25DependentScopeDeclRefExpr8childrenEv'/>
+<fun r='_ZNK5clang25DependentScopeDeclRefExpr8childrenEv'/>

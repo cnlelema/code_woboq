@@ -1,0 +1,23 @@
+<dec f='llvm/clang/include/clang/AST/OpenMPClause.h' l='3330' type='static clang::OMPCopyinClause * clang::OMPCopyinClause::Create(const clang::ASTContext &amp; C, clang::SourceLocation StartLoc, clang::SourceLocation LParenLoc, clang::SourceLocation EndLoc, ArrayRef&lt;clang::Expr *&gt; VL, ArrayRef&lt;clang::Expr *&gt; SrcExprs, ArrayRef&lt;clang::Expr *&gt; DstExprs, ArrayRef&lt;clang::Expr *&gt; AssignmentOps)'/>
+<doc f='llvm/clang/include/clang/AST/OpenMPClause.h' l='3308'>/// Creates clause with a list of variables \a VL.
+  ///
+  /// \param C AST context.
+  /// \param StartLoc Starting location of the clause.
+  /// \param LParenLoc Location of &apos;(&apos;.
+  /// \param EndLoc Ending location of the clause.
+  /// \param VL List of references to the variables.
+  /// \param SrcExprs List of helper expressions for proper generation of
+  /// assignment operation required for copyin clause. This list represents
+  /// sources.
+  /// \param DstExprs List of helper expressions for proper generation of
+  /// assignment operation required for copyin clause. This list represents
+  /// destinations.
+  /// \param AssignmentOps List of helper expressions that represents assignment
+  /// operation:
+  /// \code
+  /// DstExprs = SrcExprs;
+  /// \endcode
+  /// Required for proper codegen of propagation of master&apos;s thread values of
+  /// threadprivate variables to local instances of that variables in other
+  /// implicit threads.</doc>
+<def f='llvm/clang/lib/AST/OpenMPClause.cpp' l='474' ll='486' type='static clang::OMPCopyinClause * clang::OMPCopyinClause::Create(const clang::ASTContext &amp; C, clang::SourceLocation StartLoc, clang::SourceLocation LParenLoc, clang::SourceLocation EndLoc, ArrayRef&lt;clang::Expr *&gt; VL, ArrayRef&lt;clang::Expr *&gt; SrcExprs, ArrayRef&lt;clang::Expr *&gt; DstExprs, ArrayRef&lt;clang::Expr *&gt; AssignmentOps)'/>

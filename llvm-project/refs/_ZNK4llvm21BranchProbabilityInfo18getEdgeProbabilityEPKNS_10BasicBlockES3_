@@ -1,0 +1,29 @@
+<dec f='llvm/llvm/include/llvm/Analysis/BranchProbabilityInfo.h' l='93' type='llvm::BranchProbability llvm::BranchProbabilityInfo::getEdgeProbability(const llvm::BasicBlock * Src, const llvm::BasicBlock * Dst) const'/>
+<doc f='llvm/llvm/include/llvm/Analysis/BranchProbabilityInfo.h' l='90'>/// Get the probability of going from Src to Dst.
+  ///
+  /// It returns the sum of all probabilities for edges from Src to Dst.</doc>
+<use f='llvm/llvm/lib/Analysis/BranchProbabilityInfo.cpp' l='841' u='c' c='_ZNK4llvm21BranchProbabilityInfo9isEdgeHotEPKNS_10BasicBlockES3_'/>
+<use f='llvm/llvm/lib/Analysis/BranchProbabilityInfo.cpp' l='851' u='c' c='_ZNK4llvm21BranchProbabilityInfo10getHotSuccEPKNS_10BasicBlockE'/>
+<def f='llvm/llvm/lib/Analysis/BranchProbabilityInfo.cpp' l='888' ll='903' type='llvm::BranchProbability llvm::BranchProbabilityInfo::getEdgeProbability(const llvm::BasicBlock * Src, const llvm::BasicBlock * Dst) const'/>
+<use f='llvm/llvm/lib/Analysis/BranchProbabilityInfo.cpp' l='921' u='c' c='_ZNK4llvm21BranchProbabilityInfo20printEdgeProbabilityERNS_11raw_ostreamEPKNS_10BasicBlockES5_'/>
+<doc f='llvm/llvm/lib/Analysis/BranchProbabilityInfo.cpp' l='886'>/// Get the raw edge probability calculated for the block pair. This returns the
+/// sum of all raw edge probabilities from Src to Dst.</doc>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/FastISel.cpp' l='1693' u='c' c='_ZN4llvm8FastISel14fastEmitBranchEPNS_17MachineBasicBlockERKNS_8DebugLocE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/FastISel.cpp' l='1709' u='c' c='_ZN4llvm8FastISel16finishCondBranchEPKNS_10BasicBlockEPNS_17MachineBasicBlockES5_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='1738' u='c' c='_ZL22findUnwindDestinationsRN4llvm20FunctionLoweringInfoEPKNS_10BasicBlockENS_17BranchProbabilityERNS_15SmallVectorImplISt4pairIPNS_17MachineBasicBlockES5_EEE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='1750' u='c' c='_ZN4llvm19SelectionDAGBuilder15visitCleanupRetERKNS_17CleanupReturnInstE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='2004' u='c' c='_ZNK4llvm19SelectionDAGBuilder18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='2815' u='c' c='_ZN4llvm19SelectionDAGBuilder11visitInvokeERKNS_10InvokeInstE'/>
+<use f='llvm/llvm/lib/Target/AArch64/AArch64FastISel.cpp' l='2464' u='c' c='_ZN12_GLOBAL__N_115AArch64FastISel12selectBranchEPKN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelDAGToDAG.cpp' l='528' u='c' c='_ZL13getBranchHintjPN4llvm20FunctionLoweringInfoERKNS_7SDValueE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCISelDAGToDAG.cpp' l='529' u='c' c='_ZL13getBranchHintjPN4llvm20FunctionLoweringInfoERKNS_7SDValueE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PartialInlining.cpp' l='490' u='c' c='_ZN12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoEPN4llvm8FunctionERNS1_25OptimizationRemarkEmitterE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/CFGMST.h' l='137' u='c' c='_ZN4llvm6CFGMST10buildEdgesEv'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='1977' u='c' c='_ZN4llvm17JumpThreadingPass10ThreadEdgeEPNS_10BasicBlockERKNS_15SmallVectorImplIS2_EES2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='2092' u='c' c='_ZN4llvm17JumpThreadingPass15SplitBlockPredsEPNS_10BasicBlockENS_8ArrayRefIS2_EEPKc'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='2155' u='c' c='_ZN4llvm17JumpThreadingPass28UpdateBlockFreqAndEdgeWeightEPNS_10BasicBlockES2_S2_S2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/JumpThreading.cpp' l='2165' u='c' c='_ZN4llvm17JumpThreadingPass28UpdateBlockFreqAndEdgeWeightEPNS_10BasicBlockES2_S2_S2_'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/LoopPredication.cpp' l='953' u='c' c='_ZN12_GLOBAL__N_115LoopPredication27isLoopProfitableToPredicateEv'/>
+<use f='llvm/llvm/lib/Transforms/Utils/BreakCriticalEdges.cpp' l='418' u='c' c='_ZN4llvm28SplitIndirectBrCriticalEdgesERNS_8FunctionEPNS_21BranchProbabilityInfoEPNS_18BlockFrequencyInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CodeExtractor.cpp' l='1351' u='c' c='_ZN4llvm13CodeExtractor17extractCodeRegionEv'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CodeExtractor.cpp' l='1370' u='c' c='_ZN4llvm13CodeExtractor17extractCodeRegionEv'/>

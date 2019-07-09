@@ -1,0 +1,23 @@
+<inh f='llvm/llvm/include/llvm/IR/PassManager.h' l='372' c='llvm::PassInfoMixin'/>
+<def f='llvm/llvm/include/llvm/Transforms/IPO/Inliner.h' l='94' ll='109'/>
+<size>72</size>
+<doc f='llvm/llvm/include/llvm/Transforms/IPO/Inliner.h' l='80'>/// The inliner pass for the new pass manager.
+///
+/// This pass wires together the inlining utilities and the inline cost
+/// analysis into a CGSCC pass. It considers every call in every function in
+/// the SCC and tries to inline if profitable. It can be tuned with a number of
+/// parameters to control what cost model is used and what tradeoffs are made
+/// when making the decision.
+///
+/// It should be noted that the legacy inliners do considerably more than this
+/// inliner pass does. They provide logic for manually merging allocas, and
+/// doing considerable DCE including the DCE of dead functions. This pass makes
+/// every attempt to be simpler. DCE of functions requires complex reasoning
+/// about comdat groups, etc. Instead, it is expected that other more focused
+/// passes be composed to achieve the same end result.</doc>
+<fun r='_ZN4llvm11InlinerPassC1ENS_12InlineParamsE'/>
+<fun r='_ZN4llvm11InlinerPassD1Ev'/>
+<fun r='_ZN4llvm11InlinerPassC1EOS0_'/>
+<fun r='_ZN4llvm11InlinerPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS2_JRS1_EEES5_RNS_17CGSCCUpdateResultE'/>
+<mbr r='llvm::InlinerPass::Params' o='0' t='llvm::InlineParams'/>
+<mbr r='llvm::InlinerPass::ImportedFunctionsStats' o='512' t='std::unique_ptr&lt;ImportedFunctionsInliningStatistics&gt;'/>

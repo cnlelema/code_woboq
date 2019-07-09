@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/Bitcode/BitCodes.h' l='52' type='2'/>
+<doc f='llvm/llvm/include/llvm/Bitcode/BitCodes.h' l='47'>/// DEFINE_ABBREV - Defines an abbrev for the current block.  It consists
+    /// of a vbr5 for # operand infos.  Each operand info is emitted with a
+    /// single bit to indicate if it is a literal encoding.  If so, the value is
+    /// emitted with a vbr8.  If not, the encoding is emitted as 3 bits followed
+    /// by the info value as a vbr5 if needed.</doc>
+<use f='llvm/llvm/include/llvm/Bitcode/BitstreamReader.h' l='384' u='r' c='_ZN4llvm15BitstreamCursor7advanceEj'/>
+<use f='llvm/llvm/include/llvm/Bitcode/BitstreamWriter.h' l='472' u='r' c='_ZN4llvm15BitstreamWriter12EncodeAbbrevERKNS_13BitCodeAbbrevE'/>
+<use f='llvm/clang/lib/Frontend/SerializedDiagnosticReader.cpp' l='104' c='_ZN5clang16serialized_diags26SerializedDiagnosticReader22skipUntilRecordOrBlockERN4llvm15BitstreamCursorERj'/>
+<use f='llvm/clang/lib/Serialization/ASTReader.cpp' l='1553' u='r' c='_ZN5clang9ASTReader16ReadBlockAbbrevsERN4llvm15BitstreamCursorEj'/>
+<use f='llvm/llvm/lib/Bitcode/Reader/BitstreamReader.cpp' l='347' u='r' c='_ZN4llvm15BitstreamCursor18ReadBlockInfoBlockEb'/>
+<use f='llvm/llvm/tools/llvm-bcanalyzer/llvm-bcanalyzer.cpp' l='601' u='r' c='_ZL10ParseBlockRN4llvm15BitstreamCursorERNS_18BitstreamBlockInfoEjjN12_GLOBAL__N_117CurStreamTypeTypeE'/>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Threads.h source code [llvm/lld/include/lld/Common/Threads.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'llvm/lld/include/lld/Common/Threads.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>llvm</a>/<a href='../../..'>lld</a>/<a href='../..'>include</a>/<a href='..'>lld</a>/<a href='./'>Common</a>/<a href='Threads.h.html'>Threads.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>//===- Threads.h ------------------------------------------------*- C++ -*-===//</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</i></td></tr>
+<tr><th id="4">4</th><td><i>// See <a href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</i></td></tr>
+<tr><th id="5">5</th><td><i>// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// LLD supports threads to distribute workloads to multiple cores. Using</i></td></tr>
+<tr><th id="10">10</th><td><i>// multicore is most effective when more than one core are idle. At the</i></td></tr>
+<tr><th id="11">11</th><td><i>// last step of a build, it is often the case that a linker is the only</i></td></tr>
+<tr><th id="12">12</th><td><i>// active process on a computer. So, we are naturally interested in using</i></td></tr>
+<tr><th id="13">13</th><td><i>// threads wisely to reduce latency to deliver results to users.</i></td></tr>
+<tr><th id="14">14</th><td><i>//</i></td></tr>
+<tr><th id="15">15</th><td><i>// That said, we don't want to do "too clever" things using threads.</i></td></tr>
+<tr><th id="16">16</th><td><i>// Complex multi-threaded algorithms are sometimes extremely hard to</i></td></tr>
+<tr><th id="17">17</th><td><i>// reason about and can easily mess up the entire design.</i></td></tr>
+<tr><th id="18">18</th><td><i>//</i></td></tr>
+<tr><th id="19">19</th><td><i>// Fortunately, when a linker links large programs (when the link time is</i></td></tr>
+<tr><th id="20">20</th><td><i>// most critical), it spends most of the time to work on massive number of</i></td></tr>
+<tr><th id="21">21</th><td><i>// small pieces of data of the same kind, and there are opportunities for</i></td></tr>
+<tr><th id="22">22</th><td><i>// large parallelism there. Here are examples:</i></td></tr>
+<tr><th id="23">23</th><td><i>//</i></td></tr>
+<tr><th id="24">24</th><td><i>//  - We have hundreds of thousands of input sections that need to be</i></td></tr>
+<tr><th id="25">25</th><td><i>//    copied to a result file at the last step of link. Once we fix a file</i></td></tr>
+<tr><th id="26">26</th><td><i>//    layout, each section can be copied to its destination and its</i></td></tr>
+<tr><th id="27">27</th><td><i>//    relocations can be applied independently.</i></td></tr>
+<tr><th id="28">28</th><td><i>//</i></td></tr>
+<tr><th id="29">29</th><td><i>//  - We have tens of millions of small strings when constructing a</i></td></tr>
+<tr><th id="30">30</th><td><i>//    mergeable string section.</i></td></tr>
+<tr><th id="31">31</th><td><i>//</i></td></tr>
+<tr><th id="32">32</th><td><i>// For the cases such as the former, we can just use parallelForEach</i></td></tr>
+<tr><th id="33">33</th><td><i>// instead of std::for_each (or a plain for loop). Because tasks are</i></td></tr>
+<tr><th id="34">34</th><td><i>// completely independent from each other, we can run them in parallel</i></td></tr>
+<tr><th id="35">35</th><td><i>// without any coordination between them. That's very easy to understand</i></td></tr>
+<tr><th id="36">36</th><td><i>// and reason about.</i></td></tr>
+<tr><th id="37">37</th><td><i>//</i></td></tr>
+<tr><th id="38">38</th><td><i>// For the cases such as the latter, we can use parallel algorithms to</i></td></tr>
+<tr><th id="39">39</th><td><i>// deal with massive data. We have to write code for a tailored algorithm</i></td></tr>
+<tr><th id="40">40</th><td><i>// for each problem, but the complexity of multi-threading is isolated in</i></td></tr>
+<tr><th id="41">41</th><td><i>// a single pass and doesn't affect the linker's overall design.</i></td></tr>
+<tr><th id="42">42</th><td><i>//</i></td></tr>
+<tr><th id="43">43</th><td><i>// The above approach seems to be working fairly well. As an example, when</i></td></tr>
+<tr><th id="44">44</th><td><i>// linking Chromium (output size 1.6 GB), using 4 cores reduces latency to</i></td></tr>
+<tr><th id="45">45</th><td><i>// 75% compared to single core (from 12.66 seconds to 9.55 seconds) on my</i></td></tr>
+<tr><th id="46">46</th><td><i>// Ivy Bridge Xeon 2.8 GHz machine. Using 40 cores reduces it to 63% (from</i></td></tr>
+<tr><th id="47">47</th><td><i>// 12.66 seconds to 7.95 seconds). Because of the Amdahl's law, the</i></td></tr>
+<tr><th id="48">48</th><td><i>// speedup is not linear, but as you add more cores, it gets faster.</i></td></tr>
+<tr><th id="49">49</th><td><i>//</i></td></tr>
+<tr><th id="50">50</th><td><i>// On a final note, if you are trying to optimize, keep the axiom "don't</i></td></tr>
+<tr><th id="51">51</th><td><i>// guess, measure!" in mind. Some important passes of the linker are not</i></td></tr>
+<tr><th id="52">52</th><td><i>// that slow. For example, resolving all symbols is not a very heavy pass,</i></td></tr>
+<tr><th id="53">53</th><td><i>// although it would be very hard to parallelize it. You want to first</i></td></tr>
+<tr><th id="54">54</th><td><i>// identify a slow pass and then optimize it.</i></td></tr>
+<tr><th id="55">55</th><td><i>//</i></td></tr>
+<tr><th id="56">56</th><td><i>//===----------------------------------------------------------------------===//</i></td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><u>#<span data-ppcond="58">ifndef</span> <span class="macro" data-ref="_M/LLD_COMMON_THREADS_H">LLD_COMMON_THREADS_H</span></u></td></tr>
+<tr><th id="59">59</th><td><u>#define <dfn class="macro" id="_M/LLD_COMMON_THREADS_H" data-ref="_M/LLD_COMMON_THREADS_H">LLD_COMMON_THREADS_H</dfn></u></td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td><u>#include <a href="../../../../llvm/include/llvm/Support/Parallel.h.html">"llvm/Support/Parallel.h"</a></u></td></tr>
+<tr><th id="62">62</th><td><u>#include <a href="../../../../../include/c++/7/functional.html">&lt;functional&gt;</a></u></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><b>namespace</b> <span class="namespace">lld</span> {</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><b>extern</b> <em>bool</em> <dfn class="decl" id="lld::ThreadsEnabled" title='lld::ThreadsEnabled' data-ref="lld::ThreadsEnabled">ThreadsEnabled</dfn>;</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><b>template</b> &lt;<b>typename</b> R, <b>class</b> FuncTy&gt; <em>void</em> <dfn class="decl def" id="_ZN3lld15parallelForEachEOT_T0_" title='lld::parallelForEach' data-ref="_ZN3lld15parallelForEachEOT_T0_">parallelForEach</dfn>(R &amp;&amp;<dfn class="local col3 decl" id="93Range" title='Range' data-type='R &amp;&amp;' data-ref="93Range">Range</dfn>, FuncTy <dfn class="local col4 decl" id="94Fn" title='Fn' data-type='FuncTy' data-ref="94Fn">Fn</dfn>) {</td></tr>
+<tr><th id="69">69</th><td>  <b>if</b> (<a class="ref" href="#lld::ThreadsEnabled" title='lld::ThreadsEnabled' data-ref="lld::ThreadsEnabled">ThreadsEnabled</a>)</td></tr>
+<tr><th id="70">70</th><td>    for_each(<span class="namespace">llvm::parallel::</span><a class="ref" href="../../../../llvm/include/llvm/Support/Parallel.h.html#llvm::parallel::par" title='llvm::parallel::par' data-ref="llvm::parallel::par">par</a>, <span class="namespace">std::</span>begin(<a class="local col3 ref" href="#93Range" title='Range' data-ref="93Range">Range</a>), <span class="namespace">std::</span>end(<a class="local col3 ref" href="#93Range" title='Range' data-ref="93Range">Range</a>), <a class="local col4 ref" href="#94Fn" title='Fn' data-ref="94Fn">Fn</a>);</td></tr>
+<tr><th id="71">71</th><td>  <b>else</b></td></tr>
+<tr><th id="72">72</th><td>    for_each(<span class="namespace">llvm::parallel::</span><a class="ref" href="../../../../llvm/include/llvm/Support/Parallel.h.html#llvm::parallel::seq" title='llvm::parallel::seq' data-ref="llvm::parallel::seq">seq</a>, <span class="namespace">std::</span>begin(<a class="local col3 ref" href="#93Range" title='Range' data-ref="93Range">Range</a>), <span class="namespace">std::</span>end(<a class="local col3 ref" href="#93Range" title='Range' data-ref="93Range">Range</a>), <a class="local col4 ref" href="#94Fn" title='Fn' data-ref="94Fn">Fn</a>);</td></tr>
+<tr><th id="73">73</th><td>}</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><b>inline</b> <em>void</em> <dfn class="decl def" id="_ZN3lld16parallelForEachNEmmN4llvm12function_refIFvmEEE" title='lld::parallelForEachN' data-ref="_ZN3lld16parallelForEachNEmmN4llvm12function_refIFvmEEE">parallelForEachN</dfn>(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col5 decl" id="95Begin" title='Begin' data-type='size_t' data-ref="95Begin">Begin</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col6 decl" id="96End" title='End' data-type='size_t' data-ref="96End">End</dfn>,</td></tr>
+<tr><th id="76">76</th><td>                             <span class="namespace">llvm::</span><a class="type" href="../../../../llvm/include/llvm/ADT/STLExtras.h.html#llvm::function_ref" title='llvm::function_ref' data-ref="llvm::function_ref">function_ref</a>&lt;<em>void</em>(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span>)&gt; <dfn class="local col7 decl" id="97Fn" title='Fn' data-type='llvm::function_ref&lt;void (size_t)&gt;' data-ref="97Fn">Fn</dfn>) {</td></tr>
+<tr><th id="77">77</th><td>  <b>if</b> (<a class="ref" href="#lld::ThreadsEnabled" title='lld::ThreadsEnabled' data-ref="lld::ThreadsEnabled">ThreadsEnabled</a>)</td></tr>
+<tr><th id="78">78</th><td>    <a class="ref" href="../../../../llvm/include/llvm/Support/Parallel.h.html#_ZN4llvm8parallel10for_each_nENS0_25parallel_execution_policyET_S2_T0_" title='llvm::parallel::for_each_n' data-ref="_ZN4llvm8parallel10for_each_nENS0_25parallel_execution_policyET_S2_T0_">for_each_n</a>(<a class="ref fake" href="../../../../llvm/include/llvm/Support/Parallel.h.html#33" title='llvm::parallel::parallel_execution_policy::parallel_execution_policy' data-ref="_ZN4llvm8parallel25parallel_execution_policyC1ERKS1_"></a><span class="namespace">llvm::parallel::</span><a class="ref" href="../../../../llvm/include/llvm/Support/Parallel.h.html#llvm::parallel::par" title='llvm::parallel::par' data-ref="llvm::parallel::par">par</a>, <a class="local col5 ref" href="#95Begin" title='Begin' data-ref="95Begin">Begin</a>, <a class="local col6 ref" href="#96End" title='End' data-ref="96End">End</a>, <a class="ref fake" href="../../../../llvm/include/llvm/ADT/STLExtras.h.html#119" title='llvm::function_ref&lt;void (unsigned long)&gt;::function_ref' data-ref="_ZN4llvm12function_refIFvmEEC1ERKS2_"></a><a class="local col7 ref" href="#97Fn" title='Fn' data-ref="97Fn">Fn</a>);</td></tr>
+<tr><th id="79">79</th><td>  <b>else</b></td></tr>
+<tr><th id="80">80</th><td>    <a class="ref" href="../../../../llvm/include/llvm/Support/Parallel.h.html#_ZN4llvm8parallel10for_each_nET_T0_S2_T1_" title='llvm::parallel::for_each_n' data-ref="_ZN4llvm8parallel10for_each_nET_T0_S2_T1_">for_each_n</a>(<a class="ref fake" href="../../../../llvm/include/llvm/Support/Parallel.h.html#32" title='llvm::parallel::sequential_execution_policy::sequential_execution_policy' data-ref="_ZN4llvm8parallel27sequential_execution_policyC1ERKS1_"></a><span class="namespace">llvm::parallel::</span><a class="ref" href="../../../../llvm/include/llvm/Support/Parallel.h.html#llvm::parallel::seq" title='llvm::parallel::seq' data-ref="llvm::parallel::seq">seq</a>, <a class="local col5 ref" href="#95Begin" title='Begin' data-ref="95Begin">Begin</a>, <a class="local col6 ref" href="#96End" title='End' data-ref="96End">End</a>, <a class="ref fake" href="../../../../llvm/include/llvm/ADT/STLExtras.h.html#119" title='llvm::function_ref&lt;void (unsigned long)&gt;::function_ref' data-ref="_ZN4llvm12function_refIFvmEEC1ERKS2_"></a><a class="local col7 ref" href="#97Fn" title='Fn' data-ref="97Fn">Fn</a>);</td></tr>
+<tr><th id="81">81</th><td>}</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><b>template</b> &lt;<b>typename</b> R, <b>class</b> FuncTy&gt; <em>void</em> <dfn class="decl def" id="_ZN3lld12parallelSortEOT_T0_" title='lld::parallelSort' data-ref="_ZN3lld12parallelSortEOT_T0_">parallelSort</dfn>(R &amp;&amp;<dfn class="local col8 decl" id="98Range" title='Range' data-type='R &amp;&amp;' data-ref="98Range">Range</dfn>, FuncTy <dfn class="local col9 decl" id="99Fn" title='Fn' data-type='FuncTy' data-ref="99Fn">Fn</dfn>) {</td></tr>
+<tr><th id="84">84</th><td>  <b>if</b> (<a class="ref" href="#lld::ThreadsEnabled" title='lld::ThreadsEnabled' data-ref="lld::ThreadsEnabled">ThreadsEnabled</a>)</td></tr>
+<tr><th id="85">85</th><td>    sort(<span class="namespace">llvm::parallel::</span><a class="ref" href="../../../../llvm/include/llvm/Support/Parallel.h.html#llvm::parallel::par" title='llvm::parallel::par' data-ref="llvm::parallel::par">par</a>, <span class="namespace">std::</span>begin(<a class="local col8 ref" href="#98Range" title='Range' data-ref="98Range">Range</a>), <span class="namespace">std::</span>end(<a class="local col8 ref" href="#98Range" title='Range' data-ref="98Range">Range</a>), <a class="local col9 ref" href="#99Fn" title='Fn' data-ref="99Fn">Fn</a>);</td></tr>
+<tr><th id="86">86</th><td>  <b>else</b></td></tr>
+<tr><th id="87">87</th><td>    sort(<span class="namespace">llvm::parallel::</span><a class="ref" href="../../../../llvm/include/llvm/Support/Parallel.h.html#llvm::parallel::seq" title='llvm::parallel::seq' data-ref="llvm::parallel::seq">seq</a>, <span class="namespace">std::</span>begin(<a class="local col8 ref" href="#98Range" title='Range' data-ref="98Range">Range</a>), <span class="namespace">std::</span>end(<a class="local col8 ref" href="#98Range" title='Range' data-ref="98Range">Range</a>), <a class="local col9 ref" href="#99Fn" title='Fn' data-ref="99Fn">Fn</a>);</td></tr>
+<tr><th id="88">88</th><td>}</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>} <i>// namespace lld</i></td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td><u>#<span data-ppcond="58">endif</span></u></td></tr>
+<tr><th id="93">93</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../COFF/Driver.cpp.html'>llvm/lld/COFF/Driver.cpp</a><br/>Generated on <em>2019-Jul-08</em> from project llvm revision <em>2cdaed95cde</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

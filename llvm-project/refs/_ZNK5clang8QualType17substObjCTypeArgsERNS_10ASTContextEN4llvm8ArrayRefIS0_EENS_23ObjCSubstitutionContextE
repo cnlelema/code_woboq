@@ -1,0 +1,27 @@
+<dec f='llvm/clang/include/clang/AST/Type.h' l='1202' type='clang::QualType clang::QualType::substObjCTypeArgs(clang::ASTContext &amp; ctx, ArrayRef&lt;clang::QualType&gt; typeArgs, clang::ObjCSubstitutionContext context) const'/>
+<doc f='llvm/clang/include/clang/AST/Type.h' l='1188'>/// Substitute type arguments for the Objective-C type parameters used in the
+  /// subject type.
+  ///
+  /// \param ctx ASTContext in which the type exists.
+  ///
+  /// \param typeArgs The type arguments that will be substituted for the
+  /// Objective-C type parameters in the subject type, which are generally
+  /// computed via \c Type::getObjCSubstitutions. If empty, the type
+  /// parameters will be replaced with their bounds or id/Class, as appropriate
+  /// for the context.
+  ///
+  /// \param context The context in which the subject type was written.
+  ///
+  /// \returns the resulting type.</doc>
+<use f='llvm/clang/lib/AST/DeclObjC.cpp' l='1165' u='c' c='_ZNK5clang14ObjCMethodDecl17getSendResultTypeEv'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='1238' u='c' c='_ZN12_GLOBAL__N_124SubstObjCTypeArgsVisitor17VisitFunctionTypeEPKN5clang12FunctionTypeE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='1261' u='c' c='_ZN12_GLOBAL__N_124SubstObjCTypeArgsVisitor17VisitFunctionTypeEPKN5clang12FunctionTypeE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='1278' u='c' c='_ZN12_GLOBAL__N_124SubstObjCTypeArgsVisitor17VisitFunctionTypeEPKN5clang12FunctionTypeE'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='1310' u='c' c='_ZN12_GLOBAL__N_124SubstObjCTypeArgsVisitor19VisitObjCObjectTypeEPKN5clang14ObjCObjectTypeE'/>
+<def f='llvm/clang/lib/AST/Type.cpp' l='1403' ll='1408' type='clang::QualType clang::QualType::substObjCTypeArgs(clang::ASTContext &amp; ctx, ArrayRef&lt;clang::QualType&gt; typeArgs, clang::ObjCSubstitutionContext context) const'/>
+<use f='llvm/clang/lib/AST/Type.cpp' l='1414' u='c' c='_ZNK5clang8QualType19substObjCMemberTypeES0_PKNS_11DeclContextENS_23ObjCSubstitutionContextE'/>
+<doc f='llvm/clang/lib/AST/Type.cpp' l='1401'>/// Substitute the given type arguments for Objective-C type
+/// parameters within the given type, recursively.</doc>
+<use f='llvm/clang/lib/Sema/SemaCodeComplete.cpp' l='3481' u='c' c='_ZN5clang20CodeCompletionResult33createCodeCompletionStringForDeclERNS_12PreprocessorERNS_10ASTContextERNS_21CodeCompletionBuilderEbRKNS_21CodeComplet12797221'/>
+<use f='llvm/clang/lib/Sema/SemaCodeComplete.cpp' l='8247' u='c' c='_ZN5clang4Sema26CodeCompleteObjCMethodDeclEPNS_5ScopeEN4llvm8OptionalIbEENS_9OpaquePtrINS_8QualTypeEEE'/>
+<use f='llvm/clang/lib/Sema/SemaExprObjC.cpp' l='1696' u='c' c='_ZN5clang4Sema25CheckMessageArgumentTypesEPKNS_4ExprENS_8QualTypeEN4llvm15MutableArrayRefIPS1_EENS_8SelectorENS5_8ArrayRefINS_14SourceLocationEEEPNS_16918883'/>

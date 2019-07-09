@@ -1,0 +1,14 @@
+<def f='llvm/clang/include/clang/Sema/ParsedAttr.h' l='629' ll='681'/>
+<size>1</size>
+<doc f='llvm/clang/include/clang/Sema/ParsedAttr.h' l='624'>/// A factory, from which one makes pools, from which one creates
+/// individual attributes which are deallocated with the pool.
+///
+/// Note that it&apos;s tolerably cheap to create and destroy one of
+/// these as long as you don&apos;t actually allocate anything in it.</doc>
+<mbr r='clang::AttributeFactory::Alloc' t='llvm::BumpPtrAllocator'/>
+<mbr r='clang::AttributeFactory::FreeLists' t='SmallVector&lt;SmallVector&lt;clang::ParsedAttr *, 8&gt;, InlineFreeListsCapacity&gt;'/>
+<fun r='_ZN5clang16AttributeFactory8allocateEm'/>
+<fun r='_ZN5clang16AttributeFactory10deallocateEPNS_10ParsedAttrE'/>
+<fun r='_ZN5clang16AttributeFactory11reclaimPoolERNS_13AttributePoolE'/>
+<fun r='_ZN5clang16AttributeFactoryC1Ev'/>
+<fun r='_ZN5clang16AttributeFactoryD1Ev'/>

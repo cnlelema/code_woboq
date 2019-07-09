@@ -1,0 +1,12 @@
+<dec f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='327' type='bool llvm::replaceDbgDeclareForAlloca(llvm::AllocaInst * AI, llvm::Value * NewAllocaAddress, llvm::DIBuilder &amp; Builder, uint8_t DIExprFlags, int Offset)'/>
+<doc f='llvm/llvm/include/llvm/Transforms/Utils/Local.h' l='321'>/// Replaces llvm.dbg.declare instruction when the alloca it describes
+/// is replaced with a new value. If Deref is true, an additional
+/// DW_OP_deref is prepended to the expression. If Offset is non-zero,
+/// a constant displacement is added to the expression (between the
+/// optional Deref operations). Offset can be negative. The new
+/// llvm.dbg.declare is inserted immediately after AI.</doc>
+<use f='llvm/llvm/lib/CodeGen/SafeStack.cpp' l='594' u='c' c='_ZN12_GLOBAL__N_19SafeStack30moveStaticAllocasToUnsafeStackERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_8FunctionENS1430051'/>
+<use f='llvm/llvm/lib/CodeGen/SafeStack.cpp' l='686' u='c' c='_ZN12_GLOBAL__N_19SafeStack31moveDynamicAllocasToUnsafeStackERN4llvm8FunctionEPNS1_5ValueEPNS1_10AllocaInstENS1_8ArrayRefIS7_EE'/>
+<use f='llvm/llvm/lib/Transforms/Instrumentation/AddressSanitizer.cpp' l='3110' u='c' c='_ZN12_GLOBAL__N_121FunctionStackPoisoner20processStaticAllocasEv'/>
+<use f='llvm/llvm/lib/Transforms/Utils/InlineFunction.cpp' l='1859' u='c' c='_ZN4llvm14InlineFunctionENS_8CallSiteERNS_18InlineFunctionInfoEPNS_9AAResultsEbPNS_8FunctionE'/>
+<def f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='1575' ll='1580' type='bool llvm::replaceDbgDeclareForAlloca(llvm::AllocaInst * AI, llvm::Value * NewAllocaAddress, llvm::DIBuilder &amp; Builder, uint8_t DIExprFlags, int Offset)'/>

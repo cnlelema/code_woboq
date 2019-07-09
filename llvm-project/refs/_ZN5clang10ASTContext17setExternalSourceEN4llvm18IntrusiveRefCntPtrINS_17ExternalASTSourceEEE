@@ -1,0 +1,16 @@
+<dec f='llvm/clang/include/clang/AST/ASTContext.h' l='1088' type='void clang::ASTContext::setExternalSource(IntrusiveRefCntPtr&lt;clang::ExternalASTSource&gt; Source)'/>
+<doc f='llvm/clang/include/clang/AST/ASTContext.h' l='1083'>/// Attach an external AST source to the AST context.
+  ///
+  /// The external AST source provides the ability to load parts of
+  /// the abstract syntax tree as needed from some external storage,
+  /// e.g., a precompiled header.</doc>
+<def f='llvm/clang/lib/AST/ASTContext.cpp' l='912' ll='915' type='void clang::ASTContext::setExternalSource(IntrusiveRefCntPtr&lt;clang::ExternalASTSource&gt; Source)'/>
+<use f='llvm/clang/lib/Frontend/ASTUnit.cpp' l='832' u='c' c='_ZN5clang7ASTUnit15LoadFromASTFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_18PCHContainerReaderENS0_10WhatToLoadEN4llvm18IntrusiveR3316945'/>
+<use f='llvm/clang/lib/Frontend/ChainedIncludesSource.cpp' l='192' u='c' c='_ZN5clang27createChainedIncludesSourceERNS_16CompilerInstanceERN4llvm18IntrusiveRefCntPtrINS_18ExternalSemaSourceEEE'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='518' u='c' c='_ZN5clang16CompilerInstance26createPCHExternalASTSourceEN4llvm9StringRefES2_bbRNS_12PreprocessorERNS_19InMemoryModuleCacheERNS_10ASTContextERKNS_18PCH13753599'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='553' u='c' c='_ZN5clang16CompilerInstance26createPCHExternalASTSourceEN4llvm9StringRefES2_bbRNS_12PreprocessorERNS_19InMemoryModuleCacheERNS_10ASTContextERKNS_18PCH13753599'/>
+<use f='llvm/clang/lib/Frontend/CompilerInstance.cpp' l='1489' u='c' c='_ZN5clang16CompilerInstance19createModuleManagerEv'/>
+<use f='llvm/clang/lib/Frontend/FrontendAction.cpp' l='838' u='c' c='_ZN5clang14FrontendAction15BeginSourceFileERNS_16CompilerInstanceERKNS_17FrontendInputFileE'/>
+<use f='llvm/clang/lib/Frontend/FrontendAction.cpp' l='910' u='c' c='_ZN5clang14FrontendAction15BeginSourceFileERNS_16CompilerInstanceERKNS_17FrontendInputFileE'/>
+<use f='llvm/clang/tools/clang-import-test/clang-import-test.cpp' l='271' u='c' c='_ZN12_GLOBAL__N_117AddExternalSourceERNS_12CIAndOriginsEN4llvm15MutableArrayRefIS0_EE'/>
+<use f='llvm/clang/unittests/AST/ExternalASTSourceTest.cpp' l='32' u='c' c='_ZN18TestFrontendAction13ExecuteActionEv'/>

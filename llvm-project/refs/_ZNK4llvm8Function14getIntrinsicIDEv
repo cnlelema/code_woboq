@@ -1,0 +1,53 @@
+<def f='llvm/llvm/include/llvm/IR/Function.h' l='196' type='Intrinsic::ID llvm::Function::getIntrinsicID() const'/>
+<doc f='llvm/llvm/include/llvm/IR/Function.h' l='190'>/// getIntrinsicID - This method returns the ID number of the specified
+  /// function, or Intrinsic::not_intrinsic if the function is not an
+  /// intrinsic, or if the pointer is null.  This value is always defined to be
+  /// zero to allow easy checking for whether a function is intrinsic or not.
+  /// The particular intrinsic functions which correspond to this value are
+  /// defined in llvm/Intrinsics.h.</doc>
+<use f='llvm/llvm/include/llvm/Analysis/CallGraph.h' l='235' u='c' c='_ZN4llvm13CallGraphNode17addCalledFunctionEPNS_8CallBaseEPS0_'/>
+<use f='llvm/llvm/include/llvm/IR/IntrinsicInst.h' l='51' u='c' c='_ZNK4llvm13IntrinsicInst14getIntrinsicIDEv'/>
+<use f='llvm/clang/lib/CodeGen/CodeGenModule.cpp' l='1897' u='c' c='_ZN5clang7CodeGen13CodeGenModule21SetFunctionAttributesENS_10GlobalDeclEPN4llvm8FunctionEbb'/>
+<use f='llvm/llvm/lib/Analysis/CallGraph.cpp' l='77' u='c' c='_ZN4llvm9CallGraph14addToCallGraphEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Analysis/CallGraphSCCPass.cpp' l='246' u='c' c='_ZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEb'/>
+<use f='llvm/llvm/lib/Analysis/ConstantFolding.cpp' l='2318' u='c' c='_ZN4llvm16ConstantFoldCallEPKNS_8CallBaseEPNS_8FunctionENS_8ArrayRefIPNS_8ConstantEEEPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Analysis/ConstantFolding.cpp' l='2321' u='c' c='_ZN4llvm16ConstantFoldCallEPKNS_8CallBaseEPNS_8FunctionENS_8ArrayRefIPNS_8ConstantEEEPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='4768' u='c' c='_ZL22simplifyUnaryIntrinsicPN4llvm8FunctionEPNS_5ValueERKNS_13SimplifyQueryE'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='4844' u='c' c='_ZL23simplifyBinaryIntrinsicPN4llvm8FunctionEPNS_5ValueES3_RKNS_13SimplifyQueryE'/>
+<use f='llvm/llvm/lib/Analysis/InstructionSimplify.cpp' l='4989' u='c' c='_ZL17simplifyIntrinsicPN4llvm8FunctionET_S2_RKNS_13SimplifyQueryE'/>
+<use f='llvm/llvm/lib/Analysis/ModuleSummaryAnalysis.cpp' l='167' u='c' c='_ZL21addIntrinsicToSummaryPKN4llvm8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImEEEEEERNS3_INS_15FunctionSummary7VFuncId6727136'/>
+<use f='llvm/llvm/lib/Analysis/ObjCARCInstKind.cpp' l='88' u='c' c='_ZN4llvm7objcarc16GetFunctionClassEPKNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Analysis/ObjCARCInstKind.cpp' l='229' u='c' c='_ZN4llvm7objcarc14GetARCInstKindEPKNS_5ValueE'/>
+<use f='llvm/llvm/include/llvm/Analysis/TargetTransformInfoImpl.h' l='665' u='c' c='_ZN4llvm31TargetTransformInfoImplCRTPBase11getCallCostEPKNS_8FunctionEiPKNS_4UserE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='589' u='c' c='_ZN4llvm21isAssumeLikeIntrinsicEPKNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Analysis/ValueTracking.cpp' l='2896' u='c' c='_ZN4llvm23getIntrinsicForCallSiteENS_17ImmutableCallSiteEPKNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/CodeGen/Analysis.cpp' l='635' u='c' c='_ZN4llvm31returnTypeIsEligibleForTailCallEPKNS_8FunctionEPKNS_11InstructionEPKNS_10ReturnInstERKNS_18TargetLoweringBaseE'/>
+<use f='llvm/llvm/lib/CodeGen/GCRootLowering.cpp' l='136' u='c' c='_ZL20CouldBecomeSafePointPN4llvm11InstructionE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalISel/IRTranslator.cpp' l='1196' u='c' c='_ZN4llvm12IRTranslator13translateCallERKNS_4UserERNS_16MachineIRBuilderE'/>
+<use f='llvm/llvm/lib/CodeGen/PreISelIntrinsicLowering.cpp' l='103' u='c' c='_ZL15lowerIntrinsicsRN4llvm6ModuleE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='182' u='c' c='_ZL15getABIRegCopyCCPKN4llvm5ValueE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='2766' u='c' c='_ZN4llvm19SelectionDAGBuilder11visitInvokeERKNS_10InvokeInstE'/>
+<use f='llvm/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp' l='7536' u='c' c='_ZN4llvm19SelectionDAGBuilder9visitCallERKNS_8CallInstE'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='892' u='c' c='_ZN4llvm24UpgradeIntrinsicFunctionEPNS_8FunctionERS1_'/>
+<use f='llvm/llvm/lib/IR/AutoUpgrade.cpp' l='3554' u='c' c='_ZN4llvm20UpgradeIntrinsicCallEPNS_8CallInstEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/Core.cpp' l='2305' u='c' c='LLVMGetIntrinsicID'/>
+<use f='llvm/llvm/lib/IR/Function.cpp' l='1350' u='c' c='_ZN4llvm9Intrinsic25remangleIntrinsicFunctionEPNS_8FunctionE'/>
+<use f='llvm/llvm/lib/IR/Instructions.cpp' l='299' u='c' c='_ZNK4llvm8CallBase14getIntrinsicIDEv'/>
+<use f='llvm/llvm/lib/IR/Verifier.cpp' l='2317' u='c' c='_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/IR/Verifier.cpp' l='2969' u='c' c='_ZN12_GLOBAL__N_18Verifier13visitCallBaseERN4llvm8CallBaseE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUAnnotateKernelFeatures.cpp' l='291' u='c' c='_ZN12_GLOBAL__N_128AMDGPUAnnotateKernelFeatures20addFeatureAttributesERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPULowerIntrinsics.cpp' l='64' u='c' c='_ZN12_GLOBAL__N_121AMDGPULowerIntrinsics22expandMemIntrinsicUsesERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Target/AMDGPU/AMDGPUSubtarget.cpp' l='417' u='c' c='_ZNK4llvm15AMDGPUSubtarget20makeLIDRangeMetadataEPNS_11InstructionE'/>
+<use f='llvm/llvm/lib/Target/ARM/ARMTargetTransformInfo.cpp' l='644' u='c' c='_ZN4llvm10ARMTTIImpl15isLoweredToCallEPKNS_8FunctionE'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXAsmPrinter.cpp' l='714' u='c' c='_ZN4llvm15NVPTXAsmPrinter16emitDeclarationsERKNS_6ModuleERNS_11raw_ostreamE'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVPTXImageOptimizer.cpp' l='68' u='c' c='_ZN12_GLOBAL__N_119NVPTXImageOptimizer13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Target/NVPTX/NVVMIntrRange.cpp' l='89' u='c' c='_ZN12_GLOBAL__N_113NVVMIntrRange13runOnFunctionERN4llvm8FunctionE'/>
+<use f='llvm/llvm/lib/Target/PowerPC/PPCTargetTransformInfo.cpp' l='277' u='c' c='_ZN4llvm10PPCTTIImpl11mightUseCTREPNS_10BasicBlockEPNS_17TargetLibraryInfoE'/>
+<use f='llvm/llvm/lib/Transforms/Coroutines/Coroutines.cpp' l='181' u='c' c='_ZL8buildCGNRN4llvm9CallGraphEPNS_13CallGraphNodeE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/GlobalOpt.cpp' l='2230' u='c' c='_ZL16hasOnlyColdCallsRN4llvm8FunctionENS_12function_refIFRNS_18BlockFrequencyInfoES1_EEE'/>
+<use f='llvm/llvm/lib/Transforms/IPO/PruneEH.cpp' l='247' u='c' c='_ZL16DeleteBasicBlockPN4llvm10BasicBlockERNS_9CallGraphE'/>
+<use f='llvm/llvm/lib/Transforms/Scalar/Scalarizer.cpp' l='501' u='c' c='_ZN12_GLOBAL__N_117ScalarizerVisitor9splitCallERN4llvm8CallInstE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CodeExtractor.cpp' l='175' u='c' c='_ZL25isBlockValidForExtractionRKN4llvm10BasicBlockERKNS_9SetVectorIPS0_St6vectorIS4_SaIS4_EENS_8DenseSetIS4_NS_12DenseMapInfoIS4_EEEEEEbb'/>
+<use f='llvm/llvm/lib/Transforms/Utils/Local.cpp' l='2046' u='c' c='_ZL15markAliveBlocksRN4llvm8FunctionERNS_15SmallPtrSetImplIPNS_10BasicBlockEEEPNS_14DomTreeUpdaterE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/SimplifyLibCalls.cpp' l='1131' u='c' c='_ZL16optimizeDoubleFPPN4llvm8CallInstERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEbb'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp' l='3854' u='c' c='_ZN4llvm13slpvectorizer7BoUpSLP13vectorizeTreeEPNS1_9TreeEntryE'/>

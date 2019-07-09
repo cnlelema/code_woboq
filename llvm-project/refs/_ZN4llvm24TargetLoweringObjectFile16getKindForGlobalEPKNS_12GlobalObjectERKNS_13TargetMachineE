@@ -1,0 +1,14 @@
+<dec f='llvm/llvm/include/llvm/Target/TargetLoweringObjectFile.h' l='94' type='static llvm::SectionKind llvm::TargetLoweringObjectFile::getKindForGlobal(const llvm::GlobalObject * GO, const llvm::TargetMachine &amp; TM)'/>
+<use f='llvm/llvm/include/llvm/Target/TargetLoweringObjectFile.h' l='108' u='c' c='_ZNK4llvm24TargetLoweringObjectFile16SectionForGlobalEPKNS_12GlobalObjectERKNS_13TargetMachineE'/>
+<doc f='llvm/llvm/include/llvm/Target/TargetLoweringObjectFile.h' l='92'>/// Classify the specified global variable into a set of target independent
+  /// categories embodied in SectionKind.</doc>
+<use f='llvm/llvm/lib/CodeGen/AsmPrinter/AsmPrinter.cpp' l='495' u='c' c='_ZN4llvm10AsmPrinter18EmitGlobalVariableEPKNS_14GlobalVariableE'/>
+<use f='llvm/llvm/lib/CodeGen/GlobalMerge.cpp' l='641' u='c' c='_ZN12_GLOBAL__N_111GlobalMerge16doInitializationERN4llvm6ModuleE'/>
+<use f='llvm/llvm/lib/CodeGen/TargetLoweringObjectFileImpl.cpp' l='1202' u='c' c='_ZNK4llvm29TargetLoweringObjectFileMachO17getNameWithPrefixERNS_15SmallVectorImplIcEEPKNS_11GlobalValueERKNS_13TargetMachineE'/>
+<use f='llvm/llvm/lib/Target/Lanai/LanaiTargetObjectFile.cpp' l='60' u='c' c='_ZNK4llvm21LanaiTargetObjectFile22isGlobalInSmallSectionEPKNS_12GlobalObjectERKNS_13TargetMachineE'/>
+<use f='llvm/llvm/lib/Target/Mips/MipsTargetObjectFile.cpp' l='78' u='c' c='_ZNK4llvm20MipsTargetObjectFile22IsGlobalInSmallSectionEPKNS_12GlobalObjectERKNS_13TargetMachineE'/>
+<def f='llvm/llvm/lib/Target/TargetLoweringObjectFile.cpp' l='161' ll='264' type='static llvm::SectionKind llvm::TargetLoweringObjectFile::getKindForGlobal(const llvm::GlobalObject * GO, const llvm::TargetMachine &amp; TM)'/>
+<doc f='llvm/llvm/lib/Target/TargetLoweringObjectFile.cpp' l='157'>/// getKindForGlobal - This is a top-level target-independent classifier for
+/// a global object.  Given a global variable and information from the TM, this
+/// function classifies the global in a target independent manner. This function
+/// may be overridden by the target implementation.</doc>

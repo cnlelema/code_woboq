@@ -1,0 +1,106 @@
+<def f='llvm/clang/include/clang/Serialization/Module.h' l='107' ll='483'/>
+<size>3360</size>
+<doc f='llvm/clang/include/clang/Serialization/Module.h' l='100'>/// Information about a module that has been loaded by the ASTReader.
+///
+/// Each instance of the Module class corresponds to a single AST file, which
+/// may be a precompiled header, precompiled preamble, a module, or an AST file
+/// of some sort loaded as the main file, all of which are specific formulations
+/// of the general notion of a &quot;module&quot;. A module may depend on any number of
+/// other modules.</doc>
+<fun r='_ZN5clang13serialization10ModuleFileC1ENS0_10ModuleKindEj'/>
+<fun r='_ZN5clang13serialization10ModuleFileD1Ev'/>
+<mbr r='clang::serialization::ModuleFile::Index' o='0' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::Kind' o='32' t='clang::serialization::ModuleKind'/>
+<mbr r='clang::serialization::ModuleFile::FileName' o='64' t='std::string'/>
+<mbr r='clang::serialization::ModuleFile::ModuleName' o='320' t='std::string'/>
+<mbr r='clang::serialization::ModuleFile::BaseDirectory' o='576' t='std::string'/>
+<fun r='_ZNK5clang13serialization10ModuleFile20getTimestampFilenameEv'/>
+<mbr r='clang::serialization::ModuleFile::OriginalSourceFileName' o='832' t='std::string'/>
+<mbr r='clang::serialization::ModuleFile::ActualOriginalSourceFileName' o='1088' t='std::string'/>
+<mbr r='clang::serialization::ModuleFile::OriginalSourceFileID' o='1344' t='clang::FileID'/>
+<mbr r='clang::serialization::ModuleFile::OriginalDir' o='1408' t='std::string'/>
+<mbr r='clang::serialization::ModuleFile::ModuleMapPath' o='1664' t='std::string'/>
+<mbr r='clang::serialization::ModuleFile::RelocatablePCH' o='1920' t='bool'/>
+<mbr r='clang::serialization::ModuleFile::HasTimestamps' o='1928' t='bool'/>
+<mbr r='clang::serialization::ModuleFile::PCHHasObjectFile' o='1936' t='bool'/>
+<mbr r='clang::serialization::ModuleFile::File' o='1984' t='const clang::FileEntry *'/>
+<mbr r='clang::serialization::ModuleFile::Signature' o='2048' t='clang::ASTFileSignature'/>
+<mbr r='clang::serialization::ModuleFile::DirectlyImported' o='2208' t='bool'/>
+<mbr r='clang::serialization::ModuleFile::Generation' o='2240' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::Buffer' o='2304' t='llvm::MemoryBuffer *'/>
+<mbr r='clang::serialization::ModuleFile::SizeInBits' o='2368' t='uint64_t'/>
+<mbr r='clang::serialization::ModuleFile::GlobalBitOffset' o='2432' t='uint64_t'/>
+<mbr r='clang::serialization::ModuleFile::Data' o='2496' t='llvm::StringRef'/>
+<mbr r='clang::serialization::ModuleFile::Stream' o='2624' t='llvm::BitstreamCursor'/>
+<mbr r='clang::serialization::ModuleFile::DirectImportLoc' o='5376' t='clang::SourceLocation'/>
+<mbr r='clang::serialization::ModuleFile::ImportLoc' o='5408' t='clang::SourceLocation'/>
+<mbr r='clang::serialization::ModuleFile::FirstLoc' o='5440' t='clang::SourceLocation'/>
+<mbr r='clang::serialization::ModuleFile::ExtensionReaders' o='5504' t='std::vector&lt;std::unique_ptr&lt;ModuleFileExtensionReader&gt; &gt;'/>
+<mbr r='clang::serialization::ModuleFile::ModuleOffsetMap' o='5696' t='llvm::StringRef'/>
+<mbr r='clang::serialization::ModuleFile::InputFilesCursor' o='5824' t='llvm::BitstreamCursor'/>
+<mbr r='clang::serialization::ModuleFile::InputFileOffsets' o='8576' t='const llvm::support::unaligned_uint64_t *'/>
+<mbr r='clang::serialization::ModuleFile::InputFilesLoaded' o='8640' t='std::vector&lt;InputFile&gt;'/>
+<mbr r='clang::serialization::ModuleFile::NumUserInputFiles' o='8832' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::InputFilesValidationTimestamp' o='8896' t='uint64_t'/>
+<mbr r='clang::serialization::ModuleFile::SLocEntryCursor' o='8960' t='llvm::BitstreamCursor'/>
+<mbr r='clang::serialization::ModuleFile::LocalNumSLocEntries' o='11712' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::SLocEntryBaseID' o='11744' t='int'/>
+<mbr r='clang::serialization::ModuleFile::SLocEntryBaseOffset' o='11776' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::SLocEntryOffsets' o='11840' t='const uint32_t *'/>
+<mbr r='clang::serialization::ModuleFile::PreloadSLocEntries' o='11904' t='SmallVector&lt;uint64_t, 4&gt;'/>
+<mbr r='clang::serialization::ModuleFile::SLocRemap' o='12288' t='ContinuousRangeMap&lt;uint32_t, int, 2&gt;'/>
+<mbr r='clang::serialization::ModuleFile::LocalNumIdentifiers' o='12544' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::IdentifierOffsets' o='12608' t='const uint32_t *'/>
+<mbr r='clang::serialization::ModuleFile::BaseIdentifierID' o='12672' t='serialization::IdentID'/>
+<mbr r='clang::serialization::ModuleFile::IdentifierRemap' o='12736' t='ContinuousRangeMap&lt;uint32_t, int, 2&gt;'/>
+<mbr r='clang::serialization::ModuleFile::IdentifierTableData' o='12992' t='const char *'/>
+<mbr r='clang::serialization::ModuleFile::IdentifierLookupTable' o='13056' t='void *'/>
+<mbr r='clang::serialization::ModuleFile::PreloadIdentifierOffsets' o='13120' t='std::vector&lt;unsigned int&gt;'/>
+<mbr r='clang::serialization::ModuleFile::MacroCursor' o='13312' t='llvm::BitstreamCursor'/>
+<mbr r='clang::serialization::ModuleFile::LocalNumMacros' o='16064' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::MacroOffsets' o='16128' t='const uint32_t *'/>
+<mbr r='clang::serialization::ModuleFile::BaseMacroID' o='16192' t='serialization::MacroID'/>
+<mbr r='clang::serialization::ModuleFile::MacroRemap' o='16256' t='ContinuousRangeMap&lt;uint32_t, int, 2&gt;'/>
+<mbr r='clang::serialization::ModuleFile::MacroStartOffset' o='16512' t='uint64_t'/>
+<mbr r='clang::serialization::ModuleFile::PreprocessorDetailCursor' o='16576' t='llvm::BitstreamCursor'/>
+<mbr r='clang::serialization::ModuleFile::PreprocessorDetailStartOffset' o='19328' t='uint64_t'/>
+<mbr r='clang::serialization::ModuleFile::BasePreprocessedEntityID' o='19392' t='serialization::PreprocessedEntityID'/>
+<mbr r='clang::serialization::ModuleFile::PreprocessedEntityRemap' o='19456' t='ContinuousRangeMap&lt;uint32_t, int, 2&gt;'/>
+<mbr r='clang::serialization::ModuleFile::PreprocessedEntityOffsets' o='19712' t='const clang::serialization::PPEntityOffset *'/>
+<mbr r='clang::serialization::ModuleFile::NumPreprocessedEntities' o='19776' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::BasePreprocessedSkippedRangeID' o='19808' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::PreprocessedSkippedRangeOffsets' o='19840' t='const clang::serialization::PPSkippedRange *'/>
+<mbr r='clang::serialization::ModuleFile::NumPreprocessedSkippedRanges' o='19904' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::LocalNumHeaderFileInfos' o='19936' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::HeaderFileInfoTableData' o='19968' t='const char *'/>
+<mbr r='clang::serialization::ModuleFile::HeaderFileInfoTable' o='20032' t='void *'/>
+<mbr r='clang::serialization::ModuleFile::LocalNumSubmodules' o='20096' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::BaseSubmoduleID' o='20128' t='serialization::SubmoduleID'/>
+<mbr r='clang::serialization::ModuleFile::SubmoduleRemap' o='20160' t='ContinuousRangeMap&lt;uint32_t, int, 2&gt;'/>
+<mbr r='clang::serialization::ModuleFile::LocalNumSelectors' o='20416' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::SelectorOffsets' o='20480' t='const uint32_t *'/>
+<mbr r='clang::serialization::ModuleFile::BaseSelectorID' o='20544' t='serialization::SelectorID'/>
+<mbr r='clang::serialization::ModuleFile::SelectorRemap' o='20608' t='ContinuousRangeMap&lt;uint32_t, int, 2&gt;'/>
+<mbr r='clang::serialization::ModuleFile::SelectorLookupTableData' o='20864' t='const unsigned char *'/>
+<mbr r='clang::serialization::ModuleFile::SelectorLookupTable' o='20928' t='void *'/>
+<mbr r='clang::serialization::ModuleFile::DeclsCursor' o='20992' t='llvm::BitstreamCursor'/>
+<mbr r='clang::serialization::ModuleFile::LocalNumDecls' o='23744' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::DeclOffsets' o='23808' t='const clang::serialization::DeclOffset *'/>
+<mbr r='clang::serialization::ModuleFile::BaseDeclID' o='23872' t='serialization::DeclID'/>
+<mbr r='clang::serialization::ModuleFile::DeclRemap' o='23936' t='ContinuousRangeMap&lt;uint32_t, int, 2&gt;'/>
+<mbr r='clang::serialization::ModuleFile::GlobalToLocalDeclIDs' o='24192' t='llvm::DenseMap&lt;ModuleFile *, serialization::DeclID&gt;'/>
+<mbr r='clang::serialization::ModuleFile::FileSortedDecls' o='24448' t='const serialization::DeclID *'/>
+<mbr r='clang::serialization::ModuleFile::NumFileSortedDecls' o='24512' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::ObjCCategoriesMap' o='24576' t='const serialization::ObjCCategoriesInfo *'/>
+<mbr r='clang::serialization::ModuleFile::LocalNumObjCCategoriesInMap' o='24640' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::ObjCCategories' o='24704' t='SmallVector&lt;uint64_t, 1&gt;'/>
+<mbr r='clang::serialization::ModuleFile::LocalNumTypes' o='24896' t='unsigned int'/>
+<mbr r='clang::serialization::ModuleFile::TypeOffsets' o='24960' t='const uint32_t *'/>
+<mbr r='clang::serialization::ModuleFile::BaseTypeIndex' o='25024' t='serialization::TypeID'/>
+<mbr r='clang::serialization::ModuleFile::TypeRemap' o='25088' t='ContinuousRangeMap&lt;uint32_t, int, 2&gt;'/>
+<mbr r='clang::serialization::ModuleFile::PragmaDiagMappings' o='25344' t='SmallVector&lt;uint64_t, 8&gt;'/>
+<mbr r='clang::serialization::ModuleFile::ImportedBy' o='25984' t='llvm::SetVector&lt;ModuleFile *&gt;'/>
+<mbr r='clang::serialization::ModuleFile::Imports' o='26432' t='llvm::SetVector&lt;ModuleFile *&gt;'/>
+<fun r='_ZNK5clang13serialization10ModuleFile18isDirectlyImportedEv'/>
+<fun r='_ZNK5clang13serialization10ModuleFile8isModuleEv'/>
+<fun r='_ZN5clang13serialization10ModuleFile4dumpEv'/>

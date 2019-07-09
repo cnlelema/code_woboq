@@ -1,0 +1,10 @@
+<dec f='llvm/llvm/lib/Target/X86/X86InstrInfo.h' l='220' type='bool llvm::X86InstrInfo::classifyLEAReg(llvm::MachineInstr &amp; MI, const llvm::MachineOperand &amp; Src, unsigned int LEAOpcode, bool AllowSP, unsigned int &amp; NewSrc, bool &amp; isKill, llvm::MachineOperand &amp; ImplicitOp, llvm::LiveVariables * LV) const'/>
+<doc f='llvm/llvm/lib/Target/X86/X86InstrInfo.h' l='212'>/// Given an operand within a MachineInstr, insert preceding code to put it
+  /// into the right format for a particular kind of LEA instruction. This may
+  /// involve using an appropriate super-register instead (with an implicit use
+  /// of the original) or creating a new virtual register and inserting COPY
+  /// instructions to get the data into the right class.
+  ///
+  /// Reference parameters are set to indicate how caller should add this
+  /// operand to the LEA instruction.</doc>
+<def f='llvm/llvm/lib/Target/X86/X86InstrInfo.cpp' l='654' ll='709' type='bool llvm::X86InstrInfo::classifyLEAReg(llvm::MachineInstr &amp; MI, const llvm::MachineOperand &amp; Src, unsigned int Opc, bool AllowSP, unsigned int &amp; NewSrc, bool &amp; isKill, llvm::MachineOperand &amp; ImplicitOp, llvm::LiveVariables * LV) const'/>

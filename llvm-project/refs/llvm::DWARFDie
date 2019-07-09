@@ -1,0 +1,62 @@
+<def f='llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFDie.h' l='42' ll='280'/>
+<size>16</size>
+<doc f='llvm/llvm/include/llvm/DebugInfo/DWARF/DWARFDie.h' l='30'>//===----------------------------------------------------------------------===//
+/// Utility class that carries the DWARF compile/type unit and the debug info
+/// entry in an object.
+///
+/// When accessing information from a debug info entry we always need to DWARF
+/// compile/type unit in order to extract the info correctly as some information
+/// is relative to the compile/type unit. Prior to this class the DWARFUnit and
+/// the DWARFDebugInfoEntry was passed around separately and there was the
+/// possibility for error if the wrong DWARFUnit was used to extract a unit
+/// relative offset. This class helps to ensure that this doesn&apos;t happen and
+/// also simplifies the attribute extraction calls by not having to specify the
+/// DWARFUnit for each call.</doc>
+<mbr r='llvm::DWARFDie::U' o='0' t='llvm::DWARFUnit *'/>
+<mbr r='llvm::DWARFDie::Die' o='64' t='const llvm::DWARFDebugInfoEntry *'/>
+<fun r='_ZN4llvm8DWARFDieC1Ev'/>
+<fun r='_ZN4llvm8DWARFDieC1EPNS_9DWARFUnitEPKNS_19DWARFDebugInfoEntryE'/>
+<fun r='_ZNK4llvm8DWARFDie7isValidEv'/>
+<fun r='_ZNK4llvm8DWARFDiecvbEv'/>
+<fun r='_ZNK4llvm8DWARFDie17getDebugInfoEntryEv'/>
+<fun r='_ZNK4llvm8DWARFDie12getDwarfUnitEv'/>
+<fun r='_ZNK4llvm8DWARFDie29getAbbreviationDeclarationPtrEv'/>
+<fun r='_ZNK4llvm8DWARFDie9getOffsetEv'/>
+<fun r='_ZNK4llvm8DWARFDie6getTagEv'/>
+<fun r='_ZNK4llvm8DWARFDie11hasChildrenEv'/>
+<fun r='_ZNK4llvm8DWARFDie6isNULLEv'/>
+<fun r='_ZNK4llvm8DWARFDie15isSubprogramDIEEv'/>
+<fun r='_ZNK4llvm8DWARFDie15isSubroutineDIEEv'/>
+<fun r='_ZNK4llvm8DWARFDie9getParentEv'/>
+<fun r='_ZNK4llvm8DWARFDie10getSiblingEv'/>
+<fun r='_ZNK4llvm8DWARFDie18getPreviousSiblingEv'/>
+<fun r='_ZNK4llvm8DWARFDie13getFirstChildEv'/>
+<fun r='_ZNK4llvm8DWARFDie12getLastChildEv'/>
+<fun r='_ZNK4llvm8DWARFDie4dumpERNS_11raw_ostreamEjNS_13DIDumpOptionsE'/>
+<fun r='_ZNK4llvm8DWARFDie4dumpEv'/>
+<fun r='_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE'/>
+<fun r='_ZNK4llvm8DWARFDie4findENS_8ArrayRefINS_5dwarf9AttributeEEE'/>
+<fun r='_ZNK4llvm8DWARFDie15findRecursivelyENS_8ArrayRefINS_5dwarf9AttributeEEE'/>
+<fun r='_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE'/>
+<fun r='_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieERKNS_14DWARFFormValueE'/>
+<fun r='_ZNK4llvm8DWARFDie22getRangesBaseAttributeEv'/>
+<fun r='_ZNK4llvm8DWARFDie9getHighPCEm'/>
+<fun r='_ZNK4llvm8DWARFDie15getLowAndHighPCERmS1_S1_'/>
+<fun r='_ZNK4llvm8DWARFDie16getAddressRangesEv'/>
+<fun r='_ZNK4llvm8DWARFDie28collectChildrenAddressRangesERSt6vectorINS_17DWARFAddressRangeESaIS2_EE'/>
+<fun r='_ZNK4llvm8DWARFDie27addressRangeContainsAddressEm'/>
+<fun r='_ZNK4llvm8DWARFDie17getSubroutineNameENS_10DINameKindE'/>
+<fun r='_ZNK4llvm8DWARFDie7getNameENS_10DINameKindE'/>
+<fun r='_ZNK4llvm8DWARFDie11getDeclLineEv'/>
+<fun r='_ZNK4llvm8DWARFDie14getCallerFrameERjS1_S1_S1_'/>
+<fun r='_ZNK4llvm8DWARFDie10attributesEv'/>
+<fun r='_ZNK4llvm8DWARFDie5beginEv'/>
+<fun r='_ZNK4llvm8DWARFDie3endEv'/>
+<fun r='_ZNK4llvm8DWARFDie6rbeginEv'/>
+<fun r='_ZNK4llvm8DWARFDie4rendEv'/>
+<fun r='_ZNK4llvm8DWARFDie8childrenEv'/>
+<fun r='_ZNK4llvm8DWARFDie5beginEv'/>
+<fun r='_ZNK4llvm8DWARFDie3endEv'/>
+<fun r='_ZNK4llvm8DWARFDie8childrenEv'/>
+<fun r='_ZNK4llvm8DWARFDie6rbeginEv'/>
+<fun r='_ZNK4llvm8DWARFDie4rendEv'/>

@@ -1,0 +1,43 @@
+<dec f='llvm/llvm/include/llvm-c/Remarks.h' l='270' type='LLVMRemarkEntryRef LLVMRemarkParserGetNext(LLVMRemarkParserRef Parser)'/>
+<doc f='llvm/llvm/include/llvm-c/Remarks.h' l='232'>/**
+ * Returns the next remark in the file.
+ *
+ * The value pointed to by the return value is invalidated by the next call to
+ * LLVMRemarkParserGetNext().
+ *
+ * If the parser reaches the end of the buffer, the return value will be `NULL`.
+ *
+ * In the case of an error, the return value will be `NULL`, and:
+ *
+ * 1) LLVMRemarkParserHasError() will return `1`.
+ *
+ * 2) LLVMRemarkParserGetErrorMessage() will return a descriptive error
+ *    message.
+ *
+ * An error may occur if:
+ *
+ * 1) An argument is invalid.
+ *
+ * 2) There is a parsing error. This can occur on things like malformed YAML.
+ *
+ * 3) There is a Remark semantic error. This can occur on well-formed files with
+ *    missing or extra fields.
+ *
+ * Here is a quick example of the usage:
+ *
+ * ```
+ * LLVMRemarkParserRef Parser = LLVMRemarkParserCreateYAML(Buf, Size);
+ * LLVMRemarkEntryRef Remark = NULL;
+ * while ((Remark == LLVMRemarkParserGetNext(Parser))) {
+ *    // use Remark
+ * }
+ * bool HasError = LLVMRemarkParserHasError(Parser);
+ * LLVMRemarkParserDispose(Parser);
+ * ```
+ *
+ * \since REMARKS_API_VERSION=0
+ */</doc>
+<def f='llvm/llvm/lib/Remarks/RemarkParser.cpp' l='107' ll='125' type='LLVMRemarkEntryRef LLVMRemarkParserGetNext(LLVMRemarkParserRef Parser)'/>
+<use f='llvm/llvm/unittests/Remarks/YAMLRemarksParsingTest.cpp' l='441' u='c' c='_ZN29YAMLRemarks_ContentsCAPI_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Remarks/YAMLRemarksParsingTest.cpp' l='490' u='c' c='_ZN29YAMLRemarks_ContentsCAPI_Test8TestBodyEv'/>
+<use f='llvm/llvm/unittests/Remarks/YAMLRemarksParsingTest.cpp' l='490' u='c' c='_ZN29YAMLRemarks_ContentsCAPI_Test8TestBodyEv'/>

@@ -1,0 +1,12 @@
+<dec f='llvm/clang/include/clang-c/Index.h' l='6698' type='void clang_indexLoc_getFileLocation(CXIdxLoc loc, CXIdxClientFile * indexFile, CXFile * file, unsigned int * line, unsigned int * column, unsigned int * offset)'/>
+<doc f='llvm/clang/include/clang-c/Index.h' l='6690'>/**
+ * Retrieve the CXIdxFile, file, line, column, and offset represented by
+ * the given CXIdxLoc.
+ *
+ * If the location refers into a macro expansion, retrieves the
+ * location of the macro expansion and if it refers into a macro argument
+ * retrieves the location of the argument.
+ */</doc>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='3338' u='c' c='printCXIndexLoc'/>
+<use f='llvm/clang/tools/c-index-test/c-index-test.c' l='3387' u='c' c='makeClientContainer'/>
+<def f='llvm/clang/tools/libclang/Indexing.cpp' l='946' ll='965' type='void clang_indexLoc_getFileLocation(CXIdxLoc location, CXIdxClientFile * indexFile, CXFile * file, unsigned int * line, unsigned int * column, unsigned int * offset)'/>

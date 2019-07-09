@@ -1,0 +1,22 @@
+<dec f='llvm/llvm/include/llvm/IR/ModuleSummaryIndex.h' l='1235' type='void llvm::ModuleSummaryIndex::propagateConstants(const DenseSet&lt;GlobalValue::GUID&gt; &amp; PreservedSymbols)'/>
+<doc f='llvm/llvm/include/llvm/IR/ModuleSummaryIndex.h' l='1234'>/// Analyze index and detect unmodified globals</doc>
+<def f='llvm/llvm/lib/IR/ModuleSummaryIndex.cpp' l='143' ll='174' type='void llvm::ModuleSummaryIndex::propagateConstants(const DenseSet&lt;GlobalValue::GUID&gt; &amp; GUIDPreservedSymbols)'/>
+<doc f='llvm/llvm/lib/IR/ModuleSummaryIndex.cpp' l='125'>// Do the constant propagation in combined index.
+// The goal of constant propagation is internalization of readonly
+// variables. To determine which variables are readonly and which
+// are not we take following steps:
+// - During analysis we speculatively assign readonly attribute to
+//   all variables which can be internalized. When computing function
+//   summary we also assign readonly attribute to a reference if
+//   function doesn&apos;t modify referenced variable.
+//
+// - After computing dead symbols in combined index we do the constant
+//   propagation. During this step we clear readonly attribute from
+//   all variables which:
+//   a. are preserved or can&apos;t be imported
+//   b. referenced by any global variable initializer
+//   c. referenced by a function and reference is not readonly
+//
+// Internalization itself happens in the backend after import is finished
+// See internalizeImmutableGVs.</doc>
+<use f='llvm/llvm/lib/Transforms/IPO/FunctionImport.cpp' l='853' u='c' c='_ZN4llvm31computeDeadSymbolsWithConstPropERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImEEEENS_12function_refIFNS_14PrevailingTypeEmEEEb'/>

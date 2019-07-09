@@ -1,0 +1,11 @@
+<dec f='llvm/llvm/include/llvm/Analysis/DependenceAnalysis.h' l='567' type='bool llvm::DependenceInfo::isKnownLessThan(const llvm::SCEV * S, const llvm::SCEV * Size) const'/>
+<def f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='1014' ll='1042' type='bool llvm::DependenceInfo::isKnownLessThan(const llvm::SCEV * S, const llvm::SCEV * Size) const'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='3332' u='c' c='_ZN4llvm14DependenceInfo14tryDelinearizeEPNS_11InstructionES2_RNS_15SmallVectorImplINS0_9SubscriptEEE'/>
+<use f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='3338' u='c' c='_ZN4llvm14DependenceInfo14tryDelinearizeEPNS_11InstructionES2_RNS_15SmallVectorImplINS0_9SubscriptEEE'/>
+<doc f='llvm/llvm/lib/Analysis/DependenceAnalysis.cpp' l='1011'>/// Compare to see if S is less than Size, using isKnownNegative(S - max(Size, 1))
+/// with some extra checking if S is an AddRec and we can prove less-than using
+/// the loop bounds.</doc>
+<doc f='llvm/llvm/include/llvm/Analysis/DependenceAnalysis.h' l='563'>/// isKnownLessThan - Compare to see if S is less than Size
+    /// Another wrapper for isKnownNegative(S - max(Size, 1)) with some extra
+    /// checking if S is an AddRec and we can prove lessthan using the loop
+    /// bounds.</doc>

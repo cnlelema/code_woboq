@@ -1,0 +1,23 @@
+<def f='llvm/llvm/include/llvm/ProfileData/SampleProf.h' l='144' ll='199'/>
+<size>40</size>
+<doc f='llvm/llvm/include/llvm/ProfileData/SampleProf.h' l='134'>/// Representation of a single sample record.
+///
+/// A sample record is represented by a positive integer value, which
+/// indicates how frequently was the associated line location executed.
+///
+/// Additionally, if the associated location contains a function call,
+/// the record will hold a list of all the possible called targets. For
+/// direct calls, this will be the exact function being invoked. For
+/// indirect calls (function pointers, virtual table dispatch), this
+/// will be a list of one or more functions.</doc>
+<fun r='_ZN4llvm10sampleprof12SampleRecordC1Ev'/>
+<fun r='_ZN4llvm10sampleprof12SampleRecord10addSamplesEmm'/>
+<fun r='_ZN4llvm10sampleprof12SampleRecord15addCalledTargetENS_9StringRefEmm'/>
+<fun r='_ZNK4llvm10sampleprof12SampleRecord8hasCallsEv'/>
+<fun r='_ZNK4llvm10sampleprof12SampleRecord10getSamplesEv'/>
+<fun r='_ZNK4llvm10sampleprof12SampleRecord14getCallTargetsEv'/>
+<fun r='_ZN4llvm10sampleprof12SampleRecord5mergeERKS1_m'/>
+<fun r='_ZNK4llvm10sampleprof12SampleRecord5printERNS_11raw_ostreamEj'/>
+<fun r='_ZNK4llvm10sampleprof12SampleRecord4dumpEv'/>
+<mbr r='llvm::sampleprof::SampleRecord::NumSamples' o='0' t='uint64_t'/>
+<mbr r='llvm::sampleprof::SampleRecord::CallTargets' o='64' t='CallTargetMap'/>

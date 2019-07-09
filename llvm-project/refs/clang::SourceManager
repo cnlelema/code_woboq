@@ -1,0 +1,195 @@
+<inh f='llvm/llvm/include/llvm/ADT/IntrusiveRefCntPtr.h' l='70' c='llvm::RefCountedBase'/>
+<def f='llvm/clang/include/clang/Basic/SourceManager.h' l='583' ll='1820'/>
+<size>576</size>
+<doc f='llvm/clang/include/clang/Basic/SourceManager.h' l='571'>/// This class handles loading and caching of source files into memory.
+///
+/// This object owns the MemoryBuffer objects for all of the loaded
+/// files and assigns unique FileID&apos;s for each unique \#include chain.
+///
+/// The SourceManager can be queried for information about SourceLocation
+/// objects, turning them into either spelling or expansion locations. Spelling
+/// locations represent where the bytes corresponding to a token came from and
+/// expansion locations represent where the location is in the user&apos;s view. In
+/// the case of a macro expansion, for example, the spelling location indicates
+/// where the expanded token came from and the expansion location specifies
+/// where it was expanded.</doc>
+<mbr r='clang::SourceManager::Diag' o='64' t='clang::DiagnosticsEngine &amp;'/>
+<mbr r='clang::SourceManager::FileMgr' o='128' t='clang::FileManager &amp;'/>
+<mbr r='clang::SourceManager::ContentCacheAlloc' o='192' t='llvm::BumpPtrAllocator'/>
+<mbr r='clang::SourceManager::FileInfos' o='1024' t='llvm::DenseMap&lt;const FileEntry *, SrcMgr::ContentCache *&gt;'/>
+<mbr r='clang::SourceManager::OverridenFilesKeepOriginalName' o='1280' t='bool'/>
+<mbr r='clang::SourceManager::UserFilesAreVolatile' o='1288' t='bool'/>
+<mbr r='clang::SourceManager::FilesAreTransient' o='1296' t='bool'/>
+<mbr r='clang::SourceManager::OverriddenFilesInfo' o='1344' t='std::unique_ptr&lt;OverriddenFilesInfoTy&gt;'/>
+<fun r='_ZN5clang13SourceManager22getOverriddenFilesInfoEv'/>
+<mbr r='clang::SourceManager::MemBufferInfos' o='1408' t='std::vector&lt;SrcMgr::ContentCache *&gt;'/>
+<mbr r='clang::SourceManager::LocalSLocEntryTable' o='1600' t='SmallVector&lt;SrcMgr::SLocEntry, 0&gt;'/>
+<mbr r='clang::SourceManager::LoadedSLocEntryTable' o='1728' t='SmallVector&lt;SrcMgr::SLocEntry, 0&gt;'/>
+<mbr r='clang::SourceManager::NextLocalOffset' o='1856' t='unsigned int'/>
+<mbr r='clang::SourceManager::CurrentLoadedOffset' o='1888' t='unsigned int'/>
+<smbr r='clang::SourceManager::MaxLoadedOffset' t='const unsigned int'/>
+<mbr r='clang::SourceManager::SLocEntryLoaded' o='1920' t='llvm::BitVector'/>
+<mbr r='clang::SourceManager::ExternalSLocEntries' o='2112' t='clang::ExternalSLocEntrySource *'/>
+<mbr r='clang::SourceManager::LastFileIDLookup' o='2176' t='clang::FileID'/>
+<mbr r='clang::SourceManager::LineTable' o='2240' t='clang::LineTableInfo *'/>
+<mbr r='clang::SourceManager::LastLineNoFileIDQuery' o='2304' t='clang::FileID'/>
+<mbr r='clang::SourceManager::LastLineNoContentCache' o='2368' t='SrcMgr::ContentCache *'/>
+<mbr r='clang::SourceManager::LastLineNoFilePos' o='2432' t='unsigned int'/>
+<mbr r='clang::SourceManager::LastLineNoResult' o='2464' t='unsigned int'/>
+<mbr r='clang::SourceManager::MainFileID' o='2496' t='clang::FileID'/>
+<mbr r='clang::SourceManager::PreambleFileID' o='2528' t='clang::FileID'/>
+<mbr r='clang::SourceManager::NumLinearScans' o='2560' t='unsigned int'/>
+<mbr r='clang::SourceManager::NumBinaryProbes' o='2592' t='unsigned int'/>
+<mbr r='clang::SourceManager::IncludedLocMap' o='2624' t='llvm::DenseMap&lt;FileID, std::pair&lt;FileID, unsigned int&gt; &gt;'/>
+<mbr r='clang::SourceManager::IBTUCache' o='2880' t='InBeforeInTUCache'/>
+<mbr r='clang::SourceManager::IBTUCacheOverflow' o='3136' t='clang::InBeforeInTUCacheEntry'/>
+<fun r='_ZNK5clang13SourceManager20getInBeforeInTUCacheENS_6FileIDES1_'/>
+<mbr r='clang::SourceManager::FakeBufferForRecovery' o='3328' t='std::unique_ptr&lt;llvm::MemoryBuffer&gt;'/>
+<mbr r='clang::SourceManager::FakeContentCacheForRecovery' o='3392' t='std::unique_ptr&lt;SrcMgr::ContentCache&gt;'/>
+<mbr r='clang::SourceManager::MacroArgsCacheMap' o='3456' t='llvm::DenseMap&lt;FileID, std::unique_ptr&lt;MacroArgsMap&gt; &gt;'/>
+<mbr r='clang::SourceManager::StoredModuleBuildStack' o='3712' t='SmallVector&lt;std::pair&lt;std::string, FullSourceLoc&gt;, 2&gt;'/>
+<fun r='_ZN5clang13SourceManagerC1ERNS_17DiagnosticsEngineERNS_11FileManagerEb'/>
+<fun r='_ZN5clang13SourceManagerC1ERKS0_'/>
+<fun r='_ZN5clang13SourceManageraSERKS0_'/>
+<fun r='_ZN5clang13SourceManagerD1Ev'/>
+<fun r='_ZN5clang13SourceManager13clearIDTablesEv'/>
+<fun r='_ZN5clang13SourceManager19initializeForReplayERKS0_'/>
+<fun r='_ZNK5clang13SourceManager14getDiagnosticsEv'/>
+<fun r='_ZNK5clang13SourceManager14getFileManagerEv'/>
+<fun r='_ZN5clang13SourceManager33setOverridenFilesKeepOriginalNameEb'/>
+<fun r='_ZNK5clang13SourceManager20userFilesAreVolatileEv'/>
+<fun r='_ZNK5clang13SourceManager19getModuleBuildStackEv'/>
+<fun r='_ZN5clang13SourceManager19setModuleBuildStackEN4llvm8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13FullSourceLocEEEE'/>
+<fun r='_ZN5clang13SourceManager20pushModuleBuildStackEN4llvm9StringRefENS_13FullSourceLocE'/>
+<fun r='_ZNK5clang13SourceManager13getMainFileIDEv'/>
+<fun r='_ZN5clang13SourceManager13setMainFileIDENS_6FileIDE'/>
+<fun r='_ZN5clang13SourceManager17setPreambleFileIDENS_6FileIDE'/>
+<fun r='_ZNK5clang13SourceManager17getPreambleFileIDEv'/>
+<fun r='_ZN5clang13SourceManager12createFileIDEPKNS_9FileEntryENS_14SourceLocationENS_6SrcMgr18CharacteristicKindEij'/>
+<fun r='_ZN5clang13SourceManager12createFileIDESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS3_EENS_6SrcMgr18CharacteristicKindEijNS_14SourceLocationE'/>
+<fun r='_ZN5clang13SourceManager12createFileIDENS0_10UnownedTagEPKN4llvm12MemoryBufferENS_6SrcMgr18CharacteristicKindEijNS_14SourceLocationE'/>
+<fun r='_ZN5clang13SourceManager17getOrCreateFileIDEPKNS_9FileEntryENS_6SrcMgr18CharacteristicKindE'/>
+<fun r='_ZN5clang13SourceManager26createMacroArgExpansionLocENS_14SourceLocationES1_j'/>
+<fun r='_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij'/>
+<fun r='_ZN5clang13SourceManager19createTokenSplitLocENS_14SourceLocationES1_S1_'/>
+<fun r='_ZN5clang13SourceManager22getMemoryBufferForFileEPKNS_9FileEntryEPb'/>
+<fun r='_ZN5clang13SourceManager20overrideFileContentsEPKNS_9FileEntryEPN4llvm12MemoryBufferEb'/>
+<fun r='_ZN5clang13SourceManager20overrideFileContentsEPKNS_9FileEntryESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS6_EE'/>
+<fun r='_ZN5clang13SourceManager20overrideFileContentsEPKNS_9FileEntryES3_'/>
+<fun r='_ZNK5clang13SourceManager16isFileOverriddenEPKNS_9FileEntryE'/>
+<fun r='_ZN5clang13SourceManager27disableFileContentsOverrideEPKNS_9FileEntryE'/>
+<fun r='_ZN5clang13SourceManager18setFileIsTransientEPKNS_9FileEntryE'/>
+<fun r='_ZN5clang13SourceManager23setAllFilesAreTransientEb'/>
+<fun r='_ZNK5clang13SourceManager9getBufferENS_6FileIDENS_14SourceLocationEPb'/>
+<fun r='_ZNK5clang13SourceManager9getBufferENS_6FileIDEPb'/>
+<fun r='_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE'/>
+<fun r='_ZNK5clang13SourceManager24getFileEntryForSLocEntryERKNS_6SrcMgr9SLocEntryE'/>
+<fun r='_ZNK5clang13SourceManager13getBufferDataENS_6FileIDEPb'/>
+<fun r='_ZNK5clang13SourceManager26getNumCreatedFIDsForFileIDENS_6FileIDE'/>
+<fun r='_ZNK5clang13SourceManager26setNumCreatedFIDsForFileIDENS_6FileIDEjb'/>
+<fun r='_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager11getFilenameENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE'/>
+<fun r='_ZNK5clang13SourceManager18getLocForEndOfFileENS_6FileIDE'/>
+<fun r='_ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE'/>
+<fun r='_ZNK5clang13SourceManager18getModuleImportLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager26getImmediateExpansionRangeENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager17getExpansionRangeENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager17getExpansionRangeENS_11SourceRangeE'/>
+<fun r='_ZNK5clang13SourceManager17getExpansionRangeENS_15CharSourceRangeE'/>
+<fun r='_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager23getImmediateSpellingLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager14getComposedLocENS_6FileIDEj'/>
+<fun r='_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager25getDecomposedExpansionLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager24getDecomposedSpellingLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager24getDecomposedIncludedLocENS_6FileIDE'/>
+<fun r='_ZNK5clang13SourceManager13getFileOffsetENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager19isMacroArgExpansionENS_14SourceLocationEPS1_'/>
+<fun r='_ZNK5clang13SourceManager20isMacroBodyExpansionENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager34isAtStartOfImmediateMacroExpansionENS_14SourceLocationEPS1_'/>
+<fun r='_ZNK5clang13SourceManager32isAtEndOfImmediateMacroExpansionENS_14SourceLocationEPS1_'/>
+<fun r='_ZNK5clang13SourceManager17isInSLocAddrSpaceENS_14SourceLocationES1_jPj'/>
+<fun r='_ZNK5clang13SourceManager21isInSameSLocAddrSpaceENS_14SourceLocationES1_Pi'/>
+<fun r='_ZNK5clang13SourceManager16getCharacterDataENS_14SourceLocationEPb'/>
+<fun r='_ZNK5clang13SourceManager15getColumnNumberENS_6FileIDEjPb'/>
+<fun r='_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb'/>
+<fun r='_ZNK5clang13SourceManager24getExpansionColumnNumberENS_14SourceLocationEPb'/>
+<fun r='_ZNK5clang13SourceManager23getPresumedColumnNumberENS_14SourceLocationEPb'/>
+<fun r='_ZNK5clang13SourceManager13getLineNumberENS_6FileIDEjPb'/>
+<fun r='_ZNK5clang13SourceManager21getSpellingLineNumberENS_14SourceLocationEPb'/>
+<fun r='_ZNK5clang13SourceManager22getExpansionLineNumberENS_14SourceLocationEPb'/>
+<fun r='_ZNK5clang13SourceManager21getPresumedLineNumberENS_14SourceLocationEPb'/>
+<fun r='_ZNK5clang13SourceManager13getBufferNameENS_14SourceLocationEPb'/>
+<fun r='_ZNK5clang13SourceManager21getFileCharacteristicENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager14getPresumedLocENS_14SourceLocationEb'/>
+<fun r='_ZNK5clang13SourceManager12isInMainFileENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager19isWrittenInSameFileENS_14SourceLocationES1_'/>
+<fun r='_ZNK5clang13SourceManager19isWrittenInMainFileENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager22isWrittenInBuiltinFileENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager26isWrittenInCommandLineFileENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager23isWrittenInScratchSpaceENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager23isInExternCSystemHeaderENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager15isInSystemMacroENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager13getFileIDSizeENS_6FileIDE'/>
+<fun r='_ZNK5clang13SourceManager10isInFileIDENS_14SourceLocationENS_6FileIDEPj'/>
+<fun r='_ZN5clang13SourceManager22getLineTableFilenameIDEN4llvm9StringRefE'/>
+<fun r='_ZN5clang13SourceManager11AddLineNoteENS_14SourceLocationEjibbNS_6SrcMgr18CharacteristicKindE'/>
+<fun r='_ZNK5clang13SourceManager12hasLineTableEv'/>
+<fun r='_ZN5clang13SourceManager12getLineTableEv'/>
+<fun r='_ZNK5clang13SourceManager19getContentCacheSizeEv'/>
+<fun r='_ZNK5clang13SourceManager20getMemoryBufferSizesEv'/>
+<fun r='_ZNK5clang13SourceManager21getDataStructureSizesEv'/>
+<fun r='_ZNK5clang13SourceManager20translateFileLineColEPKNS_9FileEntryEjj'/>
+<fun r='_ZNK5clang13SourceManager13translateFileEPKNS_9FileEntryE'/>
+<fun r='_ZNK5clang13SourceManager16translateLineColENS_6FileIDEjj'/>
+<fun r='_ZNK5clang13SourceManager27getMacroArgExpandedLocationENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_'/>
+<fun r='_ZNK5clang13SourceManager26isInTheSameTranslationUnitERSt4pairINS_6FileIDEjES4_'/>
+<fun r='_ZNK5clang13SourceManager23isBeforeInSLocAddrSpaceENS_14SourceLocationES1_'/>
+<fun r='_ZNK5clang13SourceManager23isBeforeInSLocAddrSpaceENS_14SourceLocationEj'/>
+<fun r='_ZNK5clang13SourceManager13isPointWithinENS_14SourceLocationES1_S1_'/>
+<fun r='_ZNK5clang13SourceManager14fileinfo_beginEv'/>
+<fun r='_ZNK5clang13SourceManager12fileinfo_endEv'/>
+<fun r='_ZNK5clang13SourceManager11hasFileInfoEPKNS_9FileEntryE'/>
+<fun r='_ZNK5clang13SourceManager10PrintStatsEv'/>
+<fun r='_ZNK5clang13SourceManager4dumpEv'/>
+<fun r='_ZNK5clang13SourceManager21local_sloc_entry_sizeEv'/>
+<fun r='_ZNK5clang13SourceManager17getLocalSLocEntryEjPb'/>
+<fun r='_ZNK5clang13SourceManager22loaded_sloc_entry_sizeEv'/>
+<fun r='_ZNK5clang13SourceManager18getLoadedSLocEntryEjPb'/>
+<fun r='_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb'/>
+<fun r='_ZNK5clang13SourceManager18getNextLocalOffsetEv'/>
+<fun r='_ZN5clang13SourceManager26setExternalSLocEntrySourceEPNS_23ExternalSLocEntrySourceE'/>
+<fun r='_ZN5clang13SourceManager25AllocateLoadedSLocEntriesEjj'/>
+<fun r='_ZNK5clang13SourceManager22isLoadedSourceLocationENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager21isLocalSourceLocationENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager14isLoadedFileIDENS_6FileIDE'/>
+<fun r='_ZNK5clang13SourceManager13isLocalFileIDENS_6FileIDE'/>
+<fun r='_ZNK5clang13SourceManager26getImmediateMacroCallerLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager20getTopMacroCallerLocENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager24getFakeBufferForRecoveryEv'/>
+<fun r='_ZNK5clang13SourceManager30getFakeContentCacheForRecoveryEv'/>
+<fun r='_ZNK5clang13SourceManager13loadSLocEntryEjPb'/>
+<fun r='_ZNK5clang13SourceManager16getSLocEntryByIDEiPb'/>
+<fun r='_ZNK5clang13SourceManager22getLoadedSLocEntryByIDEiPb'/>
+<fun r='_ZN5clang13SourceManager22createExpansionLocImplERKNS_6SrcMgr13ExpansionInfoEjij'/>
+<fun r='_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj'/>
+<fun r='_ZNK5clang13SourceManager17getPreviousFileIDENS_6FileIDE'/>
+<fun r='_ZNK5clang13SourceManager13getNextFileIDENS_6FileIDE'/>
+<fun r='_ZN5clang13SourceManager12createFileIDEPKNS_6SrcMgr12ContentCacheENS_14SourceLocationENS1_18CharacteristicKindEij'/>
+<fun r='_ZN5clang13SourceManager23getOrCreateContentCacheEPKNS_9FileEntryEb'/>
+<fun r='_ZN5clang13SourceManager27createMemBufferContentCacheEPKN4llvm12MemoryBufferEb'/>
+<fun r='_ZNK5clang13SourceManager13getFileIDSlowEj'/>
+<fun r='_ZNK5clang13SourceManager14getFileIDLocalEj'/>
+<fun r='_ZNK5clang13SourceManager15getFileIDLoadedEj'/>
+<fun r='_ZNK5clang13SourceManager23getExpansionLocSlowCaseENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager22getSpellingLocSlowCaseENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager18getFileLocSlowCaseENS_14SourceLocationE'/>
+<fun r='_ZNK5clang13SourceManager33getDecomposedExpansionLocSlowCaseEPKNS_6SrcMgr9SLocEntryE'/>
+<fun r='_ZNK5clang13SourceManager32getDecomposedSpellingLocSlowCaseEPKNS_6SrcMgr9SLocEntryEj'/>
+<fun r='_ZNK5clang13SourceManager21computeMacroArgsCacheERSt3mapIjNS_14SourceLocationESt4lessIjESaISt4pairIKjS2_EEENS_6FileIDE'/>
+<fun r='_ZNK5clang13SourceManager33associateFileChunkWithMacroArgExpERSt3mapIjNS_14SourceLocationESt4lessIjESaISt4pairIKjS2_EEENS_6FileIDES2_S2_j'/>

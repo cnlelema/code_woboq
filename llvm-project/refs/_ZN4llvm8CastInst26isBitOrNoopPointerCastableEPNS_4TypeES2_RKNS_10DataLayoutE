@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/IR/InstrTypes.h' l='626' type='static bool llvm::CastInst::isBitOrNoopPointerCastable(llvm::Type * SrcTy, llvm::Type * DestTy, const llvm::DataLayout &amp; DL)'/>
+<doc f='llvm/llvm/include/llvm/IR/InstrTypes.h' l='621'>/// Check whether a bitcast, inttoptr, or ptrtoint cast between these
+  /// types is valid and a no-op.
+  ///
+  /// This ensures that any pointer&lt;-&gt;integer cast has enough bits in the
+  /// integer and any other cast is a bitcast.</doc>
+<use f='llvm/llvm/lib/Analysis/Loads.cpp' l='383' u='c' c='_ZN4llvm25FindAvailablePtrLoadStoreEPNS_5ValueEPNS_4TypeEbPNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11InstructionELb1EL484192'/>
+<use f='llvm/llvm/lib/Analysis/Loads.cpp' l='401' u='c' c='_ZN4llvm25FindAvailablePtrLoadStoreEPNS_5ValueEPNS_4TypeEbPNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11InstructionELb1EL484192'/>
+<def f='llvm/llvm/lib/IR/Instructions.cpp' l='3078' ll='3100' type='static bool llvm::CastInst::isBitOrNoopPointerCastable(llvm::Type * SrcTy, llvm::Type * DestTy, const llvm::DataLayout &amp; DL)'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyFixFunctionBitcasts.cpp' l='148' u='c' c='_ZL13createWrapperPN4llvm8FunctionEPNS_12FunctionTypeE'/>
+<use f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyFixFunctionBitcasts.cpp' l='187' u='c' c='_ZL13createWrapperPN4llvm8FunctionEPNS_12FunctionTypeE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='4311' u='c' c='_ZN4llvm12InstCombiner26transformConstExprCastCallERNS_8CallBaseE'/>
+<use f='llvm/llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp' l='4364' u='c' c='_ZN4llvm12InstCombiner26transformConstExprCastCallERNS_8CallBaseE'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CallPromotionUtils.cpp' l='330' u='c' c='_ZN4llvm16isLegalToPromoteENS_8CallSiteEPNS_8FunctionEPPKc'/>
+<use f='llvm/llvm/lib/Transforms/Utils/CallPromotionUtils.cpp' l='355' u='c' c='_ZN4llvm16isLegalToPromoteENS_8CallSiteEPNS_8FunctionEPPKc'/>
+<use f='llvm/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp' l='2528' u='c' c='_ZN4llvm19InnerLoopVectorizer22createBitOrPointerCastEPNS_5ValueEPNS_10VectorTypeERKNS_10DataLayoutE'/>

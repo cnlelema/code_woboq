@@ -1,0 +1,122 @@
+<def f='llvm/clang/include/clang/Analysis/CFG.h' l='570' ll='1006'/>
+<size>120</size>
+<doc f='llvm/clang/include/clang/Analysis/CFG.h' l='544'>/// Represents a single basic block in a source-level CFG.
+///  It consists of:
+///
+///  (1) A set of statements/expressions (which may contain subexpressions).
+///  (2) A &quot;terminator&quot; statement (not in the set of statements).
+///  (3) A list of successors and predecessors.
+///
+/// Terminator: The terminator represents the type of control-flow that occurs
+/// at the end of the basic block.  The terminator is a Stmt* referring to an
+/// AST node that has control-flow: if-statements, breaks, loops, etc.
+/// If the control-flow is conditional, the condition expression will appear
+/// within the set of statements in the block (usually the last statement).
+///
+/// Predecessors: the order in the set of predecessors is arbitrary.
+///
+/// Successors: the order in the set of successors is NOT arbitrary.  We
+///  currently have the following orderings based on the terminator:
+///
+///     Terminator     |   Successor Ordering
+///  ------------------|------------------------------------
+///       if           |  Then Block;  Else Block
+///     ? operator     |  LHS expression;  RHS expression
+///     logical and/or |  expression that consumes the op, RHS
+///     vbase inits    |  already handled by the most derived class; not yet
+///
+/// But note that any of that may be NULL in case of optimized-out edges.</doc>
+<mbr r='clang::CFGBlock::Elements' o='0' t='clang::CFGBlock::ElementList'/>
+<mbr r='clang::CFGBlock::Label' o='192' t='clang::Stmt *'/>
+<mbr r='clang::CFGBlock::Terminator' o='256' t='clang::CFGTerminator'/>
+<mbr r='clang::CFGBlock::LoopTarget' o='320' t='const clang::Stmt *'/>
+<mbr r='clang::CFGBlock::BlockID' o='384' t='unsigned int'/>
+<mbr r='clang::CFGBlock::Preds' o='448' t='AdjacentBlocks'/>
+<mbr r='clang::CFGBlock::Succs' o='640' t='AdjacentBlocks'/>
+<mbr r='clang::CFGBlock::HasNoReturnElement' o='832' t='unsigned int'/>
+<mbr r='clang::CFGBlock::Parent' o='896' t='clang::CFG *'/>
+<fun r='_ZN5clang8CFGBlockC1EjRNS_17BumpVectorContextEPNS_3CFGE'/>
+<fun r='_ZNK5clang8CFGBlock5frontEv'/>
+<fun r='_ZNK5clang8CFGBlock4backEv'/>
+<fun r='_ZN5clang8CFGBlock5beginEv'/>
+<fun r='_ZN5clang8CFGBlock3endEv'/>
+<fun r='_ZNK5clang8CFGBlock5beginEv'/>
+<fun r='_ZNK5clang8CFGBlock3endEv'/>
+<fun r='_ZN5clang8CFGBlock6rbeginEv'/>
+<fun r='_ZN5clang8CFGBlock4rendEv'/>
+<fun r='_ZNK5clang8CFGBlock6rbeginEv'/>
+<fun r='_ZNK5clang8CFGBlock4rendEv'/>
+<fun r='_ZNK5clang8CFGBlock4sizeEv'/>
+<fun r='_ZNK5clang8CFGBlock5emptyEv'/>
+<fun r='_ZNK5clang8CFGBlockixEm'/>
+<fun r='_ZN5clang8CFGBlock10pred_beginEv'/>
+<fun r='_ZN5clang8CFGBlock8pred_endEv'/>
+<fun r='_ZNK5clang8CFGBlock10pred_beginEv'/>
+<fun r='_ZNK5clang8CFGBlock8pred_endEv'/>
+<fun r='_ZN5clang8CFGBlock11pred_rbeginEv'/>
+<fun r='_ZN5clang8CFGBlock9pred_rendEv'/>
+<fun r='_ZNK5clang8CFGBlock11pred_rbeginEv'/>
+<fun r='_ZNK5clang8CFGBlock9pred_rendEv'/>
+<fun r='_ZN5clang8CFGBlock5predsEv'/>
+<fun r='_ZNK5clang8CFGBlock5predsEv'/>
+<fun r='_ZN5clang8CFGBlock10succ_beginEv'/>
+<fun r='_ZN5clang8CFGBlock8succ_endEv'/>
+<fun r='_ZNK5clang8CFGBlock10succ_beginEv'/>
+<fun r='_ZNK5clang8CFGBlock8succ_endEv'/>
+<fun r='_ZN5clang8CFGBlock11succ_rbeginEv'/>
+<fun r='_ZN5clang8CFGBlock9succ_rendEv'/>
+<fun r='_ZNK5clang8CFGBlock11succ_rbeginEv'/>
+<fun r='_ZNK5clang8CFGBlock9succ_rendEv'/>
+<fun r='_ZN5clang8CFGBlock5succsEv'/>
+<fun r='_ZNK5clang8CFGBlock5succsEv'/>
+<fun r='_ZNK5clang8CFGBlock9succ_sizeEv'/>
+<fun r='_ZNK5clang8CFGBlock10succ_emptyEv'/>
+<fun r='_ZNK5clang8CFGBlock9pred_sizeEv'/>
+<fun r='_ZNK5clang8CFGBlock10pred_emptyEv'/>
+<fun r='_ZN5clang8CFGBlock10FilterEdgeERKNS0_13FilterOptionsEPKS0_S5_'/>
+<fun r='_ZNK5clang8CFGBlock23filtered_pred_start_endERKNS0_13FilterOptionsE'/>
+<fun r='_ZNK5clang8CFGBlock23filtered_succ_start_endERKNS0_13FilterOptionsE'/>
+<fun r='_ZN5clang8CFGBlock13setTerminatorENS_13CFGTerminatorE'/>
+<fun r='_ZN5clang8CFGBlock8setLabelEPNS_4StmtE'/>
+<fun r='_ZN5clang8CFGBlock13setLoopTargetEPKNS_4StmtE'/>
+<fun r='_ZN5clang8CFGBlock21setHasNoReturnElementEv'/>
+<fun r='_ZNK5clang8CFGBlock13getTerminatorEv'/>
+<fun r='_ZN5clang8CFGBlock17getTerminatorStmtEv'/>
+<fun r='_ZNK5clang8CFGBlock17getTerminatorStmtEv'/>
+<fun r='_ZN5clang8CFGBlock22getTerminatorConditionEb'/>
+<fun r='_ZNK5clang8CFGBlock22getTerminatorConditionEb'/>
+<fun r='_ZNK5clang8CFGBlock13getLoopTargetEv'/>
+<fun r='_ZN5clang8CFGBlock8getLabelEv'/>
+<fun r='_ZNK5clang8CFGBlock8getLabelEv'/>
+<fun r='_ZNK5clang8CFGBlock18hasNoReturnElementEv'/>
+<fun r='_ZNK5clang8CFGBlock10getBlockIDEv'/>
+<fun r='_ZNK5clang8CFGBlock9getParentEv'/>
+<fun r='_ZNK5clang8CFGBlock4dumpEv'/>
+<fun r='_ZNK5clang8CFGBlock4dumpEPKNS_3CFGERKNS_11LangOptionsEb'/>
+<fun r='_ZNK5clang8CFGBlock5printERN4llvm11raw_ostreamEPKNS_3CFGERKNS_11LangOptionsEb'/>
+<fun r='_ZNK5clang8CFGBlock15printTerminatorERN4llvm11raw_ostreamERKNS_11LangOptionsE'/>
+<fun r='_ZNK5clang8CFGBlock19printTerminatorJsonERN4llvm11raw_ostreamERKNS_11LangOptionsEb'/>
+<fun r='_ZN5clang8CFGBlock14printAsOperandERN4llvm11raw_ostreamEb'/>
+<fun r='_ZN5clang8CFGBlock12addSuccessorENS0_13AdjacentBlockERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock10appendStmtEPNS_4StmtERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock17appendConstructorEPNS_16CXXConstructExprEPKNS_19ConstructionContextERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock24appendCXXRecordTypedCallEPNS_4ExprEPKNS_19ConstructionContextERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock17appendInitializerEPNS_18CXXCtorInitializerERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock18appendNewAllocatorEPNS_10CXXNewExprERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock16appendScopeBeginEPKNS_7VarDeclEPKNS_4StmtERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock17prependScopeBeginEPKNS_7VarDeclEPKNS_4StmtERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock14appendScopeEndEPKNS_7VarDeclEPKNS_4StmtERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock15prependScopeEndEPKNS_7VarDeclEPKNS_4StmtERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock14appendBaseDtorEPKNS_16CXXBaseSpecifierERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock16appendMemberDtorEPNS_9FieldDeclERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock19appendTemporaryDtorEPNS_20CXXBindTemporaryExprERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock22appendAutomaticObjDtorEPNS_7VarDeclEPNS_4StmtERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock18appendLifetimeEndsEPNS_7VarDeclEPNS_4StmtERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock14appendLoopExitEPKNS_4StmtERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock16appendDeleteDtorEPNS_13CXXRecordDeclEPNS_13CXXDeleteExprERNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock28beginAutomaticObjDtorsInsertESt16reverse_iteratorIPNS_10CFGElementEEmRNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock22insertAutomaticObjDtorESt16reverse_iteratorIPNS_10CFGElementEEPNS_7VarDeclEPNS_4StmtE'/>
+<fun r='_ZN5clang8CFGBlock23beginLifetimeEndsInsertESt16reverse_iteratorIPNS_10CFGElementEEmRNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock18insertLifetimeEndsESt16reverse_iteratorIPNS_10CFGElementEEPNS_7VarDeclEPNS_4StmtE'/>
+<fun r='_ZN5clang8CFGBlock19beginScopeEndInsertESt16reverse_iteratorIPNS_10CFGElementEEmRNS_17BumpVectorContextE'/>
+<fun r='_ZN5clang8CFGBlock14insertScopeEndESt16reverse_iteratorIPNS_10CFGElementEEPNS_7VarDeclEPNS_4StmtE'/>

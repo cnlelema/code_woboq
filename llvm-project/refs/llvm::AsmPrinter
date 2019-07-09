@@ -1,0 +1,160 @@
+<inh f='llvm/llvm/include/llvm/CodeGen/MachineFunctionPass.h' l='30' c='llvm::MachineFunctionPass'/>
+<def f='llvm/llvm/include/llvm/CodeGen/AsmPrinter.h' l='78' ll='676'/>
+<size>584</size>
+<doc f='llvm/llvm/include/llvm/CodeGen/AsmPrinter.h' l='77'>/// This class is intended to be used as a driving class for all asm writers.</doc>
+<mbr r='llvm::AsmPrinter::TM' o='832' t='llvm::TargetMachine &amp;'/>
+<mbr r='llvm::AsmPrinter::MAI' o='896' t='const llvm::MCAsmInfo *'/>
+<mbr r='llvm::AsmPrinter::OutContext' o='960' t='llvm::MCContext &amp;'/>
+<mbr r='llvm::AsmPrinter::OutStreamer' o='1024' t='std::unique_ptr&lt;MCStreamer&gt;'/>
+<mbr r='llvm::AsmPrinter::MF' o='1088' t='llvm::MachineFunction *'/>
+<mbr r='llvm::AsmPrinter::MMI' o='1152' t='llvm::MachineModuleInfo *'/>
+<mbr r='llvm::AsmPrinter::MDT' o='1216' t='llvm::MachineDominatorTree *'/>
+<mbr r='llvm::AsmPrinter::MLI' o='1280' t='llvm::MachineLoopInfo *'/>
+<mbr r='llvm::AsmPrinter::ORE' o='1344' t='llvm::MachineOptimizationRemarkEmitter *'/>
+<mbr r='llvm::AsmPrinter::CurrentFnSym' o='1408' t='llvm::MCSymbol *'/>
+<mbr r='llvm::AsmPrinter::CurrentFnSymForSize' o='1472' t='llvm::MCSymbol *'/>
+<mbr r='llvm::AsmPrinter::GlobalGOTEquivs' o='1536' t='MapVector&lt;const llvm::MCSymbol *, GOTEquivUsePair&gt;'/>
+<mbr r='llvm::AsmPrinter::CurrentFnBegin' o='1984' t='llvm::MCSymbol *'/>
+<mbr r='llvm::AsmPrinter::CurrentFnEnd' o='2048' t='llvm::MCSymbol *'/>
+<mbr r='llvm::AsmPrinter::CurExceptionSym' o='2112' t='llvm::MCSymbol *'/>
+<mbr r='llvm::AsmPrinter::GCMetadataPrinters' o='2176' t='void *'/>
+<mbr r='llvm::AsmPrinter::VerboseAsm' o='2240' t='bool'/>
+<smbr r='llvm::AsmPrinter::ID' t='char'/>
+<mbr r='llvm::AsmPrinter::Handlers' o='2304' t='SmallVector&lt;llvm::AsmPrinter::HandlerInfo, 1&gt;'/>
+<mbr r='llvm::AsmPrinter::OwnedMDT' o='2752' t='std::unique_ptr&lt;MachineDominatorTree&gt;'/>
+<mbr r='llvm::AsmPrinter::OwnedMLI' o='2816' t='std::unique_ptr&lt;MachineLoopInfo&gt;'/>
+<mbr r='llvm::AsmPrinter::DiagInfo' o='2880' t='std::unique_ptr&lt;SrcMgrDiagInfo&gt;'/>
+<mbr r='llvm::AsmPrinter::DD' o='2944' t='llvm::DwarfDebug *'/>
+<mbr r='llvm::AsmPrinter::isCFIMoveForDebugging' o='3008' t='bool'/>
+<fun r='_ZN4llvm10AsmPrinterC1ERNS_13TargetMachineESt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE'/>
+<fun r='_ZN4llvm10AsmPrinterD1Ev'/>
+<fun r='_ZN4llvm10AsmPrinter13getDwarfDebugEv'/>
+<fun r='_ZNK4llvm10AsmPrinter13getDwarfDebugEv'/>
+<fun r='_ZNK4llvm10AsmPrinter15getDwarfVersionEv'/>
+<fun r='_ZN4llvm10AsmPrinter15setDwarfVersionEt'/>
+<fun r='_ZNK4llvm10AsmPrinter21isPositionIndependentEv'/>
+<fun r='_ZNK4llvm10AsmPrinter9isVerboseEv'/>
+<fun r='_ZNK4llvm10AsmPrinter17getFunctionNumberEv'/>
+<fun r='_ZNK4llvm10AsmPrinter22getFunctionFrameSymbolEv'/>
+<fun r='_ZNK4llvm10AsmPrinter16getFunctionBeginEv'/>
+<fun r='_ZNK4llvm10AsmPrinter14getFunctionEndEv'/>
+<fun r='_ZN4llvm10AsmPrinter18getCurExceptionSymEv'/>
+<fun r='_ZNK4llvm10AsmPrinter18getObjFileLoweringEv'/>
+<fun r='_ZNK4llvm10AsmPrinter13getDataLayoutEv'/>
+<fun r='_ZNK4llvm10AsmPrinter14getPointerSizeEv'/>
+<fun r='_ZNK4llvm10AsmPrinter16getSubtargetInfoEv'/>
+<fun r='_ZN4llvm10AsmPrinter14EmitToStreamerERNS_10MCStreamerERKNS_6MCInstE'/>
+<fun r='_ZN4llvm10AsmPrinter31emitInitialRawDwarfLocDirectiveERKNS_15MachineFunctionE'/>
+<fun r='_ZNK4llvm10AsmPrinter17getCurrentSectionEv'/>
+<fun r='_ZNK4llvm10AsmPrinter17getNameWithPrefixERNS_15SmallVectorImplIcEEPKNS_11GlobalValueE'/>
+<fun r='_ZNK4llvm10AsmPrinter9getSymbolEPKNS_11GlobalValueE'/>
+<mbr r='llvm::AsmPrinter::Sleds' o='3072' t='SmallVector&lt;llvm::AsmPrinter::XRayFunctionEntry, 4&gt;'/>
+<mbr r='llvm::AsmPrinter::XRayFnUniqueID' o='4480' t='unsigned int'/>
+<fun r='_ZN4llvm10AsmPrinter10recordSledEPNS_8MCSymbolERKNS_12MachineInstrENS0_8SledKindEh'/>
+<fun r='_ZN4llvm10AsmPrinter13emitXRayTableEv'/>
+<fun r='_ZNK4llvm10AsmPrinter16getAnalysisUsageERNS_13AnalysisUsageE'/>
+<fun r='_ZN4llvm10AsmPrinter16doInitializationERNS_6ModuleE'/>
+<fun r='_ZN4llvm10AsmPrinter14doFinalizationERNS_6ModuleE'/>
+<fun r='_ZN4llvm10AsmPrinter20runOnMachineFunctionERNS_15MachineFunctionE'/>
+<fun r='_ZN4llvm10AsmPrinter20SetupMachineFunctionERNS_15MachineFunctionE'/>
+<fun r='_ZN4llvm10AsmPrinter16EmitFunctionBodyEv'/>
+<fun r='_ZN4llvm10AsmPrinter18emitCFIInstructionERKNS_12MachineInstrE'/>
+<fun r='_ZN4llvm10AsmPrinter14emitFrameAllocERKNS_12MachineInstrE'/>
+<fun r='_ZN4llvm10AsmPrinter20emitStackSizeSectionERKNS_15MachineFunctionE'/>
+<fun r='_ZN4llvm10AsmPrinter18emitRemarksSectionERNS_6ModuleE'/>
+<fun r='_ZNK4llvm10AsmPrinter13needsCFIMovesEv'/>
+<fun r='_ZNK4llvm10AsmPrinter22needsOnlyDebugCFIMovesEv'/>
+<fun r='_ZN4llvm10AsmPrinter13needsSEHMovesEv'/>
+<fun r='_ZN4llvm10AsmPrinter16EmitConstantPoolEv'/>
+<fun r='_ZN4llvm10AsmPrinter17EmitJumpTableInfoEv'/>
+<fun r='_ZN4llvm10AsmPrinter18EmitGlobalVariableEPKNS_14GlobalVariableE'/>
+<fun r='_ZN4llvm10AsmPrinter21EmitSpecialLLVMGlobalEPKNS_14GlobalVariableE'/>
+<fun r='_ZNK4llvm10AsmPrinter13EmitAlignmentEjPKNS_12GlobalObjectE'/>
+<fun r='_ZN4llvm10AsmPrinter13lowerConstantEPKNS_8ConstantE'/>
+<fun r='_ZN4llvm10AsmPrinter18EmitGlobalConstantERKNS_10DataLayoutEPKNS_8ConstantEj'/>
+<fun r='_ZN4llvm10AsmPrinter22computeGlobalGOTEquivsERNS_6ModuleE'/>
+<fun r='_ZN4llvm10AsmPrinter19emitGlobalGOTEquivsEv'/>
+<fun r='_ZN4llvm10AsmPrinter13emitStackMapsERNS_9StackMapsE'/>
+<fun r='_ZN4llvm10AsmPrinter18EmitStartOfAsmFileERNS_6ModuleE'/>
+<fun r='_ZN4llvm10AsmPrinter16EmitEndOfAsmFileERNS_6ModuleE'/>
+<fun r='_ZN4llvm10AsmPrinter21EmitFunctionBodyStartEv'/>
+<fun r='_ZN4llvm10AsmPrinter19EmitFunctionBodyEndEv'/>
+<fun r='_ZNK4llvm10AsmPrinter19EmitBasicBlockStartERKNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm10AsmPrinter17EmitBasicBlockEndERKNS_17MachineBasicBlockE'/>
+<fun r='_ZN4llvm10AsmPrinter15EmitInstructionEPKNS_12MachineInstrE'/>
+<fun r='_ZNK4llvm10AsmPrinter12GetCPISymbolEj'/>
+<fun r='_ZN4llvm10AsmPrinter22EmitFunctionEntryLabelEv'/>
+<fun r='_ZN4llvm10AsmPrinter28EmitMachineConstantPoolValueEPNS_24MachineConstantPoolValueE'/>
+<fun r='_ZN4llvm10AsmPrinter14EmitXXStructorERKNS_10DataLayoutEPKNS_8ConstantE'/>
+<fun r='_ZNK4llvm10AsmPrinter33isBlockOnlyReachableByFallthroughEPKNS_17MachineBasicBlockE'/>
+<fun r='_ZNK4llvm10AsmPrinter15emitImplicitDefEPKNS_12MachineInstrE'/>
+<fun r='_ZNK4llvm10AsmPrinter16createTempSymbolERKNS_5TwineE'/>
+<fun r='_ZNK4llvm10AsmPrinter28getSymbolWithGlobalValueBaseEPKNS_11GlobalValueENS_9StringRefE'/>
+<fun r='_ZNK4llvm10AsmPrinter23GetExternalSymbolSymbolENS_9StringRefE'/>
+<fun r='_ZNK4llvm10AsmPrinter12GetJTISymbolEjb'/>
+<fun r='_ZNK4llvm10AsmPrinter14GetJTSetSymbolEjj'/>
+<fun r='_ZNK4llvm10AsmPrinter21GetBlockAddressSymbolEPKNS_12BlockAddressE'/>
+<fun r='_ZNK4llvm10AsmPrinter21GetBlockAddressSymbolEPKNS_10BasicBlockE'/>
+<fun r='_ZNK4llvm10AsmPrinter11printOffsetElRNS_11raw_ostreamE'/>
+<fun r='_ZNK4llvm10AsmPrinter8emitInt8Ei'/>
+<fun r='_ZNK4llvm10AsmPrinter9emitInt16Ei'/>
+<fun r='_ZNK4llvm10AsmPrinter9emitInt32Ei'/>
+<fun r='_ZNK4llvm10AsmPrinter9emitInt64Em'/>
+<fun r='_ZNK4llvm10AsmPrinter19EmitLabelDifferenceEPKNS_8MCSymbolES3_j'/>
+<fun r='_ZNK4llvm10AsmPrinter28EmitLabelDifferenceAsULEB128EPKNS_8MCSymbolES3_'/>
+<fun r='_ZNK4llvm10AsmPrinter19EmitLabelPlusOffsetEPKNS_8MCSymbolEmjb'/>
+<fun r='_ZNK4llvm10AsmPrinter18EmitLabelReferenceEPKNS_8MCSymbolEjb'/>
+<fun r='_ZNK4llvm10AsmPrinter15EmitDwarfOffsetEPKNS_8MCSymbolEm'/>
+<fun r='_ZNK4llvm10AsmPrinter11EmitSLEB128ElPKc'/>
+<fun r='_ZNK4llvm10AsmPrinter11EmitULEB128EmPKcj'/>
+<fun r='_ZNK4llvm10AsmPrinter16EmitEncodingByteEjPKc'/>
+<fun r='_ZNK4llvm10AsmPrinter21GetSizeOfEncodedValueEj'/>
+<fun r='_ZNK4llvm10AsmPrinter18EmitTTypeReferenceEPKNS_11GlobalValueEj'/>
+<fun r='_ZNK4llvm10AsmPrinter24emitDwarfSymbolReferenceEPKNS_8MCSymbolEb'/>
+<fun r='_ZNK4llvm10AsmPrinter21emitDwarfStringOffsetENS_20DwarfStringPoolEntryE'/>
+<fun r='_ZNK4llvm10AsmPrinter21emitDwarfStringOffsetENS_23DwarfStringPoolEntryRefE'/>
+<fun r='_ZN4llvm10AsmPrinter14getISAEncodingEv'/>
+<fun r='_ZNK4llvm10AsmPrinter14EmitDebugValueEPKNS_6MCExprEj'/>
+<fun r='_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIInstructionE'/>
+<fun r='_ZNK4llvm10AsmPrinter16emitDwarfAbbrevsERKT_'/>
+<fun r='_ZNK4llvm10AsmPrinter15emitDwarfAbbrevERKNS_9DIEAbbrevE'/>
+<fun r='_ZNK4llvm10AsmPrinter12emitDwarfDIEERKNS_3DIEE'/>
+<fun r='_ZNK4llvm10AsmPrinter12PrintSpecialEPKNS_12MachineInstrERNS_11raw_ostreamEPKc'/>
+<fun r='_ZN4llvm10AsmPrinter18PrintSymbolOperandERKNS_14MachineOperandERNS_11raw_ostreamE'/>
+<fun r='_ZN4llvm10AsmPrinter15PrintAsmOperandEPKNS_12MachineInstrEjPKcRNS_11raw_ostreamE'/>
+<fun r='_ZN4llvm10AsmPrinter21PrintAsmMemoryOperandEPKNS_12MachineInstrEjPKcRNS_11raw_ostreamE'/>
+<fun r='_ZNK4llvm10AsmPrinter18emitInlineAsmStartEv'/>
+<fun r='_ZNK4llvm10AsmPrinter16emitInlineAsmEndERKNS_15MCSubtargetInfoEPS2_'/>
+<mbr r='llvm::AsmPrinter::LastMI' o='4544' t='const llvm::MachineInstr *'/>
+<mbr r='llvm::AsmPrinter::LastFn' o='4608' t='unsigned int'/>
+<mbr r='llvm::AsmPrinter::Counter' o='4640' t='unsigned int'/>
+<fun r='_ZN4llvm10AsmPrinter18EmitFunctionHeaderEv'/>
+<fun r='_ZNK4llvm10AsmPrinter13EmitInlineAsmENS_9StringRefERKNS_15MCSubtargetInfoERKNS_15MCTargetOptionsEPKNS_6MDNodeENS_9InlineAsm10AsmDialectE'/>
+<fun r='_ZNK4llvm10AsmPrinter13EmitInlineAsmEPKNS_12MachineInstrE'/>
+<fun r='_ZNK4llvm10AsmPrinter22addInlineAsmDiagBufferENS_9StringRefEPKNS_6MDNodeE'/>
+<fun r='_ZNK4llvm10AsmPrinter14EmitVisibilityEPNS_8MCSymbolEjb'/>
+<fun r='_ZNK4llvm10AsmPrinter11EmitLinkageEPKNS_11GlobalValueEPNS_8MCSymbolE'/>
+<fun r='_ZNK4llvm10AsmPrinter18EmitJumpTableEntryEPKNS_20MachineJumpTableInfoEPKNS_17MachineBasicBlockEj'/>
+<fun r='_ZN4llvm10AsmPrinter16EmitLLVMUsedListEPKNS_13ConstantArrayE'/>
+<fun r='_ZN4llvm10AsmPrinter16EmitModuleIdentsERNS_6ModuleE'/>
+<fun r='_ZN4llvm10AsmPrinter22EmitModuleCommandLinesERNS_6ModuleE'/>
+<fun r='_ZN4llvm10AsmPrinter18EmitXXStructorListERKNS_10DataLayoutEPKNS_8ConstantEb'/>
+<fun r='_ZN4llvm10AsmPrinter20GetOrCreateGCPrinterERNS_10GCStrategyE'/>
+<fun r='_ZN4llvm10AsmPrinter24emitGlobalIndirectSymbolERNS_6ModuleERKNS_20GlobalIndirectSymbolE'/>
+<fun r='_ZNK4llvm10AsmPrinter23setupCodePaddingContextERKNS_17MachineBasicBlockERNS_20MCCodePaddingContextE'/>
+<ovr f='llvm/llvm/lib/Target/AArch64/AArch64AsmPrinter.cpp' l='69' c='(anonymousnamespace)::AArch64AsmPrinter'/>
+<ovr f='llvm/llvm/lib/Target/AMDGPU/AMDGPUAsmPrinter.h' l='39' c='llvm::AMDGPUAsmPrinter'/>
+<ovr f='llvm/llvm/lib/Target/AMDGPU/R600AsmPrinter.h' l='21' c='llvm::R600AsmPrinter'/>
+<ovr f='llvm/llvm/lib/Target/ARM/ARMAsmPrinter.h' l='31' c='llvm::ARMAsmPrinter'/>
+<ovr f='llvm/llvm/lib/Target/BPF/BPFAsmPrinter.cpp' l='37' c='(anonymousnamespace)::BPFAsmPrinter'/>
+<ovr f='llvm/llvm/lib/Target/Hexagon/HexagonAsmPrinter.h' l='29' c='llvm::HexagonAsmPrinter'/>
+<ovr f='llvm/llvm/lib/Target/Lanai/LanaiAsmPrinter.cpp' l='43' c='(anonymousnamespace)::LanaiAsmPrinter'/>
+<ovr f='llvm/llvm/lib/Target/MSP430/MSP430AsmPrinter.cpp' l='42' c='(anonymousnamespace)::MSP430AsmPrinter'/>
+<ovr f='llvm/llvm/lib/Target/Mips/MipsAsmPrinter.h' l='42' c='llvm::MipsAsmPrinter'/>
+<ovr f='llvm/llvm/lib/Target/NVPTX/NVPTXAsmPrinter.h' l='61' c='llvm::NVPTXAsmPrinter'/>
+<ovr f='llvm/llvm/lib/Target/PowerPC/PPCAsmPrinter.cpp' l='77' c='(anonymousnamespace)::PPCAsmPrinter'/>
+<ovr f='llvm/llvm/lib/Target/Sparc/SparcAsmPrinter.cpp' l='39' c='(anonymousnamespace)::SparcAsmPrinter'/>
+<ovr f='llvm/llvm/lib/Target/SystemZ/SystemZAsmPrinter.h' l='25' c='llvm::SystemZAsmPrinter'/>
+<ovr f='llvm/llvm/lib/Target/WebAssembly/WebAssemblyAsmPrinter.h' l='23' c='llvm::WebAssemblyAsmPrinter'/>
+<ovr f='llvm/llvm/lib/Target/X86/X86AsmPrinter.h' l='28' c='llvm::X86AsmPrinter'/>
+<ovr f='llvm/llvm/lib/Target/XCore/XCoreAsmPrinter.cpp' l='52' c='(anonymousnamespace)::XCoreAsmPrinter'/>

@@ -1,0 +1,46 @@
+<inh f='llvm/clang/include/clang/AST/ExprCXX.h' l='2745' c='clang::OverloadExpr'/>
+<inh f='llvm/llvm/include/llvm/Support/TrailingObjects.h' l='233' c='llvm::TrailingObjects'/>
+<def f='llvm/clang/include/clang/AST/ExprCXX.h' l='3672' ll='3824'/>
+<size>80</size>
+<doc f='llvm/clang/include/clang/AST/ExprCXX.h' l='3657'>/// Represents a C++ member access expression for which lookup
+/// produced a set of overloaded functions.
+///
+/// The member access may be explicit or implicit:
+/// \code
+///    struct A {
+///      int a, b;
+///      int explicitAccess() { return this-&gt;a + this-&gt;A::b; }
+///      int implicitAccess() { return a + A::b; }
+///    };
+/// \endcode
+///
+/// In the final AST, an explicit access always becomes a MemberExpr.
+/// An implicit access may become either a MemberExpr or a
+/// DeclRefExpr, depending on whether the member is static.</doc>
+<mbr r='clang::UnresolvedMemberExpr::Base' o='448' t='clang::Stmt *'/>
+<mbr r='clang::UnresolvedMemberExpr::BaseType' o='512' t='clang::QualType'/>
+<mbr r='clang::UnresolvedMemberExpr::OperatorLoc' o='576' t='clang::SourceLocation'/>
+<fun r='_ZN5clang20UnresolvedMemberExprC1ERKNS_10ASTContextEbPNS_4ExprENS_8QualTypeEbNS_14SourceLocationENS_22NestedNameSpecifierLocES7_RKNS_19DeclarationName15638301'/>
+<fun r='_ZN5clang20UnresolvedMemberExprC1ENS_4Stmt10EmptyShellEjb'/>
+<fun r='_ZNK5clang20UnresolvedMemberExpr18numTrailingObjectsEN4llvm25trailing_objects_internal19TrailingObjectsBase13OverloadTokenINS_14DeclAccessPairEEE'/>
+<fun r='_ZNK5clang20UnresolvedMemberExpr18numTrailingObjectsEN4llvm25trailing_objects_internal19TrailingObjectsBase13OverloadTokenINS_24ASTTemplateKWAndArgsInfoEEE'/>
+<fun r='_ZN5clang20UnresolvedMemberExpr6CreateERKNS_10ASTContextEbPNS_4ExprENS_8QualTypeEbNS_14SourceLocationENS_22NestedNameSpecifierLocES7_RKNS_19Declaratio12401034'/>
+<fun r='_ZN5clang20UnresolvedMemberExpr11CreateEmptyERKNS_10ASTContextEjbj'/>
+<fun r='_ZNK5clang20UnresolvedMemberExpr16isImplicitAccessEv'/>
+<fun r='_ZN5clang20UnresolvedMemberExpr7getBaseEv'/>
+<fun r='_ZNK5clang20UnresolvedMemberExpr7getBaseEv'/>
+<fun r='_ZNK5clang20UnresolvedMemberExpr11getBaseTypeEv'/>
+<fun r='_ZNK5clang20UnresolvedMemberExpr18hasUnresolvedUsingEv'/>
+<fun r='_ZNK5clang20UnresolvedMemberExpr7isArrowEv'/>
+<fun r='_ZNK5clang20UnresolvedMemberExpr14getOperatorLocEv'/>
+<fun r='_ZN5clang20UnresolvedMemberExpr14getNamingClassEv'/>
+<fun r='_ZNK5clang20UnresolvedMemberExpr14getNamingClassEv'/>
+<fun r='_ZNK5clang20UnresolvedMemberExpr17getMemberNameInfoEv'/>
+<fun r='_ZNK5clang20UnresolvedMemberExpr13getMemberNameEv'/>
+<fun r='_ZNK5clang20UnresolvedMemberExpr12getMemberLocEv'/>
+<fun r='_ZNK5clang20UnresolvedMemberExpr10getExprLocEv'/>
+<fun r='_ZNK5clang20UnresolvedMemberExpr11getBeginLocEv'/>
+<fun r='_ZNK5clang20UnresolvedMemberExpr9getEndLocEv'/>
+<fun r='_ZN5clang20UnresolvedMemberExpr7classofEPKNS_4StmtE'/>
+<fun r='_ZN5clang20UnresolvedMemberExpr8childrenEv'/>
+<fun r='_ZNK5clang20UnresolvedMemberExpr8childrenEv'/>

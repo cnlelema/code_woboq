@@ -1,0 +1,14 @@
+<dec f='llvm/clang/include/clang/AST/DeclBase.h' l='267' type='llvm::PointerUnion&lt;DeclContext *, MultipleDC *&gt;'/>
+<doc f='llvm/clang/include/clang/AST/DeclBase.h' l='254'>/// DeclCtx - Holds either a DeclContext* or a MultipleDC*.
+  /// For declarations that don&apos;t contain C++ scope specifiers, it contains
+  /// the DeclContext where the Decl was declared.
+  /// For declarations with C++ scope specifiers, it contains a MultipleDC*
+  /// with the context where it semantically belongs (SemanticDC) and the
+  /// context where it was lexically declared (LexicalDC).
+  /// e.g.:
+  ///
+  ///   namespace A {
+  ///      void f(); // SemanticDC == LexicalDC == &apos;namespace A&apos;
+  ///   }
+  ///   void A::f(); // SemanticDC == namespace &apos;A&apos;
+  ///                // LexicalDC == global namespace</doc>

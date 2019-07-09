@@ -1,0 +1,16 @@
+<dec f='llvm/llvm/include/llvm/ExecutionEngine/JITSymbol.h' l='382' type='llvm::JITSymbol llvm::LegacyJITSymbolResolver::findSymbol(const std::string &amp; Name)'/>
+<ovr f='llvm/llvm/include/llvm/ExecutionEngine/RTDyldMemoryManager.h' l='100' c='_ZN4llvm19RTDyldMemoryManager10findSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<doc f='llvm/llvm/include/llvm/ExecutionEngine/JITSymbol.h' l='376'>/// This method returns the address of the specified function or variable.
+  /// It is used to resolve symbols during module linking.
+  ///
+  /// If the returned symbol&apos;s address is equal to ~0ULL then RuntimeDyld will
+  /// skip all relocations for that symbol, and the client will be responsible
+  /// for handling them manually.</doc>
+<ovr f='llvm/llvm/lib/ExecutionEngine/MCJIT/MCJIT.cpp' l='670' c='_ZN4llvm21LinkingSymbolResolver10findSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/MCJIT/MCJIT.cpp' l='676' u='c' c='_ZN4llvm21LinkingSymbolResolver10findSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<ovr f='llvm/llvm/include/llvm/ExecutionEngine/Orc/LambdaResolver.h' l='36' c='_ZN4llvm3orc14LambdaResolver10findSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<ovr f='llvm/llvm/lib/ExecutionEngine/Orc/NullResolver.cpp' l='27' c='_ZN4llvm3orc18NullLegacyResolver10findSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/OrcMCJITReplacement.h' l='190' u='c' c='_ZN4llvm3orc19OrcMCJITReplacement18LinkingORCResolver6lookupESt10shared_ptrINS0_23AsynchronousSymbolQueryEENS_8DenseSetINS0_15SymbolStringPtrENS_12DenseMapInfoIS7_EEEE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/Orc/OrcMCJITReplacement.h' l='383' u='c' c='_ZN4llvm3orc19OrcMCJITReplacement17findMangledSymbolENS_9StringRefE'/>
+<use f='llvm/llvm/lib/ExecutionEngine/RuntimeDyld/JITSymbol.cpp' l='87' u='c' c='_ZN4llvm23LegacyJITSymbolResolver6lookupERKSt3setINS_9StringRefESt4lessIS2_ESaIS2_EESt8functionIFvNS_8ExpectedISt3mapIS2_NS_18JITEvaluatedSymbolES4_Sa3190491'/>
+<use f='llvm/llvm/tools/lli/RemoteJITUtils.h' l='137' u='c' c='_ZN4llvm23ForwardingMemoryManager10findSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'/>
